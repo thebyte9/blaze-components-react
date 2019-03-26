@@ -2,10 +2,29 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Button from '../index';
 
+const submited = e => {
+    // e.preventDefault()
+    alert('Submited')
+}
+
+const clicked = () => alert('Clicked')
+
 storiesOf('Button', module)
-    .add('with children', () => (
-        <Button><span>Button with children</span></Button>
+    .add('Simple', () => (
+        <div>
+            <h1>Simple button with click event</h1>
+            <Button onClick={clicked}>Click</Button>
+        </div>
     ))
-    .add('with text', () => (
-        <Button className="button">This is a button</Button>
-    ));   
+    .add('Submit button', () => (
+        <form onSubmit={submited}>
+            <h1>Button inside form</h1>
+            <Button isSubmit><span>Submit</span></Button>
+        </form>
+    ))
+    .add('Disabled', () => (
+        <div>
+            <h1>Disabled button</h1>
+            <Button disabled>This is a button</Button>
+        </div>
+    ))
