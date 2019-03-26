@@ -9,7 +9,7 @@ const Button = ({
     ...attrs
 }) => {
     
-    attrs.type = (isSubmit) ? 'submit' : 'Button';
+    attrs.type = (isSubmit) ? 'submit' : 'button';
     
     return (
         <button className={className} disabled={disabled} {...attrs}>

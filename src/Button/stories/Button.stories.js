@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Button from '../index';
 
 const submited = e => {
-    // e.preventDefault()
+    e.preventDefault()
     alert('Submited')
 }
 
