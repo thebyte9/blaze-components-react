@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
   "dependencies": {
+    "@blaze-cms/blaze-ui": "0.0.1",
     "@storybook/react": "^5.0.5",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
