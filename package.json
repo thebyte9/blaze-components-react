@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook"
+    "test": "jest",
+    "storybook": "start-storybook",
+    "start": "node ./boilerplate.js"
   },
   "repository": {
     "type": "git",
