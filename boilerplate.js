@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
 const root_folder = path.resolve(__dirname);
 const components_src = `${root_folder}/src/`;
@@ -15,46 +15,39 @@ const component_file = `${component_path}/${component_name}.js`;
 const export_file = `${component_path}/index.js`;
 
 if (component_name) {
-    return _createFiles()
-        .then(() => _writeFiles())
-        .then(() => console.log('\x1b[33m%s\x1b[0m', `Boilerplate success for ${component_name} component!`))
-        .catch(() => console.log(`Something went wrong!`));
+  _createFiles()
+    .then(() => _writeFiles())
+    .then(() => console.log('\x1b[33m%s\x1b[0m', `Boilerplate success for ${component_name} component!`))
+    .catch(() => console.log('Something went wrong!'));
+} else {
+  console.log('\x1b[31m%s\x1b[0m', 'You need to specify a component for boilerplate');
 }
-
-return console.log('\x1b[31m%s\x1b[0m', 'You need to specify a component for boilerplate');
-
 // Helpers
 async function _createFiles() {
-    await _createFile(test_file)
-            .then(() => _createFile(stories_file))
-            .then(() => _createFile(component_file))
-            .then(() => _createFile(export_file))
+  await _createFile(test_file)
+    .then(() => _createFile(stories_file))
+    .then(() => _createFile(component_file))
+    .then(() => _createFile(export_file));
 }
 
-function _createFile(path) {
-    return fs.ensureFile(path);
+function _createFile(_path) {
+  return fs.ensureFile(_path);
 }
 
 function _writeFiles() {
-    fs.writeFile(export_file, `import ${component_name} from './${component_name}';\n\nexport default ${component_name};`);
+  fs.writeFile(export_file, `import ${component_name} from './${component_name}';\n\nexport default ${component_name};\n`);
 }
 
 function _getComponentName(arg) {
-    const isValidArg = _isValidArg(arg);
+  const isValidArg = _isValidArg(arg);
 
-    if (!isValidArg) return false;
+  if (!isValidArg) return false;
 
-    return arg.split(component_flag)[1];
+  return arg.split(component_flag)[1];
 }
 
 function _isValidArg(arg) {
-    if (!arg) return false;
+  if (!arg) return false;
     
-    return arg.includes(component_flag);
+  return arg.includes(component_flag);
 }
-
-
-
-
-
-
