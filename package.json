@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "storybook": "start-storybook",
+    "dev": "start-storybook",
     "start": "node ./boilerplate.js"
   },
   "repository": {
