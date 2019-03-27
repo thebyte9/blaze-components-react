@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "dev": "start-storybook",
     "start": "node ./boilerplate.js",
     "lint": "./node_modules/.bin/eslint ./"
