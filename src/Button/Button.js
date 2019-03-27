@@ -1,32 +1,32 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({
-    className, 
-    disabled,
-    isSubmit,
-    children,
-    ...attrs
+  disabled,
+  isSubmit,
+  children,
+  ...attrs
 }) => {
+  const type = (isSubmit) ? 'submit' : 'button';
     
-    attrs.type = (isSubmit) ? 'submit' : 'button';
-    
-    return (
-        <button className={className} disabled={disabled} {...attrs}>
-            {children}
-        </button>
-    )
-}
+  return (
+    <button disabled={disabled} type={type} {...attrs}>
+      {children}
+    </button>
+  );
+};
 
 Button.propTypes = {
-    className: PropTypes.string.isRequired,
-    target: PropTypes.string,
-    href: PropTypes.string,
-    link: PropTypes.bool,
-    disabled: PropTypes.bool,
-    isSubmit: PropTypes.bool,
-    link: PropTypes.bool,
-    children: PropTypes.oneOfType([ PropTypes.arrayOf(PropTypes.node), PropTypes.node])
-  }
+  disabled: PropTypes.bool,
+  isSubmit: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+};
+
+Button.defaultProps = {
+  children: null,
+  disabled: false,
+  isSubmit: false
+};
 
 export default Button;
