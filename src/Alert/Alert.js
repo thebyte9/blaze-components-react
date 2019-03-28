@@ -13,24 +13,21 @@ const Alert = ({
   const isDismissable = close && 'alert--dismissable';
   const withIcon = icon && 'alert--icon';
 
-  const renderAlert = () => {
-    if (offModal) return null;
-    return (
-      <div className={`alert ${assignType} ${isDismissable} ${withIcon}`} {...attrs}>
-        {icon && <i className="material-icons">{icon}</i>}
-        {children}
-        {close && (
-        <button onClick={() => setModalOff(true)} className="icon-button icon-button--close" type="button">
-          <i className="material-icons">close</i>
-        </button>
-        )}
-      </div>
-    );
-  };
+  const renderAlert = (
+    <div className={`alert ${assignType} ${isDismissable} ${withIcon}`} {...attrs}>
+      {icon && <i className="material-icons">{icon}</i>}
+      {children}
+      {close && (
+      <button onClick={() => setModalOff(true)} className="icon-button icon-button--close" type="button">
+        <i className="material-icons">close</i>
+      </button>
+      )}
+    </div>
+  );
 
   return (
     <Fragment>
-      {renderAlert()}
+      {!offModal && renderAlert}
     </Fragment>
   );
 };
