@@ -16,7 +16,7 @@ describe('Input component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('todo', () => {
+  test('visibility should be off', () => {
     const wrapper = render(<Input type="password" {...testProps} />);
     expect(wrapper.text()).toContain('Show');
     expect(wrapper.text()).toContain('visibility_off');
@@ -34,7 +34,7 @@ describe('Input component', () => {
     expect(wrapper.children().find('i').length).toBe(1);
   });
 
-  test('todo', () => {
+  test('should change input', () => {
     const wrapper = shallow(<Input {...testProps} />);
     wrapper.find('input').simulate('change');
   });
