@@ -51,6 +51,7 @@ const Input = ({
         value={newValue}
         disabled={disabled}
         type={newType}
+        required={required}
         {...attrs}
         />
       {type === 'password' && (
