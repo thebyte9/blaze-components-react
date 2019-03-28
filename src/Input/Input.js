@@ -20,14 +20,14 @@ const Input = ({
   const [newType, setType] = useState(type);
   const [passwordState, setPasswordState] = useState(passwordDefaultState);
 
-  const _handleChange = (e = {
+  const handleChange = (e = {
     target: {}
   }) => {
     setNewValue(e.target.value);
     onChange({ e, value: e.target.value });
   };
 
-  const _togglepasswordClassName = () => {
+  const togglepasswordClassName = () => {
     if (passwordState.className === 'active') {
       setPasswordState({
         className: 'hide',
@@ -47,7 +47,7 @@ const Input = ({
     <Fragment>
       {label && <label htmlFor={attrs.id} className={isRequired}>{label}</label>}
       <input
-        onChange={_handleChange}
+        onChange={handleChange}
         value={newValue}
         disabled={disabled}
         type={newType}
@@ -55,7 +55,7 @@ const Input = ({
         {...attrs}
         />
       {type === 'password' && (
-        <span onClick={_togglepasswordClassName} className={`show-hide-password ${passwordState.className}`} role="button">
+        <span onClick={togglepasswordClassName} className={`show-hide-password ${passwordState.className}`} role="button">
           {passwordState.text}
           <i className="material-icons">{passwordState.icon}</i>
         </span>
