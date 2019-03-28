@@ -12,7 +12,7 @@ describe('Alert component', () => {
 
   test('should close alert', () => {
     const wrapper = shallow(<Alert close icon="error" type="warning" />);
-    wrapper.find('button').simulate('click');
+    wrapper.find('.icon-button--close').simulate('click');
     expect(wrapper.children().length).toBe(0);
   });
 });
