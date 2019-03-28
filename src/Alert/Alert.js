@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Alert = ({
   children,
-  simple,
   close,
   icon,
   type,
@@ -37,7 +36,6 @@ const Alert = ({
 };
 
 Alert.propTypes = {
-  simple: PropTypes.bool,
   close: PropTypes.bool,
   icon: PropTypes.string,
   type: PropTypes.string,
@@ -45,7 +43,6 @@ Alert.propTypes = {
 };
 
 Alert.defaultProps = {
-  simple: true,
   close: false,
   icon: '',
   type: '',
