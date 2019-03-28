@@ -16,10 +16,18 @@ storiesOf('Inputs', module)
 
         <div className="form-field form-field--input">
           <Input
-            label="Text input disabled"
+            label="Text input required"
             placeholder="Placeholder text"
             onChange={() => {}}
             required
+            />
+        </div>
+
+        <div className="form-field form-field--input">
+          <Input
+            label="Text input disabled"
+            placeholder="Placeholder text"
+            onChange={() => {}}
             disabled
             />
         </div>

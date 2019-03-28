@@ -65,7 +65,6 @@ const Input = ({
 
 Input.propTypes = {
   label: PropTypes.string,
-  labelRequiredClassName: PropTypes.string,
   value: PropTypes.string,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
@@ -75,7 +74,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
   label: '',
-  labelRequiredClassName: '',
   value: '',
   disabled: false,
   required: false,
