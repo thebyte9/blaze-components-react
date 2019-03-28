@@ -10,7 +10,7 @@ storiesOf('Select Input', module)
         <div className="form-field form-field--select">
           <Select
             label="Select label"
-            options={['lorem', ['ipsum'], ['dolor']]}
+            options={['lorem', 'ipsum', 'dolor']}
             onChange={() => {}}
             />
         </div>

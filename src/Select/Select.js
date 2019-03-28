@@ -8,7 +8,7 @@ const Select = ({
   options,
   ...attrs
 }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [, setSelectedOption] = useState(null);
 
   const handleChange = (e = {
     target: {}
@@ -21,9 +21,10 @@ const Select = ({
   return (
     <Fragment>
       {label && <label htmlFor={attrs.id} className={isRequired}>{label}</label>}
-      <select onChange={handleChange} {...attrs}>
+      <select onChange={handleChange} defaultValue={null} disabled={!options.length} {...attrs}>
+        <option value={null}>Please Choose...</option>
         {options.map(option => (
-          <option key={option} value={option} selected={selectedOption === option}>
+          <option key={option} value={option}>
             {option}
           </option>
         ))}
