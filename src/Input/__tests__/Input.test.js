@@ -31,10 +31,11 @@ describe('Input component', () => {
     const wrapper = shallow(<Input type="password" {...testProps} />);
     wrapper.find('span').simulate('click');
     wrapper.find('span').simulate('click');
+    expect(wrapper.children().find('i').length).toBe(1);
   });
 
   test('todo', () => {
-    const wrapper = shallow(<Input onChange={() => {}} {...testProps} />);
+    const wrapper = shallow(<Input {...testProps} />);
     wrapper.find('input').simulate('change');
   });
 });
