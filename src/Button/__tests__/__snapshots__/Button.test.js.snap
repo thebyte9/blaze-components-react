@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ForgotenPassword component renders correctly (snapshot) 1`] = `ShallowWrapper {}`;
+exports[`Button component should renders correctly (snapshot) 1`] = `ShallowWrapper {}`;

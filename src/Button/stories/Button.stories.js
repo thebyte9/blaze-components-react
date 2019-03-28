@@ -3,9 +3,34 @@ import { storiesOf } from '@storybook/react';
 import Button from '../index';
 
 storiesOf('Button', module)
-  .add('with children', () => (
-    <Button className="button"><span>Button with children</span></Button>
+  .add('Simple', () => (
+    <div className="component-wrapper">
+      <h1>Simple button with click event</h1>
+      <Button
+        className="button"
+        onClick={() => {}}>
+        Click
+      </Button>
+    </div>
   ))
-  .add('with text', () => (
-    <Button className="button">This is a button</Button>
+  .add('Submit button', () => (
+    <form onSubmit={() => {}} className="component-wrapper">
+      <h1>Button inside form</h1>
+      <Button
+        className="button"
+        isSubmit>
+        <span>Submit</span>
+      </Button>
+    </form>
+  ))
+  .add('Disabled', () => (
+    <div className="component-wrapper">
+      <h1>Disabled button</h1>
+      <Button
+        className="button button--disabled"
+        onClick={() => {}}
+        disabled>
+        Disabled
+      </Button>
+    </div>
   ));
