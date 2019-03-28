@@ -43,7 +43,7 @@ const Input = ({
 
   return (
     <Fragment>
-      {label && <label htmlFor="input" className={labeleRequiredClassName}>{label}</label>}
+      {label && <label htmlFor={attrs.id} className={labeleRequiredClassName}>{label}</label>}
       <input
         onChange={_handleChange}
         value={newValue}
