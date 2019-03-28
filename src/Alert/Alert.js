@@ -41,7 +41,7 @@ Alert.propTypes = {
   close: PropTypes.bool,
   icon: PropTypes.string,
   type: PropTypes.string,
-  children: PropTypes.string
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 Alert.defaultProps = {
