@@ -17,7 +17,7 @@ describe('Input component', () => {
   });
 
   test('visibility should be off', () => {
-    const wrapper = render(<Input type="password" {...testProps} />);
+    const wrapper = render(<Input type="password" required {...testProps} />);
     expect(wrapper.text()).toContain('Show');
     expect(wrapper.text()).toContain('visibility_off');
   });

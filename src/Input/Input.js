@@ -41,7 +41,7 @@ const Input = ({
     }
   };
 
-  const isRequired = required && 'required';
+  const isRequired = required ? 'required' : '';
 
   return (
     <Fragment>
