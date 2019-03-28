@@ -19,7 +19,7 @@ storiesOf('Inputs', module)
             label="Text input disabled"
             placeholder="Placeholder text"
             onChange={() => {}}
-            labeleRequiredClassName="required"
+            required
             disabled
             />
         </div>

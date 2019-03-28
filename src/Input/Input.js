@@ -6,7 +6,7 @@ const Input = ({
   disabled,
   value,
   onChange,
-  labelRequiredClassName,
+  required,
   type,
   ...attrs
 }) => {
@@ -41,9 +41,11 @@ const Input = ({
     }
   };
 
+  const isRequired = required && 'required';
+
   return (
     <Fragment>
-      {label && <label htmlFor={attrs.id} className={labelRequiredClassName}>{label}</label>}
+      {label && <label htmlFor={attrs.id} className={isRequired}>{label}</label>}
       <input
         onChange={_handleChange}
         value={newValue}
@@ -66,6 +68,7 @@ Input.propTypes = {
   labelRequiredClassName: PropTypes.string,
   value: PropTypes.string,
   disabled: PropTypes.bool,
+  required: PropTypes.bool,
   type: PropTypes.string,
   onChange: PropTypes.func,
 };
@@ -75,6 +78,7 @@ Input.defaultProps = {
   labelRequiredClassName: '',
   value: '',
   disabled: false,
+  required: false,
   type: 'text',
   onChange: () => {}
 };
