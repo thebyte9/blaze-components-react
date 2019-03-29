@@ -23,22 +23,16 @@ const Select = ({
     const [first] = options;
 
     if (typeof first === 'string') {
-      return options.map(option => (
-        <option key={option} value={option}>{option}</option>
-      ));
+      return options.map(option => <option key={option} value={option}>{option}</option>);
     }
 
     if (first instanceof Array) {
-      return options.map(([value, text]) => (
-        <option key={value} value={value}>{text}</option>
-      ));
+      return options.map(([value, text]) => <option key={value} value={value}>{text}</option>);
     }
 
     return options.map((option) => {
       const [value, text] = keys;
-      return (
-        <option key={option[value]} value={option[value]}>{option[text]}</option>
-      );
+      return <option key={option[value]} value={option[value]}>{option[text]}</option>;
     });
   };
 
