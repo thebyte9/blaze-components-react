@@ -20,9 +20,7 @@ const Input = ({
   const [newType, setType] = useState(type);
   const [passwordState, setPasswordState] = useState(passwordDefaultState);
 
-  const handleChange = (e = {
-    target: {}
-  }) => {
+  const handleChange = (e) => {
     setNewValue(e.target.value);
     onChange({ e, value: e.target.value });
   };
