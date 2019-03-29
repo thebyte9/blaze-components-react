@@ -9,7 +9,8 @@
     "test:coverage": "jest --coverage",
     "dev": "start-storybook",
     "start": "node ./boilerplate.js",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "pre-publish": "npm run lint && npm run test && npm run build"
   },
   "repository": {
     "type": "git",

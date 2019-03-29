@@ -19,20 +19,17 @@ module.exports = {
       }
     ],
   },
-  externals: [
-    { react: 'react' },
-    {
-      'prop-types': {
-        commonjs: 'prop-types',
-        commonjs2: 'prop-types',
-        amd: 'prop-types',
-        root: 'PropTypes'
-      }
-    }
-  ],
+  externals: {
+    react: 'commonjs react',
+    'prop-types': 'commonjs prop-types',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '',
     filename: 'blaze-components.js',
+    umdNamedDefine: true,
+    libraryTarget: 'umd',
+    library: 'blaze-components-react',
+    globalObject: 'this',
+
   }
 };
