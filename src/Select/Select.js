@@ -18,21 +18,19 @@ const Select = ({
   };
 
   const isRequired = required ? 'required' : '';
+
+  const setOption = (value, text) => <option key={value} value={value}>{text || value}</option>;
   
   const renderOptions = () => {
     const [first] = options;
 
-    if (typeof first === 'string') {
-      return options.map(option => <option key={option} value={option}>{option}</option>);
-    }
+    if (typeof first === 'string') return options.map(option => setOption(option));
 
-    if (first instanceof Array) {
-      return options.map(([value, text]) => <option key={value} value={value}>{text}</option>);
-    }
+    if (first instanceof Array) return options.map(([value, text]) => setOption(value, text));
 
     return options.map((option) => {
       const [value, text] = keys;
-      return <option key={option[value]} value={option[value]}>{option[text]}</option>;
+      return setOption(option[value], option[text]);
     });
   };
 

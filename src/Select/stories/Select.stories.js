@@ -21,7 +21,6 @@ storiesOf('Select Input', module)
         <div className="form-field form-field--select">
           <Select
             label="Select label"
-            selected={null}
             options={['lorem', 'ipsum', 'dolor']}
             onChange={() => {}}
             required
