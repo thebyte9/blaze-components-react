@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Checkboxes = ({
@@ -6,7 +6,7 @@ const Checkboxes = ({
   options,
   ...attrs
 }) => {
-  const [data, setData] = React.useState(options);
+  const [data, setData] = useState(options);
 
   const toggle = ({ e, item, key }) => {
     if (item.disabled) return;
@@ -63,7 +63,7 @@ Checkboxes.propTypes = {
 };
 
 Checkboxes.defaultProps = {
-  options: {},
+  options: [],
   onChange: () => {}
 };
 
