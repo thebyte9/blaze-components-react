@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const RadioButton = ({
@@ -7,7 +7,7 @@ const RadioButton = ({
   required,
   ...attrs
 }) => {
-  const [selected, setSelected] = React.useState({});
+  const [selected, setSelected] = useState({});
 
   const handleSelect = ({ e, item }) => {
     if (item.disabled) return;
@@ -54,7 +54,7 @@ RadioButton.propTypes = {
 };
 
 RadioButton.defaultProps = {
-  options: {},
+  options: [],
   required: false,
   onChange: () => {}
 };
