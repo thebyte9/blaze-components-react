@@ -28,13 +28,12 @@ const Checkboxes = ({
         } = item;
 
         return (
-          (
-            <span
+          <span
                 key={label}
                 className="form-field form-field--checkbox"
                 onClick={e => toggle({ e, item, key })}
                 role="button">
-              <input
+            <input
                 readOnly
                 type="checkbox"
                 className="form-checkbox"
@@ -44,13 +43,12 @@ const Checkboxes = ({
                 required={required}
                 {...attrs}
                 />
-              <label
+            <label
                 htmlFor={attrs.id}
                 className={required ? 'required' : ''}>
-                {label}
-              </label>
-            </span>
-          )
+              {label}
+            </label>
+          </span>
         );
       })}
     </Fragment>
