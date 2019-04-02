@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 
-const Alert = ({
+const Modal = ({
   children,
   simple,
   alert,
@@ -51,7 +51,7 @@ const Alert = ({
   );
 };
 
-Alert.propTypes = {
+Modal.propTypes = {
   simple: PropTypes.bool,
   alert: PropTypes.bool,
   title: PropTypes.string,
@@ -59,7 +59,7 @@ Alert.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
-Alert.defaultProps = {
+Modal.defaultProps = {
   simple: false,
   alert: false,
   title: '',
@@ -67,4 +67,4 @@ Alert.defaultProps = {
   children: 'No content'
 };
 
-export default Alert;
+export default Modal;
