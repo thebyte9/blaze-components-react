@@ -3,16 +3,16 @@ import expect from 'expect';
 import { shallow } from 'enzyme';
 import Badge from '../Badge';
 
-describe('Alert component', () => {
-  test('should render badge link rounded', () => {
+describe('Badge component', () => {
+  test('should render badge type link', () => {
     const wrapper = shallow(<Badge type="alert" round link>Ipsum</Badge>);
     const link = wrapper.find('a');
     expect(link.text()).toContain('Ipsum');
   });
 
-  test('should render span pill badge', () => {
+  test('should render badge type span', () => {
     const wrapper = shallow(<Badge type="info" icon pill>Dolor</Badge>);
-    const span = wrapper.find('.badge--info');
+    const span = wrapper.find('span');
     expect(span.text()).toContain('Dolor');
   });
 });
