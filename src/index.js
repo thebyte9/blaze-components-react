@@ -3,7 +3,7 @@ import Select from './Select';
 import Textarea from './Textarea';
 import Input from './Input';
 import Alert from './Alert';
-import Tab from './Tab';
+import TabComponent from './Tab';
 
 export default {
   Button,
@@ -11,5 +11,5 @@ export default {
   Select,
   Textarea,
   Alert,
-  Tab
+  TabComponent
 };
