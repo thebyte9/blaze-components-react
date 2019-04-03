@@ -30,4 +30,14 @@ storiesOf('Textarea', module)
         </div>
       </div>
     </form>
+  ))
+  .add('Styling', () => (
+    <div className="component-wrapper">
+      Styling
+    </div>
+  ))
+  .add('Functionality', () => (
+    <div className="component-wrapper">
+      Functionality
+    </div>
   ));
