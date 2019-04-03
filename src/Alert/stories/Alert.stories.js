@@ -38,4 +38,14 @@ storiesOf('Alert', module)
         <p>Extra content here lorem ipsum dolor sit amet</p>
       </Alert>
     </div>
+  ))
+  .add('Styling', () => (
+    <div className="component-wrapper">
+      Styling
+    </div>
+  ))
+  .add('Functionality', () => (
+    <div className="component-wrapper">
+      Functionality
+    </div>
   ));
