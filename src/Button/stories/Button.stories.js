@@ -69,7 +69,8 @@ storiesOf('Button', module)
       </Button>
       <pre style={preStyles}>
         <code>
-          &lt;Button className=&quot;button&quot;&gt;Button&lt;/Button&gt; <br />
+          {'<Button className="button">Button</Button>'}
+          <br />
         </code>
       </pre>
       
@@ -81,25 +82,39 @@ storiesOf('Button', module)
         <p>You may use any of the available modifiers to easily create styled buttons</p>
 
         <div style={showCaseDivStyles}>
-          <Button style={showCaseButtonStyles} className="button button--plain">PLAIN</Button> 
-          <Button style={showCaseButtonStyles} className="button button--rounded">ROUNDED</Button> 
-          <Button style={showCaseButtonStyles} className="button button--cta">CTA</Button> 
-          <Button style={showCaseButtonStyles} className="button button--alert">ALERT</Button> 
-          <Button style={showCaseButtonStyles} className="button button--disabled">DISABLED</Button> 
-          <Button style={showCaseButtonStyles} className="button button--light">LIGHT</Button> 
-          <Button style={showCaseButtonStyles} className="button button--dark">DARK</Button> 
+          <Button style={showCaseButtonStyles} className="button button--plain">PLAIN</Button>
+          <Button style={showCaseButtonStyles} className="button button--rounded">ROUNDED</Button>
+          <Button style={showCaseButtonStyles} className="button button--cta">CTA</Button>
+          <Button style={showCaseButtonStyles} className="button button--alert">ALERT</Button>
+          <Button style={showCaseButtonStyles} className="button button--disabled">DISABLED</Button>
+          <Button style={showCaseButtonStyles} className="button button--light">LIGHT</Button>
+          <Button style={showCaseButtonStyles} className="button button--dark">DARK</Button>
         </div>
 
         <div>
           <pre>
             <code>
-              &lt;Button className=&quot;button button--plain&quot;&gt; Plain &lt;/Button&gt; <br /> <br />
-              &lt;Button className=&quot;button button--rounded&quot;&gt;Rounded&lt;/Button&gt; <br /> <br />
-              &lt;Button className=&quot;button button--cta&quot;&gt;CTA&lt;/Button&gt; <br /> <br />
-              &lt;Button className=&quot;button button--alert&quot;&gt;ALERT&lt;/Button&gt; <br /> <br />
-              &lt;Button className=&quot;button button--disabled&quot;&gt;DISABLED&lt;/Button&gt; <br /> <br />
-              &lt;Button className=&quot;button button--light&quot;&gt;LIGHT&lt;/Button&gt; <br /> <br />
-              &lt;Button className=&quot;button button--dark&quot;&gt;DARK&lt;/Button&gt;
+              {'<Button className="button button--plain">PLAIN</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--rounded">ROUNDED</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--cta">CTA</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--alert">ALERT</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--disabled">DISABLED</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--light">LIGHT</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--dark">DARK</Button>'}
+              <br />
+              <br />
             </code>
           </pre>
         </div>
@@ -129,13 +144,25 @@ storiesOf('Button', module)
         <div>
           <pre>
             <code>
-            &lt;Button className=&quot;button button--outline&quot;&gt;PLAIN&lt;/Button&gt; <br /> <br /> 
-            &lt;Button className=&quot;button button--outline button--rounded&quot;&gt;ROUNDED&lt;/Button&gt; <br /> <br /> 
-            &lt;Button className=&quot;button button--outline button--cta&quot;&gt;CTA&lt;/Button&gt; <br /> <br /> 
-            &lt;Button className=&quot;button button--outline button--alert&quot;&gt;ALERT&lt;/Button&gt; <br /> <br /> 
-            &lt;Button className=&quot;button button--outline button--disabled&quot;&gt;DISABLED&lt;/Button&gt;<br /> <br /> 
-            &lt;Button className=&quot;button button--outline button--light&quot;&gt;LIGHT&lt;/Button&gt; <br /> <br />
-            &lt;Button className=&quot;button button--outline button--dark&quot;&gt;DARK&lt;/Button&gt;
+              {'<Button className="button button--outline">PLAIN</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--outline button--rounded">ROUNDED</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--outline button--cta">CTA</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--outline button--alert">ALERT</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--outline button--disabled">DISABLED</Button'}
+              {'<Button className="button button--outline button--light">LIGHT</Button>'}
+              <br />
+              <br />
+              {'<Button className="button button--outline button--dark">DARK</Button>'}
+              <br />
+              <br />
             </code>
           </pre>
         </div>
@@ -153,29 +180,25 @@ storiesOf('Button', module)
           modifier along with any type of button to create rounded buttons
         </p>
         <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
-          <Button className="button button--cta button--rounded">CTA</Button> 
-          <Button className="button button--alert button--rounded">ALERT</Button> 
-          <Button className="button button--light button--rounded">LIGHT</Button> 
-          <Button className="button button--dark button--rounded">DARK</Button> 
+          <Button className="button button--cta button--rounded">CTA</Button>
+          <Button className="button button--alert button--rounded">ALERT</Button>
+          <Button className="button button--light button--rounded">LIGHT</Button>
+          <Button className="button button--dark button--rounded">DARK</Button>
         </div>
 
         <div>
           <pre>
             <code>
-              &lt;Button
-                className=&quot;button button--rounded button--cta&quot;&gt;CTA&lt;/Button&gt;
+              {'<Button className="button button--cta button--rounded">CTA</Button>'}
               <br />
               <br />
-              &lt;Button
-                className=&quot;button button--rounded button--alert&quot;&gt;ALERT&lt;/Button&gt;
+              {'<Button className="button button--alert button--rounded">ALERT</Button>'}
               <br />
               <br />
-              &lt;Button
-                className=&quot;button button--rounded button--light&quot;&gt;LIGHT&lt;/Button&gt;
+              {'<Button className="button button--light button--rounded">LIGHT</Button>'}
               <br />
               <br />
-              &lt;Button
-                className=&quot;button button--rounded button--dark&quot;&gt;DARK&lt;/Button&gt;
+              {'<Button className="button button--dark button--rounded">DARK</Button>'}
               <br />
               <br />
             </code>
@@ -196,18 +219,20 @@ storiesOf('Button', module)
           <em><strong>--full-width </strong></em>
           modifiers
         </p>
-        <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
-          <p><Button className="button button--small">Small</Button></p>
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Button className="button button--small">Small</Button>
+          <br />
+          <br />
           <Button className="button button--full-width">Full width</Button>
         </div>
 
         <div>
           <pre>
             <code>
-              &lt;Button className=&quot;button button--small&quot;&gt;Small&lt;/Button&gt;
+              {'<Button className="button button--small">Small</Button>'}
               <br />
               <br />
-              &lt;Button className=&quot;button button--full-width&quot;&gt;Full width&lt;/Button&gt;
+              {'<Button className="button button--full-width">Full width</Button>'}
             </code>
           </pre>
         </div>
