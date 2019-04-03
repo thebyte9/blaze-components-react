@@ -22,10 +22,7 @@
     "url": "https://github.com/thebyte9/blaze-components-react/issues"
   },
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
-  "dependencies": {
-    "@storybook/addon-actions": "^5.0.5",
-    "@types/storybook__react": "^4.0.1"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
