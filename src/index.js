@@ -13,7 +13,7 @@ export default {
   Select,
   Textarea,
   Alert,
-  CheckBoxes
+  CheckBoxes,
   Tooltip,
   Breadcrumb
 };
