@@ -13,7 +13,7 @@ export default {
   Select,
   Textarea,
   Alert,
-  Modal
+  Modal,
   Tooltip,
   Breadcrumb
 };
