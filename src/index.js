@@ -4,6 +4,7 @@ import Select from './Select';
 import Textarea from './Textarea';
 import Input from './Input';
 import Alert from './Alert';
+import Modal from './Modal';
 import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
 
@@ -14,6 +15,7 @@ export default {
   Textarea,
   Alert,
   CheckBoxes,
+  Modal,
   Tooltip,
   Breadcrumb
 };
