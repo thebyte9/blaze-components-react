@@ -1,4 +1,5 @@
 import Button from './Button';
+import RadioButton from './RadioButton';
 import CheckBoxes from './Checkboxes';
 import Select from './Select';
 import Textarea from './Textarea';
@@ -14,6 +15,7 @@ export default {
   Select,
   Textarea,
   Alert,
+  RadioButton,
   CheckBoxes,
   Modal,
   Tooltip,
