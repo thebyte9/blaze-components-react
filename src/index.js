@@ -3,6 +3,7 @@ import Select from './Select';
 import Textarea from './Textarea';
 import Input from './Input';
 import Alert from './Alert';
+import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
 
 export default {
@@ -11,5 +12,6 @@ export default {
   Select,
   Textarea,
   Alert,
+  Tooltip,
   Breadcrumb
 };
