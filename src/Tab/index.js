@@ -1,3 +1,3 @@
-import Tab from './Tab';
+import { Tab, TabItem } from './Tab';
 
-export default Tab;
+export default { Tab, TabItem };

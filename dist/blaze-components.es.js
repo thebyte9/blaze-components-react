@@ -1,12 +1,5 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var React__default = _interopDefault(React);
-var PropTypes = _interopDefault(require('prop-types'));
+import React, { useState, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -127,7 +120,7 @@ var Button = function Button(_ref) {
       attrs = _objectWithoutProperties(_ref, ["disabled", "isSubmit", "children"]);
 
   var type = isSubmit ? 'submit' : 'button';
-  return React__default.createElement("button", _extends({
+  return React.createElement("button", _extends({
     disabled: disabled,
     type: type
   }, attrs), children);
@@ -150,7 +143,7 @@ var RadioButton = function RadioButton(_ref) {
       required = _ref.required,
       attrs = _objectWithoutProperties(_ref, ["onChange", "options", "required"]);
 
-  var _useState = React.useState({}),
+  var _useState = useState({}),
       _useState2 = _slicedToArray(_useState, 2),
       selected = _useState2[0],
       setSelected = _useState2[1];
@@ -166,11 +159,11 @@ var RadioButton = function RadioButton(_ref) {
     });
   };
 
-  return React__default.createElement(React.Fragment, null, options.map(function (item) {
+  return React.createElement(Fragment, null, options.map(function (item) {
     var value = item.value,
         disabled = item.disabled,
         label = item.label;
-    return React__default.createElement("span", {
+    return React.createElement("span", {
       key: label,
       className: "form-field form-field--radio",
       onClick: function onClick(e) {
@@ -180,14 +173,14 @@ var RadioButton = function RadioButton(_ref) {
         });
       },
       role: "button"
-    }, React__default.createElement("input", _extends({
+    }, React.createElement("input", _extends({
       readOnly: true,
       type: "radio",
       className: "form-radio",
       value: value,
       disabled: disabled,
       checked: value === selected.value
-    }, attrs)), React__default.createElement("label", {
+    }, attrs)), React.createElement("label", {
       htmlFor: attrs.id
     }, label));
   }));
@@ -209,7 +202,7 @@ var Checkboxes = function Checkboxes(_ref) {
       options = _ref.options,
       attrs = _objectWithoutProperties(_ref, ["onChange", "options"]);
 
-  var _useState = React.useState(options),
+  var _useState = useState(options),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
@@ -230,13 +223,13 @@ var Checkboxes = function Checkboxes(_ref) {
     });
   };
 
-  return React__default.createElement(React.Fragment, null, data.map(function (item, key) {
+  return React.createElement(Fragment, null, data.map(function (item, key) {
     var value = item.value,
         disabled = item.disabled,
         checked = item.checked,
         required = item.required,
         label = item.label;
-    return React__default.createElement("span", {
+    return React.createElement("span", {
       key: label,
       className: "form-field form-field--checkbox",
       onClick: function onClick(e) {
@@ -247,7 +240,7 @@ var Checkboxes = function Checkboxes(_ref) {
         });
       },
       role: "button"
-    }, React__default.createElement("input", _extends({
+    }, React.createElement("input", _extends({
       readOnly: true,
       type: "checkbox",
       className: "form-checkbox",
@@ -255,7 +248,7 @@ var Checkboxes = function Checkboxes(_ref) {
       disabled: disabled,
       checked: checked || false,
       required: required
-    }, attrs)), React__default.createElement("label", {
+    }, attrs)), React.createElement("label", {
       htmlFor: attrs.id,
       className: required ? 'required' : ''
     }, label));
@@ -280,7 +273,7 @@ var Select = function Select(_ref) {
       keys = _ref.keys,
       attrs = _objectWithoutProperties(_ref, ["label", "required", "onChange", "options", "selected", "keys"]);
 
-  var _useState = React.useState(selected),
+  var _useState = useState(selected),
       _useState2 = _slicedToArray(_useState, 2),
       selectedOption = _useState2[0],
       setSelectedOption = _useState2[1];
@@ -296,7 +289,7 @@ var Select = function Select(_ref) {
   var isRequired = required ? 'required' : '';
 
   var setOption = function setOption(value, text) {
-    return React__default.createElement("option", {
+    return React.createElement("option", {
       key: value,
       value: value
     }, text || value);
@@ -325,14 +318,14 @@ var Select = function Select(_ref) {
     });
   };
 
-  return React__default.createElement(React.Fragment, null, label && React__default.createElement("label", {
+  return React.createElement(Fragment, null, label && React.createElement("label", {
     htmlFor: attrs.id,
     className: isRequired
-  }, label), React__default.createElement("select", _extends({
+  }, label), React.createElement("select", _extends({
     onChange: handleChange,
     defaultValue: selectedOption,
     disabled: !options.length
-  }, attrs), React__default.createElement("option", {
+  }, attrs), React.createElement("option", {
     value: null
   }, "Please Choose..."), renderOptions()));
 };
@@ -362,7 +355,7 @@ var Textarea = function Textarea(_ref) {
       required = _ref.required,
       attrs = _objectWithoutProperties(_ref, ["value", "label", "limit", "onChange", "required"]);
 
-  var _useState = React.useState(value),
+  var _useState = useState(value),
       _useState2 = _slicedToArray(_useState, 2),
       content = _useState2[0],
       setContent = _useState2[1];
@@ -379,16 +372,16 @@ var Textarea = function Textarea(_ref) {
 
   var isRequired = required ? 'required' : '';
   var total = limit && limit - content.length;
-  return React__default.createElement(React.Fragment, null, label && React__default.createElement("label", {
+  return React.createElement(Fragment, null, label && React.createElement("label", {
     htmlFor: attrs.id,
     className: isRequired
-  }, label), React__default.createElement("textarea", _extends({
+  }, label), React.createElement("textarea", _extends({
     value: content,
     rows: attrs.rows,
     cols: attrs.cols,
     onChange: handleChange,
     required: required
-  }, attrs)), !!limit && React__default.createElement("span", null, total));
+  }, attrs)), !!limit && React.createElement("span", null, total));
 };
 
 Textarea.propTypes = {
@@ -421,17 +414,17 @@ var Input = function Input(_ref) {
     icon: 'visibility_off'
   };
 
-  var _useState = React.useState(value),
+  var _useState = useState(value),
       _useState2 = _slicedToArray(_useState, 2),
       newValue = _useState2[0],
       setNewValue = _useState2[1];
 
-  var _useState3 = React.useState(type),
+  var _useState3 = useState(type),
       _useState4 = _slicedToArray(_useState3, 2),
       newType = _useState4[0],
       setType = _useState4[1];
 
-  var _useState5 = React.useState(passwordDefaultState),
+  var _useState5 = useState(passwordDefaultState),
       _useState6 = _slicedToArray(_useState5, 2),
       passwordState = _useState6[0],
       setPasswordState = _useState6[1];
@@ -459,20 +452,20 @@ var Input = function Input(_ref) {
   };
 
   var isRequired = required ? 'required' : '';
-  return React__default.createElement(React.Fragment, null, label && React__default.createElement("label", {
+  return React.createElement(Fragment, null, label && React.createElement("label", {
     htmlFor: attrs.id,
     className: isRequired
-  }, label), React__default.createElement("input", _extends({
+  }, label), React.createElement("input", _extends({
     onChange: handleChange,
     value: newValue,
     disabled: disabled,
     type: newType,
     required: required
-  }, attrs)), type === 'password' && React__default.createElement("span", {
+  }, attrs)), type === 'password' && React.createElement("span", {
     onClick: togglepasswordClassName,
     className: "show-hide-password ".concat(passwordState.className),
     role: "button"
-  }, passwordState.text, React__default.createElement("i", {
+  }, passwordState.text, React.createElement("i", {
     className: "material-icons"
   }, passwordState.icon)));
 };
@@ -501,7 +494,7 @@ var Alert = function Alert(_ref) {
       type = _ref.type,
       attrs = _objectWithoutProperties(_ref, ["children", "close", "icon", "type"]);
 
-  var _useState = React.useState(false),
+  var _useState = useState(false),
       _useState2 = _slicedToArray(_useState, 2),
       offModal = _useState2[0],
       setModalOff = _useState2[1];
@@ -509,19 +502,19 @@ var Alert = function Alert(_ref) {
   var assignType = type && "alert--".concat(type);
   var isDismissable = close && 'alert--dismissable';
   var withIcon = icon && 'alert--icon';
-  var renderAlert = React__default.createElement("div", _extends({
+  var renderAlert = React.createElement("div", _extends({
     className: "alert ".concat(assignType, " ").concat(isDismissable, " ").concat(withIcon)
-  }, attrs), icon && React__default.createElement("i", {
+  }, attrs), icon && React.createElement("i", {
     className: "material-icons"
-  }, icon), children, close && React__default.createElement(Button, {
+  }, icon), children, close && React.createElement(Button, {
     onClick: function onClick() {
       return setModalOff(true);
     },
     className: "icon-button icon-button--close"
-  }, React__default.createElement("i", {
+  }, React.createElement("i", {
     className: "material-icons"
   }, "close")));
-  return React__default.createElement(React.Fragment, null, !offModal && renderAlert);
+  return React.createElement(Fragment, null, !offModal && renderAlert);
 };
 
 Alert.propTypes = {
@@ -543,7 +536,7 @@ var Progress = function Progress(_ref) {
       type = _ref.type,
       onChange = _ref.onChange;
 
-  var _useState = React.useState(progress),
+  var _useState = useState(progress),
       _useState2 = _slicedToArray(_useState, 2),
       _progress = _useState2[0],
       setProgress = _useState2[1];
@@ -567,15 +560,15 @@ var Progress = function Progress(_ref) {
   };
 
   var isTypeCount = type === 'count' ? 'progress-bar__list-item--dots' : '';
-  return React__default.createElement("nav", {
+  return React.createElement("nav", {
     className: "progress-bar"
-  }, React__default.createElement("ol", {
+  }, React.createElement("ol", {
     className: "progress-bar__list"
   }, steps.map(function (text, index) {
-    return React__default.createElement("li", {
+    return React.createElement("li", {
       key: text,
       className: "progress-bar__list-item progress-bar__list-item--".concat(type, " ").concat(isTypeCount, " ").concat(checkStep(index + 1))
-    }, React__default.createElement("span", {
+    }, React.createElement("span", {
       onClick: function onClick(e) {
         return handleClick({
           e: e,
@@ -615,10 +608,10 @@ var Badge = function Badge(_ref) {
   var isRound = round ? 'badge--round' : '';
   var withIcon = icon ? 'badge--icon-text' : '';
   var classes = "badge ".concat(assignType, " ").concat(isRound, " ").concat(isPill, " ").concat(withIcon);
-  return link ? React__default.createElement("a", _extends({
+  return link ? React.createElement("a", _extends({
     href: to,
     className: classes
-  }, attrs), children) : React__default.createElement("span", _extends({
+  }, attrs), children) : React.createElement("span", _extends({
     className: classes
   }, attrs), children);
 };
@@ -644,7 +637,7 @@ Badge.defaultProps = {
 
 var TabItem = function TabItem(_ref) {
   var children = _ref.children;
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "tabs__content"
   }, children);
 };
@@ -660,7 +653,7 @@ var Tab = function Tab(_ref2) {
   var selected = _ref2.selected,
       children = _ref2.children;
 
-  var _useState = React.useState(selected),
+  var _useState = useState(selected),
       _useState2 = _slicedToArray(_useState, 2),
       _selected = _useState2[0],
       setSelected = _useState2[1];
@@ -673,15 +666,15 @@ var Tab = function Tab(_ref2) {
     action();
   };
 
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "tabs"
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "tabs__list"
   }, children.map(function (_ref4, step) {
     var _ref4$props = _ref4.props,
         title = _ref4$props.title,
         action = _ref4$props.action;
-    return React__default.createElement(Button, {
+    return React.createElement(Button, {
       className: "tabs__list-item ".concat(step === _selected ? 'current' : ''),
       onClick: function onClick() {
         return handleChange({
@@ -714,7 +707,7 @@ var Modal = function Modal(_ref) {
       title = _ref.title,
       actions = _ref.actions;
 
-  var _useState = React.useState(false),
+  var _useState = useState(false),
       _useState2 = _slicedToArray(_useState, 2),
       offModal = _useState2[0],
       setModalOff = _useState2[1];
@@ -725,29 +718,29 @@ var Modal = function Modal(_ref) {
     return '';
   };
 
-  var renderModal = React__default.createElement(React.Fragment, null, React__default.createElement("div", {
+  var renderModal = React.createElement(Fragment, null, React.createElement("div", {
     className: "overlay"
-  }), React__default.createElement("div", {
+  }), React.createElement("div", {
     className: "modal modal".concat(type(), " modal--show")
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "modal__header modal__header".concat(type())
-  }, !alert && React__default.createElement("div", {
+  }, !alert && React.createElement("div", {
     className: "modal__title"
-  }, title), !alert && React__default.createElement("div", {
+  }, title), !alert && React.createElement("div", {
     className: "modal__close",
     role: "button",
     onClick: function onClick() {
       return setModalOff(true);
     }
-  }, React__default.createElement("i", {
+  }, React.createElement("i", {
     className: "material-icons"
-  }, "close"))), React__default.createElement("div", {
+  }, "close"))), React.createElement("div", {
     className: "modal__content modal__content".concat(type())
-  }, children), React__default.createElement("div", {
+  }, children), React.createElement("div", {
     className: "modal__footer modal__footer".concat(type())
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "modal__button"
-  }, alert && React__default.createElement(Button, {
+  }, alert && React.createElement(Button, {
     className: "button button--link",
     onClick: function onClick() {
       return setModalOff(true);
@@ -757,13 +750,13 @@ var Modal = function Modal(_ref) {
         text = _ref3[0],
         func = _ref3[1];
 
-    return React__default.createElement(Button, {
+    return React.createElement(Button, {
       key: text,
       className: "button button--link",
       onClick: func
     }, text);
   })))));
-  return React__default.createElement(React.Fragment, null, !offModal && renderModal);
+  return React.createElement(Fragment, null, !offModal && renderModal);
 };
 
 Modal.propTypes = {
@@ -785,9 +778,9 @@ var Tooltip = function Tooltip(_ref) {
   var children = _ref.children,
       position = _ref.position,
       text = _ref.text;
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "tooltip-here"
-  }, children, React__default.createElement("span", {
+  }, children, React.createElement("span", {
     className: "tooltip tooltip--".concat(position)
   }, text));
 };
@@ -805,14 +798,14 @@ Tooltip.defaultProps = {
 
 var Breadcrumb = function Breadcrumb(_ref) {
   var children = _ref.children;
-  return React__default.createElement("ul", {
+  return React.createElement("ul", {
     className: "breadcrumb"
   }, children.length ? children.map(function (child) {
-    return React__default.createElement("li", {
+    return React.createElement("li", {
       key: Math.random(),
       className: "breadcrumb__item"
     }, child);
-  }) : React__default.createElement("li", {
+  }) : React.createElement("li", {
     className: "breadcrumb__item"
   }, children));
 };
@@ -824,17 +817,5 @@ Breadcrumb.defaultProps = {
   children: 'No content'
 };
 
-exports.Alert = Alert;
-exports.Badge = Badge;
-exports.Breadcrumb = Breadcrumb;
-exports.Button = Button;
-exports.CheckBoxes = Checkboxes;
-exports.Input = Input;
-exports.Modal = Modal;
-exports.Progress = Progress;
-exports.RadioButton = RadioButton;
-exports.Select = Select;
-exports.TabComponent = Tab$1;
-exports.Textarea = Textarea;
-exports.Tooltip = Tooltip;
-//# sourceMappingURL=blaze-components.js.map
+export { Alert, Badge, Breadcrumb, Button, Checkboxes as CheckBoxes, Input, Modal, Progress, RadioButton, Select, Tab$1 as TabComponent, Textarea, Tooltip };
+//# sourceMappingURL=blaze-components.es.js.map

@@ -12,7 +12,7 @@ import Modal from './Modal';
 import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
 
-export default {
+export {
   Button,
   Input,
   Select,

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 
-const TabItem = ({
+export const TabItem = ({
   children
 }) => (<div className="tabs__content">{ children }</div>);
 
@@ -14,7 +14,7 @@ TabItem.defaultProps = {
   children: 'No content'
 };
 
-const Tab = ({
+export const Tab = ({
   selected,
   children
 }) => {
@@ -52,7 +52,4 @@ Tab.defaultProps = {
   children: 'No content'
 };
 
-export {
-  Tab,
-  TabItem,
-};
+// export default Tab;
