@@ -9,16 +9,16 @@ const Progress = ({
 }) => {
   const [_progress, setProgress] = useState(progress);
 
-  const handleClick = ({ e, i }) => {
-    setProgress(i);
-    onChange({ e, progress: i });
+  const handleClick = ({ e, step }) => {
+    setProgress(step);
+    onChange({ e, step });
   };
 
-  const checkStep = (i) => {
-    if (i === steps.length && i === _progress) return 'final current';
-    if (i === _progress) return 'current';
-    if (i === steps.length) return 'final';
-    if (i <= _progress) return 'visited';
+  const checkStep = (step) => {
+    if (step === steps.length && step === _progress) return 'final current';
+    if (step === _progress) return 'current';
+    if (step === steps.length) return 'final';
+    if (step <= _progress) return 'visited';
     return '';
   };
 
@@ -27,11 +27,11 @@ const Progress = ({
   return (
     <nav className="progress-bar">
       <ol className="progress-bar__list">
-        {steps.map((text, i) => (
+        {steps.map((text, index) => (
           <li
           key={text}
-          className={`progress-bar__list-item progress-bar__list-item--${type} ${isTypeCount} ${checkStep(i + 1)}`}>
-            <span onClick={e => handleClick({ e, i: i + 1 })} role="button">{text}</span>
+          className={`progress-bar__list-item progress-bar__list-item--${type} ${isTypeCount} ${checkStep(index + 1)}`}>
+            <span onClick={e => handleClick({ e, step: index + 1 })} role="button">{text}</span>
           </li>
         ))}
       </ol>

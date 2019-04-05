@@ -13,7 +13,7 @@ describe('Alert component', () => {
   });
 
   test('should be type count and change progress', () => {
-    const handleChange = ({ progress }) => expect(progress).toEqual(4);
+    const handleChange = ({ step }) => expect(step).toEqual(4);
 
     const wrapper = shallow(<Progress progress={1} type="count" onChange={handleChange} steps={steps} />);
 
