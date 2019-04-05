@@ -11,10 +11,10 @@ const Badge = ({
   link,
   ...attrs
 }) => {
-  const assignType = type && `badge--${type}`;
-  const isPill = pill && 'badge--pill';
-  const isRound = round && 'badge--round';
-  const withIcon = icon && 'badge--icon-text';
+  const assignType = type ? `badge--${type}` : '';
+  const isPill = pill ? 'badge--pill' : '';
+  const isRound = round ? 'badge--round' : '';
+  const withIcon = icon ? 'badge--icon-text' : '';
   const classes = `badge ${assignType} ${isRound} ${isPill} ${withIcon}`;
 
   return (link ? (
