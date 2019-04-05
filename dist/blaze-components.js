@@ -648,14 +648,12 @@ var TabItem = function TabItem(_ref) {
     className: "tabs__content"
   }, children);
 };
-
 TabItem.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 TabItem.defaultProps = {
   children: 'No content'
 };
-
 var Tab = function Tab(_ref2) {
   var selected = _ref2.selected,
       children = _ref2.children;
@@ -693,7 +691,6 @@ var Tab = function Tab(_ref2) {
     }, title);
   })), children[_selected]);
 };
-
 Tab.propTypes = {
   selected: PropTypes.number,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
@@ -701,8 +698,9 @@ Tab.propTypes = {
 Tab.defaultProps = {
   selected: 0,
   children: 'No content'
-};
-var Tab$1 = {
+}; // export default Tab;
+
+var index = {
   Tab: Tab,
   TabItem: TabItem
 };
@@ -834,7 +832,7 @@ exports.Modal = Modal;
 exports.Progress = Progress;
 exports.RadioButton = RadioButton;
 exports.Select = Select;
-exports.TabComponent = Tab$1;
+exports.TabComponent = index;
 exports.Textarea = Textarea;
 exports.Tooltip = Tooltip;
 //# sourceMappingURL=blaze-components.js.map

@@ -641,14 +641,12 @@ var TabItem = function TabItem(_ref) {
     className: "tabs__content"
   }, children);
 };
-
 TabItem.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 TabItem.defaultProps = {
   children: 'No content'
 };
-
 var Tab = function Tab(_ref2) {
   var selected = _ref2.selected,
       children = _ref2.children;
@@ -686,7 +684,6 @@ var Tab = function Tab(_ref2) {
     }, title);
   })), children[_selected]);
 };
-
 Tab.propTypes = {
   selected: PropTypes.number,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
@@ -694,8 +691,9 @@ Tab.propTypes = {
 Tab.defaultProps = {
   selected: 0,
   children: 'No content'
-};
-var Tab$1 = {
+}; // export default Tab;
+
+var index = {
   Tab: Tab,
   TabItem: TabItem
 };
@@ -817,5 +815,5 @@ Breadcrumb.defaultProps = {
   children: 'No content'
 };
 
-export { Alert, Badge, Breadcrumb, Button, Checkboxes as CheckBoxes, Input, Modal, Progress, RadioButton, Select, Tab$1 as TabComponent, Textarea, Tooltip };
+export { Alert, Badge, Breadcrumb, Button, Checkboxes as CheckBoxes, Input, Modal, Progress, RadioButton, Select, index as TabComponent, Textarea, Tooltip };
 //# sourceMappingURL=blaze-components.es.js.map
