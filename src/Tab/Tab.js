@@ -20,18 +20,18 @@ const Tab = ({
 }) => {
   const [_selected, setSelected] = useState(selected);
 
-  const handleChange = ({ i, action = () => {} }) => {
-    setSelected(i);
+  const handleChange = ({ step, action = () => {} }) => {
+    setSelected(step);
     action();
   };
 
   return (
     <div className="tabs">
       <div className="tabs__list">
-        {children.map(({ props: { title, action } }, i) => (
+        {children.map(({ props: { title, action } }, step) => (
           <Button
-            className={`tabs__list-item ${i === _selected ? 'current' : ''}`}
-            onClick={() => handleChange({ i, action })}
+            className={`tabs__list-item ${step === _selected ? 'current' : ''}`}
+            onClick={() => handleChange({ step, action })}
             key={title}>
             {title}
           </Button>
