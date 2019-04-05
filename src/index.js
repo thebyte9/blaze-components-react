@@ -6,6 +6,7 @@ import Textarea from './Textarea';
 import Input from './Input';
 import Alert from './Alert';
 import Badge from './Badge';
+import TabComponent from './Tab';
 import Modal from './Modal';
 import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
@@ -17,6 +18,7 @@ export default {
   Textarea,
   Alert,
   Badge,
+  TabComponent,
   RadioButton,
   CheckBoxes,
   Modal,
