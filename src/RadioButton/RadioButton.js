@@ -21,7 +21,8 @@ const RadioButton = ({
         const {
           value,
           disabled,
-          label
+          label,
+          id
         } = item;
 
         return (
@@ -37,9 +38,10 @@ const RadioButton = ({
                 value={value}
                 disabled={disabled}
                 checked={value === selected.value}
+                id={id}
                 {...attrs}
                 />
-            <label htmlFor={attrs.id}>{label}</label>
+            <label htmlFor={id}>{label}</label>
           </span>
         );
       })}
