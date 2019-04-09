@@ -19,13 +19,14 @@ export {
   Select,
   Textarea,
   Alert,
+  CheckBoxes,
   Progress,
   Badge,
   TabComponent,
   RadioButton,
-  CheckBoxes,
   Modal,
   Tooltip,
   Breadcrumb,
-  DropdownComponent
+  DropdownComponent,
+  Breadcrumb
 };
