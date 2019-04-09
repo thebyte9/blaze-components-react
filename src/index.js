@@ -11,6 +11,7 @@ import TabComponent from './Tab';
 import Modal from './Modal';
 import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
+import DropdownComponent from './Dropdown';
 
 export {
   Button,
@@ -25,6 +26,6 @@ export {
   RadioButton,
   Modal,
   Tooltip,
+  DropdownComponent,
   Breadcrumb
-
 };
