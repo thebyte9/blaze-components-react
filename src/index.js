@@ -26,7 +26,6 @@ export {
   RadioButton,
   Modal,
   Tooltip,
-  Breadcrumb,
   DropdownComponent,
   Breadcrumb
 };
