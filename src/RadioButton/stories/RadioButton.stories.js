@@ -16,7 +16,7 @@ storiesOf('RadioButton', module)
   .add('Simple', () => (
     <form>
       <div className="component-wrapper">
-        <p className="item-heading">Checkboxes</p>
+        <p className="item-heading">RadioButton</p>
         <RadioButton
             options={options}
             onChange={() => {}}
