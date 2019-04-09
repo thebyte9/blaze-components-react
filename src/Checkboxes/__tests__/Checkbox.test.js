@@ -4,9 +4,13 @@ import { shallow } from 'enzyme';
 import Checkboxes from '../Checkboxes';
 
 const options = [
-  { label: 'Example', value: 1 },
-  { label: 'I accept', value: 'accepted', required: true },
-  { label: 'Disabled', value: '', disabled: true }
+  { label: 'Example', value: 1, id: 'one' },
+  {
+    label: 'I accept', value: 'accepted', required: true, id: 'two'
+  },
+  {
+    label: 'Disabled', value: '', disabled: true, id: 'three'
+  }
 ];
 
 describe('Checkboxes component', () => {
