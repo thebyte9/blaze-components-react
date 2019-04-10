@@ -15,4 +15,9 @@ describe('Badge component', () => {
     const span = wrapper.find('span');
     expect(span.text()).toContain('Dolor');
   });
+
+  test('should render badge without type', () => {
+    const wrapper = shallow(<Badge>Test Badge</Badge>);
+    expect(wrapper.prop('className')).toContain('badge');
+  });
 });
