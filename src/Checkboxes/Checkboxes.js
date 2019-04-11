@@ -24,7 +24,8 @@ const Checkboxes = ({
           disabled,
           checked,
           required,
-          label
+          label,
+          id
         } = item;
 
         return (
@@ -41,10 +42,11 @@ const Checkboxes = ({
                 disabled={disabled}
                 checked={checked || false}
                 required={required}
+                id={id}
                 {...attrs}
                 />
             <label
-                htmlFor={attrs.id}
+                htmlFor={id}
                 className={required ? 'required' : ''}>
               {label}
             </label>

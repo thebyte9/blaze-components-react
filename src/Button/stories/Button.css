@@ -7,11 +7,11 @@ table {
   text-align: 'center';
   border: '1px solid #dee2e6';
   width: '100%';
-};
+}
 
 .showCaseDivStyles {
   display: 'flex';
   justify-content: 'space-around';
   flex-wrap: 'wrap';
   min-height: '10em';
-};
+}
