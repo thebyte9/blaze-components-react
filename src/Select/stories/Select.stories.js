@@ -19,56 +19,69 @@ const tableStyles = {
   textAlign: 'center'
 };
 
-storiesOf('Select Input', module)
-  .add('Basic select', () => (
-    <form>
-      <div className="component-wrapper">
-        <div className="form-field form-field--select">
-          <Select
-            label="Select label"
-            options={['lorem', 'ipsum', 'dolor']}
-            onChange={() => {}}
-            required
-            />
-          <br />
-          <Select
-            label="Select label"
-            selected="08001"
-            options={[['08001', 'Barcelona'], ['17006', 'Madrid']]}
-            onChange={() => {}}
-            />
-          <br />
-          <Select
-            label="Select label"
-            selected="1"
-            options={arrayOfObjects}
-            keys={['id', 'username']}
-            onChange={() => {}}
-            />
-
-          <br />
-          <Select
-            label="Select label"
-            onChange={() => {}}
-            />
-        </div>
-      </div>
-    </form>
-  ))
-  .add('Description', () => (
+storiesOf('Components/Input - Select', module)
+  .add('Introduction', () => (
     <div className="component-wrapper">
-      <h1>Description</h1>
-      <p>The select component represents an input that provides a number of options</p>
-      <Select label="English cities" options={['London', 'Manchester', 'Liverpool']} onChange={() => {}} required />
-      <pre>
-        <code>
-          {/* &lt;Select label=&quot;Select label&quot; options={['lorem', 'ipsum', 'dolor']}
-          onChange={() =&amp;gt; {}} required /&gt; */}
-        </code>
-      </pre>
+      <section className="introductionSection">
+        <h1>Select inputs</h1>
+        <p>The select component represents an input that provides a menu of options</p>
+      </section>
+
+      <hr />
+
+      <section className="exampleSection">
+        <h3>Examples</h3>
+        <form>
+          <div className="form-field form-field--select">
+            <Select
+              label="Select a city"
+              options={['London', 'Paris', 'Munich']}
+              onChange={() => {}}
+              required
+              />
+            <br />
+            <Select
+              label="Select label"
+              selected="08001"
+              options={[['08001', 'Barcelona'], ['17006', 'Madrid']]}
+              onChange={() => {}}
+              />
+            <br />
+            <Select
+              label="Select label"
+              selected="1"
+              options={arrayOfObjects}
+              keys={['id', 'username']}
+              onChange={() => {}}
+              />
+            <br />
+            <Select
+              label="Select label"
+              onChange={() => {}}
+              />
+          </div>
+        </form>
+
+        <div>
+          <pre>
+            <code>
+              {'<Select label="Select a city" options={["London", "Paris", "Munich"]} onChange={() => {}} required />'}
+              <br />
+              <br />
+              {'<Select label="Select label" selected="08001" options={[["08001", "Barcelona"], ["17006", "Madrid"]]} onChange={() => {}} />'}
+              <br />
+              <br />
+              {'<Select label="Select label" selected="1" options={arrayOfObjects} keys={["id", "username"]} onChange={() => {}} />'}
+              <br />
+              <br />
+              {'<Select label="Select label" onChange={() => {}} />'}
+            </code>
+          </pre>
+        </div>
+      </section>
     </div>
   ))
-  .add('Functionality', () => (
+  .add('Props', () => (
     <div className="component-wrapper">
       <table style={tableStyles}>
         <thead>
