@@ -7,29 +7,33 @@ const tableStyles = {
   textAlign: 'center'
 };
 
-storiesOf('Textarea', module)
-  .add('Description', () => (
+storiesOf('Components/Inputs - Textarea', module)
+  .add('Introduction', () => (
     <div className="component-wrapper">
-      <h1>Description</h1>
-    </div>
-  ))
-  .add('Simple', () => (
-    <form>
-      <div className="component-wrapper">
+      <section className="introductionSection">
+        <h1>Textarea</h1>
+        <p>
+          The HTML textarea element represents a multi-line plain-text editing control,
+          useful when you want to allow users to enter a sizeable amount of free-form text,
+          for example a comment on a review or feedback form.
+        </p>
+
+        <hr />
+      </section>
+
+      <section className="exampleSection">
+        <h3>Examples</h3>
+        <p>Textareas may be expanded or contracted and have a limit of characters</p>
+        
         <div className="form-field form-field--textarea">
           <Textarea
-            label="Simple extarea"
+            label="Simple textarea"
             placeholder="Content..."
             onChange={() => {}}
             required
             />
         </div>
-      </div>
-    </form>
-  ))
-  .add('Limit', () => (
-    <form>
-      <div className="component-wrapper">
+
         <div className="form-field form-field--textarea form-field--full-width">
           <Textarea
             label="Textarea with limit"
@@ -38,15 +42,21 @@ storiesOf('Textarea', module)
             limit={40}
             />
         </div>
-      </div>
-    </form>
-  ))
-  .add('Styling', () => (
-    <div className="component-wrapper">
-      Styling
+
+        <div>
+          <pre>
+            <code>
+              {'<Textarea label="Simple textarea" placeholder="Content..." onChange={() => {}} required />'}
+              <br />
+              <br />
+              {'<Textarea label="Textarea with limit" placeholder="Content..." onChange={() => {}} limit={40} />'}
+            </code>
+          </pre>
+        </div>
+      </section>
     </div>
   ))
-  .add('Functionality', () => (
+  .add('Props', () => (
     <div className="component-wrapper">
       <table style={tableStyles}>
         <thead>
