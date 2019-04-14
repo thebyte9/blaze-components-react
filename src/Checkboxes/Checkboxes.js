@@ -1,12 +1,17 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const Checkboxes = ({
   onChange,
   options,
+  withEffect,
   ...attrs
 }) => {
   const [data, setData] = useState(options);
+
+  useEffect(() => {
+    if (withEffect) setData(options);
+  }, [options]);
 
   const toggle = ({ e, item, key }) => {
     if (item.disabled) return;
@@ -27,7 +32,7 @@ const Checkboxes = ({
           label,
           id
         } = item;
-
+        
         return (
           <span
                 key={label}
@@ -60,11 +65,13 @@ const Checkboxes = ({
 Checkboxes.propTypes = {
   options: PropTypes.array,
   onChange: PropTypes.func,
+  withEffect: PropTypes.bool
 };
 
 Checkboxes.defaultProps = {
   options: [],
-  onChange: () => {}
+  onChange: () => {},
+  withEffect: false
 };
 
 export default Checkboxes;
