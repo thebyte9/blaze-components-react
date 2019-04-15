@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Checkboxes from '../Checkboxes';
 
@@ -6,45 +6,67 @@ const Table = ({
   data: { columns, rows, identification },
   onSelect
 }) => {
-  const [checkedStatus, setAllAsChecked] = useState(false);
+  const [selected, setSelected] = useState([]);
 
-  const options = [Object.assign({}, { value: rows.map(row => row[identification]) })];
+  const handleSelected = ([checked], value, multiselect = false) => {
+    if (multiselect) {
+      if (checked) setSelected([...checked.value]);
+      else setSelected([]);
+      return;
+    }
 
-  const handleSelected = ([selected], multiselect = false) => {
-    if (multiselect) setAllAsChecked(!checkedStatus);
-    return onSelect(selected ? selected.value : null);
+    if (checked && !selected.includes(checked.value)) setSelected([...selected, checked.value]);
+    else setSelected(selected.filter(_value => _value !== value));
   };
 
-  const tableHeaders = (
+  useEffect(() => onSelect(selected));
+
+  const thead = (
     <thead>
       <tr>
         <th>
-          <Checkboxes options={options} onChange={({ checked }) => handleSelected(checked, true)} />
+          <Checkboxes
+            withEffect
+            options={[
+              Object.assign(
+                {},
+                {
+                  value: rows.map(row => row[identification]),
+                  checked: selected.length === rows.length
+                }
+              )
+            ]}
+            onChange={({ checked }) => handleSelected(checked, checked, true)}
+            />
         </th>
-        {columns.map(column => <th>{column}</th>)}
+        {columns.map(column => <th key={column}>{column}</th>)}
       </tr>
     </thead>
   );
 
-  const tableBody = rows.map(row => (
-    <tr>
-      <td>
-        <Checkboxes
+  const tbody = rows.map(row => (
+    <tbody key={row[identification]}>
+      <tr>
+        <td>
+          <Checkboxes
           withEffect
-          options={[{ value: row[identification], checked: checkedStatus }]}
-          onChange={({ checked }) => handleSelected(checked)}
+          options={
+            [{ value: row[identification], checked: selected.includes(row[identification]) }]
+          }
+          onChange={({ checked }) => handleSelected(checked, row[identification])}
           />
-      </td>
-      {columns.map(column => <td>{row[column]}</td>)}
-    </tr>
+        </td>
+        {columns.map(column => <td key={row[column]}>{row[column]}</td>)}
+      </tr>
+    </tbody>
   ));
 
   return (
     <div className="table-scroll__wrapper">
       <div className="table-scroll">
         <table>
-          {tableHeaders}
-          {tableBody}
+          {thead}
+          {tbody}
         </table>
       </div>
     </div>
@@ -52,12 +74,12 @@ const Table = ({
 };
 
 Table.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.object,
   onSelect: PropTypes.func
 };
 
 Table.defaultProps = {
-  data: [],
+  data: {},
   onSelect: () => {}
 };
 

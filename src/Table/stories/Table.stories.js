@@ -2,39 +2,27 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Table from '../index';
 
-var tableData = {
+var data = {
   identification: 'id',
-  columns: ['Service', 'Cost/Unit', 'Unit', 'Units Requested'],
+  columns: ['name', 'age'],
   rows: [{
     id: 1,
-    'Service': 'Veterinary Assitance',
-    'Cost/Unit': 50,
-    'Unit': '1 Hour',
-    'Units Requested': 12
+    name: 'Adam',
+    age: 26,
   }, {
     id: 2,
-    'Service': 'Veterinary Assitance',
-    'Cost/Unit': 50,
-    'Unit': '1 Hour',
-    'Units Requested': 12
+    name: 'Oscar',
+    age: 52,
   }, {
     id: 3,
-    'Service': 'Veterinary Assitance',
-    'Cost/Unit': 50,
-    'Unit': '1 Hour',
-    'Units Requested': 12
-  }, {
-    id: 4,
-    'Service': 'Veterinary Assitance',
-    'Cost/Unit': 50,
-    'Unit': '1 Hour',
-    'Units Requested': 12
+    name: 'Ismael',
+    age: 23
   }]
 };
 
 storiesOf('Table', module)
   .add('Simple', () => (
     <div className="component-wrapper">
-      <Table data = {tableData} onSelect={(selected) => console.log(selected)}/>
+      <Table data={data} onSelect={(selected) => console.log(selected)}/>
     </div>
   ));
