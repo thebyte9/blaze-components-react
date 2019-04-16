@@ -35,7 +35,7 @@ describe('Table component', () => {
     expect(wrapper.find('input').at(0).prop('checked')).toBe(false);
   });
 
-  test('should toggle one', () => {
+  test('should toggle one Checkbox', () => {
     const wrapper = mount(<Table data={data} onSelect={() => {}} />);
 
     wrapper.find('Checkboxes').at(2).simulate('click');

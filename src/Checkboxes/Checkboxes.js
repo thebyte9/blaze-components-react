@@ -32,10 +32,10 @@ const Checkboxes = ({
           label,
           id
         } = item;
-        
+      
         return (
           <span
-                key={label}
+                key={id}
                 className="form-field form-field--checkbox"
                 onClick={e => toggle({ e, item, key })}
                 role="button">

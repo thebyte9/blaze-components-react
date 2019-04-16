@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import Checkboxes from '../Checkboxes';
 
 const Table = ({
-  data: { columns, rows, identification },
+  data: {
+    columns,
+    rows,
+    identification
+  },
   onSelect
 }) => {
   const [selected, setSelected] = useState([]);
@@ -32,6 +36,7 @@ const Table = ({
                 {},
                 {
                   value: rows.map(row => row[identification]),
+                  id: 'Select_all',
                   checked: selected.length === rows.length
                 }
               )
@@ -51,7 +56,13 @@ const Table = ({
           <Checkboxes
           withEffect
           options={
-            [{ value: row[identification], checked: selected.includes(row[identification]) }]
+            [
+              {
+                value: row[identification],
+                id: row[identification],
+                checked: selected.includes(row[identification])
+              }
+            ]
           }
           onChange={({ checked }) => handleSelected(checked, row[identification])}
           />
