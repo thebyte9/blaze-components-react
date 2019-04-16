@@ -12,6 +12,7 @@ import Modal from './Modal';
 import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
 import DropdownComponent from './Dropdown';
+import SocialFollow from './SocialFollow';
 
 export {
   Button,
@@ -26,6 +27,7 @@ export {
   RadioButton,
   Modal,
   Tooltip,
+  Breadcrumb,
   DropdownComponent,
-  Breadcrumb
+  SocialFollow
 };
