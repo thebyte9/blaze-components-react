@@ -12,7 +12,7 @@ const options = [
   }
 ];
 
-storiesOf('Components/Radio Button', module)
+storiesOf('Radio Buttons', module)
   .add('Introduction', () => (
     <form>
       <div className="component-wrapper">

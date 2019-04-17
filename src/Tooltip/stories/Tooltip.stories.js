@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Tooltip from '../index';
 
-storiesOf('Components/Tooltip', module)
+storiesOf('Tooltips', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">

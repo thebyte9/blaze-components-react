@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Badge from '../index';
 
-storiesOf('Components/Badge', module)
+storiesOf('Badges', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">

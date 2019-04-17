@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Input from '../index';
 
-storiesOf('Components/Inputs', module)
+storiesOf('Text Inputs', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">

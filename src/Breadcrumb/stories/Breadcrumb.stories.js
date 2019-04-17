@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Breadcrumb from '../index';
 
-storiesOf('Components/Breadcrumb', module)
+storiesOf('Breadcrumbs', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">
