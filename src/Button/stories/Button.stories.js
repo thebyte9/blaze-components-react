@@ -14,7 +14,7 @@ const showCaseButtonStyles = {
   marginBottom: '2em'
 };
 
-storiesOf('Components/Button', module)
+storiesOf('Button', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">
