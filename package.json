@@ -1,6 +1,6 @@
 {
   "name": "@blaze-cms/blaze-components-react",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "React Component Framework for Blaze-CMS",
   "main": "dist/blaze-components.js",
   "module": "dist/blaze-components.es.js",
@@ -54,7 +54,7 @@
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@blaze-cms/blaze-ui": "0.0.1",
+    "@blaze-cms/blaze-ui": "0.0.2",
     "@storybook/react": "^5.0.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
