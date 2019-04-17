@@ -117,6 +117,16 @@ storiesOf('Badges', module)
       <Badge type="primary">Badge</Badge>
       &nbsp;
       <Badge type="secondary" link>link</Badge>
+      <div>
+        <pre>
+          <code>
+            {'<Badge type="primary">Badge</Badge>'}
+            <br />
+            <br />
+            {'<Badge type="secondary" link>link</Badge>'}
+          </code>
+        </pre>
+      </div>
     </div>
   ))
   .add('Rounded', () => (
@@ -124,5 +134,15 @@ storiesOf('Badges', module)
       <h1>Rounded badges</h1>
       <Badge type="alert" round>10</Badge> &nbsp;
       <Badge type="info" pill link to="https://www.thebyte9.com/">Link to byte9</Badge>
+      <div>
+        <pre>
+          <code>
+            {'<Badge type="alert" round>10</Badge> &nbsp;'}
+            <br />
+            <br />
+            {'<Badge type="info" pill link to="https://www.thebyte9.com/">Link to byte9</Badge>'}
+          </code>
+        </pre>
+      </div>
     </div>
   ))
