@@ -14,7 +14,7 @@ const media = {
 storiesOf('Social Follow', module)
   .add('Social share', () => (
     <div className="component-wrapper">
-      <SocialFollow media={media} vertical/> 
+      <SocialFollow media={media} vertical title="Share..."/> 
     </div>
   ))
   .add('Social follow', () => (

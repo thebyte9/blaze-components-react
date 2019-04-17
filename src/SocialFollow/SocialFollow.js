@@ -2,72 +2,67 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SocialFollow = ({
-  media: {
-    facebook,
-    twitter,
-    pinterest,
-    LinkedIn,
-    youtube,
-    instagram
-  },
-  type,
+  media,
   title,
-  vertical
-}) => (
-  <div className={`social social--${type} ${vertical ? 'social--vertical' : ''}`}>
-    <p>{title || type.charAt(0).toUpperCase() + type.slice(1)}</p>
-    <ul className={`social__list social__list--${type} ${vertical ? 'social__list--vertical' : ''}`}>
-      {facebook && (
-        <li className={`social__list-item social__list-item--${type}`}>
-          <a href={facebook} rel="noopener noreferrer" target="_blank" className="facebook">
-            <i className="fab fa-facebook-f" />
-            <span className="hidden">Facebook</span>
-          </a>
-        </li>
-      )}
-      {twitter && (
-        <li className={`social__list-item social__list-item--${type}`}>
-          <a href={twitter} rel="noopener noreferrer" target="_blank" className="twitter">
-            <i className="fab fa-twitter" />
-            <span className="hidden">Twitter</span>
-          </a>
-        </li>
-      )}
-      {pinterest && (
-      <li className={`social__list-item social__list-item--${type}`}>
-        <a href={pinterest} rel="noopener noreferrer" target="_blank" className="pinterest">
-          <i className="fab fa-pinterest-p" />
-          <span className="hidden">Pinterest</span>
+  vertical,
+  type
+}) => {
+  const socialConf = {
+    facebook: {
+      name: 'Facebook',
+      class: 'facebook',
+      icon: 'fab fa-facebook-f'
+    },
+    twitter: {
+      name: 'Twitter',
+      class: 'twitter',
+      icon: 'fab fa-twitter'
+    },
+    pinterest: {
+      name: 'Pinterest',
+      class: 'pinterest',
+      icon: 'fab fa-pinterest-p'
+    },
+    LinkedIn: {
+      name: 'Linkedin',
+      class: 'linkedin',
+      icon: 'fab fa-linkedin-in'
+    },
+    youtube: {
+      name: 'Youtube',
+      class: 'youtube',
+      icon: 'fab fa-youtube',
+      isFollow: true
+    },
+    instagram: {
+      name: 'Instagram',
+      class: 'instagram',
+      icon: 'fab fa-instagram',
+      isFollow: true
+    }
+  };
+
+  const renderSocial = Object.keys(media).map((key) => {
+    if (!(type === 'follow') && socialConf[key].isFollow) return null;
+    return (
+      <li key={key} className={`social__list-item social__list-item--${type}`}>
+        <a href={media[key]} rel="noopener noreferrer" target="_blank" className={socialConf[key].class}>
+          <i className={socialConf[key].icon} />
+          <span className="hidden">{socialConf[key].name}</span>
         </a>
       </li>
-      )}
-      {LinkedIn && (
-      <li className={`social__list-item social__list-item--${type}`}>
-        <a href={LinkedIn} rel="noopener noreferrer" target="_blank" className="linkedin">
-          <i className="fab fa-linkedin-in" />
-          <span className="hidden">LinkedIn</span>
-        </a>
-      </li>
-      )}
-      {youtube && type === 'follow' && (
-      <li className={`social__list-item social__list-item--${type}`}>
-        <a href={youtube} rel="noopener noreferrer" target="_blank" className="youtube">
-          <i className="fab fa-youtube" />
-          <span className="hidden">YouTube</span>
-        </a>
-      </li>
-      )}
-      {instagram && type === 'follow' && (
-      <li className={`social__list-item social__list-item--${type}`}>
-        <a href={instagram} rel="noopener noreferrer" target="_blank" className="instagram">
-          <i className="fab fa-instagram" />
-          <span className="hidden">Instagram</span>
-        </a>
-      </li>
-      )}
-    </ul>
-  </div>
-);
+    );
+  });
+
+  return (
+    <div className={`social social--${type} ${vertical ? 'social--vertical' : ''}`}>
+      {title && <p>{title}</p>}
+      <ul className={`social__list social__list--${type} ${vertical ? 'social__list--vertical' : ''}`}>
+        {renderSocial}
+      </ul>
+    </div>
+  );
+};
 
 SocialFollow.propTypes = {
   media: PropTypes.object.isRequired,
