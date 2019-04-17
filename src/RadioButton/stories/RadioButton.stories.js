@@ -35,6 +35,24 @@ storiesOf('Radio Buttons', module)
               onChange={() => {}}
               />
           </div>
+          <div>
+          <pre>
+            <code>
+              {`
+                const options = [
+                  { label: 'A', value: 1, id: 'one' },
+                  {
+                    label: 'B', value: 'accepted', required: true, id: 'two'
+                  },
+                  {
+                    label: 'Disabled', value: '', disabled: true, id: 'three'
+                  }
+                ];
+                
+                <RadioButton options={options} onChange={() => {}} />`}
+            </code>
+          </pre>
+        </div>
         </section>
       </div>
     </form>
