@@ -1,28 +1,28 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Alert from '../index';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Alert from "../index";
 
 const showCaseDivStyles = {
-  display: 'flex',
-  justifyContent: 'space-around',
-  flexWrap: 'wrap',
-  minHeight: '10em'
+  display: "flex",
+  justifyContent: "space-around",
+  flexWrap: "wrap",
+  minHeight: "10em"
 };
 
-const alertTypes = ['primary, secondary, success, warning, info. light, dark'];
+const alertTypes = ["primary, secondary, success, warning, info. light, dark"];
 
 const renderAlerts = alerts => alerts.map(alert => <Alert type={alert} />);
 
-storiesOf('Alert', module)
-  .add('Introduction', () => (
+storiesOf("Alert", module)
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <section className="introductionSection">
         <h1>Alerts</h1>
         <p>
-        Provide contextual feedback messages for typical user actions with the handful
-        of available and flexible alert messages.
-        Alerts may have a type, be dismissable, include a close button, and contain
-        any sort of children components.
+          Provide contextual feedback messages for typical user actions with the
+          handful of available and flexible alert messages. Alerts may have a
+          type, be dismissable, include a close button, and contain any sort of
+          children components.
         </p>
 
         <hr />
@@ -32,26 +32,63 @@ storiesOf('Alert', module)
         <h3>Examples</h3>
 
         <div style={showCaseDivStyles}>
-          <Alert>{'<Alert>Simple default alert </Alert>'}</Alert>
-          <Alert type="primary">{'<Alert type="primary">Simple primary alert </Alert>'}</Alert>
-          <Alert type="secondary">{'<Alert type="secondary">Simple secondary alert </Alert>'}</Alert>
-          <Alert type="success">{'<Alert type="success">Simple success alert </Alert>'}</Alert>
-          <Alert type="warning">{'<Alert type="warning">Simple warning alert </Alert>'}</Alert>
-          <Alert type="info">{'<Alert type="info">Simple info alert </Alert>'}</Alert>
-          <Alert type="light">{'<Alert type="light">Simple light alert </Alert>'}</Alert>
-          <Alert type="dark">{'<Alert type="dark">Simple dark alert </Alert>'}</Alert>
-          {renderAlerts(alertTypes)}
+          <Alert>{"<Alert>Default alert </Alert>"}</Alert>
+          <Alert type="primary">
+            {'<Alert type="primary">Primary alert </Alert>'}
+          </Alert>
+          <Alert type="secondary">
+            {'<Alert type="secondary">Secondary alert </Alert>'}
+          </Alert>
+          <Alert type="success">
+            {'<Alert type="success">Success alert </Alert>'}
+          </Alert>
+          <Alert type="warning">
+            {'<Alert type="warning">Warning alert </Alert>'}
+          </Alert>
+          <Alert type="info">{'<Alert type="info">Info alert </Alert>'}</Alert>
+          <Alert type="light">
+            {'<Alert type="light">Light alert </Alert>'}
+          </Alert>
+          <Alert type="dark">{'<Alert type="dark">Dark alert </Alert>'}</Alert>
         </div>
 
+        <div>
+          <pre>
+            <code>
+              {"<Alert>Default alert</Alert>"}
+              <br />
+              <br />
+              {'<Alert type="primary">Primary alert</Alert>'}
+              <br />
+              <br />
+              {'<Alert type="secondary">Secondary alert</Alert>'}
+              <br />
+              <br />
+              {'<Alert type="success">Success alert</Alert>'}
+              <br />
+              <br />
+              {'<Alert type="warning">Warning alert</Alert>'}
+              <br />
+              <br />
+              {'<Alert type="info">Info alert</Alert>'}
+              <br />
+              <br />
+              {'<Alert type="light">Light alert</Alert>'}
+              <br />
+              <br />
+              {'<Alert type="dark">Dark alert</Alert>'}
+              <br />
+              <br />
+            </code>
+          </pre>
+        </div>
       </section>
 
       <hr />
 
       <div>
         <h3>List of modifiers</h3>
-        <p>
-          You may use any of the following types
-        </p>
+        <p>You may use any of the following types</p>
         <table>
           <thead>
             <tr>
@@ -85,10 +122,12 @@ storiesOf('Alert', module)
       </div>
     </div>
   ))
-  .add('Props', () => (
+  .add("Props", () => (
     <div className="component-wrapper">
       <h1>Props</h1>
-      {/* <p>Buttons can receive a number of props: disabled, isSubmit, children, attrs</p> */}
+      <p>
+        Alerts can receive a number of props: close, icon, type, and children
+      </p>
       <table>
         <thead>
           <tr>
@@ -127,39 +166,65 @@ storiesOf('Alert', module)
       </table>
     </div>
   ))
-  .add('Simple', () => (
-    <div className="component-wrapper">
-      <h1>Simple alerts</h1>
-      <Alert>Simple default alert - lorem ipsum dolor sit amet consectetur adipiscing</Alert>
-      <Alert type="primary">Simple primary alert - lorem ipsum dolor sit amet consectetur adipiscing</Alert>
-      <Alert type="secondary">Simple secondary alert - lorem ipsum dolor sit amet consectetur adipiscing</Alert>
-      <Alert type="success">Simple success alert - lorem ipsum dolor sit amet consectetur adipiscing</Alert>
-      <Alert type="warning">Simple warning alert - lorem ipsum dolor sit amet consectetur adipiscing</Alert>
-      <Alert type="info">Simple info alert - lorem ipsum dolor sit amet consectetur adipiscing</Alert>
-      <Alert type="light">Simple light alert - lorem ipsum dolor sit amet consectetur adipiscing</Alert>
-      <Alert type="dark">Simple dark alert - lorem ipsum dolor sit amet consectetur adipiscing</Alert>
-    </div>
-  ))
-  .add('Dismissable', () => (
+  .add("Dismissable", () => (
     <div className="component-wrapper">
       <h1>Alert + close button</h1>
-      <Alert close type="primary">{'<Alert close type="primary">Simple primary alert</Alert>'}</Alert>
+      <Alert close type="primary">
+        {"Add close buttons to dismiss alerts"}
+      </Alert>
+      <div>
+        <pre>
+          <code>
+            {`
+              <Alert close type="primary" />
+              `}
+            <br />
+            <br />
+          </code>
+        </pre>
+      </div>
     </div>
   ))
-  .add('With icon', () => (
+  .add("With icon", () => (
     <div className="component-wrapper">
       <h1>Alert + icon</h1>
-      <Alert icon="error" type="warning">{'<Alert icon="error" type="warning">Simple warning alert</Alert>'}</Alert>
+      <Alert icon="error" type="warning" />
+      <div>
+        <pre>
+          <code>
+            {`
+              <Alert icon="error" type="warning" />
+              `}
+            <br />
+            <br />
+          </code>
+        </pre>
+      </div>
     </div>
   ))
-  .add('With content', () => (
+  .add("With content", () => (
     <div className="component-wrapper">
       <h1>Alert + content</h1>
-      <p>
-        Alerts can take in any sort of children component you require.
-      </p>
-      <Alert close type="dark">
-        {'<Alert close type="dark">Heading here</Alert>'}
+      <p>Alerts can take in any sort of children component you require.</p>
+      <Alert type="primary">
+        <p>Simple primary alert - with content here</p>
+        <hr />
+        <p>Extra content here</p>
       </Alert>
+      <div>
+        <pre>
+          <code>
+            {`
+              <Alert type="primary">
+                <p>Simple primary alert - with content here</p>
+                <hr />
+                <p>Extra content here</p>
+              </Alert>
+              `}
+            <br />
+            <br />
+          </code>
+        </pre>
+      </div>
     </div>
   ));

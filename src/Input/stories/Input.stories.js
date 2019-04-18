@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Input from '../index';
 
-storiesOf('Components/Inputs', module)
+storiesOf('Text Inputs', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">
@@ -129,12 +129,28 @@ storiesOf('Components/Inputs', module)
       </table>
     </div>
   ))
-  .add('How it works', () => (
+  .add('Password Inputs', () => (
     <div className="component-wrapper">
-      <p>
-        A set of controlled input components that provide the user with a number of options.
-        <br />
-
-      </p>
+      <h1>Password Inputs</h1>
+      <Input
+        label="Password - show hide"
+        placeholder="******"
+        onChange={() => {}}
+        type="password"
+        className="form-password" />
+      <div>
+        <pre>
+          <code>
+            {`
+              <Input
+                label="Password - show hide"
+                placeholder="******"
+                onChange={() => {}}
+                type="password"
+                className="form-password" />
+            `}
+          </code>
+        </pre>
+      </div>
     </div>
   ));

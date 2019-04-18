@@ -19,7 +19,7 @@ const tableStyles = {
   textAlign: 'center'
 };
 
-storiesOf('Components/Input - Select', module)
+storiesOf('Select', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">
