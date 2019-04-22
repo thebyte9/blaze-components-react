@@ -12,6 +12,7 @@ import Modal from './Modal';
 import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
 import DropdownComponent from './Dropdown';
+import VideoContainer from './VideoContainer';
 
 export {
   Button,
@@ -27,5 +28,6 @@ export {
   Modal,
   Tooltip,
   DropdownComponent,
-  Breadcrumb
+  Breadcrumb,
+  VideoContainer
 };
