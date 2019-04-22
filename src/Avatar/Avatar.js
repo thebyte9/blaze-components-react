@@ -10,7 +10,7 @@ const Avatar = ({
   ...attr
 }) => {
   const [size, setSize] = useState(0);
-  const [avatarUrl, setAvatar] = useState(url);
+  const [avatarUrl, setAvatar] = useState(null);
 
   const _modifier = modifier ? `avatar--${modifier}` : '';
   const ref = useRef(null);
