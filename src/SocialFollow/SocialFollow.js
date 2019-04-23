@@ -23,7 +23,7 @@ const SocialFollow = ({
       class: 'pinterest',
       icon: 'fab fa-pinterest-p'
     },
-    LinkedIn: {
+    linkedIn: {
       name: 'Linkedin',
       class: 'linkedin',
       icon: 'fab fa-linkedin-in'

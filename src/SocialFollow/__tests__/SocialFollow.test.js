@@ -7,7 +7,7 @@ const media = {
   facebook: 'https://www.thebyte9.com',
   twitter: 'https://www.thebyte9.com',
   pinterest: 'https://www.thebyte9.com',
-  LinkedIn: 'https://www.thebyte9.com',
+  linkedIn: 'https://www.thebyte9.com',
   youtube: 'https://www.thebyte9.com',
   instagram: 'https://www.thebyte9.com'
 };
