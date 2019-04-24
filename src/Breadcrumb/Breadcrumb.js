@@ -17,7 +17,7 @@ Breadcrumb.propTypes = {
 };
 
 Breadcrumb.defaultProps = {
-  children: 'No content'
+  children: <li>No content</li>
 };
 
 export default Breadcrumb;
