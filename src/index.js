@@ -12,6 +12,7 @@ import Modal from './Modal';
 import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
 import DropdownComponent from './Dropdown';
+import VideoContainer from './VideoContainer';
 import Avatar from './Avatar';
 
 export {
@@ -29,5 +30,6 @@ export {
   Tooltip,
   DropdownComponent,
   Breadcrumb,
+  VideoContainer,
   Avatar
 };
