@@ -12,7 +12,7 @@ const options = [
   }
 ];
 
-storiesOf('Components/Checkbox', module)
+storiesOf('Checkboxes', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">

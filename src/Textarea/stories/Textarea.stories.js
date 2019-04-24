@@ -7,7 +7,7 @@ const tableStyles = {
   textAlign: 'center'
 };
 
-storiesOf('Components/Inputs - Textarea', module)
+storiesOf('Textareas', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">
