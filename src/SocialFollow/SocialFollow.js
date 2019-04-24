@@ -32,18 +32,18 @@ const SocialFollow = ({
       name: 'Youtube',
       class: 'youtube',
       icon: 'fab fa-youtube',
-      isFollow: true
+      isFollowing: true
     },
     instagram: {
       name: 'Instagram',
       class: 'instagram',
       icon: 'fab fa-instagram',
-      isFollow: true
+      isFollowing: true
     }
   };
 
   const renderSocial = Object.keys(media).map((key) => {
-    if (!(type === 'follow') && socialConf[key].isFollow) return null;
+    if (!(type === 'follow') && socialConf[key].isFollowing) return null;
     return (
       <li key={key} className={`social__list-item social__list-item--${type}`}>
         <a href={media[key]} rel="noopener noreferrer" target="_blank" className={socialConf[key].class}>
