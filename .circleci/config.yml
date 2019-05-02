@@ -14,9 +14,8 @@ install_aws_cli: &install_aws_cli
         name: Install awscli
         command: sudo pip install awscli
 
-
 jobs: # a collection of steps
-    test: # runs not using Workflows must have a `build` job as entry point
+    build: # runs not using Workflows must have a `build` job as entry point
         docker: # run the steps with Docker
             - image: circleci/node:10.15.0 # ...with this image as the primary container; this is where all `steps` will run
         environment:
@@ -64,14 +63,14 @@ jobs: # a collection of steps
                 command: npm run build-storybook
             - persist_to_workspace:
                 root: dist
-                - run:
-                    name: Deploy to S3
-                    command: aws s3 sync ./dist/.out/ s3://boatpro-live.boatinternational.com --delete --acl public-read
+            - run:
+                name: Deploy to S3
+                command: aws s3 sync ./dist/.out/ s3://blaze-components-react.thisisblaze.com --delete --acl public-read
 workflows:
     version: 2
     build-deploy:
         jobs:
-            - test:
+            - build:
                 filters:
                     branches:
                         only: /.*/
@@ -80,7 +79,7 @@ workflows:
             - deploy_approve:
                 type: approval
                 requires:
-                    - test
+                    - build
                 filters:
                     tags:
                         only: /^v\d+\.\d+\.\d+$/
@@ -88,7 +87,7 @@ workflows:
                         ignore: /.*/
             - deploy_prod:
                 requires:
-                    - test
+                    - build
                     - deploy_approve
                 filters:
                     tags:
