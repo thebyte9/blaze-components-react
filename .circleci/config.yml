@@ -58,7 +58,7 @@ jobs: # a collection of steps
             - persist_to_workspace:
                 root: .out
                 paths:
-                    - *
+                    - ~/.out/
 
         deploy_prod:
             <<: *deploy_config
