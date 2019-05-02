@@ -56,8 +56,10 @@ jobs: # a collection of steps
                 name: Building
                 command: npm run build-storybook
             - persist_to_workspace:
-                paths:
-                    - ~/.out/
+                root: /home/circleci/project/
+                paths: 
+                - .out/
+
 
         deploy_prod:
             <<: *deploy_config
