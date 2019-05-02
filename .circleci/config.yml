@@ -60,15 +60,14 @@ jobs: # a collection of steps
                 paths: 
                 - .out/
 
-
-        deploy_prod:
-            <<: *deploy_config
-            steps:
-                - *attach_to_workspace
-                - *install_aws_cli
-                - run:
-                    name: Deploy to S3
-                    command: aws s3 sync .out/ s3://blaze-components-react.thisisblaze.com --delete --acl public-read
+    deploy_prod:
+        <<: *deploy_config
+        steps:
+            - *attach_to_workspace
+            - *install_aws_cli
+            - run:
+                name: Deploy to S3
+                command: aws s3 sync .out/ s3://blaze-components-react.thisisblaze.com --delete --acl public-read
 
 workflows:
     version: 2
