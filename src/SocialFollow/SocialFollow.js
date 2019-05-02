@@ -43,7 +43,7 @@ const SocialFollow = ({
   };
 
   const renderSocial = Object.keys(media).map((key) => {
-    if (!(type === 'follow') && socialConf[key].isFollowing) return null;
+    if (type !== 'follow' && socialConf[key].isFollowing) return null;
     return (
       <li key={key} className={`social__list-item social__list-item--${type}`}>
         <a href={media[key]} rel="noopener noreferrer" target="_blank" className={socialConf[key].class}>

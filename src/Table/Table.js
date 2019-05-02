@@ -6,9 +6,10 @@ const Table = ({
   data: {
     columns,
     rows,
-    identification
+    identification,
   },
-  onSelect
+  onSelect,
+  hasCheckboxes
 }) => {
   const [selected, setSelected] = useState([]);
 
@@ -28,49 +29,62 @@ const Table = ({
   const thead = (
     <thead>
       <tr>
-        <th>
-          <Checkboxes
-            withEffect
-            options={[
-              Object.assign(
-                {},
-                {
-                  value: rows.map(row => row[identification]),
-                  id: 'Select_all',
-                  checked: selected.length === rows.length
-                }
-              )
-            ]}
-            onChange={({ checked }) => handleSelected(checked, checked, true)}
-            />
-        </th>
+        {
+          hasCheckboxes && (
+            <th>
+              <Checkboxes
+                withEffect
+                options={[
+                  Object.assign(
+                    {},
+                    {
+                      value: rows.map(row => row[identification]),
+                      id: 'Select_all',
+                      checked: selected.length === rows.length
+                    }
+                  )
+                ]}
+                onChange={({ checked }) => handleSelected(checked, checked, true)}
+                />
+            </th>
+          )
+        }
         {columns.map(column => <th key={column}>{column}</th>)}
       </tr>
     </thead>
   );
 
-  const tbody = rows.map(row => (
-    <tbody key={row[identification]}>
-      <tr>
-        <td>
-          <Checkboxes
-          withEffect
-          options={
-            [
-              {
-                value: row[identification],
-                id: row[identification],
-                checked: selected.includes(row[identification])
-              }
-            ]
-          }
-          onChange={({ checked }) => handleSelected(checked, row[identification])}
-          />
-        </td>
-        {columns.map(column => <td key={row[column]}>{row[column]}</td>)}
-      </tr>
+  const tbody = (
+    <tbody>
+      {
+        rows.map(row => (
+          <tr key={row[identification]}>
+            {
+              hasCheckboxes
+              && (
+                <td>
+                  <Checkboxes
+                  withEffect
+                  options={
+                    [
+                      {
+                        value: row[identification],
+                        id: row[identification],
+                        checked: selected.includes(row[identification])
+                      }
+                    ]
+                  }
+                  onChange={({ checked }) => handleSelected(checked, row[identification])}
+                  />
+                </td>
+              )
+            }
+            {columns.map(column => <td key={row[column]}>{row[column]}</td>)}
+          </tr>
+        ))
+      }
     </tbody>
-  ));
+  );
 
   return (
     <div className="table-scroll__wrapper">
@@ -86,12 +100,14 @@ const Table = ({
 
 Table.propTypes = {
   data: PropTypes.object,
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
+  hasCheckboxes: PropTypes.bool
 };
 
 Table.defaultProps = {
   data: {},
-  onSelect: () => {}
+  onSelect: () => {},
+  hasCheckboxes: true,
 };
 
 export default Table;
