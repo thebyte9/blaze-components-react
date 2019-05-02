@@ -67,7 +67,7 @@ jobs: # a collection of steps
             - *install_aws_cli
             - run:
                 name: Deploy to S3
-                command: aws s3 sync docs-build/ s3://blaze-components-react.thisisblaze.com --delete --acl public-read
+                command: aws s3 sync docs-build/* s3://blaze-components-react.thisisblaze.com --delete --acl public-read
 
 workflows:
     version: 2
