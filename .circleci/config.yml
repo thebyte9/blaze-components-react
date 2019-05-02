@@ -52,17 +52,17 @@ jobs: # a collection of steps
                     - ~/sonar-scanner-${SONAR_QUBE_VERSION}/
                     - ~/.sonar/cache/
                     - ./.scannerwork/
+            - run:
+                name: Building
+                command: npm run build-storybook
+            - persist_to_workspace:
+                root: dist
 
         deploy_prod:
             <<: *deploy_config
             steps:
                 - *attach_to_workspace
                 - *install_aws_cli
-           - run:
-                name: Building
-                command: npm run build-storybook
-            - persist_to_workspace:
-                root: dist
             - run:
                 name: Deploy to S3
                 command: aws s3 sync ./dist/.out/ s3://blaze-components-react.thisisblaze.com --delete --acl public-read
