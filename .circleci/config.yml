@@ -56,7 +56,6 @@ jobs: # a collection of steps
                 name: Building
                 command: npm run build-storybook
             - persist_to_workspace:
-                root: .out
                 paths:
                     - ~/.out/
 
