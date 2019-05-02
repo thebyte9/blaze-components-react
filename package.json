@@ -6,7 +6,7 @@
   "module": "dist/blaze-components.es.js",
   "scripts": {
     "build": "rollup -c",
-    "build-storybook": "build-storybook -c .storybook -o .out",
+    "build-storybook": "build-storybook -c .storybook -o docs-build",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "dev": "start-storybook",
