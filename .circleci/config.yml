@@ -7,7 +7,7 @@ deploy_config: &deploy_config
 
 attach_to_workspace: &attach_to_workspace
     attach_workspace:
-        at: ~/app/dist
+        at: ~/app/.out
 
 install_aws_cli: &install_aws_cli
     run:
@@ -56,7 +56,7 @@ jobs: # a collection of steps
                 name: Building
                 command: npm run build-storybook
             - persist_to_workspace:
-                root: dist
+                root: .out
 
         deploy_prod:
             <<: *deploy_config
@@ -65,7 +65,7 @@ jobs: # a collection of steps
                 - *install_aws_cli
                 - run:
                     name: Deploy to S3
-                    command: aws s3 sync ./dist/.out/ s3://blaze-components-react.thisisblaze.com --delete --acl public-read
+                    command: aws s3 sync .out/ s3://blaze-components-react.thisisblaze.com --delete --acl public-read
 
 workflows:
     version: 2
