@@ -1,7 +1,21 @@
 version: 2 # use CircleCI 2.0
 
+deploy_config: &deploy_config
+    docker:
+        - image: circleci/python:2.7-jessie
+    working_directory: ~/app
+
+attach_to_workspace: &attach_to_workspace
+    attach_workspace:
+        at: ~/app/.out
+
+install_aws_cli: &install_aws_cli
+    run:
+        name: Install awscli
+        command: sudo pip install awscli
+
 jobs: # a collection of steps
-    test: # runs not using Workflows must have a `build` job as entry point
+    build: # runs not using Workflows must have a `build` job as entry point
         docker: # run the steps with Docker
             - image: circleci/node:10.15.0 # ...with this image as the primary container; this is where all `steps` will run
         environment:
@@ -38,8 +52,49 @@ jobs: # a collection of steps
                     - ~/sonar-scanner-${SONAR_QUBE_VERSION}/
                     - ~/.sonar/cache/
                     - ./.scannerwork/
+            - run:
+                name: Building
+                command: npm run build-storybook
+            - persist_to_workspace:
+                root: /home/circleci/project/
+                paths: 
+                - .out/
+
+
+        deploy_prod:
+            <<: *deploy_config
+            steps:
+                - *attach_to_workspace
+                - *install_aws_cli
+                - run:
+                    name: Deploy to S3
+                    command: aws s3 sync .out/ s3://blaze-components-react.thisisblaze.com --delete --acl public-read
+
 workflows:
     version: 2
-    test:
+    build-deploy:
         jobs:
-            - test
+            - build:
+                filters:
+                    branches:
+                        only: /.*/
+                    tags:
+                        only: /.*/
+            - deploy_approve:
+                type: approval
+                requires:
+                    - build
+                filters:
+                    tags:
+                        only: /^v\d+\.\d+\.\d+$/
+                    branches:
+                        ignore: /.*/
+            - deploy_prod:
+                requires:
+                    - build
+                    - deploy_approve
+                filters:
+                    tags:
+                        only: /^v\d+\.\d+\.\d+$/
+                    branches:
+                        ignore: /.*/
