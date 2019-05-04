@@ -24,7 +24,9 @@
     "url": "https://github.com/thebyte9/blaze-components-react/issues"
   },
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@storybook/addon-knobs": "^5.0.11"
+  },
   "peerDependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
@@ -80,7 +82,8 @@
     "rollup-plugin-node-resolve": "^4.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-url": "^2.2.0"
+    "rollup-plugin-url": "^2.2.0",
+    "storybook-readme": "^5.0.3"
   },
   "husky": {
     "hooks": {
