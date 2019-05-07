@@ -20,7 +20,12 @@ Badges are small components typically used to communicate a numerical value or i
 * Link
 
 ```js
-<Badge type="info" link to="https://www.thebyte9.com/">Link to byte9</Badge>
+<Badge 
+    type="info" 
+    link 
+    to="https://www.thebyte9.com/">
+    Go to byte9
+</Badge>
 ```
 
 * Rounded

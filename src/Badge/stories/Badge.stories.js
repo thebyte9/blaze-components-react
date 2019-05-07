@@ -29,7 +29,7 @@ storiesOf('Badges', module)
         <br />
 
         <h4>Link</h4>
-        <Badge type="info" link to="https://www.thebyte9.com/">Link to byte9</Badge>
+        <Badge type="info" link to="https://www.thebyte9.com/">Go to byte9</Badge>
         <br />
         <br />
 

@@ -17,14 +17,10 @@ Breadcrumbs allow users to make selections from a range of values.
 
 ## API
 
-##### Textarea can receive a number of `props` as follow:
+##### Breadcrumb can receive a number of `props` as follow:
 
 
 | NAME   | TYPE | DEFAULT | 
 | :---  | :---:  | :---: |
-| label | String | '' | 
-| value | String | ''  | 
-| required | Boolean | false | 
-| limit | Number | 0      |
 | children | A single or array of nodes| Missing breadcrumb content |
 
