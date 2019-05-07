@@ -4,14 +4,17 @@ import PropTypes from 'prop-types';
 
 const Button = ({
   disabled,
-  isSubmit,
+  submit,
   children,
+  modifiers,
   ...attrs
 }) => {
-  const type = (isSubmit) ? 'submit' : 'button';
+  const _type = submit ? 'submit' : 'button';
+
+  const _modifiers = modifiers.split(' ').map(modifier => `button--${modifier}`).join(' ');
     
   return (
-    <button disabled={disabled} type={type} {...attrs}>
+    <button disabled={disabled} className={`button ${_modifiers}`} type={_type} {...attrs}>
       {children}
     </button>
   );
@@ -19,14 +22,16 @@ const Button = ({
 
 Button.propTypes = {
   disabled: PropTypes.bool,
-  isSubmit: PropTypes.bool,
+  submit: PropTypes.bool,
+  modifiers: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 Button.defaultProps = {
   children: null,
   disabled: false,
-  isSubmit: false
+  submit: false,
+  modifiers: ''
 };
 
 export default Button;

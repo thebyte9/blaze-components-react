@@ -1,9 +1,9 @@
 
-# Description
+## Description
 
 Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages. Alerts may have a type, be dismissable, include a close button, and contain any sort of children components.
 
-# Usage
+## Usage
 
 * Simple
 
@@ -32,7 +32,7 @@ Provide contextual feedback messages for typical user actions with the handful o
 </Alert>
 ```
 
-# API
+## API
 
 ##### Alerts can receive a number of `props` as follow:
 

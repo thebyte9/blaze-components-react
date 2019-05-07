@@ -21,7 +21,6 @@ addParameters({
 });
 
 configureReadme({
-  header: `The Byte9 Blaze-2 Components`,
   footer: `Arcoders`,
 });
 

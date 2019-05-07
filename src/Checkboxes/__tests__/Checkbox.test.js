@@ -15,7 +15,7 @@ const options = [
 
 describe('Checkboxes component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Checkboxes options={options} />);
+    const wrapper = shallow(<Checkboxes boolean options={options} />);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();

@@ -2,87 +2,53 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Table from '../index';
 import propsExampleData from '../../utils/propsExampleData';
+import TableReadme from '../README.md';
+
+const data =  {
+  identification: 'id',
+  columns: ['name', 'age'],
+  rows: [{
+    id: 1,
+    name: 'Oscar Leon',
+    age: 26,
+  }, {
+    id: 2,
+    name: 'Ismael Haytam',
+    age: 23,
+  }, {
+    id: 3,
+    name: 'Robert',
+    age: 45
+  }]
+}
 
 storiesOf('Table', module)
+  .addParameters({
+    readme: {
+      sidebar: TableReadme
+    },
+  })
   .add('Introduction', () => (
     <div className="component-wrapper">
-      <section className="introductionSection">
-        <h1>Table</h1>
-        <p>
-          The HTML table element represents tabular data — that is,
-          information presented in a two-dimensional table comprised
-          of rows and columns of cells containing data.
-        </p>
-      </section>
-
-      <hr />
 
       <section className="examplesSection">
-        <p>Suppose we've got the following data available to us</p>
-        <div>
-          <pre>
-            <code>
-              {
-                `
-                const exampleData = {
-                  identification: 'id',
-                  columns: ['name', 'age'],
-                  rows: [{
-                    id: 1,
-                    name: 'Jane',
-                    age: 26,
-                  }, {
-                    id: 2,
-                    name: 'Lucy',
-                    age: 52,
-                  }, {
-                    id: 3,
-                    name: 'Robert',
-                    age: 23
-                  }]
-                };`
-              }
-            </code>
-          </pre>
-        </div>
+        <h1>Table</h1>
+
         <p>
           We can choose to render a table with or without row selection
-          by changing the boolean value of <code>hasCheckboxes</code>
+          by changing the prop boolean value of <code>checkboxes</code>
         </p>
-        <div>
-          <h3>Example 1</h3>
-          <Table checkboxes={false} data={propsExampleData.tableIntroExampleData} onSelect={(selected) => console.log(selected)} />
-          <div>
-            <pre>
-              <code>
-                {
-                  `
-                    <Table
-                      hasCheckboxes={false}
-                      data={exampleData}
-                      onSelect={(selected) => console.log(selected)}
-                    />`
-                }
-              </code>
-            </pre>
-          </div>
-          <br />
-          <h3>Example 2</h3>
-          <Table data={propsExampleData.tableIntroExampleData} onSelect={(selected) => console.log(selected)} />
-          <div>
-            <pre>
-              <code>
-                {
-                  `
-                    <Table
-                      data={exampleData}
-                      onSelect={(selected) => console.log(selected)}
-                    />`
-                }
-              </code>
-            </pre>
-          </div>
-        </div>
+
+          <h4>With Checkboxes</h4>
+          
+          <Table checkboxes data={data} onSelect={(selected) => console.log(selected)} />
+
+          <br/>
+          <h4>Static table</h4>
+
+          <Table data={data} />
+
+
       
       </section>
 
