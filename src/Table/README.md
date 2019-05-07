@@ -42,7 +42,7 @@ const data =  {
 
 ## API
 
-##### Checkboxes can receive a number of `props` as follow:
+##### Table can receive a number of `props` as follow:
 
 
 | NAME   | TYPE | DEFAULT | Description |
