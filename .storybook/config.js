@@ -21,7 +21,7 @@ addParameters({
 });
 
 configureReadme({
-  footer: `Arcoders`,
+  footer: 'Keep it simple',
 });
 
 addDecorator(addReadme);

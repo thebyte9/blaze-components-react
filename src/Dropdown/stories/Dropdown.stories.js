@@ -1,13 +1,26 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Dropdown, DropdownItem } from '../Dropdown';
+import Dropdown from '../Dropdown';
+import DropdownReadme from '../README.md';
+
 
 storiesOf('Dropdown', module)
-  .add('Simple', () => (
+  .addParameters({
+    readme: {
+      sidebar: DropdownReadme
+    },
+  })
+  .add('Introduction', () => (
     <div className="component-wrapper">
-      <Dropdown label="Menu">
-        <DropdownItem label="Home" action={() => {}} />
-        <DropdownItem action={() => {}} />
+      <h1>Dropdown</h1>
+        <p>Click on more icon button to toggle menu.</p>
+        <hr/>
+      <div style={{textAlign: 'right'}}>
+      <Dropdown label="Dropdown">
+        <a href="/">Settings</a>
+        <a href="/">Sign out</a>
+        <a href="/">Help</a>
       </Dropdown>
+      </div>
     </div>
   ));
