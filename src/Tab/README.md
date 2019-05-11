@@ -23,6 +23,6 @@ Tabs organize a static or dynamic content across different screens.
 | :---  | :---:  | :---: | ------- |
 | label | String | 'Unnamed tab' | Tab name |
 | selected | Number | 0 | Selected Tab |
-| action | Function | () => {} | Function to execute to load dynamic content |
+| action | Function | () => {} | function that sets state and render dynamic content |
 | children | Single or array of nodes | No content | Any children components within the badge |
 
