@@ -1,30 +1,22 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import {Tab, TabItem} from '../Tab';
-
-let data = 'loading...';
-
-function loadData() {
-    // then(data) ...
-    // setData(data) ...
-}
+import TabReadme from '../README.md';
 
 storiesOf('Tab', module)
+  .addParameters({
+    readme: {
+      sidebar: TabReadme
+    },
+  })
   .add('Simple', () => (
     <div className="component-wrapper">
+      <h1>Tab</h1>
+      <p>Tabs organize a static or dynamic content across different screens.</p>
       <Tab selected={1}>
         <TabItem title="Basic">Basic content here</TabItem>
-        <TabItem title="Advanced">Advanced content here</TabItem>
+        <TabItem title="Advanced" action={() => {}}>Dynamic content here...</TabItem>
         <TabItem title="Other">Other content here</TabItem>
       </Tab>
-    </div>
-  ))
-  .add('Load onClick', () => (
-    <div className="component-wrapper">
-        <Tab selected={0}>
-          <TabItem title="Basic">Basic content here</TabItem>
-          <TabItem title="Advanced" action={() => loadData()}>{data}</TabItem>
-          <TabItem title="Other">Other content here</TabItem>
-        </Tab>
     </div>
   ));

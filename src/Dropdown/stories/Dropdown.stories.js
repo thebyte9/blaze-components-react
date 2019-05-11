@@ -13,8 +13,8 @@ storiesOf('Dropdown', module)
   .add('Introduction', () => (
     <div className="component-wrapper">
       <h1>Dropdown</h1>
-        <p>Click on more icon button to toggle menu.</p>
-        <hr/>
+      <p>Click on more icon button to toggle menu.</p>
+      <hr/>
       <div style={{textAlign: 'right'}}>
       <Dropdown label="Dropdown">
         <a href="/">Settings</a>
