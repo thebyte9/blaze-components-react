@@ -12,9 +12,9 @@ const Select = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState(selected);
 
-  const handleChange = (e) => {
-    setSelectedOption(e.target.value);
-    onChange({ e, selected: e.target.value });
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+    onChange({ event, selected: event.target.value });
   };
 
   const isRequired = required ? 'required' : '';
@@ -62,7 +62,7 @@ Select.defaultProps = {
   label: '',
   options: [],
   required: false,
-  selected: null,
+  selected: '',
   keys: [],
   onChange: () => {}
 };

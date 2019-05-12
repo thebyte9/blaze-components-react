@@ -9,7 +9,7 @@ storiesOf('Tab', module)
       sidebar: TabReadme
     },
   })
-  .add('Simple', () => (
+  .add('Introduction', () => (
     <div className="component-wrapper">
       <h1>Tab</h1>
       <p>Tabs organize a static or dynamic content across different screens.</p>
