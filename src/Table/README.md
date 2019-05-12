@@ -45,10 +45,10 @@ const data =  {
 ##### Table can receive a number of `props` as follow:
 
 
-| NAME   | TYPE | DEFAULT | Description |
-| :---  | :---:  | :---: | ------- |
-| data | Object | {}      | An object containing table data |
-| onSelect | Function | () => {}  | Callback function after selecting |
-| checkboxes | Boolean | false      | true/false |
+| NAME   | TYPE | DEFAULT | 
+| :---  | :---:  | :---: | 
+| data | Object | {}      | 
+| onSelect | Function | () => {}  | 
+| checkboxes | Boolean | false | 
 
 

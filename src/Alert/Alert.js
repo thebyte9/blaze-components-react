@@ -34,16 +34,16 @@ const Alert = ({
 };
 
 Alert.propTypes = {
-  close: PropTypes.bool,
   icon: PropTypes.string,
   type: PropTypes.string,
+  close: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 Alert.defaultProps = {
-  close: false,
   icon: '',
   type: '',
+  close: false,
   children: 'No content'
 };
 

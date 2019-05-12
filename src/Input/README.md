@@ -11,7 +11,7 @@ Create basic single-line text fields.
 <Input
   label="Text input required"
   placeholder="Placeholder text"
-  onChange={() => {}}
+  onChange={({event, value}) => {}}
   required
   />
 ```
@@ -22,7 +22,7 @@ Create basic single-line text fields.
 <Input
   label="Text input disabled"
   placeholder="Placeholder text"
-  onChange={() => {}}
+  onChange={({event, value}) => {}}
   type="password"
   hideTypeToggle
   disabled
@@ -35,7 +35,7 @@ Create basic single-line text fields.
 <Input
   label="Password - show hide"
   placeholder="******"
-  onChange={() => {}}
+  onChange={({event, value}) => {}}
   type="password"
   value="Lorem ipsum"
   />

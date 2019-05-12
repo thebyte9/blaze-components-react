@@ -26,9 +26,9 @@ const url = 'http://lorempixel.com/400/400/people/';
 ##### Avatar can receive a number of `props` as follow:
 
 
-| NAME   | TYPE | DEFAULT | Description |
+| NAME   | TYPE | DEFAULT | Options |
 | :---  | :---:  | :---: | ------- |
-| url | string | '' |   Image Url |
-| modifier | String | '' | To control image size: med, small, x-small |
-| username | String | ! | If the image does not load, the initials of the username will be shown |
+| modifier | String | '' | med, small, x-small |
+| url | string | '' | 
+| username | String | ! | 
 

@@ -62,13 +62,12 @@ const single = [{
 
 ##### Checkboxes can receive a number of `props` as follow:
 
-
-| NAME   | TYPE | DEFAULT | OPTIONS |
-| :---  | :---:  | :---: | ------- |
-| options | Array | []      | Array of Objects |
-| onChange | Function | () => {}  | returns callback with **event** and **checked** options |
-| disabled | Boolean | false      | true/false |
-| required | Boolean | false      | true/false |
-| boolean | Boolean | false      | true/false |
+| NAME   | TYPE | DEFAULT | 
+| :---  | :---:  | :---: | 
+| options | Array | []      | 
+| disabled | Boolean | false | 
+| required | Boolean | false | 
+| boolean | Boolean | false  | 
+| onChange | Function | () => {} | 
 
 

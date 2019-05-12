@@ -16,29 +16,43 @@ Provide contextual feedback messages for typical user actions with the handful o
 ```js
 <Alert type="info">This is a info alert.</Alert>
 ```
+* With icon
+
+```js
+<Alert icon="error" 
+  type="warning">
+  Warning alert with icon
+</Alert>
+```
+
 * Dismissable
 
 ```js
-<Alert icon="error" type="warning">Warning alert with icon</Alert>
+<Alert close 
+  type="success">
+  This is a success alert that is closable.
+</Alert>
 ```
 
 * With extra content
 
 ```js
-<Alert>
-  <p>Simple primary alert with content here</p>
-  <hr />
-  <p>Lorem ipsum dolor sit amet...</p>
+<Alert type="primary">
+  <p>Primary alert with content.</p>
+  <ol>
+    <li>lorem</li>
+    <li>ipsum</li>
+  </ol>
 </Alert>
 ```
 
 ## API
 
-##### Alerts can receive a number of `props` as follow:
+##### Alert can receive a number of `props` as follow:
 
 | NAME   | TYPE | DEFAULT | OPTIONS |
 | :---  | :---:  | :---: | ------- |
-| type | string | ''      | primary, secondary, success, warning, dark, info, light|
-| close | Boolean | false      | true/false |
-| icon | string | ''      | material-icons |
-| children | single/array of nodes | ''      | nodes |
+| type | string | empty      | primary, secondary, success, warning, dark, info, light|
+| icon | string | empty      | Material icons |
+| close | Boolean | false      | 
+| children | single/array of nodes | 'No content' |

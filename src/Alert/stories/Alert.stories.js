@@ -21,19 +21,25 @@ storiesOf("Alert", module)
         </p>
       </section>
 
-      <section className="examplesSection">
-        <h3>Examples</h3>
-        <Alert>Simple Alert...</Alert>
-        <Alert type="info">This is a info alert</Alert>
-        <Alert icon="error" type="warning">This is a warning alert with icon</Alert>
-        <Alert close type="success">This is a success alert that is closable.</Alert>
-        <Alert type="primary">
-          <p>Primary alert with content.</p>
-          <ol>
-            <li>lorem</li>
-            <li>ipsum</li>
-          </ol>
-        </Alert>
-      </section>
+      <h4>Simple</h4>
+      <Alert>Simple Alert...</Alert>
+
+      <h4>With modifier</h4>
+      <Alert type="info">This is a info alert</Alert>
+
+      <h4>With icon</h4>
+      <Alert icon="error" type="warning">This is a warning alert with icon</Alert>
+      
+      <h4>Dismissable</h4>
+      <Alert close type="success">This is a success alert that is closable.</Alert>
+
+      <h4>With extra content</h4>
+      <Alert type="primary">
+        <p>Primary alert with content.</p>
+        <ol>
+          <li>lorem</li>
+          <li>ipsum</li>
+        </ol>
+      </Alert>
     </div>
   ));

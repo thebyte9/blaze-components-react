@@ -17,8 +17,8 @@ Dropdown list to navigate between items.
 
 ##### Dropdown can receive a number of `props` as follow:
 
-| NAME   | TYPE | DEFAULT | Description |
-| :---  | :---:  | :---: | ------- |
-| label | String | Menu | Dropdown text |
-| children | Single or array of nodes | No content | Any children components within the badge |
+| NAME   | TYPE | DEFAULT | 
+| :---  | :---:  | :---: | 
+| label | String | Menu | 
+| children | Single or array of nodes | No content |
 

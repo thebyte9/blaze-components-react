@@ -67,16 +67,16 @@ const Checkboxes = ({
 
 Checkboxes.propTypes = {
   options: PropTypes.array,
-  onChange: PropTypes.func,
   withEffect: PropTypes.bool,
   boolean: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 Checkboxes.defaultProps = {
   options: [],
-  onChange: () => {},
   withEffect: false,
-  boolean: false
+  boolean: false,
+  onChange: () => {}
 };
 
 export default Checkboxes;

@@ -19,10 +19,10 @@ Tabs organize a static or dynamic content across different screens.
 
 ##### Tab can receive a number of `props` as follow:
 
-| NAME   | TYPE | DEFAULT | Description |
-| :---  | :---:  | :---: | ------- |
-| label | String | 'Unnamed tab' | Tab name |
-| selected | Number | 0 | Selected Tab |
-| action | Function | () => {} | function that sets state and render dynamic content |
-| children | Single or array of nodes | No content | Any children components within the badge |
+| NAME   | TYPE | DEFAULT | 
+| :---  | :---:  | :---: | 
+| label | String | 'Unnamed tab' | 
+| selected | Number | 0 | 
+| action | Function | () => {} |
+| children | Single or array of nodes | No content | 
 

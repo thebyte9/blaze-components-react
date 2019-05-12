@@ -21,9 +21,9 @@ const Input = ({
   const [newType, setType] = useState(type);
   const [passwordState, setPasswordState] = useState(passwordDefaultState);
 
-  const handleChange = (e) => {
-    setNewValue(e.target.value);
-    onChange({ e, value: e.target.value });
+  const handleChange = (event) => {
+    setNewValue(event.target.value);
+    onChange({ event, value: event.target.value });
   };
 
   const togglepasswordClassName = () => {

@@ -100,14 +100,14 @@ const Table = ({
 
 Table.propTypes = {
   data: PropTypes.object,
-  onSelect: PropTypes.func,
-  checkboxes: PropTypes.bool
+  checkboxes: PropTypes.bool,
+  onSelect: PropTypes.func
 };
 
 Table.defaultProps = {
   data: {},
-  onSelect: () => {},
   checkboxes: false,
+  onSelect: () => {}
 };
 
 export default Table;
