@@ -51,20 +51,20 @@ const Select = ({
 
 Select.propTypes = {
   label: PropTypes.string,
-  required: PropTypes.bool,
-  options: PropTypes.array,
-  selected: PropTypes.any,
   keys: PropTypes.array,
+  options: PropTypes.array,
+  required: PropTypes.bool,
   onChange: PropTypes.func,
+  selected: PropTypes.any
 };
   
 Select.defaultProps = {
   label: '',
+  keys: [],
   options: [],
   required: false,
+  onChange: () => {},
   selected: '',
-  keys: [],
-  onChange: () => {}
 };
 
 export default Select;

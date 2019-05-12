@@ -43,9 +43,8 @@ const options = [
 ##### RadioButton can receive a number of `props` as follow:
 
 
-| NAME   | TYPE | DEFAULT | Description |
-| :---  | :---:  | :---: | ------- |
-| options | Array | [] | Array of objects |
-| required | Boolean | false | Is a selection required? |
-| onChange | Function | () => {} | returns callback with event and selecte option |
-
+| NAME   | TYPE | DEFAULT | 
+| :---  | :---:  | :---: |
+| options | Array | [] | 
+| required | Boolean | false | 
+| onChange | Function | () => {} |  

@@ -21,17 +21,17 @@ const Button = ({
 };
 
 Button.propTypes = {
+  modifiers: PropTypes.string,
   disabled: PropTypes.bool,
   submit: PropTypes.bool,
-  modifiers: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 Button.defaultProps = {
-  children: null,
+  modifiers: '',
   disabled: false,
   submit: false,
-  modifiers: ''
+  children: null
 };
 
 export default Button;

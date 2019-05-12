@@ -31,11 +31,11 @@ The HTML textarea element represents a multi-line plain-text editing control, us
 ##### Textarea can receive a number of `props` as follow:
 
 
-| NAME   | TYPE | DEFAULT | Description |
-| :---  | :---:  | :---: | ------- |
-| label | String | ''      | Does the textarea have a label? |
-| value | String | ''  | Current value of the textarea |
-| required | Boolean | false      | Is this a required field in the form? |
-| limit | Number | 0      | Is there a maximum limit for the length of the value? |
-| onChange | Function | () => {}     | returns callback with **event** and **value** |
+| NAME   | TYPE | DEFAULT | 
+| :---  | :---:  | :---: | 
+| label | String | empty | 
+| value | String | empty | 
+| required | Boolean | false | 
+| limit | Number | 0 | 
+| onChange | Function | () => {} | 
 

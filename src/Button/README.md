@@ -46,7 +46,7 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 
 | NAME   | TYPE | DEFAULT | OPTIONS |
 | :---  | :---:  | :---: | ------- |
-| modifiers | String | ''      | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, back |
-| submit | Boolean | false      | true/false |
-| disabled | Boolean | false      | true/false |
-| children | single/array of nodes | null      | nodes |
+| modifiers | String | empty | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, back |
+| submit | Boolean | false | 
+| disabled | Boolean | false | 
+| children | single/array of nodes | null | 

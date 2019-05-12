@@ -28,7 +28,7 @@ const url = 'http://lorempixel.com/400/400/people/';
 
 | NAME   | TYPE | DEFAULT | Options |
 | :---  | :---:  | :---: | ------- |
-| modifier | String | '' | med, small, x-small |
-| url | string | '' | 
+| modifier | String | empty | med, small, x-small |
+| url | string | empty | 
 | username | String | ! | 
 

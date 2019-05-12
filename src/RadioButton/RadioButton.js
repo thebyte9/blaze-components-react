@@ -52,8 +52,8 @@ const RadioButton = ({
 
 RadioButton.propTypes = {
   options: PropTypes.array,
-  onChange: PropTypes.func,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 RadioButton.defaultProps = {

@@ -13,7 +13,7 @@ const options = ['London', 'Paris', 'Munich'];
 <Select
     label="Select a city"
     options={options}
-    onChange={() => {}}
+    onChange={({event, selected}) => {}}
     required
     />
 ```
@@ -27,7 +27,7 @@ const options = [['08001', 'Barcelona'], ['17006', 'Madrid']];
     label="Select label"
     selected="08001"
     options={options}
-    onChange={() => {}}
+    onChange={({event, selected}) => {}}
     />
 ```
 
@@ -52,7 +52,7 @@ const arrayOfObjects = [
     selected="1"
     options={options}
     keys={['id', 'username']}
-    onChange={() => {}}
+    onChange={({event, selected}) => {}}
     />
 ```
 
@@ -62,7 +62,7 @@ const arrayOfObjects = [
 
 <Select
     label="Disabled"
-    onChange={() => {}}
+    onChange={({event, selected}) => {}}
     options={[]}
     />
 
@@ -72,12 +72,12 @@ const arrayOfObjects = [
 
 ##### Select can receive a number of `props` as follow:
 
-| NAME   | TYPE | DEFAULT | Description |
-| :---  | :---:  | :---: | ------- |
-| label | String | '' | Does the select input have a label? |
-| required | Boolean | false | Is this a mandatory field for the form? |
-| options | Array | [] | A string/array of options |
-| selected | String | '' | The currently selected option |
-| keys | Array | [] | A set of values and text of each option |
-| onChange | Function | () => {} | returns callback with **event** and **selected** |
+| NAME   | TYPE | DEFAULT | 
+| :---  | :---:  | :---: | 
+| label | String | '' | 
+| required | Boolean | false | 
+| options | Array | [] | 
+| selected | String | '' | 
+| keys | Array | [] | 
+| onChange | Function | () => {} | 
 

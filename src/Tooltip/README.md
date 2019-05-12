@@ -29,9 +29,9 @@ Tooltips display informative text when users hover over or focus on an element.
 ##### Tooltip can receive a number of `props` as follow:
 
 
-| NAME   | TYPE | DEFAULT | Description |
+| NAME   | TYPE | DEFAULT | Options |
 | :---  | :---:  | :---: | ------- |
-| position | string | 'top' | Where the tooltip should be position relative to the element: top, left, bottom right |
-| text | String | 'No content' | if no text is received, it will output "No content" |
-| onChange | Function | 'No content' | Children elements the tooltip may have |
+| position | string | top | top, left, bottom right |
+| text | String | No content | 
+| onChange | Function | No content | 
 
