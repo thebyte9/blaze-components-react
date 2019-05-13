@@ -11,13 +11,13 @@ const Textarea = ({
 }) => {
   const [content, setContent] = useState(value);
 
-  const handleChange = (e) => {
-    let _content = e.target.value;
+  const handleChange = (event) => {
+    let _content = event.target.value;
 
     if (limit && _content.length > limit) _content = _content.slice(0, limit);
 
     setContent(_content);
-    onChange({ e, value: _content });
+    onChange({ event, value: _content });
   };
 
   const isRequired = required ? 'required' : '';

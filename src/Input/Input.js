@@ -8,6 +8,7 @@ const Input = ({
   onChange,
   required,
   type,
+  hideTypeToggle,
   ...attrs
 }) => {
   const passwordDefaultState = {
@@ -20,9 +21,9 @@ const Input = ({
   const [newType, setType] = useState(type);
   const [passwordState, setPasswordState] = useState(passwordDefaultState);
 
-  const handleChange = (e) => {
-    setNewValue(e.target.value);
-    onChange({ e, value: e.target.value });
+  const handleChange = (event) => {
+    setNewValue(event.target.value);
+    onChange({ event, value: event.target.value });
   };
 
   const togglepasswordClassName = () => {
@@ -52,7 +53,7 @@ const Input = ({
         required={required}
         {...attrs}
         />
-      {type === 'password' && (
+      {!hideTypeToggle && type === 'password' && (
         <span onClick={togglepasswordClassName} className={`show-hide-password ${passwordState.className}`} role="button">
           {passwordState.text}
           <i className="material-icons">{passwordState.icon}</i>
@@ -65,18 +66,20 @@ const Input = ({
 Input.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
   type: PropTypes.string,
-  onChange: PropTypes.func,
+  disabled: PropTypes.bool,
+  hideTypeToggle: PropTypes.bool,
+  required: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 Input.defaultProps = {
   label: '',
   value: '',
+  type: 'text',
   disabled: false,
   required: false,
-  type: 'text',
+  hideTypeToggle: false,
   onChange: () => {}
 };
 

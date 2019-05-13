@@ -5,6 +5,7 @@ const Checkboxes = ({
   onChange,
   options,
   withEffect,
+  boolean,
   ...attrs
 }) => {
   const [data, setData] = useState(options);
@@ -13,21 +14,22 @@ const Checkboxes = ({
     if (withEffect) setData(options);
   }, [options]);
 
-  const toggle = ({ e, item, key }) => {
+  const toggle = ({ event, item, key }) => {
     if (item.disabled) return;
     data[key].checked = !item.checked;
     setData([...data]);
-    const checked = data.filter(option => option.checked);
-    onChange({ e, checked });
+    let checked = data.filter(option => option.checked);
+    if (boolean) checked = !!checked.length;
+    onChange({ event, checked });
   };
 
   return (
     <Fragment>
       {data.map((item, key) => {
         const {
+          checked = false,
           value,
           disabled,
-          checked,
           required,
           label,
           id
@@ -45,11 +47,12 @@ const Checkboxes = ({
                 className="form-checkbox"
                 value={value}
                 disabled={disabled}
-                checked={checked || false}
+                checked={checked}
                 required={required}
                 id={id}
                 {...attrs}
                 />
+            &nbsp; &nbsp;
             <label
                 htmlFor={id}
                 className={required ? 'required' : ''}>
@@ -64,14 +67,16 @@ const Checkboxes = ({
 
 Checkboxes.propTypes = {
   options: PropTypes.array,
-  onChange: PropTypes.func,
-  withEffect: PropTypes.bool
+  withEffect: PropTypes.bool,
+  boolean: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 Checkboxes.defaultProps = {
   options: [],
-  onChange: () => {},
-  withEffect: false
+  withEffect: false,
+  boolean: false,
+  onChange: () => {}
 };
 
 export default Checkboxes;

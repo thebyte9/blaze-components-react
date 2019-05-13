@@ -9,14 +9,15 @@ const RadioButton = ({
 }) => {
   const [selected, setSelected] = useState({});
 
-  const handleSelect = ({ e, item }) => {
+  const handleSelect = ({ event, item }) => {
     if (item.disabled) return;
     setSelected(item);
-    onChange({ e, selected: item });
+    onChange({ event, selected: item });
   };
 
   return (
     <Fragment>
+      {required && <span className="required" />}
       {options.map((item) => {
         const {
           value,
@@ -29,7 +30,7 @@ const RadioButton = ({
           <span
             key={label}
             className="form-field form-field--radio"
-            onClick={e => handleSelect({ e, item })}
+            onClick={event => handleSelect({ event, item })}
             role="button">
             <input
                 readOnly
@@ -51,8 +52,8 @@ const RadioButton = ({
 
 RadioButton.propTypes = {
   options: PropTypes.array,
-  onChange: PropTypes.func,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 RadioButton.defaultProps = {

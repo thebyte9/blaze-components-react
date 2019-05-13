@@ -11,7 +11,7 @@ import TabComponent from './Tab';
 import Modal from './Modal';
 import Tooltip from './Tooltip';
 import Breadcrumb from './Breadcrumb';
-import DropdownComponent from './Dropdown';
+import Dropdown from './Dropdown';
 import SocialFollow from './SocialFollow';
 import VideoContainer from './VideoContainer';
 import Avatar from './Avatar';
@@ -30,7 +30,7 @@ export {
   Modal,
   Tooltip,
   Breadcrumb,
-  DropdownComponent,
+  Dropdown,
   SocialFollow,
   VideoContainer,
   Avatar

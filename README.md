@@ -1,5 +1,7 @@
 # blaze-components-react
 
+View Documentation: https://blaze-components-react.thisisblaze.com
+
 ## Getting Started
 
  - npm start -- component=ComponentName **Creates folder structure for new component.**

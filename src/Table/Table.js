@@ -9,7 +9,7 @@ const Table = ({
     identification,
   },
   onSelect,
-  hasCheckboxes
+  checkboxes
 }) => {
   const [selected, setSelected] = useState([]);
 
@@ -30,7 +30,7 @@ const Table = ({
     <thead>
       <tr>
         {
-          hasCheckboxes && (
+          checkboxes && (
             <th>
               <Checkboxes
                 withEffect
@@ -60,7 +60,7 @@ const Table = ({
         rows.map(row => (
           <tr key={row[identification]}>
             {
-              hasCheckboxes
+              checkboxes
               && (
                 <td>
                   <Checkboxes
@@ -100,14 +100,14 @@ const Table = ({
 
 Table.propTypes = {
   data: PropTypes.object,
-  onSelect: PropTypes.func,
-  hasCheckboxes: PropTypes.bool
+  checkboxes: PropTypes.bool,
+  onSelect: PropTypes.func
 };
 
 Table.defaultProps = {
   data: {},
-  onSelect: () => {},
-  hasCheckboxes: true,
+  checkboxes: false,
+  onSelect: () => {}
 };
 
 export default Table;

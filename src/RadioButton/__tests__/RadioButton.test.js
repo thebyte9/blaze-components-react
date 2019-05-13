@@ -4,18 +4,28 @@ import { shallow } from 'enzyme';
 import RadioButton from '../RadioButton';
 
 const options = [
-  { label: 'Example', value: 1, id: 'one' },
   {
-    label: 'I accept', value: 'accepted', required: true, id: 'two'
+    label: 'Example',
+    value: 1,
+    id: 'one'
   },
   {
-    label: 'Disabled', value: '', disabled: true, id: 'three'
+    label: 'I accept',
+    value: 'accepted',
+    required: true,
+    id: 'two'
+  },
+  {
+    label: 'Disabled',
+    value: '',
+    disabled: true,
+    id: 'three'
   }
 ];
 
 describe('RadioButton component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<RadioButton options={options} />);
+    const wrapper = shallow(<RadioButton required options={options} />);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();

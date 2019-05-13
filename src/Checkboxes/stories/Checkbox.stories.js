@@ -1,18 +1,45 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkboxes from '../index';
+import CheckboxesReadme from '../README.md';
 
-const options = [
-  { label: 'Example', value: 1, id: 'one' },
-  {
-    label: 'I accept', value: 'accepted', required: true, id: 'two'
+const multiple = [
+  { 
+    label: 'First', 
+    value: 1, 
+    id: 'one'
   },
   {
-    label: 'Disabled', value: '', disabled: true, id: 'three'
+    label: 'Second', 
+    value: 2, 
+    id: 'two'
+  },
+  {
+    label: 'Third', 
+    value: 3, 
+    id: 'three'
+  },
+  {
+    label: 'Disabled', 
+    value: 4, 
+    id: 'fourth',
+    disabled: true
   }
 ];
 
+const single = [{
+  label: 'Do you agree?',
+  value: false,
+  id: 'four',
+  required: true
+}];
+
 storiesOf('Checkboxes', module)
+  .addParameters({
+    readme: {
+      sidebar: CheckboxesReadme
+    },
+  })
   .add('Introduction', () => (
     <div className="component-wrapper">
       <section className="introductionSection">
@@ -23,74 +50,18 @@ storiesOf('Checkboxes', module)
         </p>
       </section>
 
-      <hr />
+      <hr/>
 
       <section className="exampleSection">
-        <h3>Examples</h3>
+        <h3>Multiselect</h3>
         <div className="form-field form-field--checkbox">
-          <Checkboxes
-            options={options}
-            onChange={() => {}}
-            />
+          <Checkboxes options={multiple} onChange={() => {}} />
         </div>
 
-        <div>
-          <pre>
-            <code>
-              {`
-              const options = [
-                  {
-                    label: 'Example',
-                    value: 1, id: 'one'
-                  },
-                  {
-                    label: 'I accept',
-                    value: 'accepted',
-                    required: true,
-                    id: 'two'
-                  },
-                  {
-                    label: 'Disabled',
-                    value: '',
-                    disabled: true,
-                    id: 'three'
-                  }
-              ];
-
-              <Checkboxes options={options} onChange={() => {}} />`}
-            </code>
-          </pre>
+        <h3>Single</h3>
+        <div className="form-field form-field--checkbox">
+          <Checkboxes boolean options={single} onChange={() => {}} />
         </div>
       </section>
-    </div>
-  ))
-  .add('Props', () => (
-    <div className="component-wrapper">
-      <h1>Props</h1>
-      <p>Checkboxes can receive a number of props: options, onChange</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>options</td>
-            <td>array</td>
-            <td>[]</td>
-            <td>The checkboxes to appear in the radio group</td>
-          </tr>
-          <tr>
-            <td>onChange</td>
-            <td>function</td>
-            <td>() => {}</td>
-            <td>Function which changes the currently selected checkbox</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   ))
