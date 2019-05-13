@@ -22,7 +22,7 @@ const Dropdown = ({
         </button>
         <div className={`more-menu ${toggled}`}>
           <ul className="more-menu__list">
-            {children.map(child => (<li className="more-menu__list-item">{child}</li>))}
+            {children.map(child => (<li key={JSON.stringify(child)} className="more-menu__list-item">{child}</li>))}
           </ul>
         </div>
       </div>

@@ -28,7 +28,7 @@ const Checkboxes = ({
       {data.map((item, key) => {
         const {
           checked = false,
-          value = '',
+          value,
           disabled,
           required,
           label,
