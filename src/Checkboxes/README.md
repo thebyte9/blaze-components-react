@@ -32,8 +32,6 @@ const multiple = [
   }
 ];
 
-// checked returns Array of checked objects or empty Array
-
 <Checkboxes 
   options={multiple} 
   onChange={({ event, checked }) => {}} 
@@ -49,8 +47,6 @@ const single = [{
   id: 'four',
   required: true
 }];
-
-// checked returns true or false 
 
 <Checkboxes 
   options={single} 

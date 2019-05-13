@@ -21,7 +21,7 @@ Tabs organize a static or dynamic content across different screens.
 
 | NAME   | TYPE | DEFAULT | 
 | :---  | :---:  | :---: | 
-| label | String | 'Unnamed tab' | 
+| label | String | Unnamed tab | 
 | selected | Number | 0 | 
 | action | Function | () => {} |
 | children | Single or array of nodes | No content | 

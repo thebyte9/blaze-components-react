@@ -55,4 +55,4 @@ Provide contextual feedback messages for typical user actions with the handful o
 | type | string | empty      | primary, secondary, success, warning, dark, info, light|
 | icon | string | empty      | Material icons |
 | close | Boolean | false      | 
-| children | single/array of nodes | 'No content' |
+| children | single/array of nodes | No content |

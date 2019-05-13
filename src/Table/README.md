@@ -10,7 +10,7 @@ The HTML table element represents tabular data — that is, information presente
 ```js
 const data =  {
   identification: 'id',
-  columns: ['name', 'age'], // Columns to show
+  columns: ['name', 'age'], 
   rows: [{
     id: 1,
     name: 'Oscar Leon',
@@ -25,8 +25,6 @@ const data =  {
     age: 45
   }]
 }
-
-// onSelect returns Array of selected ids
 
 <Table 
   checkboxes 
