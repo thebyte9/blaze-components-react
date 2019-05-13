@@ -12,9 +12,9 @@ const Select = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState(selected);
 
-  const handleChange = (e) => {
-    setSelectedOption(e.target.value);
-    onChange({ e, selected: e.target.value });
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+    onChange({ event, selected: event.target.value });
   };
 
   const isRequired = required ? 'required' : '';
@@ -51,20 +51,20 @@ const Select = ({
 
 Select.propTypes = {
   label: PropTypes.string,
-  required: PropTypes.bool,
-  options: PropTypes.array,
-  selected: PropTypes.any,
   keys: PropTypes.array,
+  options: PropTypes.array,
+  required: PropTypes.bool,
   onChange: PropTypes.func,
+  selected: PropTypes.any
 };
   
 Select.defaultProps = {
   label: '',
+  keys: [],
   options: [],
   required: false,
-  selected: null,
-  keys: [],
-  onChange: () => {}
+  onChange: () => {},
+  selected: '',
 };
 
 export default Select;

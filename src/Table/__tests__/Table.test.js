@@ -26,7 +26,7 @@ describe('Table component', () => {
   });
 
   test('should toggle multiselect', () => {
-    const wrapper = mount(<Table data={data} onSelect={() => {}} />);
+    const wrapper = mount(<Table checkboxes data={data} onSelect={() => {}} />);
 
     wrapper.find('Checkboxes').at(0).simulate('click');
     expect(wrapper.find('input').at(0).prop('checked')).toBe(true);
@@ -36,7 +36,7 @@ describe('Table component', () => {
   });
 
   test('should toggle one Checkbox', () => {
-    const wrapper = mount(<Table data={data} onSelect={() => {}} />);
+    const wrapper = mount(<Table checkboxes data={data} onSelect={() => {}} />);
 
     wrapper.find('Checkboxes').at(2).simulate('click');
     expect(wrapper.find('input').at(2).prop('checked')).toBe(true);

@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Button from '../Button';
 
 const testProps = {
-  className: 'button'
+  modifiers: 'outline rounded'
 };
 
 describe('Button component', () => {
@@ -27,6 +27,6 @@ describe('Button component', () => {
   });
 
   test('should be type submit when passing isSubmit prop', () => {
-    expect(shallow(<Button isSubmit />).props().type).toBe('submit');
+    expect(shallow(<Button submit />).props().type).toBe('submit');
   });
 });

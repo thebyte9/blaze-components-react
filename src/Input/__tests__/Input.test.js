@@ -11,7 +11,7 @@ const testProps = {
 
 describe('Input component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Input {...testProps} />);
+    const wrapper = shallow(<Input hideTypeToggle type="password" {...testProps} />);
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });

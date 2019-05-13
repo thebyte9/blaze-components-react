@@ -27,22 +27,22 @@ const Badge = ({
 };
 
 Badge.propTypes = {
+  type: PropTypes.string,
+  to: PropTypes.string,
   round: PropTypes.bool,
   link: PropTypes.bool,
   pill: PropTypes.bool,
   icon: PropTypes.bool,
-  type: PropTypes.string,
-  to: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 Badge.defaultProps = {
   type: '',
+  to: '#',
   round: false,
   pill: false,
   link: false,
   icon: false,
-  to: '#',
   children: 'No content'
 };
 

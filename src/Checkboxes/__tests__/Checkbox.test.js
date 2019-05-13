@@ -22,7 +22,7 @@ describe('Checkboxes component', () => {
   });
 
   test('should toggle checkbox on click', () => {
-    const wrapper = shallow(<Checkboxes options={options} />);
+    const wrapper = shallow(<Checkboxes boolean withEffect options={options} />);
 
     expect(wrapper.find('input').at(1).prop('checked')).toBe(false);
 

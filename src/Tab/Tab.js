@@ -4,7 +4,7 @@ import Button from '../Button';
 
 export const TabItem = ({
   children
-}) => (<div className="tabs__content">{ children }</div>);
+}) => (<div className="tabs__content current">{ children }</div>);
 
 TabItem.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
@@ -28,7 +28,7 @@ export const Tab = ({
   return (
     <div className="tabs">
       <div className="tabs__list">
-        {children.map(({ props: { title, action } }, step) => (
+        {children.map(({ props: { title = 'Unnamed tab', action } }, step) => (
           <Button
             className={`tabs__list-item ${step === _selected ? 'current' : ''}`}
             onClick={() => handleChange({ step, action })}
@@ -51,5 +51,3 @@ Tab.defaultProps = {
   selected: 0,
   children: 'No content'
 };
-
-// export default Tab;

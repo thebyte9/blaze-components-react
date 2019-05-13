@@ -5,7 +5,7 @@ import { Tab, TabItem } from '../Tab';
 
 const tabComponent = (
   <Tab selected={1}>
-    <TabItem title="Basic">Basic content here</TabItem>
+    <TabItem>Basic content here</TabItem>
     <TabItem title="Advanced" action={() => {}}>Advanced content here</TabItem>
     <TabItem title="Other">Other content here</TabItem>
   </Tab>
