@@ -7,9 +7,11 @@ const Modal = ({
   simple,
   alert,
   title,
-  actions
+  actions,
+  isActive,
+  toggleButton
 }) => {
-  const [offModal, setModalOff] = useState(false);
+  const [modalStatus, setModalStatus] = useState(isActive);
 
   const type = () => {
     if (simple) return '--simple';
@@ -24,7 +26,7 @@ const Modal = ({
         <div className={`modal__header modal__header${type()}`}>
           {!alert && <div className="modal__title">{title}</div>}
           {!alert && (
-          <div className="modal__close" role="button" onClick={() => setModalOff(true)}>
+          <div className="modal__close" role="button" onClick={() => setModalStatus(false)}>
             <i className="material-icons">close</i>
           </div>
           )}
@@ -34,9 +36,9 @@ const Modal = ({
         </div>
         <div className={`modal__footer modal__footer${type()}`}>
           <div className="modal__button">
-            {alert && <Button className="button button--link" onClick={() => setModalOff(true)}>Cancel</Button>}
+            {alert && <Button modifiers="link" onClick={() => setModalStatus(false)}>Cancel</Button>}
             {actions.map(([text, func]) => (
-              <Button key={text} className="button button--link" onClick={func}>{text}</Button>
+              <Button key={text} modifiers="link" onClick={func}>{text}</Button>
             ))}
           </div>
         </div>
@@ -46,24 +48,32 @@ const Modal = ({
 
   return (
     <Fragment>
-      {!offModal && renderModal}
+      {modalStatus && renderModal}
+      {
+        toggleButton
+        && <Button modifiers="outline" onClick={() => setModalStatus(!modalStatus)}>{toggleButton}</Button>
+      }
     </Fragment>
   );
 };
 
 Modal.propTypes = {
+  title: PropTypes.string,
+  toggleButton: PropTypes.string,
+  actions: PropTypes.array,
   simple: PropTypes.bool,
   alert: PropTypes.bool,
-  title: PropTypes.string,
-  actions: PropTypes.array,
+  isActive: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 Modal.defaultProps = {
+  title: '',
+  toggleButton: '',
+  actions: [],
   simple: false,
   alert: false,
-  title: '',
-  actions: [],
+  isActive: false,
   children: 'No content'
 };
 
