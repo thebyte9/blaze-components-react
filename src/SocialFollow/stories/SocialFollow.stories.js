@@ -18,7 +18,7 @@ storiesOf('Social Follow', module)
       sidebar: SocialReadme
     },
   })
-  .add('Social share', () => (
+  .add('Introduction', () => (
     <div className="component-wrapper">
       <h1>Social Follow</h1>
 

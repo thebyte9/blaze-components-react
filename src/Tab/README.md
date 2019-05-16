@@ -6,7 +6,7 @@ Tabs organize a static or dynamic content across different screens.
 ## Usage
 
 ```js
-<Tab selected={1}>
+<Tab selected={0}>
     <TabItem title="Basic">Basic content here</TabItem>
     <TabItem title="Advanced" action={() => {}}>
         {dynamicData}
