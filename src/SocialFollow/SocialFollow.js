@@ -65,10 +65,10 @@ const SocialFollow = ({
 };
 
 SocialFollow.propTypes = {
-  media: PropTypes.object.isRequired,
   type: PropTypes.string,
   title: PropTypes.string,
-  vertical: PropTypes.bool
+  vertical: PropTypes.bool,
+  media: PropTypes.object.isRequired
 };
 
 SocialFollow.defaultProps = {

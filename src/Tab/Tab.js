@@ -3,14 +3,20 @@ import PropTypes from 'prop-types';
 import Button from '../Button';
 
 export const TabItem = ({
+  action,
   children
-}) => (<div className="tabs__content current">{ children }</div>);
+}) => {
+  action();
+  return <div className="tabs__content current">{ children }</div>;
+};
 
 TabItem.propTypes = {
+  action: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
   
 TabItem.defaultProps = {
+  action: () => {},
   children: 'No content'
 };
 
@@ -20,18 +26,13 @@ export const Tab = ({
 }) => {
   const [_selected, setSelected] = useState(selected);
 
-  const handleChange = ({ step, action = () => {} }) => {
-    setSelected(step);
-    action();
-  };
-
   return (
     <div className="tabs">
       <div className="tabs__list">
-        {children.map(({ props: { title = 'Unnamed tab', action } }, step) => (
+        {children.map(({ props: { title = 'Unnamed tab' } }, step) => (
           <Button
             className={`tabs__list-item ${step === _selected ? 'current' : ''}`}
-            onClick={() => handleChange({ step, action })}
+            onClick={() => setSelected(step)}
             key={title}>
             {title}
           </Button>

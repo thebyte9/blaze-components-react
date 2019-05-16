@@ -7,9 +7,12 @@ const Modal = ({
   simple,
   alert,
   title,
-  actions
+  actions,
+  isActive,
+  buttonText,
+  buttonModifiers
 }) => {
-  const [offModal, setModalOff] = useState(false);
+  const [modalStatus, setModalStatus] = useState(isActive);
 
   const type = () => {
     if (simple) return '--simple';
@@ -24,7 +27,7 @@ const Modal = ({
         <div className={`modal__header modal__header${type()}`}>
           {!alert && <div className="modal__title">{title}</div>}
           {!alert && (
-          <div className="modal__close" role="button" onClick={() => setModalOff(true)}>
+          <div className="modal__close" role="button" onClick={() => setModalStatus(false)}>
             <i className="material-icons">close</i>
           </div>
           )}
@@ -34,9 +37,9 @@ const Modal = ({
         </div>
         <div className={`modal__footer modal__footer${type()}`}>
           <div className="modal__button">
-            {alert && <Button className="button button--link" onClick={() => setModalOff(true)}>Cancel</Button>}
-            {actions.map(([text, func]) => (
-              <Button key={text} className="button button--link" onClick={func}>{text}</Button>
+            {alert && <Button modifiers="link" onClick={() => setModalStatus(false)}>Cancel</Button>}
+            {actions.map(([text, func, modifiers = 'link']) => (
+              <Button key={text} modifiers={modifiers} onClick={func}>{text}</Button>
             ))}
           </div>
         </div>
@@ -46,24 +49,40 @@ const Modal = ({
 
   return (
     <Fragment>
-      {!offModal && renderModal}
+      {modalStatus && renderModal}
+      {
+        buttonText
+        && (
+        <Button
+          modifiers={buttonModifiers}
+          onClick={() => setModalStatus(!modalStatus)}>
+          {buttonText}
+        </Button>
+        )
+      }
     </Fragment>
   );
 };
 
 Modal.propTypes = {
+  title: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonModifiers: PropTypes.string,
+  actions: PropTypes.array,
   simple: PropTypes.bool,
   alert: PropTypes.bool,
-  title: PropTypes.string,
-  actions: PropTypes.array,
+  isActive: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 Modal.defaultProps = {
+  title: '',
+  buttonText: '',
+  buttonModifiers: 'outline',
+  actions: [],
   simple: false,
   alert: false,
-  title: '',
-  actions: [],
+  isActive: false,
   children: 'No content'
 };
 

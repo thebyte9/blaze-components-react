@@ -14,15 +14,15 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 * With modifier
 
 ```js
-<Button className="plain">Plain</Button>
+<Button modifiers="plain">Plain</Button>
 
-<Button className="small">Small</Button>
+<Button modifiers="small">Small</Button>
 ```
 
 * Combining modifiers
 
 ```js
-<Button className="outline rounded">
+<Button modifiers="outline rounded">
   Rounded/Outline
 </Button>
 ```
@@ -46,7 +46,7 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 
 | NAME   | TYPE | DEFAULT | OPTIONS |
 | :---  | :---:  | :---: | ------- |
-| modifiers | String | empty | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, back |
+| modifiers | String | empty | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, back, link |
 | submit | Boolean | false | 
 | disabled | Boolean | false | 
 | children | single/array of nodes | null | 
