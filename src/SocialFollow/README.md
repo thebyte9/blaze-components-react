@@ -37,8 +37,16 @@ const media = {
 | title | String | empty | 
 | type | String | share | 
 | media | Object | {} |
+<<<<<<< HEAD
 | vertical | Boolean | false |
 
+=======
+<<<<<<< HEAD
+=======
+| vertical | Boolean | false |
+
+>>>>>>> dev
+>>>>>>> dev
 
 
 

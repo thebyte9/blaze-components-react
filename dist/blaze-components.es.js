@@ -1,5 +1,6 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import crypto from 'crypto';
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -115,26 +116,35 @@ function _nonIterableRest() {
 
 var Button = function Button(_ref) {
   var disabled = _ref.disabled,
-      isSubmit = _ref.isSubmit,
+      submit = _ref.submit,
       children = _ref.children,
-      attrs = _objectWithoutProperties(_ref, ["disabled", "isSubmit", "children"]);
+      modifiers = _ref.modifiers,
+      attrs = _objectWithoutProperties(_ref, ["disabled", "submit", "children", "modifiers"]);
 
-  var type = isSubmit ? 'submit' : 'button';
+  var _type = submit ? 'submit' : 'button';
+
+  var _modifiers = modifiers.split(' ').map(function (modifier) {
+    return "button--".concat(modifier);
+  }).join(' ');
+
   return React.createElement("button", _extends({
     disabled: disabled,
-    type: type
+    className: "button ".concat(_modifiers),
+    type: _type
   }, attrs), children);
 };
 
 Button.propTypes = {
+  modifiers: PropTypes.string,
   disabled: PropTypes.bool,
-  isSubmit: PropTypes.bool,
+  submit: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 Button.defaultProps = {
-  children: null,
+  modifiers: '',
   disabled: false,
-  isSubmit: false
+  submit: false,
+  children: null
 };
 
 var RadioButton = function RadioButton(_ref) {
@@ -149,26 +159,29 @@ var RadioButton = function RadioButton(_ref) {
       setSelected = _useState2[1];
 
   var handleSelect = function handleSelect(_ref2) {
-    var e = _ref2.e,
+    var event = _ref2.event,
         item = _ref2.item;
     if (item.disabled) return;
     setSelected(item);
     onChange({
-      e: e,
+      event: event,
       selected: item
     });
   };
 
-  return React.createElement(Fragment, null, options.map(function (item) {
+  return React.createElement(Fragment, null, required && React.createElement("span", {
+    className: "required"
+  }), options.map(function (item) {
     var value = item.value,
         disabled = item.disabled,
-        label = item.label;
+        label = item.label,
+        id = item.id;
     return React.createElement("span", {
       key: label,
       className: "form-field form-field--radio",
-      onClick: function onClick(e) {
+      onClick: function onClick(event) {
         return handleSelect({
-          e: e,
+          event: event,
           item: item
         });
       },
@@ -179,17 +192,18 @@ var RadioButton = function RadioButton(_ref) {
       className: "form-radio",
       value: value,
       disabled: disabled,
-      checked: value === selected.value
+      checked: value === selected.value,
+      id: id
     }, attrs)), React.createElement("label", {
-      htmlFor: attrs.id
+      htmlFor: id
     }, label));
   }));
 };
 
 RadioButton.propTypes = {
   options: PropTypes.array,
-  onChange: PropTypes.func,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  onChange: PropTypes.func
 };
 RadioButton.defaultProps = {
   options: [],
@@ -200,15 +214,21 @@ RadioButton.defaultProps = {
 var Checkboxes = function Checkboxes(_ref) {
   var onChange = _ref.onChange,
       options = _ref.options,
-      attrs = _objectWithoutProperties(_ref, ["onChange", "options"]);
+      withEffect = _ref.withEffect,
+      _boolean = _ref["boolean"],
+      attrs = _objectWithoutProperties(_ref, ["onChange", "options", "withEffect", "boolean"]);
 
   var _useState = useState(options),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
 
+  useEffect(function () {
+    if (withEffect) setData(options);
+  }, [options]);
+
   var toggle = function toggle(_ref2) {
-    var e = _ref2.e,
+    var event = _ref2.event,
         item = _ref2.item,
         key = _ref2.key;
     if (item.disabled) return;
@@ -217,20 +237,23 @@ var Checkboxes = function Checkboxes(_ref) {
     var checked = data.filter(function (option) {
       return option.checked;
     });
+    if (_boolean) checked = !!checked.length;
     onChange({
-      e: e,
+      event: event,
       checked: checked
     });
   };
 
   return React.createElement(Fragment, null, data.map(function (item, key) {
-    var value = item.value,
+    var _item$checked = item.checked,
+        checked = _item$checked === void 0 ? false : _item$checked,
+        value = item.value,
         disabled = item.disabled,
-        checked = item.checked,
         required = item.required,
-        label = item.label;
+        label = item.label,
+        id = item.id;
     return React.createElement("span", {
-      key: label,
+      key: id,
       className: "form-field form-field--checkbox",
       onClick: function onClick(e) {
         return toggle({
@@ -246,10 +269,11 @@ var Checkboxes = function Checkboxes(_ref) {
       className: "form-checkbox",
       value: value,
       disabled: disabled,
-      checked: checked || false,
-      required: required
-    }, attrs)), React.createElement("label", {
-      htmlFor: attrs.id,
+      checked: checked,
+      required: required,
+      id: id
+    }, attrs)), "\xA0 \xA0", React.createElement("label", {
+      htmlFor: id,
       className: required ? 'required' : ''
     }, label));
   }));
@@ -257,10 +281,14 @@ var Checkboxes = function Checkboxes(_ref) {
 
 Checkboxes.propTypes = {
   options: PropTypes.array,
+  withEffect: PropTypes.bool,
+  "boolean": PropTypes.bool,
   onChange: PropTypes.func
 };
 Checkboxes.defaultProps = {
   options: [],
+  withEffect: false,
+  "boolean": false,
   onChange: function onChange() {}
 };
 
@@ -278,11 +306,11 @@ var Select = function Select(_ref) {
       selectedOption = _useState2[0],
       setSelectedOption = _useState2[1];
 
-  var handleChange = function handleChange(e) {
-    setSelectedOption(e.target.value);
+  var handleChange = function handleChange(event) {
+    setSelectedOption(event.target.value);
     onChange({
-      e: e,
-      selected: e.target.value
+      event: event,
+      selected: event.target.value
     });
   };
 
@@ -332,19 +360,19 @@ var Select = function Select(_ref) {
 
 Select.propTypes = {
   label: PropTypes.string,
-  required: PropTypes.bool,
-  options: PropTypes.array,
-  selected: PropTypes.any,
   keys: PropTypes.array,
-  onChange: PropTypes.func
+  options: PropTypes.array,
+  required: PropTypes.bool,
+  onChange: PropTypes.func,
+  selected: PropTypes.any
 };
 Select.defaultProps = {
   label: '',
+  keys: [],
   options: [],
   required: false,
-  selected: null,
-  keys: [],
-  onChange: function onChange() {}
+  onChange: function onChange() {},
+  selected: ''
 };
 
 var Textarea = function Textarea(_ref) {
@@ -360,12 +388,12 @@ var Textarea = function Textarea(_ref) {
       content = _useState2[0],
       setContent = _useState2[1];
 
-  var handleChange = function handleChange(e) {
-    var _content = e.target.value;
+  var handleChange = function handleChange(event) {
+    var _content = event.target.value;
     if (limit && _content.length > limit) _content = _content.slice(0, limit);
     setContent(_content);
     onChange({
-      e: e,
+      event: event,
       value: _content
     });
   };
@@ -406,7 +434,8 @@ var Input = function Input(_ref) {
       onChange = _ref.onChange,
       required = _ref.required,
       type = _ref.type,
-      attrs = _objectWithoutProperties(_ref, ["label", "disabled", "value", "onChange", "required", "type"]);
+      hideTypeToggle = _ref.hideTypeToggle,
+      attrs = _objectWithoutProperties(_ref, ["label", "disabled", "value", "onChange", "required", "type", "hideTypeToggle"]);
 
   var passwordDefaultState = {
     className: 'active',
@@ -429,11 +458,11 @@ var Input = function Input(_ref) {
       passwordState = _useState6[0],
       setPasswordState = _useState6[1];
 
-  var handleChange = function handleChange(e) {
-    setNewValue(e.target.value);
+  var handleChange = function handleChange(event) {
+    setNewValue(event.target.value);
     onChange({
-      e: e,
-      value: e.target.value
+      event: event,
+      value: event.target.value
     });
   };
 
@@ -461,7 +490,7 @@ var Input = function Input(_ref) {
     disabled: disabled,
     type: newType,
     required: required
-  }, attrs)), type === 'password' && React.createElement("span", {
+  }, attrs)), !hideTypeToggle && type === 'password' && React.createElement("span", {
     onClick: togglepasswordClassName,
     className: "show-hide-password ".concat(passwordState.className),
     role: "button"
@@ -473,17 +502,19 @@ var Input = function Input(_ref) {
 Input.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
+  hideTypeToggle: PropTypes.bool,
+  required: PropTypes.bool,
   onChange: PropTypes.func
 };
 Input.defaultProps = {
   label: '',
   value: '',
+  type: 'text',
   disabled: false,
   required: false,
-  type: 'text',
+  hideTypeToggle: false,
   onChange: function onChange() {}
 };
 
@@ -518,15 +549,15 @@ var Alert = function Alert(_ref) {
 };
 
 Alert.propTypes = {
-  close: PropTypes.bool,
   icon: PropTypes.string,
   type: PropTypes.string,
+  close: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 Alert.defaultProps = {
-  close: false,
   icon: '',
   type: '',
+  close: false,
   children: 'No content'
 };
 
@@ -617,28 +648,28 @@ var Badge = function Badge(_ref) {
 };
 
 Badge.propTypes = {
+  type: PropTypes.string,
+  to: PropTypes.string,
   round: PropTypes.bool,
   link: PropTypes.bool,
   pill: PropTypes.bool,
   icon: PropTypes.bool,
-  type: PropTypes.string,
-  to: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 Badge.defaultProps = {
   type: '',
+  to: '#',
   round: false,
   pill: false,
   link: false,
   icon: false,
-  to: '#',
   children: 'No content'
 };
 
 var TabItem = function TabItem(_ref) {
   var children = _ref.children;
   return React.createElement("div", {
-    className: "tabs__content"
+    className: "tabs__content current"
   }, children);
 };
 TabItem.propTypes = {
@@ -670,7 +701,8 @@ var Tab = function Tab(_ref2) {
     className: "tabs__list"
   }, children.map(function (_ref4, step) {
     var _ref4$props = _ref4.props,
-        title = _ref4$props.title,
+        _ref4$props$title = _ref4$props.title,
+        title = _ref4$props$title === void 0 ? 'Unnamed tab' : _ref4$props$title,
         action = _ref4$props.action;
     return React.createElement(Button, {
       className: "tabs__list-item ".concat(step === _selected ? 'current' : ''),
@@ -691,7 +723,7 @@ Tab.propTypes = {
 Tab.defaultProps = {
   selected: 0,
   children: 'No content'
-}; // export default Tab;
+};
 
 var index = {
   Tab: Tab,
@@ -812,8 +844,350 @@ Breadcrumb.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 Breadcrumb.defaultProps = {
-  children: 'No content'
+  children: 'Missing breadcrumb content'
 };
 
-export { Alert, Badge, Breadcrumb, Button, Checkboxes as CheckBoxes, Input, Modal, Progress, RadioButton, Select, index as TabComponent, Textarea, Tooltip };
+// Unique ID creation requires a high quality random # generator.  In node.js
+// this is pretty straight-forward - we use the crypto API.
+
+
+
+var rng = function nodeRNG() {
+  return crypto.randomBytes(16);
+};
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+var byteToHex = [];
+for (var i = 0; i < 256; ++i) {
+  byteToHex[i] = (i + 0x100).toString(16).substr(1);
+}
+
+function bytesToUuid(buf, offset) {
+  var i = offset || 0;
+  var bth = byteToHex;
+  // join used to fix memory issue caused by concatenation: https://bugs.chromium.org/p/v8/issues/detail?id=3175#c4
+  return ([bth[buf[i++]], bth[buf[i++]], 
+	bth[buf[i++]], bth[buf[i++]], '-',
+	bth[buf[i++]], bth[buf[i++]], '-',
+	bth[buf[i++]], bth[buf[i++]], '-',
+	bth[buf[i++]], bth[buf[i++]], '-',
+	bth[buf[i++]], bth[buf[i++]],
+	bth[buf[i++]], bth[buf[i++]],
+	bth[buf[i++]], bth[buf[i++]]]).join('');
+}
+
+var bytesToUuid_1 = bytesToUuid;
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+
+var _nodeId;
+var _clockseq;
+
+// Previous uuid creation time
+var _lastMSecs = 0;
+var _lastNSecs = 0;
+
+// See https://github.com/broofa/node-uuid for API details
+function v1(options, buf, offset) {
+  var i = buf && offset || 0;
+  var b = buf || [];
+
+  options = options || {};
+  var node = options.node || _nodeId;
+  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq;
+
+  // node and clockseq need to be initialized to random values if they're not
+  // specified.  We do this lazily to minimize issues related to insufficient
+  // system entropy.  See #189
+  if (node == null || clockseq == null) {
+    var seedBytes = rng();
+    if (node == null) {
+      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+      node = _nodeId = [
+        seedBytes[0] | 0x01,
+        seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]
+      ];
+    }
+    if (clockseq == null) {
+      // Per 4.2.2, randomize (14 bit) clockseq
+      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
+    }
+  }
+
+  // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+  var msecs = options.msecs !== undefined ? options.msecs : new Date().getTime();
+
+  // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1;
+
+  // Time since last uuid creation (in msecs)
+  var dt = (msecs - _lastMSecs) + (nsecs - _lastNSecs)/10000;
+
+  // Per 4.2.1.2, Bump clockseq on clock regression
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  }
+
+  // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  }
+
+  // Per 4.2.1.2 Throw error if too many uuids are requested
+  if (nsecs >= 10000) {
+    throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq;
+
+  // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+  msecs += 12219292800000;
+
+  // `time_low`
+  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff;
+
+  // `time_mid`
+  var tmh = (msecs / 0x100000000 * 10000) & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff;
+
+  // `time_high_and_version`
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+  b[i++] = tmh >>> 16 & 0xff;
+
+  // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+  b[i++] = clockseq >>> 8 | 0x80;
+
+  // `clock_seq_low`
+  b[i++] = clockseq & 0xff;
+
+  // `node`
+  for (var n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+
+  return buf ? buf : bytesToUuid_1(b);
+}
+
+var v1_1 = v1;
+
+var Dropdown = function Dropdown(_ref) {
+  var label = _ref.label,
+      children = _ref.children;
+
+  var _useState = useState('close'),
+      _useState2 = _slicedToArray(_useState, 2),
+      toggled = _useState2[0],
+      setToggled = _useState2[1];
+
+  var toggleMenu = function toggleMenu() {
+    var menuStatus = toggled === 'close' ? 'open' : 'close';
+    setToggled(menuStatus);
+  };
+
+  return React.createElement(Fragment, null, React.createElement("div", {
+    className: "more-menu__wrapper"
+  }, React.createElement("button", {
+    onClick: toggleMenu,
+    type: "button",
+    className: "icon-button toggle"
+  }, label, React.createElement("i", {
+    className: "material-icons"
+  }, "more_vert")), React.createElement("div", {
+    className: "more-menu ".concat(toggled)
+  }, React.createElement("ul", {
+    className: "more-menu__list"
+  }, children.map(function (child) {
+    return React.createElement("li", {
+      key: v1_1(),
+      className: "more-menu__list-item"
+    }, child);
+  })))));
+};
+
+Dropdown.propTypes = {
+  label: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+};
+Dropdown.defaultProps = {
+  label: 'Menu',
+  children: []
+};
+
+var SocialFollow = function SocialFollow(_ref) {
+  var media = _ref.media,
+      title = _ref.title,
+      vertical = _ref.vertical,
+      type = _ref.type;
+  var socialConf = {
+    facebook: {
+      name: 'Facebook',
+      "class": 'facebook',
+      icon: 'fab fa-facebook-f'
+    },
+    twitter: {
+      name: 'Twitter',
+      "class": 'twitter',
+      icon: 'fab fa-twitter'
+    },
+    pinterest: {
+      name: 'Pinterest',
+      "class": 'pinterest',
+      icon: 'fab fa-pinterest-p'
+    },
+    linkedIn: {
+      name: 'Linkedin',
+      "class": 'linkedin',
+      icon: 'fab fa-linkedin-in'
+    },
+    youtube: {
+      name: 'Youtube',
+      "class": 'youtube',
+      icon: 'fab fa-youtube',
+      isFollowing: true
+    },
+    instagram: {
+      name: 'Instagram',
+      "class": 'instagram',
+      icon: 'fab fa-instagram',
+      isFollowing: true
+    }
+  };
+  var renderSocial = Object.keys(media).map(function (key) {
+    if (type !== 'follow' && socialConf[key].isFollowing) return null;
+    return React.createElement("li", {
+      key: key,
+      className: "social__list-item social__list-item--".concat(type)
+    }, React.createElement("a", {
+      href: media[key],
+      rel: "noopener noreferrer",
+      target: "_blank",
+      className: socialConf[key]["class"]
+    }, React.createElement("i", {
+      className: socialConf[key].icon
+    }), React.createElement("span", {
+      className: "hidden"
+    }, socialConf[key].name)));
+  });
+  return React.createElement("div", {
+    className: "social social--".concat(type, " ").concat(vertical ? 'social--vertical' : '')
+  }, title && React.createElement("p", null, title), React.createElement("ul", {
+    className: "social__list social__list--".concat(type, " ").concat(vertical ? 'social__list--vertical' : '')
+  }, renderSocial));
+};
+
+SocialFollow.propTypes = {
+  media: PropTypes.object.isRequired,
+  type: PropTypes.string,
+  title: PropTypes.string,
+  vertical: PropTypes.bool
+};
+SocialFollow.defaultProps = {
+  type: 'share',
+  title: '',
+  vertical: false
+};
+
+var VideoContainer = function VideoContainer(_ref) {
+  var src = _ref.src,
+      title = _ref.title,
+      attrs = _objectWithoutProperties(_ref, ["src", "title"]);
+
+  return React.createElement("div", {
+    className: "media-container media-container--video"
+  }, React.createElement("iframe", _extends({
+    src: src,
+    title: title
+  }, attrs)));
+};
+
+VideoContainer.propTypes = {
+  src: PropTypes.string,
+  title: PropTypes.string
+};
+VideoContainer.defaultProps = {
+  src: '',
+  title: ''
+};
+
+var Avatar = function Avatar(_ref) {
+  var modifier = _ref.modifier,
+      url = _ref.url,
+      username = _ref.username,
+      attr = _objectWithoutProperties(_ref, ["modifier", "url", "username"]);
+
+  var _useState = useState(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      size = _useState2[0],
+      setSize = _useState2[1];
+
+  var _useState3 = useState(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      avatarUrl = _useState4[0],
+      setAvatar = _useState4[1];
+
+  var _modifier = modifier ? "avatar--".concat(modifier) : '';
+
+  var ref = useRef(null);
+  useEffect(function () {
+    return setSize(ref.current.clientHeight / 2);
+  });
+  var initials = username && username.split(' ').map(function (subName) {
+    return subName[0].toUpperCase();
+  }).join('').substring(0, 2);
+  var imageData = new Image();
+  imageData.src = url;
+
+  imageData.onload = function () {
+    return setAvatar(url);
+  };
+
+  return React.createElement(Fragment, null, React.createElement("div", {
+    className: "avatar ".concat(_modifier),
+    ref: ref
+  }, avatarUrl && React.createElement("img", _extends({
+    src: avatarUrl,
+    alt: "avatar",
+    className: "avatar__icon"
+  }, attr)), React.createElement("div", {
+    className: "avatar__image"
+  }, avatarUrl && React.createElement("img", _extends({
+    src: avatarUrl,
+    alt: "alt text here"
+  }, attr))), !avatarUrl && React.createElement("span", {
+    style: {
+      fontSize: "".concat(size, "px")
+    }
+  }, initials)));
+};
+
+Avatar.propTypes = {
+  modifier: PropTypes.string,
+  url: PropTypes.string,
+  username: PropTypes.string
+};
+Avatar.defaultProps = {
+  modifier: '',
+  url: '',
+  username: '!'
+};
+
+export { Alert, Avatar, Badge, Breadcrumb, Button, Checkboxes as CheckBoxes, Dropdown, Input, Modal, Progress, RadioButton, Select, SocialFollow, index as TabComponent, Textarea, Tooltip, VideoContainer };
 //# sourceMappingURL=blaze-components.es.js.map
