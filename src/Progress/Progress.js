@@ -9,9 +9,9 @@ const Progress = ({
 }) => {
   const [_progress, setProgress] = useState(progress);
 
-  const handleClick = ({ e, step }) => {
+  const handleClick = ({ event, step }) => {
     setProgress(step);
-    onChange({ e, step });
+    onChange({ event, step });
   };
 
   const checkStep = (step) => {
@@ -24,14 +24,21 @@ const Progress = ({
 
   const isTypeCount = type === 'count' ? 'progress-bar__list-item--dots' : '';
 
+  const modifiers = () => {
+    const _modifiers = type.split(' ');
+    const blockElement = 'progress-bar__list-item--';
+    if (!_modifiers.length) return `${blockElement}${type}`;
+    return _modifiers.map(modifier => `${blockElement}${modifier}`).join(' ');
+  };
+
   return (
     <nav className="progress-bar">
       <ol className="progress-bar__list">
         {steps.map((text, index) => (
           <li
           key={text}
-          className={`progress-bar__list-item progress-bar__list-item--${type} ${isTypeCount} ${checkStep(index + 1)}`}>
-            <span onClick={e => handleClick({ e, step: index + 1 })} role="button">{text}</span>
+          className={`progress-bar__list-item ${modifiers()} ${isTypeCount} ${checkStep(index + 1)}`}>
+            <span onClick={event => handleClick({ event, step: index + 1 })} role="button">{text}</span>
           </li>
         ))}
       </ol>
