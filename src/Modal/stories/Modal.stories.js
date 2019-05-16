@@ -25,7 +25,7 @@ storiesOf('Modal', module)
 
       <Modal
         isActive
-        toggleButton="Simple modal"
+        buttonText="Simple modal"
         title="Simple Modal"
         actions={actions}
         simple>
@@ -36,7 +36,8 @@ storiesOf('Modal', module)
 
       <Modal
         actions={[['delete', () => {}]]}
-        toggleButton="Alert modal"
+        buttonText="Alert modal"
+        buttonModifiers="rounded alert"
         alert>
         <p>Delete item?</p>
       </Modal>
@@ -45,7 +46,8 @@ storiesOf('Modal', module)
 
       <Modal
         title="Scrollable Modal"
-        toggleButton="Scrollable modal"
+        buttonText="Scrollable modal"
+        buttonModifiers="outline dark rounded"
         actions={actions}
         >
         <p>Content here that may need to be scrolled - can be text/forms/etc.

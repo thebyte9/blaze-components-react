@@ -16,7 +16,7 @@ const actions = [
 
 <Modal
   isActive
-  toggleButton="Simple modal"
+  buttonText="Simple modal"
   title="Simple Modal"
   actions={actions}
   simple>
@@ -29,7 +29,8 @@ const actions = [
 ```js
 <Modal
   actions={[['delete', () => {}]]}
-  toggleButton="Alert modal"
+  buttonText="Alert modal"
+  buttonModifiers="rounded alert"
   alert>
   <p>Delete item?</p>
 </Modal>
@@ -40,7 +41,8 @@ const actions = [
 ```js
 <Modal
     title="Scrollable Modal"
-    toggleButton="Scrollable modal"
+    buttonText="Scrollable modal"
+    buttonModifiers="outline dark rounded"
     actions={actions}
     >
     <p>

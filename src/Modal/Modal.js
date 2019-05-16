@@ -9,7 +9,8 @@ const Modal = ({
   title,
   actions,
   isActive,
-  toggleButton
+  buttonText,
+  buttonModifiers
 }) => {
   const [modalStatus, setModalStatus] = useState(isActive);
 
@@ -50,8 +51,14 @@ const Modal = ({
     <Fragment>
       {modalStatus && renderModal}
       {
-        toggleButton
-        && <Button modifiers="outline" onClick={() => setModalStatus(!modalStatus)}>{toggleButton}</Button>
+        buttonText
+        && (
+        <Button
+          modifiers={buttonModifiers}
+          onClick={() => setModalStatus(!modalStatus)}>
+          {buttonText}
+        </Button>
+        )
       }
     </Fragment>
   );
@@ -59,7 +66,8 @@ const Modal = ({
 
 Modal.propTypes = {
   title: PropTypes.string,
-  toggleButton: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonModifiers: PropTypes.string,
   actions: PropTypes.array,
   simple: PropTypes.bool,
   alert: PropTypes.bool,
@@ -69,7 +77,8 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   title: '',
-  toggleButton: '',
+  buttonText: '',
+  buttonModifiers: 'outline',
   actions: [],
   simple: false,
   alert: false,
