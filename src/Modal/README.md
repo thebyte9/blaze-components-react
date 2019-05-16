@@ -28,7 +28,7 @@ const actions = [
 
 ```js
 <Modal
-  actions={[['delete', () => {}]]}
+  actions={[['delete', () => {}, 'alert small']]}
   buttonText="Alert modal"
   buttonModifiers="rounded alert"
   alert>

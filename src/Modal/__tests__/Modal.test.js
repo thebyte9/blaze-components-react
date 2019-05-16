@@ -18,7 +18,7 @@ describe('Modal component', () => {
 
   test('should render and close alert modal', () => {
     const actions = [
-      ['delete', () => {}]
+      ['delete', () => {}, 'alert small']
     ];
     const wrapper = shallow(<Modal alert isActive actions={actions} />);
     expect(wrapper.find('.modal--alert')).toHaveLength(1);

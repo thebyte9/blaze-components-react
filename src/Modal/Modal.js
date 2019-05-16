@@ -38,8 +38,8 @@ const Modal = ({
         <div className={`modal__footer modal__footer${type()}`}>
           <div className="modal__button">
             {alert && <Button modifiers="link" onClick={() => setModalStatus(false)}>Cancel</Button>}
-            {actions.map(([text, func]) => (
-              <Button key={text} modifiers="link" onClick={func}>{text}</Button>
+            {actions.map(([text, func, modifiers = 'link']) => (
+              <Button key={text} modifiers={modifiers} onClick={func}>{text}</Button>
             ))}
           </div>
         </div>

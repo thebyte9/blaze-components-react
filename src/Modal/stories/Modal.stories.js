@@ -35,7 +35,7 @@ storiesOf('Modal', module)
       <br />
 
       <Modal
-        actions={[['delete', () => {}]]}
+        actions={[['delete', () => {}, 'alert small']]}
         buttonText="Alert modal"
         buttonModifiers="rounded alert"
         alert>
