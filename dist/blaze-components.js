@@ -580,11 +580,11 @@ var Progress = function Progress(_ref) {
       setProgress = _useState2[1];
 
   var handleClick = function handleClick(_ref2) {
-    var e = _ref2.e,
+    var event = _ref2.event,
         step = _ref2.step;
     setProgress(step);
     onChange({
-      e: e,
+      event: event,
       step: step
     });
   };
@@ -598,6 +598,17 @@ var Progress = function Progress(_ref) {
   };
 
   var isTypeCount = type === 'count' ? 'progress-bar__list-item--dots' : '';
+
+  var modifiers = function modifiers() {
+    var _modifiers = type.split(' ');
+
+    var blockElement = 'progress-bar__list-item--';
+    if (!_modifiers.length) return "".concat(blockElement).concat(type);
+    return _modifiers.map(function (modifier) {
+      return "".concat(blockElement).concat(modifier);
+    }).join(' ');
+  };
+
   return React__default.createElement("nav", {
     className: "progress-bar"
   }, React__default.createElement("ol", {
@@ -605,11 +616,11 @@ var Progress = function Progress(_ref) {
   }, steps.map(function (text, index) {
     return React__default.createElement("li", {
       key: text,
-      className: "progress-bar__list-item progress-bar__list-item--".concat(type, " ").concat(isTypeCount, " ").concat(checkStep(index + 1))
+      className: "progress-bar__list-item ".concat(modifiers(), " ").concat(isTypeCount, " ").concat(checkStep(index + 1))
     }, React__default.createElement("span", {
-      onClick: function onClick(e) {
+      onClick: function onClick(event) {
         return handleClick({
-          e: e,
+          event: event,
           step: index + 1
         });
       },
@@ -674,15 +685,19 @@ Badge.defaultProps = {
 };
 
 var TabItem = function TabItem(_ref) {
-  var children = _ref.children;
+  var action = _ref.action,
+      children = _ref.children;
+  action();
   return React__default.createElement("div", {
     className: "tabs__content current"
   }, children);
 };
 TabItem.propTypes = {
+  action: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 TabItem.defaultProps = {
+  action: function action() {},
   children: 'No content'
 };
 var Tab = function Tab(_ref2) {
@@ -694,30 +709,17 @@ var Tab = function Tab(_ref2) {
       _selected = _useState2[0],
       setSelected = _useState2[1];
 
-  var handleChange = function handleChange(_ref3) {
-    var step = _ref3.step,
-        _ref3$action = _ref3.action,
-        action = _ref3$action === void 0 ? function () {} : _ref3$action;
-    setSelected(step);
-    action();
-  };
-
   return React__default.createElement("div", {
     className: "tabs"
   }, React__default.createElement("div", {
     className: "tabs__list"
-  }, children.map(function (_ref4, step) {
-    var _ref4$props = _ref4.props,
-        _ref4$props$title = _ref4$props.title,
-        title = _ref4$props$title === void 0 ? 'Unnamed tab' : _ref4$props$title,
-        action = _ref4$props.action;
+  }, children.map(function (_ref3, step) {
+    var _ref3$props$title = _ref3.props.title,
+        title = _ref3$props$title === void 0 ? 'Unnamed tab' : _ref3$props$title;
     return React__default.createElement(Button, {
       className: "tabs__list-item ".concat(step === _selected ? 'current' : ''),
       onClick: function onClick() {
-        return handleChange({
-          step: step,
-          action: action
-        });
+        return setSelected(step);
       },
       key: title
     }, title);
@@ -742,12 +744,15 @@ var Modal = function Modal(_ref) {
       simple = _ref.simple,
       alert = _ref.alert,
       title = _ref.title,
-      actions = _ref.actions;
+      actions = _ref.actions,
+      isActive = _ref.isActive,
+      buttonText = _ref.buttonText,
+      buttonModifiers = _ref.buttonModifiers;
 
-  var _useState = React.useState(false),
+  var _useState = React.useState(isActive),
       _useState2 = _slicedToArray(_useState, 2),
-      offModal = _useState2[0],
-      setModalOff = _useState2[1];
+      modalStatus = _useState2[0],
+      setModalStatus = _useState2[1];
 
   var type = function type() {
     if (simple) return '--simple';
@@ -767,7 +772,7 @@ var Modal = function Modal(_ref) {
     className: "modal__close",
     role: "button",
     onClick: function onClick() {
-      return setModalOff(true);
+      return setModalStatus(false);
     }
   }, React__default.createElement("i", {
     className: "material-icons"
@@ -778,36 +783,49 @@ var Modal = function Modal(_ref) {
   }, React__default.createElement("div", {
     className: "modal__button"
   }, alert && React__default.createElement(Button, {
-    className: "button button--link",
+    modifiers: "link",
     onClick: function onClick() {
-      return setModalOff(true);
+      return setModalStatus(false);
     }
   }, "Cancel"), actions.map(function (_ref2) {
-    var _ref3 = _slicedToArray(_ref2, 2),
+    var _ref3 = _slicedToArray(_ref2, 3),
         text = _ref3[0],
-        func = _ref3[1];
+        func = _ref3[1],
+        _ref3$ = _ref3[2],
+        modifiers = _ref3$ === void 0 ? 'link' : _ref3$;
 
     return React__default.createElement(Button, {
       key: text,
-      className: "button button--link",
+      modifiers: modifiers,
       onClick: func
     }, text);
   })))));
-  return React__default.createElement(React.Fragment, null, !offModal && renderModal);
+  return React__default.createElement(React.Fragment, null, modalStatus && renderModal, buttonText && React__default.createElement(Button, {
+    modifiers: buttonModifiers,
+    onClick: function onClick() {
+      return setModalStatus(!modalStatus);
+    }
+  }, buttonText));
 };
 
 Modal.propTypes = {
+  title: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonModifiers: PropTypes.string,
+  actions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string, PropTypes.func)),
   simple: PropTypes.bool,
   alert: PropTypes.bool,
-  title: PropTypes.string,
-  actions: PropTypes.array,
+  isActive: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 Modal.defaultProps = {
+  title: '',
+  buttonText: '',
+  buttonModifiers: 'outline',
+  actions: [],
   simple: false,
   alert: false,
-  title: '',
-  actions: [],
+  isActive: false,
   children: 'No content'
 };
 
@@ -1101,10 +1119,10 @@ var SocialFollow = function SocialFollow(_ref) {
 };
 
 SocialFollow.propTypes = {
-  media: PropTypes.object.isRequired,
   type: PropTypes.string,
   title: PropTypes.string,
-  vertical: PropTypes.bool
+  vertical: PropTypes.bool,
+  media: PropTypes.object.isRequired
 };
 SocialFollow.defaultProps = {
   type: 'share',
@@ -1196,6 +1214,94 @@ Avatar.defaultProps = {
   username: '!'
 };
 
+var Table = function Table(_ref) {
+  var _ref$data = _ref.data,
+      columns = _ref$data.columns,
+      rows = _ref$data.rows,
+      identification = _ref$data.identification,
+      onSelect = _ref.onSelect,
+      checkboxes = _ref.checkboxes;
+
+  var _useState = React.useState([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      selected = _useState2[0],
+      setSelected = _useState2[1];
+
+  var handleSelected = function handleSelected(_ref2, value) {
+    var _ref3 = _slicedToArray(_ref2, 1),
+        checked = _ref3[0];
+
+    var multiselect = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+    if (multiselect) {
+      if (checked) setSelected(_toConsumableArray(checked.value));else setSelected([]);
+      return;
+    }
+
+    if (checked && !selected.includes(checked.value)) setSelected([].concat(_toConsumableArray(selected), [checked.value]));else setSelected(selected.filter(function (_value) {
+      return _value !== value;
+    }));
+  };
+
+  React.useEffect(function () {
+    return onSelect(selected);
+  });
+  var thead = React__default.createElement("thead", null, React__default.createElement("tr", null, checkboxes && React__default.createElement("th", null, React__default.createElement(Checkboxes, {
+    withEffect: true,
+    options: [_extends({}, {
+      value: rows.map(function (row) {
+        return row[identification];
+      }),
+      id: 'Select_all',
+      checked: selected.length === rows.length
+    })],
+    onChange: function onChange(_ref4) {
+      var checked = _ref4.checked;
+      return handleSelected(checked, checked, true);
+    }
+  })), columns.map(function (column) {
+    return React__default.createElement("th", {
+      key: column
+    }, column);
+  })));
+  var tbody = React__default.createElement("tbody", null, rows.map(function (row) {
+    return React__default.createElement("tr", {
+      key: row[identification]
+    }, checkboxes && React__default.createElement("td", null, React__default.createElement(Checkboxes, {
+      withEffect: true,
+      options: [{
+        value: row[identification],
+        id: row[identification],
+        checked: selected.includes(row[identification])
+      }],
+      onChange: function onChange(_ref5) {
+        var checked = _ref5.checked;
+        return handleSelected(checked, row[identification]);
+      }
+    })), columns.map(function (column) {
+      return React__default.createElement("td", {
+        key: row[column]
+      }, row[column]);
+    }));
+  }));
+  return React__default.createElement("div", {
+    className: "table-scroll__wrapper"
+  }, React__default.createElement("div", {
+    className: "table-scroll"
+  }, React__default.createElement("table", null, thead, tbody)));
+};
+
+Table.propTypes = {
+  data: PropTypes.object,
+  checkboxes: PropTypes.bool,
+  onSelect: PropTypes.func
+};
+Table.defaultProps = {
+  data: {},
+  checkboxes: false,
+  onSelect: function onSelect() {}
+};
+
 exports.Alert = Alert;
 exports.Avatar = Avatar;
 exports.Badge = Badge;
@@ -1210,6 +1316,7 @@ exports.RadioButton = RadioButton;
 exports.Select = Select;
 exports.SocialFollow = SocialFollow;
 exports.TabComponent = index;
+exports.Table = Table;
 exports.Textarea = Textarea;
 exports.Tooltip = Tooltip;
 exports.VideoContainer = VideoContainer;
