@@ -1,8 +1,6 @@
 import React, {
   Fragment,
   useState,
-  useRef,
-  useEffect
 } from 'react';
 import PropTypes from 'prop-types';
 
@@ -12,15 +10,9 @@ const Avatar = ({
   username,
   ...attr
 }) => {
-  const [size, setSize] = useState(0);
   const [avatarUrl, setAvatar] = useState(null);
 
   const _modifier = modifier ? `avatar--${modifier}` : '';
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (ref.current) setSize(ref.current.offsetHeight / 2);
-  }, []);
 
   const initials = username && (username.split(' ')
     .map(subName => subName[0]
@@ -33,9 +25,9 @@ const Avatar = ({
 
   return (
     <Fragment>
-      <div className={`avatar ${_modifier}`} ref={ref}>
+      <div className={`avatar ${_modifier}`}>
         {avatarUrl && <img src={avatarUrl} alt="avatar" {...attr} />}
-        {!avatarUrl && <span style={{ fontSize: `${size}px` }}>{initials}</span>}
+        {!avatarUrl && <span>{initials}</span>}
       </div>
     </Fragment>
   );
