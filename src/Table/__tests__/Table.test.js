@@ -17,6 +17,12 @@ const data = {
   }]
 };
 
+const withEmptyRows = {
+  identification: 'id',
+  columns: ['name', 'age'],
+  rows: []
+};
+
 describe('Table component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const wrapper = shallow(<Table data={data} onSelect={() => {}} />);
@@ -43,5 +49,11 @@ describe('Table component', () => {
 
     wrapper.find('Checkboxes').at(2).simulate('click');
     expect(wrapper.find('input').at(2).prop('checked')).toBe(false);
+  });
+
+  test('should show placeholder if there is no data yet', () => {
+    const wrapper = shallow(<Table data={withEmptyRows} onSelect={() => {}} />);
+
+    expect(wrapper.find('td').text()).toContain('No records available');
   });
 });
