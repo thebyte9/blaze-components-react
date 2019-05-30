@@ -7,9 +7,9 @@ Dropdown list to navigate between items.
 
 ```js
 <Dropdown label="Dropdown">
-    <Link href="/">Settings</Link>
-    <Link href="/">Sign out</Link>
-    <Link href="/">Help</Link>
+    <Link to="/">Settings</Link>
+    <Link to="/">Sign out</Link>
+    <Link to="/">Help</Link>
 </Dropdown>
 ```
 
