@@ -18,7 +18,9 @@ const Avatar = ({
   const _modifier = modifier ? `avatar--${modifier}` : '';
   const ref = useRef(null);
 
-  useEffect(() => setSize(ref.current.clientHeight / 2));
+  useEffect(() => {
+    if (ref.current) setSize(ref.current.offsetHeight / 2);
+  }, []);
 
   const initials = username && (username.split(' ')
     .map(subName => subName[0]
@@ -32,10 +34,7 @@ const Avatar = ({
   return (
     <Fragment>
       <div className={`avatar ${_modifier}`} ref={ref}>
-        {avatarUrl && <img src={avatarUrl} alt="avatar" className="avatar__icon" {...attr} />}
-        <div className="avatar__image">
-          {avatarUrl && <img src={avatarUrl} alt="alt text here" {...attr} />}
-        </div>
+        {avatarUrl && <img src={avatarUrl} alt="avatar" {...attr} />}
         {!avatarUrl && <span style={{ fontSize: `${size}px` }}>{initials}</span>}
       </div>
     </Fragment>
