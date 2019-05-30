@@ -110,7 +110,11 @@ const Table = ({
 Table.propTypes = {
   placeholder: PropTypes.string,
   checkboxes: PropTypes.bool,
-  data: PropTypes.object,
+  data: PropTypes.shape({
+    identification: PropTypes.string,
+    columns: PropTypes.arrayOf(PropTypes.string),
+    rows: PropTypes.array
+  }),
   onSelect: PropTypes.func
 };
 
