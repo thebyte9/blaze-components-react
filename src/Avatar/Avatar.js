@@ -1,35 +1,28 @@
-import React, {
-  Fragment,
-  useState,
-} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Avatar = ({
-  modifier,
-  url,
-  username,
-  ...attr
+  modifier, url, username, ...attr
 }) => {
   const [avatarUrl, setAvatar] = useState(null);
 
   const _modifier = modifier ? `avatar--${modifier}` : '';
 
-  const initials = username && (username.split(' ')
-    .map(subName => subName[0]
-      .toUpperCase()).join(''))
+  const initials = username && username
+    .split(' ')
+    .map(subName => subName[0].toUpperCase())
+    .join('')
     .substring(0, 2);
-  
+
   const imageData = new Image();
   imageData.src = url;
   imageData.onload = () => setAvatar(url);
 
   return (
-    <Fragment>
-      <div className={`avatar ${_modifier}`}>
-        {avatarUrl && <img src={avatarUrl} alt="avatar" {...attr} />}
-        {!avatarUrl && <span>{initials}</span>}
-      </div>
-    </Fragment>
+    <div className={`avatar ${_modifier}`}>
+      {avatarUrl && <img src={avatarUrl} alt="avatar" {...attr} />}
+      {!avatarUrl && <span>{initials}</span>}
+    </div>
   );
 };
 
