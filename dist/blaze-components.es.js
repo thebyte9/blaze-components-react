@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect, useRef } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import crypto from 'crypto';
 
@@ -1151,22 +1151,13 @@ var Avatar = function Avatar(_ref) {
       username = _ref.username,
       attr = _objectWithoutProperties(_ref, ["modifier", "url", "username"]);
 
-  var _useState = useState(0),
+  var _useState = useState(null),
       _useState2 = _slicedToArray(_useState, 2),
-      size = _useState2[0],
-      setSize = _useState2[1];
-
-  var _useState3 = useState(null),
-      _useState4 = _slicedToArray(_useState3, 2),
-      avatarUrl = _useState4[0],
-      setAvatar = _useState4[1];
+      avatarUrl = _useState2[0],
+      setAvatar = _useState2[1];
 
   var _modifier = modifier ? "avatar--".concat(modifier) : '';
 
-  var ref = useRef(null);
-  useEffect(function () {
-    return setSize(ref.current.clientHeight / 2);
-  });
   var initials = username && username.split(' ').map(function (subName) {
     return subName[0].toUpperCase();
   }).join('').substring(0, 2);
@@ -1177,23 +1168,12 @@ var Avatar = function Avatar(_ref) {
     return setAvatar(url);
   };
 
-  return React.createElement(Fragment, null, React.createElement("div", {
-    className: "avatar ".concat(_modifier),
-    ref: ref
+  return React.createElement("div", {
+    className: "avatar ".concat(_modifier)
   }, avatarUrl && React.createElement("img", _extends({
     src: avatarUrl,
-    alt: "avatar",
-    className: "avatar__icon"
-  }, attr)), React.createElement("div", {
-    className: "avatar__image"
-  }, avatarUrl && React.createElement("img", _extends({
-    src: avatarUrl,
-    alt: "alt text here"
-  }, attr))), !avatarUrl && React.createElement("span", {
-    style: {
-      fontSize: "".concat(size, "px")
-    }
-  }, initials)));
+    alt: "avatar"
+  }, attr)), !avatarUrl && React.createElement("span", null, initials));
 };
 
 Avatar.propTypes = {
@@ -1213,7 +1193,8 @@ var Table = function Table(_ref) {
       rows = _ref$data.rows,
       identification = _ref$data.identification,
       onSelect = _ref.onSelect,
-      checkboxes = _ref.checkboxes;
+      checkboxes = _ref.checkboxes,
+      placeholder = _ref.placeholder;
 
   var _useState = useState([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -1239,6 +1220,7 @@ var Table = function Table(_ref) {
   useEffect(function () {
     return onSelect(selected);
   });
+  var colSpan = checkboxes ? columns.length + 1 : columns.length;
   var thead = React.createElement("thead", null, React.createElement("tr", null, checkboxes && React.createElement("th", null, React.createElement(Checkboxes, {
     withEffect: true,
     options: [_extends({}, {
@@ -1254,12 +1236,12 @@ var Table = function Table(_ref) {
     }
   })), columns.map(function (column) {
     return React.createElement("th", {
-      key: column
+      key: v1_1()
     }, column);
   })));
   var tbody = React.createElement("tbody", null, rows.map(function (row) {
     return React.createElement("tr", {
-      key: row[identification]
+      key: v1_1()
     }, checkboxes && React.createElement("td", null, React.createElement(Checkboxes, {
       withEffect: true,
       options: [{
@@ -1273,10 +1255,13 @@ var Table = function Table(_ref) {
       }
     })), columns.map(function (column) {
       return React.createElement("td", {
-        key: row[column]
+        key: v1_1()
       }, row[column]);
     }));
-  }));
+  }), !rows.length && React.createElement("tr", null, React.createElement("td", {
+    colSpan: colSpan,
+    align: "center"
+  }, placeholder)));
   return React.createElement("div", {
     className: "table-scroll__wrapper"
   }, React.createElement("div", {
@@ -1285,13 +1270,19 @@ var Table = function Table(_ref) {
 };
 
 Table.propTypes = {
-  data: PropTypes.object,
+  placeholder: PropTypes.string,
   checkboxes: PropTypes.bool,
+  data: PropTypes.shape({
+    identification: PropTypes.string,
+    columns: PropTypes.arrayOf(PropTypes.string),
+    rows: PropTypes.array
+  }),
   onSelect: PropTypes.func
 };
 Table.defaultProps = {
-  data: {},
+  placeholder: 'No records available',
   checkboxes: false,
+  data: {},
   onSelect: function onSelect() {}
 };
 
