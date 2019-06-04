@@ -3,34 +3,20 @@ import PropTypes from 'prop-types';
 import Button from '../Button';
 
 const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
-
   const area = useRef(null);
   const selectFile = useRef(null);
 
-  const handleDrag = (event) => {
+  const handleDragover = (event) => {
     event.stopPropagation();
     event.preventDefault();
-  };
-
-  const handleDragIn = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-  };
-
-  const handleDragOut = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
   };
 
   const getBase64 = files => Promise.all(
     files.map((file) => {
       const reader = new FileReader();
-    
       return new Promise((resolve, reject) => {
         reader.readAsDataURL(file);
-        
         reader.onload = e => resolve(e.target.result);
-
         reader.onerror = () => reject(new DOMException('Error parsing input file.'));
       });
     })
@@ -69,9 +55,7 @@ const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
   useEffect(() => {
     const { current: currentArea } = area;
 
-    currentArea.addEventListener('dragenter', handleDragIn);
-    currentArea.addEventListener('dragleave', handleDragOut);
-    currentArea.addEventListener('dragover', handleDrag);
+    currentArea.addEventListener('dragover', handleDragover);
     currentArea.addEventListener('drop', handleDrop);
   }, []);
 
