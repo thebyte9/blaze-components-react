@@ -50,18 +50,16 @@ describe('DragableArea component', () => {
     const domNode = wrapper.getDOMNode();
 
     const dragover = new Event('dragover');
-    const dragleave = new Event('dragleave');
-    
-    const dragenter = new Event('dragenter');
-    dragenter.dataTransfer = { items: [{}, {}] };
 
     const drop = new Event('drop');
     drop.dataTransfer = { files: [{}, {}] };
 
+    const dropWithoutItems = new Event('drop');
+    dropWithoutItems.dataTransfer = { files: [] };
+
     domNode.dispatchEvent(dragover);
-    domNode.dispatchEvent(dragleave);
-    domNode.dispatchEvent(dragenter);
     domNode.dispatchEvent(drop);
+    domNode.dispatchEvent(dropWithoutItems);
   });
 });
 

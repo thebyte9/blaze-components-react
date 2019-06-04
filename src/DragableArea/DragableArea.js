@@ -22,13 +22,10 @@ const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
     })
   );
 
-  const processFiles = (event, files, type) => {
-    if (!files && !files.length) return;
+  const processFiles = (event, files) => {
+    if (!files || !files.length) return;
 
-    getBase64(files).then((base64) => {
-      if (type) event[type].clearData();
-      return handleDropProp({ event, files, base64 });
-    });
+    getBase64(files).then(base64 => handleDropProp({ event, files, base64 }));
   };
 
   const handleDrop = (event) => {
@@ -39,7 +36,7 @@ const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
 
     files = Object.values(files);
 
-    processFiles(event, files, 'dataTransfer');
+    processFiles(event, files);
   };
 
   const handleChange = (event) => {
