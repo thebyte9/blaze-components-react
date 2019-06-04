@@ -4,7 +4,6 @@ import uuidv1 from 'uuid/v1';
 import Modal from '../../Modal';
 import DragableArea from '../index';
 import ModalReadme from '../README.md';
-import { file } from '@babel/types';
 
 const styles = {
   display: 'flex',
