@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 
 const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
-  const [drag, setDrag] = useState(false);
 
   const area = useRef(null);
   const selectFile = useRef(null);
@@ -16,8 +15,6 @@ const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
   const handleDragIn = (event) => {
     event.stopPropagation();
     event.preventDefault();
-    const { dataTransfer: { items } } = event;
-    if (items && items.length) setDrag(true);
   };
 
   const handleDragOut = (event) => {
@@ -51,8 +48,6 @@ const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
   const handleDrop = (event) => {
     event.preventDefault();
     event.stopPropagation();
-
-    setDrag(false);
 
     let { dataTransfer: { files } = {} } = event;
 
@@ -90,11 +85,7 @@ const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
   };
 
   return (
-    <div
-      style={{ background: drag ? 'yellow' : 'transparent', height: '100%' }}
-      ref={area}
-      className="upload"
-      {...attr}>
+    <div ref={area} className="upload" {...attr}>
 
       <i className="material-icons">arrow_upward</i>
       <p>Drag &amp; drop file to upload</p>

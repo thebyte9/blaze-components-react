@@ -50,7 +50,7 @@ storiesOf('DragbleArea', module)
           isActive
           buttonText="Upload Files"
           title="Add media"
-          actions={[['submit', () => console.log(this.state.files), 'rounded outline']]}
+          actions={[['submit', () => {}, 'rounded outline']]}
           upload>
             <DragableArea handleDrop={this.handleDrop} style={styles}>
                 <div>{this.state.preview}</div>
