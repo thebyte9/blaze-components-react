@@ -27,7 +27,6 @@ const multiple = [
   {
     label: 'Disabled', 
     value: 4, 
-    id: 'fourth',
     disabled: true
   }
 ];
@@ -41,12 +40,11 @@ const multiple = [
 * Single & required
 
 ```js
-const single = [{
+const single = {
   label: 'Do you agree?',
   value: false,
-  id: 'four',
   required: true
-}];
+};
 
 <Checkboxes 
   options={single} 

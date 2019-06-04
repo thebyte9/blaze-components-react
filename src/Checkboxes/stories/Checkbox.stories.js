@@ -27,12 +27,12 @@ const multiple = [
   }
 ];
 
-const single = [{
+const single = {
   label: 'Do you agree?',
   value: false,
   id: 'four',
   required: true
-}];
+};
 
 storiesOf('Checkboxes', module)
   .addParameters({
