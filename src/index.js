@@ -15,6 +15,7 @@ import Dropdown from './Dropdown';
 import SocialFollow from './SocialFollow';
 import VideoContainer from './VideoContainer';
 import Avatar from './Avatar';
+import DragableArea from './DragableArea';
 
 export {
   Button,
@@ -33,5 +34,6 @@ export {
   Dropdown,
   SocialFollow,
   VideoContainer,
-  Avatar
+  Avatar,
+  DragableArea
 };
