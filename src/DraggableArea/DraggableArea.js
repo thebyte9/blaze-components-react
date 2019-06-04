@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 
-const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
+const DraggableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
   const area = useRef(null);
   const selectFile = useRef(null);
 
@@ -85,14 +85,14 @@ const DragableArea = ({ children, handleDrop: handleDropProp, ...attr }) => {
   );
 };
 
-DragableArea.propTypes = {
+DraggableArea.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   handleDrop: PropTypes.func
 };
 
-DragableArea.defaultProps = {
+DraggableArea.defaultProps = {
   handleDrop: () => {},
   children: 'No content'
 };
 
-export default DragableArea;
+export default DraggableArea;

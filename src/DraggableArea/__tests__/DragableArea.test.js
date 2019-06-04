@@ -1,9 +1,14 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import DragableArea from '../DragableArea';
+import DraggableArea from '../DraggableArea';
 
-const dragAndDropComponent = <DragableArea handleDrop={() => {}}>Drag and drop here</DragableArea>;
+const dragAndDropComponent = (
+  <DraggableArea
+    handleDrop={() => {}}>
+      Drag and drop here
+  </DraggableArea>
+);
 
 describe('DragableArea component', () => {
   test('should be defined and renders correctly (snapshot)', () => {

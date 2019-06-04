@@ -20,30 +20,34 @@ const imageStyles = {
   margin: '5px'
 }
 
-storiesOf('DragbleArea', module)
+storiesOf('DraggbleArea', module)
   .addParameters({
     readme: {
       sidebar: ModalReadme
     },
   })
   .add('Introduction', () => {
-    class DragAndDrop extends Component {
+    class ModalWithDraggableArea extends Component {
       state = {
-        preview: [],
-        files: []
+        previewImages: [],
+        filesToUpload: []
       }
 
       handleDrop = ({ base64, canceled, files }) => {
-        if (canceled) return this.setState({preview: []});
+        const { previewImages, filesToUpload } = this.state;
+
+        if (canceled) return this.setState({previewImages: []});
 
         const images = base64.map(src => <img key={uuidv1()} src={src} style={imageStyles}/>);
+
         this.setState({
-          preview: [...this.state.preview, ...images],
-          files: [...this.state.files, ...files]
+          previewImages: [...previewImages, ...images],
+          filesToUpload: [...filesToUpload, ...files]
         })
       }
 
       render() {
+        const { state: { previewImages }, handleDrop } = this;
         return (
           <Modal
           isActive
@@ -51,8 +55,8 @@ storiesOf('DragbleArea', module)
           title="Add media"
           actions={[['submit', () => {}, 'rounded outline']]}
           upload>
-            <DragableArea handleDrop={this.handleDrop} style={styles}>
-                <div>{this.state.preview}</div>
+            <DragableArea handleDrop={handleDrop} style={styles}>
+                <div>{previewImages}</div>
             </DragableArea>
           </Modal>
         )
@@ -60,13 +64,12 @@ storiesOf('DragbleArea', module)
     }
     
     return (<div className="component-wrapper">
-    <h1>Dragable Area</h1>
+    <h1>Draggable Area</h1>
       <p>
-      A modal dialog is a dialog that appears at the top of the main content. 
-      Use a modal for dialog boxes, forms, confirmation messages or other content that can be accessed.
+      Draggable area is a great interface solution, move one or multiple images to a desired location and "drop" it there using a mouse or similar device.
       </p> 
 
-      <DragAndDrop />
+      <ModalWithDraggableArea />
   </div>)    
 
   });
