@@ -4,6 +4,7 @@ import uuidv1 from 'uuid/v1';
 import Modal from '../../Modal';
 import DragableArea from '../index';
 import ModalReadme from '../README.md';
+import { file } from '@babel/types';
 
 const styles = {
   display: 'flex',
@@ -29,21 +30,32 @@ storiesOf('DragbleArea', module)
   .add('Introduction', () => {
     class DragAndDrop extends Component {
       state = {
-        preview: []
+        preview: [],
+        files: []
       }
 
-      handleDrop = ({ base64, canceled }) => {
+      handleDrop = ({ base64, canceled, files }) => {
         if (canceled) return this.setState({preview: []});
 
         const images = base64.map(src => <img key={uuidv1()} src={src} style={imageStyles}/>);
-        this.setState({preview: [...this.state.preview, ...images]})
+        this.setState({
+          preview: [...this.state.preview, ...images],
+          files: [...this.state.files, ...files]
+        })
       }
 
       render() {
         return (
-          <DragableArea handleDrop={this.handleDrop} style={styles}>
-              <div>{this.state.preview}</div>
-          </DragableArea>
+          <Modal
+          isActive
+          buttonText="Upload Files"
+          title="Add media"
+          actions={[['submit', () => console.log(this.state.files), 'rounded outline']]}
+          upload>
+            <DragableArea handleDrop={this.handleDrop} style={styles}>
+                <div>{this.state.preview}</div>
+            </DragableArea>
+          </Modal>
         )
       }
     }
@@ -55,13 +67,7 @@ storiesOf('DragbleArea', module)
       Use a modal for dialog boxes, forms, confirmation messages or other content that can be accessed.
       </p> 
 
-      <Modal
-          isActive
-          buttonText="Upload Files"
-          title="Add media"
-          upload>
-          <DragAndDrop />
-      </Modal>
+      <DragAndDrop />
   </div>)    
 
   });
