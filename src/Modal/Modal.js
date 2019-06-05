@@ -70,7 +70,12 @@ Modal.propTypes = {
   title: PropTypes.string,
   buttonText: PropTypes.string,
   buttonModifiers: PropTypes.string,
-  actions: PropTypes.array,
+  actions: PropTypes.arrayOf(
+    PropTypes.arrayOf(
+      PropTypes.string,
+      PropTypes.func
+    )
+  ),
   simple: PropTypes.bool,
   upload: PropTypes.bool,
   alert: PropTypes.bool,
