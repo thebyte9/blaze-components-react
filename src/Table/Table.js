@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import uuidv1 from 'uuid/v1';
 import Checkboxes from '../Checkboxes';
 
 const Table = ({
@@ -9,7 +10,8 @@ const Table = ({
     identification,
   },
   onSelect,
-  checkboxes
+  checkboxes,
+  placeholder,
 }) => {
   const [selected, setSelected] = useState([]);
 
@@ -25,6 +27,8 @@ const Table = ({
   };
 
   useEffect(() => onSelect(selected));
+
+  const colSpan = checkboxes ? columns.length + 1 : columns.length;
 
   const thead = (
     <thead>
@@ -49,7 +53,7 @@ const Table = ({
             </th>
           )
         }
-        {columns.map(column => <th key={column}>{column}</th>)}
+        {columns.map(column => <th key={uuidv1()}>{column}</th>)}
       </tr>
     </thead>
   );
@@ -58,7 +62,7 @@ const Table = ({
     <tbody>
       {
         rows.map(row => (
-          <tr key={row[identification]}>
+          <tr key={uuidv1()}>
             {
               checkboxes
               && (
@@ -79,10 +83,15 @@ const Table = ({
                 </td>
               )
             }
-            {columns.map(column => <td key={row[column]}>{row[column]}</td>)}
+            {columns.map(column => <td key={uuidv1()}>{row[column]}</td>)}
           </tr>
         ))
       }
+      {!rows.length && (
+      <tr>
+        <td colSpan={colSpan} align="center">{placeholder}</td>
+      </tr>
+      )}
     </tbody>
   );
 
@@ -99,14 +108,20 @@ const Table = ({
 };
 
 Table.propTypes = {
-  data: PropTypes.object,
+  placeholder: PropTypes.string,
   checkboxes: PropTypes.bool,
+  data: PropTypes.shape({
+    identification: PropTypes.string,
+    columns: PropTypes.arrayOf(PropTypes.string),
+    rows: PropTypes.array
+  }),
   onSelect: PropTypes.func
 };
 
 Table.defaultProps = {
-  data: {},
+  placeholder: 'No records available',
   checkboxes: false,
+  data: {},
   onSelect: () => {}
 };
 

@@ -45,6 +45,7 @@ const data =  {
 
 | NAME   | TYPE | DEFAULT | 
 | :---  | :---:  | :---: | 
+| placeholder | string| No records available | 
 | data | Object | {}      | 
 | onSelect | Function | () => {}  | 
 | checkboxes | Boolean | false | 
