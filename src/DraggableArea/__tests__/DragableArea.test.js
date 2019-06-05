@@ -49,7 +49,7 @@ describe('DragableArea component', () => {
     done();
   });
 
-  test('events listener', () => {
+  test('should drop files', () => {
     const wrapper = mount(dragAndDropComponent);
 
     const domNode = wrapper.getDOMNode();
