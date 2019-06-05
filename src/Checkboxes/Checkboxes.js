@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import uuidv1 from 'uuid/v1';
 
 const Checkboxes = ({
   onChange,
@@ -8,7 +9,7 @@ const Checkboxes = ({
   boolean,
   ...attrs
 }) => {
-  const [data, setData] = useState(options);
+  const [data, setData] = useState(Array.isArray(options) ? options : [options]);
 
   useEffect(() => {
     if (withEffect) setData(options);
@@ -32,7 +33,7 @@ const Checkboxes = ({
           disabled,
           required,
           label,
-          id
+          id = uuidv1()
         } = item;
       
         return (
@@ -66,7 +67,10 @@ const Checkboxes = ({
 };
 
 Checkboxes.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]),
   withEffect: PropTypes.bool,
   boolean: PropTypes.bool,
   onChange: PropTypes.func
