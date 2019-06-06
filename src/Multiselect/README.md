@@ -35,7 +35,7 @@ const data = {
 ## API
 
 ##### Multiselect can receive a number of `props` as follow:
-clea
+
 | NAME   | TYPE | DEFAULT | 
 | :---  | :---:  | :---: | 
 | data | Object | {} |

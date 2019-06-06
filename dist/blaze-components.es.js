@@ -176,7 +176,7 @@ var RadioButton = function RadioButton(_ref) {
         disabled = item.disabled,
         label = item.label,
         id = item.id;
-    return React.createElement("span", {
+    return React.createElement("div", {
       key: label,
       className: "form-field form-field--radio",
       onClick: function onClick(event) {
@@ -400,9 +400,9 @@ var Checkboxes = function Checkboxes(_ref) {
     if (!show) return React.createElement(Fragment, {
       key: id
     });
-    return React.createElement("span", {
+    return React.createElement("div", {
       key: id,
-      className: "form-field form-field--checkbox",
+      className: "form-field form-field--checkbox ".concat(required ? 'required' : ''),
       onClick: function onClick(e) {
         return toggle({
           e: e,
@@ -420,9 +420,8 @@ var Checkboxes = function Checkboxes(_ref) {
       checked: checked,
       required: required,
       id: id
-    }, attrs)), "\xA0 \xA0", React.createElement("label", {
-      htmlFor: id,
-      className: required ? 'required' : ''
+    }, attrs)), React.createElement("label", {
+      htmlFor: id
     }, label));
   }));
 };
