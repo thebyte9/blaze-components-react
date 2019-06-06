@@ -42,7 +42,6 @@ const multiple = [
 ```js
 const single = {
   label: 'Do you agree?',
-  value: false,
   required: true
 };
 

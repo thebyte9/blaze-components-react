@@ -70,7 +70,10 @@ const Checkboxes = ({
 };
 
 Checkboxes.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]),
   withEffect: PropTypes.bool,
   boolean: PropTypes.bool,
   onChange: PropTypes.func

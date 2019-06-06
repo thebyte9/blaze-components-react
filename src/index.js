@@ -17,6 +17,7 @@ import VideoContainer from './VideoContainer';
 import Avatar from './Avatar';
 import DraggableArea from './DraggableArea';
 import Multiselect from './Multiselect';
+import Table from './Table';
 
 export {
   Button,
@@ -37,5 +38,6 @@ export {
   VideoContainer,
   Avatar,
   DraggableArea,
-  Multiselect
+  Multiselect,
+  Table
 };

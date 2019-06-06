@@ -21,7 +21,7 @@ storiesOf('Tab', module)
         <div className="component-wrapper">
           <h1>Tab</h1>
           <p>Tabs organize a static or dynamic content across different screens.</p>
-          <Tab selected={1}>
+          <Tab selected={0}>
             <TabItem title="Basic">Basic content here</TabItem>
             <TabItem title="Advanced" action={loadContent}>{content}</TabItem>
             <TabItem title="Other">Other content here</TabItem>

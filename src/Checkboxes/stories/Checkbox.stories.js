@@ -29,8 +29,6 @@ const multiple = [
 
 const single = {
   label: 'Do you agree?',
-  value: false,
-  id: 'four',
   required: true
 };
 
