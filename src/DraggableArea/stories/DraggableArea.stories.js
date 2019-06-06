@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import uuidv1 from 'uuid/v1';
 import Modal from '../../Modal';
 import DragableArea from '../index';
-import ModalReadme from '../README.md';
+import DragableAreaReadme from '../README.md';
 
 const styles = {
   display: 'flex',
@@ -23,7 +23,7 @@ const imageStyles = {
 storiesOf('DraggbleArea', module)
   .addParameters({
     readme: {
-      sidebar: ModalReadme
+      sidebar: DragableAreaReadme
     },
   })
   .add('Introduction', () => {

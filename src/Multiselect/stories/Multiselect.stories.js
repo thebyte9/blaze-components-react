@@ -3,20 +3,27 @@ import { storiesOf } from '@storybook/react';
 import Multiselect from '../index';
 import MultiSelectReadme from '../README.md';
 
-const data = [
+const data = {
+  keyValue: 'name',
+  filterBy: ['name', 'description'],
+  data: [
     {
         id: 1,
-        name: 'Blaze'
+        name: 'Blaze',
+        description: 'Lorem ipsum dolor.'
     },
     {
         id: 2,
-        name: 'KP'
+        name: 'KP',
+        description: 'Aliquam tincidunt.'
     },
     {
         id: 3,
-        name: 'Pulser'
+        name: 'Pulser',
+        description: 'Vestibulum auctor.'
     }
-]
+  ]
+};
 
 storiesOf('Multiselect', module)
   .addParameters({
@@ -29,11 +36,10 @@ storiesOf('Multiselect', module)
       <h1>Multiselect</h1>
 
       <p>
-      A modal dialog is a dialog that appears at the top of the main content. 
-      Use a modal for dialog boxes, forms, confirmation messages or other content that can be accessed.
+      MultiSelect is a component that allows you to select multiple items with check boxes. It is useful for labeling, contact lists, country selectors, etc.
       </p> 
 
-    <Multiselect data={[data, 'name']} keys={['name']} s={() => {}}/>
+    <Multiselect data={data} selected={() => {}}/>
 
     </div>
   ));

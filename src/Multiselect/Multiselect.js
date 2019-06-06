@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import uuidv1 from 'uuid/v1';
 
@@ -6,71 +6,72 @@ import Input from '../Input';
 import Checkboxes from '../Checkboxes';
 
 const MultiSelect = ({
-  data: [data = [], key = ''],
-  keys,
-  s,
+  data: { data, filterBy: keys, keyValue },
+  selected: getSelected,
+  placeholder,
   children
 }) => {
   const [selected, setSelected] = useState([]);
-  const [a, setA] = useState(data);
+  const [dataCopy, setDataCopy] = useState(data);
+
+  const setStatus = (obj, status) => Object.assign({}, obj, { show: status });
 
   const handleKeyUp = (event) => {
     const { target: { value } } = event;
 
-    const _a = a.map((d) => {
-      let _d = d;
+    const _dataCopy = dataCopy.map((copy) => {
+      let _copy = setStatus(copy, false);
+
       keys.forEach((_key) => {
-        const match = d[_key].toLowerCase().includes(value.toLowerCase());
-        _d = Object.assign({}, d, { show: match });
+        const match = copy[_key].toLowerCase().includes(value.toLowerCase());
+        if (match) _copy = setStatus(copy, true);
       });
-      return _d;
+
+      return _copy;
     });
 
-    setA(_a);
+    setDataCopy(_dataCopy);
   };
 
   const handleChange = ({ checked, data: _data }) => {
     setSelected(checked);
-    setA(_data);
-    s(a);
+    setDataCopy(_data);
+    getSelected(_data);
   };
 
   return (
-    <div className="container">
+    <Fragment>
 
       {
-        selected.map(n => <div key={uuidv1()}>{n[key]}</div>)
+        selected.map(_selected => <div key={uuidv1()}>{_selected[keyValue]}</div>)
       }
 
       {children}
 
-      <Input
-            label="Press enter after you typed."
-            placeholder="Search"
-            onKeyUp={handleKeyUp}
-            />
+      <Input placeholder={placeholder} onKeyUp={handleKeyUp} />
       {
         <Checkboxes
-            options={a.map(d => Object.assign({}, d, { label: d[key] }))}
+            options={dataCopy.map(_dataCopy => (
+              Object.assign({}, _dataCopy, { label: _dataCopy[keyValue] })))}
             onChange={handleChange}
             withEffect
             />
       }
-    </div>
+    </Fragment>
   );
 };
 
 MultiSelect.propTypes = {
-  data: PropTypes.array,
-  keys: PropTypes.array,
-  s: PropTypes.func,
+  data: PropTypes.object,
+  selected: PropTypes.func,
+  placeholder: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 MultiSelect.defaultProps = {
-  data: [],
-  keys: [],
-  s: () => {},
+  data: {},
+  selected: () => {},
+  placeholder: 'Search',
   children: ''
 };
 
