@@ -40,9 +40,9 @@ const Checkboxes = ({
         if (!show) return <Fragment key={id} />;
 
         return (
-          <span
+          <div
                 key={id}
-                className="form-field form-field--checkbox"
+                className={`form-field form-field--checkbox ${required ? 'required' : ''}`}
                 onClick={e => toggle({ e, item, key })}
                 role="button">
             <input
@@ -56,13 +56,8 @@ const Checkboxes = ({
                 id={id}
                 {...attrs}
                 />
-            &nbsp; &nbsp;
-            <label
-                htmlFor={id}
-                className={required ? 'required' : ''}>
-              {label}
-            </label>
-          </span>
+            <label htmlFor={id}>{label}</label>
+          </div>
         );
       })}
     </Fragment>
