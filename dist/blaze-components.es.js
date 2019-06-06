@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import crypto from 'crypto';
 
@@ -176,7 +176,7 @@ var RadioButton = function RadioButton(_ref) {
         disabled = item.disabled,
         label = item.label,
         id = item.id;
-    return React.createElement("span", {
+    return React.createElement("div", {
       key: label,
       className: "form-field form-field--radio",
       onClick: function onClick(event) {
@@ -211,6 +211,147 @@ RadioButton.defaultProps = {
   onChange: function onChange() {}
 };
 
+// Unique ID creation requires a high quality random # generator.  In node.js
+// this is pretty straight-forward - we use the crypto API.
+
+
+
+var rng = function nodeRNG() {
+  return crypto.randomBytes(16);
+};
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+var byteToHex = [];
+for (var i = 0; i < 256; ++i) {
+  byteToHex[i] = (i + 0x100).toString(16).substr(1);
+}
+
+function bytesToUuid(buf, offset) {
+  var i = offset || 0;
+  var bth = byteToHex;
+  // join used to fix memory issue caused by concatenation: https://bugs.chromium.org/p/v8/issues/detail?id=3175#c4
+  return ([bth[buf[i++]], bth[buf[i++]], 
+	bth[buf[i++]], bth[buf[i++]], '-',
+	bth[buf[i++]], bth[buf[i++]], '-',
+	bth[buf[i++]], bth[buf[i++]], '-',
+	bth[buf[i++]], bth[buf[i++]], '-',
+	bth[buf[i++]], bth[buf[i++]],
+	bth[buf[i++]], bth[buf[i++]],
+	bth[buf[i++]], bth[buf[i++]]]).join('');
+}
+
+var bytesToUuid_1 = bytesToUuid;
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+
+var _nodeId;
+var _clockseq;
+
+// Previous uuid creation time
+var _lastMSecs = 0;
+var _lastNSecs = 0;
+
+// See https://github.com/broofa/node-uuid for API details
+function v1(options, buf, offset) {
+  var i = buf && offset || 0;
+  var b = buf || [];
+
+  options = options || {};
+  var node = options.node || _nodeId;
+  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq;
+
+  // node and clockseq need to be initialized to random values if they're not
+  // specified.  We do this lazily to minimize issues related to insufficient
+  // system entropy.  See #189
+  if (node == null || clockseq == null) {
+    var seedBytes = rng();
+    if (node == null) {
+      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+      node = _nodeId = [
+        seedBytes[0] | 0x01,
+        seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]
+      ];
+    }
+    if (clockseq == null) {
+      // Per 4.2.2, randomize (14 bit) clockseq
+      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
+    }
+  }
+
+  // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+  var msecs = options.msecs !== undefined ? options.msecs : new Date().getTime();
+
+  // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1;
+
+  // Time since last uuid creation (in msecs)
+  var dt = (msecs - _lastMSecs) + (nsecs - _lastNSecs)/10000;
+
+  // Per 4.2.1.2, Bump clockseq on clock regression
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  }
+
+  // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  }
+
+  // Per 4.2.1.2 Throw error if too many uuids are requested
+  if (nsecs >= 10000) {
+    throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq;
+
+  // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+  msecs += 12219292800000;
+
+  // `time_low`
+  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff;
+
+  // `time_mid`
+  var tmh = (msecs / 0x100000000 * 10000) & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff;
+
+  // `time_high_and_version`
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+  b[i++] = tmh >>> 16 & 0xff;
+
+  // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+  b[i++] = clockseq >>> 8 | 0x80;
+
+  // `clock_seq_low`
+  b[i++] = clockseq & 0xff;
+
+  // `node`
+  for (var n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+
+  return buf ? buf : bytesToUuid_1(b);
+}
+
+var v1_1 = v1;
+
 var Checkboxes = function Checkboxes(_ref) {
   var onChange = _ref.onChange,
       options = _ref.options,
@@ -218,7 +359,7 @@ var Checkboxes = function Checkboxes(_ref) {
       _boolean = _ref["boolean"],
       attrs = _objectWithoutProperties(_ref, ["onChange", "options", "withEffect", "boolean"]);
 
-  var _useState = useState(options),
+  var _useState = useState(Array.isArray(options) ? options : [options]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
@@ -240,7 +381,8 @@ var Checkboxes = function Checkboxes(_ref) {
     if (_boolean) checked = !!checked.length;
     onChange({
       event: event,
-      checked: checked
+      checked: checked,
+      data: data
     });
   };
 
@@ -251,10 +393,16 @@ var Checkboxes = function Checkboxes(_ref) {
         disabled = item.disabled,
         required = item.required,
         label = item.label,
-        id = item.id;
-    return React.createElement("span", {
+        _item$show = item.show,
+        show = _item$show === void 0 ? true : _item$show,
+        _item$id = item.id,
+        id = _item$id === void 0 ? v1_1() : _item$id;
+    if (!show) return React.createElement(Fragment, {
+      key: id
+    });
+    return React.createElement("div", {
       key: id,
-      className: "form-field form-field--checkbox",
+      className: "form-field form-field--checkbox ".concat(required ? 'required' : ''),
       onClick: function onClick(e) {
         return toggle({
           e: e,
@@ -272,15 +420,14 @@ var Checkboxes = function Checkboxes(_ref) {
       checked: checked,
       required: required,
       id: id
-    }, attrs)), "\xA0 \xA0", React.createElement("label", {
-      htmlFor: id,
-      className: required ? 'required' : ''
+    }, attrs)), React.createElement("label", {
+      htmlFor: id
     }, label));
   }));
 };
 
 Checkboxes.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   withEffect: PropTypes.bool,
   "boolean": PropTypes.bool,
   onChange: PropTypes.func
@@ -737,6 +884,7 @@ var Modal = function Modal(_ref) {
       simple = _ref.simple,
       alert = _ref.alert,
       title = _ref.title,
+      upload = _ref.upload,
       actions = _ref.actions,
       isActive = _ref.isActive,
       buttonText = _ref.buttonText,
@@ -750,6 +898,7 @@ var Modal = function Modal(_ref) {
   var type = function type() {
     if (simple) return '--simple';
     if (alert) return '--alert';
+    if (upload) return '--upload';
     return '';
   };
 
@@ -807,6 +956,7 @@ Modal.propTypes = {
   buttonModifiers: PropTypes.string,
   actions: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string, PropTypes.func)),
   simple: PropTypes.bool,
+  upload: PropTypes.bool,
   alert: PropTypes.bool,
   isActive: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
@@ -817,6 +967,7 @@ Modal.defaultProps = {
   buttonModifiers: 'outline',
   actions: [],
   simple: false,
+  upload: false,
   alert: false,
   isActive: false,
   children: 'No content'
@@ -864,147 +1015,6 @@ Breadcrumb.propTypes = {
 Breadcrumb.defaultProps = {
   children: 'Missing breadcrumb content'
 };
-
-// Unique ID creation requires a high quality random # generator.  In node.js
-// this is pretty straight-forward - we use the crypto API.
-
-
-
-var rng = function nodeRNG() {
-  return crypto.randomBytes(16);
-};
-
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */
-var byteToHex = [];
-for (var i = 0; i < 256; ++i) {
-  byteToHex[i] = (i + 0x100).toString(16).substr(1);
-}
-
-function bytesToUuid(buf, offset) {
-  var i = offset || 0;
-  var bth = byteToHex;
-  // join used to fix memory issue caused by concatenation: https://bugs.chromium.org/p/v8/issues/detail?id=3175#c4
-  return ([bth[buf[i++]], bth[buf[i++]], 
-	bth[buf[i++]], bth[buf[i++]], '-',
-	bth[buf[i++]], bth[buf[i++]], '-',
-	bth[buf[i++]], bth[buf[i++]], '-',
-	bth[buf[i++]], bth[buf[i++]], '-',
-	bth[buf[i++]], bth[buf[i++]],
-	bth[buf[i++]], bth[buf[i++]],
-	bth[buf[i++]], bth[buf[i++]]]).join('');
-}
-
-var bytesToUuid_1 = bytesToUuid;
-
-// **`v1()` - Generate time-based UUID**
-//
-// Inspired by https://github.com/LiosK/UUID.js
-// and http://docs.python.org/library/uuid.html
-
-var _nodeId;
-var _clockseq;
-
-// Previous uuid creation time
-var _lastMSecs = 0;
-var _lastNSecs = 0;
-
-// See https://github.com/broofa/node-uuid for API details
-function v1(options, buf, offset) {
-  var i = buf && offset || 0;
-  var b = buf || [];
-
-  options = options || {};
-  var node = options.node || _nodeId;
-  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq;
-
-  // node and clockseq need to be initialized to random values if they're not
-  // specified.  We do this lazily to minimize issues related to insufficient
-  // system entropy.  See #189
-  if (node == null || clockseq == null) {
-    var seedBytes = rng();
-    if (node == null) {
-      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
-      node = _nodeId = [
-        seedBytes[0] | 0x01,
-        seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]
-      ];
-    }
-    if (clockseq == null) {
-      // Per 4.2.2, randomize (14 bit) clockseq
-      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
-    }
-  }
-
-  // UUID timestamps are 100 nano-second units since the Gregorian epoch,
-  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
-  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
-  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
-  var msecs = options.msecs !== undefined ? options.msecs : new Date().getTime();
-
-  // Per 4.2.1.2, use count of uuid's generated during the current clock
-  // cycle to simulate higher resolution clock
-  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1;
-
-  // Time since last uuid creation (in msecs)
-  var dt = (msecs - _lastMSecs) + (nsecs - _lastNSecs)/10000;
-
-  // Per 4.2.1.2, Bump clockseq on clock regression
-  if (dt < 0 && options.clockseq === undefined) {
-    clockseq = clockseq + 1 & 0x3fff;
-  }
-
-  // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
-  // time interval
-  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
-    nsecs = 0;
-  }
-
-  // Per 4.2.1.2 Throw error if too many uuids are requested
-  if (nsecs >= 10000) {
-    throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
-  }
-
-  _lastMSecs = msecs;
-  _lastNSecs = nsecs;
-  _clockseq = clockseq;
-
-  // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
-  msecs += 12219292800000;
-
-  // `time_low`
-  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
-  b[i++] = tl >>> 24 & 0xff;
-  b[i++] = tl >>> 16 & 0xff;
-  b[i++] = tl >>> 8 & 0xff;
-  b[i++] = tl & 0xff;
-
-  // `time_mid`
-  var tmh = (msecs / 0x100000000 * 10000) & 0xfffffff;
-  b[i++] = tmh >>> 8 & 0xff;
-  b[i++] = tmh & 0xff;
-
-  // `time_high_and_version`
-  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
-  b[i++] = tmh >>> 16 & 0xff;
-
-  // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
-  b[i++] = clockseq >>> 8 | 0x80;
-
-  // `clock_seq_low`
-  b[i++] = clockseq & 0xff;
-
-  // `node`
-  for (var n = 0; n < 6; ++n) {
-    b[i + n] = node[n];
-  }
-
-  return buf ? buf : bytesToUuid_1(b);
-}
-
-var v1_1 = v1;
 
 var Dropdown = function Dropdown(_ref) {
   var label = _ref.label,
@@ -1187,6 +1197,203 @@ Avatar.defaultProps = {
   username: '!'
 };
 
+var DraggableArea = function DraggableArea(_ref) {
+  var children = _ref.children,
+      handleDropProp = _ref.handleDrop,
+      attr = _objectWithoutProperties(_ref, ["children", "handleDrop"]);
+
+  var area = useRef(null);
+  var selectFile = useRef(null);
+
+  var handleDragover = function handleDragover(event) {
+    event.stopPropagation();
+    event.preventDefault();
+  };
+
+  var getBase64 = function getBase64(files) {
+    return Promise.all(files.map(function (file) {
+      var reader = new FileReader();
+      return new Promise(function (resolve, reject) {
+        reader.readAsDataURL(file);
+
+        reader.onload = function (e) {
+          return resolve(e.target.result);
+        };
+
+        reader.onerror = function () {
+          return reject(new DOMException('Error parsing input file.'));
+        };
+      });
+    }));
+  };
+
+  var processFiles = function processFiles(event, files) {
+    if (!files || !files.length) return;
+    getBase64(files).then(function (base64) {
+      return handleDropProp({
+        event: event,
+        files: files,
+        base64: base64
+      });
+    });
+  };
+
+  var handleDrop = function handleDrop(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var _event$dataTransfer = event.dataTransfer;
+    _event$dataTransfer = _event$dataTransfer === void 0 ? {} : _event$dataTransfer;
+    var files = _event$dataTransfer.files;
+    files = Object.values(files);
+    processFiles(event, files);
+  };
+
+  var handleChange = function handleChange(event) {
+    event.preventDefault();
+    var _event$target = event.target;
+    _event$target = _event$target === void 0 ? {} : _event$target;
+    var files = _event$target.files;
+    files = Object.values(files);
+    processFiles(event, files);
+  };
+
+  useEffect(function () {
+    var currentArea = area.current;
+    currentArea.addEventListener('dragover', handleDragover);
+    currentArea.addEventListener('drop', handleDrop);
+  }, []);
+
+  var handleBrowse = function handleBrowse() {
+    var currentSelectFile = selectFile.current;
+    currentSelectFile.click();
+  };
+
+  var handleCancel = function handleCancel(event) {
+    handleDropProp({
+      event: event,
+      canceled: true
+    });
+  };
+
+  return React.createElement("div", _extends({
+    ref: area,
+    className: "upload"
+  }, attr), React.createElement("i", {
+    className: "material-icons"
+  }, "arrow_upward"), React.createElement("p", null, "Drag & drop file to upload"), React.createElement("div", {
+    className: "upload__browse"
+  }, React.createElement(Button, {
+    onClick: handleBrowse
+  }, "Browse"), React.createElement("input", {
+    type: "file",
+    onChange: handleChange,
+    ref: selectFile,
+    style: {
+      display: 'none'
+    }
+  })), React.createElement("div", {
+    className: "upload__text"
+  }, "or"), React.createElement(Button, {
+    onClick: handleCancel,
+    modifiers: "dark outline"
+  }, "Cancel"), children);
+};
+
+DraggableArea.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  handleDrop: PropTypes.func
+};
+DraggableArea.defaultProps = {
+  handleDrop: function handleDrop() {},
+  children: 'No content'
+};
+
+var MultiSelect = function MultiSelect(_ref) {
+  var _ref$data = _ref.data,
+      data = _ref$data.data,
+      _ref$data$filterBy = _ref$data.filterBy,
+      keys = _ref$data$filterBy === void 0 ? [] : _ref$data$filterBy,
+      _ref$data$keyValue = _ref$data.keyValue,
+      keyValue = _ref$data$keyValue === void 0 ? '' : _ref$data$keyValue,
+      getSelected = _ref.selected,
+      placeholder = _ref.placeholder,
+      children = _ref.children;
+
+  var _useState = useState([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      selected = _useState2[0],
+      setSelected = _useState2[1];
+
+  var _useState3 = useState(data || []),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dataCopy = _useState4[0],
+      setDataCopy = _useState4[1];
+
+  var setStatus = function setStatus(obj, status) {
+    return _extends({}, obj, {
+      show: status
+    });
+  };
+
+  var handleKeyUp = function handleKeyUp(event) {
+    var value = event.target.value;
+
+    var _dataCopy = dataCopy.map(function (copy) {
+      var _copy = setStatus(copy, false);
+
+      (keys || []).forEach(function (_key) {
+        var match = copy[_key].toLowerCase().includes(value.toLowerCase());
+
+        if (match) _copy = setStatus(copy, true);
+      });
+      return _copy;
+    });
+
+    setDataCopy(_dataCopy);
+  };
+
+  var handleChange = function handleChange(_ref2) {
+    var checked = _ref2.checked,
+        _data = _ref2.data;
+    setSelected(checked);
+    setDataCopy(_data);
+    getSelected(_data);
+  };
+
+  return React.createElement(Fragment, null, selected.map(function (_selected) {
+    return React.createElement("div", {
+      key: v1_1()
+    }, _selected[keyValue]);
+  }), children, React.createElement(Input, {
+    placeholder: placeholder,
+    onKeyUp: handleKeyUp
+  }), React.createElement(Checkboxes, {
+    options: dataCopy.map(function (_dataCopy) {
+      return _extends({}, _dataCopy, {
+        label: _dataCopy[keyValue]
+      });
+    }),
+    onChange: handleChange,
+    withEffect: true
+  }));
+};
+
+MultiSelect.propTypes = {
+  data: PropTypes.shape({
+    keyValue: PropTypes.string,
+    filterBy: PropTypes.array,
+    data: PropTypes.arrayOf(PropTypes.object)
+  }).isRequired,
+  selected: PropTypes.func,
+  placeholder: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+};
+MultiSelect.defaultProps = {
+  selected: function selected() {},
+  placeholder: 'Search',
+  children: ''
+};
+
 var Table = function Table(_ref) {
   var _ref$data = _ref.data,
       columns = _ref$data.columns,
@@ -1286,5 +1493,5 @@ Table.defaultProps = {
   onSelect: function onSelect() {}
 };
 
-export { Alert, Avatar, Badge, Breadcrumb, Button, Checkboxes as CheckBoxes, Dropdown, Input, Modal, Progress, RadioButton, Select, SocialFollow, index as TabComponent, Table, Textarea, Tooltip, VideoContainer };
+export { Alert, Avatar, Badge, Breadcrumb, Button, Checkboxes as CheckBoxes, DraggableArea, Dropdown, Input, Modal, MultiSelect as Multiselect, Progress, RadioButton, Select, SocialFollow, index as TabComponent, Table, Textarea, Tooltip, VideoContainer };
 //# sourceMappingURL=blaze-components.es.js.map

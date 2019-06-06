@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import uuidv1 from 'uuid/v1';
 
 const Checkboxes = ({
   onChange,
@@ -8,7 +9,7 @@ const Checkboxes = ({
   boolean,
   ...attrs
 }) => {
-  const [data, setData] = useState(options);
+  const [data, setData] = useState(Array.isArray(options) ? options : [options]);
 
   useEffect(() => {
     if (withEffect) setData(options);
@@ -20,7 +21,7 @@ const Checkboxes = ({
     setData([...data]);
     let checked = data.filter(option => option.checked);
     if (boolean) checked = !!checked.length;
-    onChange({ event, checked });
+    onChange({ event, checked, data });
   };
 
   return (
@@ -32,13 +33,16 @@ const Checkboxes = ({
           disabled,
           required,
           label,
-          id
+          show = true,
+          id = uuidv1()
         } = item;
       
+        if (!show) return <Fragment key={id} />;
+
         return (
-          <span
+          <div
                 key={id}
-                className="form-field form-field--checkbox"
+                className={`form-field form-field--checkbox ${required ? 'required' : ''}`}
                 onClick={e => toggle({ e, item, key })}
                 role="button">
             <input
@@ -52,13 +56,8 @@ const Checkboxes = ({
                 id={id}
                 {...attrs}
                 />
-            &nbsp; &nbsp;
-            <label
-                htmlFor={id}
-                className={required ? 'required' : ''}>
-              {label}
-            </label>
-          </span>
+            <label htmlFor={id}>{label}</label>
+          </div>
         );
       })}
     </Fragment>
@@ -66,7 +65,10 @@ const Checkboxes = ({
 };
 
 Checkboxes.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object
+  ]),
   withEffect: PropTypes.bool,
   boolean: PropTypes.bool,
   onChange: PropTypes.func

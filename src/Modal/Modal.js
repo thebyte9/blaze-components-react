@@ -7,6 +7,7 @@ const Modal = ({
   simple,
   alert,
   title,
+  upload,
   actions,
   isActive,
   buttonText,
@@ -17,6 +18,7 @@ const Modal = ({
   const type = () => {
     if (simple) return '--simple';
     if (alert) return '--alert';
+    if (upload) return '--upload';
     return '';
   };
 
@@ -75,6 +77,7 @@ Modal.propTypes = {
     )
   ),
   simple: PropTypes.bool,
+  upload: PropTypes.bool,
   alert: PropTypes.bool,
   isActive: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
@@ -86,6 +89,7 @@ Modal.defaultProps = {
   buttonModifiers: 'outline',
   actions: [],
   simple: false,
+  upload: false,
   alert: false,
   isActive: false,
   children: 'No content'

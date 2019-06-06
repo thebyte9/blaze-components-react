@@ -26,7 +26,7 @@ describe('Checkboxes component', () => {
 
     expect(wrapper.find('input').at(1).prop('checked')).toBe(false);
 
-    wrapper.find('span').at(1).simulate('click');
+    wrapper.find('.form-field').at(1).simulate('click');
 
     expect(wrapper.find('input').at(1).prop('checked')).toBe(true);
   });
@@ -36,7 +36,7 @@ describe('Checkboxes component', () => {
 
     expect(wrapper.find('input').at(2).prop('disabled')).toBe(true);
     
-    wrapper.find('span').at(2).simulate('click');
+    wrapper.find('.form-field').at(2).simulate('click');
 
     expect(wrapper.find('input').at(2).prop('checked')).toBe(false);
     expect(wrapper.find('input').at(2).prop('disabled')).toBe(true);

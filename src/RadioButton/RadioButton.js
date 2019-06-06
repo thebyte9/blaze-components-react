@@ -27,7 +27,7 @@ const RadioButton = ({
         } = item;
 
         return (
-          <span
+          <div
             key={label}
             className="form-field form-field--radio"
             onClick={event => handleSelect({ event, item })}
@@ -43,7 +43,7 @@ const RadioButton = ({
                 {...attrs}
                 />
             <label htmlFor={id}>{label}</label>
-          </span>
+          </div>
         );
       })}
     </Fragment>

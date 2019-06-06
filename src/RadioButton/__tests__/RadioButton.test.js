@@ -34,10 +34,10 @@ describe('RadioButton component', () => {
   test('should active RadioButton on click', () => {
     const wrapper = shallow(<RadioButton options={options} />);
 
-    wrapper.find('span').at(0).simulate('click');
+    wrapper.find('.form-field').at(0).simulate('click');
     expect(wrapper.find('input').at(0).prop('checked')).toBe(true);
 
-    wrapper.find('span').at(1).simulate('click');
+    wrapper.find('.form-field').at(1).simulate('click');
     expect(wrapper.find('input').at(0).prop('checked')).toBe(false);
     expect(wrapper.find('input').at(1).prop('checked')).toBe(true);
     expect(wrapper.find('input').at(2).prop('checked')).toBe(false);
@@ -48,7 +48,7 @@ describe('RadioButton component', () => {
 
     expect(wrapper.find('input').at(2).prop('disabled')).toBe(true);
 
-    wrapper.find('span').at(2).simulate('click');
+    wrapper.find('.form-field').at(2).simulate('click');
 
     expect(wrapper.find('input').at(2).prop('checked')).toBe(false);
     expect(wrapper.find('input').at(2).prop('disabled')).toBe(true);
