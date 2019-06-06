@@ -400,11 +400,7 @@ var Checkboxes = function Checkboxes(_ref) {
     if (!show) return React.createElement(Fragment, {
       key: id
     });
-<<<<<<< HEAD
     return React.createElement("div", {
-=======
-    return React.createElement("span", {
->>>>>>> dev
       key: id,
       className: "form-field form-field--checkbox ".concat(required ? 'required' : ''),
       onClick: function onClick(e) {

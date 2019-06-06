@@ -1,6 +1,6 @@
 {
   "name": "@blaze-cms/blaze-components-react",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "description": "React Component Framework for Blaze-CMS",
   "main": "dist/blaze-components.js",
   "module": "dist/blaze-components.es.js",
