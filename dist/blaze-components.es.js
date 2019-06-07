@@ -582,7 +582,8 @@ var Input = function Input(_ref) {
       required = _ref.required,
       type = _ref.type,
       hideTypeToggle = _ref.hideTypeToggle,
-      attrs = _objectWithoutProperties(_ref, ["label", "disabled", "value", "onChange", "required", "type", "hideTypeToggle"]);
+      modifier = _ref.modifier,
+      attrs = _objectWithoutProperties(_ref, ["label", "disabled", "value", "onChange", "required", "type", "hideTypeToggle", "modifier"]);
 
   var passwordDefaultState = {
     className: 'active',
@@ -628,7 +629,12 @@ var Input = function Input(_ref) {
   };
 
   var isRequired = required ? 'required' : '';
-  return React.createElement(Fragment, null, label && React.createElement("label", {
+
+  var _modifier = modifier ? "form-field--".concat(modifier) : '';
+
+  return React.createElement("div", {
+    className: "form-field form-field--input ".concat(_modifier)
+  }, label && React.createElement("label", {
     htmlFor: attrs.id,
     className: isRequired
   }, label), React.createElement("input", _extends({
@@ -650,6 +656,7 @@ Input.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
+  modifier: PropTypes.string,
   disabled: PropTypes.bool,
   hideTypeToggle: PropTypes.bool,
   required: PropTypes.bool,
@@ -658,6 +665,7 @@ Input.propTypes = {
 Input.defaultProps = {
   label: '',
   value: '',
+  modifier: '',
   type: 'text',
   disabled: false,
   required: false,

@@ -18,36 +18,32 @@ storiesOf('Text Inputs', module)
       </section>
 
       <h4>Simple</h4>
-      <div className="form-field form-field--input">
-        <Input
-          label="Text input required"
-          placeholder="Placeholder text"
-          onChange={() => {}}
-          required
-          />
-      </div>
+      <Input
+        label="Text input required"
+        placeholder="Placeholder text"
+        onChange={() => {}}
+        modifier="full-width"
+        required
+        />
 
       <h4>Disabled</h4>
-      <div className="form-field form-field--input">
-        <Input
-          label="Text input disabled"
-          placeholder="Placeholder text"
-          onChange={() => {}}
-          type="password"
-          hideTypeToggle
-          disabled
-          />
-      </div>
+      <Input
+        label="Text input disabled"
+        placeholder="Placeholder text"
+        onChange={() => {}}
+        type="password"
+        hideTypeToggle
+        disabled
+        />
 
       <h4>Password toggle type</h4>
-      <div className="form-field form-field--input">
-        <Input
-          label="Password - show hide"
-          placeholder="******"
-          onChange={() => {}}
-          type="password"
-          value="Lorem ipsum"
-          />
-      </div>
+      <Input
+        label="Password - show hide"
+        placeholder="******"
+        onChange={() => {}}
+        type="password"
+        value="Lorem ipsum"
+        />
+
     </div>
   ));

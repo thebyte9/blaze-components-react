@@ -1,13 +1,13 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import DraggableArea from '../DraggableArea';
+import FileUpload from '../FileUpload';
 
 const dragAndDropComponent = (
-  <DraggableArea
+  <FileUpload
     handleDrop={() => {}}>
       Drag and drop here
-  </DraggableArea>
+  </FileUpload>
 );
 
 describe('DragableArea component', () => {
