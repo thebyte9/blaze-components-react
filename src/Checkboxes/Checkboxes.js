@@ -43,7 +43,7 @@ const Checkboxes = ({
           <div
                 key={id}
                 className={`form-field form-field--checkbox ${required ? 'required' : ''}`}
-                onClick={e => toggle({ e, item, key })}
+                onClick={event => toggle({ event, item, key })}
                 role="button">
             <input
                 readOnly

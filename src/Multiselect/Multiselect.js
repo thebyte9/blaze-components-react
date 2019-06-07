@@ -6,13 +6,13 @@ import Input from '../Input';
 import Checkboxes from '../Checkboxes';
 
 const MultiSelect = ({
-  data: { data, filterBy: keys = [], keyValue = '' },
+  data: { data, filterBy: keys, keyValue },
   selected: getSelected,
   placeholder,
   children
 }) => {
   const [selected, setSelected] = useState([]);
-  const [dataCopy, setDataCopy] = useState(data || []);
+  const [dataCopy, setDataCopy] = useState(data);
 
   const setStatus = (obj, status) => Object.assign({}, obj, { show: status });
 
@@ -22,7 +22,7 @@ const MultiSelect = ({
     const _dataCopy = dataCopy.map((copy) => {
       let _copy = setStatus(copy, false);
 
-      (keys || []).forEach((_key) => {
+      keys.forEach((_key) => {
         const match = copy[_key].toLowerCase().includes(value.toLowerCase());
         if (match) _copy = setStatus(copy, true);
       });

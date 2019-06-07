@@ -37,7 +37,7 @@ describe('DragableArea component', () => {
   test('should select first option', () => {
     const wrapper = mount(MultiselectComponent);
 
-    wrapper.find('.form-field').at(0).simulate('click');
+    wrapper.find('.form-field--checkbox').at(0).simulate('click');
     
     expect(wrapper.find('div').at(0).text()).toContain('Blaze');
   });
@@ -46,7 +46,7 @@ describe('DragableArea component', () => {
     const wrapper = mount(MultiselectComponent);
 
     wrapper.find('input').at(0).simulate('keyUp', { target: { value: 'KP' } });
-    expect(wrapper.find('.form-field').at(1).text()).toContain('KP');
+    expect(wrapper.find('.form-field--checkbox').at(1).text()).toContain('KP');
   });
 });
 

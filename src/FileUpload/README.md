@@ -1,25 +1,25 @@
 
 ## Description
 
-DraggableArea is a great interface solution, move one or multiple images to a desired location and "drop" it there using a mouse or similar device.
+FileUpload component  is a great draggable area, move one or multiple images to a desired location and "drop" it there using a mouse or similar device.
 
 ## Usage
 
-* simple DraggableArea
+* simple FileUpload
 
 ```js
 
-<DragableArea 
+<FileUpload 
     handleDrop={({event, base64, files, canceled}) => {}}>
     // Preview files or any other logic
-</DragableArea>
+</FileUpload>
 
 ```
 
-* Modal with draggable area
+* Modal with FileUpload
 
 ```js
-class ModalWithDraggableArea extends Component {
+class ModalWithFileUpload extends Component {
       state = {
         previewImages: [],
         filesToUpload: []
@@ -49,20 +49,20 @@ class ModalWithDraggableArea extends Component {
             title="Add media"
             actions={[['submit', () => {}, 'rounded outline']]}
             upload>
-            <DragableArea handleDrop={handleDrop}>
+            <FileUpload handleDrop={handleDrop}>
                 {previewImages}
-            </DragableArea>
+            </FileUpload>
           </Modal>
         )
       }
     }
 
-    <ModalWithDraggableArea />
+    <ModalWithFileUpload />
 ```
 
 ## API
 
-##### DraggableArea can receive a number of `props` as follow:
+##### FileUpload can receive a number of `props` as follow:
 
 | NAME   | TYPE | DEFAULT | 
 | :---  | :---:  | :---: | 

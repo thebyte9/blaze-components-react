@@ -1,31 +1,31 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import DraggableArea from '../DraggableArea';
+import FileUpload from '../FileUpload';
 
-const dragAndDropComponent = (
-  <DraggableArea
+const FileUploadComponent = (
+  <FileUpload
     handleDrop={() => {}}>
       Drag and drop here
-  </DraggableArea>
+  </FileUpload>
 );
 
-describe('DragableArea component', () => {
+describe('FileUpload component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(dragAndDropComponent);
+    const wrapper = shallow(FileUploadComponent);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
   test('should cancel operation', () => {
-    const wrapper = shallow(dragAndDropComponent);
+    const wrapper = shallow(FileUploadComponent);
 
     wrapper.find('Button').at(1).simulate('click');
   });
 
   test('should browse file', async (done) => {
-    const wrapper = mount(dragAndDropComponent);
+    const wrapper = mount(FileUploadComponent);
 
     wrapper.find('Button').at(0).simulate('click');
 
@@ -50,7 +50,7 @@ describe('DragableArea component', () => {
   });
 
   test('should drop files', () => {
-    const wrapper = mount(dragAndDropComponent);
+    const wrapper = mount(FileUploadComponent);
 
     const domNode = wrapper.getDOMNode();
 
