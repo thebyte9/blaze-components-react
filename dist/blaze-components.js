@@ -410,9 +410,9 @@ var Checkboxes = function Checkboxes(_ref) {
     return React__default.createElement("div", {
       key: id,
       className: "form-field form-field--checkbox ".concat(required ? 'required' : ''),
-      onClick: function onClick(e) {
+      onClick: function onClick(event) {
         return toggle({
-          e: e,
+          event: event,
           item: item,
           key: key
         });
