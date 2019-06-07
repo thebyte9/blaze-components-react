@@ -15,7 +15,7 @@ import Dropdown from './Dropdown';
 import SocialFollow from './SocialFollow';
 import VideoContainer from './VideoContainer';
 import Avatar from './Avatar';
-import DraggableArea from './DraggableArea';
+import FileUpload from './FileUpload';
 import Multiselect from './Multiselect';
 import Table from './Table';
 
@@ -37,7 +37,7 @@ export {
   SocialFollow,
   VideoContainer,
   Avatar,
-  DraggableArea,
+  FileUpload,
   Multiselect,
   Table
 };

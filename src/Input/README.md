@@ -12,6 +12,7 @@ Create basic single-line text fields.
   label="Text input required"
   placeholder="Placeholder text"
   onChange={({event, value}) => {}}
+  modifier="full-width"
   required
   />
 ```

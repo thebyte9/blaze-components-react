@@ -589,7 +589,8 @@ var Input = function Input(_ref) {
       required = _ref.required,
       type = _ref.type,
       hideTypeToggle = _ref.hideTypeToggle,
-      attrs = _objectWithoutProperties(_ref, ["label", "disabled", "value", "onChange", "required", "type", "hideTypeToggle"]);
+      modifier = _ref.modifier,
+      attrs = _objectWithoutProperties(_ref, ["label", "disabled", "value", "onChange", "required", "type", "hideTypeToggle", "modifier"]);
 
   var passwordDefaultState = {
     className: 'active',
@@ -635,7 +636,17 @@ var Input = function Input(_ref) {
   };
 
   var isRequired = required ? 'required' : '';
-  return React__default.createElement(React.Fragment, null, label && React__default.createElement("label", {
+  var isPassword = type === 'password';
+
+  var setModifier = function setModifier() {
+    if (modifier) return "form-field--".concat(modifier);
+    if (isPassword) return 'form-field--password';
+    return '';
+  };
+
+  return React__default.createElement("div", {
+    className: "form-field form-field--input ".concat(setModifier())
+  }, label && React__default.createElement("label", {
     htmlFor: attrs.id,
     className: isRequired
   }, label), React__default.createElement("input", _extends({
@@ -644,7 +655,7 @@ var Input = function Input(_ref) {
     disabled: disabled,
     type: newType,
     required: required
-  }, attrs)), !hideTypeToggle && type === 'password' && React__default.createElement("span", {
+  }, attrs)), !hideTypeToggle && isPassword && React__default.createElement("span", {
     onClick: togglepasswordClassName,
     className: "show-hide-password ".concat(passwordState.className),
     role: "button"
@@ -657,6 +668,7 @@ Input.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
+  modifier: PropTypes.string,
   disabled: PropTypes.bool,
   hideTypeToggle: PropTypes.bool,
   required: PropTypes.bool,
@@ -665,6 +677,7 @@ Input.propTypes = {
 Input.defaultProps = {
   label: '',
   value: '',
+  modifier: '',
   type: 'text',
   disabled: false,
   required: false,
@@ -1204,7 +1217,7 @@ Avatar.defaultProps = {
   username: '!'
 };
 
-var DraggableArea = function DraggableArea(_ref) {
+var FileUpload = function FileUpload(_ref) {
   var children = _ref.children,
       handleDropProp = _ref.handleDrop,
       attr = _objectWithoutProperties(_ref, ["children", "handleDrop"]);
@@ -1306,11 +1319,11 @@ var DraggableArea = function DraggableArea(_ref) {
   }, "Cancel"), children);
 };
 
-DraggableArea.propTypes = {
+FileUpload.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   handleDrop: PropTypes.func
 };
-DraggableArea.defaultProps = {
+FileUpload.defaultProps = {
   handleDrop: function handleDrop() {},
   children: 'No content'
 };
@@ -1318,10 +1331,8 @@ DraggableArea.defaultProps = {
 var MultiSelect = function MultiSelect(_ref) {
   var _ref$data = _ref.data,
       data = _ref$data.data,
-      _ref$data$filterBy = _ref$data.filterBy,
-      keys = _ref$data$filterBy === void 0 ? [] : _ref$data$filterBy,
-      _ref$data$keyValue = _ref$data.keyValue,
-      keyValue = _ref$data$keyValue === void 0 ? '' : _ref$data$keyValue,
+      keys = _ref$data.filterBy,
+      keyValue = _ref$data.keyValue,
       getSelected = _ref.selected,
       placeholder = _ref.placeholder,
       children = _ref.children;
@@ -1331,7 +1342,7 @@ var MultiSelect = function MultiSelect(_ref) {
       selected = _useState2[0],
       setSelected = _useState2[1];
 
-  var _useState3 = React.useState(data || []),
+  var _useState3 = React.useState(data),
       _useState4 = _slicedToArray(_useState3, 2),
       dataCopy = _useState4[0],
       setDataCopy = _useState4[1];
@@ -1348,7 +1359,7 @@ var MultiSelect = function MultiSelect(_ref) {
     var _dataCopy = dataCopy.map(function (copy) {
       var _copy = setStatus(copy, false);
 
-      (keys || []).forEach(function (_key) {
+      keys.forEach(function (_key) {
         var match = copy[_key].toLowerCase().includes(value.toLowerCase());
 
         if (match) _copy = setStatus(copy, true);
@@ -1506,8 +1517,8 @@ exports.Badge = Badge;
 exports.Breadcrumb = Breadcrumb;
 exports.Button = Button;
 exports.CheckBoxes = Checkboxes;
-exports.DraggableArea = DraggableArea;
 exports.Dropdown = Dropdown;
+exports.FileUpload = FileUpload;
 exports.Input = Input;
 exports.Modal = Modal;
 exports.Multiselect = MultiSelect;

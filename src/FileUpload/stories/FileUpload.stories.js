@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import uuidv1 from 'uuid/v1';
 import Modal from '../../Modal';
-import DragableArea from '../index';
-import DragableAreaReadme from '../README.md';
+import FileUpload from '../index';
+import FileUploadReadme from '../README.md';
 
 const styles = {
   display: 'flex',
@@ -20,14 +20,14 @@ const imageStyles = {
   margin: '5px'
 }
 
-storiesOf('DraggbleArea', module)
+storiesOf('FileUpload', module)
   .addParameters({
     readme: {
-      sidebar: DragableAreaReadme
+      sidebar: FileUploadReadme
     },
   })
   .add('Introduction', () => {
-    class ModalWithDraggableArea extends Component {
+    class ModalWithFileUpload extends Component {
       state = {
         previewImages: [],
         filesToUpload: []
@@ -55,21 +55,21 @@ storiesOf('DraggbleArea', module)
           title="Add media"
           actions={[['submit', () => {}, 'rounded outline']]}
           upload>
-            <DragableArea handleDrop={handleDrop} style={styles}>
+            <FileUpload handleDrop={handleDrop} style={styles}>
                 <div>{previewImages}</div>
-            </DragableArea>
+            </FileUpload>
           </Modal>
         )
       }
     }
     
     return (<div className="component-wrapper">
-    <h1>Draggable Area</h1>
+    <h1>FileUpload</h1>
       <p>
-      Draggable area is a great interface solution, move one or multiple images to a desired location and "drop" it there using a mouse or similar device.
+      FileUpload component  is a great draggable area, move one or multiple images to a desired location and "drop" it there using a mouse or similar device.
       </p> 
 
-      <ModalWithDraggableArea />
+      <ModalWithFileUpload />
   </div>)    
 
   });

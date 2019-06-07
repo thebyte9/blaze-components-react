@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({
@@ -9,6 +9,7 @@ const Input = ({
   required,
   type,
   hideTypeToggle,
+  modifier,
   ...attrs
 }) => {
   const passwordDefaultState = {
@@ -42,8 +43,16 @@ const Input = ({
 
   const isRequired = required ? 'required' : '';
 
+  const isPassword = type === 'password';
+
+  const setModifier = () => {
+    if (modifier) return `form-field--${modifier}`;
+    if (isPassword) return 'form-field--password';
+    return '';
+  };
+
   return (
-    <Fragment>
+    <div className={`form-field form-field--input ${setModifier()}`}>
       {label && <label htmlFor={attrs.id} className={isRequired}>{label}</label>}
       <input
         onChange={handleChange}
@@ -53,13 +62,13 @@ const Input = ({
         required={required}
         {...attrs}
         />
-      {!hideTypeToggle && type === 'password' && (
+      {!hideTypeToggle && isPassword && (
         <span onClick={togglepasswordClassName} className={`show-hide-password ${passwordState.className}`} role="button">
           {passwordState.text}
           <i className="material-icons">{passwordState.icon}</i>
         </span>
       )}
-    </Fragment>
+    </div>
   );
 };
 
@@ -67,6 +76,7 @@ Input.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.string,
+  modifier: PropTypes.string,
   disabled: PropTypes.bool,
   hideTypeToggle: PropTypes.bool,
   required: PropTypes.bool,
@@ -76,6 +86,7 @@ Input.propTypes = {
 Input.defaultProps = {
   label: '',
   value: '',
+  modifier: '',
   type: 'text',
   disabled: false,
   required: false,
