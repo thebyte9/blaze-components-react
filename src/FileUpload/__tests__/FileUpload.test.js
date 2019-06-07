@@ -10,7 +10,7 @@ const FileUploadComponent = (
   </FileUpload>
 );
 
-describe('DragableArea component', () => {
+describe('FileUpload component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const wrapper = shallow(FileUploadComponent);
 
@@ -60,7 +60,7 @@ describe('DragableArea component', () => {
     drop.dataTransfer = { files: [{}, {}] };
 
     const dropWithoutItems = new Event('drop');
-    dropWithoutItems.dataTransfer = { files: [] };//
+    dropWithoutItems.dataTransfer = { files: [] };
 
     domNode.dispatchEvent(dragover);
     domNode.dispatchEvent(drop);
