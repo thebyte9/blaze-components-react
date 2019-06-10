@@ -18,6 +18,7 @@ import Avatar from './Avatar';
 import FileUpload from './FileUpload';
 import Multiselect from './Multiselect';
 import Table from './Table';
+import ButtonSelect from './ButtonSelect';
 
 export {
   Button,
@@ -39,5 +40,6 @@ export {
   Avatar,
   FileUpload,
   Multiselect,
-  Table
+  Table,
+  ButtonSelect
 };

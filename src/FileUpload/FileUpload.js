@@ -12,7 +12,7 @@ const FileUpload = ({ children, handleDrop: handleDropProp, ...attr }) => {
   };
 
   const getBase64 = files => Promise.all(
-    files.map((file) => {
+    files.filter(file => file.type.includes('image')).map((file) => {
       const reader = new FileReader();
       return new Promise((resolve, reject) => {
         reader.readAsDataURL(file);
@@ -22,10 +22,16 @@ const FileUpload = ({ children, handleDrop: handleDropProp, ...attr }) => {
     })
   );
 
-  const processFiles = (event, files) => {
+  const getFilesName = files => files.filter(file => !file.type.includes('image')).map(({ name }) => name);
+
+  const processFiles = async (event, files) => {
     if (!files || !files.length) return;
 
-    getBase64(files).then(base64 => handleDropProp({ event, files, base64 }));
+    const base64 = await getBase64(files);
+    const filesName = getFilesName(files);
+    handleDropProp({
+      event, files, base64, filesName
+    });
   };
 
   const handleDrop = (event) => {

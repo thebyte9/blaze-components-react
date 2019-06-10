@@ -33,15 +33,17 @@ storiesOf('FileUpload', module)
         filesToUpload: []
       }
 
-      handleDrop = ({ base64, canceled, files }) => {
+      handleDrop = ({ base64, canceled, files, filesName }) => {
         const { previewImages, filesToUpload } = this.state;
+
+        console.log(files)
 
         if (canceled) return this.setState({previewImages: []});
 
         const images = base64.map(src => <img key={uuidv1()} src={src} style={imageStyles}/>);
 
         this.setState({
-          previewImages: [...previewImages, ...images],
+          previewImages: [...previewImages, ...images, ...filesName],
           filesToUpload: [...filesToUpload, ...files]
         })
       }
