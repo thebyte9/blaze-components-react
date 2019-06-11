@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import uuidv1 from 'uuid/v1';
 import Button from '../Button';
 
 const FileUpload = ({ children, handleDrop: handleDropProp, ...attr }) => {
@@ -11,21 +12,32 @@ const FileUpload = ({ children, handleDrop: handleDropProp, ...attr }) => {
     event.preventDefault();
   };
 
-  const getBase64 = files => Promise.all(
-    files.map((file) => {
-      const reader = new FileReader();
-      return new Promise((resolve, reject) => {
+  const getPreview = files => Promise.all(
+    files.map(file => new Promise((resolve, reject) => {
+      if (file.type.includes('image')) {
+        const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = e => resolve(e.target.result);
+        reader.onload = e => resolve({
+          id: uuidv1(),
+          name: file.name,
+          base64: e.target.result,
+          type: 'image'
+        });
         reader.onerror = () => reject(new DOMException('Error parsing input file.'));
-      });
-    })
+      } else {
+        resolve({
+          id: uuidv1(),
+          name: file.name,
+          type: 'file'
+        });
+      }
+    }))
   );
 
   const processFiles = (event, files) => {
     if (!files || !files.length) return;
 
-    getBase64(files).then(base64 => handleDropProp({ event, files, base64 }));
+    getPreview(files).then(previewFiles => handleDropProp({ event, files, previewFiles }));
   };
 
   const handleDrop = (event) => {
