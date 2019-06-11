@@ -40,7 +40,7 @@ ButtonSelect.propTypes = {
 
 ButtonSelect.defaultProps = {
   text: 'Actions',
-  children: []
+  children: 'No content'
 };
 
 export default ButtonSelect;

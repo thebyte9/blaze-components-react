@@ -1,7 +1,7 @@
 
 ## Description
 
-The ButtonSelect Extend the button to show a list of actions.
+The ButtonSelect component extends the button to show a list of actions.
 
 ## Usage
 
