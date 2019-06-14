@@ -1223,30 +1223,43 @@ var FileUpload = function FileUpload(_ref) {
     event.preventDefault();
   };
 
-  var getBase64 = function getBase64(files) {
+  var getPreview = function getPreview(files) {
     return Promise.all(files.map(function (file) {
-      var reader = new FileReader();
       return new Promise(function (resolve, reject) {
-        reader.readAsDataURL(file);
+        if (file.type.includes('image')) {
+          var reader = new FileReader();
+          reader.readAsDataURL(file);
 
-        reader.onload = function (e) {
-          return resolve(e.target.result);
-        };
+          reader.onload = function (e) {
+            return resolve({
+              id: v1_1(),
+              name: file.name,
+              base64: e.target.result,
+              type: 'image'
+            });
+          };
 
-        reader.onerror = function () {
-          return reject(new DOMException('Error parsing input file.'));
-        };
+          reader.onerror = function () {
+            return reject(new DOMException('Error parsing input file.'));
+          };
+        } else {
+          resolve({
+            id: v1_1(),
+            name: file.name,
+            type: 'file'
+          });
+        }
       });
     }));
   };
 
   var processFiles = function processFiles(event, files) {
     if (!files || !files.length) return;
-    getBase64(files).then(function (base64) {
+    getPreview(files).then(function (previewFiles) {
       return handleDropProp({
         event: event,
         files: files,
-        base64: base64
+        previewFiles: previewFiles
       });
     });
   };

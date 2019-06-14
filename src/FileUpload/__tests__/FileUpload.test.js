@@ -29,7 +29,8 @@ describe('FileUpload component', () => {
 
     wrapper.find('Button').at(0).simulate('click');
 
-    const file = new Blob(['file contents'], { type: 'image/png' });
+    const typeImage = new Blob(['file contents'], { type: 'image/png' });
+    const typeFile = new Blob(['file contents'], { type: 'application/pdf' });
 
     const readAsDataURL = jest.fn();
     const onload = jest.fn();
@@ -43,9 +44,9 @@ describe('FileUpload component', () => {
 
     window.FileReader = jest.fn(() => dummyFileReader);
 
-    wrapper.find('input').at(0).simulate('change', { target: { files: [file] } });
+    wrapper.find('input').at(0).simulate('change', { target: { files: [typeImage] } });
+    wrapper.find('input').at(0).simulate('change', { target: { files: [typeFile] } });
     wrapper.find('input').at(0).simulate('change', { target: { files: [] } });
-
     done();
   });
 
