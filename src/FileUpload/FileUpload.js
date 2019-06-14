@@ -34,7 +34,7 @@ const FileUpload = ({ children, handleDrop: handleDropProp, ...attr }) => {
     }))
   );
 
-  const processFiles = (event, files) => {
+  const processFiles = async (event, files) => {
     if (!files || !files.length) return;
 
     getPreview(files).then(previewFiles => handleDropProp({ event, files, previewFiles }));
