@@ -84,7 +84,6 @@ storiesOf('FileUpload', module)
         });
         return (
           <Modal
-          isActive
           buttonText="Upload Files"
           title="Add media"
           actions={[['submit', () => {}, 'rounded outline']]}
