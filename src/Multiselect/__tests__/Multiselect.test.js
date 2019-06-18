@@ -46,7 +46,7 @@ describe('DragableArea component', () => {
     const wrapper = mount(MultiselectComponent);
 
     wrapper.find('input').at(0).simulate('keyUp', { target: { value: 'KP' } });
-    expect(wrapper.find('.form-field--checkbox').at(1).text()).toContain('KP');
+    expect(wrapper.find('.form-field--checkbox').at(0).text()).toContain('KP');
   });
 });
 

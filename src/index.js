@@ -19,6 +19,7 @@ import FileUpload from './FileUpload';
 import Multiselect from './Multiselect';
 import Table from './Table';
 import ButtonSelect from './ButtonSelect';
+import More from './More';
 
 export {
   Button,
@@ -41,5 +42,6 @@ export {
   FileUpload,
   Multiselect,
   Table,
-  ButtonSelect
+  ButtonSelect,
+  More
 };
