@@ -6,7 +6,7 @@ module.exports = {
   setupFiles: ['./setupTests.js'],
   collectCoverage: true,
   coverageDirectory: './coverage/',
-  verbose: true,
+  verbose: false,
   transform: {
     '^.+\\.js$': 'babel-jest'
   }
