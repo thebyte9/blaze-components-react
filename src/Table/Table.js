@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import uuidv1 from 'uuid/v1';
+import sortBy from 'sort-by';
 import Checkboxes from '../Checkboxes';
 
 const Table = ({
@@ -13,7 +14,12 @@ const Table = ({
   checkboxes,
   placeholder,
 }) => {
+  const [_rows, setRows] = useState(rows);
   const [selected, setSelected] = useState([]);
+
+  const [dColumns, setDColumns] = useState(columns.reduce((result, item) => {
+    return { ...result, [item]: item };
+  }, {}));
 
   const handleSelected = ([checked], value, multiselect = false) => {
     if (multiselect) {
@@ -24,6 +30,15 @@ const Table = ({
 
     if (checked && !selected.includes(checked.value)) setSelected([...selected, checked.value]);
     else setSelected(selected.filter(_value => _value !== value));
+  };
+
+  const sort = (column) => {
+    setRows([..._rows.sort(sortBy(dColumns[column]))]);
+
+    setDColumns({
+      ...dColumns,
+      [column]: (dColumns[column] === column) ? `-${column}` : column
+    });
   };
 
   useEffect(() => onSelect(selected));
@@ -42,9 +57,9 @@ const Table = ({
                   Object.assign(
                     {},
                     {
-                      value: rows.map(row => row[identification]),
+                      value: _rows.map(row => row[identification]),
                       id: 'Select_all',
-                      checked: selected.length === rows.length
+                      checked: selected.length === _rows.length
                     }
                   )
                 ]}
@@ -53,7 +68,14 @@ const Table = ({
             </th>
           )
         }
-        {columns.map(column => <th key={uuidv1()}>{column}</th>)}
+        {Object.keys(dColumns).map(column => (
+          <th key={uuidv1()}>
+            {column}
+            <i className="material-icons" onClick={() => sort(column)} role="button">
+              {dColumns[column].includes('-') ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}
+            </i>
+          </th>
+        ))}
       </tr>
     </thead>
   );
@@ -61,7 +83,7 @@ const Table = ({
   const tbody = (
     <tbody>
       {
-        rows.map(row => (
+        _rows.map(row => (
           <tr key={uuidv1()}>
             {
               checkboxes
@@ -87,7 +109,7 @@ const Table = ({
           </tr>
         ))
       }
-      {!rows.length && (
+      {!_rows.length && (
       <tr>
         <td colSpan={colSpan} align="center">{placeholder}</td>
       </tr>
