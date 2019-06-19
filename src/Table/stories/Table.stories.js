@@ -16,8 +16,8 @@ const data =  {
     age: 23,
   }, {
     id: 3,
-    name: 'Robert',
-    age: 45
+    name: 'Lorem Ipsum',
+    age: 18
   }]
 }
 

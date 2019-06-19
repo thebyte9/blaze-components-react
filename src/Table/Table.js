@@ -17,9 +17,9 @@ const Table = ({
   const [_rows, setRows] = useState(rows);
   const [selected, setSelected] = useState([]);
 
-  const [dColumns, setDColumns] = useState(columns.reduce((result, item) => {
-    return { ...result, [item]: item };
-  }, {}));
+  const [sortColumns, setSortColumns] = useState(
+    columns.reduce((result, item) => ({ ...result, [item]: item }), {})
+  );
 
   const handleSelected = ([checked], value, multiselect = false) => {
     if (multiselect) {
@@ -33,11 +33,11 @@ const Table = ({
   };
 
   const sort = (column) => {
-    setRows([..._rows.sort(sortBy(dColumns[column]))]);
+    setRows([..._rows.sort(sortBy(sortColumns[column]))]);
 
-    setDColumns({
-      ...dColumns,
-      [column]: (dColumns[column] === column) ? `-${column}` : column
+    setSortColumns({
+      ...sortColumns,
+      [column]: (sortColumns[column] === column) ? `-${column}` : column
     });
   };
 
@@ -68,11 +68,11 @@ const Table = ({
             </th>
           )
         }
-        {Object.keys(dColumns).map(column => (
+        {Object.keys(sortColumns).map(column => (
           <th key={uuidv1()}>
             {column}
-            <i className="material-icons" onClick={() => sort(column)} role="button">
-              {dColumns[column].includes('-') ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}
+            <i id={`sort_${column}`} className="material-icons" onClick={() => sort(column)} role="button">
+              {sortColumns[column].includes('-') ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
             </i>
           </th>
         ))}
