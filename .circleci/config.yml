@@ -58,10 +58,10 @@ jobs: # a collection of steps
             - run:
                 name: Building
                 command: npm run build
-            - persist_to_workspace:
-                root: /home/circleci/project/
-                paths: 
-                - docs-build/
+            # - persist_to_workspace:
+            #     root: /home/circleci/project/
+            #     paths: 
+            #     - docs-build/
 
     deploy_prod:
         <<: *deploy_config
