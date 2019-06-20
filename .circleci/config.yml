@@ -30,7 +30,7 @@ jobs: # a collection of steps
                 command: npm run setup
             - run:
                 name: Run lerna bootstrap
-                command: 'npx lerna bootstrap --loglevel debug'
+                command: 'npx lerna bootstrap --hoist --no-ci --loglevel debug'
             - run:
                 name: Run lint
                 command: npm run lint
