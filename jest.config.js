@@ -1,28 +1,13 @@
-/* eslint-disable */
-// For a detailed explanation regarding each configuration property, visit:
-// https://jestjs.io/docs/en/configuration.html
-
 module.exports = {
-  collectCoverageFrom: ['src/**/*.js', '!src/**/*.stories.js'],
-  testMatch: [
-    '**/tests/**/*.test.js?(x)',
-    '**/src/**/*.test.js?(x)'
-  ],
-  moduleNameMapper: {
-    '^.+\\.(css|less|scss)$': 'identity-obj-proxy'
-  },
-  roots: [
-    'src/',
-    'tests/',
-  ],
+  collectCoverageFrom: ['packages/**/*.js', '!packages/**/*.stories.js', '!packages/**/lib/*.js'],
+  testMatch: ['**/__tests__/**/*.test.js?(x)'],
+  roots: ['packages/'],
   testEnvironment: 'jsdom',
-  setupFiles: [
-    './src/setupTests.js'
-  ],
+  setupFiles: ['./setupTests.js'],
   collectCoverage: true,
   coverageDirectory: './coverage/',
   verbose: false,
-    transform: {
+  transform: {
     '^.+\\.js$': 'babel-jest'
-  },
+  }
 };
