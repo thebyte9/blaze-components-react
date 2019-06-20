@@ -29,6 +29,9 @@ jobs: # a collection of steps
                 name: Install npm packages
                 command: npm run setup
             - run:
+                name: Run lerna bootstrap
+                command: 'npx lerna bootstrap --loglevel debug'
+            - run:
                 name: Run lint
                 command: npm run lint
             - run:
@@ -54,7 +57,7 @@ jobs: # a collection of steps
                     - ./.scannerwork/
             - run:
                 name: Building
-                command: npm run build-storybook
+                command: npm run build
             - persist_to_workspace:
                 root: /home/circleci/project/
                 paths: 
