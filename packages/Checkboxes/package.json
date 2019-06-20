@@ -1,6 +1,6 @@
 {
     "name": "@blaze-react/checkboxes",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -28,5 +28,6 @@
             "@babel/preset-env",
             "@babel/preset-react"
         ]
-    }
+    },
+    "gitHead": "1425966bc326b655f36d57f6849371c5376c5d7e"
 }
