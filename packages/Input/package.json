@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "",
-    "main": "/lib/index.js",
+    "main": "./lib/index.js",
     "scripts": {
         "build": "./node_modules/.bin/babel index.js -d lib",
         "build-storybook": "build-storybook -c .storybook -o docs-build",
