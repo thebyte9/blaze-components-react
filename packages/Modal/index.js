@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Button';
+import Button from '@blaze-react/button';
 
 const Modal = ({
   children,

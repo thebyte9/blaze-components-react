@@ -1,9 +1,18 @@
 const path = require('path');
 
 module.exports = {
-  plugins: [],
+  plugins: [
+    
+  ],
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
       {
         test: /\.(s*)css$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader'],
