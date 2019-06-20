@@ -20,63 +20,42 @@ FileUpload component  is a great draggable area, move one or multiple images to 
 
 ```js
 class ModalWithFileUpload extends Component {
-  state = {
-    preview: [],
-    filesToUpload: []
-  }
+      state = {
+        previewImages: [],
+        filesToUpload: []
+      }
 
-  removeFile = (id) => {
-    const preview = this.state.preview.filter(file => file.id !== id);
-    this.setState({ preview: preview });
-  }
+      handleDrop = ({ base64, canceled, files }) => {
+        const { previewImages, filesToUpload } = this.state;
 
-  previewImage = (base64, name, id) => (
-    <div key={id}>
-      <img src={base64} alt="preview image" style={imageStyles}/>
-      <span>{name}</span>
-      <i onClick={() => this.removeFile(id)} className="material-icons">clear</i>
-    </div>
-  )
+        if (canceled) return this.setState({previewImages: []});
 
-  previewFile = (name, id) => (
-    <div key={id}>
-      <i className="material-icons">attach_file</i>
-      <span>{name}</span>
-      <i onClick={() => this.removeFile(id)} className="material-icons">clear</i>
-    </div>
-  )
+        const images = base64.map(src => (
+            <img key={uuidv1()} src={src} style={imageStyles}/>
+        ));
 
-  handleDrop = ({ canceled, files, previewFiles }) => {
-    const { preview, filesToUpload } = this.state;
+        this.setState({
+          previewImages: [...previewImages, ...images],
+          filesToUpload: [...filesToUpload, ...files]
+        })
+      }
 
-    if (canceled) return this.setState({preview: []});
-
-    this.setState({
-      preview: [...preview, ...previewFiles],
-      filesToUpload: [...filesToUpload, ...files]
-    })
-  }
-
-  render() {
-    const { handleDrop } = this;
-    const previewFiles = this.state.preview.map(({name, base64, type, id}) => {
-      if (type === 'image') return this.previewImage(base64, name, id)
-      return this.previewFile(name, id)
-    });
-    return (
-      <Modal
-      isActive
-      buttonText="Upload Files"
-      title="Add media"
-      actions={[['submit', () => {}, 'rounded outline']]}
-      upload>
-        <FileUpload handleDrop={handleDrop} style={styles}>
-            {previewFiles}
-        </FileUpload>
-      </Modal>
-    )
-  }
-}
+      render() {
+        const { state: { previewImages }, handleDrop } = this;
+        return (
+          <Modal
+            isActive
+            buttonText="Upload Files"
+            title="Add media"
+            actions={[['submit', () => {}, 'rounded outline']]}
+            upload>
+            <FileUpload handleDrop={handleDrop}>
+                {previewImages}
+            </FileUpload>
+          </Modal>
+        )
+      }
+    }
 
     <ModalWithFileUpload />
 ```

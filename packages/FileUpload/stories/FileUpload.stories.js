@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import Modal from '../../Modal';
+import uuidv1 from 'uuid/v1';
+import Modal from '@blaze-react/modal';
 import FileUpload from '../index';
 import FileUploadReadme from '../README.md';
 
@@ -10,18 +11,6 @@ const styles = {
   alignItems: 'center',
   justifyContent: 'space-around',
   height: '100%'
-};
-
-const wrapPreview = {
-  display: 'flex',
-  flexWrap: 'wrap'
-};
-
-const previewStyles = {
-  height: '100px',
-  width: '60px',
-  margin: '5px',
-  padding: '5px'
 };
 
 const imageStyles = {
@@ -40,64 +29,39 @@ storiesOf('FileUpload', module)
   .add('Introduction', () => {
     class ModalWithFileUpload extends Component {
       state = {
-        preview: [],
+        previewImages: [],
         filesToUpload: []
       };
 
-      removeFile = id => {
-        const { preview } = this.state;
-        const updatedPreview = preview.filter(file => file.id !== id);
-        this.setState({ preview: updatedPreview });
-      };
+      handleDrop = ({ base64, canceled, files }) => {
+        const { previewImages, filesToUpload } = this.state;
 
-      previewImage = (base64, name, id) => (
-        <div key={id} style={previewStyles}>
-          <img src={base64} alt="preview alt" style={imageStyles} />
-          <span>{name}</span>
-          <i onClick={() => this.removeFile(id)} className="material-icons" role="button">
-            clear
-          </i>
-        </div>
-      );
+        if (canceled) return this.setState({ previewImages: [] });
 
-      previewFile = (name, id) => (
-        <div key={id} style={previewStyles}>
-          <i className="material-icons">attach_file</i>
-          <span>{name}</span>
-          <i onClick={() => this.removeFile(id)} className="material-icons" role="button">
-            clear
-          </i>
-        </div>
-      );
-
-      handleDrop = ({ canceled, files, previewFiles }) => {
-        const { preview, filesToUpload } = this.state;
-
-        if (canceled) return this.setState({ preview: [] });
+        const images = base64.map(src => (
+          <img key={uuidv1()} src={src} style={imageStyles} alt="alt text" />
+        ));
 
         this.setState({
-          preview: [...preview, ...previewFiles],
+          previewImages: [...previewImages, ...images],
           filesToUpload: [...filesToUpload, ...files]
         });
       };
 
       render() {
         const {
-          handleDrop,
-          state: { preview }
+          state: { previewImages },
+          handleDrop
         } = this;
-        const previewFiles = preview.map(({ name, base64, type, id }) => {
-          if (type === 'image') return this.previewImage(base64, name, id);
-          return this.previewFile(name, id);
-        });
         return (
           <Modal
+            isActive
             buttonText="Upload Files"
             title="Add media"
             actions={[['submit', () => {}, 'rounded outline']]}
             upload>
             <FileUpload handleDrop={handleDrop} style={styles}>
-              <div style={wrapPreview}>{previewFiles}</div>
+              <div>{previewImages}</div>
             </FileUpload>
           </Modal>
         );

@@ -16,7 +16,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@blaze-react/button": "^0.0.1"
+        "@blaze-react/button": "^0.0.1",
+        "@blaze-react/modal": "^0.0.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.4.4",
