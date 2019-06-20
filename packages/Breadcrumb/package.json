@@ -1,6 +1,9 @@
 {
     "name": "@blaze-react/breadcrumb",
     "version": "0.1.1",
+    "publishConfig": {
+       "access": "public"
+    },
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -29,5 +32,5 @@
             "@babel/preset-react"
         ]
     },
-    "gitHead": "1425966bc326b655f36d57f6849371c5376c5d7e"
+    "gitHead": "a67e5084c5b230255f9039df43ba28c07bcc0716"
 }
