@@ -1,8 +1,6 @@
 
-/dist/*.js
+**/lib/
 
-/boilerplate.js
+/node_modules/
 
-/src/setupTests.js
-
-**/*.stories.js
+/**/node_modules/
