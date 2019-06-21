@@ -6,20 +6,24 @@ import TableReadme from '../README.md';
 const data = {
   identification: 'id',
   columns: ['name', 'age'],
-  rows: [{
-    id: 1,
-    name: 'Oscar Leon',
-    age: 26,
-  }, {
-    id: 2,
-    name: 'Ismael Haytam',
-    age: 23,
-  }, {
-    id: 3,
-    name: 'Lorem Ipsum',
-    age: 18
-  }]
-}
+  rows: [
+    {
+      id: 1,
+      name: 'Oscar Leon',
+      age: 26
+    },
+    {
+      id: 2,
+      name: 'Ismael Haytam',
+      age: 23
+    },
+    {
+      id: 3,
+      name: 'Lorem Ipsum',
+      age: 18
+    }
+  ]
+};
 
 storiesOf('Table', module)
   .addParameters({

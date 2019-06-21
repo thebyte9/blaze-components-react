@@ -6,15 +6,18 @@ import Table from '../index';
 const data = {
   identification: 'id',
   columns: ['name', 'age'],
-  rows: [{
-    id: 1,
-    name: 'Lorem',
-    age: 52,
-  }, {
-    id: 2,
-    name: 'Ipsum',
-    age: 43,
-  }]
+  rows: [
+    {
+      id: 1,
+      name: 'Lorem',
+      age: 52
+    },
+    {
+      id: 2,
+      name: 'Ipsum',
+      age: 43
+    }
+  ]
 };
 
 const withEmptyRows = {
@@ -93,19 +96,39 @@ describe('Table component', () => {
     const wrapper = shallow(<Table data={data} onSelect={() => {}} />);
 
     wrapper.find('#sort_age').simulate('click');
-    expect(wrapper.find('tr').at(1).text()).toContain(43);
+    expect(
+      wrapper
+        .find('tr')
+        .at(1)
+        .text()
+    ).toContain(43);
 
     wrapper.find('#sort_age').simulate('click');
-    expect(wrapper.find('tr').at(1).text()).toContain(52);
+    expect(
+      wrapper
+        .find('tr')
+        .at(1)
+        .text()
+    ).toContain(52);
   });
 
   test('Sort should work with Letters', () => {
     const wrapper = shallow(<Table data={data} onSelect={() => {}} />);
 
     wrapper.find('#sort_name').simulate('click');
-    expect(wrapper.find('tr').at(1).text()).toContain('Ipsum');
+    expect(
+      wrapper
+        .find('tr')
+        .at(1)
+        .text()
+    ).toContain('Ipsum');
 
     wrapper.find('#sort_name').simulate('click');
-    expect(wrapper.find('tr').at(1).text()).toContain('Lorem');
+    expect(
+      wrapper
+        .find('tr')
+        .at(1)
+        .text()
+    ).toContain('Lorem');
   });
 });
