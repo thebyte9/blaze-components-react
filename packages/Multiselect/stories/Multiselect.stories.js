@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Multiselect from '../index';
+import Multiselect from '../src';
 import MultiSelectReadme from '../README.md';
 
 const data = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Badge from '../index';
+import Badge from '../src';
 
 describe('Badge component', () => {
   test('should render badge type link', () => {

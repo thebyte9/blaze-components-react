@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import VideoContainer from '../index';
+import VideoContainer from '../src';
 
 storiesOf('Video Container', module).add('Simple', () => (
   <div className="component-wrapper">

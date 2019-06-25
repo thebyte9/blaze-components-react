@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Modal from '../index';
+import Modal from '../src';
 import ModalReadme from '../README.md';
 
 const actions = [['Action 1', () => {}], ['Action 2', () => {}]];

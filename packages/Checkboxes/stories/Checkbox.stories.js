@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Checkboxes from '../index';
+import Checkboxes from '../src';
 import CheckboxesReadme from '../README.md';
 
 const multiple = [

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Tab, TabItem } from '../index';
+import { Tab, TabItem } from '../src';
 import TabReadme from '../README.md';
 
 storiesOf('Tab', module)
