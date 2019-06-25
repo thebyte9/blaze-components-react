@@ -8,7 +8,7 @@ const MoreContent = ({ children, toggled, isHeader, isMoreMenu, isDropdown }) =>
     'dropdown__submenu dropdown__submenu--header': isHeader,
     'dropdown__submenu--displayed dropdown__list-item--displayed': toggled && isHeader,
     'more-menu more-menu__list': isMoreMenu,
-    open: toggled && isMoreMenu
+    'more-menu--open': toggled && isMoreMenu
   });
 
   const liClassName = classnames({
