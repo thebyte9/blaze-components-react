@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Alert from '../index';
+import Alert from '../src/index';
 import AlertReadme from '../README.md';
 
 storiesOf('Alert', module)

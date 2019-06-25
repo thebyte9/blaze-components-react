@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Input from '../index';
+import Input from '../src/index';
 import inputReadme from '../README.md';
 
 storiesOf('Text Inputs', module)

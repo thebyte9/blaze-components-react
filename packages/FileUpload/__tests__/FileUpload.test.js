@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import FileUpload from '../index';
+import FileUpload from '../src/index';
 
 const FileUploadComponent = <FileUpload handleDrop={() => {}}>Drag and drop here</FileUpload>;
 

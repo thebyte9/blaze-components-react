@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Select from '../index';
+import Select from '../src/index';
 
 import selectReadme from '../README.md';
 

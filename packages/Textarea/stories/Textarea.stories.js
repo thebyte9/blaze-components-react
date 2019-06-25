@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Textarea from '../index';
+import Textarea from '../src/index';
 import TextareaReadme from '../README.md';
 
 storiesOf('Textareas', module)

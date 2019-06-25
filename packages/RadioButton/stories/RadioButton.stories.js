@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import RadioButton from '../index';
+import RadioButton from '../src/index';
 import RadioReadme from '../README.md';
 
 const options = [

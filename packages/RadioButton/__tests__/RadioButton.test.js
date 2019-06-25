@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import RadioButton from '../index';
+import RadioButton from '../src/index';
 
 const options = [
   {

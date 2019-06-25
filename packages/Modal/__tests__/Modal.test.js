@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Modal from '../index';
+import Modal from '../src/index';
 
 describe('Modal component', () => {
   test('should be defined and renders correctly (snapshot)', () => {

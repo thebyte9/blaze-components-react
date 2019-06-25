@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Dropdown from '../index';
+import Dropdown from '../src/index';
 import DropdownReadme from '../README.md';
 
 storiesOf('Dropdown', module)

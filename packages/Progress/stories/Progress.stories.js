@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Progress from '../index';
+import Progress from '../src/index';
 import ProgressReadme from '../README.md';
 
 const steps = ['Cart', 'Billing', 'Delivery', 'Review & pay'];

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Tooltip from '../index';
+import Tooltip from '../src/index';
 
 describe('Tooltip component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
