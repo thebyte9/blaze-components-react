@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import uuidv1 from 'uuid/v1';
 import Modal from '@blaze-react/modal';
-import FileUpload from '../src/index';
+import FileUpload from '../src';
 import FileUploadReadme from '../README.md';
 
 const styles = {

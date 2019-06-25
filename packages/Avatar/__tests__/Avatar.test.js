@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import Avatar from '../src/index';
+import Avatar from '../src';
 
 const url = 'http://lorempixel.com/400/400/people/';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Textarea from '../src/index';
+import Textarea from '../src';
 
 describe('Textarea component', () => {
   test('should be defined and renders correctly (snapshot)', () => {

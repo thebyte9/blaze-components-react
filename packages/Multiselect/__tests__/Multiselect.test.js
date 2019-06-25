@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import Multiselect from '../src/index';
+import Multiselect from '../src';
 
 const data = {
   keyValue: 'name',

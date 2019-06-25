@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Tooltip from '../src/index';
+import Tooltip from '../src';
 import tooltipReadme from '../README.md';
 
 storiesOf('Tooltip', module)

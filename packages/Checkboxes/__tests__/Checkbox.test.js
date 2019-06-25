@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Checkboxes from '../src/index';
+import Checkboxes from '../src';
 
 const options = [
   { label: 'Example', value: 1, id: 'one' },

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Select from '../src/index';
+import Select from '../src';
 
 const arrayOfObjects = [
   {

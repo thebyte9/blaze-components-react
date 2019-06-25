@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Table from '../src/index';
+import Table from '../src';
 import TableReadme from '../README.md';
 
 const data = {

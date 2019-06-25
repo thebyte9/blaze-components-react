@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import { Tab, TabItem } from '../src/index';
+import { Tab, TabItem } from '../src';
 
 const tabComponent = (
   <Tab selected={1}>

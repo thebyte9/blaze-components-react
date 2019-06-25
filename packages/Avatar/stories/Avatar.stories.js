@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Avatar from '../src/index';
+import Avatar from '../src';
 import avatarReadme from '../README.md';
 
 const url = 'http://lorempixel.com/400/400/people/';

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import More from '../src/index';
+import More from '../src';
 
 describe('More component', () => {
   test('should be defined and renders correctly (snapshot)', () => {

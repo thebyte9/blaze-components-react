@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Breadcrumb from '../src/index';
+import Breadcrumb from '../src';
 import BreadcrumbsReadme from '../README.md';
 
 storiesOf('Breadcrumbs', module)

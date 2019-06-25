@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { mount } from 'enzyme';
 import Button from '@blaze-react/button';
-import ButtonSelect from '../src/index';
+import ButtonSelect from '../src';
 
 const component = (
   <ButtonSelect text="Actions">

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Progress from '../src/index';
+import Progress from '../src';
 
 const steps = ['Cart', 'Billing', 'Delivery', 'Review & pay'];
 
