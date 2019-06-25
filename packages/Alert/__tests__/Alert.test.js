@@ -9,7 +9,6 @@ describe('Alert component', () => {
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
-
   test('should close alert', () => {
     const wrapper = shallow(<Alert close icon="error" type="warning" />);
     wrapper.find('.icon-button--close').simulate('click');
