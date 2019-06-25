@@ -1,6 +1,6 @@
 {
     "name": "@blaze-react/multiselect",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "publishConfig": {
         "access": "public"
     },
@@ -18,8 +18,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@blaze-react/checkboxes": "^0.2.0",
-        "@blaze-react/input": "^0.2.0"
+        "@blaze-react/checkboxes": "^0.2.1",
+        "@blaze-react/input": "^0.2.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.4.4",
