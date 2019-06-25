@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import More from '../index';
+import More from '../src';
 import moreReadme from '../README.md';
 
 storiesOf('More', module)

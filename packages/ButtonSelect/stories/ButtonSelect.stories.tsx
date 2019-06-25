@@ -1,24 +1,24 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Button from '@blaze-react/button';
-import ButtonSelect from '../index';
-import ButtonSelectReadme from '../README.md';
-
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Button from "@blaze-react/button";
+import ButtonSelect from "../src";
+import ButtonSelectReadme from "../README.md";
 const buttonStyles = {
   border: 0,
   borderRadius: 0
 };
-
-storiesOf('ButtonSelect', module)
+storiesOf("ButtonSelect", module)
   .addParameters({
     readme: {
       sidebar: ButtonSelectReadme
     }
   })
-  .add('Introduction', () => (
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <h1>ButtonSelect</h1>
-      <p>The ButtonSelect component extends the button to show a list of actions.</p>
+      <p>
+        The ButtonSelect component extends the button to show a list of actions.
+      </p>
       <ButtonSelect text="Actions">
         <Button modifiers="plain full-width" style={buttonStyles}>
           Settings

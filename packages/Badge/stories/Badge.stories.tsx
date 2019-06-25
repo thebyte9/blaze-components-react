@@ -1,20 +1,20 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Badge from '../index';
-import BadgeReadme from '../README.md';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Badge from "../src";
+import BadgeReadme from "../README.md";
 
-storiesOf('Badges', module)
+storiesOf("Badges", module)
   .addParameters({
     readme: {
       sidebar: BadgeReadme
     }
   })
-  .add('Introduction', () => (
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <h1>Badges</h1>
       <p>
-        Badges are small components typically used to communicate a numerical value or indicate the
-        status of an item to the user.
+        Badges are small components typically used to communicate a numerical
+        value or indicate the status of an item to the user.
       </p>
 
       <h4>Simple</h4>

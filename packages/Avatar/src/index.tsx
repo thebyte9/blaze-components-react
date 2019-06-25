@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-
-const Avatar = ({ modifier, url, username, ...attr }) => {
-  const [avatarUrl, setAvatar] = useState(null);
-
-  const _modifier = modifier ? `avatar--${modifier}` : '';
-
+import React, { useState, FunctionComponent } from "react";
+type AvatarProps = {
+  modifier?: string,
+  url?: string,
+  username?: string,
+  attrs?: any
+};
+const Avatar: FunctionComponent<AvatarProps> = ({
+  modifier,
+  url = "",
+  username,
+  ...attr
+}): JSX.Element => {
+  const [avatarUrl, setAvatar] = useState(url);
+  const _modifier = modifier ? `avatar--${modifier}` : "";
   const initials =
     username &&
     username
-      .split(' ')
+      .split(" ")
       .map(subName => subName[0].toUpperCase())
-      .join('')
+      .join("")
       .substring(0, 2);
-
   const imageData = new Image();
   imageData.src = url;
   imageData.onload = () => setAvatar(url);
-
   return (
     <div className={`avatar ${_modifier}`}>
       {avatarUrl && <img src={avatarUrl} alt="avatar" {...attr} />}
@@ -25,17 +30,9 @@ const Avatar = ({ modifier, url, username, ...attr }) => {
     </div>
   );
 };
-
-Avatar.propTypes = {
-  modifier: PropTypes.string,
-  url: PropTypes.string,
-  username: PropTypes.string
-};
-
 Avatar.defaultProps = {
-  modifier: '',
-  url: '',
-  username: '!'
+  modifier: "",
+  url: "",
+  username: "!"
 };
-
 export default Avatar;

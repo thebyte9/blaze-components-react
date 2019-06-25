@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import Table from '../index';
+import Table from '../src';
 
 const data = {
   identification: 'id',

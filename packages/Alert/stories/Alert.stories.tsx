@@ -1,22 +1,22 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Alert from '../index';
-import AlertReadme from '../README.md';
-
-storiesOf('Alert', module)
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Alert from "../src";
+import AlertReadme from "../README.md";
+storiesOf("Alert", module)
   .addParameters({
     readme: {
       sidebar: AlertReadme
     }
   })
-  .add('Introduction', () => (
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <section className="introductionSection">
         <h1>Alerts</h1>
         <p>
-          Provide contextual feedback messages for typical user actions with the handful of
-          available and flexible alert messages. Alerts may have a type, be dismissable, include a
-          close button, and contain any sort of children components.
+          Provide contextual feedback messages for typical user actions with the
+          handful of available and flexible alert messages. Alerts may have a
+          type, be dismissable, include a close button, and contain any sort of
+          children components.
         </p>
       </section>
 

@@ -1,7 +1,7 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import Button from "../src/index";
-import ButtonReadme from "../README.md";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import Button from '../src';
+import ButtonReadme from '../README.md';
 
 const showCaseDivStyles: React.CSSProperties = {
   display: "flex",

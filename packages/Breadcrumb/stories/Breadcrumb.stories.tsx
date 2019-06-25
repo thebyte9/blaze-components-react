@@ -1,15 +1,14 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Breadcrumb from '../index';
-import BreadcrumbsReadme from '../README.md';
-
-storiesOf('Breadcrumbs', module)
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Breadcrumb from "../src";
+import BreadcrumbsReadme from "../README.md";
+storiesOf("Breadcrumbs", module)
   .addParameters({
     readme: {
       sidebar: BreadcrumbsReadme
     }
   })
-  .add('Introduction', () => (
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <h1>Breadcrumbs</h1>
       <p>Breadcrumbs allow users to make selections from a range of values.</p>

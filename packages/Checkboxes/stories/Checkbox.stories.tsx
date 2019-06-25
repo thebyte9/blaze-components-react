@@ -1,50 +1,47 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Checkboxes from '../index';
-import CheckboxesReadme from '../README.md';
-
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Checkboxes from "../src";
+import CheckboxesReadme from "../README.md";
 const multiple = [
   {
-    label: 'First',
+    label: "First",
     value: 1,
-    id: 'one'
+    id: "one"
   },
   {
-    label: 'Second',
+    label: "Second",
     value: 2,
-    id: 'two'
+    id: "two"
   },
   {
-    label: 'Third',
+    label: "Third",
     value: 3,
-    id: 'three'
+    id: "three"
   },
   {
-    label: 'Disabled',
+    label: "Disabled",
     value: 4,
-    id: 'fourth',
+    id: "fourth",
     disabled: true
   }
 ];
-
 const single = {
-  label: 'Do you agree?',
+  label: "Do you agree?",
   required: true
 };
-
-storiesOf('Checkboxes', module)
+storiesOf("Checkboxes", module)
   .addParameters({
     readme: {
       sidebar: CheckboxesReadme
     }
   })
-  .add('Introduction', () => (
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <section className="introductionSection">
         <h1>Checkboxes</h1>
         <p>
-          Boxes that are checked (ticked) when activated. They allow you to select single values for
-          submission in a form (or not).
+          Boxes that are checked (ticked) when activated. They allow you to
+          select single values for submission in a form (or not).
         </p>
       </section>
 

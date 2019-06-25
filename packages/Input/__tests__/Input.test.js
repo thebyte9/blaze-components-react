@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, render } from 'enzyme';
-import Input from '../index';
+import Input from '../src';
 
 const testProps = {
   placeholder: 'Placeholder text',
