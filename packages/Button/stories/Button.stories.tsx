@@ -1,27 +1,29 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Button from '../index';
-import ButtonReadme from '../README.md';
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Button from "../src/index";
+import ButtonReadme from "../README.md";
 
-const showCaseDivStyles = {
-  display: 'flex',
-  justifyContent: 'space-around',
-  flexWrap: 'wrap',
-  minHeight: '10em'
+const showCaseDivStyles: React.CSSProperties = {
+  display: "flex",
+  justifyContent: "space-around",
+  flexWrap: "wrap",
+  minHeight: "10em"
 };
-
-storiesOf('Button', module)
+storiesOf("Button", module)
   .addParameters({
     readme: {
       sidebar: ButtonReadme
     }
   })
-  .add('Introduction', () => (
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <h1>Buttons</h1>
 
       <section className="examplesSection">
-        <p>You may use any of the available modifiers to easily create styled buttons.</p>
+        <p>
+          You may use any of the available modifiers to easily create styled
+          buttons.
+        </p>
 
         <h4>Outline</h4>
 

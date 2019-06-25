@@ -27,8 +27,8 @@ configureReadme({
 addDecorator(addReadme);
 
 function loadStories() {
-  const req = require.context('../packages/', true, /\.stories\.js$/);
-  req.keys().forEach(filename => req(filename));
+  const req = require.context('../packages/', true, /\.stories\.(js|tsx)$/);
+  req.keys().forEach(req);
 }
 
 configure(loadStories, module);
