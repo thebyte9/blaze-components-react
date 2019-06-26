@@ -4,3 +4,4 @@ declare module "*.md" {
 }
 
 declare module '@blaze-react/button';
+declare module '@blaze-react/modal';

@@ -1,18 +1,18 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect, FunctionComponent } from "react";
 import uuidv1 from "uuid/v1";
 type CheckboxesProps = {
   options?: any[] | object,
   withEffect?: boolean,
   boolean?: boolean,
-  onChange?: (...args: any[]) => void
+  onChange: (...args: any) => void
 };
-const Checkboxes: React.SFC<CheckboxesProps> = ({
+const Checkboxes: FunctionComponent<CheckboxesProps> = ({
   onChange,
   options,
   withEffect,
   boolean,
   ...attrs
-}) => {
+}): JSX.Element => {
   const [data, setData]: any = useState(
     Array.isArray(options) ? options : [options]
   );
@@ -73,6 +73,6 @@ Checkboxes.defaultProps = {
   options: [],
   withEffect: false,
   boolean: false,
-  onChange: () => { }
+  onChange: (): void => { }
 };
 export default Checkboxes;

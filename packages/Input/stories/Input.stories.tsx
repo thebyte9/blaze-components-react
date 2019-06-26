@@ -1,15 +1,14 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Input from '../src';
-import inputReadme from '../README.md';
-
-storiesOf('Text Inputs', module)
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Input from "../src";
+import inputReadme from "../README.md";
+storiesOf("Text Inputs", module)
   .addParameters({
     readme: {
       sidebar: inputReadme
     }
   })
-  .add('Introduction', () => (
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <section className="introductionSection">
         <h1>Text Inputs</h1>

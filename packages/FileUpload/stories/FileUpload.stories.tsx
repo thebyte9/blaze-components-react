@@ -1,53 +1,33 @@
-import React, { Component } from 'react';
-import { storiesOf } from '@storybook/react';
-import uuidv1 from 'uuid/v1';
-import Modal from '@blaze-react/modal';
-import FileUpload from '../src';
-import FileUploadReadme from '../README.md';
+import React, { Component } from "react";
+import { storiesOf } from "@storybook/react";
+import uuidv1 from "uuid/v1";
+import Modal from "@blaze-react/modal";
+import FileUpload from "../src";
+import FileUploadReadme from "../README.md";
 
-const styles = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'space-around',
-  height: '100%'
-};
-
-const imageStyles = {
-  height: '50px',
-  width: '50px',
-  borderRadius: '50%',
-  margin: '5px'
-};
-
-storiesOf('FileUpload', module)
+storiesOf("FileUpload", module)
   .addParameters({
     readme: {
       sidebar: FileUploadReadme
     }
   })
-  .add('Introduction', () => {
+  .add("Introduction", () => {
     class ModalWithFileUpload extends Component {
       state = {
         previewImages: [],
         filesToUpload: []
       };
-
-      handleDrop = ({ base64, canceled, files }) => {
+      handleDrop = ({ base64, canceled, files }: { base64: string[], canceled: boolean, files: any[] }) => {
         const { previewImages, filesToUpload } = this.state;
-
         if (canceled) return this.setState({ previewImages: [] });
-
         const images = base64.map(src => (
-          <img key={uuidv1()} src={src} style={imageStyles} alt="alt text" />
+          <img key={uuidv1()} src={src} alt="alt text" />
         ));
-
         this.setState({
           previewImages: [...previewImages, ...images],
           filesToUpload: [...filesToUpload, ...files]
         });
       };
-
       render() {
         const {
           state: { previewImages },
@@ -58,16 +38,16 @@ storiesOf('FileUpload', module)
             isActive
             buttonText="Upload Files"
             title="Add media"
-            actions={[['submit', () => {}, 'rounded outline']]}
-            upload>
-            <FileUpload handleDrop={handleDrop} style={styles}>
+            actions={[["submit", () => { }, "rounded outline"]]}
+            upload
+          >
+            <FileUpload handleDrop={handleDrop}>
               <div>{previewImages}</div>
             </FileUpload>
           </Modal>
         );
       }
     }
-
     return (
       <div className="component-wrapper">
         <h1>FileUpload</h1>
