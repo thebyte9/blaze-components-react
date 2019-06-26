@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DragableArea component should be defined and renders correctly (snapshot) 1`] = `
+<Fragment>
+  <Input
+    disabled={false}
+    hideTypeToggle={false}
+    label=""
+    modifier=""
+    onChange={[Function]}
+    onKeyUp={[Function]}
+    placeholder="Search"
+    required={false}
+    type="text"
+    value=""
+  />
+  <Checkboxes
+    boolean={false}
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "id": 1,
+          "label": "Project1",
+          "name": "Project1",
+        },
+        Object {
+          "id": 2,
+          "label": "Project2",
+          "name": "Project2",
+        },
+        Object {
+          "id": 3,
+          "label": "Project3",
+          "name": "Project3",
+        },
+      ]
+    }
+    withEffect={true}
+  />
+</Fragment>
+`;

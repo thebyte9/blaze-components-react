@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component should be defined and renders correctly (snapshot) 1`] = `
+<div
+  className="table-scroll__wrapper"
+>
+  <div
+    className="table-scroll"
+  >
+    <table>
+      <thead>
+        <tr>
+          <th
+            key="ff1e6490-9823-11e9-a9c4-dba3c63b68b4"
+          >
+            name
+          </th>
+          <th
+            key="ff1e8ba0-9823-11e9-a9c4-dba3c63b68b4"
+          >
+            age
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          key="ff1e8ba1-9823-11e9-a9c4-dba3c63b68b4"
+        >
+          <td
+            key="ff1e8ba2-9823-11e9-a9c4-dba3c63b68b4"
+          >
+            Dev1
+          </td>
+          <td
+            key="ff1e8ba3-9823-11e9-a9c4-dba3c63b68b4"
+          >
+            26
+          </td>
+        </tr>
+        <tr
+          key="ff1e8ba4-9823-11e9-a9c4-dba3c63b68b4"
+        >
+          <td
+            key="ff1e8ba5-9823-11e9-a9c4-dba3c63b68b4"
+          >
+            Dev2
+          </td>
+          <td
+            key="ff1e8ba6-9823-11e9-a9c4-dba3c63b68b4"
+          >
+            52
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

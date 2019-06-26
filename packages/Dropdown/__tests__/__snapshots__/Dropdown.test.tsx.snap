@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown component should be defined and renders correctly (snapshot) 1`] = `
+<Dropdown
+  label="Dropdown"
+>
+  <div
+    className="more-menu__wrapper"
+  >
+    <button
+      className="icon-button toggle"
+      onClick={[Function]}
+      type="button"
+    >
+      Dropdown
+      <i
+        className="material-icons"
+      >
+        more_vert
+      </i>
+    </button>
+    <div
+      className="more-menu close"
+    >
+      <ul
+        className="more-menu__list"
+      >
+        <li
+          className="more-menu__list-item"
+          key="ff27da70-9823-11e9-a9c6-29b1df1739c9"
+        >
+          <a
+            href="/"
+          >
+            Settings
+          </a>
+        </li>
+        <li
+          className="more-menu__list-item"
+          key="ff27da71-9823-11e9-a9c6-29b1df1739c9"
+        >
+          <a
+            href="/"
+          >
+            Sign out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</Dropdown>
+`;
