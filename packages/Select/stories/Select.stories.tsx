@@ -1,31 +1,31 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Select from '../src';
-
-import selectReadme from '../README.md';
-
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import Select from "../src";
+import selectReadme from "../README.md";
 const arrayOfObjects = [
   {
     id: 1,
-    username: 'Oscar'
+    username: "Oscar"
   },
   {
     id: 2,
-    username: 'Ismael'
+    username: "Ismael"
   }
 ];
-
-storiesOf('Select', module)
+storiesOf("Select", module)
   .addParameters({
     readme: {
       sidebar: selectReadme
     }
   })
-  .add('Introduction', () => (
+  .add("Introduction", () => (
     <div className="component-wrapper">
       <section className="introductionSection">
         <h1>Select inputs</h1>
-        <p>The select component represents an input that provides a menu of options.</p>
+        <p>
+          The select component represents an input that provides a menu of
+          options.
+        </p>
       </section>
 
       <hr />
@@ -35,7 +35,7 @@ storiesOf('Select', module)
           <h4>Array of options</h4>
           <Select
             label="Select a city"
-            options={['London', 'Paris', 'Munich']}
+            options={["London", "Paris", "Munich"]}
             onChange={() => {}}
             required
           />
@@ -46,7 +46,7 @@ storiesOf('Select', module)
           <Select
             label="Select label"
             selected="08001"
-            options={[['08001', 'Barcelona'], ['17006', 'Madrid']]}
+            options={[["08001", "Barcelona"], ["17006", "Madrid"]]}
             onChange={() => {}}
           />
           <br />
@@ -57,7 +57,7 @@ storiesOf('Select', module)
             label="Select user"
             selected="1"
             options={arrayOfObjects}
-            keys={['id', 'username']}
+            keys={["id", "username"]}
             onChange={() => {}}
           />
           <br />

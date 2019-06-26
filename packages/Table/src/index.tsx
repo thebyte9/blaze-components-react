@@ -1,26 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import uuidv1 from 'uuid/v1';
-import Checkboxes from '@blaze-react/checkboxes';
-
-const Table = ({ data: { columns, rows, identification }, onSelect, checkboxes, placeholder }) => {
-  const [selected, setSelected] = useState([]);
-
-  const handleSelected = ([checked], value, multiselect = false) => {
+import React, { useState, useEffect, FunctionComponent } from "react";
+import uuidv1 from "uuid/v1";
+import Checkboxes from "@blaze-react/checkboxes";
+type TableProps = {
+  placeholder?: string,
+  checkboxes?: boolean,
+  data: {
+    identification: string,
+    columns: string[],
+    rows: any[]
+  },
+  value?: string
+  onSelect: (...args: any[]) => any
+};
+const Table: FunctionComponent<TableProps> = ({
+  data: { columns, rows, identification },
+  onSelect,
+  checkboxes,
+  placeholder,
+  value
+}) => {
+  const [selected, setSelected] = useState<any[]>([]);
+  const handleSelected = ([checked]: any[], multiselect = false) => {
     if (multiselect) {
       if (checked) setSelected([...checked.value]);
       else setSelected([]);
       return;
     }
-
-    if (checked && !selected.includes(checked.value)) setSelected([...selected, checked.value]);
+    if (checked && !selected.includes(checked.value))
+      setSelected([...selected, checked.value]);
     else setSelected(selected.filter(_value => _value !== value));
   };
-
   useEffect(() => onSelect(selected));
-
   const colSpan = checkboxes ? columns.length + 1 : columns.length;
-
   const thead = (
     <thead>
       <tr>
@@ -33,20 +44,21 @@ const Table = ({ data: { columns, rows, identification }, onSelect, checkboxes, 
                   {},
                   {
                     value: rows.map(row => row[identification]),
-                    id: 'Select_all',
+                    id: "Select_all",
                     checked: selected.length === rows.length
                   }
                 )
               ]}
-              onChange={({ checked }) => handleSelected(checked, checked, true)}
+              onChange={({ checked }: { checked: any }) => handleSelected(checked, true)}
             />
           </th>
         )}
-        {columns.map(column => <th key={uuidv1()}>{column}</th>)}
+        {columns.map(column => (
+          <th key={uuidv1()}>{column}</th>
+        ))}
       </tr>
     </thead>
   );
-
   const tbody = (
     <tbody>
       {rows.map(row => (
@@ -62,11 +74,15 @@ const Table = ({ data: { columns, rows, identification }, onSelect, checkboxes, 
                     checked: selected.includes(row[identification])
                   }
                 ]}
-                onChange={({ checked }) => handleSelected(checked, row[identification])}
+                onChange={({ checked }: any) =>
+                  handleSelected(checked, row[identification])
+                }
               />
             </td>
           )}
-          {columns.map(column => <td key={uuidv1()}>{row[column]}</td>)}
+          {columns.map(column => (
+            <td key={uuidv1()}>{row[column]}</td>
+          ))}
         </tr>
       ))}
       {!rows.length && (
@@ -78,7 +94,6 @@ const Table = ({ data: { columns, rows, identification }, onSelect, checkboxes, 
       )}
     </tbody>
   );
-
   return (
     <div className="table-scroll__wrapper">
       <div className="table-scroll">
@@ -90,23 +105,14 @@ const Table = ({ data: { columns, rows, identification }, onSelect, checkboxes, 
     </div>
   );
 };
-
-Table.propTypes = {
-  placeholder: PropTypes.string,
-  checkboxes: PropTypes.bool,
-  data: PropTypes.shape({
-    identification: PropTypes.string,
-    columns: PropTypes.arrayOf(PropTypes.string),
-    rows: PropTypes.array
-  }),
-  onSelect: PropTypes.func
-};
-
 Table.defaultProps = {
-  placeholder: 'No records available',
+  placeholder: "No records available",
   checkboxes: false,
-  data: {},
-  onSelect: () => {}
+  data: {
+    identification: "",
+    columns: [],
+    rows: []
+  },
+  onSelect: () => { }
 };
-
 export default Table;

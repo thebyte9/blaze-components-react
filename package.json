@@ -27,12 +27,14 @@
   },
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
   "dependencies": {
+    "@babel/preset-typescript": "^7.3.3",
     "@storybook/addon-knobs": "^5.1.7",
     "classnames": "^2.2.6",
-    "uuid": "^3.3.2",
+    "enzyme-to-json": "^3.3.5",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "prop-types": "^15.7.2"
+    "uuid": "^3.3.2"
   },
   "eslintConfig": {
     "extends": [
@@ -68,6 +70,7 @@
     "@blaze-cms/blaze-ui": "0.0.2",
     "@byte9/linter": "^0.0.16",
     "@storybook/react": "^5.1.7",
+    "@types/enzyme": "^3.9.4",
     "@types/jest": "^24.0.15",
     "@types/storybook__react": "^4.0.2",
     "awesome-typescript-loader": "^5.2.1",
@@ -91,6 +94,7 @@
     "node-sass": "^4.12.0",
     "react-docgen-typescript-loader": "^3.1.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "react-test-renderer": "^16.8.6",
     "react-testing-library": "^8.0.1",
     "sass-loader": "^7.1.0",
     "storybook-readme": "^5.0.3",

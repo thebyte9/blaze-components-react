@@ -1,27 +1,33 @@
-import React, { Fragment, useState } from 'react';
-import PropTypes from 'prop-types';
-
-const RadioButton = ({ onChange, options, required, ...attrs }) => {
-  const [selected, setSelected] = useState({});
-
-  const handleSelect = ({ event, item }) => {
+import React, { Fragment, useState } from "react";
+type RadioButtonProps = {
+  options: any[],
+  required?: boolean,
+  onChange: (...args: any[]) => any
+};
+const RadioButton: React.SFC<RadioButtonProps> = ({
+  onChange,
+  options,
+  required,
+  ...attrs
+}) => {
+  const [selected, setSelected] = useState<{ value: string | any }>({ value: null });
+  const handleSelect = ({ event, item }: { event: any, item: any }) => {
     if (item.disabled) return;
     setSelected(item);
     onChange({ event, selected: item });
   };
-
   return (
     <Fragment>
       {required && <span className="required" />}
       {options.map(item => {
         const { value, disabled, label, id } = item;
-
         return (
           <div
             key={label}
             className="form-field form-field--radio"
             onClick={event => handleSelect({ event, item })}
-            role="button">
+            role="button"
+          >
             <input
               readOnly
               type="radio"
@@ -39,17 +45,9 @@ const RadioButton = ({ onChange, options, required, ...attrs }) => {
     </Fragment>
   );
 };
-
-RadioButton.propTypes = {
-  options: PropTypes.array,
-  required: PropTypes.bool,
-  onChange: PropTypes.func
-};
-
 RadioButton.defaultProps = {
   options: [],
   required: false,
-  onChange: () => {}
+  onChange: () => { }
 };
-
 export default RadioButton;

@@ -1,8 +1,7 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import VideoContainer from '../src';
-
-storiesOf('Video Container', module).add('Simple', () => (
+import React from "react";
+import { storiesOf } from "@storybook/react";
+import VideoContainer from "../src";
+storiesOf("Video Container", module).add("Simple", () => (
   <div className="component-wrapper">
     <VideoContainer
       src="https://www.youtube.com/embed/sSJiZLkfsnw"

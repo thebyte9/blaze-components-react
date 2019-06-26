@@ -1,11 +1,18 @@
-import React, { useState, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import uuidv1 from 'uuid/v1';
-
-import Input from '@blaze-react/input';
-import Checkboxes from '@blaze-react/checkboxes';
-
-const MultiSelect = ({
+import React, { useState, Fragment } from "react";
+import uuidv1 from "uuid/v1";
+import Input from "@blaze-react/input";
+import Checkboxes from "@blaze-react/checkboxes";
+interface MultiSelectProps {
+  data: {
+    keyValue: string,
+    filterBy: any[],
+    data: object[]
+  },
+  selected: (...args: any[]) => any,
+  placeholder?: string,
+  children?: any
+};
+const MultiSelect: React.SFC<MultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue },
   selected: getSelected,
   placeholder,
@@ -13,37 +20,31 @@ const MultiSelect = ({
 }) => {
   const [selected, setSelected] = useState([]);
   const [dataCopy, setDataCopy] = useState(data);
-
-  const setStatus = (obj, status) => Object.assign({}, obj, { show: status });
-
-  const handleKeyUp = event => {
+  const setStatus = (obj: any, status: any) => Object.assign({}, obj, { show: status });
+  const handleKeyUp = (event: any) => {
     const {
       target: { value }
     } = event;
-
     const _dataCopy = dataCopy.map(copy => {
       let _copy = setStatus(copy, false);
-
       keys.forEach(_key => {
         const match = copy[_key].toLowerCase().includes(value.toLowerCase());
         if (match) _copy = setStatus(copy, true);
       });
-
       return _copy;
     });
-
     setDataCopy(_dataCopy);
   };
-
-  const handleChange = ({ checked, data: _data }) => {
+  const handleChange = ({ checked, data: _data }: { checked: any, data: any }) => {
     setSelected(checked);
     setDataCopy(_data);
     getSelected(_data);
   };
-
   return (
     <Fragment>
-      {selected.map(_selected => <div key={uuidv1()}>{_selected[keyValue]}</div>)}
+      {selected.map(_selected => (
+        <div key={uuidv1()}>{_selected[keyValue]}</div>
+      ))}
 
       {children}
 
@@ -60,22 +61,9 @@ const MultiSelect = ({
     </Fragment>
   );
 };
-
-MultiSelect.propTypes = {
-  data: PropTypes.shape({
-    keyValue: PropTypes.string,
-    filterBy: PropTypes.array,
-    data: PropTypes.arrayOf(PropTypes.object)
-  }).isRequired,
-  selected: PropTypes.func,
-  placeholder: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
-};
-
 MultiSelect.defaultProps = {
-  selected: () => {},
-  placeholder: 'Search',
-  children: ''
+  selected: () => { },
+  placeholder: "Search",
+  children: ""
 };
-
 export default MultiSelect;

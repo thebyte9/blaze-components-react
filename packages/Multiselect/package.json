@@ -19,7 +19,8 @@
     "license": "ISC",
     "dependencies": {
         "@blaze-react/checkboxes": "^0.2.3",
-        "@blaze-react/input": "^0.2.3"
+        "@blaze-react/input": "^0.2.3",
+        "@types/uuid": "^3.4.4"
     },
     "devDependencies": {
         "@babel/cli": "^7.4.4",

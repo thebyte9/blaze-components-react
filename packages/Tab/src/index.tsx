@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@blaze-react/button';
 
-export const TabItem = ({ action, children }) => {
+interface TabItemProps {
+  action: () => {},
+  children?: any
+}
+
+export const TabItem = ({ action, children }: TabItemProps) => {
   action();
   return <div className="tabs__content current">{children}</div>;
 };
@@ -13,17 +18,24 @@ TabItem.propTypes = {
 };
 
 TabItem.defaultProps = {
-  action: () => {},
+  action: () => { },
   children: 'No content'
 };
 
-export const Tab = ({ selected, children }) => {
+type selectedType = string | number;
+
+interface TabProps {
+  selected: selectedType,
+  children?: any
+}
+
+export const Tab = ({ selected, children }: TabProps) => {
   const [_selected, setSelected] = useState(selected);
 
   return (
     <div className="tabs">
       <div className="tabs__list">
-        {children.map(({ props: { title = 'Unnamed tab' } }, step) => (
+        {children.map(({ props: { title = 'Unnamed tab' } }: any, step: any) => (
           <Button
             className={`tabs__list-item ${step === _selected ? 'current' : ''}`}
             onClick={() => setSelected(step)}

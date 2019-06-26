@@ -1,13 +1,20 @@
 module.exports = {
-  collectCoverageFrom: ['packages/**/*.js', '!packages/**/*.stories.js', '!packages/**/lib/*.js'],
-  testMatch: ['**/__tests__/**/*.test.js?(x)'],
-  roots: ['packages/'],
-  testEnvironment: 'jsdom',
-  setupFiles: ['./setupTests.js'],
-  collectCoverage: true,
-  coverageDirectory: './coverage/',
-  verbose: false,
   transform: {
-    '^.+\\.js$': 'babel-jest'
-  }
+    "^.+\\.tsx?$": "ts-jest",
+  },
+  globals: {
+    "ts-jest": {
+      tsConfig: "./.storybook/tsconfig.json",
+    },
+  },
+  testRegex: "(src/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "lib",
+  ],
+  setupFiles: ["./setupTests.js"],
+  snapshotSerializers: ["enzyme-to-json/serializer"],
+  moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"],
+  coverageDirectory: "./coverage/",
+  collectCoverage: true,
 };
