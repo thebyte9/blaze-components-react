@@ -7,7 +7,7 @@
     "setup": "npm install && lerna bootstrap --hoist",
     "setup:clean": "lerna clean && npm run setup",
     "lint": "lerna run lint",
-    "build": "lerna run build --parallel --stream",
+    "build": "lerna run build",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "test": "jest",
     "test:coverage": "jest --coverage",
