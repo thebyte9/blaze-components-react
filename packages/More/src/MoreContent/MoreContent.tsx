@@ -1,12 +1,12 @@
-import React from "react";
 import classnames from "classnames";
-type MoreContentProps = {
-  toggled?: boolean,
-  isHeader?: boolean,
-  isMoreMenu?: boolean,
-  isDropdown?: boolean
-};
-const MoreContent: React.SFC<MoreContentProps> = ({
+import React from "react";
+interface IMoreContentProps {
+  toggled?: boolean;
+  isHeader?: boolean;
+  isMoreMenu?: boolean;
+  isDropdown?: boolean;
+}
+const MoreContent: React.SFC<IMoreContentProps> = ({
   children,
   toggled,
   isHeader,
@@ -46,9 +46,9 @@ const MoreContent: React.SFC<MoreContentProps> = ({
   );
 };
 MoreContent.defaultProps = {
-  toggled: false,
+  isDropdown: false,
   isHeader: false,
   isMoreMenu: false,
-  isDropdown: false
+  toggled: false
 };
 export default MoreContent;

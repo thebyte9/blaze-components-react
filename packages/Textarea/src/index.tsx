@@ -1,13 +1,18 @@
-import React, { Fragment, useState, TextareaHTMLAttributes, FunctionComponent } from "react";
-interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label: string,
-  required?: boolean,
-  limit?: number,
-  onChange: (...args: any[]) => void,
-  value?: string,
-  placeholder: string
-};
-const Textarea: FunctionComponent<TextareaProps> = ({
+import React, {
+  Fragment,
+  FunctionComponent,
+  TextareaHTMLAttributes,
+  useState
+} from "react";
+interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  label: string;
+  required?: boolean;
+  limit?: number;
+  onChange: (...args: any[]) => void;
+  value?: string;
+  placeholder: string;
+}
+const Textarea: FunctionComponent<ITextareaProps> = ({
   value,
   label,
   limit,
@@ -16,12 +21,14 @@ const Textarea: FunctionComponent<TextareaProps> = ({
   id,
   ...attrs
 }) => {
-  const [content, setContent] = useState<string>('');
+  const [content, setContent] = useState<string>("");
   const handleChange = (event: any) => {
-    let _content = event.target.value;
-    if (limit && _content.length > limit) _content = _content.slice(0, limit);
-    setContent(_content);
-    onChange({ event, value: _content });
+    let newContent = event.target.value;
+    if (limit && newContent.length > limit) {
+      newContent = newContent.slice(0, limit);
+    }
+    setContent(newContent);
+    onChange({ event, value: newContent });
   };
   const isRequired = required ? "required" : "";
   const total = limit && limit - content.length;
@@ -46,9 +53,11 @@ const Textarea: FunctionComponent<TextareaProps> = ({
 };
 Textarea.defaultProps = {
   label: "",
-  value: "",
-  required: false,
   limit: 0,
-  onChange: () => { }
+  onChange: (): void => {
+    return;
+  },
+  required: false,
+  value: ""
 };
 export default Textarea;

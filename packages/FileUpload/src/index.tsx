@@ -1,11 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import uuidv1 from "uuid/v1";
 import Button from "@blaze-react/button";
-type FileUploadProps = {
-  handleDrop: (...args: any[]) => any,
-  children?: any,
-};
-const FileUpload: React.SFC<FileUploadProps> = ({
+import React, { useEffect, useRef } from "react";
+import uuidv1 from "uuid/v1";
+interface IFileUploadProps {
+  handleDrop: (...args: any[]) => any;
+  children?: any;
+}
+const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
   handleDrop: handleDropProp,
   ...attr
@@ -26,9 +26,9 @@ const FileUpload: React.SFC<FileUploadProps> = ({
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
                 resolve({
+                  base64: e.target.result,
                   id: uuidv1(),
                   name: file.name,
-                  base64: e.target.result,
                   type: "image"
                 });
               reader.onerror = () =>
@@ -44,15 +44,18 @@ const FileUpload: React.SFC<FileUploadProps> = ({
       )
     );
   const processFiles = async (event: any, files: any): Promise<any> => {
-    if (!files || !files.length) return;
-    getPreview(files).then((previewFiles: any): void => {
-      handleDropProp({ event, files, previewFiles })
+    if (!files || !files.length) {
+      return;
     }
+    getPreview(files).then(
+      (previewFiles: any): void => {
+        handleDropProp({ event, files, previewFiles });
+      }
     );
   };
   const handleChange = (event: any) => {
     event.preventDefault();
-    let { target: { files = {} } = {} } = event
+    let { target: { files = {} } = {} } = event;
     files = Object.values(files);
     processFiles(event, files);
   };
@@ -101,7 +104,9 @@ const FileUpload: React.SFC<FileUploadProps> = ({
   );
 };
 FileUpload.defaultProps = {
-  handleDrop: () => { },
-  children: "No content"
+  children: "No content",
+  handleDrop: (): void => {
+    return;
+  }
 };
 export default FileUpload;

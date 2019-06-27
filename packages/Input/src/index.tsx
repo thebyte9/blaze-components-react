@@ -1,22 +1,18 @@
-import React, { useState, FunctionComponent, InputHTMLAttributes } from "react";
+import React, { FunctionComponent, InputHTMLAttributes, useState } from "react";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  disabled?: boolean,
-  hideTypeToggle?: boolean,
-  id?: string,
-  label?: string,
-  modifier?: string,
-  onChange: (...args: any[]) => any,
-  required?: boolean,
-  type?: string,
-  value?: string,
-};
-
-interface InputComponent extends InputProps {
-
+interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  disabled?: boolean;
+  hideTypeToggle?: boolean;
+  id?: string;
+  label?: string;
+  modifier?: string;
+  onChange: (...args: any[]) => any;
+  required?: boolean;
+  type?: string;
+  value?: string;
 }
 
-const Input: FunctionComponent<InputComponent> = ({
+const Input: FunctionComponent<IInputProps> = ({
   disabled,
   hideTypeToggle,
   label,
@@ -29,8 +25,8 @@ const Input: FunctionComponent<InputComponent> = ({
 }) => {
   const passwordDefaultState = {
     className: "active",
-    text: "Show",
-    icon: "visibility_off"
+    icon: "visibility_off",
+    text: "Show"
   };
   const [newValue, setNewValue] = useState(value);
   const [newType, setType] = useState(type);
@@ -43,8 +39,8 @@ const Input: FunctionComponent<InputComponent> = ({
     if (passwordState.className === "active") {
       setPasswordState({
         className: "hide",
-        text: "Hide",
-        icon: "visibility"
+        icon: "visibility",
+        text: "Hide"
       });
       setType("text");
     } else {
@@ -55,8 +51,12 @@ const Input: FunctionComponent<InputComponent> = ({
   const isRequired = required ? "required" : "";
   const isPassword = type === "password";
   const setModifier = () => {
-    if (modifier) return `form-field--${modifier}`;
-    if (isPassword) return "form-field--password";
+    if (modifier) {
+      return `form-field--${modifier}`;
+    }
+    if (isPassword) {
+      return "form-field--password";
+    }
     return "";
   };
 
@@ -89,13 +89,15 @@ const Input: FunctionComponent<InputComponent> = ({
   );
 };
 Input.defaultProps = {
-  label: "",
-  value: "",
-  modifier: "",
-  type: "text",
   disabled: false,
-  required: false,
   hideTypeToggle: false,
-  onChange: () => { }
+  label: "",
+  modifier: "",
+  onChange: (): void => {
+    return;
+  },
+  required: false,
+  type: "text",
+  value: ""
 };
 export default Input;

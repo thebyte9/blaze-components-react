@@ -1,9 +1,9 @@
-import React, { useState, Fragment } from "react";
-type DropdownProps = {
-  label?: string,
-  children?: any
-};
-const Dropdown: React.SFC<DropdownProps> = ({ label, children }) => {
+import React, { Fragment, useState } from "react";
+interface IDropdownProps {
+  label?: string;
+  children?: any;
+}
+const Dropdown: React.SFC<IDropdownProps> = ({ label, children }) => {
   const [toggled, setToggled] = useState("close");
   const toggleMenu = () => {
     const menuStatus = toggled === "close" ? "open" : "close";
@@ -23,7 +23,10 @@ const Dropdown: React.SFC<DropdownProps> = ({ label, children }) => {
         <div className={`more-menu ${toggled}`}>
           <ul className="more-menu__list">
             <li className="more-menu__list-item">
-              {React.Children.map(children, (child: any): JSX.Element => React.cloneElement(child))}
+              {React.Children.map(
+                children,
+                (child: any): JSX.Element => React.cloneElement(child)
+              )}
             </li>
           </ul>
         </div>
@@ -32,7 +35,7 @@ const Dropdown: React.SFC<DropdownProps> = ({ label, children }) => {
   );
 };
 Dropdown.defaultProps = {
-  label: "Menu",
-  children: []
+  children: [],
+  label: "Menu"
 };
 export default Dropdown;

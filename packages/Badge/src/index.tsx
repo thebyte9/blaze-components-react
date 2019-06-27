@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from "react";
-type BadgeProps = {
-  type?: string,
-  to?: string,
-  round?: boolean,
-  link?: boolean,
-  pill?: boolean,
-  icon?: boolean,
-  children?: string | JSX.Element
-};
-const Badge: FunctionComponent<BadgeProps> = ({
+interface IBadgeProps {
+  type?: string;
+  to?: string;
+  round?: boolean;
+  link?: boolean;
+  pill?: boolean;
+  icon?: boolean;
+  children?: string | JSX.Element;
+}
+const Badge: FunctionComponent<IBadgeProps> = ({
   children,
   type,
   pill,
@@ -28,18 +28,18 @@ const Badge: FunctionComponent<BadgeProps> = ({
       {children}
     </a>
   ) : (
-      <span className={classes} {...attrs}>
-        {children}
-      </span>
-    );
+    <span className={classes} {...attrs}>
+      {children}
+    </span>
+  );
 };
 Badge.defaultProps = {
-  type: "",
-  to: "#",
-  round: false,
-  pill: false,
-  link: false,
+  children: "No content",
   icon: false,
-  children: "No content"
+  link: false,
+  pill: false,
+  round: false,
+  to: "#",
+  type: ""
 };
 export default Badge;

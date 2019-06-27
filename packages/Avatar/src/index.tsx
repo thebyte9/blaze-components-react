@@ -1,18 +1,18 @@
-import React, { useState, FunctionComponent } from "react";
-type AvatarProps = {
-  modifier?: string,
-  url?: string,
-  username?: string,
-  attrs?: any
-};
-const Avatar: FunctionComponent<AvatarProps> = ({
+import React, { FunctionComponent, useState } from "react";
+interface IAvatarProps {
+  modifier?: string;
+  url?: string;
+  username?: string;
+  attrs?: any;
+}
+const Avatar: FunctionComponent<IAvatarProps> = ({
   modifier,
   url = "",
   username,
   ...attr
 }): JSX.Element => {
   const [avatarUrl, setAvatar] = useState(url);
-  const _modifier = modifier ? `avatar--${modifier}` : "";
+  const buildedModifier = modifier ? `avatar--${modifier}` : "";
   const initials =
     username &&
     username
@@ -24,7 +24,7 @@ const Avatar: FunctionComponent<AvatarProps> = ({
   imageData.src = url;
   imageData.onload = () => setAvatar(url);
   return (
-    <div className={`avatar ${_modifier}`}>
+    <div className={`avatar ${buildedModifier}`}>
       {avatarUrl && <img src={avatarUrl} alt="avatar" {...attr} />}
       {!avatarUrl && <span>{initials}</span>}
     </div>

@@ -1,14 +1,14 @@
-import React, { Fragment, useState, InputHTMLAttributes } from "react";
-interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
-  label?: string,
-  keys?: any[],
-  options: any[],
-  required?: boolean,
-  onChange: (...args: any[]) => any,
-  selected?: any,
-  id?: string
-};
-const Select: React.SFC<SelectProps> = ({
+import React, { Fragment, InputHTMLAttributes, useState } from "react";
+interface ISelectProps extends InputHTMLAttributes<HTMLSelectElement> {
+  label?: string;
+  keys?: any[];
+  options: any[];
+  required?: boolean;
+  onChange: (...args: any[]) => any;
+  selected?: any;
+  id?: string;
+}
+const Select: React.SFC<ISelectProps> = ({
   label,
   required,
   onChange,
@@ -30,10 +30,12 @@ const Select: React.SFC<SelectProps> = ({
   );
   const renderOptions = () => {
     const [first]: any = options;
-    if (typeof first === "string")
+    if (typeof first === "string") {
       return options.map(option => setOption(option));
-    if (first instanceof Array)
+    }
+    if (first instanceof Array) {
       return options.map(([value, text]) => setOption(value, text));
+    }
     return options.map(option => {
       const [value, text]: any = keys;
       return setOption(option[value], option[text]);
@@ -59,11 +61,13 @@ const Select: React.SFC<SelectProps> = ({
   );
 };
 Select.defaultProps = {
-  label: "",
   keys: [],
+  label: "",
+  onChange: (): void => {
+    return;
+  },
   options: [],
   required: false,
-  onChange: () => { },
   selected: ""
 };
 export default Select;

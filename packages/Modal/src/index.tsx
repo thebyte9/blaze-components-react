@@ -1,17 +1,17 @@
-import React, { Fragment, useState } from "react";
 import Button from "@blaze-react/button";
-type ModalProps = {
-  title?: string,
-  buttonText?: string,
-  buttonModifiers?: string,
-  actions: any[][],
-  simple?: boolean,
-  upload?: boolean,
-  alert?: boolean,
-  isActive?: boolean,
-  children?: any
-};
-const Modal: React.SFC<ModalProps> = ({
+import React, { Fragment, useState } from "react";
+interface IModalProps {
+  title?: string;
+  buttonText?: string;
+  buttonModifiers?: string;
+  actions: any[][];
+  simple?: boolean;
+  upload?: boolean;
+  alert?: boolean;
+  isActive?: boolean;
+  children?: any;
+}
+const Modal: React.SFC<IModalProps> = ({
   children,
   simple,
   alert,
@@ -24,9 +24,15 @@ const Modal: React.SFC<ModalProps> = ({
 }) => {
   const [modalStatus, setModalStatus] = useState(isActive);
   const type = () => {
-    if (simple) return "--simple";
-    if (alert) return "--alert";
-    if (upload) return "--upload";
+    if (simple) {
+      return "--simple";
+    }
+    if (alert) {
+      return "--alert";
+    }
+    if (upload) {
+      return "--upload";
+    }
     return "";
   };
   const renderModal = (
@@ -80,14 +86,14 @@ const Modal: React.SFC<ModalProps> = ({
   );
 };
 Modal.defaultProps = {
-  title: "",
-  buttonText: "",
-  buttonModifiers: "outline",
   actions: [],
-  simple: false,
-  upload: false,
   alert: false,
+  buttonModifiers: "outline",
+  buttonText: "",
+  children: "No content",
   isActive: false,
-  children: "No content"
+  simple: false,
+  title: "",
+  upload: false
 };
 export default Modal;

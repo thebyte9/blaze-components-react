@@ -1,34 +1,46 @@
 import React, { useState } from "react";
-type ProgressProps = {
-  progress: number,
-  type?: string | any,
-  steps: any[],
-  onChange: (...args: any[]) => any
-};
-const Progress: React.SFC<ProgressProps> = ({
+interface IProgressProps {
+  progress: number;
+  type?: string | any;
+  steps: any[];
+  onChange: (...args: any[]) => any;
+}
+const Progress: React.SFC<IProgressProps> = ({
   progress,
   steps,
   type,
   onChange
 }) => {
-  const [_progress, setProgress] = useState(progress);
-  const handleClick = ({ event, step }: { event: any, step: any }) => {
+  const [currentProgress, setProgress] = useState(progress);
+  const handleClick = ({ event, step }: { event: any; step: any }) => {
     setProgress(step);
     onChange({ event, step });
   };
   const checkStep = (step: any) => {
-    if (step === steps.length && step === _progress) return "final current";
-    if (step === _progress) return "current";
-    if (step === steps.length) return "final";
-    if (step <= _progress) return "visited";
+    if (step === steps.length && step === currentProgress) {
+      return "final current";
+    }
+    if (step === currentProgress) {
+      return "current";
+    }
+    if (step === steps.length) {
+      return "final";
+    }
+    if (step <= currentProgress) {
+      return "visited";
+    }
     return "";
   };
   const isTypeCount = type === "count" ? "progress-bar__list-item--dots" : "";
   const modifiers = () => {
-    const _modifiers = type.split(" ");
+    const allModifiers = type.split(" ");
     const blockElement = "progress-bar__list-item--";
-    if (!_modifiers.length) return `${blockElement}${type}`;
-    return _modifiers.map((modifier: string) => `${blockElement}${modifier}`).join(" ");
+    if (!allModifiers.length) {
+      return `${blockElement}${type}`;
+    }
+    return allModifiers
+      .map((modifier: string) => `${blockElement}${modifier}`)
+      .join(" ");
   };
   return (
     <nav className="progress-bar">
@@ -53,9 +65,11 @@ const Progress: React.SFC<ProgressProps> = ({
   );
 };
 Progress.defaultProps = {
+  onChange: (): void => {
+    return;
+  },
   progress: 0,
-  type: "dots",
   steps: [],
-  onChange: () => { }
+  type: "dots"
 };
 export default Progress;

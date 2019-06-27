@@ -1,12 +1,13 @@
-import React, { Fragment, useState, FunctionComponent } from "react";
 import Button from "@blaze-react/button";
-type AlertProps = {
-  icon?: string,
-  type?: string,
-  close?: boolean,
-  children?: JSX.Element | string | {} | []
-};
-const Alert: FunctionComponent<AlertProps> = ({
+import React, { Fragment, FunctionComponent, useState } from "react";
+interface IAlertProps {
+  icon?: string;
+  type?: string;
+  close?: boolean;
+  children?: JSX.Element | string | {} | [];
+}
+
+const Alert: FunctionComponent<IAlertProps> = ({
   children,
   close,
   icon,
@@ -37,9 +38,9 @@ const Alert: FunctionComponent<AlertProps> = ({
   return <Fragment>{!offModal && renderAlert}</Fragment>;
 };
 Alert.defaultProps = {
-  icon: "",
-  type: "",
+  children: "No content",
   close: false,
-  children: "No content"
+  icon: "",
+  type: ""
 };
 export default Alert;

@@ -1,15 +1,15 @@
-import React, { useState, FunctionComponent } from "react";
 import Button from "@blaze-react/button";
+import React, { FunctionComponent, useState } from "react";
 const menuStyles = {
-  width: "100%",
-  top: "100%"
+  top: "100%",
+  width: "100%"
 };
-type ButtonSelectProps = {
-  text?: string,
-  children?: any,
-  Attr?: any
-};
-const ButtonSelect: FunctionComponent<ButtonSelectProps> = ({
+interface IButtonSelectProps {
+  text?: string;
+  children?: any;
+  Attr?: any;
+}
+const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({
   text,
   children,
   ...Attr
@@ -20,7 +20,7 @@ const ButtonSelect: FunctionComponent<ButtonSelectProps> = ({
       <Button onClick={(): void => setToggled(!toggled)} {...Attr}>
         <i className="material-icons">{`keyboard_arrow_${
           toggled ? "up" : "down"
-          }`}</i>
+        }`}</i>
         {text}
       </Button>
 
@@ -33,7 +33,7 @@ const ButtonSelect: FunctionComponent<ButtonSelectProps> = ({
   );
 };
 ButtonSelect.defaultProps = {
-  text: "Actions",
-  children: "No content"
+  children: "No content",
+  text: "Actions"
 };
 export default ButtonSelect;

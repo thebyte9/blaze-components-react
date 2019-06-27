@@ -1,18 +1,18 @@
-import React, { useState, Fragment } from "react";
-import uuidv1 from "uuid/v1";
-import Input from "@blaze-react/input";
 import Checkboxes from "@blaze-react/checkboxes";
-interface MultiSelectProps {
+import Input from "@blaze-react/input";
+import React, { Fragment, useState } from "react";
+import uuidv1 from "uuid/v1";
+interface IMultiSelectProps {
   data: {
-    keyValue: string,
-    filterBy: any[],
-    data: object[]
-  },
-  selected: (...args: any[]) => any,
-  placeholder?: string,
-  children?: any
-};
-const MultiSelect: React.SFC<MultiSelectProps> = ({
+    keyValue: string;
+    filterBy: any[];
+    data: object[];
+  };
+  selected: (...args: any[]) => any;
+  placeholder?: string;
+  children?: any;
+}
+const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue },
   selected: getSelected,
   placeholder,
@@ -20,30 +20,39 @@ const MultiSelect: React.SFC<MultiSelectProps> = ({
 }) => {
   const [selected, setSelected] = useState([]);
   const [dataCopy, setDataCopy] = useState(data);
-  const setStatus = (obj: any, status: any) => Object.assign({}, obj, { show: status });
+  const setStatus = (obj: any, status: any) =>
+    Object.assign({}, obj, { show: status });
   const handleKeyUp = (event: any) => {
     const {
       target: { value }
     } = event;
-    const _dataCopy = dataCopy.map(copy => {
-      let _copy = setStatus(copy, false);
-      keys.forEach(_key => {
-        const match = copy[_key].toLowerCase().includes(value.toLowerCase());
-        if (match) _copy = setStatus(copy, true);
+    const parsedDataCopy = dataCopy.map(copy => {
+      let newCopy = setStatus(copy, false);
+      keys.forEach(key => {
+        const match = copy[key].toLowerCase().includes(value.toLowerCase());
+        if (match) {
+          newCopy = setStatus(copy, true);
+        }
       });
-      return _copy;
+      return newCopy;
     });
-    setDataCopy(_dataCopy);
+    setDataCopy(parsedDataCopy);
   };
-  const handleChange = ({ checked, data: _data }: { checked: any, data: any }) => {
+  const handleChange = ({
+    checked,
+    data: localData
+  }: {
+    checked: any;
+    data: any;
+  }) => {
     setSelected(checked);
-    setDataCopy(_data);
-    getSelected(_data);
+    setDataCopy(localData);
+    getSelected(localData);
   };
   return (
     <Fragment>
-      {selected.map(_selected => (
-        <div key={uuidv1()}>{_selected[keyValue]}</div>
+      {selected.map(selectedValue => (
+        <div key={uuidv1()}>{selectedValue[keyValue]}</div>
       ))}
 
       {children}
@@ -51,8 +60,8 @@ const MultiSelect: React.SFC<MultiSelectProps> = ({
       <Input placeholder={placeholder} onKeyUp={handleKeyUp} />
       {
         <Checkboxes
-          options={dataCopy.map(_dataCopy =>
-            Object.assign({}, _dataCopy, { label: _dataCopy[keyValue] })
+          options={dataCopy.map(copiedData =>
+            Object.assign({}, copiedData, { label: copiedData[keyValue] })
           )}
           onChange={handleChange}
           withEffect
@@ -62,8 +71,10 @@ const MultiSelect: React.SFC<MultiSelectProps> = ({
   );
 };
 MultiSelect.defaultProps = {
-  selected: () => { },
+  children: "",
   placeholder: "Search",
-  children: ""
+  selected: (): void => {
+    return;
+  }
 };
 export default MultiSelect;

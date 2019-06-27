@@ -1,18 +1,22 @@
 import React, { Fragment, useState } from "react";
-type RadioButtonProps = {
-  options: any[],
-  required?: boolean,
-  onChange: (...args: any[]) => any
-};
-const RadioButton: React.SFC<RadioButtonProps> = ({
+interface IRadioButtonProps {
+  options: any[];
+  required?: boolean;
+  onChange: (...args: any[]) => any;
+}
+const RadioButton: React.SFC<IRadioButtonProps> = ({
   onChange,
   options,
   required,
   ...attrs
 }) => {
-  const [selected, setSelected] = useState<{ value: string | any }>({ value: null });
-  const handleSelect = ({ event, item }: { event: any, item: any }) => {
-    if (item.disabled) return;
+  const [selected, setSelected] = useState<{ value: string | any }>({
+    value: null
+  });
+  const handleSelect = ({ event, item }: { event: any; item: any }) => {
+    if (item.disabled) {
+      return;
+    }
     setSelected(item);
     onChange({ event, selected: item });
   };
@@ -46,8 +50,10 @@ const RadioButton: React.SFC<RadioButtonProps> = ({
   );
 };
 RadioButton.defaultProps = {
+  onChange: (): void => {
+    return;
+  },
   options: [],
-  required: false,
-  onChange: () => { }
+  required: false
 };
 export default RadioButton;

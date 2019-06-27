@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
   "dependencies": {
-    "@babel/preset-typescript": "^7.3.3",
     "@storybook/addon-knobs": "^5.1.7",
     "classnames": "^2.2.6",
     "enzyme-to-json": "^3.3.5",
@@ -67,6 +66,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@blaze-cms/blaze-ui": "0.0.2",
     "@byte9/linter": "^0.0.16",
     "@storybook/react": "^5.1.7",
@@ -99,6 +99,9 @@
     "sass-loader": "^7.1.0",
     "storybook-readme": "^5.0.3",
     "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.5.2"
   },
   "keywords": [

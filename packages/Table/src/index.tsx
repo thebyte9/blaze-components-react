@@ -1,20 +1,19 @@
-import React, { useState, useEffect, FunctionComponent } from "react";
-import uuidv1 from "uuid/v1";
 import Checkboxes from "@blaze-react/checkboxes";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import uuidv1 from "uuid/v1";
 
-
-type TableProps = {
-  placeholder?: string,
-  checkboxes?: boolean,
+interface ITableProps {
+  placeholder?: string;
+  checkboxes?: boolean;
   data: {
-    identification: string,
-    columns: string[],
-    rows: any[]
-  },
-  value?: string
-  onSelect: (...args: any[]) => any
-};
-const Table: FunctionComponent<TableProps> = ({
+    identification: string;
+    columns: string[];
+    rows: any[];
+  };
+  value?: string;
+  onSelect: (...args: any[]) => any;
+}
+const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification },
   onSelect,
   checkboxes,
@@ -22,17 +21,24 @@ const Table: FunctionComponent<TableProps> = ({
   value
 }) => {
   const [selected, setSelected] = useState<any[]>([]);
-  const handleSelected = ([checked]: [{ checked: boolean, id: string | number, value: any }], multiselect = false) => {
+  const handleSelected = (
+    [checked]: [{ checked: boolean; id: string | number; value: any }],
+    multiselect = false
+  ) => {
     if (multiselect) {
-      let checkedValue = []
-      checked && (checkedValue = Array.isArray(checked.value) ? [...checked.value] : [checked.value])
+      let checkedValue = [];
+      if (checked) {
+        checkedValue = Array.isArray(checked.value)
+          ? [...checked.value]
+          : [checked.value];
+      }
       setSelected(checkedValue);
       return;
     }
     if (checked && !selected.includes(checked.value)) {
       setSelected([...selected, checked.value]);
     } else {
-      setSelected(selected.filter(_value => _value !== value));
+      setSelected(selected.filter(currentValue => currentValue !== value));
     }
   };
   useEffect(() => onSelect(selected));
@@ -48,13 +54,15 @@ const Table: FunctionComponent<TableProps> = ({
                 Object.assign(
                   {},
                   {
-                    value: rows.map(row => row[identification]),
+                    checked: selected.length === rows.length,
                     id: "Select_all",
-                    checked: selected.length === rows.length
+                    value: rows.map(row => row[identification])
                   }
                 )
               ]}
-              onChange={({ checked }: { checked: any }) => handleSelected(checked, true)}
+              onChange={({ checked }: { checked: any }) =>
+                handleSelected(checked, true)
+              }
             />
           </th>
         )}
@@ -74,9 +82,9 @@ const Table: FunctionComponent<TableProps> = ({
                 withEffect
                 options={[
                   {
-                    value: row[identification],
+                    checked: selected.includes(row[identification]),
                     id: row[identification],
-                    checked: selected.includes(row[identification])
+                    value: row[identification]
                   }
                 ]}
                 onChange={({ checked }: any) =>
@@ -111,13 +119,15 @@ const Table: FunctionComponent<TableProps> = ({
   );
 };
 Table.defaultProps = {
-  placeholder: "No records available",
   checkboxes: false,
   data: {
-    identification: "",
     columns: [],
+    identification: "",
     rows: []
   },
-  onSelect: () => { }
+  onSelect: (): void => {
+    return;
+  },
+  placeholder: "No records available"
 };
 export default Table;
