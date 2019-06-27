@@ -7,7 +7,7 @@
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
-        "build": "../../node_modules/.bin/babel ./src --out-dir lib ",
+        "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
         "build-storybook": "build-storybook -c .storybook -o docs-build",
         "lint": "eslint ./ --ignore-path ../../.eslintignore",
         "test": "jest",

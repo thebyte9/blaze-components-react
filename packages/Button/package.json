@@ -8,7 +8,7 @@
     "main": "./lib/index.js",
     "typings": "./lib/index.d.ts",
     "scripts": {
-        "build": "../../node_modules/.bin/tsc src/*.ts --outDir './lib'",
+        "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
         "build-storybook": "build-storybook -c .storybook -o docs-build",
         "lint": "eslint ./ --ignore-path ../../.eslintignore",
         "test": "jest",
