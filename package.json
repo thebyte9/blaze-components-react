@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "npm install && lerna bootstrap --hoist",
     "setup:clean": "lerna clean && npm run setup",
-    "lint": "lerna run --parallel lint",
+    "lint": "lerna run lint",
     "build": "lerna run build --parallel --stream",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "test": "jest",
