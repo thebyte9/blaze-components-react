@@ -4,7 +4,7 @@ module.exports = {
   },
   globals: {
     "ts-jest": {
-      tsConfig: "./.storybook/tsconfig.json",
+      tsConfig: "./.typescript/tsconfig.json",
     },
   },
   testRegex: "(src/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
@@ -12,7 +12,7 @@ module.exports = {
     "/node_modules/",
     "lib",
   ],
-  setupFiles: ["./setupTests.js"],
+  setupFiles: ["./.typescript/setupTests.js"],
   snapshotSerializers: ["enzyme-to-json/serializer"],
   moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"],
   coverageDirectory: "./coverage/",
