@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import uuidv1 from 'uuid/v1';
 import orderBy from 'lodash.orderby';
-import Checkboxes from '../Checkboxes';
+import Checkboxes from '@blaze-react/checkboxes';
 
 const Table = ({ data: { columns, rows, identification }, onSelect, checkboxes, placeholder }) => {
   const [_rows, setRows] = useState(rows);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Button from '@blaze-react/button';
-import ButtonSelect from '../index';
+import ButtonSelect from '../src';
 import ButtonSelectReadme from '../README.md';
 
 const buttonStyles = {

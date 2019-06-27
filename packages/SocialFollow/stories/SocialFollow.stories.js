@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import SocialFollow from '../index';
+import SocialFollow from '../src';
 import SocialReadme from '../README.md';
 
 const media = {

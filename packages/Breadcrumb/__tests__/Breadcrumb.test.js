@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Breadcrumb from '../index';
+import Breadcrumb from '../src';
 
 const defaultProps = (override = {}) => ({
   children: [

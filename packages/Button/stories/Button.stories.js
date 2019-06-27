@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from '../index';
+import Button from '../src';
 import ButtonReadme from '../README.md';
 
 const showCaseDivStyles = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Badge from '../index';
+import Badge from '../src';
 import BadgeReadme from '../README.md';
 
 storiesOf('Badges', module)
