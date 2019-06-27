@@ -30,8 +30,7 @@
     "@storybook/addon-knobs": "^5.1.7",
     "classnames": "^2.2.6",
     "enzyme-to-json": "^3.3.5",
-    "prop-types": "^15.7.2",
-    "lodash.orderby": "^4.6.0"
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "uuid": "^3.3.2",
@@ -70,7 +69,6 @@
     "@types/classnames": "^2.2.8",
     "@types/enzyme": "^3.9.4",
     "@types/jest": "^24.0.15",
-    "@types/lodash.orderby": "^4.6.6",
     "@types/storybook__react": "^4.0.2",
     "@types/uuid": "^3.4.4",
     "awesome-typescript-loader": "^5.2.1",
