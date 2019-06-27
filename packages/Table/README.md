@@ -22,7 +22,7 @@ const data =  {
   }, {
     id: 3,
     name: 'Lorem Ipsum',
-    age: 45
+    age: 18
   }]
 }
 

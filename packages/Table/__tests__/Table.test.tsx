@@ -9,13 +9,13 @@ const data = {
   rows: [
     {
       id: 1,
-      name: 'Dev1',
-      age: 26
+      name: 'Lorem',
+      age: 52
     },
     {
       id: 2,
-      name: 'Dev2',
-      age: 52
+      name: 'Ipsum',
+      age: 43
     }
   ]
 };
@@ -90,5 +90,45 @@ describe('Table component', () => {
     const wrapper = shallow(<Table data={withEmptyRows} onSelect={() => {}} />);
 
     expect(wrapper.find('td').text()).toContain('No records available');
+  });
+
+  test('Sort should work with numbers', () => {
+    const wrapper = shallow(<Table data={data} onSelect={() => {}} />);
+
+    wrapper.find('#sort_age').simulate('click');
+    expect(
+      wrapper
+        .find('tr')
+        .at(1)
+        .text()
+    ).toContain(43);
+
+    wrapper.find('#sort_age').simulate('click');
+    expect(
+      wrapper
+        .find('tr')
+        .at(1)
+        .text()
+    ).toContain(52);
+  });
+
+  test('Sort should work with Letters', () => {
+    const wrapper = shallow(<Table data={data} onSelect={() => {}} />);
+
+    wrapper.find('#sort_name').simulate('click');
+    expect(
+      wrapper
+        .find('tr')
+        .at(1)
+        .text()
+    ).toContain('Ipsum');
+
+    wrapper.find('#sort_name').simulate('click');
+    expect(
+      wrapper
+        .find('tr')
+        .at(1)
+        .text()
+    ).toContain('Lorem');
   });
 });
