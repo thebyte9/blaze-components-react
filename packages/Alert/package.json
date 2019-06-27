@@ -7,9 +7,9 @@
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
-        "build": "../../node_modules/.bin/babel ./src --out-dir lib ",
+        "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
         "build-storybook": "build-storybook -c .storybook -o docs-build",
-        "lint": "eslint ./ --ignore-path ../../.eslintignore",
+        "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
         "test": "jest",
         "test:coverage": "jest --coverage",
         "pre-publish": "npm run build && npm run lint && npm run test"

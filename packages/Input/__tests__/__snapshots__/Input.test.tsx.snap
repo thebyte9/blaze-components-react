@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component should be defined and renders correctly (snapshot) 1`] = `
+<div
+  className="form-field form-field--input form-field--password"
+>
+  <input
+    disabled={false}
+    onChange={[Function]}
+    placeholder="Placeholder text"
+    required={false}
+    type="password"
+    value=""
+  />
+</div>
+`;

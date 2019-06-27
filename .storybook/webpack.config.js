@@ -1,23 +1,25 @@
-const path = require('path');
-
-module.exports = {
-  plugins: [
-    
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
+const path = require("path");
+const SRC_PATH = path.join(__dirname, '../packages');
+module.exports = ({config}) => {
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    include: [SRC_PATH],
+      use: [
+        {
+          loader: require.resolve('awesome-typescript-loader'),
+          options: {
+            configFileName: './.typescript/tsconfig.json'
+          }
         }
-      },
-      {
-        test: /\.(s*)css$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader'],
-        include: path.resolve(__dirname, '../')
-      }
-    ]
-  }
+      ]
+  }, 
+  {
+    test: /\.css$/,
+    include: [
+        path.resolve(__dirname, "not_exist_path")
+    ],
+    loader: "style!css"
+});
+  config.resolve.extensions.push('.ts', '.tsx');
+  return config;
 };

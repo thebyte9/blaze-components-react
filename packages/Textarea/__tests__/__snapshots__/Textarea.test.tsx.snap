@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea component should be defined and renders correctly (snapshot) 1`] = `
+<Fragment>
+  <textarea
+    onChange={[Function]}
+    placeholder=""
+    required={false}
+    value=""
+  />
+</Fragment>
+`;
