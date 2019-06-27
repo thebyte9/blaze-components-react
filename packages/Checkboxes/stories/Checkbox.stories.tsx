@@ -1,28 +1,28 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Checkboxes from "../src";
+import React from "react";
 import CheckboxesReadme from "../README.md";
+import Checkboxes from "../src";
 const multiple = [
   {
+    id: "one",
     label: "First",
-    value: 1,
-    id: "one"
+    value: 1
   },
   {
+    id: "two",
     label: "Second",
-    value: 2,
-    id: "two"
+    value: 2
   },
   {
+    id: "three",
     label: "Third",
-    value: 3,
-    id: "three"
+    value: 3
   },
   {
-    label: "Disabled",
-    value: 4,
+    disabled: true,
     id: "fourth",
-    disabled: true
+    label: "Disabled",
+    value: 4
   }
 ];
 const single = {
@@ -50,12 +50,23 @@ storiesOf("Checkboxes", module)
       <section className="exampleSection">
         <h3>Multiselect</h3>
         <div className="form-field form-field--checkbox">
-          <Checkboxes options={multiple} onChange={() => {}} />
+          <Checkboxes
+            options={multiple}
+            onChange={() => {
+              return;
+            }}
+          />
         </div>
 
         <h3>Single</h3>
         <div className="form-field form-field--checkbox">
-          <Checkboxes boolean options={single} onChange={() => {}} />
+          <Checkboxes
+            bool
+            options={single}
+            onChange={() => {
+              return;
+            }}
+          />
         </div>
       </section>
     </div>

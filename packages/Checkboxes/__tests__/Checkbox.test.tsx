@@ -1,81 +1,87 @@
-import React from 'react';
-import expect from 'expect';
-import { shallow } from 'enzyme';
-import Checkboxes from '../src';
+import { shallow } from "enzyme";
+import expect from "expect";
+import React from "react";
+import Checkboxes from "../src";
 
 const options = [
-  { label: 'Example', value: 1, id: 'one' },
+  { label: "Example", value: 1, id: "one" },
   {
-    label: 'I accept',
-    value: 'accepted',
+    id: "two",
+    label: "I accept",
     required: true,
-    id: 'two'
+    value: "accepted"
   },
   {
-    label: 'Disabled',
-    value: '',
     disabled: true,
-    id: 'three'
+    id: "three",
+    label: "Disabled",
+    value: ""
   }
 ];
 
-describe('Checkboxes component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Checkboxes options={options} onChange={() => { }} />);
+describe("Checkboxes component", () => {
+  test("should be defined and renders correctly (snapshot)", () => {
+    const wrapper = shallow(
+      <Checkboxes options={options} onChange={() => {}} />
+    );
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should toggle checkbox on click', () => {
-    const wrapper = shallow(<Checkboxes boolean withEffect options={options} onChange={() => { }} />);
+  test("should toggle checkbox on click", () => {
+    const wrapper = shallow(
+      <Checkboxes bool withEffect options={options} onChange={() => {}} />
+    );
 
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(1)
-        .prop('checked')
+        .prop("checked")
     ).toBe(false);
 
     wrapper
-      .find('.form-field')
+      .find(".form-field")
       .at(1)
-      .simulate('click');
+      .simulate("click");
 
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(1)
-        .prop('checked')
+        .prop("checked")
     ).toBe(true);
   });
 
   test("can't interact when checkbox is disabled", () => {
-    const wrapper = shallow(<Checkboxes options={options} onChange={() => { }} />);
+    const wrapper = shallow(
+      <Checkboxes options={options} onChange={() => {}} />
+    );
 
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(2)
-        .prop('disabled')
+        .prop("disabled")
     ).toBe(true);
 
     wrapper
-      .find('.form-field')
+      .find(".form-field")
       .at(2)
-      .simulate('click');
+      .simulate("click");
 
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(2)
-        .prop('checked')
+        .prop("checked")
     ).toBe(false);
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(2)
-        .prop('disabled')
+        .prop("disabled")
     ).toBe(true);
   });
 });
