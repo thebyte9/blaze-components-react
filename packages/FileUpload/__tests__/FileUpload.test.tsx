@@ -3,7 +3,13 @@ import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import FileUpload from '../src';
 
-const FileUploadComponent = <FileUpload handleDrop={() => {}}>Drag and drop here</FileUpload>;
+declare global {
+  interface Window {
+    FileReader: any;
+  }
+}
+
+const FileUploadComponent = <FileUpload handleDrop={() => { }}>Drag and drop here</FileUpload>;
 
 describe('FileUpload component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
@@ -67,11 +73,26 @@ describe('FileUpload component', () => {
 
     const dragover = new Event('dragover');
 
-    const drop = new Event('drop');
-    drop.dataTransfer = { files: [{}, {}] };
+    const drop: CustomEvent & { dataTransfer?: any } = new CustomEvent('drop', { bubbles: true, cancelable: true });
 
-    const dropWithoutItems = new Event('drop');
-    dropWithoutItems.dataTransfer = { files: [] };
+    const file = {
+      name: 'test.jpg',
+      type: 'image/jpg',
+    } as File;
+
+    const fileList = {
+      length: 1,
+      item: () => null,
+      0: file,
+    }
+
+
+    drop.dataTransfer = {
+      files: fileList
+    };
+
+    const dropWithoutItems: CustomEvent & { dataTransfer?: any } = new CustomEvent('drop', { bubbles: true, cancelable: true });
+    dropWithoutItems.dataTransfer = { files: fileList };
 
     domNode.dispatchEvent(dragover);
     domNode.dispatchEvent(drop);

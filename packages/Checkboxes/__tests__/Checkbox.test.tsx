@@ -21,14 +21,14 @@ const options = [
 
 describe('Checkboxes component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Checkboxes options={options} />);
+    const wrapper = shallow(<Checkboxes options={options} onChange={() => { }} />);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
   test('should toggle checkbox on click', () => {
-    const wrapper = shallow(<Checkboxes boolean withEffect options={options} />);
+    const wrapper = shallow(<Checkboxes boolean withEffect options={options} onChange={() => { }} />);
 
     expect(
       wrapper
@@ -51,7 +51,7 @@ describe('Checkboxes component', () => {
   });
 
   test("can't interact when checkbox is disabled", () => {
-    const wrapper = shallow(<Checkboxes options={options} />);
+    const wrapper = shallow(<Checkboxes options={options} onChange={() => { }} />);
 
     expect(
       wrapper

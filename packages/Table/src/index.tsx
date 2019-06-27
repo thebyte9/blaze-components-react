@@ -1,6 +1,8 @@
 import React, { useState, useEffect, FunctionComponent } from "react";
 import uuidv1 from "uuid/v1";
 import Checkboxes from "@blaze-react/checkboxes";
+
+
 type TableProps = {
   placeholder?: string,
   checkboxes?: boolean,
@@ -20,15 +22,18 @@ const Table: FunctionComponent<TableProps> = ({
   value
 }) => {
   const [selected, setSelected] = useState<any[]>([]);
-  const handleSelected = ([checked]: any[], multiselect = false) => {
+  const handleSelected = ([checked]: [{ checked: boolean, id: string | number, value: any }], multiselect = false) => {
     if (multiselect) {
-      if (checked) setSelected([...checked.value]);
-      else setSelected([]);
+      let checkedValue = []
+      checked && (checkedValue = Array.isArray(checked.value) ? [...checked.value] : [checked.value])
+      setSelected(checkedValue);
       return;
     }
-    if (checked && !selected.includes(checked.value))
+    if (checked && !selected.includes(checked.value)) {
       setSelected([...selected, checked.value]);
-    else setSelected(selected.filter(_value => _value !== value));
+    } else {
+      setSelected(selected.filter(_value => _value !== value));
+    }
   };
   useEffect(() => onSelect(selected));
   const colSpan = checkboxes ? columns.length + 1 : columns.length;
@@ -54,7 +59,7 @@ const Table: FunctionComponent<TableProps> = ({
           </th>
         )}
         {columns.map(column => (
-          <th key={uuidv1()}>{column}</th>
+          <th key={column || uuidv1()}>{column}</th>
         ))}
       </tr>
     </thead>
@@ -62,7 +67,7 @@ const Table: FunctionComponent<TableProps> = ({
   const tbody = (
     <tbody>
       {rows.map(row => (
-        <tr key={uuidv1()}>
+        <tr key={row.id || uuidv1()}>
           {checkboxes && (
             <td>
               <Checkboxes
@@ -81,7 +86,7 @@ const Table: FunctionComponent<TableProps> = ({
             </td>
           )}
           {columns.map(column => (
-            <td key={uuidv1()}>{row[column]}</td>
+            <td key={`${row.id}${row[column]}` || uuidv1()}>{row[column]}</td>
           ))}
         </tr>
       ))}

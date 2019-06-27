@@ -17,4 +17,5 @@ module.exports = {
   moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"],
   coverageDirectory: "./coverage/",
   collectCoverage: true,
+  testEnvironment: 'jsdom'
 };

@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from "react";
-import uuidv1 from "uuid/v1";
 type DropdownProps = {
   label?: string,
   children?: any
@@ -23,11 +22,9 @@ const Dropdown: React.SFC<DropdownProps> = ({ label, children }) => {
         </button>
         <div className={`more-menu ${toggled}`}>
           <ul className="more-menu__list">
-            {children.map((child: any): JSX.Element => (
-              <li key={uuidv1()} className="more-menu__list-item">
-                {child}
-              </li>
-            ))}
+            <li className="more-menu__list-item">
+              {React.Children.map(children, (child: any): JSX.Element => React.cloneElement(child))}
+            </li>
           </ul>
         </div>
       </div>

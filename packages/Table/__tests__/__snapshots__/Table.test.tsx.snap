@@ -11,12 +11,12 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
       <thead>
         <tr>
           <th
-            key="ff1e6490-9823-11e9-a9c4-dba3c63b68b4"
+            key="name"
           >
             name
           </th>
           <th
-            key="ff1e8ba0-9823-11e9-a9c4-dba3c63b68b4"
+            key="age"
           >
             age
           </th>
@@ -24,29 +24,29 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
       </thead>
       <tbody>
         <tr
-          key="ff1e8ba1-9823-11e9-a9c4-dba3c63b68b4"
+          key="1"
         >
           <td
-            key="ff1e8ba2-9823-11e9-a9c4-dba3c63b68b4"
+            key="1Dev1"
           >
             Dev1
           </td>
           <td
-            key="ff1e8ba3-9823-11e9-a9c4-dba3c63b68b4"
+            key="126"
           >
             26
           </td>
         </tr>
         <tr
-          key="ff1e8ba4-9823-11e9-a9c4-dba3c63b68b4"
+          key="2"
         >
           <td
-            key="ff1e8ba5-9823-11e9-a9c4-dba3c63b68b4"
+            key="2Dev2"
           >
             Dev2
           </td>
           <td
-            key="ff1e8ba6-9823-11e9-a9c4-dba3c63b68b4"
+            key="252"
           >
             52
           </td>

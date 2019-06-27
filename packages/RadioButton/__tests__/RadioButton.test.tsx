@@ -25,14 +25,14 @@ const options = [
 
 describe('RadioButton component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<RadioButton required options={options} />);
+    const wrapper = shallow(<RadioButton onChange={() => { }} required options={options} />);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
   test('should active RadioButton on click', () => {
-    const wrapper = shallow(<RadioButton options={options} />);
+    const wrapper = shallow(<RadioButton onChange={() => { }} options={options} />);
 
     wrapper
       .find('.form-field')
@@ -70,7 +70,7 @@ describe('RadioButton component', () => {
   });
 
   test("can't interact when RadioButton is disabled", () => {
-    const wrapper = shallow(<RadioButton options={options} />);
+    const wrapper = shallow(<RadioButton onChange={() => { }} options={options} />);
 
     expect(
       wrapper

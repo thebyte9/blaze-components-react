@@ -16,30 +16,30 @@ const arrayOfObjects = [
 
 describe('Input component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Select />);
+    const wrapper = shallow(<Select onChange={() => { }} options={['lorem', 'ipsum']} />);
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
   test('should be disabled when none options', () => {
-    const wrapper = shallow(<Select label="Select label" required />);
+    const wrapper = shallow(<Select onChange={() => { }} options={[]} label="Select label" required />);
     expect(wrapper.find('select').prop('disabled')).toBe(true);
   });
 
   test('should render simple array of options', () => {
-    const wrapper = shallow(<Select options={['lorem', 'ipsum']} />);
+    const wrapper = shallow(<Select onChange={() => { }} options={['lorem', 'ipsum']} />);
     wrapper.find('select').simulate('change', { target: { value: 'ipsum' } });
     expect(wrapper.find('select').prop('defaultValue')).toBe('ipsum');
   });
 
   test('should render array of array options', () => {
-    const wrapper = shallow(<Select options={[['08001', 'Barcelona']]} />);
+    const wrapper = shallow(<Select onChange={() => { }} options={[['08001', 'Barcelona']]} />);
     wrapper.find('select').simulate('change', { target: { value: '08001' } });
     expect(wrapper.find('select').prop('defaultValue')).toBe('08001');
   });
 
   test('should render array of object options', () => {
-    const wrapper = shallow(<Select options={arrayOfObjects} keys={['id', 'username']} />);
+    const wrapper = shallow(<Select onChange={() => { }} options={arrayOfObjects} keys={['id', 'username']} />);
     wrapper.find('select').simulate('change', { target: { value: 1 } });
     expect(wrapper.find('select').prop('defaultValue')).toBe(1);
   });
