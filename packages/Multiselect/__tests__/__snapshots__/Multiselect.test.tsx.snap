@@ -15,7 +15,7 @@ exports[`DragableArea component should be defined and renders correctly (snapsho
     value=""
   />
   <Checkboxes
-    boolean={false}
+    bool={false}
     onChange={[Function]}
     options={
       Array [

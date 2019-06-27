@@ -19,7 +19,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5"
+    "@babel/core": "^7.4.5",
+    "@types/uuid": "^3.4.4"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -33,7 +34,5 @@
     ]
   },
   "gitHead": "1edd29612d1854f0418c0b81d8755dd0cbd8bfb5",
-  "dependencies": {
-    "@types/uuid": "^3.4.4"
-  }
+  "dependencies": {}
 }

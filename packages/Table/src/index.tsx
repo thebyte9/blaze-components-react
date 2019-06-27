@@ -1,4 +1,5 @@
 import Checkboxes from "@blaze-react/checkboxes";
+import orderBy from "lodash.orderby";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import uuidv1 from "uuid/v1";
 
@@ -21,6 +22,11 @@ const Table: FunctionComponent<ITableProps> = ({
   value
 }) => {
   const [selected, setSelected] = useState<any[]>([]);
+  const [allRows, setRows] = useState(rows);
+  const [sortColumns, setSortColumns] = useState(
+    columns.reduce((result, item) => ({ ...result, [item]: "asc" }), {})
+  );
+
   const handleSelected = (
     [checked]: [{ checked: boolean; id: string | number; value: any }],
     multiselect = false
@@ -41,6 +47,16 @@ const Table: FunctionComponent<ITableProps> = ({
       setSelected(selected.filter(currentValue => currentValue !== value));
     }
   };
+
+  const sort = (column: any) => {
+    setRows([...orderBy(allRows, [column], [sortColumns[column]])]);
+
+    setSortColumns({
+      ...sortColumns,
+      [column]: sortColumns[column] === "asc" ? "desc" : "asc"
+    });
+  };
+
   useEffect(() => onSelect(selected));
   const colSpan = checkboxes ? columns.length + 1 : columns.length;
   const thead = (
@@ -54,9 +70,9 @@ const Table: FunctionComponent<ITableProps> = ({
                 Object.assign(
                   {},
                   {
-                    checked: selected.length === rows.length,
+                    checked: selected.length === allRows.length,
                     id: "Select_all",
-                    value: rows.map(row => row[identification])
+                    value: allRows.map(row => row[identification])
                   }
                 )
               ]}
@@ -66,15 +82,27 @@ const Table: FunctionComponent<ITableProps> = ({
             />
           </th>
         )}
-        {columns.map(column => (
-          <th key={column || uuidv1()}>{column}</th>
+        {Object.keys(sortColumns).map(column => (
+          <th key={column || uuidv1()}>
+            {column}
+            <i
+              id={`sort_${column}`}
+              className="material-icons"
+              onClick={() => sort(column)}
+              role="button"
+            >
+              {sortColumns[column] === "asc"
+                ? "keyboard_arrow_up"
+                : "keyboard_arrow_down"}
+            </i>
+          </th>
         ))}
       </tr>
     </thead>
   );
   const tbody = (
     <tbody>
-      {rows.map(row => (
+      {allRows.map(row => (
         <tr key={row.id || uuidv1()}>
           {checkboxes && (
             <td>
@@ -98,7 +126,7 @@ const Table: FunctionComponent<ITableProps> = ({
           ))}
         </tr>
       ))}
-      {!rows.length && (
+      {!allRows.length && (
         <tr>
           <td colSpan={colSpan} align="center">
             {placeholder}
@@ -118,6 +146,7 @@ const Table: FunctionComponent<ITableProps> = ({
     </div>
   );
 };
+
 Table.defaultProps = {
   checkboxes: false,
   data: {

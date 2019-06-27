@@ -14,11 +14,27 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             key="name"
           >
             name
+            <i
+              className="material-icons"
+              id="sort_name"
+              onClick={[Function]}
+              role="button"
+            >
+              keyboard_arrow_up
+            </i>
           </th>
           <th
             key="age"
           >
             age
+            <i
+              className="material-icons"
+              id="sort_age"
+              onClick={[Function]}
+              role="button"
+            >
+              keyboard_arrow_up
+            </i>
           </th>
         </tr>
       </thead>
@@ -27,28 +43,28 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
           key="1"
         >
           <td
-            key="1Dev1"
+            key="1Lorem"
           >
-            Dev1
+            Lorem
           </td>
           <td
-            key="126"
+            key="152"
           >
-            26
+            52
           </td>
         </tr>
         <tr
           key="2"
         >
           <td
-            key="2Dev2"
+            key="2Ipsum"
           >
-            Dev2
+            Ipsum
           </td>
           <td
-            key="252"
+            key="243"
           >
-            52
+            43
           </td>
         </tr>
       </tbody>
