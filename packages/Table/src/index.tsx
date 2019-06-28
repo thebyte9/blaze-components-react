@@ -122,7 +122,7 @@ const Table: FunctionComponent<ITableProps> = ({
             </td>
           )}
           {columns.map(column => (
-            <td key={`${row.id}${row[column]}` || uuidv1()}>{row[column]}</td>
+            <td key={uuidv1()}>{row[column]}</td>
           ))}
         </tr>
       ))}
