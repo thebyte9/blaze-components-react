@@ -1,4 +1,4 @@
-import React, { FunctionComponent, InputHTMLAttributes, useState } from "react";
+import React, { FunctionComponent, InputHTMLAttributes, useState, useEffect } from "react";
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
@@ -22,19 +22,24 @@ const Input: FunctionComponent<IInputProps> = ({
   type,
   value,
   ...attrs
-}) => {
+}) : JSX.Element => {
   const passwordDefaultState = {
     className: "active",
     icon: "visibility_off",
     text: "Show"
   };
+
   const [newValue, setNewValue] = useState(value);
   const [newType, setType] = useState(type);
   const [passwordState, setPasswordState] = useState(passwordDefaultState);
+
+  useEffect(() => setNewValue(value), [value]);
+
   const handleChange = (event: any) => {
     setNewValue(event.target.value);
     onChange({ event, value: event.target.value });
   };
+
   const togglepasswordClassName = () => {
     if (passwordState.className === "active") {
       setPasswordState({
@@ -48,6 +53,7 @@ const Input: FunctionComponent<IInputProps> = ({
       setType("password");
     }
   };
+
   const isRequired = required ? "required" : "";
   const isPassword = type === "password";
   const setModifier = () => {
