@@ -45,6 +45,6 @@ storiesOf("Table", module)
       <br />
       <h4>Static table</h4>
 
-      <Table data={data} onSelect={(select) => console.log(select)} />
+      <Table data={data} onSelect={() => {}} />
     </div>
   ));

@@ -1,74 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table component should be defined and renders correctly (snapshot) 1`] = `
-<div
-  className="table-scroll__wrapper"
+<Decorated(utils)(undefined)
+  checkboxes={false}
+  data={
+    Object {
+      "columns": Array [
+        "name",
+        "age",
+      ],
+      "identification": "id",
+      "rows": Array [
+        Object {
+          "age": 52,
+          "name": "Lorem",
+        },
+        Object {
+          "age": 43,
+          "name": "Ipsum",
+        },
+      ],
+    }
+  }
+  onSelect={[Function]}
+  placeholder="No records available"
 >
-  <div
-    className="table-scroll"
+  <Table
+    checkboxes={false}
+    data={
+      Object {
+        "columns": Array [
+          "name",
+          "age",
+        ],
+        "identification": "id",
+        "rows": Array [
+          Object {
+            "age": 52,
+            "name": "Lorem",
+          },
+          Object {
+            "age": 43,
+            "name": "Ipsum",
+          },
+        ],
+      }
+    }
+    onSelect={[Function]}
+    placeholder="No records available"
+    utils={
+      Object {
+        "printLog": [Function],
+        "uniqueId": [Function],
+      }
+    }
   >
-    <table>
-      <thead>
-        <tr>
-          <th
-            key="name"
-          >
-            name
-            <i
-              className="material-icons"
-              id="sort_name"
-              onClick={[Function]}
-              role="button"
+    <div
+      className="table-scroll__wrapper"
+    >
+      <div
+        className="table-scroll"
+      >
+        <table>
+          <thead>
+            <tr>
+              <th
+                key="name"
+              >
+                name
+                <i
+                  className="material-icons"
+                  id="sort_name"
+                  onClick={[Function]}
+                  role="button"
+                >
+                  keyboard_arrow_up
+                </i>
+              </th>
+              <th
+                key="age"
+              >
+                age
+                <i
+                  className="material-icons"
+                  id="sort_age"
+                  onClick={[Function]}
+                  role="button"
+                >
+                  keyboard_arrow_up
+                </i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              key="uid-eyJuYW1lIjoiTG9yZW0iLCJhZ2UiOjUyfQ=="
             >
-              keyboard_arrow_up
-            </i>
-          </th>
-          <th
-            key="age"
-          >
-            age
-            <i
-              className="material-icons"
-              id="sort_age"
-              onClick={[Function]}
-              role="button"
+              <td
+                key="name"
+              >
+                Lorem
+              </td>
+              <td
+                key="age"
+              >
+                52
+              </td>
+            </tr>
+            <tr
+              key="uid-eyJuYW1lIjoiSXBzdW0iLCJhZ2UiOjQzfQ=="
             >
-              keyboard_arrow_up
-            </i>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          key="1"
-        >
-          <td
-            key="1Lorem"
-          >
-            Lorem
-          </td>
-          <td
-            key="152"
-          >
-            52
-          </td>
-        </tr>
-        <tr
-          key="2"
-        >
-          <td
-            key="2Ipsum"
-          >
-            Ipsum
-          </td>
-          <td
-            key="243"
-          >
-            43
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+              <td
+                key="name"
+              >
+                Ipsum
+              </td>
+              <td
+                key="age"
+              >
+                43
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </Table>
+</Decorated(utils)(undefined)>
 `;

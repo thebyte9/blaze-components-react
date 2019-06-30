@@ -1,6 +1,6 @@
 import React from 'react';
 import expect from 'expect';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Table from '../src';
 
 const data = {
@@ -8,12 +8,10 @@ const data = {
   columns: ['name', 'age'],
   rows: [
     {
-      id: 1,
       name: 'Lorem',
       age: 52
     },
     {
-      id: 2,
       name: 'Ipsum',
       age: 43
     }
@@ -28,7 +26,7 @@ const withEmptyRows = {
 
 describe('Table component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Table data={data} onSelect={() => {}} />);
+    const wrapper = mount(<Table data={data} onSelect={() => {}} />);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
@@ -87,13 +85,13 @@ describe('Table component', () => {
   });
 
   test('should show placeholder if there is no data yet', () => {
-    const wrapper = shallow(<Table data={withEmptyRows} onSelect={() => {}} />);
+    const wrapper = mount(<Table data={withEmptyRows} onSelect={() => {}} />);
 
     expect(wrapper.find('td').text()).toContain('No records available');
   });
 
   test('Sort should work with numbers', () => {
-    const wrapper = shallow(<Table data={data} onSelect={() => {}} />);
+    const wrapper = mount(<Table data={data} onSelect={() => {}} />);
 
     wrapper.find('#sort_age').simulate('click');
     expect(
@@ -113,7 +111,7 @@ describe('Table component', () => {
   });
 
   test('Sort should work with Letters', () => {
-    const wrapper = shallow(<Table data={data} onSelect={() => {}} />);
+    const wrapper = mount(<Table data={data} onSelect={() => {}} />);
 
     wrapper.find('#sort_name').simulate('click');
     expect(

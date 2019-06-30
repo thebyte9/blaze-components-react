@@ -30,7 +30,8 @@
     "@storybook/addon-knobs": "^5.1.7",
     "classnames": "^2.2.6",
     "enzyme-to-json": "^3.3.5",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-decorate": "^5.1.1"
   },
   "peerDependencies": {
     "uuid": "^3.3.2",

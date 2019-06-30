@@ -1,11 +1,15 @@
-import Checkboxes from "@blaze-react/checkboxes";
-import orderBy from "lodash.orderby";
 import React, { FunctionComponent, useEffect, useState } from "react";
+import Checkboxes from "@blaze-react/checkboxes";
+import utils from '@blaze-react/utils';
+import orderBy from "lodash.orderby";
 import uuidv1 from "uuid/v1";
 
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
+  utils: {
+    uniqueId: Function
+  };
   data: {
     identification: string;
     columns: string[];
@@ -19,6 +23,7 @@ const Table: FunctionComponent<ITableProps> = ({
   onSelect,
   checkboxes,
   placeholder,
+  utils: { uniqueId },
   value
 }) => {
   const [selected, setSelected] = useState<any[]>([]);
@@ -29,6 +34,7 @@ const Table: FunctionComponent<ITableProps> = ({
 
   const handleSelected = (
     [checked]: [{ checked: boolean; id: string | number; value: any }],
+    value: String,
     multiselect = false
   ) => {
     if (multiselect) {
@@ -72,12 +78,12 @@ const Table: FunctionComponent<ITableProps> = ({
                   {
                     checked: selected.length === allRows.length,
                     id: "Select_all",
-                    value: allRows.map(row => row[identification])
+                    value: allRows.map(row => uniqueId(row))
                   }
                 )
               ]}
               onChange={({ checked }: { checked: any }) =>
-                handleSelected(checked, true)
+                handleSelected(checked, checked ,true)
               }
             />
           </th>
@@ -103,26 +109,26 @@ const Table: FunctionComponent<ITableProps> = ({
   const tbody = (
     <tbody>
       {allRows.map(row => (
-        <tr key={row.id || uuidv1()}>
+        <tr key={uniqueId(row)}>
           {checkboxes && (
             <td>
               <Checkboxes
                 withEffect
                 options={[
                   {
-                    checked: selected.includes(row[identification]),
-                    id: row[identification],
-                    value: row[identification]
+                    checked: selected.includes(uniqueId(row)),
+                    id: uniqueId(row),
+                    value: uniqueId(row)
                   }
                 ]}
                 onChange={({ checked }: any) =>
-                  handleSelected(checked, row[identification])
+                  handleSelected(checked, uniqueId(row))
                 }
               />
             </td>
           )}
           {columns.map(column => (
-            <td key={`${row.id}${row[column]}` || uuidv1()}>{row[column]}</td>
+            <td key={column}>{row[column]}</td>
           ))}
         </tr>
       ))}
@@ -159,4 +165,4 @@ Table.defaultProps = {
   },
   placeholder: "No records available"
 };
-export default Table;
+export default utils()(Table);
