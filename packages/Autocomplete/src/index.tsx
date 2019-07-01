@@ -1,12 +1,16 @@
 // import Checkboxes from "@blaze-react/checkboxes";
 import Input from "@blaze-react/input";
 import React, { Fragment, useState } from "react";
-import uuidv1 from "uuid/v1";
+import utils from '@blaze-react/utils';
+
 interface IAutocompleteProps {
   data: {
     keyValue: string;
     filterBy: any[];
     data: object[];
+  };
+  utils: {
+    uniqueId: Function
   };
   selected: (...args: any[]) => any;
   placeholder?: string;
@@ -16,6 +20,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   data: { data, filterBy: keys, keyValue },
   placeholder,
   selected,
+  utils: { uniqueId },
   children
 }) => {
   const [inputValue, setInputValue] = useState('');
@@ -53,7 +58,12 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
       <Input placeholder={placeholder} onChange={handleChange} value={inputValue}/>
 
       {showSelect && filterByValue(inputValue).map(copiedData => (
-        <div className="panel" key={uuidv1()} onClick={() => handleClick(copiedData)} role="button">{copiedData[keyValue]}</div>
+        <div 
+          className="panel" 
+          key={uniqueId(copiedData)} 
+          onClick={() => handleClick(copiedData)} 
+          role="button">{copiedData[keyValue]}
+        </div>
       ))}
 
     </Fragment>
@@ -66,4 +76,4 @@ Autocomplete.defaultProps = {
     return;
   }
 };
-export default Autocomplete;
+export default utils()(Autocomplete);
