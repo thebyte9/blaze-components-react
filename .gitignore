@@ -1,4 +1,5 @@
 # Folders
+packages/**/lib
 node_modules
 coverage
 .out

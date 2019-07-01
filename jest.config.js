@@ -1,28 +1,21 @@
-/* eslint-disable */
-// For a detailed explanation regarding each configuration property, visit:
-// https://jestjs.io/docs/en/configuration.html
-
 module.exports = {
-  collectCoverageFrom: ['src/**/*.js', '!src/**/*.stories.js'],
-  testMatch: [
-    '**/tests/**/*.test.js?(x)',
-    '**/src/**/*.test.js?(x)'
-  ],
-  moduleNameMapper: {
-    '^.+\\.(css|less|scss)$': 'identity-obj-proxy'
+  transform: {
+    "^.+\\.tsx?$": "ts-jest",
   },
-  roots: [
-    'src/',
-    'tests/',
+  globals: {
+    "ts-jest": {
+      tsConfig: "./.typescript/tsconfig.json",
+    },
+  },
+  testRegex: "(src/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "lib",
   ],
-  testEnvironment: 'jsdom',
-  setupFiles: [
-    './src/setupTests.js'
-  ],
+  setupFiles: ["./.typescript/setupTests.js"],
+  snapshotSerializers: ["enzyme-to-json/serializer"],
+  moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"],
+  coverageDirectory: "./coverage/",
   collectCoverage: true,
-  coverageDirectory: './coverage/',
-  verbose: false,
-    transform: {
-    '^.+\\.js$': 'babel-jest'
-  },
+  testEnvironment: 'jsdom'
 };

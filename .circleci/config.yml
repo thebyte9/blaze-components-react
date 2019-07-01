@@ -27,10 +27,13 @@ jobs: # a collection of steps
                 command: 'sudo npm install -g npm@latest'
             - run:
                 name: Install npm packages
-                command: npm install
+                command: npm run setup
+            - run:
+                name: Run lerna bootstrap
+                command: 'npx lerna bootstrap --hoist --no-ci --loglevel debug'
             - run:
                 name: Run lint
-                command: npm run lint
+                command: npm run build && npm run lint
             - run:
                 name: Run tests with coverage
                 command: npm run test:coverage
@@ -54,11 +57,11 @@ jobs: # a collection of steps
                     - ./.scannerwork/
             - run:
                 name: Building
-                command: npm run build-storybook
-            - persist_to_workspace:
-                root: /home/circleci/project/
-                paths: 
-                - docs-build/
+                command: npm run build
+            # - persist_to_workspace:
+            #     root: /home/circleci/project/
+            #     paths: 
+            #     - docs-build/
 
     deploy_prod:
         <<: *deploy_config

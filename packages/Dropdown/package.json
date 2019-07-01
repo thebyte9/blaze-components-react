@@ -1,0 +1,39 @@
+{
+  "name": "@blaze-react/dropdown",
+  "version": "0.2.5",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
+    "build-storybook": "build-storybook -c .storybook -o docs-build",
+    "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "pre-publish": "npm run build && npm run lint && npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "gitHead": "1edd29612d1854f0418c0b81d8755dd0cbd8bfb5",
+  "dependencies": {
+    "@types/uuid": "^3.4.4"
+  }
+}
