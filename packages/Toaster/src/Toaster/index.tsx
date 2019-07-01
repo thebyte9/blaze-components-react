@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import ToastList from "../ToastList";
 import { IMessage } from "../types";
-
 interface IToasterProps {
   toastMessage: IMessage;
   containerId?: string;
@@ -25,9 +24,9 @@ const Toaster = ({
   autoClose = true
 }: IToasterProps): JSX.Element => {
   const [memory, setMemory] = useState<IMessage[]>([
-    { id: "1", message: "esto", type: "error" },
-    { id: "2", message: "esta", type: "error" },
-    { id: "3", message: "chevere", type: "warning" }
+    { id: "1", message: "esto", messageType: "error" },
+    { id: "2", message: "esta", messageType: "error" },
+    { id: "3", message: "chevere", messageType: "warning" }
   ]);
 
   useEffect(() => {
@@ -38,7 +37,9 @@ const Toaster = ({
     }
 
     console.log(memory, "MEMORY");
-    const checkMessage = memory.find(message => message.id === toastMessage.id);
+    const checkMessage = memory.find(
+      (message: IMessage) => message.id === toastMessage.id
+    );
     console.log(checkMessage, "ACTUALIZA MEMORY");
     if (!checkMessage) {
       setMemory([...memory, toastMessage]);
@@ -52,7 +53,7 @@ const Toaster = ({
   //   }
   // }, [toastMessage]);
   const closeToast = (id: string): void => {
-    const updatedMemory = memory.filter(toast => toast.id !== id);
+    const updatedMemory = memory.filter((toast: IMessage) => toast.id !== id);
     setMemory(updatedMemory);
   };
 

@@ -2,13 +2,14 @@ import { storiesOf } from "@storybook/react";
 import React, { useEffect, useState } from "react";
 import ToasterReadme from "../README.md";
 import Toaster from "../src";
+import { IMessage } from "../src/types";
 
 const DemoComponent = () => {
   let [counter, setCount] = useState(4);
-  const [message, setMessage] = useState({
+  const [message, setMessage] = useState<IMessage>({
     id: "3",
     message: "3",
-    type: "warning"
+    messageType: "warning"
   });
   const [a, setA] = useState(false);
 
@@ -19,7 +20,7 @@ const DemoComponent = () => {
       setMessage({
         id: counter.toString(),
         message: counter.toString(),
-        type: "warning"
+        messageType: "warning"
       });
       console.log(counter, "count");
     }, 2000);
