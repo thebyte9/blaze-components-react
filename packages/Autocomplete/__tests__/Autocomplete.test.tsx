@@ -32,22 +32,6 @@ describe('Autocomplete component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  // test('should select first option', () => {
-  //   const wrapper = mount(AutocompleteComponent);
-
-  //   wrapper
-  //     .find('.form-field--checkbox')
-  //     .at(0)
-  //     .simulate('click');
-
-  //   expect(
-  //     wrapper
-  //       .find('div')
-  //       .at(0)
-  //       .text()
-  //   ).toContain('Project1');
-  // });
-
   test('should allow to filter', () => {
     const wrapper = mount(AutocompleteComponent);
 
