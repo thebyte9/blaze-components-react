@@ -40,7 +40,7 @@ storiesOf("Table", module)
 
       <h4>With Checkboxes</h4>
 
-      <Table checkboxes data={data} onSelect={() => { }} />
+      <Table checkboxes data={data} onSelect={() => {}} />
 
       <br />
       <h4>Static table</h4>

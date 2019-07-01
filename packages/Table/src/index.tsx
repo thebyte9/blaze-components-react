@@ -2,7 +2,6 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import Checkboxes from "@blaze-react/checkboxes";
 import utils from '@blaze-react/utils';
 import orderBy from "lodash.orderby";
-import uuidv1 from "uuid/v1";
 
 interface ITableProps {
   placeholder?: string;
@@ -78,18 +77,18 @@ const Table: FunctionComponent<ITableProps> = ({
                   {
                     checked: selected.length === allRows.length,
                     id: "Select_all",
-                    value: allRows.map(row => uniqueId(row))
+                    value: allRows.map(row => row[identification])
                   }
                 )
               ]}
               onChange={({ checked }: { checked: any }) =>
-                handleSelected(checked, checked ,true)
+                handleSelected(checked, checked, true)
               }
             />
           </th>
         )}
         {Object.keys(sortColumns).map(column => (
-          <th key={column || uuidv1()}>
+          <th key={uniqueId(column)}>
             {column}
             <i
               id={`sort_${column}`}
@@ -116,13 +115,13 @@ const Table: FunctionComponent<ITableProps> = ({
                 withEffect
                 options={[
                   {
-                    checked: selected.includes(uniqueId(row)),
-                    id: uniqueId(row),
-                    value: uniqueId(row)
+                    checked: selected.includes(row[identification]),
+                    id: row[identification],
+                    value: row[identification]
                   }
                 ]}
                 onChange={({ checked }: any) =>
-                  handleSelected(checked, uniqueId(row))
+                  handleSelected(checked, row[identification])
                 }
               />
             </td>

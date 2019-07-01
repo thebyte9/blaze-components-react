@@ -1,6 +1,6 @@
 import React from 'react';
 import expect from 'expect';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Autocomplete from '../src';
 
 const data = {
@@ -26,7 +26,7 @@ const AutocompleteComponent = <Autocomplete data={data} selected={() => {}} />;
 
 describe('Autocomplete component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(AutocompleteComponent);
+    const wrapper = mount(AutocompleteComponent);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
