@@ -76,4 +76,4 @@ Autocomplete.defaultProps = {
     return;
   }
 };
-export default utils()(Autocomplete);
+export default utils(Autocomplete);

@@ -1,4 +1,4 @@
-const generateKey = (element: any) => {
+const generateKey = (element: any): string => {
     const key = unescape(encodeURIComponent(JSON.stringify(element)));
 
     try { 

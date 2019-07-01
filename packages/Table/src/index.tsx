@@ -26,6 +26,7 @@ const Table: FunctionComponent<ITableProps> = ({
   utils: { uniqueId },
   value
 }) => {
+
   const [selected, setSelected] = useState<any[]>([]);
   const [allRows, setRows] = useState(rows);
   const [sortColumns, setSortColumns] = useState(
@@ -171,4 +172,4 @@ Table.defaultProps = {
   },
   placeholder: "No records available"
 };
-export default utils()(Table);
+export default utils(Table);
