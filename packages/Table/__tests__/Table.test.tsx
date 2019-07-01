@@ -6,6 +6,7 @@ import Table from '../src';
 const data = {
   identification: 'id',
   columns: ['name', 'age'],
+  orderBy: ['name', 'age'],
   rows: [
     {
       name: 'Lorem',
@@ -21,6 +22,7 @@ const data = {
 const withEmptyRows = {
   identification: 'id',
   columns: ['name', 'age'],
+  orderBy: [],
   rows: []
 };
 

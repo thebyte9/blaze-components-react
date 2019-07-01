@@ -5,6 +5,7 @@ import TableReadme from "../README.md";
 const data = {
   identification: "id",
   columns: ["name", "age"],
+  orderBy: ['age'],
   rows: [
     {
       id: 1,

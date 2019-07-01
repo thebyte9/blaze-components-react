@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import Checkboxes from "@blaze-react/checkboxes";
 import utils from '@blaze-react/utils';
-import orderBy from "lodash.orderby";
+import _orderBy from "lodash.orderby";
 
 interface ITableProps {
   placeholder?: string;
@@ -12,13 +12,14 @@ interface ITableProps {
   data: {
     identification: string;
     columns: string[];
+    orderBy: string[];
     rows: any[];
   };
   value?: string;
   onSelect: (...args: any[]) => any;
 }
 const Table: FunctionComponent<ITableProps> = ({
-  data: { columns, rows, identification },
+  data: { columns, rows, identification, orderBy },
   onSelect,
   checkboxes,
   placeholder,
@@ -54,7 +55,7 @@ const Table: FunctionComponent<ITableProps> = ({
   };
 
   const sort = (column: any) => {
-    setRows([...orderBy(allRows, [column], [sortColumns[column]])]);
+    setRows([..._orderBy(allRows, [column], [sortColumns[column]])]);
 
     setSortColumns({
       ...sortColumns,
@@ -64,6 +65,20 @@ const Table: FunctionComponent<ITableProps> = ({
 
   useEffect(() => onSelect(selected));
   const colSpan = checkboxes ? columns.length + 1 : columns.length;
+
+  const enableOrderBy = (column: string) => orderBy.includes(column) ? (
+    <i
+      id={`sort_${column}`}
+      className="material-icons"
+      onClick={() => sort(column)}
+      role="button"
+    >
+      {sortColumns[column] === "asc"
+        ? "keyboard_arrow_up"
+        : "keyboard_arrow_down"}
+    </i>
+  ) : null;
+
   const thead = (
     <thead>
       <tr>
@@ -90,16 +105,7 @@ const Table: FunctionComponent<ITableProps> = ({
         {Object.keys(sortColumns).map(column => (
           <th key={uniqueId(column)}>
             {column}
-            <i
-              id={`sort_${column}`}
-              className="material-icons"
-              onClick={() => sort(column)}
-              role="button"
-            >
-              {sortColumns[column] === "asc"
-                ? "keyboard_arrow_up"
-                : "keyboard_arrow_down"}
-            </i>
+            {enableOrderBy(column)}
           </th>
         ))}
       </tr>
@@ -156,6 +162,7 @@ Table.defaultProps = {
   checkboxes: false,
   data: {
     columns: [],
+    orderBy: [],
     identification: "",
     rows: []
   },
