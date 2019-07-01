@@ -2,6 +2,12 @@
 
 View Documentation: https://blaze-components-react.thisisblaze.com
 
+# recomended vscode extensions installed:
+
+[TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
+
+[Prettier](https://github.com/prettier/prettier-vscode)
+
 ## Getting Started
 
  - npm start -- component=ComponentName **Creates folder structure for new component.**

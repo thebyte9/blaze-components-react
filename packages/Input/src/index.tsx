@@ -1,4 +1,4 @@
-import React, { FunctionComponent, InputHTMLAttributes, useState, useEffect } from "react";
+import React, { FunctionComponent, InputHTMLAttributes, useEffect, useState } from "react";
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
@@ -22,7 +22,7 @@ const Input: FunctionComponent<IInputProps> = ({
   type,
   value,
   ...attrs
-}) : JSX.Element => {
+}): JSX.Element => {
   const passwordDefaultState = {
     className: "active",
     icon: "visibility_off",

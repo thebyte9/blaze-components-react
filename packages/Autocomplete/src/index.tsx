@@ -1,7 +1,6 @@
-// import Checkboxes from "@blaze-react/checkboxes";
 import Input from "@blaze-react/input";
-import React, { Fragment, useState } from "react";
 import utils from '@blaze-react/utils';
+import React, { Fragment, useState } from "react";
 
 interface IAutocompleteProps {
   data: {
@@ -10,7 +9,7 @@ interface IAutocompleteProps {
     data: object[];
   };
   utils: {
-    uniqueId: Function
+    uniqueId: (element: any) => string
   };
   selected: (...args: any[]) => any;
   placeholder?: string;
@@ -20,13 +19,15 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   data: { data, filterBy: keys, keyValue },
   placeholder,
   selected,
-  utils: { uniqueId },
+  utils: {
+    uniqueId
+  },
   children
 }) => {
   const [inputValue, setInputValue] = useState('');
   const [showSelect, setShowSelect] = useState(false);
 
-  const handleChange = ({value}: {value: string}) => {
+  const handleChange = ({ value }: { value: string }) => {
     setShowSelect(true);
     setInputValue(value)
     filterByValue(value);
@@ -37,8 +38,12 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
       let isMatch = false;
       keys.forEach(key => {
         const match = copy[key].toLowerCase().includes(value.toLowerCase());
-        if (match) isMatch = match;
-        if (!value) isMatch = false;
+        if (match) {
+          isMatch = match;
+        }
+        if (!value) {
+          isMatch = false;
+        }
       });
       return isMatch;
     });
@@ -55,13 +60,13 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
 
       {children}
 
-      <Input placeholder={placeholder} onChange={handleChange} value={inputValue}/>
+      <Input placeholder={placeholder} onChange={handleChange} value={inputValue} />
 
       {showSelect && filterByValue(inputValue).map(copiedData => (
-        <div 
-          className="panel" 
-          key={uniqueId(copiedData)} 
-          onClick={() => handleClick(copiedData)} 
+        <div
+          className="panel"
+          key={uniqueId(copiedData)}
+          onClick={() => handleClick(copiedData)}
           role="button">{copiedData[keyValue]}
         </div>
       ))}

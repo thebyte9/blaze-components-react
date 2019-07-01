@@ -1,13 +1,13 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
 import Checkboxes from "@blaze-react/checkboxes";
 import utils from '@blaze-react/utils';
 import _orderBy from "lodash.orderby";
+import React, { FunctionComponent, useEffect, useState } from "react";
 
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
   utils: {
-    uniqueId: Function
+    uniqueId: (element: any) => string
   };
   data: {
     identification: string;
@@ -24,7 +24,6 @@ const Table: FunctionComponent<ITableProps> = ({
   checkboxes,
   placeholder,
   utils: { uniqueId },
-  value
 }) => {
 
   const [selected, setSelected] = useState<any[]>([]);
@@ -35,7 +34,7 @@ const Table: FunctionComponent<ITableProps> = ({
 
   const handleSelected = (
     [checked]: [{ checked: boolean; id: string | number; value: any }],
-    value: String,
+    value: string,
     multiselect = false
   ) => {
     if (multiselect) {
@@ -163,8 +162,8 @@ Table.defaultProps = {
   checkboxes: false,
   data: {
     columns: [],
-    orderBy: [],
     identification: "",
+    orderBy: [],
     rows: []
   },
   onSelect: (): void => {
