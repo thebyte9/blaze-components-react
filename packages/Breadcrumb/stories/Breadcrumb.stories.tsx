@@ -13,8 +13,6 @@ storiesOf("Breadcrumbs", module)
       <h1>Breadcrumbs</h1>
       <p>Breadcrumbs allow users to make selections from a range of values.</p>
 
-      <h4>Simple use</h4>
-
       <Breadcrumb>
         <a href="?path=/story/breadcrumbs--introduction">First</a>
         <a href="?path=/story/breadcrumbs--introduction">Second</a>

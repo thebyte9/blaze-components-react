@@ -1,5 +1,4 @@
 import React, { FunctionComponent, InputHTMLAttributes, useEffect, useState } from "react";
-
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   hideTypeToggle?: boolean;
@@ -23,7 +22,13 @@ const Input: FunctionComponent<IInputProps> = ({
   value,
   ...attrs
 }): JSX.Element => {
-  const passwordDefaultState = {
+  interface IPasswordState {
+    className: string,
+    icon: string,
+    text: string
+  }
+
+  const passwordDefaultState: IPasswordState = {
     className: "active",
     icon: "visibility_off",
     text: "Show"
@@ -35,12 +40,12 @@ const Input: FunctionComponent<IInputProps> = ({
 
   useEffect(() => setNewValue(value), [value]);
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: any): void => {
     setNewValue(event.target.value);
     onChange({ event, value: event.target.value });
   };
 
-  const togglepasswordClassName = () => {
+  const togglepasswordClassName = (): void => {
     if (passwordState.className === "active") {
       setPasswordState({
         className: "hide",
@@ -56,7 +61,8 @@ const Input: FunctionComponent<IInputProps> = ({
 
   const isRequired = required ? "required" : "";
   const isPassword = type === "password";
-  const setModifier = () => {
+
+  const setModifier = (): string => {
     if (modifier) {
       return `form-field--${modifier}`;
     }

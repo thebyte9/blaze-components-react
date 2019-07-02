@@ -5,7 +5,7 @@ import Input from '../src';
 
 const testProps = {
   placeholder: 'Placeholder text',
-  onChange: () => {}
+  onChange: () => { }
 };
 
 describe('Input component', () => {
@@ -24,7 +24,7 @@ describe('Input component', () => {
 
   test('should renders input with label', () => {
     const wrapper = render(<Input label="Text input label" {...testProps} />);
-    expect(wrapper.find('label')).toBeDefined;
+    expect(wrapper.find('label')).toBeDefined();
   });
 
   test('should show or hide password on toggle', () => {
