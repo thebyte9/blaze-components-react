@@ -42,6 +42,6 @@ const Breadcrumb: FunctionComponent<IBreadcrumb> = ({
 };
 
 Breadcrumb.defaultProps = {
-  children: '<p>Missing breadcrumb content</>'
+  children: '<p>Missing breadcrumb content</p>'
 };
 export default utils(Breadcrumb);

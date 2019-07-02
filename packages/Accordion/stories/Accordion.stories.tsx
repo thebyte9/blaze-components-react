@@ -2,6 +2,8 @@ import { storiesOf } from "@storybook/react";
 import React from "react";
 import AccordionReadme from "../README.md";
 import Accordion from "../src";
+import Button from "@blaze-react/button";
+
 storiesOf("Accordion", module)
   .addParameters({
     readme: {
@@ -10,6 +12,7 @@ storiesOf("Accordion", module)
   })
   .add("Introduction", () => (
     <div className="component-wrapper">
+      <h1>Accordion</h1>
       <Accordion>
         <Accordion.Header>
           <p>Accordion text 1111111</p>
@@ -21,8 +24,8 @@ storiesOf("Accordion", module)
             <p>Footer can be added below if needed</p>
           </Accordion.ContentDetails>
           <Accordion.ContentFooter>
-            <button type="button" name="button" className="button button--outline button--light button--rounded">Cancel</button>
-            <button type="button" name="button" className="button button--rounded">Save</button>
+            <Button name="button" modifiers="outline light rounded">Cancel</Button>
+            <Button name="button" modifiers="rounded">Save</Button>
           </Accordion.ContentFooter>
         </Accordion.Content>
       </Accordion>
