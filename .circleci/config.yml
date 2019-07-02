@@ -20,10 +20,6 @@ jobs: # a collection of steps
       - image: circleci/node:10.15.0 # ...with this image as the primary container; this is where all `steps` will run
     environment:
       SONAR_QUBE_VERSION: 3.3.0.1492-linux
-<<<<<<< HEAD
-=======
-    resource_class: medium+
->>>>>>> 8811dfd2b28cb5322728d5dec71a258647e07a0f
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
       - run:
@@ -37,11 +33,7 @@ jobs: # a collection of steps
           command: "npx lerna bootstrap --hoist --no-ci --loglevel debug"
       - run:
           name: Run lint
-<<<<<<< HEAD
           command: npm run lint
-=======
-          command: npm run build && npm run lint
->>>>>>> 8811dfd2b28cb5322728d5dec71a258647e07a0f
       - run:
           name: Run tests with coverage
           command: npm run test:coverage
