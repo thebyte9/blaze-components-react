@@ -5,7 +5,7 @@ import React, { Fragment, useState } from "react";
 interface IAutocompleteProps {
   data: {
     keyValue: string;
-    filterBy: any[];
+    filterBy: string[];
     data: object[];
   };
   utils: {
@@ -24,17 +24,17 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   },
   children
 }) => {
-  const [inputValue, setInputValue] = useState('');
-  const [showSelect, setShowSelect] = useState(false);
+  const [inputValue, setInputValue] = useState<string>('');
+  const [showSelect, setShowSelect] = useState<boolean>(false);
 
-  const handleChange = ({ value }: { value: string }) => {
+  const handleChange = ({ value }: { value: string }): void => {
     setShowSelect(true);
     setInputValue(value)
     filterByValue(value);
   };
 
   const filterByValue = (value: string) => {
-    return data.filter(copy => {
+    return data.filter((copy: object) => {
       let isMatch = false;
       keys.forEach(key => {
         const match = copy[key].toLowerCase().includes(value.toLowerCase());
@@ -49,7 +49,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     });
   }
 
-  const handleClick = (copiedData: object) => {
+  const handleClick = (copiedData: object): void => {
     setInputValue(copiedData[keyValue]);
     setShowSelect(false);
     selected(copiedData);

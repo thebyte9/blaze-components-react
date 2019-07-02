@@ -1,75 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Breadcrumb component should be defined and renders correctly (snapshot) 1`] = `
-<ComposedCompoent>
-  <Breadcrumb
-    utils={
-      Object {
-        "uniqueId": [Function],
-      }
-    }
+<ul
+  className="breadcrumb"
+>
+  <li
+    className="breadcrumb__item"
+    key=".0"
   >
-    <ul
-      className="breadcrumb"
+    <a
+      href="#first"
     >
-      <li
-        className="breadcrumb__item"
-        key="uid-eyJ0eXBlIjoiYSIsImtleSI6bnVsbCwicmVmIjpudWxsLCJwcm9wcyI6eyJocmVmIjoiI2ZpcnN0IiwiY2hpbGRyZW4iOiJGaXJzdCJ9LCJfb3duZXIiOm51bGwsIl9zdG9yZSI6e319"
-      >
-        <a
-          href="#first"
-        >
-          First
-        </a>
-      </li>
-      <li
-        className="breadcrumb__item"
-        key="uid-eyJ0eXBlIjoiYSIsImtleSI6bnVsbCwicmVmIjpudWxsLCJwcm9wcyI6eyJocmVmIjoiI1NlY29uZCIsImNoaWxkcmVuIjoiU2Vjb25kIn0sIl9vd25lciI6bnVsbCwiX3N0b3JlIjp7fX0="
-      >
-        <a
-          href="#Second"
-        >
-          Second
-        </a>
-      </li>
-      <li
-        className="breadcrumb__item"
-        key="uid-eyJ0eXBlIjoiYSIsImtleSI6bnVsbCwicmVmIjpudWxsLCJwcm9wcyI6eyJocmVmIjoiI1RoaXJkIiwiY2hpbGRyZW4iOiJUaGlyZCAtIGxvbmcgdGV4dCB3aWxsIGJlIHRydW5jYXRlZCBmb3IgYSBiZXR0ZXIgdXNlciBleHBlcmllbmNlIn0sIl9vd25lciI6bnVsbCwiX3N0b3JlIjp7fX0="
-      >
-        <a
-          href="#Third"
-        >
-          Third - long text will be truncated for a better user experience
-        </a>
-      </li>
-    </ul>
-  </Breadcrumb>
-</ComposedCompoent>
+      First
+    </a>
+  </li>
+  <li
+    className="breadcrumb__item"
+    key=".1"
+  >
+    <a
+      href="#Second"
+    >
+      Second
+    </a>
+  </li>
+  <li
+    className="breadcrumb__item"
+    key=".2"
+  >
+    <a
+      href="#Third"
+    >
+      Third - long text will be truncated for a better user experience
+    </a>
+  </li>
+</ul>
 `;
 
 exports[`Breadcrumb component should renders correctly with one children 1`] = `
-<ComposedCompoent>
-  <Breadcrumb
-    utils={
-      Object {
-        "uniqueId": [Function],
-      }
-    }
+<ul
+  className="breadcrumb"
+>
+  <li
+    className="breadcrumb__item"
+    key=".0"
   >
-    <ul
-      className="breadcrumb"
+    <a
+      href="#first"
     >
-      <li
-        className="breadcrumb__item"
-        key="uid-eyJ0eXBlIjoiYSIsImtleSI6bnVsbCwicmVmIjpudWxsLCJwcm9wcyI6eyJocmVmIjoiI2ZpcnN0IiwiY2hpbGRyZW4iOiJGaXJzdCJ9LCJfb3duZXIiOm51bGwsIl9zdG9yZSI6e319"
-      >
-        <a
-          href="#first"
-        >
-          First
-        </a>
-      </li>
-    </ul>
-  </Breadcrumb>
-</ComposedCompoent>
+      First
+    </a>
+  </li>
+</ul>
 `;
