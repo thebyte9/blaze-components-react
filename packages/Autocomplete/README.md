@@ -1,4 +1,3 @@
-
 ## Description
 
 Autocomplete component allows users to quickly find and select one from suggested options.
@@ -7,41 +6,37 @@ Autocomplete component allows users to quickly find and select one from suggeste
 
 ```js
 const data = {
-  keyValue: 'name',
-  filterBy: ['name', 'description'],
+  keyValue: "name",
+  filterBy: ["name", "description"],
   data: [
     {
-        id: 1,
-        name: 'Laravel',
-        description: 'Lorem ipsum dolor.'
+      id: 1,
+      name: "Laravel",
+      description: "Lorem ipsum dolor."
     },
     {
-        id: 2,
-        name: 'React',
-        description: 'Aliquam tincidunt.'
+      id: 2,
+      name: "React",
+      description: "Aliquam tincidunt."
     },
     {
-        id: 3,
-        name: 'Adonis',
-        description: 'Vestibulum auctor.'
+      id: 3,
+      name: "Adonis",
+      description: "Vestibulum auctor."
     }
   ]
 };
 
-<Multiselect data={data} selected={(selected) => {}}/>
+<Multiselect data={data} selected={selected => {}} />;
 ```
 
 ## API
 
-#####  Autocomplete can receive a number of `props` as follow:
-| NAME   | TYPE | DEFAULT | 
-| :---  | :---:  | :---: | 
-| data | Object | {} |
-| placeholder | String | 'Search' |
-| selected | Function | () => {} | 
-| children | single/array of nodes | empty | 
+##### Autocomplete can receive a number of `props` as follow:
 
-
-
-
-
+| NAME        |         TYPE          | DEFAULT  |
+| :---------- | :-------------------: | :------: |
+| data        |        Object         |    {}    |
+| placeholder |        String         | 'Search' |
+| selected    |       Function        | () => {} |
+| children    | single/array of nodes |  empty   |
