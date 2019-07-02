@@ -13,7 +13,7 @@ const Breadcrumb: FunctionComponent<IBreadcrumb> = ({
       {React.Children.map(
         children,
         (child: any): JSX.Element =>
-          child && (<li key={child.symbol} className="breadcrumb__item">{child}</li>)
+          <li key={child.symbol} className="breadcrumb__item">{child}</li>
       )}
     </ul >
   )
