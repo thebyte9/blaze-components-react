@@ -1,4 +1,4 @@
-import React, { FunctionComponent, InputHTMLAttributes, useState, useEffect } from "react";
+import React, { FunctionComponent, InputHTMLAttributes, useEffect, useState } from "react";
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
@@ -22,25 +22,31 @@ const Input: FunctionComponent<IInputProps> = ({
   type,
   value,
   ...attrs
-}) : JSX.Element => {
-  const passwordDefaultState = {
+}): JSX.Element => {
+  interface IPasswordState {
+    className: string,
+    icon: string,
+    text: string
+  }
+
+  const passwordDefaultState: IPasswordState = {
     className: "active",
     icon: "visibility_off",
     text: "Show"
   };
 
-  const [newValue, setNewValue] = useState(value);
-  const [newType, setType] = useState(type);
+  const [newValue, setNewValue] = useState<string | undefined>(value);
+  const [newType, setType] = useState<string | undefined>(type);
   const [passwordState, setPasswordState] = useState(passwordDefaultState);
 
   useEffect(() => setNewValue(value), [value]);
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: any): void => {
     setNewValue(event.target.value);
     onChange({ event, value: event.target.value });
   };
 
-  const togglepasswordClassName = () => {
+  const togglepasswordClassName = (): void => {
     if (passwordState.className === "active") {
       setPasswordState({
         className: "hide",
@@ -56,7 +62,8 @@ const Input: FunctionComponent<IInputProps> = ({
 
   const isRequired = required ? "required" : "";
   const isPassword = type === "password";
-  const setModifier = () => {
+
+  const setModifier = (): string => {
     if (modifier) {
       return `form-field--${modifier}`;
     }
