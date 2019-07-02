@@ -11,8 +11,8 @@ const Breadcrumb: FunctionComponent<any> = ({ children }) => (
         )
       )
     ) : (
-      <li className="breadcrumb__item">{children}</li>
-    )}
+        <li className="breadcrumb__item">{children}</li>
+      )}
   </ul>
 );
 Breadcrumb.defaultProps = {
