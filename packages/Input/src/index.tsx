@@ -1,5 +1,4 @@
 import React, { FunctionComponent, InputHTMLAttributes, useEffect, useState } from "react";
-
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   hideTypeToggle?: boolean;
@@ -35,8 +34,8 @@ const Input: FunctionComponent<IInputProps> = ({
     text: "Show"
   };
 
-  const [newValue, setNewValue] = useState<string | undefined>(value);
-  const [newType, setType] = useState<string | undefined>(type);
+  const [newValue, setNewValue] = useState(value);
+  const [newType, setType] = useState(type);
   const [passwordState, setPasswordState] = useState(passwordDefaultState);
 
   useEffect(() => setNewValue(value), [value]);
