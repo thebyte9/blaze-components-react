@@ -1,25 +1,16 @@
 import React, { FunctionComponent } from "react";
 
-interface IBreadcrumb {
-  children: any
-}
-
-const Breadcrumb: FunctionComponent<IBreadcrumb> = ({
-  children
-}) => {
-
-  return (
-    <ul className="breadcrumb">
-      {React.Children.map(
-        children,
-        (child: any): JSX.Element =>
-          <li key={child.symbol} className="breadcrumb__item">{child}</li>
-      )}
-    </ul >
-  )
-};
+const Breadcrumb: FunctionComponent<any> = ({ children }) => (
+  <ul className="breadcrumb">
+    {React.Children.map(
+      children,
+      (child: any): JSX.Element =>
+        <li key={child.symbol} className="breadcrumb__item">{child}</li>
+    )}
+  </ul >
+);
 
 Breadcrumb.defaultProps = {
-  children: 'Missing breadcrumb content'
+  children: "Missing breadcrumb content"
 };
 export default Breadcrumb;
