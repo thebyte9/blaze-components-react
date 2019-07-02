@@ -33,7 +33,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     filterByValue(value);
   };
 
-  const filterByValue = (value: string) => {
+  const filterByValue = (value: string): object[] => {
     return data.filter((copy: object) => {
       let isMatch = false;
       keys.forEach(key => {
