@@ -62,7 +62,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
 
       <Input placeholder={placeholder} onChange={handleChange} value={inputValue} />
 
-      {showSelect && filterByValue(inputValue).map(copiedData => (
+      {showSelect && filterByValue(inputValue).map((copiedData: object) => (
         <div
           className="panel"
           key={uniqueId(copiedData)}
