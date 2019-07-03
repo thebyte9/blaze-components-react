@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Input from "../src";
+import React from "react";
 import inputReadme from "../README.md";
+import Input from "../src";
 storiesOf("Text Inputs", module)
   .addParameters({
     readme: {
@@ -18,18 +18,20 @@ storiesOf("Text Inputs", module)
       <h4>Simple</h4>
       <Input
         label="Text input required"
-        placeholder="Placeholder text"
-        onChange={() => {}}
-        modifier="full-width"
+        placeholder="Enter email"
+        validationMessage="Email address is required"
+        onChange={(): void => { return; }}
+        type="email"
         required
+        error
       />
 
       <h4>Disabled</h4>
       <Input
         label="Text input disabled"
         placeholder="Placeholder text"
-        onChange={() => {}}
-        type="password"
+        onChange={(): void => { return; }}
+        modifier="full-width"
         hideTypeToggle
         disabled
       />
@@ -38,7 +40,7 @@ storiesOf("Text Inputs", module)
       <Input
         label="Password - show hide"
         placeholder="******"
-        onChange={() => {}}
+        onChange={(): void => { return; }}
         type="password"
         value="Lorem ipsum"
       />

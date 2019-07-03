@@ -1,4 +1,5 @@
-import React, { FunctionComponent, InputHTMLAttributes, useEffect, useState } from "react";
+import React, { FunctionComponent, InputHTMLAttributes, useEffect, useState } from 'react';
+import ToggleInputType from './ToggleInputType';
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   hideTypeToggle?: boolean;
@@ -7,7 +8,9 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   modifier?: string;
   onChange: (...args: any[]) => any;
   required?: boolean;
+  error?: boolean;
   type?: string;
+  validationMessage?: string;
   value?: string;
 }
 
@@ -19,24 +22,14 @@ const Input: FunctionComponent<IInputProps> = ({
   onChange,
   required,
   type,
+  error,
+  validationMessage,
   value,
   ...attrs
 }): JSX.Element => {
-  interface IPasswordState {
-    className: string,
-    icon: string,
-    text: string
-  }
 
-  const passwordDefaultState: IPasswordState = {
-    className: "active",
-    icon: "visibility_off",
-    text: "Show"
-  };
-
-  const [newValue, setNewValue] = useState(value);
-  const [newType, setType] = useState(type);
-  const [passwordState, setPasswordState] = useState(passwordDefaultState);
+  const [newValue, setNewValue] = useState<string | undefined>(value);
+  const [newType, setType] = useState<string | undefined>(type);
 
   useEffect(() => setNewValue(value), [value]);
 
@@ -45,29 +38,17 @@ const Input: FunctionComponent<IInputProps> = ({
     onChange({ event, value: event.target.value });
   };
 
-  const togglepasswordClassName = (): void => {
-    if (passwordState.className === "active") {
-      setPasswordState({
-        className: "hide",
-        icon: "visibility",
-        text: "Hide"
-      });
-      setType("text");
-    } else {
-      setPasswordState(passwordDefaultState);
-      setType("password");
-    }
-  };
+  const handleToggleType = (t: string | undefined): void => { setType(t) };
 
-  const isRequired = required ? "required" : "";
-  const isPassword = type === "password";
+  const isRequired = required ? 'required' : '';
+  const isPassword = type === 'password';
 
   const setModifier = (): string => {
     if (modifier) {
       return `form-field--${modifier}`;
     }
     if (isPassword) {
-      return "form-field--password";
+      return 'form-field--password';
     }
     return "";
   };
@@ -87,29 +68,26 @@ const Input: FunctionComponent<IInputProps> = ({
         required={required}
         {...attrs}
       />
-      {!hideTypeToggle && isPassword && (
-        <span
-          onClick={togglepasswordClassName}
-          className={`show-hide-password ${passwordState.className}`}
-          role="button"
-        >
-          {passwordState.text}
-          <i className="material-icons">{passwordState.icon}</i>
-        </span>
-      )}
+
+      {error && <span>{validationMessage}</span>}
+
+      {!hideTypeToggle && isPassword && <ToggleInputType toggleType={handleToggleType} type={newType} />}
+
     </div>
   );
 };
 Input.defaultProps = {
   disabled: false,
+  error: false,
   hideTypeToggle: false,
-  label: "",
-  modifier: "",
+  label: '',
+  modifier: '',
   onChange: (): void => {
     return;
   },
   required: false,
-  type: "text",
-  value: ""
+  type: 'text',
+  validationMessage: 'This field is required',
+  value: ''
 };
 export default Input;
