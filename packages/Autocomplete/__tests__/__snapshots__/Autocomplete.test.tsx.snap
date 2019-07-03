@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Autocomplete component should be defined and renders correctly (snapshot) 1`] = `
+<ComposedComponent
+  data={
+    Object {
+      "data": Array [
+        Object {
+          "id": 1,
+          "name": "Lorem",
+        },
+        Object {
+          "id": 2,
+          "name": "Ipsum",
+        },
+        Object {
+          "id": 3,
+          "name": "Dolor",
+        },
+      ],
+      "filterBy": Array [
+        "name",
+      ],
+      "keyValue": "name",
+    }
+  }
+  selected={[Function]}
+>
+  <Autocomplete
+    data={
+      Object {
+        "data": Array [
+          Object {
+            "id": 1,
+            "name": "Lorem",
+          },
+          Object {
+            "id": 2,
+            "name": "Ipsum",
+          },
+          Object {
+            "id": 3,
+            "name": "Dolor",
+          },
+        ],
+        "filterBy": Array [
+          "name",
+        ],
+        "keyValue": "name",
+      }
+    }
+    placeholder="Search"
+    selected={[Function]}
+    utils={
+      Object {
+        "uniqueId": [Function],
+      }
+    }
+  >
+    <Input
+      disabled={false}
+      hideTypeToggle={false}
+      label=""
+      modifier=""
+      onChange={[Function]}
+      placeholder="Search"
+      required={false}
+      type="text"
+      value=""
+    >
+      <div
+        className="form-field form-field--input "
+      >
+        <input
+          disabled={false}
+          onChange={[Function]}
+          placeholder="Search"
+          required={false}
+          type="text"
+          value=""
+        />
+      </div>
+    </Input>
+  </Autocomplete>
+</ComposedComponent>
+`;

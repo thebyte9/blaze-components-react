@@ -5,6 +5,7 @@ import TableReadme from "../README.md";
 const data = {
   identification: "id",
   columns: ["name", "age"],
+  orderBy: ['age'],
   rows: [
     {
       id: 1,
@@ -45,6 +46,6 @@ storiesOf("Table", module)
       <br />
       <h4>Static table</h4>
 
-      <Table data={data} onSelect={(select) => console.log(select)} />
+      <Table data={data} onSelect={() => { }} />
     </div>
   ));

@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Breadcrumb from "../src";
+import React from "react";
 import BreadcrumbsReadme from "../README.md";
+import Breadcrumb from "../src";
 storiesOf("Breadcrumbs", module)
   .addParameters({
     readme: {
@@ -12,8 +12,6 @@ storiesOf("Breadcrumbs", module)
     <div className="component-wrapper">
       <h1>Breadcrumbs</h1>
       <p>Breadcrumbs allow users to make selections from a range of values.</p>
-
-      <h4>Simple use</h4>
 
       <Breadcrumb>
         <a href="?path=/story/breadcrumbs--introduction">First</a>

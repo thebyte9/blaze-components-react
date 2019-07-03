@@ -24,7 +24,7 @@ const data = {
 
 const MultiselectComponent = <Multiselect data={data} selected={() => {}} />;
 
-describe('DragableArea component', () => {
+describe('Multiselect component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const wrapper = shallow(MultiselectComponent);
 

@@ -1,6 +1,6 @@
 {
-  "name": "@blaze-react/table",
-  "version": "0.2.6",
+  "name": "@blaze-react/Autocomplete",
+  "version": "0.2.5",
   "publishConfig": {
     "access": "public"
   },
@@ -19,9 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "@blaze-react/checkboxes": "^0.2.5",
-    "@blaze-react/utils": "^0.0.1",
-    "@types/lodash.orderby": "^4.6.6",
-    "lodash.orderby": "^4.6.0"
+    "@blaze-react/input": "^0.2.5",
+    "@blaze-react/utils": "^0.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
