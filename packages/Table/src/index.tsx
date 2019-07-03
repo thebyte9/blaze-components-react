@@ -1,26 +1,31 @@
 import Checkboxes from "@blaze-react/checkboxes";
-import orderBy from "lodash.orderby";
+import utils from '@blaze-react/utils';
+import _orderBy from "lodash.orderby";
 import React, { FunctionComponent, useEffect, useState } from "react";
-import uuidv1 from "uuid/v1";
 
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
+  utils: {
+    uniqueId: (element: any) => string
+  };
   data: {
     identification: string;
     columns: string[];
+    orderBy: string[];
     rows: any[];
   };
   value?: string;
   onSelect: (...args: any[]) => any;
 }
 const Table: FunctionComponent<ITableProps> = ({
-  data: { columns, rows, identification },
+  data: { columns, rows, identification, orderBy },
   onSelect,
   checkboxes,
   placeholder,
-  value
+  utils: { uniqueId },
 }) => {
+
   const [selected, setSelected] = useState<any[]>([]);
   const [allRows, setRows] = useState(rows);
   const [sortColumns, setSortColumns] = useState(
@@ -29,6 +34,7 @@ const Table: FunctionComponent<ITableProps> = ({
 
   const handleSelected = (
     [checked]: [{ checked: boolean; id: string | number; value: any }],
+    value: string,
     multiselect = false
   ) => {
     if (multiselect) {
@@ -49,7 +55,7 @@ const Table: FunctionComponent<ITableProps> = ({
   };
 
   const sort = (column: any) => {
-    setRows([...orderBy(allRows, [column], [sortColumns[column]])]);
+    setRows([..._orderBy(allRows, [column], [sortColumns[column]])]);
 
     setSortColumns({
       ...sortColumns,
@@ -59,6 +65,20 @@ const Table: FunctionComponent<ITableProps> = ({
 
   useEffect(() => onSelect(selected));
   const colSpan = checkboxes ? columns.length + 1 : columns.length;
+
+  const enableOrderBy = (column: string) => orderBy.includes(column) ? (
+    <i
+      id={`sort_${column}`}
+      className="material-icons"
+      onClick={() => sort(column)}
+      role="button"
+    >
+      {sortColumns[column] === "asc"
+        ? "keyboard_arrow_up"
+        : "keyboard_arrow_down"}
+    </i>
+  ) : null;
+
   const thead = (
     <thead>
       <tr>
@@ -77,24 +97,15 @@ const Table: FunctionComponent<ITableProps> = ({
                 )
               ]}
               onChange={({ checked }: { checked: any }) =>
-                handleSelected(checked, true)
+                handleSelected(checked, checked, true)
               }
             />
           </th>
         )}
         {Object.keys(sortColumns).map(column => (
-          <th key={column || uuidv1()}>
+          <th key={uniqueId(column)}>
             {column}
-            <i
-              id={`sort_${column}`}
-              className="material-icons"
-              onClick={() => sort(column)}
-              role="button"
-            >
-              {sortColumns[column] === "asc"
-                ? "keyboard_arrow_up"
-                : "keyboard_arrow_down"}
-            </i>
+            {enableOrderBy(column)}
           </th>
         ))}
       </tr>
@@ -103,7 +114,7 @@ const Table: FunctionComponent<ITableProps> = ({
   const tbody = (
     <tbody>
       {allRows.map(row => (
-        <tr key={row.id || uuidv1()}>
+        <tr key={uniqueId(row)}>
           {checkboxes && (
             <td>
               <Checkboxes
@@ -122,7 +133,7 @@ const Table: FunctionComponent<ITableProps> = ({
             </td>
           )}
           {columns.map(column => (
-            <td key={`${row.id}${row[column]}` || uuidv1()}>{row[column]}</td>
+            <td key={column}>{row[column]}</td>
           ))}
         </tr>
       ))}
@@ -152,6 +163,7 @@ Table.defaultProps = {
   data: {
     columns: [],
     identification: "",
+    orderBy: [],
     rows: []
   },
   onSelect: (): void => {
@@ -159,4 +171,4 @@ Table.defaultProps = {
   },
   placeholder: "No records available"
 };
-export default Table;
+export default utils(Table);
