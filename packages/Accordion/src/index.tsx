@@ -13,7 +13,7 @@ const Accordion = ({ children }: IAccordionProps): JSX.Element => {
 
   const [header, content]: [JSX.Element, JSX.Element] = children;
 
-  const isActive = accordionStatus === 'flex'
+  const isActive: boolean = accordionStatus === 'flex'
   const toggleAccordion = (): void => setAccordionStatus(isActive ? 'none' : 'flex');
 
   return (
