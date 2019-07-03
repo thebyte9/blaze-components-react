@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import AccordionContent from "./AccordionContent";
 import AccordionContentDetails from "./AccordionContent/AccordionContentDetails";
 import AccordionContentFooter from "./AccordionContent/AccordionContentFooter";
 import AccordionExpansion from "./AccordionExpansion";
-import AccordionHeader from "./AccordionHeader"
-  ;
+import AccordionHeader from "./AccordionHeader";
 
 interface IAccordionProps {
-  children?: any;
+  children: [JSX.Element, JSX.Element];
 }
 
 const Accordion = ({ children }: IAccordionProps) => {
+  const [accordionStatus, setAccordionStatus] = useState<string>('none');
+
+  const [header, content]: [JSX.Element, JSX.Element] = children;
+
+  const isActive = accordionStatus === 'flex'
+  const toggleAccordion = (): void => setAccordionStatus(isActive ? 'none' : 'flex');
 
   return (
     <div className="accordion">
-      {children}
+      <div className="accordion__header">
+        {header}
+        <div className="icon-button icon-button--accordion" onClick={toggleAccordion}>
+          <i className="material-icons">keyboard_arrow_down</i>
+        </div>
+      </div>
+      <div className="accordion__content-wrapper" style={{ display: accordionStatus }}>
+        {content}
+      </div>
     </div>
   );
 };

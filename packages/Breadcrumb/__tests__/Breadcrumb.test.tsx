@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import expect from 'expect';
 import React from 'react';
 import Breadcrumb from '../src';
@@ -12,7 +12,7 @@ const defaultProps = (override = {}) => ({
   ...override
 });
 
-const wrapper = (props: any) => mount(<Breadcrumb {...props} />);
+const wrapper = (props: any) => shallow(<Breadcrumb {...props} />);
 
 describe('Breadcrumb component', () => {
   test('should be defined and renders correctly (snapshot)', () => {

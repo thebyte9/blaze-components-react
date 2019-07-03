@@ -27,24 +27,24 @@ const AccordionComponent = (
   </Accordion>
 )
 
-describe('More component', () => {
+describe('Accordion component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const wrapper = mount(AccordionComponent);
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  // test('should toggle on click', () => {
-  //   const wrapper = mount(AccordionComponent);
-  //   wrapper
-  //     .find('button')
-  //     .at(0)
-  //     .simulate('click');
-  //   expect(
-  //     wrapper
-  //       .find('ul')
-  //       .at(0)
-  //       .hasClass('more-menu__list')
-  //   ).toBe(true);
-  // });
+  test('should toggle on click', () => {
+    const wrapper = mount(AccordionComponent);
+    wrapper
+      .find('.icon-button--accordion')
+      .at(0)
+      .simulate('click');
+    expect(
+      wrapper
+        .find('.accordion__content-wrapper')
+        .at(0)
+        .text()
+    ).toContain('Content here.');
+  });
 });

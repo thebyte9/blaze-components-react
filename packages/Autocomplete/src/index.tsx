@@ -5,7 +5,7 @@ import React, { Fragment, useState } from "react";
 interface IAutocompleteProps {
   data: {
     keyValue: string;
-    filterBy: any[];
+    filterBy: string[];
     data: object[];
   };
   utils: {
@@ -13,7 +13,6 @@ interface IAutocompleteProps {
   };
   selected: (...args: any[]) => any;
   placeholder?: string;
-  children?: any;
 }
 const Autocomplete: React.SFC<IAutocompleteProps> = ({
   data: { data, filterBy: keys, keyValue },
@@ -21,35 +20,23 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   selected,
   utils: {
     uniqueId
-  },
-  children
+  }
 }) => {
-  const [inputValue, setInputValue] = useState('');
-  const [showSelect, setShowSelect] = useState(false);
+  const [inputValue, setInputValue] = useState<string>('');
+  const [showSelect, setShowSelect] = useState<boolean>(false);
 
-  const handleChange = ({ value }: { value: string }) => {
+  const handleChange = ({ value }: { value: string }): void => {
     setShowSelect(true);
-    setInputValue(value)
+    setInputValue(value);
     filterByValue(value);
   };
 
-  const filterByValue = (value: string) => {
-    return data.filter(copy => {
-      let isMatch = false;
-      keys.forEach(key => {
-        const match = copy[key].toLowerCase().includes(value.toLowerCase());
-        if (match) {
-          isMatch = match;
-        }
-        if (!value) {
-          isMatch = false;
-        }
-      });
-      return isMatch;
-    });
-  }
+  const filterByValue = (value: string): object[] =>
+    data.filter((copy: object) =>
+      !!keys.some(key => copy[key].toLowerCase().includes(value.toLowerCase()))
+    );
 
-  const handleClick = (copiedData: object) => {
+  const handleClick = (copiedData: object): void => {
     setInputValue(copiedData[keyValue]);
     setShowSelect(false);
     selected(copiedData);
@@ -58,11 +45,9 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   return (
     <Fragment>
 
-      {children}
-
       <Input placeholder={placeholder} onChange={handleChange} value={inputValue} />
 
-      {showSelect && filterByValue(inputValue).map(copiedData => (
+      {showSelect && filterByValue(inputValue).map((copiedData: object): JSX.Element => (
         <div
           className="panel"
           key={uniqueId(copiedData)}
@@ -75,7 +60,6 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   );
 };
 Autocomplete.defaultProps = {
-  children: "",
   placeholder: "Search",
   selected: (): void => {
     return;

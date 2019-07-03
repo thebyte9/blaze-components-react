@@ -15,8 +15,8 @@ storiesOf("Accordion", module)
       <h1>Accordion</h1>
       <Accordion>
         <Accordion.Header>
-          <p>Accordion text 1111111</p>
-          <p>Accordion text 2</p>
+          <p>Accordion text</p>
+          <p>Accordion text</p>
         </Accordion.Header>
         <Accordion.Content>
           <Accordion.ContentDetails>

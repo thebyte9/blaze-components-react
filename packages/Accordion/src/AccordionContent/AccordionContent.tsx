@@ -1,15 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 interface IAccordionContentProps {
-  toggled?: boolean;
+  children: JSX.Element | JSX.Element[];
 }
-const AccordionContent: React.SFC<IAccordionContentProps> = ({
-  children
-}) => {
-  return (
-    <div className="accordion__content-wrapper" id="item-3">
-      {children}
-    </div>
-  );
-};
+
+const AccordionContent = ({ children }: IAccordionContentProps) => (
+  <Fragment>
+    {children}
+  </Fragment>
+);
 
 export default AccordionContent;
