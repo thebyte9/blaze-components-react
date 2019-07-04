@@ -20,8 +20,7 @@
   "dependencies": {
     "@blaze-react/checkboxes": "^0.2.8",
     "@blaze-react/utils": "^0.2.8",
-    "@types/lodash.orderby": "^4.6.6",
-    "lodash.orderby": "^4.6.0"
+    "@types/lodash.orderby": "^4.6.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
