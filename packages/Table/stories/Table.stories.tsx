@@ -60,7 +60,7 @@ const DemoComponent = () => {
     }, 3000);
   }, [])
 
-  return <Table checkboxes data={data} onSelect={(a) => console.log(a)} />;
+  return <Table checkboxes data={data} onSelect={() => { }} />;
 };
 
 storiesOf("Table", module)
