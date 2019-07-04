@@ -1,5 +1,5 @@
 import _orderBy from "lodash.orderby";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 
@@ -10,10 +10,10 @@ interface ITableProps {
     identification: string;
     columns: string[];
     orderBy: string[];
-    rows: any[];
+    rows: object[];
   };
   value?: string;
-  onSelect: (...args: any[]) => any;
+  onSelect: (arg: any[]) => any;
 }
 const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy },
@@ -21,24 +21,23 @@ const Table: FunctionComponent<ITableProps> = ({
   checkboxes,
   placeholder
 }) => {
+  const formatColumns = columns.reduce((result, item) => ({ ...result, [item]: "asc" }), {})
+
   const [selected, setSelected] = useState<any[]>([]);
-  const [allRows, setRows] = useState(rows);
-  const [sortColumns, setSortColumns] = useState(
-    columns.reduce((result, item) => ({ ...result, [item]: "asc" }), {})
-  );
+  const [allRows, setRows] = useState<object[]>(rows);
+  const [sortColumns, setSortColumns] = useState(formatColumns);
 
   useEffect(() => {
     setRows(rows);
-    setSortColumns(
-      columns.reduce((result, item) => ({ ...result, [item]: "asc" }), {})
-    );
-  }, [rows, columns]);
+    setSortColumns(formatColumns);
+    onSelect(selected)
+  }, [rows, columns, selected]);
 
   const handleSelected = (
     [checked]: [{ checked: boolean; id: string | number; value: any }],
     value: string,
     multiselect = false
-  ) => {
+  ): void => {
     if (multiselect) {
       let checkedValue = [];
       if (checked) {
@@ -58,29 +57,29 @@ const Table: FunctionComponent<ITableProps> = ({
 
   const sort = (column: any) => {
     setRows([..._orderBy(allRows, [column], [sortColumns[column]])]);
-
     setSortColumns({
       ...sortColumns,
       [column]: sortColumns[column] === "asc" ? "desc" : "asc"
     });
   };
 
-  useEffect(() => onSelect(selected));
-  const colSpan = checkboxes ? columns.length + 1 : columns.length;
-
   const enableOrderBy = (column: string) =>
-    orderBy.includes(column) ? (
-      <i
-        id={`sort_${column}`}
-        className="material-icons"
-        onClick={() => sort(column)}
-        role="button"
-      >
-        {sortColumns[column] === "asc"
-          ? "keyboard_arrow_up"
-          : "keyboard_arrow_down"}
-      </i>
-    ) : null;
+    <Fragment>
+      {
+        orderBy.includes(column) && (
+          <i
+            id={`sort_${column}`}
+            className="material-icons"
+            onClick={() => sort(column)}
+            role="button"
+          >
+            {sortColumns[column] === "asc"
+              ? "keyboard_arrow_up"
+              : "keyboard_arrow_down"}
+          </i>
+        )
+      }
+    </Fragment>
 
   return (
     <div className="table-scroll__wrapper">
@@ -103,7 +102,6 @@ const Table: FunctionComponent<ITableProps> = ({
             handleSelected={handleSelected}
             columns={columns}
             placeholder={placeholder}
-            colSpan={colSpan}
           />
         </table>
       </div>

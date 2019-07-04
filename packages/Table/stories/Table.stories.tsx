@@ -1,12 +1,12 @@
 import { storiesOf } from "@storybook/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TableReadme from "../README.md";
 import Table from "../src";
 
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
-    identification: "id",
     columns: ["name", "age"],
+    identification: "id",
     orderBy: ["age"],
     rows: [
       {
@@ -27,38 +27,40 @@ const DemoComponent = () => {
     ]
   });
 
-  setTimeout(() => {
-    setData({
-      identification: "id",
-      columns: ["name", "lastName", "age", "tel"],
-      orderBy: ["age"],
-      rows: [
-        {
-          id: 1,
-          name: "Oscar Leon",
-          lastName: "hello",
-          age: 26,
-          tel: "213123123"
-        },
-        {
-          id: 2,
-          name: "Ismael Haytam",
-          lastName: "hello",
-          age: 23,
-          tel: "213123123"
-        },
-        {
-          id: 3,
-          name: "Robert",
-          lastName: "hello",
-          age: 45,
-          tel: "213123123"
-        }
-      ]
-    });
-  }, 3000);
+  useEffect(() => {
+    setTimeout(() => {
+      setData({
+        identification: "id",
+        columns: ["name", "lastName", "age", "tel"],
+        orderBy: ["age"],
+        rows: [
+          {
+            id: 1,
+            name: "Oscar Leon",
+            lastName: "hello",
+            age: 26,
+            tel: "213123123"
+          },
+          {
+            id: 2,
+            name: "Ismael Haytam",
+            lastName: "hello",
+            age: 23,
+            tel: "213123123"
+          },
+          {
+            id: 3,
+            name: "Robert",
+            lastName: "hello",
+            age: 45,
+            tel: "213123123"
+          }
+        ]
+      });
+    }, 3000);
+  }, [])
 
-  return <Table data={data} onSelect={() => {}} />;
+  return <Table checkboxes data={data} onSelect={(a) => console.log(a)} />;
 };
 
 storiesOf("Table", module)
@@ -77,11 +79,6 @@ storiesOf("Table", module)
       </p>
 
       <h4>With Checkboxes</h4>
-
-      {/* <Table checkboxes data={data} onSelect={() => {}} /> */}
-
-      <br />
-      <h4>Static table</h4>
 
       <DemoComponent />
     </div>

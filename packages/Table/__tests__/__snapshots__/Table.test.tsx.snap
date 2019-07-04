@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table component should be defined and renders correctly (snapshot) 1`] = `
-<ComposedComponent
+<Table
+  checkboxes={false}
   data={
     Object {
       "columns": Array [
@@ -26,110 +27,191 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
     }
   }
   onSelect={[Function]}
+  placeholder="No records available"
 >
-  <Table
-    checkboxes={false}
-    data={
-      Object {
-        "columns": Array [
-          "name",
-          "age",
-        ],
-        "identification": "id",
-        "orderBy": Array [
-          "name",
-          "age",
-        ],
-        "rows": Array [
-          Object {
-            "age": 52,
-            "name": "Lorem",
-          },
-          Object {
-            "age": 43,
-            "name": "Ipsum",
-          },
-        ],
-      }
-    }
-    onSelect={[Function]}
-    placeholder="No records available"
-    utils={
-      Object {
-        "uniqueId": [Function],
-      }
-    }
+  <div
+    className="table-scroll__wrapper"
   >
     <div
-      className="table-scroll__wrapper"
+      className="table-scroll"
     >
-      <div
-        className="table-scroll"
-      >
-        <table>
-          <thead>
-            <tr>
-              <th
-                key="uid-Im5hbWUi"
-              >
-                name
-                <i
-                  className="material-icons"
-                  id="sort_name"
-                  onClick={[Function]}
-                  role="button"
+      <table>
+        <ComposedCompoent
+          allRows={
+            Array [
+              Object {
+                "age": 52,
+                "name": "Lorem",
+              },
+              Object {
+                "age": 43,
+                "name": "Ipsum",
+              },
+            ]
+          }
+          checkboxes={false}
+          enableOrderBy={[Function]}
+          handleSelected={[Function]}
+          identification="id"
+          selected={Array []}
+          sortColumns={
+            Object {
+              "age": "asc",
+              "name": "asc",
+            }
+          }
+        >
+          <TableHead
+            allRows={
+              Array [
+                Object {
+                  "age": 52,
+                  "name": "Lorem",
+                },
+                Object {
+                  "age": 43,
+                  "name": "Ipsum",
+                },
+              ]
+            }
+            checkboxes={false}
+            enableOrderBy={[Function]}
+            handleSelected={[Function]}
+            identification="id"
+            selected={Array []}
+            sortColumns={
+              Object {
+                "age": "asc",
+                "name": "asc",
+              }
+            }
+            utils={
+              Object {
+                "uniqueId": [Function],
+              }
+            }
+          >
+            <thead>
+              <tr>
+                <th
+                  key="uid-Im5hbWUi"
                 >
-                  keyboard_arrow_up
-                </i>
-              </th>
-              <th
-                key="uid-ImFnZSI="
-              >
-                age
-                <i
-                  className="material-icons"
-                  id="sort_age"
-                  onClick={[Function]}
-                  role="button"
+                  name
+                  <i
+                    className="material-icons"
+                    id="sort_name"
+                    onClick={[Function]}
+                    role="button"
+                  >
+                    keyboard_arrow_up
+                  </i>
+                </th>
+                <th
+                  key="uid-ImFnZSI="
                 >
-                  keyboard_arrow_up
-                </i>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              key="uid-eyJuYW1lIjoiTG9yZW0iLCJhZ2UiOjUyfQ=="
-            >
-              <td
-                key="name"
+                  age
+                  <i
+                    className="material-icons"
+                    id="sort_age"
+                    onClick={[Function]}
+                    role="button"
+                  >
+                    keyboard_arrow_up
+                  </i>
+                </th>
+              </tr>
+            </thead>
+          </TableHead>
+        </ComposedCompoent>
+        <ComposedCompoent
+          allRows={
+            Array [
+              Object {
+                "age": 52,
+                "name": "Lorem",
+              },
+              Object {
+                "age": 43,
+                "name": "Ipsum",
+              },
+            ]
+          }
+          checkboxes={false}
+          columns={
+            Array [
+              "name",
+              "age",
+            ]
+          }
+          handleSelected={[Function]}
+          identification="id"
+          placeholder="No records available"
+          selected={Array []}
+        >
+          <TableBody
+            allRows={
+              Array [
+                Object {
+                  "age": 52,
+                  "name": "Lorem",
+                },
+                Object {
+                  "age": 43,
+                  "name": "Ipsum",
+                },
+              ]
+            }
+            checkboxes={false}
+            columns={
+              Array [
+                "name",
+                "age",
+              ]
+            }
+            handleSelected={[Function]}
+            identification="id"
+            placeholder="No records available"
+            selected={Array []}
+            utils={
+              Object {
+                "uniqueId": [Function],
+              }
+            }
+          >
+            <tbody>
+              <tr
+                key="uid-eyJuYW1lIjoiTG9yZW0iLCJhZ2UiOjUyfQ=="
               >
-                Lorem
-              </td>
-              <td
-                key="age"
+                <td
+                  key="name"
+                >
+                  Lorem
+                </td>
+                <td
+                  key="age"
+                >
+                  52
+                </td>
+              </tr>
+              <tr
+                key="uid-eyJuYW1lIjoiSXBzdW0iLCJhZ2UiOjQzfQ=="
               >
-                52
-              </td>
-            </tr>
-            <tr
-              key="uid-eyJuYW1lIjoiSXBzdW0iLCJhZ2UiOjQzfQ=="
-            >
-              <td
-                key="name"
-              >
-                Ipsum
-              </td>
-              <td
-                key="age"
-              >
-                43
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                <td
+                  key="name"
+                >
+                  Ipsum
+                </td>
+                <td
+                  key="age"
+                >
+                  43
+                </td>
+              </tr>
+            </tbody>
+          </TableBody>
+        </ComposedCompoent>
+      </table>
     </div>
-  </Table>
-</ComposedComponent>
+  </div>
+</Table>
 `;
