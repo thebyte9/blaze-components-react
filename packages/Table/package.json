@@ -18,9 +18,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "@blaze-react/checkboxes": "^0.2.9",
     "@blaze-react/utils": "^0.2.9",
     "@types/lodash.orderby": "^4.6.6"
+=======
+    "@blaze-react/checkboxes": "^0.2.8",
+    "@blaze-react/utils": "^0.2.8",
+    "@types/lodash.orderby": "^4.6.6",
+    "lodash.orderby": "^4.6.0"
+>>>>>>> 09befd95992b168197e9d64ce580bba78f6d02c6
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
