@@ -1,5 +1,5 @@
 import Input from "@blaze-react/input";
-import utils from '@blaze-react/utils';
+import WithUtils from '@blaze-react/utils';
 import React, { Fragment, useState } from "react";
 
 interface IAutocompleteProps {
@@ -65,4 +65,4 @@ Autocomplete.defaultProps = {
     return;
   }
 };
-export default utils(Autocomplete);
+export default WithUtils(Autocomplete);
