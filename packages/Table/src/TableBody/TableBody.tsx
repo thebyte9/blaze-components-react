@@ -1,5 +1,5 @@
 import Checkboxes from "@blaze-react/checkboxes";
-import utils from "@blaze-react/utils";
+import withUtils from "@blaze-react/utils";
 import React from "react";
 
 interface ITableBody {
@@ -26,7 +26,7 @@ const TableBody = ({
   utils: {
     uniqueId
   }
-}: ITableBody) => (
+}: ITableBody): JSX.Element => (
     <tbody>
       {allRows.map((row: any) => (
         <tr key={uniqueId(row)}>
@@ -41,13 +41,13 @@ const TableBody = ({
                     value: row[identification]
                   }
                 ]}
-                onChange={({ checked }: any) =>
+                onChange={({ checked }: any): void =>
                   handleSelected(checked, row[identification])
                 }
               />
             </td>
           )}
-          {columns.map((column: any) => (
+          {columns.map((column: any): JSX.Element => (
             <td key={column}>{row[column]}</td>
           ))}
         </tr>
@@ -62,4 +62,4 @@ const TableBody = ({
     </tbody>
   );
 
-export default utils(TableBody);
+export default withUtils(TableBody);

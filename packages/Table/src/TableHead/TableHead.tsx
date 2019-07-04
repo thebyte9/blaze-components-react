@@ -1,5 +1,5 @@
 import Checkboxes from "@blaze-react/checkboxes";
-import utils from "@blaze-react/utils";
+import withUtils from "@blaze-react/utils";
 import React from "react";
 
 interface ITableHead {
@@ -41,13 +41,13 @@ const TableHead = ({
                   }
                 )
               ]}
-              onChange={({ checked }: { checked: any }) =>
+              onChange={({ checked }: { checked: any }): void =>
                 handleSelected(checked, checked, true)
               }
             />
           </th>
         )}
-        {Object.keys(sortColumns).map((column: any) => (
+        {Object.keys(sortColumns).map((column: any): JSX.Element => (
           <th key={uniqueId(column)}>
             {column}
             {enableOrderBy(column)}
@@ -57,4 +57,4 @@ const TableHead = ({
     </thead>
   );
 
-export default utils(TableHead);
+export default withUtils(TableHead);
