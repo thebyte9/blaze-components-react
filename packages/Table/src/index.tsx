@@ -63,7 +63,7 @@ const Table: FunctionComponent<ITableProps> = ({
     });
   };
 
-  const enableOrderBy = (column: string) =>
+  const enableOrderBy = (column: string): JSX.Element =>
     <Fragment>
       {
         orderBy.includes(column) && (
