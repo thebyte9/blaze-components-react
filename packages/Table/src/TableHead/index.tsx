@@ -4,7 +4,7 @@ import React from "react";
 
 interface ITableHead {
   checkboxes?: boolean;
-  selected: [];
+  selected: any[];
   identification: string;
   allRows: object[];
   handleSelected: (checked: object[], value: string, isMultiselect?: boolean) => void;

@@ -6,7 +6,7 @@ interface ITableBody {
   allRows: object[];
   checkboxes?: boolean;
   identification: string;
-  selected: any;
+  selected: any[];
   handleSelected: (checked: object[], value: string, isMultiselect?: boolean) => void;
   columns: string[];
   placeholder: string | JSX.Element;
