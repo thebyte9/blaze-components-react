@@ -10,3 +10,4 @@ export default (ChildComponent: any) => {
   }
   return WithUtils
 }
+
