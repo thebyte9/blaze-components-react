@@ -22,7 +22,7 @@ const data = {
   ]
 };
 
-const AutocompleteComponent = <Autocomplete data={data} selected={() => {}} />;
+const AutocompleteComponent = <Autocomplete data={data} selected={() => { }} />;
 
 describe('Autocomplete component', () => {
   test('should be defined and renders correctly (snapshot)', () => {

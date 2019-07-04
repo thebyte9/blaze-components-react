@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/modal",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.2.5"
+    "@blaze-react/button": "^0.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
