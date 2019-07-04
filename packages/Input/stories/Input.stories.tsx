@@ -15,7 +15,7 @@ storiesOf("Text Inputs", module)
         <p>Create basic single-line text fields.</p>
       </section>
 
-      <h4>Simple</h4>
+      <h4>Required</h4>
       <Input
         label="Text input required"
         placeholder="Enter email"

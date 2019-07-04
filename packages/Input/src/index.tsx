@@ -6,7 +6,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   label?: string;
   modifier?: string;
-  onChange: (...args: any[]) => any;
+  onChange: (arg: object) => void;
   required?: boolean;
   error?: boolean;
   type?: string;
@@ -38,28 +38,26 @@ const Input: FunctionComponent<IInputProps> = ({
     onChange({ event, value: event.target.value });
   };
 
-  const handleToggleType = (t: string | undefined): void => { setType(t) };
+  const handleToggleType = (inputType: string): void => { setType(inputType) };
 
-  const isRequired = required ? 'required' : '';
+  const requiredClassName = required ? 'required' : '';
   const isPassword = type === 'password';
 
   const setModifier = (): string => {
-    if (modifier) {
-      return `form-field--${modifier}`;
-    }
     if (isPassword) {
       return 'form-field--password';
+    }
+    if (modifier) {
+      return `form-field--${modifier}`;
     }
     return "";
   };
 
   return (
     <div className={`form-field form-field--input ${setModifier()}`}>
-      {label && (
-        <label htmlFor={attrs.id} className={isRequired}>
-          {label}
-        </label>
-      )}
+
+      <label htmlFor={attrs.id} className={requiredClassName}>{label}</label>
+
       <input
         onChange={handleChange}
         value={newValue}
@@ -69,7 +67,7 @@ const Input: FunctionComponent<IInputProps> = ({
         {...attrs}
       />
 
-      {error && <span>{validationMessage}</span>}
+      {error && <div>{validationMessage}</div>}
 
       {!hideTypeToggle && isPassword && <ToggleInputType toggleType={handleToggleType} type={newType} />}
 
