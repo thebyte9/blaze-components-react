@@ -10,7 +10,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   required?: boolean;
   error?: boolean;
   type?: string;
-  validationMessage?: string;
+  validationMessage?: string | JSX.Element;
   value?: string;
 }
 
@@ -67,7 +67,10 @@ const Input: FunctionComponent<IInputProps> = ({
         {...attrs}
       />
 
-      {error && <div>{validationMessage}</div>}
+      {error && <div className="validation">
+        <i className="material-icons">warning</i>
+        {validationMessage}
+      </div>}
 
       {!hideTypeToggle && isPassword && <ToggleInputType toggleType={handleToggleType} type={newType} />}
 

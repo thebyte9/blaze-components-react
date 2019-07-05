@@ -1,8 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 interface IToggleInputTypeProps {
   type: string | undefined;
   toggleType: (newType: string) => void
+}
+interface IPasswordState {
+  icon: string,
+  status: string,
+  text: string
 }
 
 const ToggleInputType = ({
@@ -10,27 +15,25 @@ const ToggleInputType = ({
   toggleType
 }: IToggleInputTypeProps): JSX.Element => {
 
-  interface IPasswordState {
-    icon: string,
-    status: string,
-    text: string
-  }
-
   const passwordDefaultClasses: IPasswordState = {
     icon: 'visibility_off',
     status: 'active',
     text: 'Show'
   };
 
-  const [passwordClasses, setPasswordState] = useState(passwordDefaultClasses);
+  const passwordActiveClasses: IPasswordState = {
+    icon: 'visibility_off',
+    status: 'active',
+    text: 'Show'
+  };
+
+  const [passwordClasses, setPasswordState] = useState<IPasswordState>(passwordDefaultClasses);
+
+  const isPassword = type === 'password';
 
   const handleToggleClasses = (): void => {
-    if (type === 'password') {
-      setPasswordState({
-        icon: 'visibility',
-        status: 'hide',
-        text: 'Hide'
-      });
+    if (isPassword) {
+      setPasswordState(passwordActiveClasses);
       toggleType('text');
     } else {
       setPasswordState(passwordDefaultClasses);
@@ -38,18 +41,16 @@ const ToggleInputType = ({
     }
   }
 
-  const { status, icon, text } = passwordClasses
+  const { status, icon, text }: IPasswordState = passwordClasses
 
   return (
-    <Fragment>
-      <span
-        onClick={handleToggleClasses}
-        className={`show-hide-password ${status}`}
-        role="button">
-        {text}
-        <i className="material-icons">{icon}</i>
-      </span>
-    </Fragment>
+    <span
+      onClick={handleToggleClasses}
+      className={`show-hide-password ${status}`}
+      role="button">
+      {text}
+      <i className="material-icons">{icon}</i>
+    </span>
   );
 }
 

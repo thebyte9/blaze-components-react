@@ -17,7 +17,7 @@ storiesOf("Text Inputs", module)
 
       <h4>Required</h4>
       <Input
-        label="Text input required"
+        label="Required field with error activated"
         placeholder="Enter email"
         validationMessage="Email address is required"
         onChange={(): void => { return; }}
