@@ -28,6 +28,7 @@
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
   "dependencies": {
     "@storybook/addon-knobs": "^5.1.7",
+    "@testing-library/react": "^8.0.4",
     "classnames": "^2.2.6",
     "enzyme-to-json": "^3.3.5",
     "lodash.orderby": "^4.6.0",

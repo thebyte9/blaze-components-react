@@ -1,28 +1,39 @@
-import React from 'react';
-import expect from 'expect';
+// tslint:disable-next-line: ordered-imports
+import { fireEvent, render } from "@testing-library/react";
 import { mount } from 'enzyme';
+import expect from 'expect';
+import React from 'react';
 import Autocomplete from '../src';
 
 const data = {
-  keyValue: 'name',
-  filterBy: ['name'],
   data: [
     {
       id: 1,
-      name: 'Lorem'
+      name: "Laravel",
+      description: "PHP framework"
     },
     {
       id: 2,
-      name: 'Ipsum'
+      name: "React",
+      description: "Javascript library"
     },
     {
       id: 3,
-      name: 'Dolor'
+      name: "Adonis",
+      description: "Javascript framework"
     }
-  ]
+  ],
+  filterBy: ['name', 'description'],
+  keyValue: 'name',
 };
 
-const AutocompleteComponent = <Autocomplete data={data} selected={() => { }} />;
+
+const defaultProps = (override = {}) => ({
+  data,
+  ...override
+});
+
+const AutocompleteComponent = <Autocomplete {...defaultProps()} />;
 
 describe('Autocomplete component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
@@ -33,17 +44,22 @@ describe('Autocomplete component', () => {
   });
 
   test('should allow to filter', () => {
-    const wrapper = mount(AutocompleteComponent);
+    const { getByDisplayValue, getByTestId, getByPlaceholderText } = render(AutocompleteComponent);
 
-    wrapper
-      .find('input')
-      .at(0)
-      .simulate('change', { target: { value: 'Lorem' } });
-    expect(
-      wrapper
-        .find('.panel')
-        .at(0)
-        .text()
-    ).toContain('Lorem');
+    const input = getByPlaceholderText('Search');
+
+    fireEvent.change(input, {
+      target: {
+        value: 'php'
+      }
+    });
+
+    const button = getByTestId('option-1');
+
+    fireEvent.click(button);
+
+    getByDisplayValue('Laravel');
+
   });
 });
+

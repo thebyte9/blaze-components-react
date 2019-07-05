@@ -6,45 +6,52 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
     Object {
       "data": Array [
         Object {
+          "description": "PHP framework",
           "id": 1,
-          "name": "Lorem",
+          "name": "Laravel",
         },
         Object {
+          "description": "Javascript library",
           "id": 2,
-          "name": "Ipsum",
+          "name": "React",
         },
         Object {
+          "description": "Javascript framework",
           "id": 3,
-          "name": "Dolor",
+          "name": "Adonis",
         },
       ],
       "filterBy": Array [
         "name",
+        "description",
       ],
       "keyValue": "name",
     }
   }
-  selected={[Function]}
 >
   <Autocomplete
     data={
       Object {
         "data": Array [
           Object {
+            "description": "PHP framework",
             "id": 1,
-            "name": "Lorem",
+            "name": "Laravel",
           },
           Object {
+            "description": "Javascript library",
             "id": 2,
-            "name": "Ipsum",
+            "name": "React",
           },
           Object {
+            "description": "Javascript framework",
             "id": 3,
-            "name": "Dolor",
+            "name": "Adonis",
           },
         ],
         "filterBy": Array [
           "name",
+          "description",
         ],
         "keyValue": "name",
       }
