@@ -1,13 +1,16 @@
-import React, { FunctionComponent, InputHTMLAttributes, useEffect, useState } from "react";
+import React, { FunctionComponent, InputHTMLAttributes, useEffect, useState } from 'react';
+import ToggleInputType from './ToggleInputType';
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   hideTypeToggle?: boolean;
   id?: string;
   label?: string;
   modifier?: string;
-  onChange: (...args: any[]) => any;
+  onChange: (arg: object) => void;
   required?: boolean;
+  error?: boolean;
   type?: string;
+  validationMessage?: string | JSX.Element;
   value?: string;
 }
 
@@ -19,66 +22,43 @@ const Input: FunctionComponent<IInputProps> = ({
   onChange,
   required,
   type,
+  error,
+  validationMessage,
   value,
   ...attrs
 }): JSX.Element => {
-  interface IPasswordState {
-    className: string,
-    icon: string,
-    text: string
-  }
 
-  const passwordDefaultState: IPasswordState = {
-    className: "active",
-    icon: "visibility_off",
-    text: "Show"
-  };
-
-  const [newValue, setNewValue] = useState(value);
-  const [newType, setType] = useState(type);
-  const [passwordState, setPasswordState] = useState(passwordDefaultState);
+  const [newValue, setNewValue] = useState<string | undefined>(value);
+  const [newType, setType] = useState<string | undefined>(type);
 
   useEffect(() => setNewValue(value), [value]);
 
-  const handleChange = (event: any): void => {
-    setNewValue(event.target.value);
-    onChange({ event, value: event.target.value });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const { target: { value: inputValue } } = event;
+    setNewValue(inputValue);
+    onChange({ event, value: inputValue });
   };
 
-  const togglepasswordClassName = (): void => {
-    if (passwordState.className === "active") {
-      setPasswordState({
-        className: "hide",
-        icon: "visibility",
-        text: "Hide"
-      });
-      setType("text");
-    } else {
-      setPasswordState(passwordDefaultState);
-      setType("password");
-    }
-  };
+  const handleToggleType = (inputType: string): void => { setType(inputType) };
 
-  const isRequired = required ? "required" : "";
-  const isPassword = type === "password";
+  const requiredClassName = required ? 'required' : '';
+  const isPassword = type === 'password';
 
   const setModifier = (): string => {
+    if (isPassword) {
+      return 'form-field--password';
+    }
     if (modifier) {
       return `form-field--${modifier}`;
-    }
-    if (isPassword) {
-      return "form-field--password";
     }
     return "";
   };
 
   return (
     <div className={`form-field form-field--input ${setModifier()}`}>
-      {label && (
-        <label htmlFor={attrs.id} className={isRequired}>
-          {label}
-        </label>
-      )}
+
+      <label htmlFor={attrs.id} className={requiredClassName}>{label}</label>
+
       <input
         onChange={handleChange}
         value={newValue}
@@ -87,29 +67,29 @@ const Input: FunctionComponent<IInputProps> = ({
         required={required}
         {...attrs}
       />
-      {!hideTypeToggle && isPassword && (
-        <span
-          onClick={togglepasswordClassName}
-          className={`show-hide-password ${passwordState.className}`}
-          role="button"
-        >
-          {passwordState.text}
-          <i className="material-icons">{passwordState.icon}</i>
-        </span>
-      )}
+
+      {error && <div className="validation">
+        <i className="material-icons">warning</i>
+        {validationMessage}
+      </div>}
+
+      {!hideTypeToggle && isPassword && <ToggleInputType toggleType={handleToggleType} type={newType} />}
+
     </div>
   );
 };
 Input.defaultProps = {
   disabled: false,
+  error: false,
   hideTypeToggle: false,
-  label: "",
-  modifier: "",
+  label: '',
+  modifier: '',
   onChange: (): void => {
     return;
   },
   required: false,
-  type: "text",
-  value: ""
+  type: 'text',
+  validationMessage: 'This field is required',
+  value: ''
 };
 export default Input;

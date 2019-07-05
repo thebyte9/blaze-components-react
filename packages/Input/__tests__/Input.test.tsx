@@ -1,11 +1,11 @@
-import React from 'react';
+import { mount, render, shallow } from 'enzyme';
 import expect from 'expect';
-import { shallow, render } from 'enzyme';
+import React from 'react';
 import Input from '../src';
 
 const testProps = {
-  placeholder: 'Placeholder text',
-  onChange: () => { }
+  onChange: () => { return; },
+  placeholder: 'Placeholder text'
 };
 
 describe('Input component', () => {
@@ -28,7 +28,7 @@ describe('Input component', () => {
   });
 
   test('should show or hide password on toggle', () => {
-    const wrapper = shallow(<Input type="password" {...testProps} />);
+    const wrapper = mount(<Input type="password" {...testProps} />);
     const icon = wrapper.find('.material-icons');
 
     wrapper.find('.show-hide-password').simulate('click');
