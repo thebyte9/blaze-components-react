@@ -4,6 +4,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
 <Fragment>
   <Input
     disabled={false}
+    error={false}
     hideTypeToggle={false}
     label=""
     modifier=""
@@ -12,6 +13,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
     placeholder="Search"
     required={false}
     type="text"
+    validationMessage="This field is required"
     value=""
   />
   <Checkboxes
