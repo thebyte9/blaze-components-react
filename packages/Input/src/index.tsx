@@ -33,9 +33,10 @@ const Input: FunctionComponent<IInputProps> = ({
 
   useEffect(() => setNewValue(value), [value]);
 
-  const handleChange = (event: any): void => {
-    setNewValue(event.target.value);
-    onChange({ event, value: event.target.value });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const { target: { value: inputValue } } = event;
+    setNewValue(inputValue);
+    onChange({ event, value: inputValue });
   };
 
   const handleToggleType = (inputType: string): void => { setType(inputType) };
