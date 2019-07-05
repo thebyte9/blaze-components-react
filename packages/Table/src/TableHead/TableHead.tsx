@@ -36,7 +36,6 @@ const TableHead = ({
                   {},
                   {
                     checked: selected.length === allRows.length,
-                    id: "Select_all",
                     value: allRows.map((row: any) => row[identification])
                   }
                 )
@@ -44,6 +43,7 @@ const TableHead = ({
               onChange={({ checked }: { checked: any }): void =>
                 handleSelected(checked, checked, true)
               }
+              data-testid="select_all"
             />
           </th>
         )}

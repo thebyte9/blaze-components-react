@@ -26,7 +26,6 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
       ],
     }
   }
-  onSelect={[Function]}
   placeholder="No records available"
 >
   <div
@@ -87,6 +86,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             }
             utils={
               Object {
+                "ternary": [Function],
                 "uniqueId": [Function],
               }
             }
@@ -174,6 +174,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             selected={Array []}
             utils={
               Object {
+                "ternary": [Function],
                 "uniqueId": [Function],
               }
             }

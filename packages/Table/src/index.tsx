@@ -13,11 +13,11 @@ interface ITableProps {
     rows: object[];
   };
   value?: string;
-  onSelect: (arg: any[]) => any;
+  onSelect?: (arg: any[]) => any;
 }
 const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy },
-  onSelect,
+  onSelect = () => { return; },
   checkboxes,
   placeholder
 }) => {
@@ -117,9 +117,9 @@ Table.defaultProps = {
     orderBy: [],
     rows: []
   },
-  onSelect: (): void => {
-    return;
-  },
+  // onSelect: (): void => {
+  //   return;
+  // },
   placeholder: "No records available"
 };
 export default Table;
