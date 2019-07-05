@@ -1,6 +1,7 @@
-import React from 'react';
-import expect from 'expect';
+import { fireEvent, render } from "@testing-library/react";
 import { shallow } from 'enzyme';
+import expect from 'expect';
+import React from 'react';
 import Alert from '../src';
 
 describe('Alert component', () => {
@@ -9,9 +10,13 @@ describe('Alert component', () => {
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
+
   test('should close alert', () => {
-    const wrapper = shallow(<Alert close icon="error" type="warning" />);
-    wrapper.find('.icon-button--close').simulate('click');
-    expect(wrapper.children().length).toBe(0);
+    const { container, getByText } = render(<Alert close icon="error" type="warning" />);
+
+    const close = getByText('close');
+    fireEvent.click(close);
+
+    expect(container.childElementCount).toBe(0);
   });
 });
