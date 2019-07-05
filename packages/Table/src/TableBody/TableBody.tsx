@@ -29,7 +29,7 @@ const TableBody = ({
 }: ITableBody): JSX.Element => (
     <tbody>
       {allRows.map((row: any, key: number) => (
-        <tr key={uniqueId(row)}>
+        <tr key={uniqueId(row)} data-testid={`tablerow-${key + 1}`}>
           {checkboxes && (
             <td>
               <Checkboxes

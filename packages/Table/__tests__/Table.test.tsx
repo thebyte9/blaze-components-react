@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import { mount } from 'enzyme';
-import expect from 'expect';
+import 'jest-dom/extend-expect'
 import React from 'react';
 import Table from '../src';
 
@@ -23,8 +23,7 @@ const data = {
 };
 
 const withEmptyRows = {
-  identification: 'id',
-  columns: ['name', 'age'],
+  columns: [],
   orderBy: [],
   rows: []
 };
@@ -95,42 +94,22 @@ describe('Table component', () => {
   });
 
   test('Sort should work with numbers', () => {
-    const wrapper = mount(<Table data={data} onSelect={() => { return; }} />);
+    const { getByTestId } = render(<Table {...defaultProps()} />);
 
-    wrapper.find('#sort_age').simulate('click');
-    expect(
-      wrapper
-        .find('tr')
-        .at(1)
-        .text()
-    ).toContain(43);
+    fireEvent.click(getByTestId('sortby-age'));
+    expect(getByTestId('tablerow-1')).toHaveTextContent('43');
 
-    wrapper.find('#sort_age').simulate('click');
-    expect(
-      wrapper
-        .find('tr')
-        .at(1)
-        .text()
-    ).toContain(52);
+    fireEvent.click(getByTestId('sortby-age'));
+    expect(getByTestId('tablerow-1')).toHaveTextContent('52');
   });
 
   test('Sort should work with Letters', () => {
-    const wrapper = mount(<Table data={data} onSelect={() => { return; }} />);
+    const { getByTestId } = render(<Table {...defaultProps()} />);
 
-    wrapper.find('#sort_name').simulate('click');
-    expect(
-      wrapper
-        .find('tr')
-        .at(1)
-        .text()
-    ).toContain('Ipsum');
+    fireEvent.click(getByTestId('sortby-name'));
+    expect(getByTestId('tablerow-1')).toHaveTextContent('Ipsum');
 
-    wrapper.find('#sort_name').simulate('click');
-    expect(
-      wrapper
-        .find('tr')
-        .at(1)
-        .text()
-    ).toContain('Lorem');
+    fireEvent.click(getByTestId('sortby-name'));
+    expect(getByTestId('tablerow-1')).toHaveTextContent('Lorem');
   });
 });

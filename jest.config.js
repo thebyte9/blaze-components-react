@@ -12,6 +12,9 @@ module.exports = {
     "/node_modules/",
     "lib",
   ],
+  setupFilesAfterEnv: [
+    '@testing-library/react/cleanup-after-each'
+  ],
   setupFiles: ["./.typescript/setupTests.js"],
   snapshotSerializers: ["enzyme-to-json/serializer"],
   moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"],

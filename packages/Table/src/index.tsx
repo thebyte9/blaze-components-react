@@ -67,7 +67,7 @@ const Table: FunctionComponent<ITableProps> = ({
       {
         orderBy.includes(column) && (
           <i
-            id={`sort_${column}`}
+            data-testid={`sortby-${column}`}
             className="material-icons"
             onClick={() => sort(column)}
             role="button"
@@ -116,9 +116,6 @@ Table.defaultProps = {
     orderBy: [],
     rows: []
   },
-  // onSelect: (): void => {
-  //   return;
-  // },
   placeholder: "No records available"
 };
 export default Table;
