@@ -10,10 +10,12 @@ const data = {
   orderBy: ['name', 'age'],
   rows: [
     {
+      id: 1,
       name: 'Lorem',
       age: 52
     },
     {
+      id: 2,
       name: 'Ipsum',
       age: 43
     }
@@ -27,7 +29,8 @@ const withEmptyRows = {
   rows: []
 };
 
-const defaultProps = (override = {}) => ({
+const defaultProps = (override: object = {}) => ({
+  checkboxes: false,
   data,
   ...override
 });
@@ -40,72 +43,55 @@ describe('Table component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should toggle multiselect', () => {
+  test('should toggle multiselect and one by one', () => {
+    let selectedRows: [] = [];
+
+    const onSelect = (selected: []) => {
+      selectedRows = selected;
+    }
     const override = {
       checkboxes: true,
-      onSelect: () => ({})
+      onSelect
     }
 
     const { getByTestId } = render(<Table {...defaultProps(override)} />);
 
-    const checkbox = getByTestId('select_all');
+    fireEvent.click(getByTestId('select_all'));
+    expect(selectedRows).toEqual([1, 2]);
 
-    fireEvent.click(checkbox);
-    fireEvent.click(checkbox);
+    fireEvent.click(getByTestId('select_all'));
+    expect(selectedRows).toEqual([]);
 
-    // wrapper
-    //   .find('Checkboxes')
-    //   .at(0)
-    //   .simulate('click');
-    // expect(
-    //   wrapper
-    //     .find('input')
-    //     .at(0)
-    //     .prop('checked')
-    // ).toBe(true);
+    fireEvent.click(getByTestId('row-checkbox-1'));
+    expect(selectedRows).toEqual([1]);
 
-    // wrapper
-    //   .find('Checkboxes')
-    //   .at(0)
-    //   .simulate('click');
-    // expect(
-    //   wrapper
-    //     .find('input')
-    //     .at(0)
-    //     .prop('checked')
-    // ).toBe(false);
+    fireEvent.click(getByTestId('row-checkbox-1'));
+    expect(selectedRows).toEqual([]);
+
   });
 
-  test('should toggle one Checkbox', () => {
-    const wrapper = mount(<Table checkboxes data={data} onSelect={() => { return; }} />);
-
-    wrapper
-      .find('Checkboxes')
-      .at(2)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('input')
-        .at(2)
-        .prop('checked')
-    ).toBe(true);
-
-    wrapper
-      .find('Checkboxes')
-      .at(2)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('input')
-        .at(2)
-        .prop('checked')
-    ).toBe(false);
-  });
 
   test('should show placeholder if there is no data yet', () => {
-    const wrapper = mount(<Table data={withEmptyRows} onSelect={() => { return; }} />);
+    const placeholder = 'The table is empty of records';
 
-    expect(wrapper.find('td').text()).toContain('No records available');
+    let override = {
+      data: withEmptyRows,
+      placeholder,
+    }
+
+    const { getByText, rerender } = render(<Table {...defaultProps(override)} />);
+
+    getByText(placeholder);
+
+    override = {
+      ...override,
+      ...{
+        checkboxes: true
+      }
+    };
+
+    rerender(<Table {...defaultProps(override)} />);
+
   });
 
   test('Sort should work with numbers', () => {

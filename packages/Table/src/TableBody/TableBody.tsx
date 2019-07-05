@@ -28,11 +28,12 @@ const TableBody = ({
   }
 }: ITableBody): JSX.Element => (
     <tbody>
-      {allRows.map((row: any) => (
+      {allRows.map((row: any, key: number) => (
         <tr key={uniqueId(row)}>
           {checkboxes && (
             <td>
               <Checkboxes
+                data-testid={`row-checkbox-${key + 1}`}
                 withEffect
                 options={[
                   {

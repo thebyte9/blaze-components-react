@@ -31,6 +31,7 @@ const Table: FunctionComponent<ITableProps> = ({
     setRows(rows);
     setSortColumns(formatColumns);
     onSelect(selected)
+
   }, [rows, columns, selected]);
 
   const handleSelected = (
@@ -41,9 +42,7 @@ const Table: FunctionComponent<ITableProps> = ({
     if (multiselect) {
       let checkedValue = [];
       if (checked) {
-        checkedValue = Array.isArray(checked.value)
-          ? [...checked.value]
-          : [checked.value];
+        checkedValue = [...checked.value];
       }
       setSelected(checkedValue);
       return;

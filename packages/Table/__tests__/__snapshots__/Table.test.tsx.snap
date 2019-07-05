@@ -17,10 +17,12 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
       "rows": Array [
         Object {
           "age": 52,
+          "id": 1,
           "name": "Lorem",
         },
         Object {
           "age": 43,
+          "id": 2,
           "name": "Ipsum",
         },
       ],
@@ -40,10 +42,12 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             Array [
               Object {
                 "age": 52,
+                "id": 1,
                 "name": "Lorem",
               },
               Object {
                 "age": 43,
+                "id": 2,
                 "name": "Ipsum",
               },
             ]
@@ -65,10 +69,12 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
               Array [
                 Object {
                   "age": 52,
+                  "id": 1,
                   "name": "Lorem",
                 },
                 Object {
                   "age": 43,
+                  "id": 2,
                   "name": "Ipsum",
                 },
               ]
@@ -86,7 +92,6 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             }
             utils={
               Object {
-                "ternary": [Function],
                 "uniqueId": [Function],
               }
             }
@@ -128,10 +133,12 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             Array [
               Object {
                 "age": 52,
+                "id": 1,
                 "name": "Lorem",
               },
               Object {
                 "age": 43,
+                "id": 2,
                 "name": "Ipsum",
               },
             ]
@@ -153,10 +160,12 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
               Array [
                 Object {
                   "age": 52,
+                  "id": 1,
                   "name": "Lorem",
                 },
                 Object {
                   "age": 43,
+                  "id": 2,
                   "name": "Ipsum",
                 },
               ]
@@ -174,14 +183,13 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             selected={Array []}
             utils={
               Object {
-                "ternary": [Function],
                 "uniqueId": [Function],
               }
             }
           >
             <tbody>
               <tr
-                key="uid-eyJuYW1lIjoiTG9yZW0iLCJhZ2UiOjUyfQ=="
+                key="uid-eyJpZCI6MSwibmFtZSI6IkxvcmVtIiwiYWdlIjo1Mn0="
               >
                 <td
                   key="name"
@@ -195,7 +203,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
                 </td>
               </tr>
               <tr
-                key="uid-eyJuYW1lIjoiSXBzdW0iLCJhZ2UiOjQzfQ=="
+                key="uid-eyJpZCI6MiwibmFtZSI6Iklwc3VtIiwiYWdlIjo0M30="
               >
                 <td
                   key="name"
