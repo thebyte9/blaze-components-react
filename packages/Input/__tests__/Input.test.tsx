@@ -7,6 +7,7 @@ import Input from '../src';
 
 const defaultProps = (override: object = {}) => ({
   placeholder: 'Placeholder text',
+  onChange: () => void 0,
   ...override
 });
 
@@ -69,6 +70,7 @@ describe('Input component', () => {
       error: true,
       modifier: 'full-width',
       placeholder: 'Enter email',
+      required: true,
     };
 
     const { getByTestId, rerender } = render(<Input {...defaultProps(override)} />);

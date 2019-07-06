@@ -6,7 +6,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   label?: string;
   modifier?: string;
-  onChange?: (arg: object) => void;
+  onChange: (arg: object) => void;
   required?: boolean;
   error?: boolean;
   type?: string;
@@ -19,7 +19,7 @@ const Input: FunctionComponent<IInputProps> = ({
   hideTypeToggle,
   label,
   modifier,
-  onChange = (): void => { return; },
+  onChange,
   required,
   type,
   error,
