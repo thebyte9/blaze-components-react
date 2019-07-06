@@ -6,7 +6,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id?: string;
   label?: string;
   modifier?: string;
-  onChange: (arg: object) => void;
+  onChange?: (arg: object) => void;
   required?: boolean;
   error?: boolean;
   type?: string;
@@ -19,7 +19,7 @@ const Input: FunctionComponent<IInputProps> = ({
   hideTypeToggle,
   label,
   modifier,
-  onChange,
+  onChange = (): void => { return; },
   required,
   type,
   error,
@@ -60,6 +60,7 @@ const Input: FunctionComponent<IInputProps> = ({
       <label htmlFor={attrs.id} className={requiredClassName}>{label}</label>
 
       <input
+        data-testid="input"
         onChange={handleChange}
         value={newValue}
         disabled={disabled}
@@ -68,7 +69,7 @@ const Input: FunctionComponent<IInputProps> = ({
         {...attrs}
       />
 
-      {error && <div className="validation">
+      {error && <div className="validation" data-testid="validation-message">
         <i className="material-icons">warning</i>
         {validationMessage}
       </div>}
@@ -84,9 +85,6 @@ Input.defaultProps = {
   hideTypeToggle: false,
   label: '',
   modifier: '',
-  onChange: (): void => {
-    return;
-  },
   required: false,
   type: 'text',
   validationMessage: 'This field is required',

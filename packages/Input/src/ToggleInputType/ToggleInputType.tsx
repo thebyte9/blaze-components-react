@@ -22,9 +22,9 @@ const ToggleInputType = ({
   };
 
   const passwordActiveClasses: IPasswordState = {
-    icon: 'visibility_off',
-    status: 'active',
-    text: 'Show'
+    icon: 'visibility',
+    status: 'hide',
+    text: 'Hide'
   };
 
   const [passwordClasses, setPasswordState] = useState<IPasswordState>(passwordDefaultClasses);
@@ -45,6 +45,7 @@ const ToggleInputType = ({
 
   return (
     <span
+      data-testid="toggle-input-type"
       onClick={handleToggleClasses}
       className={`show-hide-password ${status}`}
       role="button">
