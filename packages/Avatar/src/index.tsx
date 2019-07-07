@@ -18,7 +18,7 @@ const Avatar: FunctionComponent<IAvatarProps> = ({
 
   const getInitilas = (): string => {
     if (!username) {
-      return '';
+      return '!';
     }
     return username
       .split(" ")
@@ -53,6 +53,6 @@ const Avatar: FunctionComponent<IAvatarProps> = ({
 Avatar.defaultProps = {
   modifier: "",
   url: "",
-  username: "!"
+  username: ""
 };
 export default Avatar;
