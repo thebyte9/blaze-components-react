@@ -30,7 +30,6 @@ const TableHead = ({
         {checkboxes && (
           <th>
             <Checkboxes
-              withEffect
               options={[
                 Object.assign(
                   {},

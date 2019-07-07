@@ -64,7 +64,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
             Object.assign({}, copiedData, { label: copiedData[keyValue] })
           )}
           onChange={handleChange}
-          withEffect
         />
       }
     </Fragment>

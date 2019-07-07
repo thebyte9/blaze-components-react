@@ -4,48 +4,51 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
 <Fragment>
   <div
     className="form-field form-field--checkbox "
-    key="one"
+    data-testid="checkbox-1"
+    key="1"
     onClick={[Function]}
     role="button"
   >
     <input
       checked={false}
       className="form-checkbox"
-      id="one"
+      id={1}
       readOnly={true}
       type="checkbox"
-      value={1}
+      value="lorem ipsum"
     />
     <label
-      htmlFor="one"
+      htmlFor={1}
     >
-      Example
+      first
     </label>
   </div>
   <div
     className="form-field form-field--checkbox required"
-    key="two"
+    data-testid="checkbox-2"
+    key="2"
     onClick={[Function]}
     role="button"
   >
     <input
       checked={false}
       className="form-checkbox"
-      id="two"
+      id={2}
       readOnly={true}
       required={true}
       type="checkbox"
       value="accepted"
     />
     <label
-      htmlFor="two"
+      htmlFor={2}
     >
       I accept
     </label>
   </div>
   <div
     className="form-field form-field--checkbox "
-    key="three"
+    data-testid="checkbox-3"
+    key="3"
     onClick={[Function]}
     role="button"
   >
@@ -53,13 +56,13 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
       checked={false}
       className="form-checkbox"
       disabled={true}
-      id="three"
+      id={3}
       readOnly={true}
       type="checkbox"
       value=""
     />
     <label
-      htmlFor="three"
+      htmlFor={3}
     >
       Disabled
     </label>

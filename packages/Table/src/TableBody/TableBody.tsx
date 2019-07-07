@@ -33,7 +33,6 @@ const TableBody = ({
           {checkboxes && (
             <td>
               <Checkboxes
-                withEffect
                 options={[
                   {
                     checked: selected.includes(row[identification]),
