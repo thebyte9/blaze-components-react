@@ -1,24 +1,38 @@
-import React from 'react';
-import expect from 'expect';
 import { shallow } from 'enzyme';
+import expect from 'expect';
+import React from 'react';
 import Textarea from '../src';
+
+const defaultProps = (override = {}) => ({
+  label: 'Simple extarea',
+  onChange: () => ({}),
+  ...override
+});
 
 describe('Textarea component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Textarea placeholder="" onChange={() => { }} label="" />);
+    const wrapper = shallow(<Textarea {...defaultProps()} />);
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
   test('should change textarea content', () => {
-    const wrapper = shallow(<Textarea placeholder="" onChange={() => { }} label="Simple extarea" required />);
+    const override = {
+      required: true
+    };
+
+    const wrapper = shallow(<Textarea {...defaultProps(override)} />);
 
     wrapper.find('textarea').simulate('change', { target: { value: 'byte9' } });
     expect(wrapper.find('textarea').prop('value')).toBe('byte9');
   });
 
   test('content length should be equal to limit', () => {
-    const wrapper = shallow(<Textarea placeholder="" onChange={() => { }} label="Simple extarea" limit={11} />);
+    const override = {
+      limit: 11
+    };
+
+    const wrapper = shallow(<Textarea {...defaultProps(override)} />);
 
     wrapper
       .find('textarea')

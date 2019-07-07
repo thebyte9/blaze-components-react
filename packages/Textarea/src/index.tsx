@@ -10,7 +10,7 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   limit?: number;
   onChange: (...args: any[]) => void;
   value?: string;
-  placeholder: string;
+  placeholder?: string;
 }
 const Textarea: FunctionComponent<ITextareaProps> = ({
   value,
@@ -21,17 +21,32 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   id,
   ...attrs
 }) => {
-  const [content, setContent] = useState<string>("");
-  const handleChange = (event: any) => {
-    let newContent = event.target.value;
+  const [content, setContent] = useState<string>('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    let { target: { value: newContent } } = event;
+
     if (limit && newContent.length > limit) {
       newContent = newContent.slice(0, limit);
     }
+
     setContent(newContent);
     onChange({ event, value: newContent });
   };
-  const isRequired = required ? "required" : "";
-  const total = limit && limit - content.length;
+
+  const requiredClassName = 'required';
+
+  const isRequired: string = required ? requiredClassName : '';
+
+  const getTotal = (): number => {
+    if (!limit) {
+      return 0;
+    }
+    return limit - content.length;
+  }
+
+  const total: number = getTotal();
+
   return (
     <Fragment>
       {label && (
@@ -52,12 +67,10 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   );
 };
 Textarea.defaultProps = {
-  label: "",
+  label: '',
   limit: 0,
-  onChange: (): void => {
-    return;
-  },
+  placeholder: '',
   required: false,
-  value: ""
+  value: ''
 };
 export default Textarea;
