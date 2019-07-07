@@ -47,8 +47,13 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
             disabled,
             required,
             label,
+            show = true,
             id = uuidv1()
           } = item;
+
+          if (!show) {
+            return <Fragment key={uuidv1()} />;
+          }
 
           return (
             <div

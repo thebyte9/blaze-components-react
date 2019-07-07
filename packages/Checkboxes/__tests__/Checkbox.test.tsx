@@ -21,6 +21,11 @@ const options = [
     disabled: true,
     label: 'Disabled',
     value: ''
+  },
+  {
+    id: 3,
+    label: 'display none',
+    show: false
   }
 ];
 
