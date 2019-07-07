@@ -10,6 +10,8 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   limit?: number;
   onChange: (...args: any[]) => void;
   value?: string;
+  error?: boolean;
+  validationMessage?: string | JSX.Element;
   placeholder?: string;
 }
 const Textarea: FunctionComponent<ITextareaProps> = ({
@@ -17,6 +19,8 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   label,
   limit,
   onChange,
+  error,
+  validationMessage,
   required,
   id,
   ...attrs
@@ -63,14 +67,20 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
         {...attrs}
       />
       {!!limit && <span>{total}</span>}
+      {error && <div className="validation">
+        <i className="material-icons">warning</i>
+        {validationMessage}
+      </div>}
     </Fragment>
   );
 };
 Textarea.defaultProps = {
+  error: false,
   label: '',
   limit: 0,
   placeholder: '',
   required: false,
+  validationMessage: 'This field is required',
   value: ''
 };
 export default Textarea;

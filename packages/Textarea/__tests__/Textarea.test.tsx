@@ -18,6 +18,7 @@ describe('Textarea component', () => {
 
   test('should change textarea content', () => {
     const override = {
+      error: true,
       required: true
     };
 
@@ -25,6 +26,7 @@ describe('Textarea component', () => {
 
     wrapper.find('textarea').simulate('change', { target: { value: 'byte9' } });
     expect(wrapper.find('textarea').prop('value')).toBe('byte9');
+    expect(wrapper.find('.validation').text()).toContain('This field is required');
   });
 
   test('content length should be equal to limit', () => {
