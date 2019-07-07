@@ -1,3 +1,4 @@
+// import { render } from "@testing-library/react";
 import { mount } from 'enzyme';
 import expect from 'expect';
 import React from 'react';
@@ -21,17 +22,19 @@ describe('Avatar component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  // test('should load image', () => {
+  test('should load image', () => {
+    const dummyImage = {
+      addEventListener: jest.fn((_, evtHandler) => { evtHandler(); }),
+    };
 
-  //   const dummyFileReader = {
-  //     addEventListener: jest.fn((_, evtHandler) => { evtHandler(); }),
-  //   };
+    window.Image = jest.fn(() => dummyImage);
 
-  //   window.Image = jest.fn(() => dummyFileReader);
+    const wrapper = mount(<Avatar {...defaultProps()} />);
 
-  //   mount(<Avatar {...defaultProps()} />);
+    const image = wrapper.find('img');
 
-  // });
+    expect(image.prop('src')).toContain(url);
+  });
 
   test('should be defined and renders also when the image does not load', () => {
     const wrapper = mount(<Avatar url={`notFound/${url}`} modifier="med" />);
