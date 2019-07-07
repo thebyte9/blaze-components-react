@@ -24,7 +24,7 @@ storiesOf("Avatar", module)
       <br />
 
       <h4>User Initials</h4>
-      <Avatar username="Blaz 2" />
+      <Avatar username="Blaz 2" modifier="med" />
       <Avatar username="Kongan Page" modifier="x-small" />
     </div>
   ));

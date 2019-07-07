@@ -7,12 +7,13 @@ interface IAvatarProps {
 }
 const Avatar: FunctionComponent<IAvatarProps> = ({
   modifier,
-  url = "",
+  url,
   username,
   ...attr
 }): JSX.Element => {
-  const [avatarUrl, setAvatar] = useState(url);
+  const [avatarUrl, setAvatar] = useState<string | undefined>(url);
   const buildedModifier = modifier ? `avatar--${modifier}` : "";
+
   const initials =
     username &&
     username
@@ -20,9 +21,13 @@ const Avatar: FunctionComponent<IAvatarProps> = ({
       .map(subName => subName[0].toUpperCase())
       .join("")
       .substring(0, 2);
-  const imageData = new Image();
-  imageData.src = url;
-  imageData.onload = () => setAvatar(url);
+
+  if (url) {
+    const imageData = new Image();
+    imageData.src = url;
+    imageData.addEventListener('load', () => setAvatar(url));
+  }
+
   return (
     <div className={`avatar ${buildedModifier}`}>
       {avatarUrl && <img src={avatarUrl} alt="avatar" {...attr} />}
