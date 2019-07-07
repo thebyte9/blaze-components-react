@@ -20,24 +20,22 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 }) => {
   const [selected, setSelected] = useState([]);
   const [dataCopy, setDataCopy] = useState(data);
+
   const setStatus = (obj: any, status: any) =>
     Object.assign({}, obj, { show: status });
+
   const handleKeyUp = (event: any) => {
     const {
       target: { value }
     } = event;
-    const parsedDataCopy = dataCopy.map(copy => {
-      let newCopy = setStatus(copy, false);
-      keys.forEach(key => {
-        const match = copy[key].toLowerCase().includes(value.toLowerCase());
-        if (match) {
-          newCopy = setStatus(copy, true);
-        }
-      });
-      return newCopy;
-    });
+
+    const parsedDataCopy = dataCopy.map(copy =>
+      setStatus(copy, !!keys.some(key => copy[key].toLowerCase().includes(value.toLowerCase())))
+    );
+
     setDataCopy(parsedDataCopy);
   };
+
   const handleChange = ({
     checked,
     data: localData
@@ -64,7 +62,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
             Object.assign({}, copiedData, { label: copiedData[keyValue] })
           )}
           onChange={handleChange}
-          withEffect
         />
       }
     </Fragment>
@@ -73,8 +70,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 MultiSelect.defaultProps = {
   children: "",
   placeholder: "Search",
-  selected: (): void => {
-    return;
-  }
 };
 export default MultiSelect;
+
