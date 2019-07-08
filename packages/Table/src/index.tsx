@@ -17,11 +17,19 @@ interface ITableProps {
 }
 const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy },
-  onSelect = () => { return; },
+  onSelect = () => {
+    return;
+  },
   checkboxes,
   placeholder
 }) => {
-  const formatColumns = columns.reduce((result, item) => ({ ...result, [item]: "asc" }), {})
+  const asc: string = "asc";
+  const desc: string = "desc";
+
+  const formatColumns = columns.reduce(
+    (result, item) => ({ ...result, [item]: asc }),
+    {}
+  );
 
   const [selected, setSelected] = useState<any[]>([]);
   const [allRows, setRows] = useState<object[]>(rows);
@@ -30,8 +38,7 @@ const Table: FunctionComponent<ITableProps> = ({
   useEffect(() => {
     setRows(rows);
     setSortColumns(formatColumns);
-    onSelect(selected)
-
+    onSelect(selected);
   }, [rows, columns, selected]);
 
   const handleSelected = (
@@ -58,27 +65,26 @@ const Table: FunctionComponent<ITableProps> = ({
     setRows([..._orderBy(allRows, [column], [sortColumns[column]])]);
     setSortColumns({
       ...sortColumns,
-      [column]: sortColumns[column] === "asc" ? "desc" : "asc"
+      [column]: sortColumns[column] === asc ? desc : asc
     });
   };
 
-  const enableOrderBy = (column: string): JSX.Element =>
+  const enableOrderBy = (column: string): JSX.Element => (
     <Fragment>
-      {
-        orderBy.includes(column) && (
-          <i
-            data-testid={`sortby-${column}`}
-            className="material-icons"
-            onClick={() => sort(column)}
-            role="button"
-          >
-            {sortColumns[column] === "asc"
-              ? "keyboard_arrow_up"
-              : "keyboard_arrow_down"}
-          </i>
-        )
-      }
+      {orderBy.includes(column) && (
+        <i
+          data-testid={`sortby-${column}`}
+          className="material-icons"
+          onClick={() => sort(column)}
+          role="button"
+        >
+          {sortColumns[column] === asc
+            ? "keyboard_arrow_up"
+            : "keyboard_arrow_down"}
+        </i>
+      )}
     </Fragment>
+  );
 
   return (
     <div className="table-scroll__wrapper">
