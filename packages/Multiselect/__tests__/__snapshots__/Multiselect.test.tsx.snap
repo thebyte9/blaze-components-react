@@ -17,7 +17,6 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
     value=""
   />
   <Checkboxes
-    bool={false}
     onChange={[Function]}
     options={
       Array [
@@ -38,7 +37,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
         },
       ]
     }
-    withEffect={true}
+    returnBoolean={false}
   />
 </Fragment>
 `;
