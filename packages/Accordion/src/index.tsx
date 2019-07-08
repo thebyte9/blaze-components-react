@@ -9,12 +9,16 @@ interface IAccordionProps {
 }
 
 const Accordion = ({ children }: IAccordionProps): JSX.Element => {
-  const [accordionStatus, setAccordionStatus] = useState<string>('none');
+  const flex = 'flex';
+  const none = 'none';
+
+  const [accordionStatus, setAccordionStatus] = useState<string>(none);
 
   const [header, content]: [JSX.Element, JSX.Element] = children;
 
-  const isActive: boolean = accordionStatus === 'flex'
-  const toggleAccordion = (): void => setAccordionStatus(isActive ? 'none' : 'flex');
+
+  const isActive: boolean = accordionStatus === flex
+  const toggleAccordion = (): void => setAccordionStatus(isActive ? none : flex);
 
   return (
     <div className="accordion">
