@@ -59,7 +59,6 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
   >
     <Input
       disabled={false}
-      error={false}
       hideTypeToggle={false}
       label=""
       modifier=""
@@ -67,15 +66,11 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
       placeholder="Search"
       required={false}
       type="text"
-      validationMessage="This field is required"
       value=""
     >
       <div
         className="form-field form-field--input "
       >
-        <label
-          className=""
-        />
         <input
           disabled={false}
           onChange={[Function]}

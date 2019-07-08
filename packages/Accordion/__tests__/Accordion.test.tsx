@@ -36,6 +36,7 @@ describe('Accordion component', () => {
 
   test('should toggle on click', () => {
     const wrapper = mount(AccordionComponent);
+
     wrapper
       .find('.icon-button--accordion')
       .at(0)
@@ -46,5 +47,10 @@ describe('Accordion component', () => {
         .at(0)
         .text()
     ).toContain('Content here.');
+
+    wrapper
+      .find('.icon-button--accordion')
+      .at(0)
+      .simulate('click');
   });
 });
