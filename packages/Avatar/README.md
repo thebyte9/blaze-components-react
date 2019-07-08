@@ -23,7 +23,7 @@ const url = 'http://lorempixel.com/400/400/people/';
 <Avatar username="Blaz 2" modifier="med"/>
 
 <Avatar
-  username="Kongan Page"
+  username="Lorem Ipsum"
   modifier="x-small"/>
 ```
 

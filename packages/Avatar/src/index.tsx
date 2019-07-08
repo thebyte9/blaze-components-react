@@ -12,40 +12,43 @@ const Avatar: FunctionComponent<IAvatarProps> = ({
   ...attr
 }): JSX.Element => {
   const [avatarUrl, setAvatar] = useState<string | undefined>(url);
-  const [invalidUrl, setInvalidUrl] = useState<boolean>(true);
-  const buildedModifier = modifier ? `avatar--${modifier}` : "";
+  const [validUrl, setValidUrl] = useState<boolean>(false);
 
+  const buildedModifier: string = modifier ? `avatar--${modifier}` : "";
 
   const getInitilas = (): string => {
     if (!username) {
-      return '!';
+      return "!";
     }
     return username
       .split(" ")
       .map(subName => subName[0].toUpperCase())
       .join("")
       .substring(0, 2);
-  }
+  };
 
   const initials: string = getInitilas();
 
-  if (url && invalidUrl) {
+  if (url && !validUrl) {
     const imageData = new Image();
     imageData.src = url;
 
-    imageData.addEventListener('load', (): void => {
-      setAvatar(url)
-      setInvalidUrl(false);
-    });
+    imageData.addEventListener(
+      "load",
+      (): void => {
+        setAvatar(url);
+        setValidUrl(true);
+      }
+    );
   }
 
   return (
     <div className={`avatar ${buildedModifier}`}>
-      {avatarUrl ? (
+      {validUrl ? (
         <img src={avatarUrl} alt="avatar" {...attr} />
       ) : (
-          <span>{initials}</span>
-        )}
+        <span>{initials}</span>
+      )}
     </div>
   );
 };
