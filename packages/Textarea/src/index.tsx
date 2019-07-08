@@ -25,10 +25,14 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   id,
   ...attrs
 }) => {
-  const [content, setContent] = useState<string>('');
+  const [content, setContent] = useState<string>("");
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    let { target: { value: newContent } } = event;
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
+    let {
+      target: { value: newContent }
+    } = event;
 
     if (limit && newContent.length > limit) {
       newContent = newContent.slice(0, limit);
@@ -38,16 +42,16 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
     onChange({ event, value: newContent });
   };
 
-  const requiredClassName: string = 'required';
+  const requiredClassName: string = "required";
 
-  const isRequired: string = required ? requiredClassName : '';
+  const isRequired: string = required ? requiredClassName : "";
 
   const getTotal = (): number => {
     if (!limit) {
       return 0;
     }
     return limit - content.length;
-  }
+  };
 
   const total: number = getTotal();
 
@@ -67,20 +71,22 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
         {...attrs}
       />
       {!!limit && <span>{total}</span>}
-      {error && <div className="validation">
-        <i className="material-icons">warning</i>
-        {validationMessage}
-      </div>}
+      {error && (
+        <div className="validation">
+          <i className="material-icons">warning</i>
+          {validationMessage}
+        </div>
+      )}
     </Fragment>
   );
 };
 Textarea.defaultProps = {
   error: false,
-  label: '',
+  label: "",
   limit: 0,
-  placeholder: '',
+  placeholder: "",
   required: false,
-  validationMessage: 'This field is required',
-  value: ''
+  validationMessage: "This field is required",
+  value: ""
 };
 export default Textarea;
