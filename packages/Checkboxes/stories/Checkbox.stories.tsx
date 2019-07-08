@@ -61,7 +61,7 @@ storiesOf("Checkboxes", module)
         <h3>Single</h3>
         <div className="form-field form-field--checkbox">
           <Checkboxes
-            bool
+            returnBoolean
             options={single}
             onChange={() => {
               return;
