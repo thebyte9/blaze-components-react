@@ -2,6 +2,11 @@
 
 exports[`Textarea component should be defined and renders correctly (snapshot) 1`] = `
 <Fragment>
+  <label
+    className=""
+  >
+    Simple extarea
+  </label>
   <textarea
     onChange={[Function]}
     placeholder=""
