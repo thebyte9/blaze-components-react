@@ -17,9 +17,7 @@ interface ITableProps {
 }
 const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy },
-  onSelect = () => {
-    return;
-  },
+  onSelect = () => ({}),
   checkboxes,
   placeholder
 }) => {
@@ -66,9 +64,14 @@ const Table: FunctionComponent<ITableProps> = ({
   };
 
   const sort = (column: any) => {
+    const resetSortColumns = {};
+
+    Object.keys(sortColumns).forEach(key => (resetSortColumns[key] = asc));
+
     setRows([..._orderBy(allRows, [column], [sortColumns[column]])]);
+
     setSortColumns({
-      ...sortColumns,
+      ...resetSortColumns,
       [column]: sortColumns[column] === asc ? desc : asc
     });
   };

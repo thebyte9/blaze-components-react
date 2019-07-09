@@ -7,7 +7,7 @@ const DemoComponent = () => {
   const [data, setData] = useState<any>({
     columns: ["name", "age"],
     identification: "id",
-    orderBy: ["age"],
+    orderBy: ["age", "name"],
     rows: [
       {
         id: 1,
@@ -21,7 +21,7 @@ const DemoComponent = () => {
       },
       {
         id: 3,
-        name: "Robert",
+        name: "Admin",
         age: 45
       }
     ]
@@ -32,7 +32,7 @@ const DemoComponent = () => {
       setData({
         identification: "id",
         columns: ["name", "lastName", "age", "tel"],
-        orderBy: ["age"],
+        orderBy: ["age", "name"],
         rows: [
           {
             id: 1,
@@ -57,7 +57,7 @@ const DemoComponent = () => {
           }
         ]
       });
-    }, 4000);
+    }, 4000000);
   }, []);
 
   return <Table checkboxes data={data} onSelect={() => ({})} />;

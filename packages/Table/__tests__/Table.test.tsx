@@ -48,6 +48,7 @@ describe("Table component", () => {
     const onSelect = (selected: []) => {
       selectedRows = selected;
     };
+
     const override = {
       checkboxes: true,
       onSelect
