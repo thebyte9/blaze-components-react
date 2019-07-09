@@ -4,29 +4,21 @@ import SwitchesReadme from "../README.md";
 import Switches from "../src";
 const multiple = [
   {
-    id: "one",
-    label: "First",
-    value: 1
+    id: 1,
+    label: "Switch text"
   },
   {
-    id: "two",
-    label: "Second",
-    value: 2
-  },
-  {
-    id: "three",
-    label: "Third",
-    value: 3
+    id: 2,
+    label: "Switch text"
   },
   {
     disabled: true,
-    id: "fourth",
-    label: "Disabled",
-    value: 4
+    id: 4,
+    label: "Disabled"
   }
 ];
 const single = {
-  label: "Do you agree?",
+  label: "Switch text",
   required: true
 };
 storiesOf("Switches", module)
@@ -39,32 +31,28 @@ storiesOf("Switches", module)
     <div className="component-wrapper">
       <section className="introductionSection">
         <h1>Switches</h1>
-        {/* <p>
-          Boxes that are checked (ticked) when activated. They allow you to
-          select single values for submission in a form (or not).
-        </p> */}
+        <p>
+          Switches component is a digital on/off switch used for activating one
+          of two predefined options.
+        </p>
       </section>
 
       <hr />
 
       <section className="exampleSection">
         <h3>Single</h3>
-        <div className="form-field form-field--checkbox">
-          <Switches
-            options={single}
-            onChange={e => {
-              console.log(e);
-            }}
-          />
+        <div className="switch__wrapper">
+          <Switches returnBoolean options={single} onChange={() => ({})} />
         </div>
 
+        <br />
+
         <h3>Multiple</h3>
-        <div className="form-field form-field--checkbox">
+        <div className="form-group form-group--switch">
           <Switches
             options={multiple}
-            onChange={e => {
-              console.log(e);
-            }}
+            modifier="secondary"
+            onChange={() => ({})}
           />
         </div>
       </section>

@@ -1,66 +1,55 @@
-
 ## Description
 
-Boxes that are checked (ticked) when activated. They allow you to select single values for submission in a form (or not).
+Switches component is a digital on/off switch used for activating one of two predefined options.
 
 ## Usage
 
-* Multiselect
+- Group
 
 ```js
 const multiple = [
-  { 
-    label: 'First', 
-    value: 1, 
-    id: 'one'
+  {
+    id: 1,
+    label: "Switch text"
   },
   {
-    label: 'Second', 
-    value: 2, 
-    id: 'two'
+    id: 2,
+    label: "Switch text"
   },
   {
-    label: 'Third', 
-    value: 3, 
-    id: 'three'
-  },
-  {
-    label: 'Disabled', 
-    value: 4, 
-    disabled: true
+    disabled: true,
+    id: 4,
+    label: "Disabled"
   }
 ];
 
-<Checkboxes 
-  options={multiple} 
-  onChange={({ event, checked }) => {}} 
-/>
+<Switches options={multiple} onChange={({ event, checked }) => {}} />;
 ```
 
-* Single & required
+- Single
 
 ```js
 const single = {
-  label: 'Do you agree?',
+  label: "Switch text",
   required: true
 };
 
-<Checkboxes 
-  options={single} 
-  boolean
+<Switches
+  options={single}
+  returnBoolean
   onChange={({ event, checked }) => {}}
 ```
 
 ## API
 
-##### Checkboxes can receive a number of `props` as follow:
+##### Switches can receive a number of `props` as follow:
 
-| NAME   | TYPE | DEFAULT | 
-| :---  | :---:  | :---: | 
-| options | Array | []      | 
-| disabled | Boolean | false | 
-| required | Boolean | false | 
-| boolean | Boolean | false  | 
-| onChange | Function | () => {} | 
-
-
+| NAME          |      TYPE       | DEFAULT  | OPTIONS                                                           |
+| :------------ | :-------------: | :------: | ----------------------------------------------------------------- |
+| modifier      |     String      |  empty   | primary, secondary, default, unchecked disabled, checked disabled |
+| labelPosition |     String      |  right   | right, left, top, base                                            |
+| options       | Array or Object |    []    |
+| disabled      |     Boolean     |  false   |
+| required      |     Boolean     |  false   |
+| returnBoolean |     Boolean     |  false   |
+| onChange      |    Function     | () => {} |
