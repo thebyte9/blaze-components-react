@@ -32,33 +32,37 @@ const Table: FunctionComponent<ITableProps> = ({
   );
 
   const [selected, setSelected] = useState<any[]>([]);
-  const [allRows, setRows] = useState<object[]>(rows);
   const [sortColumns, setSortColumns] = useState(formatColumns);
+  const [allRows, setRows] = useState<object[]>(rows);
 
   useEffect(() => {
     setRows(rows);
     setSortColumns(formatColumns);
-    onSelect(selected);
-  }, [rows, columns, selected]);
+  }, [rows, columns]);
 
   const handleSelected = (
     [checked]: [{ checked: boolean; id: string | number; value: any }],
     value: string,
     multiselect = false
   ): void => {
-    if (multiselect) {
-      let checkedValue = [];
-      if (checked) {
-        checkedValue = [...checked.value];
-      }
-      setSelected(checkedValue);
-      return;
-    }
+    let checkedValue = [];
+
     if (checked && !selected.includes(checked.value)) {
-      setSelected([...selected, checked.value]);
+      checkedValue = [...selected, checked.value];
     } else {
-      setSelected(selected.filter(currentValue => currentValue !== value));
+      checkedValue = selected.filter(currentValue => currentValue !== value);
     }
+
+    if (multiselect) {
+      checkedValue = checked ? [...checked.value] : [];
+    }
+
+    updateSelected(checkedValue);
+  };
+
+  const updateSelected = (selectedRows: any[]) => {
+    setSelected(selectedRows);
+    onSelect(selectedRows);
   };
 
   const sort = (column: any) => {
