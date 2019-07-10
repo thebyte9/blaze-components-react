@@ -1,13 +1,13 @@
 import React, { FunctionComponent, useState } from "react";
 import uuidv1 from "uuid/v1";
-interface ICheckboxesProps {
+interface ISwitchesProps {
   labelPosition?: string;
   options?: any[] | object;
   modifier?: string;
   returnBoolean?: boolean;
   onChange: (...args: any) => void;
 }
-const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
+const Switches: FunctionComponent<ISwitchesProps> = ({
   labelPosition,
   onChange,
   options,
@@ -82,10 +82,10 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
     }
   );
 };
-Checkboxes.defaultProps = {
+Switches.defaultProps = {
   labelPosition: "right",
   modifier: "",
   options: [],
   returnBoolean: false
 };
-export default Checkboxes;
+export default Switches;
