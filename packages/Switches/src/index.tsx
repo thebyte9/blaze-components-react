@@ -1,11 +1,15 @@
+import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useState } from "react";
-import uuidv1 from "uuid/v1";
+
 interface ISwitchesProps {
   labelPosition?: string;
   options?: any[] | object;
   modifier?: string;
   returnBoolean?: boolean;
   onChange: (...args: any) => void;
+  utils: {
+    uniqueId: (element: any) => string;
+  };
 }
 const Switches: FunctionComponent<ISwitchesProps> = ({
   labelPosition,
@@ -13,6 +17,7 @@ const Switches: FunctionComponent<ISwitchesProps> = ({
   options,
   modifier,
   returnBoolean,
+  utils: { uniqueId },
   ...attrs
 }): JSX.Element => {
   const formatedOptions = Array.isArray(options) ? options : [options];
@@ -54,7 +59,7 @@ const Switches: FunctionComponent<ISwitchesProps> = ({
         disabled,
         required,
         label,
-        id = uuidv1()
+        id = uniqueId(item)
       } = item;
 
       return (
@@ -71,7 +76,7 @@ const Switches: FunctionComponent<ISwitchesProps> = ({
               disabled={disabled}
               checked={checked}
               required={required}
-              onChange={(event): any => toggle({ event, item, key })}
+              onChange={(event): void => toggle({ event, item, key })}
               id={id}
               {...attrs}
             />
@@ -88,4 +93,4 @@ Switches.defaultProps = {
   options: [],
   returnBoolean: false
 };
-export default Switches;
+export default withUtils(Switches);
