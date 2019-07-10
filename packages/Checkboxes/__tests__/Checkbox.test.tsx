@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 import expect from "expect";
 import React from "react";
 import Checkboxes from "../src";
@@ -54,7 +54,7 @@ describe("Checkboxes component", () => {
       returnBoolean: true
     };
 
-    const wrapper = shallow(<Checkboxes {...defaultProps(override)} />);
+    const wrapper = mount(<Checkboxes {...defaultProps(override)} />);
 
     expect(wrapper.find("input").length).toBe(1);
 
@@ -111,17 +111,10 @@ describe("Checkboxes component", () => {
   });
 
   test("can't interact when checkbox is disabled", () => {
-    const wrapper = shallow(<Checkboxes {...defaultProps()} />);
-
-    expect(
-      wrapper
-        .find("input")
-        .at(2)
-        .prop("disabled")
-    ).toBe(true);
+    const wrapper = mount(<Checkboxes {...defaultProps()} />);
 
     wrapper
-      .find(".form-field")
+      .find(".form-group")
       .at(2)
       .simulate("click");
 
@@ -131,11 +124,5 @@ describe("Checkboxes component", () => {
         .at(2)
         .prop("checked")
     ).toBe(false);
-    expect(
-      wrapper
-        .find("input")
-        .at(2)
-        .prop("disabled")
-    ).toBe(true);
   });
 });

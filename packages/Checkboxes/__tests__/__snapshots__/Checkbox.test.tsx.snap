@@ -1,71 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkboxes component should be defined and renders correctly (snapshot) 1`] = `
-<Fragment>
-  <div
-    className="form-field form-field--checkbox "
-    data-testid="checkbox-1"
-    key="1"
-    onClick={[Function]}
-    role="button"
-  >
-    <input
-      checked={false}
-      className="form-checkbox"
-      id={1}
-      readOnly={true}
-      type="checkbox"
-      value="lorem ipsum"
-    />
-    <label
-      htmlFor={1}
-    >
-      first
-    </label>
-  </div>
-  <div
-    className="form-field form-field--checkbox required"
-    data-testid="checkbox-2"
-    key="2"
-    onClick={[Function]}
-    role="button"
-  >
-    <input
-      checked={false}
-      className="form-checkbox"
-      id={2}
-      readOnly={true}
-      required={true}
-      type="checkbox"
-      value="accepted"
-    />
-    <label
-      htmlFor={2}
-    >
-      I accept
-    </label>
-  </div>
-  <div
-    className="form-field form-field--checkbox "
-    data-testid="checkbox-3"
-    key="3"
-    onClick={[Function]}
-    role="button"
-  >
-    <input
-      checked={false}
-      className="form-checkbox"
-      disabled={true}
-      id={3}
-      readOnly={true}
-      type="checkbox"
-      value=""
-    />
-    <label
-      htmlFor={3}
-    >
-      Disabled
-    </label>
-  </div>
-</Fragment>
+<Checkboxes
+  onChange={[Function]}
+  options={
+    Array [
+      Object {
+        "id": 1,
+        "label": "first",
+        "value": "lorem ipsum",
+      },
+      Object {
+        "id": 2,
+        "label": "I accept",
+        "required": true,
+        "value": "accepted",
+      },
+      Object {
+        "disabled": true,
+        "id": 3,
+        "label": "Disabled",
+        "value": "",
+      },
+      Object {
+        "id": 3,
+        "label": "display none",
+        "show": false,
+      },
+    ]
+  }
+  returnBoolean={false}
+  utils={
+    Object {
+      "classNames": [Function],
+      "uniqueId": [Function],
+    }
+  }
+/>
 `;
