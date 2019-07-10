@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switches component should be defined and renders correctly (snapshot) 1`] = `
+Array [
+  <div
+    className="switch  switch--label--right"
+    key="1"
+  >
+    <div
+      className="switch__text"
+    >
+      Switch text
+    </div>
+    <div
+      className="switch__item"
+    >
+      <input
+        checked={false}
+        id={1}
+        onChange={[Function]}
+        readOnly={true}
+        type="checkbox"
+      />
+      <label
+        htmlFor={1}
+      >
+        toggle
+      </label>
+    </div>
+  </div>,
+  <div
+    className="switch  switch--label--right"
+    key="2"
+  >
+    <div
+      className="switch__text"
+    >
+      Switch text
+    </div>
+    <div
+      className="switch__item"
+    >
+      <input
+        checked={false}
+        id={2}
+        onChange={[Function]}
+        readOnly={true}
+        type="checkbox"
+      />
+      <label
+        htmlFor={2}
+      >
+        toggle
+      </label>
+    </div>
+  </div>,
+  <div
+    className="switch  switch--label--right"
+    key="f69319b0-a2fa-11e9-a75c-070edc0a895d"
+  >
+    <div
+      className="switch__text"
+    >
+      Disabled
+    </div>
+    <div
+      className="switch__item"
+    >
+      <input
+        checked={false}
+        disabled={true}
+        id="f69319b0-a2fa-11e9-a75c-070edc0a895d"
+        onChange={[Function]}
+        readOnly={true}
+        type="checkbox"
+      />
+      <label
+        htmlFor="f69319b0-a2fa-11e9-a75c-070edc0a895d"
+      >
+        toggle
+      </label>
+    </div>
+  </div>,
+]
+`;
