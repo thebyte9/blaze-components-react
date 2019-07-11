@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 interface IAccordionContentProps {
   children: JSX.Element | JSX.Element[];
@@ -6,6 +6,6 @@ interface IAccordionContentProps {
 
 const AccordionContent = ({
   children
-}: IAccordionContentProps): JSX.Element => <Fragment>{children}</Fragment>;
+}: IAccordionContentProps): JSX.Element => <>{children}</>;
 
 export default AccordionContent;
