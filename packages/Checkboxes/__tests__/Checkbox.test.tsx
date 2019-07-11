@@ -23,7 +23,7 @@ const options = [
     value: ""
   },
   {
-    id: 3,
+    id: 4,
     label: "display none",
     show: false
   }

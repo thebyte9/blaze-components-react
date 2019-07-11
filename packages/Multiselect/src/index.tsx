@@ -71,9 +71,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 };
 MultiSelect.defaultProps = {
   children: "",
-  placeholder: "Search",
-  selected: (): void => {
-    return;
-  }
+  placeholder: "Search"
 };
 export default MultiSelect;
