@@ -57,7 +57,7 @@ const DemoComponent = () => {
           }
         ]
       });
-    }, 4000000);
+    }, 2000);
   }, []);
 
   return <Table checkboxes data={data} onSelect={() => ({})} />;
