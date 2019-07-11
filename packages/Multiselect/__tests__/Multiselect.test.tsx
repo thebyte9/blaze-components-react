@@ -22,7 +22,7 @@ const data = {
   ]
 };
 
-const MultiselectComponent = <Multiselect data={data} selected={() => {}} />;
+const MultiselectComponent = <Multiselect data={data} selected={() => ({})} />;
 
 describe("Multiselect component", () => {
   test("should be defined and renders correctly (snapshot)", () => {
