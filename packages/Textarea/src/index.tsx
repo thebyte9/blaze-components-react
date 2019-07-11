@@ -46,14 +46,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
 
   const isRequired: string = required ? requiredClassName : "";
 
-  const getTotal = (): number => {
-    if (!limit) {
-      return 0;
-    }
-    return limit - content.length;
-  };
-
-  const total: number = getTotal();
+  const total: number = !limit ? 0 : limit - content.length;
 
   return (
     <Fragment>
