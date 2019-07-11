@@ -3,7 +3,15 @@ import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
 interface ICheckboxesProps {
   options?: any[] | object;
   returnBoolean?: boolean;
-  onChange: (...args: any) => void;
+  onChange: ({
+    event,
+    checked,
+    data
+  }: {
+    event: React.MouseEvent<HTMLDivElement>;
+    checked: boolean | object;
+    data: object[];
+  }) => void;
   utils: {
     uniqueId: (element: any) => string;
     classNames: (...args: any) => string;
@@ -35,7 +43,15 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
 
   useEffect(() => setData(formatedOptions), [options]);
 
-  const toggle = ({ event, item, key }: any): void => {
+  const toggle = ({
+    event,
+    item,
+    key
+  }: {
+    event: React.MouseEvent<HTMLDivElement>;
+    item: any;
+    key: number;
+  }): void => {
     if (item.disabled) {
       return;
     }
@@ -77,7 +93,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
               data-testid={`checkbox-${key + 1}`}
               key={id}
               className={`${formClassName} ${requiredClassName}`}
-              onClick={(event): any => toggle({ event, item, key })}
+              onClick={(event): void => toggle({ event, item, key })}
               role="button"
             >
               <input
