@@ -1,4 +1,4 @@
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 import expect from "expect";
 import React from "react";
 import Textarea from "../src";
@@ -27,7 +27,7 @@ describe("Textarea component", () => {
       required: true
     };
 
-    const wrapper = shallow(<Textarea {...defaultProps(override)} />);
+    const wrapper = mount(<Textarea {...defaultProps(override)} />);
 
     wrapper.find("textarea").simulate("change", {
       target: {
@@ -46,7 +46,7 @@ describe("Textarea component", () => {
       limit: 11
     };
 
-    const wrapper = shallow(<Textarea {...defaultProps(override)} />);
+    const wrapper = mount(<Textarea {...defaultProps(override)} />);
 
     wrapper
       .find("textarea")

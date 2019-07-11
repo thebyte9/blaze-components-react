@@ -1,3 +1,4 @@
+import withUtils from "@blaze-react/utils";
 import React, {
   Fragment,
   FunctionComponent,
@@ -13,6 +14,9 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: boolean;
   validationMessage?: string | JSX.Element;
   placeholder?: string;
+  utils: {
+    classNames: (...args: any) => string;
+  };
 }
 const Textarea: FunctionComponent<ITextareaProps> = ({
   value,
@@ -23,6 +27,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   validationMessage,
   required,
   id,
+  utils: { classNames },
   ...attrs
 }) => {
   const [content, setContent] = useState<string>("");
@@ -42,16 +47,14 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
     onChange({ event, value: newContent });
   };
 
-  const requiredClassName: string = "required";
-
-  const isRequired: string = required ? requiredClassName : "";
+  const requiredClassName = classNames({ required });
 
   const total: number = !limit ? 0 : limit - content.length;
 
   return (
     <Fragment>
       {label && (
-        <label htmlFor={id} className={isRequired}>
+        <label htmlFor={id} className={requiredClassName}>
           {label}
         </label>
       )}
@@ -82,4 +85,4 @@ Textarea.defaultProps = {
   validationMessage: "This field is required",
   value: ""
 };
-export default Textarea;
+export default withUtils(Textarea);
