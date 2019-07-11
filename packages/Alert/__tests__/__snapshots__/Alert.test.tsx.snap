@@ -7,7 +7,7 @@ exports[`Alert component should be defined and renders correctly (snapshot) 1`] 
   type=""
   utils={
     Object {
-      "ternary": [Function],
+      "classNames": [Function],
       "uniqueId": [Function],
     }
   }

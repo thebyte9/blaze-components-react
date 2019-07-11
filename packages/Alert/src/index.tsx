@@ -6,7 +6,7 @@ interface IAlertProps {
   type?: string;
   close?: boolean;
   utils: {
-    ternary: (condition: any, exprIfTrue: any, exprIfFalse?: any) => any;
+    classNames: (...args: any) => string;
   };
   children?: JSX.Element | string;
 }
@@ -16,18 +16,20 @@ const Alert: FunctionComponent<IAlertProps> = ({
   close,
   icon,
   type,
-  utils: { ternary },
+  utils: { classNames },
   ...attrs
 }): JSX.Element => {
   const [offModal, setModalOff] = useState<boolean>(false);
 
-  const assignType = ternary(type, `alert--${type}`);
-  const isDismissable = ternary(close, "alert--dismissable");
-  const withIcon = ternary(icon, "alert--icon");
+  const iconClassName: string = classNames({ "alert--icon": !!icon });
+  const typeClassName: string = classNames({ [`alert--${type}`]: !!type });
+  const dismissableClassName: string = classNames({
+    "alert--dismissable": close
+  });
 
   const renderAlert = (
     <div
-      className={`alert ${assignType} ${isDismissable} ${withIcon}`}
+      className={`alert ${typeClassName} ${dismissableClassName} ${iconClassName}`}
       {...attrs}
     >
       {icon && <i className="material-icons">{icon}</i>}
