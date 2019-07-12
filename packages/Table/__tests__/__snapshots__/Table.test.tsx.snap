@@ -92,6 +92,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             }
             utils={
               Object {
+                "classNames": [Function],
                 "uniqueId": [Function],
               }
             }
@@ -183,6 +184,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             selected={Array []}
             utils={
               Object {
+                "classNames": [Function],
                 "uniqueId": [Function],
               }
             }
