@@ -17,28 +17,27 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   selected: getSelected,
   placeholder,
   children
-}) => {
-  const [selected, setSelected] = useState([]);
-  const [dataCopy, setDataCopy] = useState(data);
-  const setStatus = (obj: any, status: any) =>
+}): JSX.Element => {
+  const [selected, setSelected] = useState<any[]>([]);
+  const [dataCopy, setDataCopy] = useState<object[]>(data);
+
+  const setStatus = (obj: any, status: any): object =>
     Object.assign({}, obj, { show: status });
-  const handleKeyUp = (event: any) => {
-    const {
-      target: { value }
-    } = event;
-    const parsedDataCopy = dataCopy.map(copy => {
-      let newCopy = setStatus(copy, false);
-      keys.forEach(key => {
-        const match = copy[key].toLowerCase().includes(value.toLowerCase());
-        if (match) {
-          newCopy = setStatus(copy, true);
-        }
-      });
-      return newCopy;
-    });
+
+  const handleInputChange = ({ value }: { value: string }) => {
+    const parsedDataCopy = dataCopy.map(copy =>
+      setStatus(
+        copy,
+        !!keys.some(key =>
+          copy[key].toLowerCase().includes(value.toLowerCase())
+        )
+      )
+    );
+
     setDataCopy(parsedDataCopy);
   };
-  const handleChange = ({
+
+  const handleCheckBoxChange = ({
     checked,
     data: localData
   }: {
@@ -51,19 +50,22 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
   return (
     <Fragment>
-      {selected.map(selectedValue => (
-        <div key={uuidv1()}>{selectedValue[keyValue]}</div>
-      ))}
+      {selected.map(
+        (selectedValue): JSX.Element => (
+          <div key={uuidv1()}>{selectedValue[keyValue]}</div>
+        )
+      )}
 
       {children}
 
-      <Input placeholder={placeholder} onKeyUp={handleKeyUp} />
+      <Input placeholder={placeholder} onChange={handleInputChange} />
       {
         <Checkboxes
-          options={dataCopy.map(copiedData =>
-            Object.assign({}, copiedData, { label: copiedData[keyValue] })
+          options={dataCopy.map(
+            (copiedData): object =>
+              Object.assign({}, copiedData, { label: copiedData[keyValue] })
           )}
-          onChange={handleChange}
+          onChange={handleCheckBoxChange}
         />
       }
     </Fragment>
