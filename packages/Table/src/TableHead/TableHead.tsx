@@ -7,11 +7,15 @@ interface ITableHead {
   selected: any[];
   identification: string;
   allRows: object[];
-  handleSelected: (checked: object[], value: string, isMultiselect?: boolean) => void;
+  handleSelected: (
+    checked: object[],
+    value: string,
+    isMultiselect?: boolean
+  ) => void;
   enableOrderBy: (column: string) => JSX.Element;
   sortColumns: object[];
   utils: {
-    uniqueId: (element: any) => string
+    uniqueId: (element: any) => string;
   };
 }
 
@@ -25,36 +29,37 @@ const TableHead = ({
   sortColumns,
   utils: { uniqueId }
 }: ITableHead) => (
-    <thead>
-      <tr>
-        {checkboxes && (
-          <th>
-            <Checkboxes
-              withEffect
-              options={[
-                Object.assign(
-                  {},
-                  {
-                    checked: selected.length === allRows.length,
-                    id: "Select_all",
-                    value: allRows.map((row: any) => row[identification])
-                  }
-                )
-              ]}
-              onChange={({ checked }: { checked: any }): void =>
-                handleSelected(checked, checked, true)
-              }
-            />
-          </th>
-        )}
-        {Object.keys(sortColumns).map((column: any): JSX.Element => (
+  <thead>
+    <tr>
+      {checkboxes && (
+        <th>
+          <Checkboxes
+            options={[
+              Object.assign(
+                {},
+                {
+                  checked: selected.length === allRows.length,
+                  id: "Select_all",
+                  value: allRows.map((row: any) => row[identification])
+                }
+              )
+            ]}
+            onChange={({ checked }: { checked: any }): void =>
+              handleSelected(checked, checked, true)
+            }
+          />
+        </th>
+      )}
+      {Object.keys(sortColumns).map(
+        (column: any): JSX.Element => (
           <th key={uniqueId(column)}>
             {column}
             {enableOrderBy(column)}
           </th>
-        ))}
-      </tr>
-    </thead>
-  );
+        )
+      )}
+    </tr>
+  </thead>
+);
 
 export default withUtils(TableHead);
