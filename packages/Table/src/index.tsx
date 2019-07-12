@@ -13,73 +13,85 @@ interface ITableProps {
     rows: object[];
   };
   value?: string;
-  onSelect: (arg: any[]) => any;
+  onSelect?: (arg: any[]) => any;
 }
 const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy },
-  onSelect,
+  onSelect = () => ({}),
   checkboxes,
   placeholder
 }) => {
-  const formatColumns = columns.reduce((result, item) => ({ ...result, [item]: "asc" }), {})
+  const asc: string = "asc";
+  const desc: string = "desc";
+
+  const formatColumns = columns.reduce(
+    (result, item) => ({ ...result, [item]: asc }),
+    {}
+  );
 
   const [selected, setSelected] = useState<any[]>([]);
-  const [allRows, setRows] = useState<object[]>(rows);
   const [sortColumns, setSortColumns] = useState(formatColumns);
+  const [allRows, setRows] = useState<object[]>(rows);
 
   useEffect(() => {
     setRows(rows);
     setSortColumns(formatColumns);
-    onSelect(selected)
-  }, [rows, columns, selected]);
+  }, [rows, columns]);
 
   const handleSelected = (
     [checked]: [{ checked: boolean; id: string | number; value: any }],
     value: string,
     multiselect = false
   ): void => {
-    if (multiselect) {
-      let checkedValue = [];
-      if (checked) {
-        checkedValue = Array.isArray(checked.value)
-          ? [...checked.value]
-          : [checked.value];
-      }
-      setSelected(checkedValue);
-      return;
-    }
+    let checkedValue = [];
+
     if (checked && !selected.includes(checked.value)) {
-      setSelected([...selected, checked.value]);
+      checkedValue = [...selected, checked.value];
     } else {
-      setSelected(selected.filter(currentValue => currentValue !== value));
+      checkedValue = selected.filter(currentValue => currentValue !== value);
     }
+
+    if (multiselect) {
+      checkedValue = checked ? [...checked.value] : [];
+    }
+
+    updateSelected(checkedValue);
+  };
+
+  const updateSelected = (selectedRows: any[]) => {
+    setSelected(selectedRows);
+    onSelect(selectedRows);
   };
 
   const sort = (column: any) => {
+    const resetSortColumns = {};
+
+    Object.keys(sortColumns).forEach(key => (resetSortColumns[key] = asc));
+
     setRows([..._orderBy(allRows, [column], [sortColumns[column]])]);
+
     setSortColumns({
-      ...sortColumns,
-      [column]: sortColumns[column] === "asc" ? "desc" : "asc"
+      ...resetSortColumns,
+      [column]: sortColumns[column] === asc ? desc : asc
     });
   };
 
-  const enableOrderBy = (column: string): JSX.Element =>
+  const enableOrderBy = (column: string): JSX.Element => (
     <Fragment>
-      {
-        orderBy.includes(column) && (
-          <i
-            id={`sort_${column}`}
-            className="material-icons"
-            onClick={() => sort(column)}
-            role="button"
-          >
-            {sortColumns[column] === "asc"
-              ? "keyboard_arrow_up"
-              : "keyboard_arrow_down"}
-          </i>
-        )
-      }
+      {orderBy.includes(column) && (
+        <i
+          data-testid={`sortby-${column}`}
+          className="material-icons"
+          onClick={() => sort(column)}
+          role="button"
+        >
+          {sortColumns[column] === asc
+            ? "keyboard_arrow_up"
+            : "keyboard_arrow_down"}
+        </i>
+      )}
     </Fragment>
+  );
 
   return (
     <div className="table-scroll__wrapper">
@@ -116,9 +128,6 @@ Table.defaultProps = {
     identification: "",
     orderBy: [],
     rows: []
-  },
-  onSelect: (): void => {
-    return;
   },
   placeholder: "No records available"
 };

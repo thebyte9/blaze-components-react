@@ -6,45 +6,52 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
     Object {
       "data": Array [
         Object {
+          "description": "PHP framework",
           "id": 1,
-          "name": "Lorem",
+          "name": "Laravel",
         },
         Object {
+          "description": "Javascript library",
           "id": 2,
-          "name": "Ipsum",
+          "name": "React",
         },
         Object {
+          "description": "Javascript framework",
           "id": 3,
-          "name": "Dolor",
+          "name": "Adonis",
         },
       ],
       "filterBy": Array [
         "name",
+        "description",
       ],
       "keyValue": "name",
     }
   }
-  selected={[Function]}
 >
   <Autocomplete
     data={
       Object {
         "data": Array [
           Object {
+            "description": "PHP framework",
             "id": 1,
-            "name": "Lorem",
+            "name": "Laravel",
           },
           Object {
+            "description": "Javascript library",
             "id": 2,
-            "name": "Ipsum",
+            "name": "React",
           },
           Object {
+            "description": "Javascript framework",
             "id": 3,
-            "name": "Dolor",
+            "name": "Adonis",
           },
         ],
         "filterBy": Array [
           "name",
+          "description",
         ],
         "keyValue": "name",
       }
@@ -58,35 +65,48 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
       }
     }
   >
-    <Input
-      disabled={false}
-      error={false}
-      hideTypeToggle={false}
-      label=""
-      modifier=""
+    <WithUtils
       onChange={[Function]}
       placeholder="Search"
-      required={false}
-      type="text"
-      validationMessage="This field is required"
       value=""
     >
-      <div
-        className="form-field form-field--input "
+      <Input
+        disabled={false}
+        error={false}
+        hideTypeToggle={false}
+        label=""
+        modifier=""
+        onChange={[Function]}
+        placeholder="Search"
+        required={false}
+        type="text"
+        utils={
+          Object {
+            "classNames": [Function],
+            "uniqueId": [Function],
+          }
+        }
+        validationMessage="This field is required"
+        value=""
       >
-        <label
-          className=""
-        />
-        <input
-          disabled={false}
-          onChange={[Function]}
-          placeholder="Search"
-          required={false}
-          type="text"
-          value=""
-        />
-      </div>
-    </Input>
+        <div
+          className="form-field form-field--input  "
+        >
+          <label
+            className=""
+          />
+          <input
+            data-testid="input"
+            disabled={false}
+            onChange={[Function]}
+            placeholder="Search"
+            required={false}
+            type="text"
+            value=""
+          />
+        </div>
+      </Input>
+    </WithUtils>
   </Autocomplete>
 </WithUtils>
 `;

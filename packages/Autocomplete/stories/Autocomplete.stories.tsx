@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Autocomplete from "../src";
+import React from "react";
 import AutocompleteReadme from "../README.md";
+import Autocomplete from "../src";
 const data = {
   keyValue: "name",
   filterBy: ["name", "description"],
@@ -9,17 +9,17 @@ const data = {
     {
       id: 1,
       name: "Laravel",
-      description: "Lorem ipsum dolor."
+      description: "PHP framework"
     },
     {
       id: 2,
       name: "React",
-      description: "Aliquam tincidunt."
+      description: "Javascript library"
     },
     {
       id: 3,
       name: "Adonis",
-      description: "Vestibulum auctor."
+      description: "Javascript framework"
     }
   ]
 };
@@ -37,6 +37,6 @@ storiesOf("Autocomplete", module)
         Autocomplete component allows users to quickly find and select one from suggested options.
       </p>
 
-      <Autocomplete data={data} selected={() => {}} />
+      <Autocomplete data={data} selected={() => { return; }} />
     </div>
   ));
