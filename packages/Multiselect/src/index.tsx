@@ -64,7 +64,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
             Object.assign({}, copiedData, { label: copiedData[keyValue] })
           )}
           onChange={handleChange}
-          withEffect
         />
       }
     </Fragment>
@@ -72,9 +71,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 };
 MultiSelect.defaultProps = {
   children: "",
-  placeholder: "Search",
-  selected: (): void => {
-    return;
-  }
+  placeholder: "Search"
 };
 export default MultiSelect;

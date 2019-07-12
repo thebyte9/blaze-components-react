@@ -53,6 +53,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
     selected={[Function]}
     utils={
       Object {
+        "classNames": [Function],
         "uniqueId": [Function],
       }
     }
