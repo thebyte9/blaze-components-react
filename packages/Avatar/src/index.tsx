@@ -1,33 +1,35 @@
+import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useState } from "react";
 interface IAvatarProps {
   modifier?: string;
   url?: string;
   username?: string;
+  utils: {
+    classNames: (...args: any) => string;
+  };
   attrs?: any;
 }
 const Avatar: FunctionComponent<IAvatarProps> = ({
   modifier,
   url,
   username,
+  utils: { classNames },
   ...attr
 }): JSX.Element => {
   const [avatarUrl, setAvatar] = useState<string | undefined>(url);
   const [validUrl, setValidUrl] = useState<boolean>(false);
 
-  const buildedModifier: string = modifier ? `avatar--${modifier}` : "";
+  const avatarClassName: string = classNames("avatar", {
+    [`avatar--${modifier}`]: !!modifier
+  });
 
-  const getInitilas = (): string => {
-    if (!username) {
-      return "!";
-    }
-    return username
-      .split(" ")
-      .map(subName => subName[0].toUpperCase())
-      .join("")
-      .substring(0, 2);
-  };
-
-  const initials: string = getInitilas();
+  const initials = !username
+    ? "!"
+    : username
+        .split(" ")
+        .map(subName => subName[0].toUpperCase())
+        .join("")
+        .substring(0, 2);
 
   if (url && !validUrl) {
     const imageData = new Image();
@@ -43,7 +45,7 @@ const Avatar: FunctionComponent<IAvatarProps> = ({
   }
 
   return (
-    <div className={`avatar ${buildedModifier}`}>
+    <div className={avatarClassName}>
       {validUrl ? (
         <img src={avatarUrl} alt="avatar" {...attr} />
       ) : (
@@ -58,4 +60,4 @@ Avatar.defaultProps = {
   url: "",
   username: ""
 };
-export default Avatar;
+export default withUtils(Avatar);
