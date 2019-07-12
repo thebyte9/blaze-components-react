@@ -1,65 +1,65 @@
-import React from 'react';
-import expect from 'expect';
-import { shallow, mount } from 'enzyme';
-import Multiselect from '../src';
+import { mount, shallow } from "enzyme";
+import expect from "expect";
+import React from "react";
+import Multiselect from "../src";
 
 const data = {
-  keyValue: 'name',
-  filterBy: ['name'],
+  keyValue: "name",
+  filterBy: ["name"],
   data: [
     {
       id: 1,
-      name: 'Project1'
+      name: "Project1"
     },
     {
       id: 2,
-      name: 'Project2'
+      name: "Project2"
     },
     {
       id: 3,
-      name: 'Project3'
+      name: "Project3"
     }
   ]
 };
 
-const MultiselectComponent = <Multiselect data={data} selected={() => {}} />;
+const MultiselectComponent = <Multiselect data={data} selected={() => ({})} />;
 
-describe('Multiselect component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
+describe("Multiselect component", () => {
+  test("should be defined and renders correctly (snapshot)", () => {
     const wrapper = shallow(MultiselectComponent);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should select first option', () => {
+  test("should select first option", () => {
     const wrapper = mount(MultiselectComponent);
 
     wrapper
-      .find('.form-field--checkbox')
+      .find(".form-group--checkbox")
       .at(0)
-      .simulate('click');
+      .simulate("click");
 
     expect(
       wrapper
-        .find('div')
+        .find("div")
         .at(0)
         .text()
-    ).toContain('Project1');
+    ).toContain("Project1");
   });
 
-  test('should allow to filter', () => {
+  test("should allow to filter", () => {
     const wrapper = mount(MultiselectComponent);
 
     wrapper
-      .find('input')
+      .find("input")
       .at(0)
-      .simulate('keyUp', { target: { value: 'Project2' } });
+      .simulate("change", { target: { value: "Project2" } });
     expect(
       wrapper
-        .find('.form-field--checkbox')
+        .find(".form-group--checkbox")
         .at(0)
         .text()
-    ).toContain('Project2');
+    ).toContain("Project2");
   });
 });
