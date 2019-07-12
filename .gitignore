@@ -1,6 +1,7 @@
 # Folders
 packages/**/lib
 packages/**/.DS_Store
+packages/.DS_Store
 .DS_Store
 node_modules
 coverage
