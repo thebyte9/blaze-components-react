@@ -54,7 +54,7 @@ describe("Multiselect component", () => {
     wrapper
       .find("input")
       .at(0)
-      .simulate("keyUp", { target: { value: "Project2" } });
+      .simulate("change", { target: { value: "Project2" } });
     expect(
       wrapper
         .find(".form-group--checkbox")
