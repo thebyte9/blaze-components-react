@@ -35,6 +35,7 @@ const TableBody = ({
         {checkboxes && (
           <td>
             <Checkboxes
+              data-testid={`row-checkbox-${key + 1}`}
               options={{
                 checked: selected.includes(row[identification]),
                 id: row[identification],
