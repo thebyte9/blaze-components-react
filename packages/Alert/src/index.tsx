@@ -21,17 +21,14 @@ const Alert: FunctionComponent<IAlertProps> = ({
 }): JSX.Element => {
   const [offModal, setModalOff] = useState<boolean>(false);
 
-  const iconClassName: string = classNames({ "alert--icon": !!icon });
-  const typeClassName: string = classNames({ [`alert--${type}`]: !!type });
-  const dismissableClassName: string = classNames({
-    "alert--dismissable": close
+  const alertClassName: string = classNames("alert", {
+    "alert--dismissable": close,
+    "alert--icon": !!icon,
+    [`alert--${type}`]: !!type
   });
 
   const renderAlert = (
-    <div
-      className={`alert ${typeClassName} ${dismissableClassName} ${iconClassName}`}
-      {...attrs}
-    >
+    <div className={alertClassName} {...attrs}>
       {icon && <i className="material-icons">{icon}</i>}
       {children}
       {close && (
