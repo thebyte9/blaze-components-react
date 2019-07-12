@@ -1,12 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Textarea component should be defined and renders correctly (snapshot) 1`] = `
-<Fragment>
-  <textarea
-    onChange={[Function]}
-    placeholder=""
-    required={false}
-    value=""
-  />
-</Fragment>
+<Textarea
+  error={false}
+  label="Simple extarea"
+  limit={0}
+  onChange={[Function]}
+  placeholder=""
+  required={false}
+  utils={
+    Object {
+      "classNames": [Function],
+      "uniqueId": [Function],
+    }
+  }
+  validationMessage="This field is required"
+  value=""
+/>
 `;
