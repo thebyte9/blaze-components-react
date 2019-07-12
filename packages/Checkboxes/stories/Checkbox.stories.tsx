@@ -49,25 +49,10 @@ storiesOf("Checkboxes", module)
 
       <section className="exampleSection">
         <h3>Multiselect</h3>
-        <div className="form-field form-field--checkbox">
-          <Checkboxes
-            options={multiple}
-            onChange={() => {
-              return;
-            }}
-          />
-        </div>
+        <Checkboxes options={multiple} onChange={() => ({})} />
 
         <h3>Single</h3>
-        <div className="form-field form-field--checkbox">
-          <Checkboxes
-            returnBoolean
-            options={single}
-            onChange={() => {
-              return;
-            }}
-          />
-        </div>
+        <Checkboxes returnBoolean options={single} onChange={() => ({})} />
       </section>
     </div>
   ));

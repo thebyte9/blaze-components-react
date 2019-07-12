@@ -36,7 +36,7 @@ describe("Multiselect component", () => {
     const wrapper = mount(MultiselectComponent);
 
     wrapper
-      .find(".form-field--checkbox")
+      .find(".form-group--checkbox")
       .at(0)
       .simulate("click");
 
@@ -57,7 +57,7 @@ describe("Multiselect component", () => {
       .simulate("change", { target: { value: "Project2" } });
     expect(
       wrapper
-        .find(".form-field--checkbox")
+        .find(".form-group--checkbox")
         .at(0)
         .text()
     ).toContain("Project2");

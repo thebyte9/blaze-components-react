@@ -30,18 +30,17 @@ const TableBody = ({
   utils: { uniqueId }
 }: ITableBody): JSX.Element => (
   <tbody>
-    {allRows.map((row: any) => (
-      <tr key={uniqueId(row)}>
+    {allRows.map((row: any, key: number) => (
+      <tr key={uniqueId(row)} data-testid={`tablerow-${key + 1}`}>
         {checkboxes && (
           <td>
             <Checkboxes
-              options={[
-                {
-                  checked: selected.includes(row[identification]),
-                  id: row[identification],
-                  value: row[identification]
-                }
-              ]}
+              data-testid={`row-checkbox-${key + 1}`}
+              options={{
+                checked: selected.includes(row[identification]),
+                id: row[identification],
+                value: row[identification]
+              }}
               onChange={({ checked }: any): void =>
                 handleSelected(checked, row[identification])
               }

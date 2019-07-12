@@ -15,7 +15,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
     validationMessage="This field is required"
     value=""
   />
-  <Checkboxes
+  <WithUtils
     onChange={[Function]}
     options={
       Array [
@@ -36,7 +36,6 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
         },
       ]
     }
-    returnBoolean={false}
   />
 </Fragment>
 `;

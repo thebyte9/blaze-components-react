@@ -1,23 +1,57 @@
+import withUtils from "@blaze-react/utils";
 import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
-import uuidv1 from "uuid/v1";
 interface ICheckboxesProps {
   options?: any[] | object;
   returnBoolean?: boolean;
-  onChange: (...args: any) => void;
+  onChange: ({
+    event,
+    checked,
+    data
+  }: {
+    event: React.MouseEvent<HTMLDivElement>;
+    checked: boolean | object;
+    data: object[];
+  }) => void;
+  utils: {
+    uniqueId: (element: any) => string;
+    classNames: (...args: any) => string;
+  };
 }
 const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
   returnBoolean,
   onChange,
   options,
+  utils: { uniqueId, classNames },
   ...attrs
 }): JSX.Element => {
-  const formatedOptions = Array.isArray(options) ? options : [options];
+  const {
+    formClassName,
+    formatedOptions
+  }: { formClassName: string; formatedOptions: object[] } = Array.isArray(
+    options
+  )
+    ? {
+        formClassName: "form-group form-group--checkbox",
+        formatedOptions: options
+      }
+    : {
+        formClassName: "form-field form-field--checkbox",
+        formatedOptions: [options]
+      };
 
   const [data, setData]: any = useState(formatedOptions);
 
   useEffect(() => setData(formatedOptions), [options]);
 
-  const toggle = ({ event, item, key }: any): void => {
+  const toggle = ({
+    event,
+    item,
+    key
+  }: {
+    event: React.MouseEvent<HTMLDivElement>;
+    item: any;
+    key: number;
+  }): void => {
     if (item.disabled) {
       return;
     }
@@ -34,8 +68,6 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
     onChange({ event, checked, data });
   };
 
-  const requiredClassName: string = "required";
-
   return (
     <Fragment>
       {data.map(
@@ -47,21 +79,21 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
             required,
             label,
             show = true,
-            id = uuidv1()
+            id = uniqueId(item)
           } = item;
 
           if (!show) {
-            return <Fragment key={uuidv1()} />;
+            return <Fragment key={id} />;
           }
+
+          const requiredClassName = classNames({ required });
 
           return (
             <div
               data-testid={`checkbox-${key + 1}`}
               key={id}
-              className={`form-field form-field--checkbox ${
-                required ? requiredClassName : ""
-              }`}
-              onClick={(event): any => toggle({ event, item, key })}
+              className={`${formClassName} ${requiredClassName}`}
+              onClick={(event): void => toggle({ event, item, key })}
               role="button"
             >
               <input
@@ -87,4 +119,4 @@ Checkboxes.defaultProps = {
   options: [],
   returnBoolean: false
 };
-export default Checkboxes;
+export default withUtils(Checkboxes);
