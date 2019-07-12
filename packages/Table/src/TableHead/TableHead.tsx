@@ -34,15 +34,13 @@ const TableHead = ({
       {checkboxes && (
         <th>
           <Checkboxes
-            options={[
-              Object.assign(
-                {},
-                {
-                  checked: selected.length === allRows.length,
-                  value: allRows.map((row: any) => row[identification])
-                }
-              )
-            ]}
+            options={Object.assign(
+              {},
+              {
+                checked: selected.length === allRows.length,
+                value: allRows.map((row: any) => row[identification])
+              }
+            )}
             onChange={({ checked }: { checked: any }): void =>
               handleSelected(checked, checked, true)
             }

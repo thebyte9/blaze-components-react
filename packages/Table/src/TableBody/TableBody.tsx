@@ -35,13 +35,11 @@ const TableBody = ({
         {checkboxes && (
           <td>
             <Checkboxes
-              options={[
-                {
-                  checked: selected.includes(row[identification]),
-                  id: row[identification],
-                  value: row[identification]
-                }
-              ]}
+              options={{
+                checked: selected.includes(row[identification]),
+                id: row[identification],
+                value: row[identification]
+              }}
               onChange={({ checked }: any): void =>
                 handleSelected(checked, row[identification])
               }
