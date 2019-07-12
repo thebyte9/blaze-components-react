@@ -2,18 +2,9 @@
 
 exports[`Multiselect component should be defined and renders correctly (snapshot) 1`] = `
 <Fragment>
-  <Input
-    disabled={false}
-    error={false}
-    hideTypeToggle={false}
-    label=""
-    modifier=""
+  <WithUtils
     onChange={[Function]}
     placeholder="Search"
-    required={false}
-    type="text"
-    validationMessage="This field is required"
-    value=""
   />
   <WithUtils
     onChange={[Function]}
