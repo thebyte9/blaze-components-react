@@ -13,9 +13,7 @@ storiesOf("Chips", module)
   .add("Introduction", () => (
     <div className="component-wrapper">
       <h1>Chips</h1>
-      <Chips
-        modifiers={["deletable", "outlined", "secondary", "small", "primary"]}
-      >
+      <Chips modifiers={["deletable", "small"]}>
         <Chips.Avatar>
           <Avatar username="Lorem Ipsum" modifier="x-small" />
         </Chips.Avatar>

@@ -1,11 +1,11 @@
 ## Description
 
-Accordion component is a list of headers that hide or reveal additional content when selected.
+React chips are small blocks of information. They are most commonly used for contacts, tags, selecting an option, filtering content, etc.
 
 ## Usage
 
 ```js
-<Chips modifiers={["deletable", "outlined", "secondary", "small", "primary"]}>
+<Chips modifiers={["deletable", "small"]}>
   <Chips.Avatar>
     <i className="material-icons">face</i>
   </Chips.Avatar>
@@ -18,9 +18,10 @@ Accordion component is a list of headers that hide or reveal additional content 
 
 ## API
 
-##### Accordion menu can receive a number of `props` as follow:
+##### Chips can receive a number of `props` as follow:
 
-| NAME     |         TYPE          | DEFAULT |
-| :------- | :-------------------: | :-----: |
-| isOpen   |        Boolean        |  false  |
-| children | single/array of nodes |  empty  |
+| NAME      |         TYPE          | DEFAULT  |                    OPTIONS                     |
+| :-------- | :-------------------: | :------: | :--------------------------------------------: |
+| modifiers |    Array of string    | primary  | deletable, outlined, secondary, small, primary |
+| action    |       Function        | () => {} |
+| children  | single/array of nodes |  empty   |

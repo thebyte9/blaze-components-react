@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip component should be defined and renders correctly (snapshot) 1`] = `
+<WithUtils
+  modifiers={Array []}
+>
+  <Component
+    modifiers={Array []}
+    utils={
+      Object {
+        "classNames": [Function],
+        "uniqueId": [Function],
+      }
+    }
+  >
+    <div
+      className="chip__wrapper"
+    >
+      <div
+        className="chip"
+      >
+        <ChipLabel>
+          <div
+            className="chip__label"
+          >
+            Primary deletable chip
+          </div>
+        </ChipLabel>
+      </div>
+    </div>
+  </Component>
+</WithUtils>
+`;
