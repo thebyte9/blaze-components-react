@@ -1,3 +1,4 @@
+import withUtils from "@blaze-react/utils";
 import React, {
   Fragment,
   FunctionComponent,
@@ -10,32 +11,50 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   limit?: number;
   onChange: (...args: any[]) => void;
   value?: string;
-  placeholder: string;
+  error?: boolean;
+  validationMessage?: string | JSX.Element;
+  placeholder?: string;
+  utils: {
+    classNames: (...args: any) => string;
+  };
 }
 const Textarea: FunctionComponent<ITextareaProps> = ({
   value,
   label,
   limit,
   onChange,
+  error,
+  validationMessage,
   required,
   id,
+  utils: { classNames },
   ...attrs
 }) => {
   const [content, setContent] = useState<string>("");
-  const handleChange = (event: any) => {
-    let newContent = event.target.value;
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
+    let {
+      target: { value: newContent }
+    } = event;
+
     if (limit && newContent.length > limit) {
       newContent = newContent.slice(0, limit);
     }
+
     setContent(newContent);
     onChange({ event, value: newContent });
   };
-  const isRequired = required ? "required" : "";
-  const total = limit && limit - content.length;
+
+  const requiredClassName = classNames({ required });
+
+  const total: number = !limit ? 0 : limit - content.length;
+
   return (
     <Fragment>
       {label && (
-        <label htmlFor={id} className={isRequired}>
+        <label htmlFor={id} className={requiredClassName}>
           {label}
         </label>
       )}
@@ -48,16 +67,22 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
         {...attrs}
       />
       {!!limit && <span>{total}</span>}
+      {error && (
+        <div className="validation">
+          <i className="material-icons">warning</i>
+          {validationMessage}
+        </div>
+      )}
     </Fragment>
   );
 };
 Textarea.defaultProps = {
+  error: false,
   label: "",
   limit: 0,
-  onChange: (): void => {
-    return;
-  },
+  placeholder: "",
   required: false,
+  validationMessage: "This field is required",
   value: ""
 };
-export default Textarea;
+export default withUtils(Textarea);

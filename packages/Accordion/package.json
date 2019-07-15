@@ -1,6 +1,6 @@
 {
-  "name": "@blaze-react/input",
-  "version": "0.3.2",
+  "name": "@blaze-react/Accordion",
+  "version": "0.2.5",
   "publishConfig": {
     "access": "public"
   },
@@ -18,11 +18,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/utils": "^0.3.0"
+    "@blaze-react/button": "^0.2.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5"
+    "@babel/core": "^7.4.5",
+    "@types/classnames": "^2.2.8"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
