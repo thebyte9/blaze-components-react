@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Modal from "../src";
+import React from "react";
 import ModalReadme from "../README.md";
+import Modal from "../src";
 const actions = [["Action 1", () => {}], ["Action 2", () => {}]];
 storiesOf("Modal", module)
   .addParameters({

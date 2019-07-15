@@ -1,11 +1,12 @@
 import Button from "@blaze-react/button";
 import withUtils from "@blaze-react/utils";
 import React, { Fragment, useState } from "react";
+type TActions = [string, () => void, string?];
 interface IModalProps {
   title?: string;
   buttonText?: string;
   buttonModifiers?: string;
-  actions: any[][];
+  actions: TActions[];
   simple?: boolean;
   upload?: boolean;
   alert?: boolean;
@@ -55,19 +56,6 @@ const Modal: React.SFC<IModalProps> = ({
       })
   );
 
-  const renderButton: JSX.Element = (
-    <Fragment>
-      {buttonText && (
-        <Button
-          modifiers={buttonModifiers}
-          onClick={() => setModalStatus(!modalStatus)}
-        >
-          {buttonText}
-        </Button>
-      )}
-    </Fragment>
-  );
-
   return (
     <Fragment>
       {modalStatus && (
@@ -94,7 +82,11 @@ const Modal: React.SFC<IModalProps> = ({
                   </Button>
                 )}
                 {actions.map(
-                  ([text, action, modifiers = "link"]): JSX.Element => (
+                  ([
+                    text,
+                    action,
+                    modifiers = "link"
+                  ]: TActions): JSX.Element => (
                     <Button key={text} modifiers={modifiers} onClick={action}>
                       {text}
                     </Button>
@@ -105,7 +97,14 @@ const Modal: React.SFC<IModalProps> = ({
           </div>
         </div>
       )}
-      {renderButton}
+      {buttonText && (
+        <Button
+          modifiers={buttonModifiers}
+          onClick={(): void => setModalStatus(!modalStatus)}
+        >
+          {buttonText}
+        </Button>
+      )}
     </Fragment>
   );
 };
