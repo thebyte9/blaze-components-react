@@ -18,11 +18,8 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
   };
 
   return (
-    <span
-      style={{ color: `${active ? "crimson" : "grey"}` }}
-      onMouseDown={handelToggle}
-    >
-      {label}
+    <span onMouseDown={handelToggle}>
+      {active ? <b>{label}</b> : <span>{label}</span>}
     </span>
   );
 };

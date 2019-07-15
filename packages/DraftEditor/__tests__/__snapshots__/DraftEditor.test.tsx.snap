@@ -23,8 +23,8 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
               "replaceData": [Function],
             },
             "blockMap": Immutable.OrderedMap {
-              "3cmdi": Immutable.Record {
-                "key": "3cmdi",
+              "8144j": Immutable.Record {
+                "key": "8144j",
                 "type": "unstyled",
                 "text": "",
                 "characterList": Immutable.List [],
@@ -33,17 +33,17 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
               },
             },
             "selectionBefore": Immutable.Record {
-              "anchorKey": "3cmdi",
+              "anchorKey": "8144j",
               "anchorOffset": 0,
-              "focusKey": "3cmdi",
+              "focusKey": "8144j",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
             },
             "selectionAfter": Immutable.Record {
-              "anchorKey": "3cmdi",
+              "anchorKey": "8144j",
               "anchorOffset": 0,
-              "focusKey": "3cmdi",
+              "focusKey": "8144j",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
@@ -51,7 +51,7 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
           },
           "decorator": null,
           "directionMap": Immutable.OrderedMap {
-            "3cmdi": "LTR",
+            "8144j": "LTR",
           },
           "forceSelection": false,
           "inCompositionMode": false,
@@ -60,15 +60,15 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
           "nativelyRenderedContent": null,
           "redoStack": Immutable.Stack [],
           "selection": Immutable.Record {
-            "anchorKey": "3cmdi",
+            "anchorKey": "8144j",
             "anchorOffset": 0,
-            "focusKey": "3cmdi",
+            "focusKey": "8144j",
             "focusOffset": 0,
             "isBackward": false,
             "hasFocus": false,
           },
           "treeMap": Immutable.OrderedMap {
-            "3cmdi": Immutable.List [
+            "8144j": Immutable.List [
               Immutable.Record {
                 "start": 0,
                 "end": 0,
@@ -109,8 +109,8 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
               "replaceData": [Function],
             },
             "blockMap": Immutable.OrderedMap {
-              "3cmdi": Immutable.Record {
-                "key": "3cmdi",
+              "8144j": Immutable.Record {
+                "key": "8144j",
                 "type": "unstyled",
                 "text": "",
                 "characterList": Immutable.List [],
@@ -119,17 +119,17 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
               },
             },
             "selectionBefore": Immutable.Record {
-              "anchorKey": "3cmdi",
+              "anchorKey": "8144j",
               "anchorOffset": 0,
-              "focusKey": "3cmdi",
+              "focusKey": "8144j",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
             },
             "selectionAfter": Immutable.Record {
-              "anchorKey": "3cmdi",
+              "anchorKey": "8144j",
               "anchorOffset": 0,
-              "focusKey": "3cmdi",
+              "focusKey": "8144j",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
@@ -137,7 +137,7 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
           },
           "decorator": null,
           "directionMap": Immutable.OrderedMap {
-            "3cmdi": "LTR",
+            "8144j": "LTR",
           },
           "forceSelection": false,
           "inCompositionMode": false,
@@ -146,15 +146,15 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
           "nativelyRenderedContent": null,
           "redoStack": Immutable.Stack [],
           "selection": Immutable.Record {
-            "anchorKey": "3cmdi",
+            "anchorKey": "8144j",
             "anchorOffset": 0,
-            "focusKey": "3cmdi",
+            "focusKey": "8144j",
             "focusOffset": 0,
             "isBackward": false,
             "hasFocus": false,
           },
           "treeMap": Immutable.OrderedMap {
-            "3cmdi": Immutable.List [
+            "8144j": Immutable.List [
               Immutable.Record {
                 "start": 0,
                 "end": 0,
@@ -249,8 +249,8 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
               "replaceData": [Function],
             },
             "blockMap": Immutable.OrderedMap {
-              "3cmdi": Immutable.Record {
-                "key": "3cmdi",
+              "8144j": Immutable.Record {
+                "key": "8144j",
                 "type": "unstyled",
                 "text": "",
                 "characterList": Immutable.List [],
@@ -259,17 +259,17 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
               },
             },
             "selectionBefore": Immutable.Record {
-              "anchorKey": "3cmdi",
+              "anchorKey": "8144j",
               "anchorOffset": 0,
-              "focusKey": "3cmdi",
+              "focusKey": "8144j",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
             },
             "selectionAfter": Immutable.Record {
-              "anchorKey": "3cmdi",
+              "anchorKey": "8144j",
               "anchorOffset": 0,
-              "focusKey": "3cmdi",
+              "focusKey": "8144j",
               "focusOffset": 0,
               "isBackward": false,
               "hasFocus": false,
@@ -277,7 +277,7 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
           },
           "decorator": null,
           "directionMap": Immutable.OrderedMap {
-            "3cmdi": "LTR",
+            "8144j": "LTR",
           },
           "forceSelection": false,
           "inCompositionMode": false,
@@ -286,15 +286,15 @@ exports[`DraftEditor component should be defined and renders correctly (snapshot
           "nativelyRenderedContent": null,
           "redoStack": Immutable.Stack [],
           "selection": Immutable.Record {
-            "anchorKey": "3cmdi",
+            "anchorKey": "8144j",
             "anchorOffset": 0,
-            "focusKey": "3cmdi",
+            "focusKey": "8144j",
             "focusOffset": 0,
             "isBackward": false,
             "hasFocus": false,
           },
           "treeMap": Immutable.OrderedMap {
-            "3cmdi": Immutable.List [
+            "8144j": Immutable.List [
               Immutable.Record {
                 "start": 0,
                 "end": 0,
