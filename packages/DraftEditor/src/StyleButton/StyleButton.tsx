@@ -19,7 +19,7 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
 
   return (
     <span onMouseDown={handelToggle}>
-      {active ? <b>{label}</b> : <span>{label}</span>}
+      {active ? <b>{label}</b> : <>{label}</>}
     </span>
   );
 };

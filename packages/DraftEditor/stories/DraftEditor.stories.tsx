@@ -14,6 +14,6 @@ storiesOf("DraftEditor", module)
         <h1>DraftEditor</h1>
       </section>
 
-      <DraftEditor />
+      <DraftEditor placeholder="content here ..." />
     </div>
   ));
