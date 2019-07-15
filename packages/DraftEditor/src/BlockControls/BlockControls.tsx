@@ -34,17 +34,20 @@ const BlockControls: FunctionComponent<IBlockControlsProps> = ({
   ];
 
   return (
-    <div className="RichEditor-controls">
+    <div>
       {BLOCK_TYPES.map(
-        (type: IBlockTypes): JSX.Element => (
-          <StyleButton
-            key={type.label}
-            active={type.style === blockType}
-            label={type.label}
-            onToggle={onToggle}
-            style={type.style}
-          />
-        )
+        (type: IBlockTypes): JSX.Element => {
+          const { label, style } = type;
+          return (
+            <StyleButton
+              key={label}
+              style={style}
+              label={label}
+              onToggle={onToggle}
+              active={style === blockType}
+            />
+          );
+        }
       )}
     </div>
   );

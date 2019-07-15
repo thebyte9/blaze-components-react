@@ -24,17 +24,20 @@ const InlineControls: FunctionComponent<IInlineControlsProps> = ({
   ];
 
   return (
-    <div className="RichEditor-controls">
+    <div>
       {INLINE_STYLES.map(
-        (type: IInlineTypes): JSX.Element => (
-          <StyleButton
-            key={type.label}
-            active={currentStyle.has(type.style)}
-            label={type.label}
-            onToggle={onToggle}
-            style={type.style}
-          />
-        )
+        (type: IInlineTypes): JSX.Element => {
+          const { label, style } = type;
+          return (
+            <StyleButton
+              key={label}
+              style={style}
+              label={label}
+              onToggle={onToggle}
+              active={currentStyle.has(style)}
+            />
+          );
+        }
       )}
     </div>
   );

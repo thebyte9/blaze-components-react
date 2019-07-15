@@ -9,14 +9,9 @@ import {
 } from "draft-js";
 import React, { Fragment, FunctionComponent, useState } from "react";
 import BlockControls from "./BlockControls";
-import InlineStyleControls from "./InlineControls";
+import InlineControls from "./InlineControls";
 
-interface IDraftEditorProps {
-  attrs?: any;
-}
-const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
-  ...attrs
-}): JSX.Element => {
+const DraftEditor: FunctionComponent = ({ ...attrs }): JSX.Element => {
   const [editorState, setEditorState] = useState<EditorState>(
     EditorState.createEmpty()
   );
@@ -45,10 +40,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   return (
     <Fragment>
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
-      <InlineStyleControls
-        editorState={editorState}
-        onToggle={toggleInlineStyle}
-      />
+      <InlineControls editorState={editorState} onToggle={toggleInlineStyle} />
       <Editor
         editorState={editorState}
         onChange={setEditorState}

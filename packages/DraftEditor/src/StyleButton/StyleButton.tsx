@@ -6,7 +6,6 @@ interface IStyleButtonProps {
   active: boolean;
   label: string;
 }
-
 const StyleButton: FunctionComponent<IStyleButtonProps> = ({
   onToggle,
   style,
