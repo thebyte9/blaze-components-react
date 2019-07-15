@@ -1,13 +1,13 @@
-import { mount, shallow } from "enzyme";
+import { render } from "@testing-library/react";
+import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
 import DraftEditor from "../src";
 
 describe("DraftEditor component", () => {
   test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = shallow(<DraftEditor />);
+    const wrapper = render(<DraftEditor />);
     expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
   });
 
   test("should combine block controls with inline controls", () => {

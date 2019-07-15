@@ -88,7 +88,6 @@ interface IDraftEditorProps {
   onBlur?(e: SyntheticEvent): void;
   onFocus?(e: SyntheticEvent): void;
   onTab?(e: SyntheticKeyboardEvent): void;
-  onChange?(editorState: EditorState): void;
   blockRendererFn?(block: ContentBlock): any;
   blockStyleFn?(block: ContentBlock): string;
   onEscape?(e: SyntheticKeyboardEvent): void;
