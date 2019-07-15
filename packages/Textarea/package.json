@@ -17,6 +17,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@blaze-react/utils": "^0.3.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5"
@@ -32,8 +35,5 @@
       "@babel/preset-react"
     ]
   },
-  "gitHead": "1edd29612d1854f0418c0b81d8755dd0cbd8bfb5",
-  "dependencies": {
-    "@types/uuid": "^3.4.4"
-  }
+  "gitHead": "1edd29612d1854f0418c0b81d8755dd0cbd8bfb5"
 }
