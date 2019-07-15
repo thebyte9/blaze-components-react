@@ -9,7 +9,6 @@ interface IChipIconProps {
     classNames: (className: string | object, classNames?: object) => string;
   };
 }
-
 const ChipIcon = ({
   children,
   modifier,

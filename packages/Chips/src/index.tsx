@@ -35,10 +35,12 @@ const Chips = withUtils(
           <div className="chip__wrapper">
             <div className={chipClassName} onClick={action}>
               {modifiers.includes("deletable")
-                ? React.Children.map(children, (child: ReactElement) =>
-                    React.cloneElement(child, {
-                      handleRemoveChip
-                    })
+                ? React.Children.map(
+                    children,
+                    (child: ReactElement): ReactElement =>
+                      React.cloneElement(child, {
+                        handleRemoveChip
+                      })
                   )
                 : children}
             </div>
