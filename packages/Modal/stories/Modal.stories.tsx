@@ -1,8 +1,25 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Modal from "../src";
+import React from "react";
 import ModalReadme from "../README.md";
-const actions = [["Action 1", () => {}], ["Action 2", () => {}]];
+import Modal from "../src";
+const actions = [
+  {
+    callback: () => ({}),
+    textButton: "Action 1"
+  },
+  {
+    callback: () => ({}),
+    textButton: "Action 2"
+  }
+];
+
+const alertActions = [
+  {
+    callback: () => ({}),
+    modifiers: "alert small",
+    textButton: "delete"
+  }
+];
 storiesOf("Modal", module)
   .addParameters({
     readme: {
@@ -32,7 +49,7 @@ storiesOf("Modal", module)
       <br />
 
       <Modal
-        actions={[["delete", () => {}, "alert small"]]}
+        actions={alertActions}
         buttonText="Alert modal"
         buttonModifiers="rounded alert"
         alert
