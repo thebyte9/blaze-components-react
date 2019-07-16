@@ -59,8 +59,8 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
           selected={Array []}
           sortColumns={
             Object {
-              "age": "asc",
-              "name": "asc",
+              "age": true,
+              "name": true,
             }
           }
         >
@@ -86,8 +86,8 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             selected={Array []}
             sortColumns={
               Object {
-                "age": "asc",
-                "name": "asc",
+                "age": true,
+                "name": true,
               }
             }
             utils={
@@ -102,28 +102,24 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
                 <th
                   key="uid-Im5hbWUi"
                 >
-                  name
-                  <i
-                    className="material-icons"
+                  <span
                     data-testid="sortby-name"
                     onClick={[Function]}
                     role="button"
                   >
-                    keyboard_arrow_up
-                  </i>
+                    name
+                  </span>
                 </th>
                 <th
                   key="uid-ImFnZSI="
                 >
-                  age
-                  <i
-                    className="material-icons"
+                  <span
                     data-testid="sortby-age"
                     onClick={[Function]}
                     role="button"
                   >
-                    keyboard_arrow_up
-                  </i>
+                    age
+                  </span>
                 </th>
               </tr>
             </thead>

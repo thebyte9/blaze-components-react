@@ -50,10 +50,7 @@ const TableHead = ({
       )}
       {Object.keys(sortColumns).map(
         (column: any): JSX.Element => (
-          <th key={uniqueId(column)}>
-            {column}
-            {enableOrderBy(column)}
-          </th>
+          <th key={uniqueId(column)}>{enableOrderBy(column)}</th>
         )
       )}
     </tr>

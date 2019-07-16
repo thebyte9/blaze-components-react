@@ -21,13 +21,15 @@ const Table: FunctionComponent<ITableProps> = ({
   checkboxes,
   placeholder
 }) => {
-  const asc: string = "asc";
-  const desc: string = "desc";
+  type TSortDirection = "asc" | "desc" | boolean;
 
-  const formatColumns = columns.reduce(
-    (result, item) => ({ ...result, [item]: asc }),
-    {}
-  );
+  const asc: TSortDirection = "asc";
+  const desc: TSortDirection = "desc";
+  const hide: TSortDirection = true;
+
+  const formatColumns = columns.reduce((result, item) => {
+    return { ...result, [item]: hide };
+  }, {});
 
   const [selected, setSelected] = useState<any[]>([]);
   const [sortColumns, setSortColumns] = useState(formatColumns);
@@ -63,28 +65,39 @@ const Table: FunctionComponent<ITableProps> = ({
     onSelect(selectedRows);
   };
 
+  const getSortDirection = (column: string): TSortDirection => {
+    if (sortColumns[column] === hide) {
+      return asc;
+    }
+    return sortColumns[column] === asc ? desc : asc;
+  };
+
   const sort = (column: any) => {
     const resetSortColumns = {};
 
-    Object.keys(sortColumns).forEach(key => (resetSortColumns[key] = asc));
+    Object.keys(sortColumns).forEach(key => (resetSortColumns[key] = hide));
 
-    setRows([..._orderBy(allRows, [column], [sortColumns[column]])]);
+    const sortDirection = getSortDirection(column);
+
+    setRows([..._orderBy(allRows, [column], [sortDirection])]);
 
     setSortColumns({
       ...resetSortColumns,
-      [column]: sortColumns[column] === asc ? desc : asc
+      [column]: sortDirection
     });
   };
 
   const enableOrderBy = (column: string): JSX.Element => (
     <Fragment>
-      {orderBy.includes(column) && (
-        <i
-          data-testid={`sortby-${column}`}
-          className="material-icons"
-          onClick={() => sort(column)}
-          role="button"
-        >
+      <span
+        data-testid={`sortby-${column}`}
+        onClick={() => sort(column)}
+        role="button"
+      >
+        {column}
+      </span>
+      {orderBy.includes(column) && sortColumns[column] !== hide && (
+        <i className="material-icons">
           {sortColumns[column] === asc
             ? "keyboard_arrow_up"
             : "keyboard_arrow_down"}
