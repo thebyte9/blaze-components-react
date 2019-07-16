@@ -37,7 +37,7 @@ const alertActions = [
   {
     callback: () => ({}),
     modifiers: "alert small",
-    textButton: "deleter"
+    textButton: "delete"
   }
 ];
 
