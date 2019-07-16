@@ -1,134 +1,115 @@
-import React from 'react';
-import expect from 'expect';
-import { mount } from 'enzyme';
-import Table from '../src';
+import { fireEvent, render } from "@testing-library/react";
+import { mount } from "enzyme";
+import "jest-dom/extend-expect";
+import React from "react";
+import Table from "../src";
 
 const data = {
-  identification: 'id',
-  columns: ['name', 'age'],
-  orderBy: ['name', 'age'],
+  identification: "id",
+  columns: ["name", "age"],
+  orderBy: ["name", "age"],
   rows: [
     {
-      name: 'Lorem',
+      id: 1,
+      name: "Lorem",
       age: 52
     },
     {
-      name: 'Ipsum',
+      id: 2,
+      name: "Ipsum",
       age: 43
     }
   ]
 };
 
 const withEmptyRows = {
-  identification: 'id',
-  columns: ['name', 'age'],
+  columns: [],
   orderBy: [],
   rows: []
 };
 
-describe('Table component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = mount(<Table data={data} onSelect={() => { }} />);
+const defaultProps = (override: object = {}) => ({
+  checkboxes: false,
+  data,
+  ...override
+});
+
+describe("Table component", () => {
+  test("should be defined and renders correctly (snapshot)", () => {
+    const wrapper = mount(<Table {...defaultProps()} />);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should toggle multiselect', () => {
-    const wrapper = mount(<Table checkboxes data={data} onSelect={() => { }} />);
+  test("should toggle multiselect and one by one", () => {
+    let selectedRows: [] = [];
 
-    wrapper
-      .find('Checkboxes')
-      .at(0)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('input')
-        .at(0)
-        .prop('checked')
-    ).toBe(true);
+    const onSelect = (selected: []) => {
+      selectedRows = selected;
+    };
 
-    wrapper
-      .find('Checkboxes')
-      .at(0)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('input')
-        .at(0)
-        .prop('checked')
-    ).toBe(false);
+    const override = {
+      checkboxes: true,
+      onSelect
+    };
+
+    const { getByTestId } = render(<Table {...defaultProps(override)} />);
+
+    fireEvent.click(getByTestId("select_all"));
+    expect(selectedRows).toEqual([1, 2]);
+
+    fireEvent.click(getByTestId("select_all"));
+    expect(selectedRows).toEqual([]);
+
+    fireEvent.click(getByTestId("row-checkbox-1"));
+    expect(selectedRows).toEqual([1]);
+
+    fireEvent.click(getByTestId("row-checkbox-1"));
+    expect(selectedRows).toEqual([]);
   });
 
-  test('should toggle one Checkbox', () => {
-    const wrapper = mount(<Table checkboxes data={data} onSelect={() => { }} />);
+  test("should show placeholder if there is no data yet", () => {
+    const placeholder = "The table is empty of records";
 
-    wrapper
-      .find('Checkboxes')
-      .at(2)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('input')
-        .at(2)
-        .prop('checked')
-    ).toBe(true);
+    let override = {
+      data: withEmptyRows,
+      placeholder
+    };
 
-    wrapper
-      .find('Checkboxes')
-      .at(2)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('input')
-        .at(2)
-        .prop('checked')
-    ).toBe(false);
+    const { getByText, rerender } = render(
+      <Table {...defaultProps(override)} />
+    );
+
+    getByText(placeholder);
+
+    override = {
+      ...override,
+      ...{
+        checkboxes: true
+      }
+    };
+
+    rerender(<Table {...defaultProps(override)} />);
   });
 
-  test('should show placeholder if there is no data yet', () => {
-    const wrapper = mount(<Table data={withEmptyRows} onSelect={() => { }} />);
+  test("Sort should work with numbers", () => {
+    const { getByTestId } = render(<Table {...defaultProps()} />);
 
-    expect(wrapper.find('td').text()).toContain('No records available');
+    fireEvent.click(getByTestId("sortby-age"));
+    expect(getByTestId("tablerow-1")).toHaveTextContent("43");
+
+    fireEvent.click(getByTestId("sortby-age"));
+    expect(getByTestId("tablerow-1")).toHaveTextContent("52");
   });
 
-  test('Sort should work with numbers', () => {
-    const wrapper = mount(<Table data={data} onSelect={() => { }} />);
+  test("Sort should work with Letters", () => {
+    const { getByTestId } = render(<Table {...defaultProps()} />);
 
-    wrapper.find('#sort_age').simulate('click');
-    expect(
-      wrapper
-        .find('tr')
-        .at(1)
-        .text()
-    ).toContain(43);
+    fireEvent.click(getByTestId("sortby-name"));
+    expect(getByTestId("tablerow-1")).toHaveTextContent("Ipsum");
 
-    wrapper.find('#sort_age').simulate('click');
-    expect(
-      wrapper
-        .find('tr')
-        .at(1)
-        .text()
-    ).toContain(52);
-  });
-
-  test('Sort should work with Letters', () => {
-    const wrapper = mount(<Table data={data} onSelect={() => { }} />);
-
-    wrapper.find('#sort_name').simulate('click');
-    expect(
-      wrapper
-        .find('tr')
-        .at(1)
-        .text()
-    ).toContain('Ipsum');
-
-    wrapper.find('#sort_name').simulate('click');
-    expect(
-      wrapper
-        .find('tr')
-        .at(1)
-        .text()
-    ).toContain('Lorem');
+    fireEvent.click(getByTestId("sortby-name"));
+    expect(getByTestId("tablerow-1")).toHaveTextContent("Lorem");
   });
 });

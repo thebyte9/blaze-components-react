@@ -7,11 +7,15 @@ interface ITableBody {
   checkboxes?: boolean;
   identification: string;
   selected: any[];
-  handleSelected: (checked: object[], value: string, isMultiselect?: boolean) => void;
+  handleSelected: (
+    checked: object[],
+    value: string,
+    isMultiselect?: boolean
+  ) => void;
   columns: string[];
   placeholder: string | JSX.Element;
   utils: {
-    uniqueId: (element: any) => string
+    uniqueId: (element: any) => string;
   };
 }
 
@@ -23,43 +27,44 @@ const TableBody = ({
   handleSelected,
   columns,
   placeholder,
-  utils: {
-    uniqueId
-  }
+  utils: { uniqueId }
 }: ITableBody): JSX.Element => (
-    <tbody>
-      {allRows.map((row: any) => (
-        <tr key={uniqueId(row)}>
-          {checkboxes && (
-            <td>
-              <Checkboxes
-                withEffect
-                options={[
-                  {
-                    checked: selected.includes(row[identification]),
-                    id: row[identification],
-                    value: row[identification]
-                  }
-                ]}
-                onChange={({ checked }: any): void =>
-                  handleSelected(checked, row[identification])
-                }
-              />
-            </td>
-          )}
-          {columns.map((column: any): JSX.Element => (
-            <td key={column}>{row[column]}</td>
-          ))}
-        </tr>
-      ))}
-      {!allRows.length && (
-        <tr>
-          <td colSpan={checkboxes ? columns.length + 1 : columns.length} align="center">
-            {placeholder}
+  <tbody>
+    {allRows.map((row: any, key: number) => (
+      <tr key={uniqueId(row)} data-testid={`tablerow-${key + 1}`}>
+        {checkboxes && (
+          <td>
+            <Checkboxes
+              data-testid={`row-checkbox-${key + 1}`}
+              options={{
+                checked: selected.includes(row[identification]),
+                id: row[identification],
+                value: row[identification]
+              }}
+              onChange={({ checked }: any): void =>
+                handleSelected(checked, row[identification])
+              }
+            />
           </td>
-        </tr>
-      )}
-    </tbody>
-  );
+        )}
+        {columns.map(
+          (column: any): JSX.Element => (
+            <td key={column}>{row[column]}</td>
+          )
+        )}
+      </tr>
+    ))}
+    {!allRows.length && (
+      <tr>
+        <td
+          colSpan={checkboxes ? columns.length + 1 : columns.length}
+          align="center"
+        >
+          {placeholder}
+        </td>
+      </tr>
+    )}
+  </tbody>
+);
 
 export default withUtils(TableBody);

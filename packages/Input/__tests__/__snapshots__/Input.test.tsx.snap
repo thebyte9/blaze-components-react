@@ -1,19 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input component should be defined and renders correctly (snapshot) 1`] = `
-<div
-  className="form-field form-field--input form-field--password"
+<WithUtils
+  onChange={[Function]}
+  placeholder="Placeholder text"
 >
-  <label
-    className=""
-  />
-  <input
+  <Input
     disabled={false}
+    error={false}
+    hideTypeToggle={false}
+    label=""
+    modifier=""
     onChange={[Function]}
     placeholder="Placeholder text"
     required={false}
-    type="password"
+    type="text"
+    utils={
+      Object {
+        "classNames": [Function],
+        "uniqueId": [Function],
+      }
+    }
+    validationMessage="This field is required"
     value=""
-  />
-</div>
+  >
+    <div
+      className="form-field form-field--input  "
+    >
+      <label
+        className=""
+      />
+      <input
+        data-testid="input"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Placeholder text"
+        required={false}
+        type="text"
+        value=""
+      />
+    </div>
+  </Input>
+</WithUtils>
 `;

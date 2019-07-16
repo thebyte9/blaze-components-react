@@ -26,6 +26,9 @@ jobs: # a collection of steps
           name: Update npm to latest
           command: "sudo npm install -g npm@latest"
       - run:
+          name: install-codecov # install codecov package
+          command: "sudo npm install -g codecov"
+      - run:
           name: Install npm packages
           command: npm run setup
       - run:
@@ -38,8 +41,11 @@ jobs: # a collection of steps
           name: Run build
           command: npm run build -- --concurrency=2
       - run:
+          name: Run build
+          command: npm run build-storybook
+      - run:
           name: Run tests with coverage
-          command: npm run test:coverage -- --runInBand
+          command: npm run test:coverage -- --runInBand && codecov
       - restore_cache:
           key: sonar-scanner-{{ .Environment.SONAR_QUBE_VERSION }}
       - run:
@@ -58,10 +64,10 @@ jobs: # a collection of steps
             - ~/sonar-scanner-${SONAR_QUBE_VERSION}/
             - ~/.sonar/cache/
             - ./.scannerwork/
-      # - persist_to_workspace:
-      #     root: /home/circleci/project/
-      #     paths:
-      #     - docs-build/
+      - persist_to_workspace:
+          root: /home/circleci/project/
+          paths:
+          - docs-build/
 
   deploy_prod:
     <<: *deploy_config
