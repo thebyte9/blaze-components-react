@@ -3,6 +3,11 @@ import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 
+interface ICheckbox {
+  checked: boolean;
+  id: string | number;
+  value: any;
+}
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
@@ -41,8 +46,8 @@ const Table: FunctionComponent<ITableProps> = ({
   }, [rows, columns]);
 
   const handleSelected = (
-    [checked]: [{ checked: boolean; id: string | number; value: any }],
-    value: string,
+    [checked]: ICheckbox[],
+    value: string | ICheckbox[],
     multiselect = false
   ): void => {
     let checkedValue = [];
@@ -73,6 +78,10 @@ const Table: FunctionComponent<ITableProps> = ({
   };
 
   const sort = (column: any) => {
+    if (!orderBy.includes(column)) {
+      return;
+    }
+
     const resetSortColumns = {};
 
     Object.keys(sortColumns).forEach(key => (resetSortColumns[key] = hide));
@@ -96,7 +105,7 @@ const Table: FunctionComponent<ITableProps> = ({
       >
         {column}
       </span>
-      {orderBy.includes(column) && sortColumns[column] !== hide && (
+      {sortColumns[column] !== hide && (
         <i className="material-icons">
           {sortColumns[column] === asc
             ? "keyboard_arrow_up"

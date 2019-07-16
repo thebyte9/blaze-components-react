@@ -6,6 +6,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
   data={
     Object {
       "columns": Array [
+        "id",
         "name",
         "age",
       ],
@@ -60,6 +61,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
           sortColumns={
             Object {
               "age": true,
+              "id": true,
               "name": true,
             }
           }
@@ -87,6 +89,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             sortColumns={
               Object {
                 "age": true,
+                "id": true,
                 "name": true,
               }
             }
@@ -99,6 +102,17 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
           >
             <thead>
               <tr>
+                <th
+                  key="uid-ImlkIg=="
+                >
+                  <span
+                    data-testid="sortby-id"
+                    onClick={[Function]}
+                    role="button"
+                  >
+                    id
+                  </span>
+                </th>
                 <th
                   key="uid-Im5hbWUi"
                 >
@@ -143,6 +157,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
           checkboxes={false}
           columns={
             Array [
+              "id",
               "name",
               "age",
             ]
@@ -170,6 +185,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             checkboxes={false}
             columns={
               Array [
+                "id",
                 "name",
                 "age",
               ]
@@ -191,6 +207,11 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
                 key="uid-eyJpZCI6MSwibmFtZSI6IkxvcmVtIiwiYWdlIjo1Mn0="
               >
                 <td
+                  key="id"
+                >
+                  1
+                </td>
+                <td
                   key="name"
                 >
                   Lorem
@@ -205,6 +226,11 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
                 data-testid="tablerow-2"
                 key="uid-eyJpZCI6MiwibmFtZSI6Iklwc3VtIiwiYWdlIjo0M30="
               >
+                <td
+                  key="id"
+                >
+                  2
+                </td>
                 <td
                   key="name"
                 >
