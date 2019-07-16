@@ -23,7 +23,7 @@ exports[`Chip component should be defined and renders correctly (snapshot) 1`] =
           <div
             className="chip__label"
           >
-            Primary deletable chip
+            Basic chip
           </div>
         </ChipLabel>
       </div>
