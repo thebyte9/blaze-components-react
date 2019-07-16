@@ -41,6 +41,9 @@ jobs: # a collection of steps
           name: Run build
           command: npm run build -- --concurrency=2
       - run:
+          name: Run build
+          command: npm run build-storybook
+      - run:
           name: Run tests with coverage
           command: npm run test:coverage -- --runInBand && codecov
       - restore_cache:
@@ -61,10 +64,10 @@ jobs: # a collection of steps
             - ~/sonar-scanner-${SONAR_QUBE_VERSION}/
             - ~/.sonar/cache/
             - ./.scannerwork/
-      # - persist_to_workspace:
-      #     root: /home/circleci/project/
-      #     paths:
-      #     - docs-build/
+      - persist_to_workspace:
+          root: /home/circleci/project/
+          paths:
+          - docs-build/
 
   deploy_prod:
     <<: *deploy_config
