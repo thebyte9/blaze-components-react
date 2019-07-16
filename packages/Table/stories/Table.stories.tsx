@@ -37,21 +37,21 @@ const DemoComponent = () => {
           {
             id: 1,
             name: "Oscar Leon",
-            lastName: "hello",
+            lastName: "abc",
             age: 26,
             tel: "213123123"
           },
           {
             id: 2,
             name: "Ismael Haytam",
-            lastName: "hello",
+            lastName: "def",
             age: 23,
             tel: "213123123"
           },
           {
             id: 3,
             name: "Robert",
-            lastName: "hello",
+            lastName: "nop",
             age: 45,
             tel: "213123123"
           }

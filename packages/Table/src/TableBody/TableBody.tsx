@@ -1,15 +1,19 @@
 import Checkboxes from "@blaze-react/checkboxes";
 import withUtils from "@blaze-react/utils";
 import React from "react";
-
+interface ICheckbox {
+  checked: boolean;
+  id: string | number;
+  value: any;
+}
 interface ITableBody {
   allRows: object[];
   checkboxes?: boolean;
   identification: string;
   selected: any[];
   handleSelected: (
-    checked: object[],
-    value: string,
+    checked: ICheckbox[],
+    value: string | ICheckbox[],
     isMultiselect?: boolean
   ) => void;
   columns: string[];
@@ -30,30 +34,32 @@ const TableBody = ({
   utils: { uniqueId }
 }: ITableBody): JSX.Element => (
   <tbody>
-    {allRows.map((row: any, key: number) => (
-      <tr key={uniqueId(row)} data-testid={`tablerow-${key + 1}`}>
-        {checkboxes && (
-          <td>
-            <Checkboxes
-              data-testid={`row-checkbox-${key + 1}`}
-              options={{
-                checked: selected.includes(row[identification]),
-                id: row[identification],
-                value: row[identification]
-              }}
-              onChange={({ checked }: any): void =>
-                handleSelected(checked, row[identification])
-              }
-            />
-          </td>
-        )}
-        {columns.map(
-          (column: any): JSX.Element => (
-            <td key={column}>{row[column]}</td>
-          )
-        )}
-      </tr>
-    ))}
+    {allRows.map(
+      (row: object, key: number): JSX.Element => (
+        <tr key={uniqueId(row)} data-testid={`tablerow-${key + 1}`}>
+          {checkboxes && (
+            <td>
+              <Checkboxes
+                data-testid={`row-checkbox-${key + 1}`}
+                options={{
+                  checked: selected.includes(row[identification]),
+                  id: row[identification],
+                  value: row[identification]
+                }}
+                onChange={({ checked }: { checked: ICheckbox[] }): void =>
+                  handleSelected(checked, row[identification])
+                }
+              />
+            </td>
+          )}
+          {columns.map(
+            (column: string): JSX.Element => (
+              <td key={column}>{row[column]}</td>
+            )
+          )}
+        </tr>
+      )
+    )}
     {!allRows.length && (
       <tr>
         <td
