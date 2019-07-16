@@ -3,6 +3,11 @@ import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 
+interface ICheckbox {
+  checked: boolean;
+  id: string | number;
+  value: any;
+}
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
@@ -41,8 +46,8 @@ const Table: FunctionComponent<ITableProps> = ({
   }, [rows, columns]);
 
   const handleSelected = (
-    [checked]: [{ checked: boolean; id: string | number; value: any }],
-    value: string,
+    [checked]: ICheckbox[],
+    value: string | ICheckbox[],
     multiselect = false
   ): void => {
     let checkedValue = [];
