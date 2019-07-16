@@ -73,6 +73,10 @@ const Table: FunctionComponent<ITableProps> = ({
   };
 
   const sort = (column: any) => {
+    if (!orderBy.includes(column)) {
+      return;
+    }
+
     const resetSortColumns = {};
 
     Object.keys(sortColumns).forEach(key => (resetSortColumns[key] = hide));
@@ -96,7 +100,7 @@ const Table: FunctionComponent<ITableProps> = ({
       >
         {column}
       </span>
-      {orderBy.includes(column) && sortColumns[column] !== hide && (
+      {sortColumns[column] !== hide && (
         <i className="material-icons">
           {sortColumns[column] === asc
             ? "keyboard_arrow_up"

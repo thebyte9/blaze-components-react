@@ -28,7 +28,7 @@ const TableHead = ({
   enableOrderBy,
   sortColumns,
   utils: { uniqueId }
-}: ITableHead) => (
+}: ITableHead): JSX.Element => (
   <thead>
     <tr>
       {checkboxes && (
