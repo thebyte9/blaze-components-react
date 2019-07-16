@@ -1,15 +1,19 @@
 import Checkboxes from "@blaze-react/checkboxes";
 import withUtils from "@blaze-react/utils";
 import React from "react";
-
+interface ICheckbox {
+  checked: boolean;
+  id: string | number;
+  value: any;
+}
 interface ITableHead {
   checkboxes?: boolean;
   selected: any[];
   identification: string;
   allRows: object[];
   handleSelected: (
-    checked: object[],
-    value: string,
+    checked: ICheckbox[],
+    value: string | ICheckbox[],
     isMultiselect?: boolean
   ) => void;
   enableOrderBy: (column: string) => JSX.Element;
@@ -28,7 +32,7 @@ const TableHead = ({
   enableOrderBy,
   sortColumns,
   utils: { uniqueId }
-}: ITableHead) => (
+}: ITableHead): JSX.Element => (
   <thead>
     <tr>
       {checkboxes && (
@@ -38,10 +42,10 @@ const TableHead = ({
               {},
               {
                 checked: selected.length === allRows.length,
-                value: allRows.map((row: any) => row[identification])
+                value: allRows.map((row: object) => row[identification])
               }
             )}
-            onChange={({ checked }: { checked: any }): void =>
+            onChange={({ checked }: { checked: ICheckbox[] }): void =>
               handleSelected(checked, checked, true)
             }
             data-testid="select_all"
@@ -49,7 +53,7 @@ const TableHead = ({
         </th>
       )}
       {Object.keys(sortColumns).map(
-        (column: any): JSX.Element => (
+        (column: string): JSX.Element => (
           <th key={uniqueId(column)}>{enableOrderBy(column)}</th>
         )
       )}

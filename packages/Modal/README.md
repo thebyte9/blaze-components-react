@@ -77,10 +77,11 @@ const alertActions = [
 
 ##### Modal can receive a number of `props` as follow:
 
-| NAME         |  TYPE   | DEFAULT |
-| :----------- | :-----: | :-----: |
-| title        | String  |  empty  |
-| toggleButton | String  |  empty  |
-| actions      |  Array  |   []    |
-| alert        | Boolean |  false  |
-| isActive     | Boolean |  false  |
+| NAME         |   TYPE   | DEFAULT  |
+| :----------- | :------: | :------: |
+| title        |  String  |  empty   |
+| toggleButton |  String  |  empty   |
+| actions      |  Array   |    []    |
+| alert        | Boolean  |  false   |
+| isActive     | Boolean  |  false   |
+| onClose      | Function | () => {} |
