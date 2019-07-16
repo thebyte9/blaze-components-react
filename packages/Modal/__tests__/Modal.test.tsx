@@ -29,7 +29,13 @@ describe("Modal component", () => {
   });
 
   test("should render and close alert modal", () => {
-    const actions = [["delete", () => ({}), "alert small"]];
+    const actions = [
+      {
+        callback: () => ({}),
+        modifiers: "alert small",
+        textButton: "deleter"
+      }
+    ];
     const override = {
       actions,
       alert: true,
@@ -46,7 +52,16 @@ describe("Modal component", () => {
   });
 
   test("should render and close scrollable modal", () => {
-    const actions = [["Action 1", () => ({})], ["Action 2", () => ({})]];
+    const actions = [
+      {
+        callback: () => ({}),
+        textButton: "Action 1"
+      },
+      {
+        callback: () => ({}),
+        textButton: "Action 2"
+      }
+    ];
     const override = {
       actions,
       alert: false,

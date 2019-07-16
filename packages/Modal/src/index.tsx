@@ -1,12 +1,18 @@
 import Button from "@blaze-react/button";
 import withUtils from "@blaze-react/utils";
 import React, { Fragment, useState } from "react";
-type TActions = [string, () => void, string?];
+
+interface IActions {
+  textButton: string;
+  callback: () => void;
+  modifiers?: string;
+}
+
 interface IModalProps {
   title?: string;
   buttonText?: string;
   buttonModifiers?: string;
-  actions: TActions[];
+  actions: IActions[];
   simple?: boolean;
   upload?: boolean;
   alert?: boolean;
@@ -32,6 +38,8 @@ const Modal: React.SFC<IModalProps> = ({
 }): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean | undefined>(isActive);
 
+  const sections: string[] = ["header", "content", "footer"];
+
   const closeModal = (): void => {
     setModalStatus(false);
     onClose();
@@ -47,7 +55,7 @@ const Modal: React.SFC<IModalProps> = ({
     modalHeaderClassNames,
     modalContentClassNames,
     modalFooterClassNames
-  ]: string[] = ["header", "content", "footer"].map(
+  ]: string[] = sections.map(
     (alertType: string): string =>
       classNames(`modal__${alertType}`, {
         [`modal__${alertType}--alert`]: alert,
@@ -62,15 +70,17 @@ const Modal: React.SFC<IModalProps> = ({
         <div className="overlay">
           <div className={modalClassNames}>
             <div className={modalHeaderClassNames}>
-              {!alert && <div className="modal__title">{title}</div>}
               {!alert && (
-                <div
-                  className="modal__close"
-                  role="button"
-                  onClick={closeModal}
-                >
-                  <i className="material-icons">close</i>
-                </div>
+                <Fragment>
+                  <div className="modal__title">{title}</div>
+                  <div
+                    className="modal__close"
+                    role="button"
+                    onClick={closeModal}
+                  >
+                    <i className="material-icons">close</i>
+                  </div>
+                </Fragment>
               )}
             </div>
             <div className={modalContentClassNames}>{children}</div>
@@ -82,13 +92,17 @@ const Modal: React.SFC<IModalProps> = ({
                   </Button>
                 )}
                 {actions.map(
-                  ([
-                    text,
-                    action,
+                  ({
+                    textButton,
+                    callback,
                     modifiers = "link"
-                  ]: TActions): JSX.Element => (
-                    <Button key={text} modifiers={modifiers} onClick={action}>
-                      {text}
+                  }: IActions): JSX.Element => (
+                    <Button
+                      key={textButton}
+                      modifiers={modifiers}
+                      onClick={callback}
+                    >
+                      {textButton}
                     </Button>
                   )
                 )}

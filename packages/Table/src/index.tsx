@@ -87,26 +87,24 @@ const Table: FunctionComponent<ITableProps> = ({
     });
   };
 
-  const enableOrderBy = (column: string): JSX.Element => {
-    return (
-      <Fragment>
-        <span
-          data-testid={`sortby-${column}`}
-          onClick={() => sort(column)}
-          role="button"
-        >
-          {column}
-        </span>
-        {orderBy.includes(column) && sortColumns[column] !== hide && (
-          <i className="material-icons">
-            {sortColumns[column] === asc
-              ? "keyboard_arrow_up"
-              : "keyboard_arrow_down"}
-          </i>
-        )}
-      </Fragment>
-    );
-  };
+  const enableOrderBy = (column: string): JSX.Element => (
+    <Fragment>
+      <span
+        data-testid={`sortby-${column}`}
+        onClick={() => sort(column)}
+        role="button"
+      >
+        {column}
+      </span>
+      {orderBy.includes(column) && sortColumns[column] !== hide && (
+        <i className="material-icons">
+          {sortColumns[column] === asc
+            ? "keyboard_arrow_up"
+            : "keyboard_arrow_down"}
+        </i>
+      )}
+    </Fragment>
+  );
 
   return (
     <div className="table-scroll__wrapper">
