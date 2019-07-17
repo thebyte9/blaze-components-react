@@ -41,20 +41,16 @@ storiesOf("Switches", module)
 
       <section className="exampleSection">
         <h3>Single</h3>
-        <div className="switch__wrapper">
-          <Switches returnBoolean options={single} onChange={() => ({})} />
-        </div>
+        <Switches returnBoolean options={single} onChange={() => ({})} />
 
         <br />
 
         <h3>Multiple</h3>
-        <div className="form-group form-group--switch">
-          <Switches
-            options={multiple}
-            modifier="secondary"
-            onChange={() => ({})}
-          />
-        </div>
+        <Switches
+          options={multiple}
+          modifier="secondary"
+          onChange={() => ({})}
+        />
       </section>
     </div>
   ));

@@ -1,5 +1,5 @@
 import withUtils from "@blaze-react/utils";
-import React, { Fragment, FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 
 interface IOptions {
   checked: boolean;
@@ -37,9 +37,23 @@ const Switches: FunctionComponent<ISwitchesProps> = ({
   utils: { uniqueId, classNames },
   ...attrs
 }): JSX.Element => {
-  const formatedOptions: IOptions[] = Array.isArray(options)
-    ? options
-    : [options];
+  const {
+    wrap,
+    formatedOptions
+  }: {
+    wrap: (child: JSX.Element[]) => JSX.Element;
+    formatedOptions: IOptions[];
+  } = Array.isArray(options)
+    ? {
+        formatedOptions: options,
+        wrap: (child: JSX.Element[]): JSX.Element => (
+          <div className="form-group form-group--switch">{child}</div>
+        )
+      }
+    : {
+        formatedOptions: [options],
+        wrap: (child: JSX.Element[]): JSX.Element => <>{child}</>
+      };
 
   const [data, setData] = useState<IOptions[]>(formatedOptions);
 
@@ -76,43 +90,41 @@ const Switches: FunctionComponent<ISwitchesProps> = ({
     [`switch--label--${labelPosition}`]: !!labelPosition
   });
 
-  return (
-    <Fragment>
-      {data.map(
-        (item: IOptions, key: number): JSX.Element => {
-          const {
-            checked = false,
-            value,
-            disabled,
-            required,
-            label,
-            id = uniqueId(item)
-          } = item;
+  return wrap(
+    data.map(
+      (item: IOptions, key: number): JSX.Element => {
+        const {
+          checked = false,
+          value,
+          disabled,
+          required,
+          label,
+          id = uniqueId(item)
+        } = item;
 
-          return (
-            <div className={switchClassNames} key={id}>
-              <div className="switch__text">{label}</div>
-              <div className="switch__item">
-                <input
-                  readOnly
-                  type="checkbox"
-                  value={value}
-                  disabled={disabled}
-                  checked={checked}
-                  required={required}
-                  onChange={(
-                    event: React.ChangeEvent<HTMLInputElement>
-                  ): void => toggle({ event, item, key })}
-                  id={id}
-                  {...attrs}
-                />
-                <label htmlFor={id}>toggle</label>
-              </div>
+        return (
+          <div className={switchClassNames} key={id}>
+            <div className="switch__text">{label}</div>
+            <div className="switch__item">
+              <input
+                readOnly
+                type="checkbox"
+                value={value}
+                disabled={disabled}
+                checked={checked}
+                required={required}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>): void =>
+                  toggle({ event, item, key })
+                }
+                id={id}
+                {...attrs}
+              />
+              <label htmlFor={id}>toggle</label>
             </div>
-          );
-        }
-      )}
-    </Fragment>
+          </div>
+        );
+      }
+    )
   );
 };
 Switches.defaultProps = {
