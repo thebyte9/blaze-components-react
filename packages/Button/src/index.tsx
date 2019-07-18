@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 
-interface IButtonProps {
+interface IButtonProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   submit?: boolean;
   children?: JSX.Element | string;
