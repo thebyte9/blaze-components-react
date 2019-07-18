@@ -1,6 +1,5 @@
 import withUtils from "@blaze-react/utils";
 import React, {
-  Fragment,
   FunctionComponent,
   TextareaHTMLAttributes,
   useState
@@ -47,12 +46,12 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
     onChange({ event, value: newContent });
   };
 
-  const requiredClassName = classNames({ required });
+  const requiredClassName: string = classNames({ required });
 
   const total: number = !limit ? 0 : limit - content.length;
 
   return (
-    <Fragment>
+    <div className="form-field form-field--textarea">
       {label && (
         <label htmlFor={id} className={requiredClassName}>
           {label}
@@ -73,7 +72,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
           {validationMessage}
         </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 Textarea.defaultProps = {

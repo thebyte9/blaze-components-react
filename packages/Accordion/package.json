@@ -1,5 +1,5 @@
 {
-  "name": "@blaze-react/Accordion",
+  "name": "@blaze-react/accordion",
   "version": "0.2.5",
   "publishConfig": {
     "access": "public"
