@@ -17,11 +17,9 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
     onToggle(style);
   };
 
-  return (
-    <span onMouseDown={handelToggle}>
-      {active ? <b>{label}</b> : <>{label}</>}
-    </span>
-  );
+  const labelStatus: JSX.Element = active ? <b>{label}</b> : <>{label}</>;
+
+  return <span onMouseDown={handelToggle}>{labelStatus}</span>;
 };
 
 export default StyleButton;

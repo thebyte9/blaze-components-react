@@ -1,5 +1,5 @@
 import { DraftBlockType, EditorState, SelectionState } from "draft-js";
-import React, { FunctionComponent } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import StyleButton from "../StyleButton";
 
 interface IBlockTypes {
@@ -34,22 +34,19 @@ const BlockControls: FunctionComponent<IBlockControlsProps> = ({
   ];
 
   return (
-    <div>
+    <Fragment>
       {BLOCK_TYPES.map(
-        (type: IBlockTypes): JSX.Element => {
-          const { label, style } = type;
-          return (
-            <StyleButton
-              key={label}
-              style={style}
-              label={label}
-              onToggle={onToggle}
-              active={style === blockType}
-            />
-          );
-        }
+        ({ label, style }: IBlockTypes): JSX.Element => (
+          <StyleButton
+            key={label}
+            style={style}
+            label={label}
+            onToggle={onToggle}
+            active={style === blockType}
+          />
+        )
       )}
-    </div>
+    </Fragment>
   );
 };
 

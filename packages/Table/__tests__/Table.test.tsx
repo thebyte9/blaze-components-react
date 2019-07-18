@@ -6,7 +6,7 @@ import Table from "../src";
 
 const data = {
   identification: "id",
-  columns: ["name", "age"],
+  columns: ["id", "name", "age"],
   orderBy: ["name", "age"],
   rows: [
     {
@@ -95,6 +95,9 @@ describe("Table component", () => {
 
   test("Sort should work with numbers", () => {
     const { getByTestId } = render(<Table {...defaultProps()} />);
+
+    fireEvent.click(getByTestId("sortby-id"));
+    expect(getByTestId("tablerow-1")).toHaveTextContent("52");
 
     fireEvent.click(getByTestId("sortby-age"));
     expect(getByTestId("tablerow-1")).toHaveTextContent("43");

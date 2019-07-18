@@ -102,6 +102,9 @@ interface IDraftEditorProps {
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   ...attrs
 }): JSX.Element => {
+  const draftHandledValue: string = "handled";
+  const draftNotHandledValue: string = "not-handled";
+
   const [editorState, setEditorState] = useState<EditorState>(
     EditorState.createEmpty()
   );
@@ -122,9 +125,9 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     );
     if (newState) {
       onChange(newState);
-      return "handled";
+      return draftHandledValue;
     }
-    return "not-handled";
+    return draftNotHandledValue;
   };
 
   return (

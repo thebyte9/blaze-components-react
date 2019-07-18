@@ -26,18 +26,15 @@ const InlineControls: FunctionComponent<IInlineControlsProps> = ({
   return (
     <div>
       {INLINE_STYLES.map(
-        (type: IInlineTypes): JSX.Element => {
-          const { label, style } = type;
-          return (
-            <StyleButton
-              key={label}
-              style={style}
-              label={label}
-              onToggle={onToggle}
-              active={currentStyle.has(style)}
-            />
-          );
-        }
+        ({ label, style }: IInlineTypes): JSX.Element => (
+          <StyleButton
+            key={label}
+            style={style}
+            label={label}
+            onToggle={onToggle}
+            active={currentStyle.has(style)}
+          />
+        )
       )}
     </div>
   );
