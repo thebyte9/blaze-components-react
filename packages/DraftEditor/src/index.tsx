@@ -102,8 +102,8 @@ interface IDraftEditorProps {
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   ...attrs
 }): JSX.Element => {
-  const draftHandledValue: string = "handled";
-  const draftNotHandledValue: string = "not-handled";
+  const draftHandledValue: DraftHandleValue = "handled";
+  const draftNotHandledValue: DraftHandleValue = "not-handled";
 
   const [editorState, setEditorState] = useState<EditorState>(
     EditorState.createEmpty()
