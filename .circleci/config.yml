@@ -41,8 +41,8 @@ jobs: # a collection of steps
           name: Run build
           command: npm run build -- --concurrency=2
       - run:
-          name: Run build
-          command: npm run build-storybook
+          name: Run build docs
+          command:  npx build-storybook -c .storybook -o docs-build
       - run:
           name: Run tests with coverage
           command: npm run test:coverage -- --runInBand && codecov
