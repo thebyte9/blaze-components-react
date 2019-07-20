@@ -1,22 +1,22 @@
 /* eslint-disable react/button-has-type */
-import React, { InputHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, FunctionComponent } from "react";
 
-interface IButtonProps extends InputHTMLAttributes<HTMLInputElement> {
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
-  submit?: boolean;
+  // submit?: boolean;
   children?: JSX.Element | string;
   modifiers?: string;
-  attrs?: any;
+  type?: "button" | "submit" | "reset";
 }
 
-const Button: React.SFC<IButtonProps> = ({
+const Button: FunctionComponent<IButtonProps> = ({
   disabled,
-  submit,
+  // submit,
+  type,
   children,
   modifiers,
   ...attrs
 }): JSX.Element => {
-  const type = submit ? "submit" : "button";
   const allModifiers =
     modifiers &&
     modifiers
@@ -37,8 +37,7 @@ const Button: React.SFC<IButtonProps> = ({
 Button.defaultProps = {
   children: "",
   disabled: false,
-  modifiers: "",
-  submit: false
+  modifiers: ""
 };
 
 export default Button;
