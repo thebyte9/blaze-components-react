@@ -1,32 +1,34 @@
-/* eslint-disable react/button-has-type */
+import withUtils from "@blaze-react/utils";
 import React, { ButtonHTMLAttributes, FunctionComponent } from "react";
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
-  // submit?: boolean;
   children?: JSX.Element | string;
-  modifiers?: string;
   type?: "button" | "submit" | "reset";
+  modifiers: string;
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+  };
 }
 
 const Button: FunctionComponent<IButtonProps> = ({
   disabled,
-  // submit,
   type,
   children,
   modifiers,
+  utils: { classNames },
   ...attrs
 }): JSX.Element => {
-  const allModifiers =
-    modifiers &&
-    modifiers
+  const buttonClassNames: string = classNames("button", {
+    [modifiers
       .split(" ")
       .map(modifier => `button--${modifier}`)
-      .join(" ");
+      .join(" ")]: !!modifiers
+  });
   return (
     <button
       disabled={disabled}
-      className={`button ${allModifiers}`}
+      className={buttonClassNames}
       type={type}
       {...attrs}
     >
@@ -37,7 +39,8 @@ const Button: FunctionComponent<IButtonProps> = ({
 Button.defaultProps = {
   children: "",
   disabled: false,
-  modifiers: ""
+  modifiers: "",
+  type: "button"
 };
 
-export default Button;
+export default withUtils(Button);

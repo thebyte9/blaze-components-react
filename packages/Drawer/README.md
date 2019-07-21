@@ -1,37 +1,37 @@
 ## Description
 
-Accordion component is a list of headers that hide or reveal additional content when selected.
+Drawer component is a panel that is typically used to render the content of the drawer with navigation items.
 
 ## Usage
 
 ```js
-<Accordion>
-  <Accordion.Header>
-    <p>Accordion text 1</p>
-    <p>Accordion text 2</p>
-  </Accordion.Header>
-  <Accordion.Content>
-    <Accordion.ContentDetails>
-      <p>Content here. Components can be placed in here if needed</p>
-      <p>Footer can be added below if needed</p>
-    </Accordion.ContentDetails>
-    <Accordion.ContentFooter>
-      <Button name="button" modifiers="outline light rounded">
-        Cancel
-      </Button>
-      <Button name="button" modifiers="rounded">
-        Save
-      </Button>
-    </Accordion.ContentFooter>
-  </Accordion.Content>
-</Accordion>
+<Drawer modifier="left" title="Drawer Component">
+  <DrawerMainContent>
+    <p>
+      Elit occaecat qui Lorem eiusmod culpa sunt culpa exercitation Lorem culpa.
+      Veniam irure occaecat incididunt amet ullamco Lorem et aliquip enim.
+      Ullamco pariatur minim aliquip dolor labore cillum sit amet ullamco qui
+      sit officia quis tempor deserunt eu anim.
+    </p>
+  </DrawerMainContent>
+  <DrawerPageContent>
+    <p>
+      Rough js to toggle open/close. Would be nice to add a class on the content
+      header menu button so it can be hidden when the drawer is open & user
+      clicks arrow button on drawer to close
+    </p>
+  </DrawerPageContent>
+</Drawer>
 ```
 
 ## API
 
-##### Accordion menu can receive a number of `props` as follow:
+##### Drawer menu can receive a number of `props` as follow:
 
-| NAME     |         TYPE          | DEFAULT |
-| :------- | :-------------------: | :-----: |
-| isOpen   |        Boolean        |  false  |
-| children | single/array of nodes |  empty  |
+| NAME         |      TYPE      | DEFAULT |   OPTIONS   |
+| :----------- | :------------: | :-----: | :---------: |
+| modifier     |     string     |  empty  | left, right |
+| title        |     string     |  empty  |
+| isResponsive |    boolean     |  false  |
+| isPermanent  |    boolean     |  false  |
+| children     | array of nodes |  empty  |

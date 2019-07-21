@@ -15,14 +15,11 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
   <div
     className="upload__browse"
   >
-    <Button
-      disabled={false}
-      modifiers=""
+    <WithUtils
       onClick={[Function]}
-      submit={false}
     >
       Browse
-    </Button>
+    </WithUtils>
     <input
       onChange={[Function]}
       style={
@@ -38,14 +35,12 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
   >
     or
   </div>
-  <Button
-    disabled={false}
+  <WithUtils
     modifiers="dark outline"
     onClick={[Function]}
-    submit={false}
   >
     Cancel
-  </Button>
+  </WithUtils>
   Drag and drop here
 </div>
 `;

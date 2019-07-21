@@ -22,6 +22,9 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5"
   },
+  "dependencies": {
+    "@blaze-react/utils": "^0.3.4"
+  },
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
