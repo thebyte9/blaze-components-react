@@ -1,10 +1,14 @@
 import Button from "@blaze-react/button";
+import WithUtils from "@blaze-react/utils";
 import React, { Fragment, FunctionComponent, useState } from "react";
 interface IAlertProps {
   icon?: string;
   type?: string;
   close?: boolean;
-  children?: JSX.Element | string | {} | [];
+  utils: {
+    classNames: (...args: any) => string;
+  };
+  children?: JSX.Element | string;
 }
 
 const Alert: FunctionComponent<IAlertProps> = ({
@@ -12,17 +16,19 @@ const Alert: FunctionComponent<IAlertProps> = ({
   close,
   icon,
   type,
+  utils: { classNames },
   ...attrs
 }): JSX.Element => {
-  const [offModal, setModalOff] = useState(false);
-  const assignType = type && `alert--${type}`;
-  const isDismissable = close && "alert--dismissable";
-  const withIcon = icon && "alert--icon";
+  const [offModal, setModalOff] = useState<boolean>(false);
+
+  const alertClassName: string = classNames("alert", {
+    "alert--dismissable": close,
+    "alert--icon": !!icon,
+    [`alert--${type}`]: !!type
+  });
+
   const renderAlert = (
-    <div
-      className={`alert ${assignType} ${isDismissable} ${withIcon}`}
-      {...attrs}
-    >
+    <div className={alertClassName} {...attrs}>
       {icon && <i className="material-icons">{icon}</i>}
       {children}
       {close && (
@@ -43,4 +49,4 @@ Alert.defaultProps = {
   icon: "",
   type: ""
 };
-export default Alert;
+export default WithUtils(Alert);
