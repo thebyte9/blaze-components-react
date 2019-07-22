@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/autocomplete",
-  "version": "0.3.4",
+  "version": "0.3.7",
   "publishConfig": {
     "access": "public"
   },
@@ -38,5 +38,5 @@
       "@babel/preset-react"
     ]
   },
-  "gitHead": "3638834d2211cc16d965ecafbf5ab2eeddceca12"
+  "gitHead": "986a601913a963e035b116f643ed1d9230ea1a87"
 }
