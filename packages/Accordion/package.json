@@ -1,6 +1,6 @@
 {
-  "name": "@blaze-react/Accordion",
-  "version": "0.2.5",
+  "name": "@blaze-react/accordion",
+  "version": "0.3.7",
   "publishConfig": {
     "access": "public"
   },
@@ -36,5 +36,5 @@
       "@babel/preset-react"
     ]
   },
-  "gitHead": "1edd29612d1854f0418c0b81d8755dd0cbd8bfb5"
+  "gitHead": "986a601913a963e035b116f643ed1d9230ea1a87"
 }
