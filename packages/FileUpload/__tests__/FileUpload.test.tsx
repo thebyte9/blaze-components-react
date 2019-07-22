@@ -20,7 +20,7 @@ describe('FileUpload component', () => {
   });
 
   test('should cancel operation', () => {
-    const wrapper = shallow(FileUploadComponent);
+    const wrapper = mount(FileUploadComponent);
 
     wrapper
       .find('Button')

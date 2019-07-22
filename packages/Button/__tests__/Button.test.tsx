@@ -10,20 +10,14 @@ const testProps = {
 describe("Button component", () => {
   const wrapper = mount(<Button {...testProps} />);
 
-  test("should be defined", () => {
+  test("should be defined and renders correctly (snapshot)", () => {
     expect(wrapper).toBeDefined();
-  });
-
-  test("should render without throwing an error", () => {
-    expect(wrapper.is(".button")).toBe(true);
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(".button").length).toBe(1);
   });
 
   test("should be type button by default", () => {
-    expect(wrapper.props().type).toBe("button");
-  });
-
-  test("should renders correctly (snapshot)", () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(".button").props().type).toBe("button");
   });
 
   test("should be type submit when passing isSubmit prop", () => {

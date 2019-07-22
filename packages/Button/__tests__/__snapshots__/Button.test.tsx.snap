@@ -1,15 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component should renders correctly (snapshot) 1`] = `
-<Button
-  disabled={false}
+exports[`Button component should be defined and renders correctly (snapshot) 1`] = `
+<WithUtils
   modifiers="outline rounded"
-  type="button"
-  utils={
-    Object {
-      "classNames": [Function],
-      "uniqueId": [Function],
+>
+  <Button
+    disabled={false}
+    modifiers="outline rounded"
+    type="button"
+    utils={
+      Object {
+        "classNames": [Function],
+        "uniqueId": [Function],
+      }
     }
-  }
-/>
+  >
+    <button
+      className="button button--outline button--rounded"
+      disabled={false}
+      type="button"
+    />
+  </Button>
+</WithUtils>
 `;
