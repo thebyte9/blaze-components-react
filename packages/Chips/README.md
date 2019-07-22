@@ -5,12 +5,17 @@ React chips are small blocks of information. They are most commonly used for con
 ## Usage
 
 ```js
-<Chips modifiers={["deletable", "small"]}>
+<Chips
+  modifiers={[
+    Chips.availableModifiers.parent.deletable,
+    Chips.availableModifiers.parent.small
+  ]}
+>
   <Chips.Avatar>
-    <i className="material-icons">face</i>
+    <Avatar username="Lorem Ipsum" modifier="x-small" />
   </Chips.Avatar>
   <Chips.Label>Primary deletable chip</Chips.Label>
-  <Chips.Icon modifier="delete">
+  <Chips.Icon modifier={Chips.availableModifiers.icon.delete}>
     <i className="material-icons">delete</i>
   </Chips.Icon>
 </Chips>

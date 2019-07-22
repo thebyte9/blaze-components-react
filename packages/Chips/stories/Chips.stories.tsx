@@ -13,12 +13,17 @@ storiesOf("Chips", module)
   .add("Introduction", () => (
     <div className="component-wrapper">
       <h1>Chips</h1>
-      <Chips modifiers={["deletable", "small"]}>
+      <Chips
+        modifiers={[
+          Chips.availableModifiers.parent.deletable,
+          Chips.availableModifiers.parent.small
+        ]}
+      >
         <Chips.Avatar>
           <Avatar username="Lorem Ipsum" modifier="x-small" />
         </Chips.Avatar>
         <Chips.Label>Primary deletable chip</Chips.Label>
-        <Chips.Icon modifier="delete">
+        <Chips.Icon modifier={Chips.availableModifiers.Icon}>
           <i className="material-icons">delete</i>
         </Chips.Icon>
       </Chips>

@@ -1,5 +1,5 @@
 import withUtils from "@blaze-react/utils";
-import React, { FunctionComponent, useState } from "react";
+import React, { useState } from "react";
 interface IAvatarProps {
   modifier?: string;
   url?: string;
@@ -9,55 +9,65 @@ interface IAvatarProps {
   };
   attrs?: any;
 }
-const Avatar: FunctionComponent<IAvatarProps> = ({
-  modifier,
-  url,
-  username,
-  utils: { classNames },
-  ...attr
-}): JSX.Element => {
-  const [avatarUrl, setAvatar] = useState<string | undefined>(url);
-  const [validUrl, setValidUrl] = useState<boolean>(false);
+const Avatar = withUtils(
+  ({
+    modifier,
+    url,
+    username,
+    utils: { classNames },
+    ...attr
+  }: IAvatarProps): JSX.Element => {
+    const [avatarUrl, setAvatar] = useState<string | undefined>(url);
+    const [validUrl, setValidUrl] = useState<boolean>(false);
 
-  const avatarClassName: string = classNames("avatar", {
-    [`avatar--${modifier}`]: !!modifier
-  });
+    const avatarClassName: string = classNames("avatar", {
+      [`avatar--${modifier}`]: !!modifier
+    });
 
-  const initials = !username
-    ? "!"
-    : username
-        .split(" ")
-        .map(subName => subName[0].toUpperCase())
-        .join("")
-        .substring(0, 2);
+    const initials = !username
+      ? "!"
+      : username
+          .split(" ")
+          .map(subName => subName[0].toUpperCase())
+          .join("")
+          .substring(0, 2);
 
-  if (url && !validUrl) {
-    const imageData = new Image();
-    imageData.src = url;
+    if (url && !validUrl) {
+      const imageData = new Image();
+      imageData.src = url;
 
-    imageData.addEventListener(
-      "load",
-      (): void => {
-        setAvatar(url);
-        setValidUrl(true);
-      }
+      imageData.addEventListener(
+        "load",
+        (): void => {
+          setAvatar(url);
+          setValidUrl(true);
+        }
+      );
+    }
+
+    return (
+      <div className={avatarClassName}>
+        {validUrl ? (
+          <img src={avatarUrl} alt="avatar" {...attr} />
+        ) : (
+          <span>{initials}</span>
+        )}
+      </div>
     );
   }
+);
 
-  return (
-    <div className={avatarClassName}>
-      {validUrl ? (
-        <img src={avatarUrl} alt="avatar" {...attr} />
-      ) : (
-        <span>{initials}</span>
-      )}
-    </div>
-  );
+const availableModifiers = {
+  med: "med",
+  small: "small",
+  xSmall: "x-small"
 };
+
+Avatar.availableModifiers = availableModifiers;
 
 Avatar.defaultProps = {
   modifier: "",
   url: "",
   username: ""
 };
-export default withUtils(Avatar);
+export default Avatar;

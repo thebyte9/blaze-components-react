@@ -17,12 +17,18 @@ describe("Chip component", () => {
 
   test("should delete Chip", () => {
     const wrapper = mount(
-      <Chips modifiers={["deletable", "small"]} action={() => ({})}>
+      <Chips
+        modifiers={[
+          Chips.availableModifiers.parent.deletable,
+          Chips.availableModifiers.parent.small
+        ]}
+        action={() => ({})}
+      >
         <Chips.Avatar>
           <Avatar username="Lorem Ipsum" modifier="x-small" />
         </Chips.Avatar>
         <Chips.Label>Primary deletable chip</Chips.Label>
-        <Chips.Icon modifier="delete">
+        <Chips.Icon modifier={Chips.availableModifiers.icon.delete}>
           <i className="material-icons">delete</i>
         </Chips.Icon>
       </Chips>

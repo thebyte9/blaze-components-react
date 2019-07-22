@@ -21,20 +21,26 @@ const Chips = withUtils(
   }: IChipsProps): JSX.Element => {
     const [showChip, setChip] = useState<boolean>(true);
 
+    const deletable: string = "deletable";
+
+    const isRemovable: boolean = modifiers && modifiers.includes(deletable);
+
+    const formatedModifiers: string = modifiers
+      ? modifiers.map(modifier => `chip--${modifier}`).join(" ")
+      : "";
+
     const handleRemoveChip = (): void => setChip(false);
 
-    const chipClassName: string = classNames("chip", {
-      [modifiers
-        .map(modifier => `chip--${modifier}`)
-        .join(" ")]: !!modifiers.length
+    const chipClassNames: string = classNames("chip", {
+      [formatedModifiers]: !!modifiers
     });
 
     return (
       <Fragment>
         {showChip && (
           <div className="chip__wrapper">
-            <div className={chipClassName} onClick={action}>
-              {modifiers.includes("deletable")
+            <div className={chipClassNames} onClick={action}>
+              {isRemovable
                 ? React.Children.map(
                     children,
                     (child: ReactElement): ReactElement =>
@@ -51,12 +57,23 @@ const Chips = withUtils(
   }
 );
 
+const availableModifiers = {
+  icon: {
+    delete: "delete"
+  },
+  parent: {
+    deletable: "deletable",
+    outlined: "outlined",
+    primary: "primary",
+    secondary: "secondary",
+    small: "small"
+  }
+};
+
 Chips.Avatar = ChipAvatar;
 Chips.Label = ChipLabel;
 Chips.Icon = ChipIcon;
 
-Chips.defaultProps = {
-  modifiers: []
-};
+Chips.availableModifiers = availableModifiers;
 
 export default Chips;
