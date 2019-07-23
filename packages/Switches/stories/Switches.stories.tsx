@@ -48,7 +48,7 @@ storiesOf("Switches", module)
         <h3>Multiple</h3>
         <Switches
           options={multiple}
-          modifier="secondary"
+          modifier={Switches.availableModifiers.secondary}
           onChange={() => ({})}
         />
       </section>

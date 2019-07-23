@@ -29,10 +29,14 @@
   "dependencies": {
     "@storybook/addon-knobs": "^5.1.7",
     "@testing-library/react": "^8.0.4",
+    "@types/draft-js": "^0.10.34",
     "classnames": "^2.2.6",
+    "draft-js": "^0.11.0",
     "enzyme-to-json": "^3.3.5",
     "lodash.orderby": "^4.6.0",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "peerDependencies": {
     "uuid": "^3.3.2",

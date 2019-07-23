@@ -23,7 +23,11 @@ const multiple = [
   }
 ];
 
-<Switches options={multiple} onChange={({ event, checked }) => {}} />;
+<Switches
+  options={multiple}
+  modifier={Switches.availableModifiers.secondary}
+  onChange={({ event, checked }) => {}}
+/>;
 ```
 
 - Single
@@ -44,10 +48,10 @@ const single = {
 
 ##### Switches can receive a number of `props` as follow:
 
-| NAME          |      TYPE       | DEFAULT  | OPTIONS                                                           |
-| :------------ | :-------------: | :------: | ----------------------------------------------------------------- |
-| modifier      |     String      |  empty   | primary, secondary, default, unchecked disabled, checked disabled |
-| labelPosition |     String      |  right   | right, left, top, base                                            |
+| NAME          |      TYPE       | DEFAULT  | OPTIONS                                                  |
+| :------------ | :-------------: | :------: | -------------------------------------------------------- |
+| modifier      |     String      |  empty   | primary, secondary, default, unchecked, checked disabled |
+| labelPosition |     String      |  right   | right, left, top, base                                   |
 | options       | Array or Object |    []    |
 | disabled      |     Boolean     |  false   |
 | required      |     Boolean     |  false   |
