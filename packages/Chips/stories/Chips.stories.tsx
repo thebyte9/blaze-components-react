@@ -20,7 +20,7 @@ storiesOf("Chips", module)
         ]}
       >
         <Chips.Avatar>
-          <Avatar username="Lorem Ipsum" modifier="x-small" />
+          <Avatar username="Lorem Ipsum" modifier={Avatar.availableModifiers.xSmall} />
         </Chips.Avatar>
         <Chips.Label>Primary deletable chip</Chips.Label>
         <Chips.Icon modifier={Chips.availableModifiers.Icon}>
