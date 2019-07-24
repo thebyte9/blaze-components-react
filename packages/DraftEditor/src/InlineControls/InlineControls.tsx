@@ -24,7 +24,7 @@ const InlineControls: FunctionComponent<IInlineControlsProps> = ({
   ];
 
   return (
-    <div>
+    <div className="custom-DraftEditor-controls">
       {INLINE_STYLES.map(
         ({ label, style }: IInlineTypes): JSX.Element => (
           <StyleButton

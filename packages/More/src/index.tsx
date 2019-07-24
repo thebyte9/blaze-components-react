@@ -11,6 +11,7 @@ interface IMoreProps {
 const More = ({ children, isHeader, isMoreMenu }: IMoreProps) => {
   const [toggled, setToggle] = useState(false);
   const handleToggle = () => setToggle(!toggled);
+
   const ulClassName = classnames("dropdown", {
     "dropdown dropdown__list": !isHeader,
     "dropdown__list dropdown__list--header dropdown--header": isHeader,
@@ -21,6 +22,7 @@ const More = ({ children, isHeader, isMoreMenu }: IMoreProps) => {
     "dropdown__list-item dropdown__list-item--header": isHeader,
     "more-menu__list-item": isMoreMenu
   });
+
   return (
     <div className="more-menu__wrapper">
       <ul className={ulClassName}>

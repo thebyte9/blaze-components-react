@@ -1,5 +1,5 @@
 import { DraftBlockType, EditorState, SelectionState } from "draft-js";
-import React, { Fragment, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import StyleButton from "../StyleButton";
 
 interface IBlockTypes {
@@ -34,7 +34,7 @@ const BlockControls: FunctionComponent<IBlockControlsProps> = ({
   ];
 
   return (
-    <Fragment>
+    <div className="custom-DraftEditor-controls">
       {BLOCK_TYPES.map(
         ({ label, style }: IBlockTypes): JSX.Element => (
           <StyleButton
@@ -46,7 +46,7 @@ const BlockControls: FunctionComponent<IBlockControlsProps> = ({
           />
         )
       )}
-    </Fragment>
+    </div>
   );
 };
 
