@@ -18,7 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/draft-js": "^0.10.34"
+    "@types/draft-js": "^0.10.34",
+    "@blaze-react/utils": "^0.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
