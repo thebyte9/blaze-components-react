@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import More from "../src";
+import React from "react";
 import moreReadme from "../README.md";
+import More from "../src";
 storiesOf("More", module)
   .addParameters({
     readme: {
@@ -10,6 +10,17 @@ storiesOf("More", module)
   })
   .add("Introduction", () => (
     <div className="component-wrapper">
+      <More isMoreMenu>
+        <More.Avatar isMoreMenu>
+          <span className="material-icons">more_vert</span>
+        </More.Avatar>
+        <More.Content isMoreMenu>
+          <a href="/">Link</a>
+          <a href="/">Link</a>
+          <a href="/">Link</a>
+        </More.Content>
+      </More>
+
       <More isMoreMenu>
         <More.Avatar isMoreMenu>
           <span className="material-icons">more_vert</span>

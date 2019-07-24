@@ -61,7 +61,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
               key=".0"
             >
               <a
-                className="undefined "
+                className=" more-menu__link"
                 href="/"
               >
                 Link
