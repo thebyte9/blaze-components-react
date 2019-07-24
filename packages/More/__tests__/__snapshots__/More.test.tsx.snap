@@ -25,12 +25,13 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
         >
           <WithUtils
             className="icon-button icon-button--round"
+            disabled={false}
             onClick={[Function]}
+            type="button"
           >
-            <Button
+            <Component
               className="icon-button icon-button--round"
               disabled={false}
-              modifiers=""
               onClick={[Function]}
               type="button"
               utils={
@@ -53,7 +54,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
                   more_vert
                 </span>
               </button>
-            </Button>
+            </Component>
           </WithUtils>
         </MoreAvatar>
         <MoreContent

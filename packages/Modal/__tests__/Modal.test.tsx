@@ -22,7 +22,7 @@ describe("Modal component", () => {
   test("should toggle modal on click button", () => {
     const wrapper = mount(<Modal {...defaultProps()} />);
     wrapper
-      .find("Button")
+      .find("button")
       .at(0)
       .simulate("click");
     expect(wrapper.find(".modal")).toHaveLength(0);
@@ -32,7 +32,7 @@ describe("Modal component", () => {
     const actions = [
       {
         callback: () => ({}),
-        modifiers: "alert small",
+        modifiers: ["alert", "small"],
         textButton: "delete"
       }
     ];
@@ -45,7 +45,7 @@ describe("Modal component", () => {
     const wrapper = mount(<Modal {...defaultProps(override)} />);
     expect(wrapper.find(".modal--alert")).toHaveLength(1);
     wrapper
-      .find("Button")
+      .find("button")
       .at(0)
       .simulate("click");
     expect(wrapper.find(".modal--alert")).toHaveLength(0);

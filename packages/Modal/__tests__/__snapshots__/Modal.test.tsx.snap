@@ -4,7 +4,11 @@ exports[`Modal component should be defined and renders correctly (snapshot) 1`] 
 <Modal
   actions={Array []}
   alert={false}
-  buttonModifiers="outline"
+  buttonModifiers={
+    Array [
+      "outline",
+    ]
+  }
   buttonText="Simple modal"
   isActive={true}
   onChange={[Function]}

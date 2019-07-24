@@ -95,7 +95,13 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
       <div className="upload__text">or</div>
 
-      <Button onClick={handleCancel} modifiers="dark outline">
+      <Button
+        onClick={handleCancel}
+        modifiers={[
+          Button.availableModifiers.outline,
+          Button.availableModifiers.dark
+        ]}
+      >
         Cancel
       </Button>
 

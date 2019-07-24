@@ -1,4 +1,3 @@
-
 ## Description
 
 The ButtonSelect component extends the button to show a list of actions.
@@ -6,19 +5,42 @@ The ButtonSelect component extends the button to show a list of actions.
 ## Usage
 
 ```js
-<ButtonSelect label="Actions">
-    <Button modifiers="plain">Settings</Button>
-    <Button modifiers="plain">Sign out</Button>
-    <Button modifiers="plain">Help</Button>
+<ButtonSelect text="Actions">
+  <Button
+    modifiers={[
+      Button.availableModifiers.plain,
+      Button.availableModifiers.fullWidth
+    ]}
+    style={buttonStyles}
+  >
+    Settings
+  </Button>
+  <Button
+    modifiers={[
+      Button.availableModifiers.plain,
+      Button.availableModifiers.fullWidth
+    ]}
+    style={buttonStyles}
+  >
+    Sign out
+  </Button>
+  <Button
+    modifiers={[
+      Button.availableModifiers.plain,
+      Button.availableModifiers.fullWidth
+    ]}
+    style={buttonStyles}
+  >
+    Help
+  </Button>
 </ButtonSelect>
 ```
 
 ## API
 
-##### Dropdown can receive a number of `props` as follow:
+##### ButtonSelect can receive a number of `props` as follow:
 
-| NAME   | TYPE | DEFAULT | 
-| :---  | :---:  | :---: | 
-| text | String | Actions | 
+| NAME     |           TYPE           |  DEFAULT   |
+| :------- | :----------------------: | :--------: |
+| text     |          String          |  Actions   |
 | children | Single or array of nodes | No content |
-

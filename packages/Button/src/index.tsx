@@ -15,6 +15,7 @@ type TModifiers =
   | "small"
   | "full-width"
   | "back"
+  | "plain"
   | "link";
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
@@ -31,11 +32,11 @@ const Button = withUtils(
     disabled,
     type,
     children,
-    modifiers,
+    modifiers = [],
     utils: { classNames },
     ...attrs
   }: IButtonProps): JSX.Element => {
-    const formatedModifiers: string = (modifiers || [])
+    const formatedModifiers: string = modifiers
       .map(modifier => `button--${modifier}`)
       .join(" ");
 
@@ -65,6 +66,7 @@ const availableModifiers: object = {
   light: "light",
   link: "link",
   outline: "outline",
+  plain: "plain",
   rounded: "rounded",
   small: "small"
 };
@@ -74,7 +76,6 @@ Button.availableModifiers = availableModifiers;
 Button.defaultProps = {
   children: "",
   disabled: false,
-  modifiers: [],
   type: "button"
 };
 

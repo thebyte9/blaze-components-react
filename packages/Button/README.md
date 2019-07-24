@@ -33,9 +33,9 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 
 ##### Buttons can receive a number of `props` as follow:
 
-| NAME      |         TYPE          | DEFAULT | OPTIONS                                                                                  |
-| :-------- | :-------------------: | :-----: | ---------------------------------------------------------------------------------------- |
-| modifiers |        String         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, back, link |
-| type      |        String         | button  | button, submit, reset                                                                    |
+| NAME      |         TYPE          | DEFAULT | OPTIONS                                                                                         |
+| :-------- | :-------------------: | :-----: | ----------------------------------------------------------------------------------------------- |
+| modifiers |        String         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
+| type      |        String         | button  | button, submit, reset                                                                           |
 | disabled  |        Boolean        |  false  |
 | children  | single/array of nodes |  null   |

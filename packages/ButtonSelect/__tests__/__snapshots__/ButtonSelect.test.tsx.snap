@@ -8,11 +8,12 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
     className="more-menu__wrapper"
   >
     <WithUtils
+      disabled={false}
       onClick={[Function]}
+      type="button"
     >
-      <Button
+      <Component
         disabled={false}
-        modifiers=""
         onClick={[Function]}
         type="button"
         utils={
@@ -23,7 +24,7 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
         }
       >
         <button
-          className="button"
+          className="button "
           disabled={false}
           onClick={[Function]}
           type="button"
@@ -35,7 +36,7 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
           </i>
           Actions
         </button>
-      </Button>
+      </Component>
     </WithUtils>
   </div>
 </ButtonSelect>
