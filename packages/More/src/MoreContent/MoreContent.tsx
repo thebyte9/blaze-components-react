@@ -14,7 +14,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   isHeader,
   isMoreMenu,
   isDropdown,
-  handleToggle = null
+  handleToggle
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
