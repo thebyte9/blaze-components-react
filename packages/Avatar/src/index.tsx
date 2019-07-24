@@ -1,7 +1,8 @@
 import withUtils from "@blaze-react/utils";
 import React, { useState } from "react";
+type Tmodfier = "med" | "small" | "x-small";
 interface IAvatarProps {
-  modifier?: string;
+  modifier?: Tmodfier;
   url?: string;
   username?: string;
   utils: {
