@@ -2,11 +2,23 @@
 
 exports[`Button component should be defined and renders correctly (snapshot) 1`] = `
 <WithUtils
-  modifiers="outline rounded"
+  disabled={false}
+  modifiers={
+    Array [
+      "outline",
+      "rounded",
+    ]
+  }
+  type="button"
 >
-  <Button
+  <Component
     disabled={false}
-    modifiers="outline rounded"
+    modifiers={
+      Array [
+        "outline",
+        "rounded",
+      ]
+    }
     type="button"
     utils={
       Object {
@@ -20,6 +32,6 @@ exports[`Button component should be defined and renders correctly (snapshot) 1`]
       disabled={false}
       type="button"
     />
-  </Button>
+  </Component>
 </WithUtils>
 `;
