@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switches component should be defined and renders correctly (snapshot) 1`] = `
+<Component
+  labelPosition="right"
+  modifier=""
+  onChange={[Function]}
+  options={
+    Array [
+      Object {
+        "id": 1,
+        "label": "Switch text",
+      },
+      Object {
+        "id": 2,
+        "label": "Switch text",
+      },
+      Object {
+        "disabled": true,
+        "label": "Disabled",
+      },
+    ]
+  }
+  returnBoolean={false}
+  utils={
+    Object {
+      "classNames": [Function],
+      "uniqueId": [Function],
+    }
+  }
+/>
+`;
