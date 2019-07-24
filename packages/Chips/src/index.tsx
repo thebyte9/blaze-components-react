@@ -4,9 +4,10 @@ import ChipAvatar from "./ChipAvatar";
 import ChipIcon from "./ChipIcon";
 import ChipLabel from "./ChipLabel";
 
+type TModifiers = "deletable" | "outlined" | "primary" | "secondary" | "small";
 interface IChipsProps {
   children: JSX.Element | JSX.Element[];
-  modifiers: string[];
+  modifiers: TModifiers[];
   action?: () => void;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
@@ -21,7 +22,7 @@ const Chips = withUtils(
   }: IChipsProps): JSX.Element => {
     const [showChip, setChip] = useState<boolean>(true);
 
-    const deletable: string = "deletable";
+    const deletable: TModifiers = "deletable";
 
     const isRemovable: boolean = modifiers && modifiers.includes(deletable);
 
@@ -59,6 +60,7 @@ const Chips = withUtils(
 
 const availableModifiers = {
   icon: {
+    custom: "custom",
     delete: "delete"
   },
   parent: {

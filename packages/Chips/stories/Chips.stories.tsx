@@ -20,11 +20,28 @@ storiesOf("Chips", module)
         ]}
       >
         <Chips.Avatar>
-          <Avatar username="Lorem Ipsum" modifier={Avatar.availableModifiers.xSmall} />
+          <Avatar
+            username="Lorem Ipsum"
+            modifier={Avatar.availableModifiers.xSmall}
+          />
         </Chips.Avatar>
         <Chips.Label>Primary deletable chip</Chips.Label>
-        <Chips.Icon modifier={Chips.availableModifiers.Icon}>
+        <Chips.Icon modifier={Chips.availableModifiers.icon.delete}>
           <i className="material-icons">delete</i>
+        </Chips.Icon>
+      </Chips>
+
+      <Chips modifiers={[Chips.availableModifiers.parent.primary]}>
+        <Chips.Avatar>
+          <Avatar
+            url="http://lorempixel.com/400/400/people/"
+            username="Lorem Ipsum"
+            modifier={Avatar.availableModifiers.xSmall}
+          />
+        </Chips.Avatar>
+        <Chips.Label>Primary deletable chip</Chips.Label>
+        <Chips.Icon modifier={Chips.availableModifiers.icon.custom}>
+          <i className="material-icons">done</i>
         </Chips.Icon>
       </Chips>
     </div>

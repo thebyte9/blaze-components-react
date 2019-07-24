@@ -1,9 +1,10 @@
 import withUtils from "@blaze-react/utils";
 import React from "react";
 
+type TModifiers = "custom" | "delete";
 interface IChipIconProps {
   children: JSX.Element | JSX.Element[];
-  modifier: string;
+  modifier: TModifiers;
   handleRemoveChip: () => void;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
