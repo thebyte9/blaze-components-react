@@ -1,5 +1,7 @@
+import withUtils from "@blaze-react/utils";
 import {
   ContentBlock,
+  ContentState,
   DraftBlockRenderMap,
   DraftBlockType,
   DraftDragType,
@@ -13,7 +15,8 @@ import {
   RichUtils,
   SelectionState
 } from "draft-js";
-import React, { Fragment, FunctionComponent, useState } from "react";
+
+import React, { FunctionComponent, useState } from "react";
 import BlockControls from "./BlockControls";
 import InlineControls from "./InlineControls";
 
@@ -50,6 +53,10 @@ interface IDraftEditorProps {
     style: DraftInlineStyle,
     block: ContentBlock
   ) => DraftStyleMap;
+  utils: {
+    uniqueId: (element: any) => string;
+    classNames: (className: string | object, classNames?: object) => string;
+  };
 
   handleReturn?(
     e: SyntheticKeyboardEvent,
@@ -100,6 +107,7 @@ interface IDraftEditorProps {
 }
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
+  utils: { classNames },
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = "handled";
@@ -130,17 +138,41 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return draftNotHandledValue;
   };
 
+  const contentState: ContentState = editorState.getCurrentContent();
+
+  const isUnstyled: boolean =
+    contentState
+      .getBlockMap()
+      .first()
+      .getType() !== "unstyled";
+
+  const hasTextAndUnstyled: boolean = !contentState.hasText() && isUnstyled;
+
+  const editorClassName: string = classNames("custom-DraftEditor-editor", {
+    "custom-DraftEditor-hidePlaceholder": hasTextAndUnstyled
+  });
+
+  const getBlockStyle = (block: ContentBlock): string => {
+    const isBlockquote: boolean = block.getType() === "blockquote";
+    return classNames({
+      "custom-DraftEditor-blockquote": isBlockquote
+    });
+  };
+
   return (
-    <Fragment>
+    <div className="custom-DraftEditor-root">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
       <InlineControls editorState={editorState} onToggle={toggleInlineStyle} />
-      <Editor
-        editorState={editorState}
-        onChange={setEditorState}
-        handleKeyCommand={handleKeyCommand}
-        {...attrs}
-      />
-    </Fragment>
+      <div className={editorClassName}>
+        <Editor
+          blockStyleFn={getBlockStyle}
+          editorState={editorState}
+          onChange={setEditorState}
+          handleKeyCommand={handleKeyCommand}
+          {...attrs}
+        />
+      </div>
+    </div>
   );
 };
-export default DraftEditor;
+export default withUtils(DraftEditor);

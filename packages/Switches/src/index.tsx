@@ -10,10 +10,17 @@ interface IOptions {
   id?: string;
 }
 type TlabelPosition = "right" | "left" | "base" | "top";
+type TModifiers =
+  | "checked"
+  | "default"
+  | "disabled"
+  | "primary"
+  | "secondary"
+  | "unchecked";
 interface ISwitchesProps {
   labelPosition?: TlabelPosition;
   options: IOptions[] | IOptions;
-  modifier?: string;
+  modifier?: TModifiers;
   returnBoolean?: boolean;
   onChange: ({
     event,
