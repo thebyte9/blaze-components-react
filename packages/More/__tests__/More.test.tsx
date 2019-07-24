@@ -1,10 +1,10 @@
-import React from 'react';
-import expect from 'expect';
-import { mount } from 'enzyme';
-import More from '../src';
+import { mount } from "enzyme";
+import expect from "expect";
+import React from "react";
+import More from "../src";
 
-describe('More component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
+describe("More component", () => {
+  test("should be defined and renders correctly (snapshot)", () => {
     const wrapper = mount(
       <More isMoreMenu>
         <More.Avatar isMoreMenu>
@@ -19,7 +19,7 @@ describe('More component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should toggle on click', () => {
+  test("should toggle on click", () => {
     const wrapper = mount(
       <More isMoreMenu>
         <More.Avatar isHeader>
@@ -31,14 +31,14 @@ describe('More component', () => {
       </More>
     );
     wrapper
-      .find('button')
+      .find("button")
       .at(0)
-      .simulate('click');
+      .simulate("click");
     expect(
       wrapper
-        .find('ul')
+        .find("ul")
         .at(0)
-        .hasClass('more-menu__list')
+        .hasClass("more-menu__list")
     ).toBe(true);
   });
 });
