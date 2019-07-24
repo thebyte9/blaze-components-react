@@ -5,9 +5,10 @@ import React, { useState } from "react";
 import DrawerMainContent from "./DrawerMainContent";
 import DrawerPageContent from "./DrawerPageContent";
 
+type TModifier = "right" | "left";
 interface IDrawerProps {
   children: [JSX.Element, JSX.Element];
-  modifier?: string;
+  modifier: TModifier;
   isResponsive?: boolean;
   isPermanent: boolean;
   title?: string;
@@ -97,7 +98,6 @@ Drawer.DrawerPageContent = DrawerPageContent;
 Drawer.defaultProps = {
   isPermanent: false,
   isResponsive: false,
-  modifier: "",
   title: ""
 };
 
