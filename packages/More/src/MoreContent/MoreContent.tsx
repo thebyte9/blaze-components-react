@@ -20,7 +20,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
 
   const handleClickOutside = (event: any) => {
     if (event.target === wrapperRef.current) {
-      handleToggle();
+      handleToggle && handleToggle();
     }
   };
 
@@ -83,9 +83,6 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   );
 };
 MoreContent.defaultProps = {
-  handleToggle: () => {
-    return;
-  },
   isDropdown: false,
   isHeader: false,
   isMoreMenu: false,
