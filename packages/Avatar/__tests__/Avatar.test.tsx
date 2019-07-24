@@ -1,4 +1,3 @@
-// import { render } from "@testing-library/react";
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
@@ -17,7 +16,7 @@ window.Image = jest.fn(() => dummyImage);
 const url = "http://lorempixel.com/400/400/people/";
 
 const defaultProps = (override: object = {}) => ({
-  modifier: "med",
+  modifier: Avatar.availableModifiers.med,
   url,
   ...override
 });

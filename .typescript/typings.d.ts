@@ -6,6 +6,7 @@ declare module "*.md" {
 declare module "@blaze-react/button";
 declare module "@blaze-react/modal";
 declare module "@blaze-react/input";
+declare module "@blaze-react/avatar";
 declare module "@blaze-react/checkboxes";
 declare module "@blaze-react/utils";
 declare module "@types/draft-js";
