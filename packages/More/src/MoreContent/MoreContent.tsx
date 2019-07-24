@@ -6,7 +6,7 @@ interface IMoreContentProps {
   isHeader?: boolean;
   isMoreMenu?: boolean;
   isDropdown?: boolean;
-  handleToggle?: () => void;
+  handleToggle?: any;
 }
 const MoreContent: React.SFC<IMoreContentProps> = ({
   children,
@@ -14,13 +14,13 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   isHeader,
   isMoreMenu,
   isDropdown,
-  handleToggle
+  handleToggle = null
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: any) => {
     if (event.target === wrapperRef.current) {
-      handleToggle && handleToggle();
+      handleToggle();
     }
   };
 
