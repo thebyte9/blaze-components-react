@@ -23,27 +23,39 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
           label=""
           toggled={false}
         >
-          <Button
+          <WithUtils
             className="icon-button icon-button--round"
             disabled={false}
-            modifiers=""
             onClick={[Function]}
-            submit={false}
+            type="button"
           >
-            <button
+            <Component
               className="icon-button icon-button--round"
               disabled={false}
               onClick={[Function]}
               type="button"
+              utils={
+                Object {
+                  "classNames": [Function],
+                  "uniqueId": [Function],
+                }
+              }
             >
-              <span
-                className="material-icons"
-                key=".0"
+              <button
+                className="icon-button icon-button--round"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
               >
-                more_vert
-              </span>
-            </button>
-          </Button>
+                <span
+                  className="material-icons"
+                  key=".0"
+                >
+                  more_vert
+                </span>
+              </button>
+            </Component>
+          </WithUtils>
         </MoreAvatar>
         <MoreContent
           handleToggle={[Function]}

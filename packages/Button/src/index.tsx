@@ -1,44 +1,82 @@
-/* eslint-disable react/button-has-type */
-import React from "react";
+import withUtils from "@blaze-react/utils";
+import React, { ButtonHTMLAttributes } from "react";
 
-interface IButtonProps {
+type TType = "button" | "submit" | "reset";
+type TModifiers =
+  | ""
+  | "rounded"
+  | "outline"
+  | "alert"
+  | "cta"
+  | "light"
+  | "dark"
+  | "disabled"
+  | "icon"
+  | "small"
+  | "full-width"
+  | "back"
+  | "plain"
+  | "link";
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
-  submit?: boolean;
   children?: JSX.Element | string;
-  modifiers?: string;
-  attrs?: any;
+  type?: TType;
+  modifiers?: TModifiers[];
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+  };
 }
 
-const Button: React.SFC<IButtonProps> = ({
-  disabled,
-  submit,
-  children,
-  modifiers,
-  ...attrs
-}): JSX.Element => {
-  const type = submit ? "submit" : "button";
-  const allModifiers =
-    modifiers &&
-    modifiers
-      .split(" ")
+const Button = withUtils(
+  ({
+    disabled,
+    type,
+    children,
+    modifiers = [],
+    utils: { classNames },
+    ...attrs
+  }: IButtonProps): JSX.Element => {
+    const formatedModifiers: string = modifiers
       .map(modifier => `button--${modifier}`)
       .join(" ");
-  return (
-    <button
-      disabled={disabled}
-      className={`button ${allModifiers}`}
-      type={type}
-      {...attrs}
-    >
-      {children}
-    </button>
-  );
+
+    const buttonClassNames: string = classNames("button", {
+      [formatedModifiers]: !!modifiers
+    });
+    return (
+      <button
+        disabled={disabled}
+        className={buttonClassNames}
+        type={type}
+        {...attrs}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+const availableModifiers: object = {
+  alert: "alert",
+  back: "back",
+  cta: "cta",
+  dark: "dark",
+  disabled: "disabled",
+  fullWidth: "full-width",
+  icon: "icon",
+  light: "light",
+  link: "link",
+  outline: "outline",
+  plain: "plain",
+  rounded: "rounded",
+  small: "small"
 };
+
+Button.availableModifiers = availableModifiers;
+
 Button.defaultProps = {
   children: "",
   disabled: false,
-  modifiers: "",
-  submit: false
+  type: "button"
 };
 
 export default Button;

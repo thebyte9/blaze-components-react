@@ -5,13 +5,13 @@ import React, { Fragment, useState } from "react";
 interface IActions {
   textButton: string;
   callback: () => void;
-  modifiers?: string;
+  modifiers?: string[];
 }
 
 interface IModalProps {
   title?: string;
   buttonText?: string;
-  buttonModifiers?: string;
+  buttonModifiers?: string[];
   actions: IActions[];
   simple?: boolean;
   upload?: boolean;
@@ -87,7 +87,10 @@ const Modal: React.SFC<IModalProps> = ({
             <div className={modalFooterClassNames}>
               <div className="modal__button">
                 {alert && (
-                  <Button modifiers="link" onClick={closeModal}>
+                  <Button
+                    modifiers={[Button.availableModifiers.link]}
+                    onClick={closeModal}
+                  >
                     Cancel
                   </Button>
                 )}
@@ -95,7 +98,7 @@ const Modal: React.SFC<IModalProps> = ({
                   ({
                     textButton,
                     callback,
-                    modifiers = "link"
+                    modifiers = ["link"]
                   }: IActions): JSX.Element => (
                     <Button
                       key={textButton}
@@ -125,7 +128,7 @@ const Modal: React.SFC<IModalProps> = ({
 Modal.defaultProps = {
   actions: [],
   alert: false,
-  buttonModifiers: "outline",
+  buttonModifiers: ["outline"],
   buttonText: "",
   children: "No content",
   isActive: false,

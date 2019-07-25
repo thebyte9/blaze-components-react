@@ -1,14 +1,13 @@
 {
-  "name": "@blaze-react/button",
-  "version": "0.3.4",
+  "name": "@blaze-react/drawer",
+  "version": "0.3.7",
   "publishConfig": {
     "access": "public"
   },
   "description": "",
   "main": "./lib/index.js",
-  "typings": "./lib/index.d.ts",
   "scripts": {
-    "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
+    "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/*.tsx ./src/**/*.tsx --outDir lib ",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
     "test": "jest",
@@ -18,12 +17,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@blaze-react/button": "^0.2.5",
+    "@blaze-react/utils": "^0.3.4"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5"
-  },
-  "dependencies": {
-    "@blaze-react/utils": "^0.3.4"
+    "@babel/core": "^7.4.5",
+    "@types/classnames": "^2.2.8"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -36,5 +37,5 @@
       "@babel/preset-react"
     ]
   },
-  "gitHead": "3638834d2211cc16d965ecafbf5ab2eeddceca12"
+  "gitHead": "986a601913a963e035b116f643ed1d9230ea1a87"
 }
