@@ -14,7 +14,7 @@ storiesOf("More", module)
         <More.Avatar isMoreMenu>
           <span className="material-icons">more_vert</span>
         </More.Avatar>
-        <More.Content isMoreMenu>
+        <More.Content displayBg isMoreMenu>
           <a href="/">Link</a>
           <a href="/">Link</a>
           <a href="/">Link</a>
@@ -25,7 +25,7 @@ storiesOf("More", module)
         <More.Avatar isMoreMenu>
           <span className="material-icons">more_vert</span>
         </More.Avatar>
-        <More.Content isMoreMenu>
+        <More.Content displayBg isMoreMenu>
           <a href="/">Link</a>
           <a href="/">Link</a>
           <a href="/">Link</a>
