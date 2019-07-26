@@ -7,6 +7,7 @@ interface IMoreContentProps {
   isMoreMenu?: boolean;
   isDropdown?: boolean;
   handleToggle?: any;
+  displayBg?: any;
 }
 const MoreContent: React.SFC<IMoreContentProps> = ({
   children,
@@ -14,7 +15,8 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   isHeader,
   isMoreMenu,
   isDropdown,
-  handleToggle
+  handleToggle,
+  displayBg
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -56,6 +58,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   return (
     <>
       {toggled &&
+        displayBg &&
         createPortal(
           <div
             className="more-menu__background"
@@ -83,6 +86,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   );
 };
 MoreContent.defaultProps = {
+  displayBg: false,
   isDropdown: false,
   isHeader: false,
   isMoreMenu: false,
