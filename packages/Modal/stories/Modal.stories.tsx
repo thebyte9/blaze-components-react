@@ -16,7 +16,7 @@ const actions = [
 const alertActions = [
   {
     callback: () => ({}),
-    modifiers: "alert small",
+    modifiers: ["alert", "small"],
     textButton: "delete"
   }
 ];
@@ -51,7 +51,7 @@ storiesOf("Modal", module)
       <Modal
         actions={alertActions}
         buttonText="Alert modal"
-        buttonModifiers="rounded alert"
+        buttonModifiers={["rounded", "alert"]}
         alert
       >
         <p>Delete item?</p>
@@ -62,7 +62,7 @@ storiesOf("Modal", module)
       <Modal
         title="Scrollable Modal"
         buttonText="Scrollable modal"
-        buttonModifiers="outline dark rounded"
+        buttonModifiers={["outline", "dark", "rounded"]}
         actions={actions}
       >
         <p>

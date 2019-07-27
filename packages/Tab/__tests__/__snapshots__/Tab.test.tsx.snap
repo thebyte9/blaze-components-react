@@ -7,36 +7,33 @@ exports[`Tab component should be defined and renders correctly (snapshot) 1`] = 
   <div
     className="tabs__list"
   >
-    <Button
+    <WithUtils
       className="tabs__list-item "
       disabled={false}
       key="Unnamed tab"
-      modifiers=""
       onClick={[Function]}
-      submit={false}
+      type="button"
     >
       Unnamed tab
-    </Button>
-    <Button
+    </WithUtils>
+    <WithUtils
       className="tabs__list-item current"
       disabled={false}
       key="Advanced"
-      modifiers=""
       onClick={[Function]}
-      submit={false}
+      type="button"
     >
       Advanced
-    </Button>
-    <Button
+    </WithUtils>
+    <WithUtils
       className="tabs__list-item "
       disabled={false}
       key="Other"
-      modifiers=""
       onClick={[Function]}
-      submit={false}
+      type="button"
     >
       Other
-    </Button>
+    </WithUtils>
   </div>
   <Component
     action={[Function]}
