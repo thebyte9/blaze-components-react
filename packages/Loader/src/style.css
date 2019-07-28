@@ -1,0 +1,84 @@
+#progress {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.progress-b {
+  width: 100%;
+}
+
+.progress-b__bar {
+  border-radius: 10px;
+  background-color: #FFF;
+  margin-bottom: 14px;
+}
+
+.progress-b__progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 15px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  transition-duration: .8;
+  transition: background-color .4s ease;
+}
+
+.progress-b__progress--step-1 {
+  background-color: #FB7593;
+}
+
+.progress-b__progress--step-2 {
+  background-color: #FFD05C;
+}
+
+.progress-b__progress--step-3 {
+  background-color: #76E19E;
+}
+
+.progress-b__progress--step-4 {
+  background-color: #76E19E;
+}
+
+.progress-b__tick-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: #76E19E;
+  transition: all .2s ease;
+  transform: scale(0);
+}
+
+.progress-b__tick-wrapper .icon {
+  color: white;
+}
+
+.progress-b__progress--step-4 .progress-b__tick-wrapper {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.progress-b__tick {
+  width: 15px;
+  height: 16px;
+  fill: #FFF;
+}
+
+.progress-b__label {
+  display: block;
+  font-size: rem(16);
+  text-align: center;
+  color: grey;
+}
+
+.progress-b__label--left {
+  text-align: left;
+}
