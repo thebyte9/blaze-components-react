@@ -1,7 +1,5 @@
 import withUtils from "@blaze-react/utils";
 import React from "react";
-// import "./style.css";
-
 interface IStep {
   final?: number;
   start?: number;
