@@ -1,6 +1,6 @@
 import withUtils from "@blaze-react/utils";
 import React from "react";
-import "./style.css";
+// import "./style.css";
 
 interface ISpinnerCustomStyles {
   size?: number;
@@ -24,8 +24,8 @@ const Spinner = withUtils(
     utils: { classNames },
     animation
   }: ISpinnerProps): JSX.Element => {
-    const spinnerClassName: string = classNames("loader", {
-      "loader__spinner--lock": lockContent
+    const spinnerClassName: string = classNames({
+      "loader__lock loader__lock--spinner": lockContent
     });
 
     const spinnerAnimationClassName: string = classNames("loader__spinner", {
@@ -33,16 +33,18 @@ const Spinner = withUtils(
     });
 
     return (
-      <div className={spinnerClassName} style={{ backgroundColor }}>
-        <div
-          className={spinnerAnimationClassName}
-          style={{
-            border,
-            borderTopColor,
-            height: `${size}px`,
-            width: `${size}px`
-          }}
-        />
+      <div className="loader">
+        <div className={spinnerClassName} style={{ backgroundColor }}>
+          <div
+            className={spinnerAnimationClassName}
+            style={{
+              border,
+              borderTopColor,
+              height: `${size}px`,
+              width: `${size}px`
+            }}
+          />
+        </div>
       </div>
     );
   }

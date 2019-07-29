@@ -2,12 +2,12 @@ import Input from "@blaze-react/input";
 import { storiesOf } from "@storybook/react";
 import React, { Fragment, useEffect, useState } from "react";
 import LoaderReadme from "../README.md";
-import { BarProgress, Spinner } from "../src";
+import { ProgressBar, Spinner } from "../src";
 
 interface IStep {
   start: number;
   final: number;
-  color: string;
+  color?: string;
   icon?: string;
   height?: number;
 }
@@ -16,7 +16,7 @@ const ProgressDemo = (): JSX.Element => {
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
-    setProgress(100);
+    setTimeout(() => setProgress(100), 2000);
   }, []);
 
   const handleChange = ({ value: rangeValue }: { value: string }): void =>
@@ -25,40 +25,36 @@ const ProgressDemo = (): JSX.Element => {
   const steps: IStep[] = [
     {
       start: 0,
-      final: 25,
-      color: "#FB7593",
-      icon: "priority_high"
-    },
-    {
-      start: 25,
-      final: 50,
-      color: "#FFD05C"
-    },
-    {
-      start: 50,
       final: 99,
-      color: "#76E19E"
+      color: "#ffc107",
+      icon: "priority_high"
     },
     {
       start: 99,
       final: 100,
-      color: "#76E19E",
+      color: "#4caf50",
       icon: "done"
     }
   ];
 
   return (
     <Fragment>
-      <BarProgress
+      <ProgressBar
         steps={steps}
         progress={progress}
         message={{
-          incomplete: "No scenes completed",
-          status: `${progress}% of scenes completed`,
-          position: BarProgress.position.left
+          incomplete: "Loading...",
+          status: `${progress}%`,
+          position: ProgressBar.position.left
         }}
       />
-      <Input type="range" value={progress} onChange={handleChange} />
+      <br />
+      <Input
+        type="range"
+        value={progress}
+        onChange={handleChange}
+        style={{ padding: 0, border: 0 }}
+      />
     </Fragment>
   );
 };
@@ -74,28 +70,32 @@ storiesOf("Loader", module)
       <div className="component-wrapper">
         <h1>Progress bar</h1>
         <h4>default</h4>
+        <ProgressBar progress={40} />
+
+        <br />
+        <br />
+        <h4>Interactive with steps and icons</h4>
         <ProgressDemo />
-        <BarProgress progress={40} />
       </div>
 
       <div className="component-wrapper">
         <h1>Spinner</h1>
-        <h4>default</h4>
+        <h4>Default</h4>
         <Spinner />
-      </div>
 
-      <div className="component-wrapper">
-        <h4>Custom styles & lock Content</h4>
-        <Spinner
-          customStyles={{
-            backgroundColor: "rgba(255, 255, 255, .5)",
-            border: "5px solid rgba(0, 0, 0, .1)",
-            borderTopColor: "rgba(0, 0, 0, .5)",
-            size: 70
-          }}
-          animation={Spinner.animationType.ease}
-          lockContent
-        />
+        <div className="component-wrapper" style={{ position: "relative" }}>
+          <h4>Custom styles and lock Content</h4>
+          <Spinner
+            customStyles={{
+              backgroundColor: "rgba(0, 0, 0, .1)",
+              border: "4px solid rgba(0, 0, 0, .1)",
+              borderTopColor: "#fff",
+              size: 70
+            }}
+            animation={Spinner.animationType.ease}
+            lockContent
+          />
+        </div>
       </div>
     </Fragment>
   ));
