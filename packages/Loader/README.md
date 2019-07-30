@@ -1,37 +1,80 @@
 ## Description
 
-Drawer component is a panel that is typically used to render the content of the drawer with navigation items.
+Spinner and ProgressBar component generally allow to show graphically the progress status of a task or process.
 
 ## Usage
 
+#### Default Bar
+
 ```js
-<Drawer modifier="left" title="Drawer Component">
-  <DrawerMainContent>
-    <p>
-      Elit occaecat qui Lorem eiusmod culpa sunt culpa exercitation Lorem culpa.
-      Veniam irure occaecat incididunt amet ullamco Lorem et aliquip enim.
-      Ullamco pariatur minim aliquip dolor labore cillum sit amet ullamco qui
-      sit officia quis tempor deserunt eu anim.
-    </p>
-  </DrawerMainContent>
-  <DrawerPageContent>
-    <p>
-      Rough js to toggle open/close. Would be nice to add a class on the content
-      header menu button so it can be hidden when the drawer is open & user
-      clicks arrow button on drawer to close
-    </p>
-  </DrawerPageContent>
-</Drawer>
+<ProgressBar progress={40} />
+```
+
+#### Custom progress bar with steps and icon
+
+```js
+const ProgressDemo = () => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => setProgress(100), 2000);
+  }, []);
+
+  const handleChange = ({ value: rangeValue }) =>
+    setProgress(Number(rangeValue));
+
+  const steps = [
+    {
+      start: 0,
+      final: 99,
+      color: "#ffc107",
+      icon: "priority_high"
+    },
+    {
+      start: 99,
+      final: 100,
+      color: "#4caf50",
+      icon: "done"
+    }
+  ];
+
+  return (
+    <ProgressBar
+      steps={steps}
+      progress={progress}
+      message={{
+        incomplete: "Loading...",
+        status: `${progress}%`,
+        position: ProgressBar.position.left
+      }}
+    />
+  );
+};
+
+<ProgressDemo />;
+```
+
+#### Default Spinner
+
+```js
+<Spinner />
+```
+
+#### Custom spinner with content locked
+
+```js
+<Spinner
+  customStyles={{
+    backgroundColor: "rgba(0, 0, 0, .1)",
+    border: "4px solid rgba(0, 0, 0, .1)",
+    borderTopColor: "#fff",
+    size: 70
+  }}
+  animation={Spinner.animationType.ease}
+  lockContent
+/>
 ```
 
 ## API
 
-##### Drawer menu can receive a number of `props` as follow:
-
-| NAME         |      TYPE      | DEFAULT |   OPTIONS   |
-| :----------- | :------------: | :-----: | :---------: |
-| modifier     |     string     |  empty  | left, right |
-| title        |     string     |  empty  |
-| isResponsive |    boolean     |  false  |
-| isPermanent  |    boolean     |  false  |
-| children     | array of nodes |  empty  |
+Coming soon...

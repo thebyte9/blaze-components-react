@@ -21,7 +21,6 @@ interface ILoaderProps {
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
   };
-  labelLeft: boolean;
   progress: number;
   lockContent: boolean;
   message: IMessage;
