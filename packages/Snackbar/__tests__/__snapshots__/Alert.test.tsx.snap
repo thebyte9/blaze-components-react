@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert component should be defined and renders correctly (snapshot) 1`] = `
+<Alert
+  close={false}
+  icon=""
+  type=""
+  utils={
+    Object {
+      "classNames": [Function],
+      "uniqueId": [Function],
+    }
+  }
+>
+  No content
+</Alert>
+`;
