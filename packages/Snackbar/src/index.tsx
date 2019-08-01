@@ -1,9 +1,8 @@
-// import Button from "@blaze-react/button";
 import WithUtils from "@blaze-react/utils";
 import React, { Fragment, useEffect, useState } from "react";
-// import "../css/styles.css";
 
 type TPosition = "bottomLeft" | "bottomRight" | "topLeft" | "topRight";
+type TModifier = "alert" | "info" | "success" | "warning";
 
 interface ISnackbarProps {
   utils: {
@@ -12,7 +11,8 @@ interface ISnackbarProps {
   onClose: () => {};
   isActive: boolean;
   position: TPosition;
-  children?: JSX.Element | string;
+  modifier?: TModifier;
+  children: JSX.Element | JSX.Element[] | string;
 }
 
 const Snackbar = WithUtils(
@@ -20,7 +20,9 @@ const Snackbar = WithUtils(
     position,
     utils: { classNames },
     isActive,
-    onClose
+    onClose,
+    modifier,
+    children
   }: ISnackbarProps): JSX.Element => {
     const [active, setActive] = useState<boolean>(isActive);
 
@@ -30,6 +32,7 @@ const Snackbar = WithUtils(
 
     const snackbarClassNames: string = classNames("snackbar", {
       [`snackbar--${position}`]: !!position,
+      [`snackbar--${modifier}`]: !!modifier,
       active
     });
 
@@ -42,7 +45,7 @@ const Snackbar = WithUtils(
       <Fragment>
         {isActive && (
           <div className={snackbarClassNames}>
-            <div className="message">We use cookies in our site.</div>
+            <div className="message">{children}</div>
             <div className="close" onClick={handleClose}>
               <i className="material-icons">close</i>
             </div>
@@ -56,12 +59,20 @@ const Snackbar = WithUtils(
 Snackbar.defaultProps = {};
 
 const availablePosition: object = {
-  bottomLeft: "bottomLeft",
-  bottomRight: "bottomRight",
-  topLeft: "topLeft",
-  topRight: "topRight"
+  bottomLeft: "bottom-left",
+  bottomRight: "bottom-right",
+  topLeft: "top-left",
+  topRight: "top-right"
+};
+
+const availableModifiers: object = {
+  alert: "alert",
+  info: "info",
+  success: "success",
+  warning: "warning"
 };
 
 Snackbar.position = availablePosition;
+Snackbar.modifier = availableModifiers;
 
 export default Snackbar;

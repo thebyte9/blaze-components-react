@@ -4,16 +4,27 @@ import React, { useState } from "react";
 import SnackbarReadme from "../README.md";
 import Snackbar from "../src";
 
-const Notification = ({ position }: { position: string }): JSX.Element => {
+const Notification = ({
+  position,
+  modifier,
+  children
+}: {
+  position: string;
+  modifier?: string;
+  children: JSX.Element | JSX.Element[] | string;
+}): JSX.Element => {
   const [active, setActive] = useState<boolean>(true);
   return (
     <div>
       <Button onClick={(): void => setActive(!active)}>Toggle</Button>
       <Snackbar
         position={position}
+        modifier={modifier}
         isActive={active}
         onClose={(): void => setActive(false)}
-      />
+      >
+        {children}
+      </Snackbar>
     </div>
   );
 };
@@ -37,10 +48,46 @@ storiesOf("Snackbar", module)
       </section>
 
       <h4>Simple</h4>
-      <Notification position={Snackbar.position.bottomLeft} />
-      <Notification position={Snackbar.position.bottomRight} />
+      <Notification
+        position={Snackbar.position.bottomLeft}
+        modifier={Snackbar.modifier.success}
+      >
+        <span>
+          Lorem Ispum dolor mnnmnsd sdmbmnsd mnsdnm sdnnsdn,sd jllkaslasl
+          sdmnsdmsd msmnsndm: <a href="#">Link</a>
+          lorem lo lo kahbas mas as kjas lorem lo lo kahbas mas as kjas lorem lo
+          lo kahbas mas as kjas lorem lo lo kahbas mas as kjas lorem lo lo
+          kahbas mas as kjas lorem lo lo kahbas mas as kjas lorem lo lo kahbas
+          mas as kjas
+        </span>
+      </Notification>
 
-      <Notification position={Snackbar.position.topLeft} />
-      <Notification position={Snackbar.position.topRight} />
+      <Notification
+        position={Snackbar.position.bottomRight}
+        modifier={Snackbar.modifier.info}
+      >
+        <i className="material-icons">info</i>
+        <span>Lorem Ispum dolor</span>
+      </Notification>
+
+      <Notification
+        position={Snackbar.position.topLeft}
+        modifier={Snackbar.modifier.warning}
+      >
+        <i className="material-icons">warning</i>
+        <span>Lorem Ispum dolor</span>
+      </Notification>
+
+      <Notification position={Snackbar.position.topRight}>
+        <i className="material-icons">info</i>
+        <span>
+          Lorem Ispum dolorklkjsdlkjdlkdjlkds dsldslidslj sdjsdjlsdlj
+          sdjdsjsdjkl jaskjasjk asjkjksa nbnbbnas mnmas mnmsan
+          <a href="#">Link</a>
+          lorem lo lo kahbas mas as kjas jjj lorem lo lo kahbas mas as kjas
+          lorem lo lo kahbas mas as kjas lorem lo lo kahbas mas as kjas lorem lo
+          lo kahbas mas as kjas lorem lo lo kahbas mas as kjas
+        </span>
+      </Notification>
     </div>
   ));
