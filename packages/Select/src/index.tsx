@@ -54,7 +54,9 @@ const Select: React.SFC<ISelectProps> = ({
         disabled={!options.length}
         {...attrs}
       >
-        <option>Please Choose...</option>
+        <option value="" disabled selected>
+          Please Choose...
+        </option>
         {renderOptions()}
       </select>
     </Fragment>
