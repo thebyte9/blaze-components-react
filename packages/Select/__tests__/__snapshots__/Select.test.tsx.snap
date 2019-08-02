@@ -7,7 +7,11 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
     disabled={false}
     onChange={[Function]}
   >
-    <option>
+    <option
+      disabled={true}
+      selected={true}
+      value=""
+    >
       Please Choose...
     </option>
     <option
