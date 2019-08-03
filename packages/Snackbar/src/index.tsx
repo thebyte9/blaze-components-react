@@ -20,6 +20,7 @@ interface ISnackbarProps {
   position: TPosition;
   modifier?: TModifier;
   iconName?: string;
+  duration?: number;
   children: JSX.Element | JSX.Element[] | string;
 }
 
@@ -31,13 +32,17 @@ const Snackbar = WithUtils(
     onClose,
     modifier,
     iconName,
+    duration,
     children
   }: ISnackbarProps): JSX.Element => {
     const [active, setActive] = useState<boolean>(isActive);
 
-    useEffect(() => {
+    useEffect((): void => {
       setActive(isActive);
-    }, [isActive]);
+      if (duration) {
+        setTimeout((): void => setActive(false), duration);
+      }
+    }, [isActive, duration]);
 
     const snackbarClassNames: string = classNames("snackbar", {
       [`snackbar--${position}`]: !!position,

@@ -47,6 +47,7 @@ storiesOf("Snackbar", module)
         position={Snackbar.position.bottomLeft}
         modifier={Snackbar.modifier.success}
         iconName="how_to_reg"
+        duration={5000}
         isActive
       >
         <p>
