@@ -5,21 +5,16 @@ import SnackbarReadme from "../README.md";
 import Snackbar from "../src";
 
 const Notification = ({
-  position,
-  modifier,
   children
 }: {
-  position: string;
-  modifier?: string;
   children: JSX.Element | JSX.Element[] | string;
 }): JSX.Element => {
-  const [active, setActive] = useState<boolean>(true);
+  const [active, setActive] = useState<boolean>(false);
   return (
     <div>
       <Button onClick={(): void => setActive(!active)}>Toggle</Button>
       <Snackbar
-        position={position}
-        modifier={modifier}
+        modifier={Snackbar.position.topRight}
         isActive={active}
         onClose={(): void => setActive(false)}
       >
@@ -48,38 +43,34 @@ storiesOf("Snackbar", module)
       </section>
 
       <h4>Simple</h4>
-      <Notification
+      <Snackbar
         position={Snackbar.position.bottomLeft}
         modifier={Snackbar.modifier.success}
+        iconName="how_to_reg"
+        isActive
       >
-        <span>
-          Lorem Ispum dolor mnnmnsd sdmbmnsd mnsdnm sdnnsdn,sd jllkaslasl
-          sdmnsdmsd msmnsndm: <a href="#">Link</a>
-          lorem lo lo kahbas mas as kjas lorem lo lo kahbas mas as kjas lorem lo
-          lo kahbas mas as kjas lorem lo lo kahbas mas as kjas lorem lo lo
-          kahbas mas as kjas lorem lo lo kahbas mas as kjas lorem lo lo kahbas
-          mas as kjas
-        </span>
-      </Notification>
+        <p>
+          Lorem <a href="#">Link</a>
+        </p>
+      </Snackbar>
 
-      <Notification
+      <Snackbar
         position={Snackbar.position.bottomRight}
         modifier={Snackbar.modifier.info}
+        isActive
       >
-        <i className="material-icons">info</i>
         <span>Lorem Ispum dolor</span>
-      </Notification>
+      </Snackbar>
 
-      <Notification
+      <Snackbar
         position={Snackbar.position.topLeft}
         modifier={Snackbar.modifier.warning}
+        isActive
       >
-        <i className="material-icons">warning</i>
         <span>Lorem Ispum dolor</span>
-      </Notification>
+      </Snackbar>
 
-      <Notification position={Snackbar.position.topRight}>
-        <i className="material-icons">info</i>
+      <Notification>
         <span>
           Lorem Ispum dolorklkjsdlkjdlkdjlkds dsldslidslj sdjsdjlsdlj
           sdjdsjsdjkl jaskjasjk asjkjksa nbnbbnas mnmas mnmsan
