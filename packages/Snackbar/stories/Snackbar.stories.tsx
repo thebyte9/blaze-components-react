@@ -50,9 +50,7 @@ storiesOf("Snackbar", module)
         duration={5000}
         isActive
       >
-        <p>
-          Lorem <a href="#">Link</a>
-        </p>
+        Lorem <a href="#">Link</a>
       </Snackbar>
 
       <Snackbar
@@ -60,7 +58,7 @@ storiesOf("Snackbar", module)
         modifier={Snackbar.modifier.info}
         isActive
       >
-        <span>Lorem Ispum dolor</span>
+        Lorem Ispum dolor
       </Snackbar>
 
       <Snackbar
@@ -68,18 +66,15 @@ storiesOf("Snackbar", module)
         modifier={Snackbar.modifier.warning}
         isActive
       >
-        <span>Lorem Ispum dolor</span>
+        Lorem Ispum dolor
       </Snackbar>
 
       <Notification>
-        <span>
-          Lorem Ispum dolorklkjsdlkjdlkdjlkds dsldslidslj sdjsdjlsdlj
-          sdjdsjsdjkl jaskjasjk asjkjksa nbnbbnas mnmas mnmsan
-          <a href="#">Link</a>
-          lorem lo lo kahbas mas as kjas jjj lorem lo lo kahbas mas as kjas
-          lorem lo lo kahbas mas as kjas lorem lo lo kahbas mas as kjas lorem lo
-          lo kahbas mas as kjas lorem lo lo kahbas mas as kjas
-        </span>
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <hr />
+          <p>Ipsam ratione nam quae cumque sit</p>
+        </div>
       </Notification>
     </div>
   ));

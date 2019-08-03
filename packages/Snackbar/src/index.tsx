@@ -62,15 +62,7 @@ const Snackbar = WithUtils(
       onClose();
     };
 
-    const getIcon = (): string => {
-      if (iconName) {
-        return iconName;
-      }
-      if (modifier) {
-        return defaultIcons[modifier];
-      }
-      return "";
-    };
+    const getIcon = (): string => iconName || defaultIcons[modifier] || "";
 
     const icon: string = getIcon();
 
