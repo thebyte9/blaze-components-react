@@ -29,7 +29,7 @@ const Snackbar = WithUtils(
     position,
     utils: { classNames },
     isActive,
-    onClose = () => ({}),
+    onClose,
     modifier,
     iconName,
     duration,
@@ -91,6 +91,10 @@ const Snackbar = WithUtils(
     );
   }
 );
+
+Snackbar.defaultProps = {
+  onClose: () => ({})
+};
 
 const availablePosition: object = {
   bottomLeft: "bottom-left",
