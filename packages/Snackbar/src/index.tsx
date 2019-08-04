@@ -12,15 +12,15 @@ interface IDefaultIcons {
 }
 
 interface ISnackbarProps {
-  utils: {
-    classNames: (...args: any) => string;
-  };
-  onClose: () => {};
-  isActive: boolean;
   position: TPosition;
   modifier?: TModifier;
+  isActive: boolean;
   iconName?: string;
   duration?: number;
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+  };
+  onClose: () => {};
   children: JSX.Element | JSX.Element[] | string;
 }
 
@@ -29,7 +29,7 @@ const Snackbar = WithUtils(
     position,
     utils: { classNames },
     isActive,
-    onClose,
+    onClose = () => ({}),
     modifier,
     iconName,
     duration,
@@ -62,7 +62,15 @@ const Snackbar = WithUtils(
       onClose();
     };
 
-    const getIcon = (): string => iconName || defaultIcons[modifier] || "";
+    const getIcon = (): string => {
+      if (iconName) {
+        return iconName;
+      }
+      if (modifier) {
+        return defaultIcons[modifier];
+      }
+      return "";
+    };
 
     const icon: string = getIcon();
 
@@ -83,10 +91,6 @@ const Snackbar = WithUtils(
     );
   }
 );
-
-Snackbar.defaultProps = {
-  onClose: () => ({})
-};
 
 const availablePosition: object = {
   bottomLeft: "bottom-left",

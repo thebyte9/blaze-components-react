@@ -14,7 +14,7 @@ const Notification = ({
     <div>
       <Button onClick={(): void => setActive(!active)}>Toggle</Button>
       <Snackbar
-        modifier={Snackbar.position.topRight}
+        position={Snackbar.position.topRight}
         isActive={active}
         onClose={(): void => setActive(false)}
       >
@@ -35,14 +35,11 @@ storiesOf("Snackbar", module)
       <section className="introductionSection">
         <h1>Snackbar</h1>
         <p>
-          Provide contextual feedback messages for typical user actions with the
-          handful of available and flexible alert messages. Alerts may have a
-          type, be dismissable, include a close button, and contain any sort of
-          children components.
+          Use Snackbar component to show feedback about any operation performed
+          by the user.
         </p>
       </section>
 
-      <h4>Simple</h4>
       <Snackbar
         position={Snackbar.position.bottomLeft}
         modifier={Snackbar.modifier.success}
