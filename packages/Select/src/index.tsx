@@ -75,7 +75,7 @@ const Select: React.SFC<ISelectProps> = ({
       )}
       <select
         onChange={handleChange}
-        defaultValue={selectedOption}
+        // defaultValue={selectedOption}
         disabled={!options.length}
         value={selectedOption}
         {...attrs}

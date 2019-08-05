@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component should be defined and renders correctly (snapshot) 1`] = `
+<WithUtils
+  onChange={[Function]}
+  options={Array []}
+>
+  <Select
+    keys={Array []}
+    label=""
+    onChange={[Function]}
+    options={Array []}
+    required={false}
+    selected=""
+    utils={
+      Object {
+        "classNames": [Function],
+        "uniqueId": [Function],
+      }
+    }
+  >
+    <select
+      disabled={true}
+      onChange={[Function]}
+      value=""
+    >
+      <option
+        disabled={false}
+        selected={true}
+      >
+        Please Choose...
+      </option>
+    </select>
+  </Select>
+</WithUtils>
+`;

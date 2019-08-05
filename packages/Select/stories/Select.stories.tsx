@@ -58,7 +58,7 @@ storiesOf("Select", module)
           <h4>Multidimensional Array of options</h4>
           <Select
             label="Select label"
-            selected="08001"
+            // selected="08001"
             options={[["08001", "Barcelona"], ["17006", "Madrid"]]}
             onChange={() => ({})}
           />

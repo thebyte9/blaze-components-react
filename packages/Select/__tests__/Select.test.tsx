@@ -28,7 +28,7 @@ describe("Input component", () => {
   test("should render simple array of options", () => {
     const wrapper = mount(<Select {...defaultProps()} />);
     wrapper.find("select").simulate("change", { target: { value: "ipsum" } });
-    expect(wrapper.find("select").prop("defaultValue")).toBe("ipsum");
+    expect(wrapper.find("select").prop("value")).toBe("ipsum");
   });
 
   test("should render array of array options", () => {
@@ -37,7 +37,7 @@ describe("Input component", () => {
     };
     const wrapper = mount(<Select {...defaultProps(override)} />);
     wrapper.find("select").simulate("change", { target: { value: "08001" } });
-    expect(wrapper.find("select").prop("defaultValue")).toBe("08001");
+    expect(wrapper.find("select").prop("value")).toBe("08001");
   });
 
   test("should render array of object options", () => {
@@ -55,6 +55,6 @@ describe("Input component", () => {
     };
     const wrapper = mount(<Select {...defaultProps(override)} />);
     wrapper.find("select").simulate("change", { target: { value: 1 } });
-    expect(wrapper.find("select").prop("defaultValue")).toBe(1);
+    expect(wrapper.find("select").prop("value")).toBe(1);
   });
 });
