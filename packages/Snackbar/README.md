@@ -61,7 +61,7 @@ const Notification = ({ children }) => {
 
 ## API
 
-##### Alert can receive a number of `props` as follow:
+##### Snackbar can receive a number of `props` as follow:
 
 | NAME     |         TYPE          | DEFAULT  | OPTIONS                                    |
 | :------- | :-------------------: | :------: | ------------------------------------------ |
