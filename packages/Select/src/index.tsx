@@ -77,7 +77,9 @@ const Select: React.SFC<ISelectProps> = ({
         value={selectedOption}
         {...attrs}
       >
-        <option value="">Please Choose...</option>
+        <option selected={!selectedOption} disabled={!!selectedOption}>
+          Please Choose...
+        </option>
         {renderOptions()}
       </select>
     </Fragment>
