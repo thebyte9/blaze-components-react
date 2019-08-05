@@ -46,8 +46,8 @@ const TableBody = ({
                   id: row[identification],
                   value: row[identification]
                 }}
-                onChange={({ checked }: { checked: ICheckbox[] }): void =>
-                  handleSelected(checked, row[identification])
+                onChange={({ value }: { value: ICheckbox[] }): void =>
+                  handleSelected(value, row[identification])
                 }
               />
             </td>
