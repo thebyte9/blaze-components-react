@@ -5,16 +5,16 @@ interface ICheckboxesProps {
   returnBoolean?: boolean;
   onChange: ({
     event,
-    checked,
+    value,
     data
   }: {
     event: React.MouseEvent<HTMLDivElement>;
-    checked: boolean | object;
+    value: boolean | object;
     data: object[];
   }) => void;
   utils: {
     uniqueId: (element: any) => string;
-    classNames: (...args: any) => string;
+    classNames: (className: string | object, classNames?: object) => string;
   };
 }
 const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
@@ -59,13 +59,13 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
     data[key].checked = !item.checked;
     setData([...data]);
 
-    let checked = data.filter((option: any): boolean => option.checked);
+    let value = data.filter((option: any): boolean => option.checked);
 
     if (returnBoolean) {
-      checked = !!checked.length;
+      value = !!value.length;
     }
 
-    onChange({ event, checked, data });
+    onChange({ event, value, data });
   };
 
   return (

@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Select from "../src";
+import React from "react";
 import selectReadme from "../README.md";
+import Select from "../src";
 const arrayOfObjects = [
   {
     id: 1,

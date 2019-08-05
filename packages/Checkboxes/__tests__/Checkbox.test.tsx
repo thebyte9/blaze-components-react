@@ -83,7 +83,7 @@ describe("Checkboxes component", () => {
 
     const onChange = (selected: any) => {
       const {
-        checked: [{ label }]
+        value: [{ label }]
       } = selected;
       selectedBoxLabel = label;
     };

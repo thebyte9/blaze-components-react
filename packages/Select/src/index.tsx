@@ -20,7 +20,7 @@ const Select: React.SFC<ISelectProps> = ({
   const [selectedOption, setSelectedOption] = useState(selected);
   const handleChange = (event: any) => {
     setSelectedOption(event.target.value);
-    onChange({ event, selected: event.target.value });
+    onChange({ event, value: event.target.value });
   };
   const isRequired = required ? "required" : "";
   const setOption = (value: string, text?: string) => (
