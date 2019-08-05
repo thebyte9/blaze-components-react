@@ -81,10 +81,9 @@ describe("Checkboxes component", () => {
   test("should render multiple checkboxes and toggle", () => {
     let selectedBoxLabel: string = "";
 
-    const onChange = (selected: any) => {
-      const {
-        checked: [{ label }]
-      } = selected;
+    type TValue = object | any;
+
+    const onChange = ({ value: [{ label }] }: TValue) => {
       selectedBoxLabel = label;
     };
 

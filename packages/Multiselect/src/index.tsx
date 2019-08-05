@@ -38,13 +38,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   const handleCheckBoxChange = ({
-    checked,
+    value,
     data: localData
   }: {
-    checked: any;
+    value: any;
     data: any;
   }) => {
-    setSelected(checked);
+    setSelected(value);
     setDataCopy(localData);
     getSelected(localData);
   };

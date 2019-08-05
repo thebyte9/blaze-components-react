@@ -45,8 +45,8 @@ const TableHead = ({
                 value: allRows.map((row: object) => row[identification])
               }
             )}
-            onChange={({ checked }: { checked: ICheckbox[] }): void =>
-              handleSelected(checked, checked, true)
+            onChange={({ value }: { value: ICheckbox[] }): void =>
+              handleSelected(value, value, true)
             }
             data-testid="select_all"
           />
