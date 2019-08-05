@@ -59,7 +59,9 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
     data[key].checked = !item.checked;
     setData([...data]);
 
-    let value = data.filter((option: any): boolean => option.checked);
+    let value = data.filter(
+      ({ checked }: { checked: boolean }): boolean => checked
+    );
 
     if (returnBoolean) {
       value = !!value.length;

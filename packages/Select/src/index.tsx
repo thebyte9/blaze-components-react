@@ -35,8 +35,11 @@ const Select: React.SFC<ISelectProps> = ({
   }, [selected]);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
-    onChange({ event, value: event.target.value });
+    const {
+      target: { value }
+    } = event;
+    setSelectedOption(value);
+    onChange({ event, value });
   };
 
   const requiredClassName: string = classNames({

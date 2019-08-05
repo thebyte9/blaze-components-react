@@ -12,7 +12,7 @@ const options = ["London", "Paris", "Munich"];
 <Select
   label="Select a city"
   options={options}
-  onChange={({ event, selected }) => {}}
+  onChange={({ event, value }) => {}}
   required
 />;
 ```
