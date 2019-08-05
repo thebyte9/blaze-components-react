@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/autocomplete",
-  "version": "0.3.9",
+  "version": "0.3.11",
   "publishConfig": {
     "access": "public"
   },
@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.3.9",
-    "@blaze-react/input": "^0.3.9",
+    "@blaze-react/checkboxes": "^0.3.11",
+    "@blaze-react/input": "^0.3.11",
     "@blaze-react/utils": "^0.3.9"
   },
   "devDependencies": {

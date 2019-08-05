@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/snackbar",
-  "version": "0.3.8",
+  "version": "0.3.11",
   "publishConfig": {
     "access": "public"
   },
