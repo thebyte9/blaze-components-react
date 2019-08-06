@@ -5188,7 +5188,7 @@ hr {
   animation: spinner 1s ease-in-out infinite;
 }
 
-.loader__spinner--bigg {
+.loader__spinner--big {
   width: 70px;
   height: 70px;
 }
