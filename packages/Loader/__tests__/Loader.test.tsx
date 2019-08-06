@@ -34,7 +34,7 @@ describe("Loader component", () => {
   });
 
   test("Spinner - should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(<Spinner />);
+    const wrapper = mount(<Spinner size={Spinner.size.small} />);
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
@@ -46,8 +46,8 @@ describe("Loader component", () => {
         progress={10}
         message={{
           incomplete: "Loading...",
-          status: "10%",
-          position: ProgressBar.position.left
+          position: ProgressBar.position.left,
+          status: "10%"
         }}
       />
     );

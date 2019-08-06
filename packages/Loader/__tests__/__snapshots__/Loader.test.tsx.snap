@@ -27,19 +27,12 @@ exports[`Loader component ProgressBar - should be defined and renders correctly 
       />
       <div
         className="loader__bar"
-        style={
-          Object {
-            "borderRadius": "undefinedpx",
-          }
-        }
       >
         <div
           className="loader__progress loader__progress--icon"
           style={
             Object {
               "backgroundColor": undefined,
-              "borderRadius": "undefinedpx",
-              "height": "undefinedpx",
               "width": "0%",
             }
           }
@@ -53,11 +46,11 @@ exports[`Loader component ProgressBar - should be defined and renders correctly 
 exports[`Loader component Spinner - should be defined and renders correctly (snapshot) 1`] = `
 <WithUtils
   animation="linear"
-  customStyles={Object {}}
+  size="small"
 >
   <Component
     animation="linear"
-    customStyles={Object {}}
+    size="small"
     utils={
       Object {
         "classNames": [Function],
@@ -70,22 +63,9 @@ exports[`Loader component Spinner - should be defined and renders correctly (sna
     >
       <div
         className=""
-        style={
-          Object {
-            "backgroundColor": undefined,
-          }
-        }
       >
         <div
-          className="loader__spinner loader__spinner--linear"
-          style={
-            Object {
-              "border": undefined,
-              "borderTopColor": undefined,
-              "height": "undefinedpx",
-              "width": "undefinedpx",
-            }
-          }
+          className="loader__spinner loader__spinner--linear loader__spinner--small"
         />
       </div>
     </div>
@@ -164,19 +144,12 @@ exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
       </span>
       <div
         className="loader__bar"
-        style={
-          Object {
-            "borderRadius": "undefinedpx",
-          }
-        }
       >
         <div
           className="loader__progress loader__progress--icon"
           style={
             Object {
-              "backgroundColor": "#ffc107",
-              "borderRadius": "undefinedpx",
-              "height": "undefinedpx",
+              "backgroundColor": undefined,
               "width": "10%",
             }
           }
@@ -185,8 +158,7 @@ exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
             className="loader__step--default"
             style={
               Object {
-                "backgroundColor": "#ffc107",
-                "borderRadius": "undefinedpx",
+                "backgroundColor": undefined,
               }
             }
           >

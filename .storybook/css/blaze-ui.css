@@ -507,6 +507,10 @@
 /*pale cyan*/
 /*grey light*/
 /*grey*/
+/*red*/
+/*green*/
+/*cyan*/
+/*orange*/
 /* ==========================================================================
   BUTTONS
    ========================================================================== */
@@ -5115,6 +5119,18 @@ hr {
   transform: scale(1);
 }
 
+.loader__progress--green {
+  background-color: #4caf50;
+}
+
+.loader__progress--orange {
+  background-color: #ff5722;
+}
+
+.loader__progress--red {
+  background-color: #f44336;
+}
+
 .loader__status {
   font-size: 400;
   color: #666666;
@@ -5173,6 +5189,26 @@ hr {
   animation: spinner 1s ease-in-out infinite;
 }
 
+.loader__spinner--bigg {
+  width: 70px;
+  height: 70px;
+}
+
+.loader__spinner--med {
+  width: 50px;
+  height: 50px;
+}
+
+.loader__spinner--small {
+  width: 30px;
+  height: 30px;
+}
+
+.loader__spinner--x-small {
+  width: 20px;
+  height: 20px;
+}
+
 @keyframes spinner {
   from {
     transform: rotate(0deg);
@@ -5180,6 +5216,141 @@ hr {
   to {
     transform: rotate(359deg);
   }
+}
+
+.snackbar--bottom-left.active {
+  top: 90%;
+  left: 5%;
+  right: none;
+  animation: 0.3s upBottom ease;
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.snackbar--bottom-right.active {
+  top: 90%;
+  left: none;
+  right: 5%;
+  animation: 0.3s upBottom ease;
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+@keyframes upBottom {
+  0% {
+    top: 150%;
+  }
+  75% {
+    top: 90%;
+  }
+}
+
+.snackbar--top-left.active {
+  top: 10%;
+  left: 5%;
+  right: none;
+  animation: 0.3s downTop ease;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.snackbar--top-right.active {
+  top: 10%;
+  left: none;
+  right: 5%;
+  animation: 0.3s downTop ease;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+@keyframes downTop {
+  0% {
+    top: -50%;
+  }
+  75% {
+    top: 10%;
+  }
+}
+
+.snackbar {
+  background: #333333;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 3px;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 60px;
+  position: fixed;
+  font-size: .9rem;
+  padding: 10px;
+  display: flex;
+  opacity: 0;
+}
+
+.snackbar .message {
+  padding: 0 10px;
+  max-width: 185px;
+  display: flex;
+  align-items: center;
+}
+
+.snackbar .message a {
+  margin: 0 5px;
+  color: #ffffff;
+  box-shadow: 0 2px 0 0 #ffffff;
+}
+
+.snackbar .message i {
+  padding: 5px 10px 0 0;
+  align-self: flex-start;
+}
+
+.snackbar .message p {
+  margin: 0;
+}
+
+.snackbar .close {
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  border-radius: 50%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.snackbar .close:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.snackbar--success {
+  color: #ffffff;
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+.snackbar--warning {
+  color: #ffffff;
+  background-color: #ff5722;
+  border-color: #ff5722;
+}
+
+.snackbar--alert {
+  color: #ffffff;
+  background-color: #f44336;
+  border-color: #f44336;
+}
+
+.snackbar--info {
+  color: #ffffff;
+  background-color: #00bcd4;
+  border-color: #00bcd4;
 }
 
 /* ==========================================================================

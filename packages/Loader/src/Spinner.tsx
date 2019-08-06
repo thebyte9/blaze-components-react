@@ -1,23 +1,17 @@
 import withUtils from "@blaze-react/utils";
 import React from "react";
-interface ISpinnerCustomStyles {
-  size?: number;
-  backgroundColor?: string;
-  border?: string;
-  borderTopColor?: string;
-}
 interface ISpinnerProps {
-  customStyles: ISpinnerCustomStyles;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
   };
   lockContent?: boolean;
+  size?: "bigg" | "med" | "small" | "x-small";
   animation: "ease" | "linear";
 }
 
 const Spinner = withUtils(
   ({
-    customStyles: { size, backgroundColor, border, borderTopColor },
+    size,
     lockContent,
     utils: { classNames },
     animation
@@ -27,21 +21,14 @@ const Spinner = withUtils(
     });
 
     const spinnerAnimationClassName: string = classNames("loader__spinner", {
-      [`loader__spinner--${animation}`]: !!animation
+      [`loader__spinner--${animation}`]: !!animation,
+      [`loader__spinner--${size}`]: !!size
     });
 
     return (
       <div className="loader">
-        <div className={spinnerClassName} style={{ backgroundColor }}>
-          <div
-            className={spinnerAnimationClassName}
-            style={{
-              border,
-              borderTopColor,
-              height: `${size}px`,
-              width: `${size}px`
-            }}
-          />
+        <div className={spinnerClassName}>
+          <div className={spinnerAnimationClassName} />
         </div>
       </div>
     );
@@ -53,11 +40,18 @@ const animationType: object = {
   linear: "linear"
 };
 
+const spinnerSize: object = {
+  bigg: "bigg",
+  med: "med",
+  small: "small",
+  xSmall: "x-small"
+};
+
 Spinner.animationType = animationType;
+Spinner.size = spinnerSize;
 
 Spinner.defaultProps = {
-  animation: "linear",
-  customStyles: {}
+  animation: "linear"
 };
 
 export default Spinner;
