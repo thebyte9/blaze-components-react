@@ -41,7 +41,7 @@ const animationType: object = {
 };
 
 const spinnerSize: object = {
-  bigg: "bigg",
+  big: "big",
   med: "med",
   small: "small",
   xSmall: "x-small"
