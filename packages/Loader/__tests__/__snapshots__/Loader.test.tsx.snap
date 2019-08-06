@@ -32,7 +32,6 @@ exports[`Loader component ProgressBar - should be defined and renders correctly 
           className="loader__progress loader__progress--icon"
           style={
             Object {
-              "backgroundColor": undefined,
               "width": "0%",
             }
           }
@@ -87,13 +86,13 @@ exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
   steps={
     Array [
       Object {
-        "color": "#ffc107",
+        "backgroundColor": "orange",
         "final": 99,
         "icon": "priority_high",
         "start": 0,
       },
       Object {
-        "color": "#4caf50",
+        "backgroundColor": "green",
         "final": 100,
         "icon": "done",
         "start": 99,
@@ -114,13 +113,13 @@ exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
     steps={
       Array [
         Object {
-          "color": "#ffc107",
+          "backgroundColor": "orange",
           "final": 99,
           "icon": "priority_high",
           "start": 0,
         },
         Object {
-          "color": "#4caf50",
+          "backgroundColor": "green",
           "final": 100,
           "icon": "done",
           "start": 99,
@@ -146,21 +145,15 @@ exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
         className="loader__bar"
       >
         <div
-          className="loader__progress loader__progress--icon"
+          className="loader__progress loader__progress--icon loader__progress--orange"
           style={
             Object {
-              "backgroundColor": undefined,
               "width": "10%",
             }
           }
         >
           <div
-            className="loader__step--default"
-            style={
-              Object {
-                "backgroundColor": undefined,
-              }
-            }
+            className="loader__step--default loader__progress--orange"
           >
             <i
               className="material-icons icon"
