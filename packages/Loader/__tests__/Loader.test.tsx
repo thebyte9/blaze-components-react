@@ -6,22 +6,21 @@ import { ProgressBar, Spinner } from "../src";
 interface IStep {
   start: number;
   final: number;
-  color?: string;
+  backgroundColor?: string;
   icon?: string;
-  height?: number;
 }
 
 const steps: IStep[] = [
   {
     start: 0,
     final: 99,
-    color: "#ffc107",
+    backgroundColor: ProgressBar.backgroundColor.orange,
     icon: "priority_high"
   },
   {
     start: 99,
     final: 100,
-    color: "#4caf50",
+    backgroundColor: ProgressBar.backgroundColor.green,
     icon: "done"
   }
 ];
