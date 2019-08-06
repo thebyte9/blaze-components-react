@@ -45,22 +45,24 @@ const ProgressBar = withUtils(
 
     const progressMessage: string = progress === 0 ? incomplete : status;
 
+    const loaderClassName: string = classNames(
+      "loader__progress loader__progress--icon",
+      {
+        [`loader__progress--${backgroundColor}`]: !!backgroundColor
+      }
+    );
+
+    const stepClassName: string = classNames("loader__step--default", {
+      [`loader__progress--${backgroundColor}`]: !!backgroundColor
+    });
+
     return (
       <div className={loaderTypeClassName}>
         <span className={labelClassName}>{progressMessage}</span>
         <div className="loader__bar">
-          <div
-            className="loader__progress loader__progress--icon"
-            style={{
-              backgroundColor,
-              width: `${progress}%`
-            }}
-          >
+          <div className={loaderClassName} style={{ width: `${progress}%` }}>
             {icon && (
-              <div
-                className="loader__step--default"
-                style={{ backgroundColor }}
-              >
+              <div className={stepClassName}>
                 <i className="material-icons icon">{icon}</i>
               </div>
             )}
