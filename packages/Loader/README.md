@@ -27,13 +27,13 @@ const ProgressDemo = () => {
     {
       start: 0,
       final: 99,
-      color: "#ffc107",
+      backgroundColor: ProgressBar.backgroundColor.orange,
       icon: "priority_high"
     },
     {
       start: 99,
       final: 100,
-      color: "#4caf50",
+      backgroundColor: ProgressBar.backgroundColor.green,
       icon: "done"
     }
   ];
@@ -57,22 +57,13 @@ const ProgressDemo = () => {
 #### Default Spinner
 
 ```js
-<Spinner />
+<Spinner size={Spinner.size.small} />
 ```
 
 #### Custom spinner with content locked
 
 ```js
-<Spinner
-  customStyles={{
-    backgroundColor: "rgba(0, 0, 0, .1)",
-    border: "4px solid rgba(0, 0, 0, .1)",
-    borderTopColor: "#fff",
-    size: 70
-  }}
-  animation={Spinner.animationType.ease}
-  lockContent
-/>
+<Spinner animation={Spinner.animationType.ease} lockContent />
 ```
 
 ## API
