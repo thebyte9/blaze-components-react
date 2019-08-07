@@ -59,7 +59,7 @@ interface IDraftEditorProps {
     classNames: (className: string | object, classNames?: object) => string;
   };
 
-  onChange: (...args: [null, { value: string }]) => void;
+  onChange?: (...args: [null, { value: string }]) => void;
 
   handleReturn?(
     e: SyntheticKeyboardEvent,
@@ -126,7 +126,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
     const rawValueString = JSON.stringify(rawValue);
-    onChange(null, { value: rawValueString });
+    onChange && onChange(null, { value: rawValueString });
   };
 
   const toggleBlockType = (blockType: DraftBlockType): void =>
