@@ -2,6 +2,7 @@ import withUtils from "@blaze-react/utils";
 import {
   ContentBlock,
   ContentState,
+  convertToRaw,
   DraftBlockRenderMap,
   DraftBlockType,
   DraftDragType,
@@ -58,6 +59,8 @@ interface IDraftEditorProps {
     classNames: (className: string | object, classNames?: object) => string;
   };
 
+  onChange: (...args: [null, { value: string }]) => void;
+
   handleReturn?(
     e: SyntheticKeyboardEvent,
     editorState: EditorState
@@ -108,6 +111,7 @@ interface IDraftEditorProps {
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames },
+  onChange,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = "handled";
@@ -117,14 +121,19 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     EditorState.createEmpty()
   );
 
-  const onChange = (newEditorState: EditorState): void =>
+  const onChangeEditor = (newEditorState: EditorState): void => {
     setEditorState(newEditorState);
+    const currentContent = newEditorState.getCurrentContent();
+    const rawValue = convertToRaw(currentContent);
+    const rawValueString = JSON.stringify(rawValue);
+    onChange(null, { value: rawValueString });
+  };
 
   const toggleBlockType = (blockType: DraftBlockType): void =>
-    onChange(RichUtils.toggleBlockType(editorState, blockType));
+    onChangeEditor(RichUtils.toggleBlockType(editorState, blockType));
 
   const toggleInlineStyle = (inlineStyle: DraftInlineStyleType): void =>
-    onChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+    onChangeEditor(RichUtils.toggleInlineStyle(editorState, inlineStyle));
 
   const handleKeyCommand = (command: DraftEditorCommand): DraftHandleValue => {
     const newState: EditorState = RichUtils.handleKeyCommand(
@@ -132,7 +141,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       command
     );
     if (newState) {
-      onChange(newState);
+      onChangeEditor(newState);
       return draftHandledValue;
     }
     return draftNotHandledValue;
@@ -167,7 +176,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         <Editor
           blockStyleFn={getBlockStyle}
           editorState={editorState}
-          onChange={setEditorState}
+          onChange={onChangeEditor}
           handleKeyCommand={handleKeyCommand}
           {...attrs}
         />
