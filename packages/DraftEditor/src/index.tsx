@@ -121,7 +121,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     EditorState.createEmpty()
   );
 
-  const onChangeEditor = (newEditorState: EditorState): void => {
+  const onEditorChange = (newEditorState: EditorState): void => {
     setEditorState(newEditorState);
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
@@ -130,10 +130,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   const toggleBlockType = (blockType: DraftBlockType): void =>
-    onChangeEditor(RichUtils.toggleBlockType(editorState, blockType));
+    onEditorChange(RichUtils.toggleBlockType(editorState, blockType));
 
   const toggleInlineStyle = (inlineStyle: DraftInlineStyleType): void =>
-    onChangeEditor(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+    onEditorChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
 
   const handleKeyCommand = (command: DraftEditorCommand): DraftHandleValue => {
     const newState: EditorState = RichUtils.handleKeyCommand(
@@ -141,7 +141,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       command
     );
     if (newState) {
-      onChangeEditor(newState);
+      onEditorChange(newState);
       return draftHandledValue;
     }
     return draftNotHandledValue;
@@ -176,7 +176,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         <Editor
           blockStyleFn={getBlockStyle}
           editorState={editorState}
-          onChange={onChangeEditor}
+          onChange={onEditorChange}
           handleKeyCommand={handleKeyCommand}
           {...attrs}
         />
