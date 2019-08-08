@@ -14,6 +14,7 @@ import {
   DraftStyleMap,
   Editor,
   EditorState,
+  RawDraftContentState,
   RichUtils,
   SelectionState
 } from "draft-js";
@@ -129,9 +130,9 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     EditorState.createEmpty()
   );
 
-  useEffect(() => {
+  useEffect((): void => {
     if (value) {
-      const rawObjectValue = JSON.parse(value);
+      const rawObjectValue: RawDraftContentState = JSON.parse(value);
       const state = EditorState.createWithContent(
         convertFromRaw(rawObjectValue)
       );
