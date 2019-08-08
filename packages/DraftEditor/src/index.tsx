@@ -61,7 +61,10 @@ interface IDraftEditorProps {
   };
 
   onChange?: (
-    ...args: [{ target: { name: string; value: string } }, { value: string }]
+    ...args: [
+      { event: { target: { name: string; value: string } } },
+      { value: string }
+    ]
   ) => void;
 
   handleReturn?(
@@ -131,9 +134,11 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     const rawValue = convertToRaw(currentContent);
     const rawValueString = JSON.stringify(rawValue);
     const eventFormat = {
-      target: {
-        value: rawValueString,
-        name
+      event: {
+        target: {
+          value: rawValueString,
+          name
+        }
       }
     };
     onChange && onChange(eventFormat, { value: rawValueString });
