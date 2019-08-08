@@ -15,10 +15,14 @@ storiesOf("DraftEditor", module)
       </section>
 
       <DraftEditor
+        name="custom editor"
         placeholder="content here ..."
         autoCapitalize="words"
-        onChange={(event: null, { value }: { value: string }) => {
-          console.log("event --> ", event);
+        onChange={(
+          event: { target: { name: string; value: string } },
+          { value }: { value: string }
+        ) => {
+          console.log("event --> ", event.target.name);
           console.log("value --> ", value);
         }}
       />

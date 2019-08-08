@@ -31,6 +31,7 @@ interface IDraftEditorProps {
   blockRenderMap?: DraftBlockRenderMap;
 
   tabIndex?: number;
+  name: string;
 
   readOnly?: boolean;
   spellCheck?: boolean;
@@ -59,7 +60,9 @@ interface IDraftEditorProps {
     classNames: (className: string | object, classNames?: object) => string;
   };
 
-  onChange?: (...args: [null, { value: string }]) => void;
+  onChange?: (
+    ...args: [{ target: { name: string; value: string } }, { value: string }]
+  ) => void;
 
   handleReturn?(
     e: SyntheticKeyboardEvent,
@@ -112,6 +115,7 @@ interface IDraftEditorProps {
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames },
   onChange,
+  name,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = "handled";
@@ -126,7 +130,13 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
     const rawValueString = JSON.stringify(rawValue);
-    onChange && onChange(null, { value: rawValueString });
+    const eventFormat = {
+      target: {
+        value: rawValueString,
+        name
+      }
+    };
+    onChange && onChange(eventFormat, { value: rawValueString });
   };
 
   const toggleBlockType = (blockType: DraftBlockType): void =>
@@ -184,4 +194,9 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     </div>
   );
 };
+
+DraftEditor.defaultProps = {
+  name: "editor"
+};
+
 export default withUtils(DraftEditor);
