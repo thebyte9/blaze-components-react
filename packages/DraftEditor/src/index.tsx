@@ -133,7 +133,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   useEffect((): void => {
     if (value) {
       const rawObjectValue: RawDraftContentState = JSON.parse(value);
-      const state = EditorState.createWithContent(
+      const state: EditorState = EditorState.createWithContent(
         convertFromRaw(rawObjectValue)
       );
       setEditorState(state);
