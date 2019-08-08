@@ -2,6 +2,7 @@ import withUtils from "@blaze-react/utils";
 import {
   ContentBlock,
   ContentState,
+  convertFromRaw,
   convertToRaw,
   DraftBlockRenderMap,
   DraftBlockType,
@@ -17,7 +18,7 @@ import {
   SelectionState
 } from "draft-js";
 
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import BlockControls from "./BlockControls";
 import InlineControls from "./InlineControls";
 
@@ -51,6 +52,8 @@ interface IDraftEditorProps {
   ariaAutoComplete?: string;
   ariaActiveDescendantID?: string;
 
+  value?: string;
+
   customStyleFn?: (
     style: DraftInlineStyle,
     block: ContentBlock
@@ -60,12 +63,9 @@ interface IDraftEditorProps {
     classNames: (className: string | object, classNames?: object) => string;
   };
 
-  onChange?: (
-    ...args: [
-      { event: { target: { name: string; value: string } } },
-      { value: string }
-    ]
-  ) => void;
+  onChange?: (event: {
+    event: { target: { name: string; value: string } };
+  }) => void;
 
   handleReturn?(
     e: SyntheticKeyboardEvent,
@@ -119,6 +119,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames },
   onChange,
   name,
+  value,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = "handled";
@@ -127,6 +128,16 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const [editorState, setEditorState] = useState<EditorState>(
     EditorState.createEmpty()
   );
+
+  useEffect(() => {
+    if (value) {
+      const rawObjectValue = JSON.parse(value);
+      const state = EditorState.createWithContent(
+        convertFromRaw(rawObjectValue)
+      );
+      setEditorState(state);
+    }
+  }, []);
 
   const onEditorChange = (newEditorState: EditorState): void => {
     setEditorState(newEditorState);
@@ -141,7 +152,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         }
       }
     };
-    onChange && onChange(eventFormat, { value: rawValueString });
+    onChange && onChange(eventFormat);
   };
 
   const toggleBlockType = (blockType: DraftBlockType): void =>
