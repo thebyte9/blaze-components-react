@@ -6,7 +6,7 @@ import More from "../src";
 describe("More component", () => {
   test("should be defined and renders correctly (snapshot)", () => {
     const wrapper = mount(
-      <More isMoreMenu>
+      <More isMoreMenu onClose={() => ({})}>
         <More.Avatar isMoreMenu>
           <span className="material-icons">more_vert</span>
         </More.Avatar>

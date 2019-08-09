@@ -14,6 +14,9 @@ storiesOf("DraftEditor", module)
         <h1>DraftEditor</h1>
       </section>
 
-      <DraftEditor placeholder="content here ..." autoCapitalize="words" />
+      <DraftEditor
+        placeholder="content here ..."
+        autoCapitalize="words"
+      />
     </div>
   ));
