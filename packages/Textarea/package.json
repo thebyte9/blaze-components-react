@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/text-area",
-  "version": "0.3.9",
+  "version": "0.3.17",
   "publishConfig": {
     "access": "public"
   },
