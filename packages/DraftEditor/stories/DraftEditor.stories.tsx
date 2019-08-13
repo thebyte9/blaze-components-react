@@ -8,15 +8,30 @@ storiesOf("DraftEditor", module)
       sidebar: DraftEditorReadme
     }
   })
-  .add("Introduction", () => (
-    <div className="component-wrapper">
-      <section className="introductionSection">
-        <h1>DraftEditor</h1>
-      </section>
+  .add("Introduction", () => {
+    const testValueJSON =
+      '{"blocks":[{"key":"ai4n8","text":"testing","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}';
+    return (
+      <div className="component-wrapper">
+        <section className="introductionSection">
+          <h1>DraftEditor</h1>
+        </section>
 
-      <DraftEditor
-        placeholder="content here ..."
-        autoCapitalize="words"
-      />
-    </div>
-  ));
+        <DraftEditor
+          name="custom editor"
+          placeholder="content here ..."
+          autoCapitalize="words"
+          value={testValueJSON}
+          onChange={({
+            event: {
+              target: { name, value }
+            }
+          }: {
+            event: { target: { name: string; value: string } };
+          }) => {
+            console.log("event --> ", name);
+          }}
+        />
+      </div>
+    );
+  });

@@ -2,6 +2,8 @@ import withUtils from "@blaze-react/utils";
 import {
   ContentBlock,
   ContentState,
+  convertFromRaw,
+  convertToRaw,
   DraftBlockRenderMap,
   DraftBlockType,
   DraftDragType,
@@ -12,11 +14,12 @@ import {
   DraftStyleMap,
   Editor,
   EditorState,
+  RawDraftContentState,
   RichUtils,
   SelectionState
 } from "draft-js";
 
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import BlockControls from "./BlockControls";
 import InlineControls from "./InlineControls";
 
@@ -30,6 +33,7 @@ interface IDraftEditorProps {
   blockRenderMap?: DraftBlockRenderMap;
 
   tabIndex?: number;
+  name: string;
 
   readOnly?: boolean;
   spellCheck?: boolean;
@@ -49,6 +53,8 @@ interface IDraftEditorProps {
   ariaAutoComplete?: string;
   ariaActiveDescendantID?: string;
 
+  value?: string;
+
   customStyleFn?: (
     style: DraftInlineStyle,
     block: ContentBlock
@@ -57,6 +63,10 @@ interface IDraftEditorProps {
     uniqueId: (element: any) => string;
     classNames: (className: string | object, classNames?: object) => string;
   };
+
+  onChange?: (event: {
+    event: { target: { name: string; value: string } };
+  }) => void;
 
   handleReturn?(
     e: SyntheticKeyboardEvent,
@@ -108,6 +118,9 @@ interface IDraftEditorProps {
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames },
+  onChange,
+  name,
+  value,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = "handled";
@@ -117,14 +130,37 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     EditorState.createEmpty()
   );
 
-  const onChange = (newEditorState: EditorState): void =>
+  useEffect((): void => {
+    if (value) {
+      const rawObjectValue: RawDraftContentState = JSON.parse(value);
+      const state: EditorState = EditorState.createWithContent(
+        convertFromRaw(rawObjectValue)
+      );
+      setEditorState(state);
+    }
+  }, []);
+
+  const onEditorChange = (newEditorState: EditorState): void => {
     setEditorState(newEditorState);
+    const currentContent = newEditorState.getCurrentContent();
+    const rawValue = convertToRaw(currentContent);
+    const rawValueString = JSON.stringify(rawValue);
+    const eventFormat = {
+      event: {
+        target: {
+          value: rawValueString,
+          name
+        }
+      }
+    };
+    onChange && onChange(eventFormat);
+  };
 
   const toggleBlockType = (blockType: DraftBlockType): void =>
-    onChange(RichUtils.toggleBlockType(editorState, blockType));
+    onEditorChange(RichUtils.toggleBlockType(editorState, blockType));
 
   const toggleInlineStyle = (inlineStyle: DraftInlineStyleType): void =>
-    onChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+    onEditorChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
 
   const handleKeyCommand = (command: DraftEditorCommand): DraftHandleValue => {
     const newState: EditorState = RichUtils.handleKeyCommand(
@@ -132,7 +168,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       command
     );
     if (newState) {
-      onChange(newState);
+      onEditorChange(newState);
       return draftHandledValue;
     }
     return draftNotHandledValue;
@@ -167,7 +203,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         <Editor
           blockStyleFn={getBlockStyle}
           editorState={editorState}
-          onChange={setEditorState}
+          onChange={onEditorChange}
           handleKeyCommand={handleKeyCommand}
           {...attrs}
         />
@@ -175,4 +211,9 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     </div>
   );
 };
+
+DraftEditor.defaultProps = {
+  name: "editor"
+};
+
 export default withUtils(DraftEditor);

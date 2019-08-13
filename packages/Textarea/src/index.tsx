@@ -2,6 +2,7 @@ import withUtils from "@blaze-react/utils";
 import React, {
   FunctionComponent,
   TextareaHTMLAttributes,
+  useEffect,
   useState
 } from "react";
 interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -30,6 +31,12 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   ...attrs
 }) => {
   const [content, setContent] = useState<string>("");
+
+  useEffect((): void => {
+    if (!content && value) {
+      setContent(value);
+    }
+  }, []);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
