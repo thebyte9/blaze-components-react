@@ -1,12 +1,22 @@
-import React, { Fragment, InputHTMLAttributes, useState } from "react";
-interface ISelectProps extends InputHTMLAttributes<HTMLSelectElement> {
+import withUtils from "@blaze-react/utils";
+import React, { Fragment, useEffect, useState } from "react";
+interface ISelectProps {
   label?: string;
-  keys?: any[];
+  keys?: string[];
   options: any[];
   required?: boolean;
-  onChange: (...args: any[]) => any;
+  onChange: ({
+    event,
+    value
+  }: {
+    event: React.ChangeEvent<HTMLSelectElement>;
+    value: string;
+  }) => void;
   selected?: any;
   id?: string;
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+  };
 }
 const Select: React.SFC<ISelectProps> = ({
   label,
@@ -15,19 +25,33 @@ const Select: React.SFC<ISelectProps> = ({
   options,
   selected,
   keys,
+  utils: { classNames },
   ...attrs
 }) => {
-  const [selectedOption, setSelectedOption] = useState(selected);
-  const handleChange = (event: any) => {
-    setSelectedOption(event.target.value);
-    onChange({ event, selected: event.target.value });
+  const [selectedOption, setSelectedOption] = useState<string>(selected);
+
+  useEffect(() => {
+    setSelectedOption(selected);
+  }, [selected]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const {
+      target: { value }
+    } = event;
+    setSelectedOption(value);
+    onChange({ event, value });
   };
-  const isRequired = required ? "required" : "";
-  const setOption = (value: string, text?: string) => (
+
+  const requiredClassName: string = classNames({
+    required
+  });
+
+  const setOption = (value: string, text?: string): JSX.Element => (
     <option key={value} value={value}>
       {text || value}
     </option>
   );
+
   const renderOptions = () => {
     const [first]: any = options;
     if (typeof first === "string") {
@@ -41,20 +65,23 @@ const Select: React.SFC<ISelectProps> = ({
       return setOption(option[value], option[text]);
     });
   };
+
   return (
     <Fragment>
       {label && (
-        <label htmlFor={attrs.id} className={isRequired}>
+        <label htmlFor={attrs.id} className={requiredClassName}>
           {label}
         </label>
       )}
       <select
         onChange={handleChange}
-        defaultValue={selectedOption}
         disabled={!options.length}
+        value={selectedOption}
         {...attrs}
       >
-        <option>Please Choose...</option>
+        <option selected={!selectedOption} disabled={!!selectedOption}>
+          Please Choose...
+        </option>
         {renderOptions()}
       </select>
     </Fragment>
@@ -70,4 +97,4 @@ Select.defaultProps = {
   required: false,
   selected: ""
 };
-export default Select;
+export default withUtils(Select);

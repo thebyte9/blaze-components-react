@@ -20,7 +20,9 @@ storiesOf("Text Inputs", module)
         label="Required field with error activated"
         placeholder="Enter email"
         validationMessage="Email address is required"
-        onChange={(): void => { return; }}
+        onChange={(): void => {
+          return;
+        }}
         type="email"
         required
         error
@@ -30,7 +32,9 @@ storiesOf("Text Inputs", module)
       <Input
         label="Text input disabled"
         placeholder="Placeholder text"
-        onChange={(): void => { return; }}
+        onChange={(): void => {
+          return;
+        }}
         modifier="full-width"
         hideTypeToggle
         disabled
@@ -40,7 +44,9 @@ storiesOf("Text Inputs", module)
       <Input
         label="Password - show hide"
         placeholder="******"
-        onChange={(): void => { return; }}
+        onChange={(): void => {
+          return;
+        }}
         type="password"
         value="Lorem ipsum"
       />

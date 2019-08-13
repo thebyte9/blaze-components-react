@@ -20,7 +20,7 @@ interface IInputProps {
   validationMessage?: string | JSX.Element;
   value?: string;
   utils: {
-    classNames: (...args: any) => string;
+    classNames: (className: string | object, classNames?: object) => string;
   };
 }
 
