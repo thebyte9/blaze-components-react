@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Multiselect from "../src";
+import React from "react";
 import MultiSelectReadme from "../README.md";
+import Multiselect from "../src";
 const data = {
   keyValue: "name",
   filterBy: ["name", "description"],

@@ -9,12 +9,16 @@ interface IMultiSelectProps {
     data: object[];
   };
   selected: (...args: any[]) => any;
+  error?: boolean;
+  validationMessage?: string | JSX.Element;
   placeholder?: string;
   children?: any;
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue },
   selected: getSelected,
+  error,
+  validationMessage,
   placeholder,
   children
 }): JSX.Element => {
@@ -59,6 +63,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       {children}
 
       <Input placeholder={placeholder} onChange={handleInputChange} />
+      {error && (
+        <div className="validation" data-testid="validation-message">
+          <i className="material-icons">warning</i>
+          {validationMessage}
+        </div>
+      )}
       {
         <Checkboxes
           options={dataCopy.map(
@@ -72,7 +82,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   );
 };
 MultiSelect.defaultProps = {
+  error: false,
   children: "",
-  placeholder: "Search"
+  placeholder: "Search",
+  validationMessage: "This field is required"
 };
 export default MultiSelect;

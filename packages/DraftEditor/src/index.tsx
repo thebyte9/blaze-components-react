@@ -67,6 +67,8 @@ interface IDraftEditorProps {
   onChange?: (event: {
     event: { target: { name: string; value: string } };
   }) => void;
+  error?: boolean;
+  validationMessage?: string | JSX.Element;
 
   handleReturn?(
     e: SyntheticKeyboardEvent,
@@ -121,6 +123,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   onChange,
   name,
   value,
+  error,
+  validationMessage,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = "handled";
@@ -208,12 +212,20 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           {...attrs}
         />
       </div>
+      {error && (
+        <div className="validation" data-testid="validation-message">
+          <i className="material-icons">warning</i>
+          {validationMessage}
+        </div>
+      )}
     </div>
   );
 };
 
 DraftEditor.defaultProps = {
-  name: "editor"
+  error: false,
+  name: "editor",
+  validationMessage: "This field is required"
 };
 
 export default withUtils(DraftEditor);

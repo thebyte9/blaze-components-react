@@ -12,6 +12,8 @@ interface ICheckboxesProps {
     value: boolean | object;
     data: object[];
   }) => void;
+  error?: boolean;
+  validationMessage?: string | JSX.Element;
   utils: {
     uniqueId: (element: any) => string;
     classNames: (className: string | object, classNames?: object) => string;
@@ -21,6 +23,8 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
   returnBoolean,
   onChange,
   options,
+  error,
+  validationMessage,
   utils: { uniqueId, classNames },
   ...attrs
 }): JSX.Element => {
@@ -114,11 +118,19 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
           );
         }
       )}
+      {error && (
+        <div className="validation" data-testid="validation-message">
+          <i className="material-icons">warning</i>
+          {validationMessage}
+        </div>
+      )}
     </Fragment>
   );
 };
 Checkboxes.defaultProps = {
+  error: false,
   options: [],
-  returnBoolean: false
+  returnBoolean: false,
+  validationMessage: "This field is required"
 };
 export default withUtils(Checkboxes);

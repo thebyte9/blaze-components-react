@@ -6,6 +6,7 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
   options={Array []}
 >
   <Select
+    error={false}
     keys={Array []}
     label=""
     onChange={[Function]}
@@ -18,6 +19,7 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
         "uniqueId": [Function],
       }
     }
+    validationMessage="This field is required"
   >
     <select
       disabled={true}

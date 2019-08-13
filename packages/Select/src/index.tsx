@@ -12,6 +12,8 @@ interface ISelectProps {
     event: React.ChangeEvent<HTMLSelectElement>;
     value: string;
   }) => void;
+  error?: boolean;
+  validationMessage?: string | JSX.Element;
   selected?: any;
   id?: string;
   utils: {
@@ -25,6 +27,8 @@ const Select: React.SFC<ISelectProps> = ({
   options,
   selected,
   keys,
+  error,
+  validationMessage,
   utils: { classNames },
   ...attrs
 }) => {
@@ -84,10 +88,17 @@ const Select: React.SFC<ISelectProps> = ({
         </option>
         {renderOptions()}
       </select>
+      {error && (
+        <div className="validation" data-testid="validation-message">
+          <i className="material-icons">warning</i>
+          {validationMessage}
+        </div>
+      )}
     </Fragment>
   );
 };
 Select.defaultProps = {
+  error: false,
   keys: [],
   label: "",
   onChange: (): void => {
@@ -95,6 +106,7 @@ Select.defaultProps = {
   },
   options: [],
   required: false,
-  selected: ""
+  selected: "",
+  validationMessage: "This field is required"
 };
 export default withUtils(Select);
