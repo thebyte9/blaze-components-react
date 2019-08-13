@@ -42,7 +42,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       )
     );
 
-    onChange && onChange({ event, value });
+    onChange({ event, value });
     setDataCopy(parsedDataCopy);
   };
 
@@ -82,6 +82,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 };
 MultiSelect.defaultProps = {
   children: "",
+  onChange: (arg: {
+    event: Event;
+    value: string;
+  }): { event: Event; value: string } => {
+    return arg;
+  },
   placeholder: "Search"
 };
 export default MultiSelect;
