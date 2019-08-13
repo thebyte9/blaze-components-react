@@ -66,9 +66,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           <div key={uuidv1()}>{selectedValue[keyValue]}</div>
         )
       )}
-
       {children}
-
       <Input placeholder={placeholder} onChange={handleInputChange} />
       {
         <Checkboxes
