@@ -1,35 +1,61 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Multiselect from "../src";
+import React, { useEffect, useState } from "react";
 import MultiSelectReadme from "../README.md";
-const data = {
-  keyValue: "name",
-  filterBy: ["name", "description"],
-  data: [
-    {
-      id: 1,
-      name: "Blaze",
-      description: "Lorem ipsum dolor."
-    },
-    {
-      id: 2,
-      name: "KP",
-      description: "Aliquam tincidunt."
-    },
-    {
-      id: 3,
-      name: "Pulser",
-      description: "Vestibulum auctor."
+import Multiselect from "../src";
+
+const DemoComponent = () => {
+  const [multiselectData, setMultiselectData] = useState({
+    keyValue: "name",
+    filterBy: ["name", "description"],
+    data: [
+      {
+        id: 1,
+        name: "Blaze",
+        description: "Lorem ipsum dolor."
+      }
+    ]
+  });
+  const [isTimeoutRegistered, setIsTimeoutRegistered] = useState(false);
+
+  const registerSetTimeOut = () => {
+    setTimeout(() => {
+      setMultiselectData({
+        keyValue: "name",
+        filterBy: ["name", "id"],
+        data: [
+          {
+            id: 1,
+            name: "Blaze",
+            description: "Lorem ipsum dolor."
+          },
+          {
+            id: 1,
+            name: "Blaze",
+            description: "Lorem ipsum dolor."
+          },
+          {
+            id: 1,
+            name: "Blaze",
+            description: "Lorem ipsum dolor."
+          },
+          {
+            id: 1,
+            name: "Blaze",
+            description: "Lorem ipsum dolor."
+          }
+        ]
+      });
+    }, 3000);
+  };
+
+  useEffect(() => {
+    if (!isTimeoutRegistered) {
+      setIsTimeoutRegistered(true);
+      registerSetTimeOut();
     }
-  ]
-};
-storiesOf("Multiselect", module)
-  .addParameters({
-    readme: {
-      sidebar: MultiSelectReadme
-    }
-  })
-  .add("Introduction", () => (
+  }, [multiselectData]);
+
+  return (
     <div className="component-wrapper">
       <h1>Multiselect</h1>
 
@@ -39,6 +65,17 @@ storiesOf("Multiselect", module)
         selectors, etc.
       </p>
 
-      <Multiselect data={data} selected={() => {}} />
+      <Multiselect data={multiselectData} selected={() => {}} />
     </div>
-  ));
+  );
+};
+
+storiesOf("Multiselect", module)
+  .addParameters({
+    readme: {
+      sidebar: MultiSelectReadme
+    }
+  })
+  .add("Introduction", () => {
+    return <DemoComponent />;
+  });

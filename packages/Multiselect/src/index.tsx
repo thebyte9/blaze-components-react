@@ -1,7 +1,10 @@
 import Checkboxes from "@blaze-react/checkboxes";
 import Input from "@blaze-react/input";
-import React, { Fragment, useState } from "react";
+import differenceWith from "lodash.differencewith";
+import isEqual from "lodash.isequal";
+import React, { useEffect, useState } from "react";
 import uuidv1 from "uuid/v1";
+
 interface IMultiSelectProps {
   data: {
     keyValue: string;
@@ -23,6 +26,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [selected, setSelected] = useState<any[]>([]);
   const [dataCopy, setDataCopy] = useState<object[]>(data);
 
+  useEffect(() => {
+    const shouldUpdate = differenceWith(dataCopy, data, isEqual).length;
+    if (shouldUpdate) {
+      setDataCopy(data);
+    }
+  }, [data]);
+
   const setStatus = (obj: any, status: any): object =>
     Object.assign({}, obj, { show: status });
 
@@ -33,12 +43,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     event: Event;
     value: string;
   }) => {
-    const parsedDataCopy = dataCopy.map(copy =>
+    const parsedDataCopy = dataCopy.map((copy: any) =>
       setStatus(
         copy,
-        !!keys.some(key =>
-          copy[key].toLowerCase().includes(value.toLowerCase())
-        )
+        !!keys.some(key => {
+          const copyKey = copy[key].toLowerCase();
+          return copyKey.includes(value.toLowerCase());
+        })
       )
     );
 
@@ -59,8 +70,17 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     setDataCopy(localData);
     getSelected(localData);
   };
+
+  const parseCheckBoxOptions = (elements: object[]): object[] =>
+    elements.map(
+      (copiedData: any): object => ({
+        ...copiedData,
+        label: copiedData[keyValue]
+      })
+    );
+
   return (
-    <Fragment>
+    <>
       {selected.map(
         (selectedValue): JSX.Element => (
           <div key={uuidv1()}>{selectedValue[keyValue]}</div>
@@ -68,16 +88,11 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       )}
       {children}
       <Input placeholder={placeholder} onChange={handleInputChange} />
-      {
-        <Checkboxes
-          options={dataCopy.map(
-            (copiedData): object =>
-              Object.assign({}, copiedData, { label: copiedData[keyValue] })
-          )}
-          onChange={handleCheckBoxChange}
-        />
-      }
-    </Fragment>
+      <Checkboxes
+        options={parseCheckBoxOptions(dataCopy)}
+        onChange={handleCheckBoxChange}
+      />
+    </>
   );
 };
 MultiSelect.defaultProps = {
