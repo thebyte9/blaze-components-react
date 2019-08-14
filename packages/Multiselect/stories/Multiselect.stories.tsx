@@ -15,7 +15,7 @@ const DemoComponent = () => {
       }
     ]
   });
-  const [a, setA] = useState(false);
+  const [isTimeoutRegistered, setIsTimeoutRegistered] = useState(false);
 
   const registerSetTimeOut = () => {
     setTimeout(() => {
@@ -49,8 +49,8 @@ const DemoComponent = () => {
   };
 
   useEffect(() => {
-    if (!a) {
-      setA(true);
+    if (!isTimeoutRegistered) {
+      setIsTimeoutRegistered(true);
       registerSetTimeOut();
     }
   }, [multiselectData]);
