@@ -27,7 +27,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [dataCopy, setDataCopy] = useState<object[]>(data);
 
   useEffect(() => {
-    const shouldUpdate = differenceWith(dataCopy, data, isEqual).length;
+    const shouldUpdate =
+      differenceWith(dataCopy, data, isEqual).length ||
+      differenceWith(data, dataCopy, isEqual).length;
     if (shouldUpdate) {
       setDataCopy(data);
     }
