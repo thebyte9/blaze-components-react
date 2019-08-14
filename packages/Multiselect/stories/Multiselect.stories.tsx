@@ -19,7 +19,6 @@ const DemoComponent = () => {
 
   const registerSetTimeOut = () => {
     setTimeout(() => {
-      console.log("TIMEOUT");
       setMultiselectData({
         keyValue: "name",
         filterBy: ["name", "id"],
