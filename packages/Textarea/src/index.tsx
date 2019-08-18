@@ -5,6 +5,10 @@ import React, {
   useEffect,
   useState
 } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
 interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   required?: boolean;
@@ -12,10 +16,11 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   onChange: (...args: any[]) => void;
   value?: string;
   error?: boolean;
-  validationMessage?: string | JSX.Element;
+  validationMessage: string | JSX.Element;
   placeholder?: string;
   utils: {
-    classNames: (...args: any) => string;
+    classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
 const Textarea: FunctionComponent<ITextareaProps> = ({
@@ -27,7 +32,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   validationMessage,
   required,
   id,
-  utils: { classNames },
+  utils: { classNames, ErrorMessage },
   ...attrs
 }) => {
   const [content, setContent] = useState<string>("");
@@ -73,12 +78,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
         {...attrs}
       />
       {!!limit && <span>{total}</span>}
-      {error && (
-        <div className="validation">
-          <i className="material-icons">warning</i>
-          {validationMessage}
-        </div>
-      )}
+      {error && <ErrorMessage message={validationMessage} />}
     </div>
   );
 };

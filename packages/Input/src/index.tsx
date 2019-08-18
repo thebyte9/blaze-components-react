@@ -1,6 +1,10 @@
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import ToggleInputType from "./ToggleInputType";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
 interface IInputProps {
   disabled?: boolean;
   hideTypeToggle?: boolean;
@@ -17,10 +21,11 @@ interface IInputProps {
   required?: boolean;
   error?: boolean;
   type?: string;
-  validationMessage?: string | JSX.Element;
+  validationMessage: string | JSX.Element;
   value?: string;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
 
@@ -35,7 +40,7 @@ const Input: FunctionComponent<IInputProps> = ({
   error,
   validationMessage,
   value,
-  utils: { classNames },
+  utils: { classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
   const [newValue, setNewValue] = useState<string | undefined>(value);
@@ -87,12 +92,7 @@ const Input: FunctionComponent<IInputProps> = ({
         {...attrs}
       />
 
-      {error && (
-        <div className="validation" data-testid="validation-message">
-          <i className="material-icons">warning</i>
-          {validationMessage}
-        </div>
-      )}
+      {error && <ErrorMessage message={validationMessage} />}
 
       {!hideTypeToggle && isPassword && (
         <ToggleInputType toggleType={handleToggleType} type={newType} />

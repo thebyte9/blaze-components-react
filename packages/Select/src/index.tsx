@@ -1,5 +1,10 @@
 import withUtils from "@blaze-react/utils";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
+
 interface ISelectProps {
   label?: string;
   keys?: string[];
@@ -13,11 +18,12 @@ interface ISelectProps {
     value: string;
   }) => void;
   error?: boolean;
-  validationMessage?: string | JSX.Element;
+  validationMessage: string | JSX.Element;
   selected?: any;
   id?: string;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
 const Select: React.SFC<ISelectProps> = ({
@@ -29,7 +35,7 @@ const Select: React.SFC<ISelectProps> = ({
   keys,
   error,
   validationMessage,
-  utils: { classNames },
+  utils: { classNames, ErrorMessage },
   ...attrs
 }) => {
   const [selectedOption, setSelectedOption] = useState<string>(selected);
@@ -88,12 +94,7 @@ const Select: React.SFC<ISelectProps> = ({
         </option>
         {renderOptions()}
       </select>
-      {error && (
-        <div className="validation" data-testid="validation-message">
-          <i className="material-icons">warning</i>
-          {validationMessage}
-        </div>
-      )}
+      {error && <ErrorMessage message={validationMessage} />}
     </Fragment>
   );
 };

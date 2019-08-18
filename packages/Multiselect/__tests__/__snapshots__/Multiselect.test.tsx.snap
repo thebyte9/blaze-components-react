@@ -1,32 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Multiselect component should be defined and renders correctly (snapshot) 1`] = `
-<Fragment>
-  <WithUtils
-    onChange={[Function]}
-    placeholder="Search"
-  />
-  <WithUtils
-    onChange={[Function]}
-    options={
-      Array [
+<MultiSelect
+  data={
+    Object {
+      "data": Array [
         Object {
           "id": 1,
-          "label": "Project1",
           "name": "Project1",
         },
         Object {
           "id": 2,
-          "label": "Project2",
           "name": "Project2",
         },
         Object {
           "id": 3,
-          "label": "Project3",
           "name": "Project3",
         },
-      ]
+      ],
+      "filterBy": Array [
+        "name",
+      ],
+      "keyValue": "name",
     }
-  />
-</Fragment>
+  }
+  error={false}
+  placeholder="Search"
+  selected={[Function]}
+  utils={
+    Object {
+      "ErrorMessage": [Function],
+      "classNames": [Function],
+      "uniqueId": [Function],
+    }
+  }
+  validationMessage="This field is required"
+/>
 `;

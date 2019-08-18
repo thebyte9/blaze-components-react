@@ -10,6 +10,7 @@ exports[`Textarea component should be defined and renders correctly (snapshot) 1
   required={false}
   utils={
     Object {
+      "ErrorMessage": [Function],
       "classNames": [Function],
       "uniqueId": [Function],
     }

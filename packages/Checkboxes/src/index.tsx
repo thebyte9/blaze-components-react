@@ -1,5 +1,10 @@
 import withUtils from "@blaze-react/utils";
 import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
+
 interface ICheckboxesProps {
   options?: any[] | object;
   returnBoolean?: boolean;
@@ -13,10 +18,11 @@ interface ICheckboxesProps {
     data: object[];
   }) => void;
   error?: boolean;
-  validationMessage?: string | JSX.Element;
+  validationMessage: string | JSX.Element;
   utils: {
     uniqueId: (element: any) => string;
     classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
 const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
@@ -25,7 +31,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
   options,
   error,
   validationMessage,
-  utils: { uniqueId, classNames },
+  utils: { uniqueId, classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
   const {
@@ -118,12 +124,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
           );
         }
       )}
-      {error && (
-        <div className="validation" data-testid="validation-message">
-          <i className="material-icons">warning</i>
-          {validationMessage}
-        </div>
-      )}
+      {error && <ErrorMessage message={validationMessage} />}
     </Fragment>
   );
 };

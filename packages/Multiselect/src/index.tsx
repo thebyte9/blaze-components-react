@@ -1,7 +1,12 @@
 import Checkboxes from "@blaze-react/checkboxes";
 import Input from "@blaze-react/input";
-import React, { Fragment, useState } from "react";
-import uuidv1 from "uuid/v1";
+import withUtils from "@blaze-react/utils";
+import React, { Fragment, FunctionComponent, useState } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
+
 interface IMultiSelectProps {
   data: {
     keyValue: string;
@@ -10,8 +15,12 @@ interface IMultiSelectProps {
   };
   selected: (...args: any[]) => any;
   error?: boolean;
-  validationMessage?: string | JSX.Element;
+  validationMessage: string | JSX.Element;
   placeholder?: string;
+  utils: {
+    uniqueId: (element: any) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+  };
   children?: any;
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
@@ -20,6 +29,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   error,
   validationMessage,
   placeholder,
+  utils: { ErrorMessage, uniqueId },
   children
 }): JSX.Element => {
   const [selected, setSelected] = useState<any[]>([]);
@@ -56,19 +66,18 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     <Fragment>
       {selected.map(
         (selectedValue): JSX.Element => (
-          <div key={uuidv1()}>{selectedValue[keyValue]}</div>
+          <div key={uniqueId(selectedValue[keyValue])}>
+            {selectedValue[keyValue]}
+          </div>
         )
       )}
 
       {children}
 
       <Input placeholder={placeholder} onChange={handleInputChange} />
-      {error && (
-        <div className="validation" data-testid="validation-message">
-          <i className="material-icons">warning</i>
-          {validationMessage}
-        </div>
-      )}
+
+      {error && <ErrorMessage message={validationMessage} />}
+
       {
         <Checkboxes
           options={dataCopy.map(
@@ -82,9 +91,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   );
 };
 MultiSelect.defaultProps = {
-  error: false,
   children: "",
+  error: false,
   placeholder: "Search",
   validationMessage: "This field is required"
 };
-export default MultiSelect;
+export default withUtils(MultiSelect);
