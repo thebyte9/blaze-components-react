@@ -20,7 +20,10 @@
   "dependencies": {
     "@blaze-react/checkboxes": "^0.3.4",
     "@blaze-react/input": "^0.3.4",
-    "@blaze-react/utils": "^0.3.4"
+    "@blaze-react/utils": "^0.3.4",
+    "lodash.differencewith": "^4.5.0",
+    "lodash.intersectionwith": "^4.4.0",
+    "lodash.isequal": "^4.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
