@@ -65,7 +65,13 @@ const DemoComponent = () => {
         selectors, etc.
       </p>
 
-      <Multiselect data={multiselectData} selected={() => {}} />
+      <Multiselect
+        name="multiselect"
+        data={multiselectData}
+        selected={selected => {
+          console.log("selected", selected);
+        }}
+      />
     </div>
   );
 };
