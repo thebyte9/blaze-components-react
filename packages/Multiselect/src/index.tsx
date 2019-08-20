@@ -70,7 +70,11 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   }) => {
     setSelected(value);
     setDataCopy(localData);
-    getSelected(localData);
+    getSelected({event: {
+      target: {
+        value: localData
+      }
+    }});
   };
 
   const parseCheckBoxOptions = (elements: object[]): object[] =>
