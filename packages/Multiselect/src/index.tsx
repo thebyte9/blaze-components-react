@@ -75,10 +75,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     getSelected({
       event: {
         target: {
+          name,
           value
         }
-      },
-      name
+      }
     });
   };
 
