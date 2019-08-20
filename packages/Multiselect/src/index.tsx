@@ -14,14 +14,16 @@ interface IMultiSelectProps {
   selected: (...args: any[]) => any;
   placeholder?: string;
   children?: any;
-  onChange?: (arg: { event: Event; value: string }) => void;
+  onChange?: (arg: { event: Event; value: string; name: string }) => void;
+  name: string;
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue },
   selected: getSelected,
   placeholder,
   children,
-  onChange
+  onChange,
+  name
 }): JSX.Element => {
   const [selected, setSelected] = useState<any[]>([]);
   const [dataCopy, setDataCopy] = useState<object[]>(data);
@@ -56,7 +58,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     );
 
     if (onChange) {
-      onChange({ event, value });
+      onChange({ event, value, name });
     }
     setDataCopy(parsedDataCopy);
   };
@@ -75,7 +77,8 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         target: {
           value
         }
-      }
+      },
+      name
     });
   };
 
