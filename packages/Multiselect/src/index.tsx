@@ -102,6 +102,9 @@ MultiSelect.defaultProps = {
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },
-  placeholder: "Search"
+  placeholder: "Search",
+  selected: () => {
+    return;
+  }
 };
 export default MultiSelect;
