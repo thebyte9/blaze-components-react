@@ -2,6 +2,7 @@ import Checkboxes from "@blaze-react/checkboxes";
 import Input from "@blaze-react/input";
 import differenceWith from "lodash.differencewith";
 import isEqual from "lodash.isequal";
+import unionBy from "lodash.unionby";
 import React, { useEffect, useState } from "react";
 import uuidv1 from "uuid/v1";
 
@@ -11,29 +12,32 @@ interface IMultiSelectProps {
     filterBy: any[];
     data: object[];
   };
-  selected: (...args: any[]) => any;
+  getSelected: (...args: any[]) => any;
   placeholder?: string;
   children?: any;
+  selected?: any[];
   onChange?: (arg: { event: Event; value: string; name: string }) => void;
   name: string;
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue },
-  selected: getSelected,
+  getSelected,
   placeholder,
   children,
   onChange,
-  name
+  name,
+  selected
 }): JSX.Element => {
-  const [selected, setSelected] = useState<any[]>([]);
-  const [dataCopy, setDataCopy] = useState<object[]>(data);
+  const [selectedItems, setSelectedItems] = useState<any[]>([]);
+  const [dataCopy, setDataCopy] = useState<any>(null);
 
   useEffect(() => {
     const shouldUpdate =
       differenceWith(dataCopy, data, isEqual).length ||
       differenceWith(data, dataCopy, isEqual).length;
-    if (shouldUpdate) {
-      setDataCopy(data);
+    const elementsWithSelected = unionBy(selected, data, "id");
+    if (!dataCopy || shouldUpdate) {
+      setDataCopy(elementsWithSelected);
     }
   }, [data]);
 
@@ -70,7 +74,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     value: any;
     data: any;
   }) => {
-    setSelected(value);
+    setSelectedItems(value);
     setDataCopy(localData);
     getSelected({
       event: {
@@ -82,17 +86,20 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     });
   };
 
-  const parseCheckBoxOptions = (elements: object[]): object[] =>
-    elements.map(
-      (copiedData: any): object => ({
-        ...copiedData,
-        label: copiedData[keyValue]
-      })
-    );
+  const parseCheckBoxOptions = (elements: object[]): object[] => {
+    return elements
+      ? elements.map(
+          (element: any): object => ({
+            ...element,
+            label: element[keyValue]
+          })
+        )
+      : [];
+  };
 
   return (
     <>
-      {selected.map(
+      {selectedItems.map(
         (selectedValue): JSX.Element => (
           <div key={uuidv1()}>{selectedValue[keyValue]}</div>
         )
@@ -108,12 +115,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 };
 MultiSelect.defaultProps = {
   children: "",
+  getSelected: () => {
+    return;
+  },
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },
-  placeholder: "Search",
-  selected: () => {
-    return;
-  }
+  placeholder: "Search"
 };
 export default MultiSelect;
