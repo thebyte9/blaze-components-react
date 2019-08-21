@@ -10,6 +10,26 @@ const DemoComponent = () => {
     data: [
       {
         id: 1,
+        name: "Blaze 1",
+        description: "Lorem ipsum dolor."
+      },
+      {
+        id: 2,
+        name: "Blaze 2",
+        description: "Lorem ipsum dolor."
+      },
+      {
+        id: 3,
+        name: "Blaze",
+        description: "Lorem ipsum dolor."
+      },
+      {
+        id: 4,
+        name: "Blaze",
+        description: "Lorem ipsum dolor."
+      },
+      {
+        id: 5,
         name: "Blaze",
         description: "Lorem ipsum dolor."
       }
@@ -65,7 +85,27 @@ const DemoComponent = () => {
         selectors, etc.
       </p>
 
-      <Multiselect data={multiselectData} selected={() => {}} />
+      <Multiselect
+        name="multiselect"
+        data={multiselectData}
+        selected={[
+          {
+            id: 1,
+            name: "Blaze 1",
+            description: "Lorem ipsum dolor.",
+            checked: true
+          },
+          {
+            id: 2,
+            name: "Blaze 2",
+            description: "Lorem ipsum dolor.",
+            checked: true
+          }
+        ]}
+        getSelected={selected => {
+          console.log("selected", selected);
+        }}
+      />
     </div>
   );
 };
