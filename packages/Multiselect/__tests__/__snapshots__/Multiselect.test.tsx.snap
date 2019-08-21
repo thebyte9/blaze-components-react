@@ -25,6 +25,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
     }
   }
   error={false}
+  getSelected={[Function]}
   onChange={[Function]}
   placeholder="Search"
   selected={[Function]}
