@@ -6,11 +6,17 @@ interface IMoreProps {
   isHeader?: boolean;
   isMoreMenu?: boolean;
   children?: any;
+  onClose: () => void;
 }
 
-const More = ({ children, isHeader, isMoreMenu }: IMoreProps) => {
+const More = ({ children, isHeader, isMoreMenu, onClose }: IMoreProps) => {
   const [toggled, setToggle] = useState(false);
-  const handleToggle = () => setToggle(!toggled);
+  const handleToggle = () => {
+    setToggle(!toggled);
+    if (toggled) {
+      onClose();
+    }
+  };
 
   const ulClassName = classnames("dropdown", {
     "dropdown dropdown__list": !isHeader,
@@ -40,7 +46,8 @@ const More = ({ children, isHeader, isMoreMenu }: IMoreProps) => {
 };
 More.defaultProps = {
   isHeader: false,
-  isMoreMenu: false
+  isMoreMenu: false,
+  onClose: () => void 0
 };
 More.Avatar = MoreAvatar;
 More.Content = MoreContent;

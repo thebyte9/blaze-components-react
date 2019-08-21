@@ -1,10 +1,11 @@
 import Checkboxes from "@blaze-react/checkboxes";
 import Input from "@blaze-react/input";
-
 import withUtils from "@blaze-react/utils";
 import differenceWith from "lodash.differencewith";
 import isEqual from "lodash.isequal";
+import unionBy from "lodash.unionby";
 import React, { FunctionComponent, useEffect, useState } from "react";
+import uuidv1 from "uuid/v1";
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -17,36 +18,41 @@ interface IMultiSelectProps {
     filterBy: any[];
     data: object[];
   };
-  selected: (...args: any[]) => any;
-  error?: boolean;
-  validationMessage: string | JSX.Element;
+  getSelected: (...args: any[]) => any;
   placeholder?: string;
+  children?: any;
+  selected?: any[];
+  onChange?: (arg: { event: Event; value: string; name: string }) => void;
+  error?: boolean;
+  name: string;
+  validationMessage: string | JSX.Element;
   utils: {
-    uniqueId: (element: any) => string;
+    classNames: (className: string | object, classNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
-  children?: any;
-  onChange?: (arg: { event: Event; value: string }) => void;
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue },
-  selected: getSelected,
-  error,
+  utils: { ErrorMessage },
   validationMessage,
+  getSelected,
   placeholder,
-  utils: { ErrorMessage, uniqueId },
+  children,
   onChange,
-  children
+  error,
+  name,
+  selected
 }): JSX.Element => {
-  const [selected, setSelected] = useState<any[]>([]);
-  const [dataCopy, setDataCopy] = useState<object[]>(data);
+  const [selectedItems, setSelectedItems] = useState<any[]>([]);
+  const [dataCopy, setDataCopy] = useState<any>(null);
 
   useEffect(() => {
     const shouldUpdate =
       differenceWith(dataCopy, data, isEqual).length ||
       differenceWith(data, dataCopy, isEqual).length;
-    if (shouldUpdate) {
-      setDataCopy(data);
+    const elementsWithSelected = unionBy(selected, data, "id");
+    if (!dataCopy || shouldUpdate) {
+      setDataCopy(elementsWithSelected);
     }
   }, [data]);
 
@@ -64,14 +70,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       setStatus(
         copy,
         !!keys.some(key => {
-          const copyKey = copy[key].toLowerCase();
+          const copyKey = copy[key].toString().toLowerCase();
           return copyKey.includes(value.toLowerCase());
         })
       )
     );
 
     if (onChange) {
-      onChange({ event, value });
+      onChange({ event, value, name });
     }
     setDataCopy(parsedDataCopy);
   };
@@ -83,26 +89,34 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     value: any;
     data: any;
   }) => {
-    setSelected(value);
+    setSelectedItems(value);
     setDataCopy(localData);
-    getSelected(localData);
+    getSelected({
+      event: {
+        target: {
+          name,
+          value
+        }
+      }
+    });
   };
 
-  const parseCheckBoxOptions = (elements: object[]): object[] =>
-    elements.map(
-      (copiedData: any): object => ({
-        ...copiedData,
-        label: copiedData[keyValue]
-      })
-    );
+  const parseCheckBoxOptions = (elements: object[]): object[] => {
+    return elements
+      ? elements.map(
+          (element: any): object => ({
+            ...element,
+            label: element[keyValue]
+          })
+        )
+      : [];
+  };
 
   return (
     <>
-      {selected.map(
+      {selectedItems.map(
         (selectedValue): JSX.Element => (
-          <div key={uniqueId(selectedValue[keyValue])}>
-            {selectedValue[keyValue]}
-          </div>
+          <div key={uuidv1()}>{selectedValue[keyValue]}</div>
         )
       )}
       {children}
@@ -120,6 +134,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 MultiSelect.defaultProps = {
   children: "",
   error: false,
+  getSelected: () => {
+    return;
+  },
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },

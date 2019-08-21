@@ -50,5 +50,15 @@ storiesOf("Text Inputs", module)
         type="password"
         value="Lorem ipsum"
       />
+
+      <h4>Date</h4>
+      <Input
+        label="Date Picker"
+        placeholder="******"
+        onChange={(): void => {
+          return;
+        }}
+        type="date"
+      />
     </div>
   ));
