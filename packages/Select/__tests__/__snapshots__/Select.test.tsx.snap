@@ -3,24 +3,37 @@
 exports[`Input component should be defined and renders correctly (snapshot) 1`] = `
 <WithUtils
   onChange={[Function]}
-  options={Array []}
+  options={
+    Array [
+      "lorem",
+      "ipsum",
+    ]
+  }
 >
   <Select
+    error={false}
     keys={Array []}
     label=""
     onChange={[Function]}
-    options={Array []}
+    options={
+      Array [
+        "lorem",
+        "ipsum",
+      ]
+    }
     required={false}
     selected=""
     utils={
       Object {
+        "ErrorMessage": [Function],
         "classNames": [Function],
         "uniqueId": [Function],
       }
     }
+    validationMessage="This field is required"
   >
     <select
-      disabled={true}
+      disabled={false}
       onChange={[Function]}
       value=""
     >
@@ -29,6 +42,18 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
         selected={true}
       >
         Please Choose...
+      </option>
+      <option
+        key="lorem"
+        value="lorem"
+      >
+        lorem
+      </option>
+      <option
+        key="ipsum"
+        value="ipsum"
+      >
+        ipsum
       </option>
     </select>
   </Select>

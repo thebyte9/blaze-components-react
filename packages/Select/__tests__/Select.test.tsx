@@ -5,7 +5,7 @@ import Select from "../src";
 
 const defaultProps = (override: object = {}) => ({
   onChange: () => void 0,
-  options: [],
+  options: ["lorem", "ipsum"],
   ...override
 });
 
@@ -19,6 +19,7 @@ describe("Input component", () => {
   test("should be disabled when none options", () => {
     const override = {
       label: "Select label",
+      options: [],
       required: true
     };
     const wrapper = mount(<Select {...defaultProps(override)} />);
@@ -33,6 +34,7 @@ describe("Input component", () => {
 
   test("should render array of array options", () => {
     const override = {
+      onChange: undefined,
       options: [["08001", "Barcelona"]]
     };
     const wrapper = mount(<Select {...defaultProps(override)} />);

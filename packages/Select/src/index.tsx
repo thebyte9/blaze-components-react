@@ -1,5 +1,10 @@
 import withUtils from "@blaze-react/utils";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
+
 interface ISelectProps {
   label?: string;
   keys?: string[];
@@ -12,10 +17,13 @@ interface ISelectProps {
     event: React.ChangeEvent<HTMLSelectElement>;
     value: string;
   }) => void;
+  error?: boolean;
+  validationMessage: string | JSX.Element;
   selected?: any;
   id?: string;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
 const Select: React.SFC<ISelectProps> = ({
@@ -25,7 +33,9 @@ const Select: React.SFC<ISelectProps> = ({
   options,
   selected,
   keys,
-  utils: { classNames },
+  error,
+  validationMessage,
+  utils: { classNames, ErrorMessage },
   ...attrs
 }) => {
   const [selectedOption, setSelectedOption] = useState<string>(selected);
@@ -84,10 +94,12 @@ const Select: React.SFC<ISelectProps> = ({
         </option>
         {renderOptions()}
       </select>
+      {error && <ErrorMessage message={validationMessage} />}
     </Fragment>
   );
 };
 Select.defaultProps = {
+  error: false,
   keys: [],
   label: "",
   onChange: (): void => {
@@ -95,6 +107,7 @@ Select.defaultProps = {
   },
   options: [],
   required: false,
-  selected: ""
+  selected: "",
+  validationMessage: "This field is required"
 };
 export default withUtils(Select);

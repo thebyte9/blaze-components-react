@@ -1,100 +1,106 @@
-import React from 'react';
-import expect from 'expect';
-import { shallow } from 'enzyme';
-import RadioButton from '../src';
+import { mount } from "enzyme";
+import expect from "expect";
+import React from "react";
+import RadioButton from "../src";
 
 const options = [
   {
-    label: 'Example',
+    label: "Example",
     value: 1,
-    id: 'one'
+    id: "one"
   },
   {
-    label: 'I accept',
-    value: 'accepted',
+    label: "I accept",
+    value: "accepted",
     required: true,
-    id: 'two'
+    id: "two"
   },
   {
-    label: 'Disabled',
-    value: '',
+    label: "Disabled",
+    value: "",
     disabled: true,
-    id: 'three'
+    id: "three"
   }
 ];
 
-describe('RadioButton component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<RadioButton onChange={() => { }} required options={options} />);
+describe("RadioButton component", () => {
+  test("should be defined and renders correctly (snapshot)", () => {
+    const wrapper = mount(
+      <RadioButton onChange={() => ({})} required options={options} />
+    );
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should active RadioButton on click', () => {
-    const wrapper = shallow(<RadioButton onChange={() => { }} options={options} />);
+  test("should active RadioButton on click", () => {
+    const wrapper = mount(
+      <RadioButton onChange={() => ({})} options={options} />
+    );
 
     wrapper
-      .find('.form-field')
+      .find(".form-field")
       .at(0)
-      .simulate('click');
+      .simulate("click");
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(0)
-        .prop('checked')
+        .prop("checked")
     ).toBe(true);
 
     wrapper
-      .find('.form-field')
+      .find(".form-field")
       .at(1)
-      .simulate('click');
+      .simulate("click");
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(0)
-        .prop('checked')
+        .prop("checked")
     ).toBe(false);
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(1)
-        .prop('checked')
+        .prop("checked")
     ).toBe(true);
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(2)
-        .prop('checked')
+        .prop("checked")
     ).toBe(false);
   });
 
   test("can't interact when RadioButton is disabled", () => {
-    const wrapper = shallow(<RadioButton onChange={() => { }} options={options} />);
+    const wrapper = mount(
+      <RadioButton onChange={() => ({})} options={options} />
+    );
 
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(2)
-        .prop('disabled')
+        .prop("disabled")
     ).toBe(true);
 
     wrapper
-      .find('.form-field')
+      .find(".form-field")
       .at(2)
-      .simulate('click');
+      .simulate("click");
 
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(2)
-        .prop('checked')
+        .prop("checked")
     ).toBe(false);
     expect(
       wrapper
-        .find('input')
+        .find("input")
         .at(2)
-        .prop('disabled')
+        .prop("disabled")
     ).toBe(true);
   });
 });

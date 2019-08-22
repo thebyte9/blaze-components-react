@@ -1,5 +1,10 @@
 import withUtils from "@blaze-react/utils";
 import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
+
 interface ICheckboxesProps {
   options?: any[] | object;
   returnBoolean?: boolean;
@@ -12,16 +17,21 @@ interface ICheckboxesProps {
     value: boolean | object;
     data: object[];
   }) => void;
+  error?: boolean;
+  validationMessage: string | JSX.Element;
   utils: {
     uniqueId: (element: any) => string;
     classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
 const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
   returnBoolean,
   onChange,
   options,
-  utils: { uniqueId, classNames },
+  error,
+  validationMessage,
+  utils: { uniqueId, classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
   const {
@@ -114,11 +124,14 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
           );
         }
       )}
+      {error && <ErrorMessage message={validationMessage} />}
     </Fragment>
   );
 };
 Checkboxes.defaultProps = {
+  error: false,
   options: [],
-  returnBoolean: false
+  returnBoolean: false,
+  validationMessage: "This field is required"
 };
 export default withUtils(Checkboxes);
