@@ -29,8 +29,11 @@ jobs: # a collection of steps
           name: install-codecov # install codecov package
           command: "sudo npm install -g codecov"
       - run:
+          name: Install npm packages
+          command: npm install
+      - run:
           name: Run lerna bootstrap
-          command: "npx lerna bootstrap --no--hoist --no-ci --loglevel debug"
+          command: "npx lerna bootstrap --hoist --no-ci --loglevel debug"
       - run:
           name: Run lint
           command: npm run lint
