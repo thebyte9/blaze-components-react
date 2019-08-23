@@ -1,18 +1,31 @@
-const generateKey = (element: any): string => {
-  const key = unescape(encodeURIComponent(JSON.stringify(element)));
+class UniqueId {
+  private keys: object;
 
-  try {
-    return btoa(key);
-  } catch {
-    return Buffer.from(key).toString("base64");
+  constructor() {
+    this.keys = {};
   }
-};
 
-const uniqueId = (element: any) => {
-  const keys = {};
-  const key = `uid-${generateKey(element)}`;
-  keys[key] = key;
-  return key;
-};
+  public uniqueId = (element: any): string => {
+    let key: string = `uid-${this.generateKey(element)}`;
 
-export default uniqueId;
+    const allKeys: string[] = Object.keys(this.keys);
+
+    if (allKeys.includes(key)) {
+      key = `${key}_${allKeys.length}`;
+    }
+
+    this.keys[key] = key;
+    return key;
+  };
+
+  private generateKey(element: any): string {
+    const key: string = unescape(encodeURIComponent(JSON.stringify(element)));
+
+    return typeof btoa === "function"
+      ? btoa(key)
+      : Buffer.from(key).toString("base64");
+  }
+}
+const uniqId = new UniqueId();
+
+export default uniqId.uniqueId;

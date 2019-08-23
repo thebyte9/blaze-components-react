@@ -18,8 +18,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.3.11",
-    "@blaze-react/input": "^0.3.12"
+    "@blaze-react/checkboxes": "^0.3.4",
+    "@blaze-react/input": "^0.3.4",
+    "@blaze-react/utils": "^0.3.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
