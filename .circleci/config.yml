@@ -30,7 +30,7 @@ jobs: # a collection of steps
           command: "sudo npm install -g codecov"
       - run:
           name: Install npm packages
-          command: npm run setup
+          command: npm install
       - run:
           name: Run lerna bootstrap
           command: "npx lerna bootstrap --hoist --no-ci --loglevel debug"
@@ -42,7 +42,7 @@ jobs: # a collection of steps
           command: npm run build -- --concurrency=2
       - run:
           name: Run build docs
-          command:  npx build-storybook -c .storybook -o docs-build
+          command: npx build-storybook -c .storybook -o docs-build
       - run:
           name: Run tests with coverage
           command: npm run test:coverage -- --runInBand && codecov
@@ -67,7 +67,7 @@ jobs: # a collection of steps
       - persist_to_workspace:
           root: /home/circleci/project/
           paths:
-          - docs-build/
+            - docs-build/
 
   deploy_prod:
     <<: *deploy_config
