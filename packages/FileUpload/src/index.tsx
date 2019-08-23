@@ -21,7 +21,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       files.map(
         file =>
           new Promise((resolve, reject) => {
-            if (file.type.includes("image")) {
+            if (file.type && file.type.includes("image")) {
               const reader = new FileReader();
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
