@@ -19,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "@blaze-react/checkboxes": "^0.3.28",
+    "@blaze-react/chips": "^0.3.28",
     "@blaze-react/input": "^0.3.28",
     "@blaze-react/utils": "^0.3.28",
     "lodash.differencewith": "^4.5.0",

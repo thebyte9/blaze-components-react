@@ -5,8 +5,9 @@ import Multiselect from "../src";
 
 const DemoComponent = () => {
   const [multiselectData, setMultiselectData] = useState({
-    keyValue: "name",
     filterBy: ["name", "description"],
+    identification: "id",
+    keyValue: "name",
     data: [
       {
         id: 1,
@@ -20,17 +21,17 @@ const DemoComponent = () => {
       },
       {
         id: 3,
-        name: "Blaze",
+        name: "Blaze 3",
         description: "Lorem ipsum dolor."
       },
       {
         id: 4,
-        name: "Blaze",
+        name: "Blaze 4",
         description: "Lorem ipsum dolor."
       },
       {
         id: 5,
-        name: "Blaze",
+        name: "Blaze 5",
         description: "Lorem ipsum dolor."
       }
     ]
@@ -40,32 +41,33 @@ const DemoComponent = () => {
   const registerSetTimeOut = () => {
     setTimeout(() => {
       setMultiselectData({
-        keyValue: "name",
         filterBy: ["name", "id"],
+        identification: "id",
+        keyValue: "name",
         data: [
           {
             id: 1,
-            name: "Blaze",
+            name: "Blaze 11",
             description: "Lorem ipsum dolor."
           },
           {
-            id: 1,
-            name: "Blaze",
+            id: 2,
+            name: "Blaze 22",
             description: "Lorem ipsum dolor."
           },
           {
-            id: 1,
-            name: "Blaze",
+            id: 3,
+            name: "Blaze 33",
             description: "Lorem ipsum dolor."
           },
           {
-            id: 1,
-            name: "Blaze",
+            id: 4,
+            name: "Blaze 44",
             description: "Lorem ipsum dolor."
           }
         ]
       });
-    }, 3000);
+    }, 30000000);
   };
 
   useEffect(() => {

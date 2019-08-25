@@ -1,4 +1,5 @@
 import Checkboxes from "@blaze-react/checkboxes";
+import Chip from "@blaze-react/chips";
 import Input from "@blaze-react/input";
 import withUtils from "@blaze-react/utils";
 import differenceWith from "lodash.differencewith";
@@ -14,6 +15,7 @@ interface IErrorMessage {
 
 interface IMultiSelectProps {
   data: {
+    identification: string;
     keyValue: string;
     filterBy: any[];
     data: object[];
@@ -32,7 +34,7 @@ interface IMultiSelectProps {
   };
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
-  data: { data, filterBy: keys, keyValue },
+  data: { data, filterBy: keys, keyValue, identification },
   utils: { ErrorMessage },
   validationMessage,
   getSelected,
@@ -43,8 +45,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   name,
   selected
 }): JSX.Element => {
-  const [selectedItems, setSelectedItems] = useState<any[]>([]);
-  const [dataCopy, setDataCopy] = useState<any>(null);
+  const [dataCopy, setDataCopy] = useState<any>([]);
 
   useEffect(() => {
     const shouldUpdate =
@@ -63,7 +64,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     event,
     value
   }: {
-    event: Event;
+    event: any;
     value: string;
   }) => {
     const parsedDataCopy = dataCopy.map((copy: any) =>
@@ -82,6 +83,32 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     setDataCopy(parsedDataCopy);
   };
 
+  const handleKeyDown = ({
+    key: keyName,
+    target
+  }: {
+    key: string;
+    target: any;
+  }) => {
+    if (keyName === "Enter") {
+      const a = [...dataCopy];
+
+      const parsedDataCopy = a.map((copy: any) =>
+        setStatus(
+          copy,
+          !!keys.some(key => {
+            const copyKey = copy[key].toString().toLowerCase();
+            return copyKey.includes(target.value.toLowerCase());
+          })
+        )
+      );
+
+      const elementToAdd = parsedDataCopy.findIndex((f: any) => f.show);
+      a[elementToAdd].checked = true;
+      setDataCopy(a);
+    }
+  };
+
   const handleCheckBoxChange = ({
     value,
     data: localData
@@ -89,7 +116,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     value: any;
     data: any;
   }) => {
-    setSelectedItems(value);
     setDataCopy(localData);
     getSelected({
       event: {
@@ -103,24 +129,53 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   const parseCheckBoxOptions = (elements: object[]): object[] => {
     return elements
-      ? elements.map(
-          (element: any): object => ({
-            ...element,
-            label: element[keyValue]
-          })
-        )
+      ? elements.map((element: any): object => ({
+          ...element,
+          label: element[keyValue]
+        }))
       : [];
+  };
+
+  const handleDelete = (id: any) => {
+    const elementToDelete = dataCopy.findIndex(
+      ({ id: itemId }: { id: any }) => itemId === id
+    );
+    const a = [...dataCopy];
+    a[elementToDelete].checked = false;
+    setDataCopy(a);
   };
 
   return (
     <>
-      {selectedItems.map(
-        (selectedValue): JSX.Element => (
-          <div key={uuidv1()}>{selectedValue[keyValue]}</div>
-        )
-      )}
+      {dataCopy
+        .filter((a: any) => a.checked)
+        .map(
+          (selectedValue: any): JSX.Element => (
+            <Chip
+              modifiers={[
+                Chip.availableModifiers.parent.deletable,
+                Chip.availableModifiers.parent.small
+              ]}
+              onDelete={() => handleDelete(selectedValue[identification])}
+              action={() => handleDelete(selectedValue[identification])}
+              key={uuidv1()}
+            >
+              <Chip.Label>
+                {selectedValue[keyValue]} {selectedValue[identification]}
+              </Chip.Label>
+              <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
+                <i className="material-icons">clear</i>
+              </Chip.Icon>
+            </Chip>
+          )
+        )}
+
       {children}
-      <Input placeholder={placeholder} onChange={handleInputChange} />
+      <Input
+        placeholder={placeholder}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+      />
 
       {error && <ErrorMessage message={validationMessage} />}
 
@@ -134,9 +189,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 MultiSelect.defaultProps = {
   children: "",
   error: false,
-  getSelected: () => {
-    return;
-  },
+  getSelected: () => void 0,
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },
