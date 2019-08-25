@@ -1,10 +1,16 @@
 import Checkboxes from "@blaze-react/checkboxes";
 import Input from "@blaze-react/input";
+import withUtils from "@blaze-react/utils";
 import differenceWith from "lodash.differencewith";
 import isEqual from "lodash.isequal";
 import unionBy from "lodash.unionby";
-import React, { useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import uuidv1 from "uuid/v1";
+
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
 
 interface IMultiSelectProps {
   data: {
@@ -17,14 +23,23 @@ interface IMultiSelectProps {
   children?: any;
   selected?: any[];
   onChange?: (arg: { event: Event; value: string; name: string }) => void;
+  error?: boolean;
   name: string;
+  validationMessage: string | JSX.Element;
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+  };
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue },
+  utils: { ErrorMessage },
+  validationMessage,
   getSelected,
   placeholder,
   children,
   onChange,
+  error,
   name,
   selected
 }): JSX.Element => {
@@ -55,7 +70,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       setStatus(
         copy,
         !!keys.some(key => {
-          const copyKey = copy[key].toLowerCase();
+          const copyKey = copy[key].toString().toLowerCase();
           return copyKey.includes(value.toLowerCase());
         })
       )
@@ -106,6 +121,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       )}
       {children}
       <Input placeholder={placeholder} onChange={handleInputChange} />
+
+      {error && <ErrorMessage message={validationMessage} />}
+
       <Checkboxes
         options={parseCheckBoxOptions(dataCopy)}
         onChange={handleCheckBoxChange}
@@ -115,12 +133,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 };
 MultiSelect.defaultProps = {
   children: "",
+  error: false,
   getSelected: () => {
     return;
   },
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },
-  placeholder: "Search"
+  placeholder: "Search",
+  validationMessage: "This field is required"
 };
-export default MultiSelect;
+export default withUtils(MultiSelect);

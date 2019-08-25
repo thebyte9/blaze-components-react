@@ -102,7 +102,7 @@ const DemoComponent = () => {
             checked: true
           }
         ]}
-        getSelected={selected => {
+        getSelected={(selected: any) => {
           console.log("selected", selected);
         }}
       />

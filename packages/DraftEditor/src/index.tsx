@@ -26,6 +26,10 @@ import InlineControls from "./InlineControls";
 type DraftTextAlignment = "left" | "center" | "right";
 type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
 type SyntheticEvent = React.SyntheticEvent<object>;
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
 interface IDraftEditorProps {
   editorState?: EditorState;
   customStyleMap?: DraftStyleMap;
@@ -61,12 +65,15 @@ interface IDraftEditorProps {
   ) => DraftStyleMap;
   utils: {
     uniqueId: (element: any) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
     classNames: (className: string | object, classNames?: object) => string;
   };
 
   onChange?: (event: {
     event: { target: { name: string; value: string } };
   }) => void;
+  error?: boolean;
+  validationMessage: string | JSX.Element;
 
   handleReturn?(
     e: SyntheticKeyboardEvent,
@@ -117,10 +124,12 @@ interface IDraftEditorProps {
 }
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
-  utils: { classNames },
+  utils: { classNames, ErrorMessage },
   onChange,
   name,
   value,
+  error,
+  validationMessage,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = "handled";
@@ -148,12 +157,14 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     const eventFormat = {
       event: {
         target: {
-          value: rawValueString,
-          name
+          name,
+          value: rawValueString
         }
       }
     };
-    onChange && onChange(eventFormat);
+    if (onChange) {
+      onChange(eventFormat);
+    }
   };
 
   const toggleBlockType = (blockType: DraftBlockType): void =>
@@ -208,12 +219,15 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           {...attrs}
         />
       </div>
+      {error && <ErrorMessage message={validationMessage} />}
     </div>
   );
 };
 
 DraftEditor.defaultProps = {
-  name: "editor"
+  error: false,
+  name: "editor",
+  validationMessage: "This field is required"
 };
 
 export default withUtils(DraftEditor);

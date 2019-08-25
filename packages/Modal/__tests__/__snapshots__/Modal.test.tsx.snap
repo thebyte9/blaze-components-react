@@ -17,6 +17,7 @@ exports[`Modal component should be defined and renders correctly (snapshot) 1`] 
   upload={false}
   utils={
     Object {
+      "ErrorMessage": [Function],
       "classNames": [Function],
       "uniqueId": [Function],
     }

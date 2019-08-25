@@ -1,13 +1,32 @@
-import React, { Fragment, useState } from "react";
+import withUtils from "@blaze-react/utils";
+import React, { Fragment, FunctionComponent, useState } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
 interface IRadioButtonProps {
   options: any[];
   required?: boolean;
-  onChange: (...args: any[]) => any;
+  onChange: ({
+    event,
+    selected
+  }: {
+    event: React.ChangeEvent<HTMLInputElement>;
+    selected: string | object | [];
+  }) => void;
+  utils: {
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+  };
+  error?: boolean;
+  validationMessage: string | JSX.Element;
 }
 const RadioButton: React.SFC<IRadioButtonProps> = ({
   onChange,
   options,
   required,
+  error,
+  validationMessage,
+  utils: { ErrorMessage },
   ...attrs
 }) => {
   const [selected, setSelected] = useState<{ value: string | any }>({
@@ -46,14 +65,17 @@ const RadioButton: React.SFC<IRadioButtonProps> = ({
           </div>
         );
       })}
+      {error && <ErrorMessage message={validationMessage} />}
     </Fragment>
   );
 };
 RadioButton.defaultProps = {
+  error: false,
   onChange: (): void => {
     return;
   },
   options: [],
-  required: false
+  required: false,
+  validationMessage: "This field is required"
 };
-export default RadioButton;
+export default withUtils(RadioButton);
