@@ -33,6 +33,31 @@ const DemoComponent = () => {
         id: 5,
         name: "Blaze 5",
         description: "Lorem ipsum dolor."
+      },
+      {
+        id: 6,
+        name: "Blaze 6",
+        description: "Lorem ipsum dolor."
+      },
+      {
+        id: 7,
+        name: "Blaze 7",
+        description: "Lorem ipsum dolor."
+      },
+      {
+        id: 8,
+        name: "Blaze 8",
+        description: "Lorem ipsum dolor."
+      },
+      {
+        id: 9,
+        name: "Blaze 9",
+        description: "Lorem ipsum dolor."
+      },
+      {
+        id: 10,
+        name: "Blaze 10",
+        description: "Lorem ipsum dolor."
       }
     ]
   });

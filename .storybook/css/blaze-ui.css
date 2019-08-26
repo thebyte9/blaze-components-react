@@ -5352,6 +5352,41 @@ hr {
   border-color: #00bcd4;
 }
 
+.ttags {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.tclear {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.form-field {
+  width: 40%;
+  margin: 0;
+}
+
+.ttag-input{
+  width: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.tselect {
+  position: absolute;
+  left: 0;
+  bottom: 0%;
+  max-height: 250px;
+  padding-left: 20px;
+  overflow-y: auto;
+  transform: translateY(100%);
+  background: whitesmoke;
+  width: 100%;
+}
+
 /* ==========================================================================
   Fonts
    ========================================================================== */
