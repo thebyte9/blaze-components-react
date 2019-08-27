@@ -19,7 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "@blaze-react/button": "^0.2.5",
-    "@blaze-react/utils": "^0.3.28"
+    "@blaze-react/utils": "^0.3.28",
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
