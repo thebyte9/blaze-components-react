@@ -4,6 +4,7 @@ import React from "react";
 import Multiselect from "../src";
 
 const data = {
+  identification: "id",
   keyValue: "name",
   filterBy: ["name"],
   data: [
@@ -32,8 +33,13 @@ describe("Multiselect component", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("should select first option", () => {
+  test("should select first option and clear selected", () => {
     const wrapper = mount(MultiselectComponent);
+
+    wrapper
+      .find("input")
+      .at(0)
+      .simulate("focus");
 
     wrapper
       .find(".form-group--checkbox")
@@ -46,10 +52,22 @@ describe("Multiselect component", () => {
         .at(0)
         .text()
     ).toContain("Project1");
+
+    wrapper
+      .find(".multiselect__clear")
+      .at(0)
+      .simulate("click");
+
+    expect(wrapper.find(".chip__label").length).toBe(0);
   });
 
   test("should allow to filter", () => {
     const wrapper = mount(MultiselectComponent);
+
+    wrapper
+      .find("input")
+      .at(0)
+      .simulate("focus");
 
     wrapper
       .find("input")

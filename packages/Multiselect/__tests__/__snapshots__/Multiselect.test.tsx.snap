@@ -21,13 +21,14 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
       "filterBy": Array [
         "name",
       ],
+      "identification": "id",
       "keyValue": "name",
     }
   }
   error={false}
   getSelected={[Function]}
   onChange={[Function]}
-  placeholder="Search"
+  placeholder="Search..."
   selected={[Function]}
   utils={
     Object {

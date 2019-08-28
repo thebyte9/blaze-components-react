@@ -92,7 +92,7 @@ const DemoComponent = () => {
           }
         ]
       });
-    }, 30000000);
+    }, 3000);
   };
 
   useEffect(() => {

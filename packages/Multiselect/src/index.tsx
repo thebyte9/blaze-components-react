@@ -13,6 +13,11 @@ interface IErrorMessage {
   icon?: string;
 }
 
+interface IData {
+  checked?: boolean;
+  show?: boolean;
+}
+
 interface IMultiSelectProps {
   data: {
     identification: string;
@@ -24,6 +29,7 @@ interface IMultiSelectProps {
   placeholder?: string;
   children?: any;
   selected?: any[];
+  notFoundMessage: string;
   onChange?: (arg: { event: Event; value: string; name: string }) => void;
   error?: boolean;
   name: string;
@@ -37,6 +43,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
   utils: { ErrorMessage },
   validationMessage,
+  notFoundMessage,
   getSelected,
   placeholder,
   children,
@@ -55,15 +62,15 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     const elementsWithSelected = unionBy(selected, data, "id");
     if (!dataCopy || shouldUpdate) {
       setDataCopy(
-        elementsWithSelected.map(e => {
-          e.show = true;
-          return e;
+        elementsWithSelected.map((element: IData) => {
+          element.show = true;
+          return element;
         })
       );
     }
   }, [data]);
 
-  const setStatus = (obj: any, status: any): object =>
+  const setStatus = (obj: object, status: boolean): object =>
     Object.assign({}, obj, { show: status });
 
   const handleInputChange = ({
@@ -73,7 +80,16 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     event: any;
     value: string;
   }) => {
-    const parsedDataCopy = dataCopy.map((copy: any) =>
+    const parsedDataCopy: object[] = parseDataCopy(value);
+
+    if (onChange) {
+      onChange({ event, value, name });
+    }
+    setDataCopy(parsedDataCopy);
+  };
+
+  const parseDataCopy = (value: string) =>
+    dataCopy.map((copy: object) =>
       setStatus(
         copy,
         !!keys.some(key => {
@@ -83,40 +99,26 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       )
     );
 
-    if (onChange) {
-      onChange({ event, value, name });
-    }
-    setDataCopy(parsedDataCopy);
-  };
-
   const handleKeyDown = ({
     key: keyName,
-    target
+    target: { value }
   }: {
     key: string;
-    target: any;
+    target: {
+      value: string;
+    };
   }) => {
     if (keyName === "Enter") {
-      if (!target.value.length) {
-        return;
-      }
-      const a = [...dataCopy];
+      const parsedDataCopy: object[] = parseDataCopy(value);
 
-      const parsedDataCopy = a.map((copy: any) =>
-        setStatus(
-          copy,
-          !!keys.some(key => {
-            const copyKey = copy[key].toString().toLowerCase();
-            return copyKey.includes(target.value.toLowerCase());
-          })
-        )
+      const elementToAdd = parsedDataCopy.findIndex(
+        (parsedData: IData) => parsedData.show
       );
 
-      const elementToAdd = parsedDataCopy.findIndex((f: any) => f.show);
-
       if (elementToAdd >= 0) {
-        a[elementToAdd].checked = true;
-        setDataCopy(a);
+        const newDataCopy = [...dataCopy];
+        newDataCopy[elementToAdd].checked = true;
+        setDataCopy(newDataCopy);
       }
     }
   };
@@ -148,20 +150,20 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       : [];
   };
 
-  const handleDelete = (id: any) => {
-    const elementToDelete = dataCopy.findIndex(
-      ({ id: itemId }: { id: any }) => itemId === id
+  const handleDelete = (id: string | number): void => {
+    const elementToDelete: number = dataCopy.findIndex(
+      ({ id: itemId }: { id: string | number }) => itemId === id
     );
 
     if (elementToDelete >= 0) {
-      const a = [...dataCopy];
-      a[elementToDelete].checked = false;
-      setDataCopy(a);
+      const newDataCopy = [...dataCopy];
+      newDataCopy[elementToDelete].checked = false;
+      setDataCopy(newDataCopy);
     }
   };
 
-  const handleClearAll = () => {
-    const formatedElements = dataCopy.map((item: any) => {
+  const handleClearAll = (): void => {
+    const formatedElements: object[] = dataCopy.map((item: IData) => {
       item.checked = false;
       return item;
     });
@@ -170,18 +172,18 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     setShow(false);
   };
 
-  const handleFocus = () => setShow(true);
+  const handleFocus = (): void => setShow(true);
 
-  const matchQuery =
-    !!dataCopy.length && !!dataCopy.filter((d: any) => d.show).length;
+  const matchQuery: boolean =
+    !!dataCopy.length && !!dataCopy.filter((item: IData) => item.show).length;
 
   return (
     <>
-      <div className="ttags">
+      <div className="multiselect">
         {dataCopy
-          .filter((a: any) => a.checked)
+          .filter((item: IData) => item.checked)
           .map(
-            (selectedValue: any): JSX.Element => (
+            (selectedValue: object): JSX.Element => (
               <Chip
                 modifiers={[
                   Chip.availableModifiers.parent.deletable,
@@ -191,9 +193,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
                 action={() => handleDelete(selectedValue[identification])}
                 key={uuidv1()}
               >
-                <Chip.Label>
-                  {selectedValue[keyValue]} {selectedValue[identification]}
-                </Chip.Label>
+                <Chip.Label>{selectedValue[keyValue]}</Chip.Label>
                 <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
                   <i className="material-icons">clear</i>
                 </Chip.Icon>
@@ -207,14 +207,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onFocus={handleFocus}
-          className="ttag-input"
+          className="multiselect__input"
         />
 
         {show && (
-          <div className="tselect">
+          <div className="multiselect__dropdown">
             {error && <ErrorMessage message={validationMessage} />}
 
-            {!matchQuery && <p>kkkkkkk</p>}
+            {!matchQuery && <p>{notFoundMessage}</p>}
 
             <Checkboxes
               options={parseCheckBoxOptions(dataCopy)}
@@ -222,7 +222,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
             />
           </div>
         )}
-        <span className="tclear" onClick={handleClearAll}>
+        <span className="multiselect__clear" onClick={handleClearAll}>
           <i className="material-icons">clear</i>
         </span>
       </div>
@@ -233,6 +233,7 @@ MultiSelect.defaultProps = {
   children: "",
   error: false,
   getSelected: () => void 0,
+  notFoundMessage: "No records available",
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },
