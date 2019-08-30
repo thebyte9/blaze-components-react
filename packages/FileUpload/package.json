@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/file-upload",
-  "version": "0.3.28",
+  "version": "0.3.30",
   "publishConfig": {
     "access": "public"
   },
@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.3.28",
-    "@blaze-react/modal": "^0.3.28"
+    "@blaze-react/button": "^0.3.30",
+    "@blaze-react/modal": "^0.3.30"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
