@@ -1,6 +1,6 @@
 import Button from "@blaze-react/button";
 import withUtils from "@blaze-react/utils";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 interface IActions {
   textButton: string;
@@ -38,6 +38,10 @@ const Modal: React.SFC<IModalProps> = ({
 }): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean | undefined>(isActive);
 
+  useEffect(() => {
+    setModalStatus(isActive);
+  }, [isActive]);
+
   const sections: string[] = ["header", "content", "footer"];
 
   const closeModal = (): void => {
@@ -55,13 +59,12 @@ const Modal: React.SFC<IModalProps> = ({
     modalHeaderClassNames,
     modalContentClassNames,
     modalFooterClassNames
-  ]: string[] = sections.map(
-    (alertType: string): string =>
-      classNames(`modal__${alertType}`, {
-        [`modal__${alertType}--alert`]: alert,
-        [`modal__${alertType}--simple`]: simple,
-        [`modal__${alertType}--upload`]: upload
-      })
+  ]: string[] = sections.map((alertType: string): string =>
+    classNames(`modal__${alertType}`, {
+      [`modal__${alertType}--alert`]: alert,
+      [`modal__${alertType}--simple`]: simple,
+      [`modal__${alertType}--upload`]: upload
+    })
   );
 
   return (

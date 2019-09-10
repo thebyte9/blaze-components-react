@@ -32,30 +32,34 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
     }
     validationMessage="This field is required"
   >
-    <select
-      disabled={false}
-      onChange={[Function]}
-      value=""
+    <div
+      className="form-field form-field--select"
     >
-      <option
+      <select
         disabled={false}
-        selected={true}
+        onChange={[Function]}
+        value=""
       >
-        Please Choose...
-      </option>
-      <option
-        key="lorem"
-        value="lorem"
-      >
-        lorem
-      </option>
-      <option
-        key="ipsum"
-        value="ipsum"
-      >
-        ipsum
-      </option>
-    </select>
+        <option
+          defaultValue=""
+          disabled={false}
+        >
+          Please Choose...
+        </option>
+        <option
+          key="lorem"
+          value="lorem"
+        >
+          lorem
+        </option>
+        <option
+          key="ipsum"
+          value="ipsum"
+        >
+          ipsum
+        </option>
+      </select>
+    </div>
   </Select>
 </WithUtils>
 `;

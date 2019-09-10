@@ -1,5 +1,5 @@
 import withUtils from "@blaze-react/utils";
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 interface IErrorMessage {
   message: string | JSX.Element;
   icon?: string;
@@ -77,7 +77,7 @@ const Select: React.SFC<ISelectProps> = ({
   };
 
   return (
-    <Fragment>
+    <div className="form-field form-field--select">
       {label && (
         <label htmlFor={attrs.id} className={requiredClassName}>
           {label}
@@ -89,13 +89,13 @@ const Select: React.SFC<ISelectProps> = ({
         value={selectedOption}
         {...attrs}
       >
-        <option selected={!selectedOption} disabled={!!selectedOption}>
+        <option defaultValue={selectedOption} disabled={!!selectedOption}>
           Please Choose...
         </option>
         {renderOptions()}
       </select>
       {error && <ErrorMessage message={validationMessage} />}
-    </Fragment>
+    </div>
   );
 };
 Select.defaultProps = {
