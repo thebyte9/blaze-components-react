@@ -6,7 +6,6 @@ import differenceWith from "lodash.differencewith";
 import isEqual from "lodash.isequal";
 import unionBy from "lodash.unionby";
 import React, { FunctionComponent, useEffect, useState } from "react";
-import uuidv1 from "uuid/v1";
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -37,11 +36,12 @@ interface IMultiSelectProps {
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
+    uniqueId: (element: any) => string;
   };
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
-  utils: { ErrorMessage },
+  utils: { ErrorMessage, uniqueId },
   validationMessage,
   notFoundMessage,
   getSelected,
@@ -99,6 +99,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       )
     );
 
+  const updateData = (element: number, value: boolean) => {
+    if (element >= 0) {
+      const newDataCopy = [...dataCopy];
+      newDataCopy[element].checked = value;
+      setDataCopy(newDataCopy);
+    }
+  };
+
   const handleKeyDown = ({
     key: keyName,
     target: { value }
@@ -115,11 +123,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         (parsedData: IData) => parsedData.show
       );
 
-      if (elementToAdd >= 0) {
-        const newDataCopy = [...dataCopy];
-        newDataCopy[elementToAdd].checked = true;
-        setDataCopy(newDataCopy);
-      }
+      updateData(elementToAdd, true);
     }
   };
 
@@ -155,11 +159,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       ({ id: itemId }: { id: string | number }) => itemId === id
     );
 
-    if (elementToDelete >= 0) {
-      const newDataCopy = [...dataCopy];
-      newDataCopy[elementToDelete].checked = false;
-      setDataCopy(newDataCopy);
-    }
+    updateData(elementToDelete, false);
   };
 
   const handleClearAll = (): void => {
@@ -174,8 +174,8 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   const handleFocus = (): void => setShow(true);
 
-  const matchQuery: boolean =
-    !!dataCopy.length && !!dataCopy.filter((item: IData) => item.show).length;
+  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show)
+    .length;
 
   return (
     <>
@@ -191,7 +191,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
                 ]}
                 onDelete={() => handleDelete(selectedValue[identification])}
                 action={() => handleDelete(selectedValue[identification])}
-                key={uuidv1()}
+                key={uniqueId(selectedValue)}
               >
                 <Chip.Label>{selectedValue[keyValue]}</Chip.Label>
                 <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
