@@ -71,6 +71,5 @@ const alertActions = [
 | actions  |  Array   |    []    |
 | isAlert  | Boolean  |  false   |
 | isSimple | Boolean  |  false   |
-| isAlert  | Boolean  |  false   |
 | isUpload | Boolean  |  false   |
 | onClose  | Function | () => {} |
