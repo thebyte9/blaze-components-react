@@ -19,13 +19,7 @@ const actions = [
   }
 ];
 
-<Modal
-  isActive
-  buttonText="Simple modal"
-  title="Simple Modal"
-  actions={actions}
-  simple
->
+<Modal title="Simple Modal" actions={actions} IsSimple>
   <p>lorem ipsum dolor...</p>
 </Modal>;
 ```
@@ -41,12 +35,7 @@ const alertActions = [
   }
 ];
 
-<Modal
-  actions={alertActions}
-  buttonText="Alert modal"
-  buttonModifiers="rounded alert"
-  alert
->
+<Modal actions={alertActions} buttonModifiers="rounded alert" isAlert>
   <p>Delete item?</p>
 </Modal>;
 ```
@@ -56,7 +45,6 @@ const alertActions = [
 ```js
 <Modal
   title="Scrollable Modal"
-  buttonText="Scrollable modal"
   buttonModifiers="outline dark rounded"
   actions={actions}
 >
@@ -77,11 +65,12 @@ const alertActions = [
 
 ##### Modal can receive a number of `props` as follow:
 
-| NAME         |   TYPE   | DEFAULT  |
-| :----------- | :------: | :------: |
-| title        |  String  |  empty   |
-| toggleButton |  String  |  empty   |
-| actions      |  Array   |    []    |
-| alert        | Boolean  |  false   |
-| isActive     | Boolean  |  false   |
-| onClose      | Function | () => {} |
+| NAME     |   TYPE   | DEFAULT  |
+| :------- | :------: | :------: |
+| title    |  String  |  empty   |
+| actions  |  Array   |    []    |
+| isAlert  | Boolean  |  false   |
+| isSimple | Boolean  |  false   |
+| isAlert  | Boolean  |  false   |
+| isUpload | Boolean  |  false   |
+| onClose  | Function | () => {} |

@@ -8,10 +8,26 @@ const ModalDemo = () => {
 
   const onClose = () => setModalStatus(false);
 
+  const actions = [
+    {
+      callback: () => ({}),
+      textButton: "Action 1"
+    },
+    {
+      callback: () => ({}),
+      textButton: "Action 2"
+    }
+  ];
+
   return (
     <Fragment>
       {modalStatus && (
-        <Modal title="Simple Modal" actions={actions} onClose={onClose}>
+        <Modal
+          title="Simple Modal"
+          actions={actions}
+          onClose={onClose}
+          isSimple
+        >
           <p>lorem ipsum dolor...</p>
         </Modal>
       )}
@@ -19,24 +35,6 @@ const ModalDemo = () => {
   );
 };
 
-const actions = [
-  {
-    callback: () => ({}),
-    textButton: "Action 1"
-  },
-  {
-    callback: () => ({}),
-    textButton: "Action 2"
-  }
-];
-
-// const alertActions = [
-//   {
-//     callback: () => ({}),
-//     modifiers: ["alert", "small"],
-//     textButton: "delete"
-//   }
-// ];
 storiesOf("Modal", module)
   .addParameters({
     readme: {
@@ -54,61 +52,5 @@ storiesOf("Modal", module)
       </p>
 
       <ModalDemo />
-
-      {/* <Modal isActive title="Simple Modal" actions={actions} simple>
-        <p>lorem ipsum dolor...</p>
-      </Modal> */}
-      <br />
-      <br />
-      {/* 
-      <Modal
-        actions={alertActions}
-        buttonModifiers={["rounded", "alert"]}
-        alert
-      >
-        <p>Delete item?</p>
-      </Modal> */}
-      <br />
-      <br />
-      {/* 
-      <Modal
-        title="Scrollable Modal"
-        buttonModifiers={["outline", "dark", "rounded"]}
-        actions={actions}
-      >
-        <p>
-          Content here that may need to be scrolled - can be text/forms/etc.
-          Code for default modal, simple & alert below; Default modal with
-          scrollable content:
-        </p>
-        <hr />
-        <p>
-          Content here that may need to be scrolled - can be text/forms/etc.
-          Code for default modal, simple & alert below; Default modal with
-          scrollable content:
-        </p>
-        <ol>
-          <li>Lorem</li>
-          <li>Ipsum</li>
-          <li>Dolor</li>
-        </ol>
-        <p>
-          Content here that may need to be scrolled - can be text/forms/etc.
-          Code for default modal, simple & alert below; Default modal with
-          scrollable content:
-        </p>
-        <hr />
-        <p>
-          Content here that may need to be scrolled - can be text/forms/etc.
-          Code for default modal, simple & alert below; Default modal with
-          scrollable content:
-        </p>
-        <hr />
-        <p>
-          Content here that may need to be scrolled - can be text/forms/etc.
-          Code for default modal, simple & alert below; Default modal with
-          scrollable content:
-        </p>
-      </Modal> */}
     </div>
   ));
