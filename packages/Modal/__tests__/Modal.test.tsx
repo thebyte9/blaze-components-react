@@ -3,12 +3,16 @@ import expect from "expect";
 import React from "react";
 import Modal from "../src";
 
-const defaultProps = (override: object = {}) => ({
+const props = {
   actions: [],
   buttonText: "Simple modal",
-  isActive: true,
+  isSimple: true,
   onChange: () => void 0,
-  simple: true,
+  onClose: jest.fn()
+};
+
+const defaultProps = (override: object = {}) => ({
+  ...props,
   ...override
 });
 
@@ -19,13 +23,13 @@ describe("Modal component", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("should toggle modal on click button", () => {
+  test("should close modal on overlay clicked", () => {
     const wrapper = mount(<Modal {...defaultProps()} />);
     wrapper
-      .find("button")
+      .find(".overlay")
       .at(0)
       .simulate("click");
-    expect(wrapper.find(".modal")).toHaveLength(0);
+    expect(props.onClose).toHaveBeenCalled();
   });
 
   test("should render and close alert modal", () => {
@@ -38,9 +42,7 @@ describe("Modal component", () => {
     ];
     const override = {
       actions,
-      alert: true,
-      isActive: true,
-      simple: false
+      isAlert: true
     };
     const wrapper = mount(<Modal {...defaultProps(override)} />);
     expect(wrapper.find(".modal--alert")).toHaveLength(1);
@@ -48,7 +50,7 @@ describe("Modal component", () => {
       .find("button")
       .at(0)
       .simulate("click");
-    expect(wrapper.find(".modal--alert")).toHaveLength(0);
+    expect(props.onClose).toHaveBeenCalled();
   });
 
   test("should render and close scrollable modal", () => {
@@ -62,15 +64,18 @@ describe("Modal component", () => {
         textButton: "Action 2"
       }
     ];
+
     const override = {
       actions,
-      alert: false,
-      simple: false,
+      onClose: undefined,
       title: "Scrollable Modal"
     };
+
     const wrapper = mount(<Modal {...defaultProps(override)} />);
+
     expect(wrapper.find(".modal__title").text()).toContain("Scrollable Modal");
+
     wrapper.find(".modal__close").simulate("click");
-    expect(wrapper.find(".modal")).toHaveLength(0);
+    expect(props.onClose).toHaveBeenCalled();
   });
 });
