@@ -1,7 +1,24 @@
 import { storiesOf } from "@storybook/react";
-import React from "react";
+import React, { Fragment, useState } from "react";
 import ModalReadme from "../README.md";
 import Modal from "../src";
+
+const ModalDemo = () => {
+  const [modalStatus, setModalStatus] = useState<boolean>(true);
+
+  const onClose = () => setModalStatus(false);
+
+  return (
+    <Fragment>
+      {modalStatus && (
+        <Modal title="Simple Modal" actions={actions} onClose={onClose}>
+          <p>lorem ipsum dolor...</p>
+        </Modal>
+      )}
+    </Fragment>
+  );
+};
+
 const actions = [
   {
     callback: () => ({}),
@@ -13,13 +30,13 @@ const actions = [
   }
 ];
 
-const alertActions = [
-  {
-    callback: () => ({}),
-    modifiers: ["alert", "small"],
-    textButton: "delete"
-  }
-];
+// const alertActions = [
+//   {
+//     callback: () => ({}),
+//     modifiers: ["alert", "small"],
+//     textButton: "delete"
+//   }
+// ];
 storiesOf("Modal", module)
   .addParameters({
     readme: {
@@ -36,32 +53,26 @@ storiesOf("Modal", module)
         content that can be accessed.
       </p>
 
-      <Modal
-        isActive
-        buttonText="Simple modal"
-        title="Simple Modal"
-        actions={actions}
-        simple
-      >
-        <p>lorem ipsum dolor...</p>
-      </Modal>
-      <br />
-      <br />
+      <ModalDemo />
 
+      {/* <Modal isActive title="Simple Modal" actions={actions} simple>
+        <p>lorem ipsum dolor...</p>
+      </Modal> */}
+      <br />
+      <br />
+      {/* 
       <Modal
         actions={alertActions}
-        buttonText="Alert modal"
         buttonModifiers={["rounded", "alert"]}
         alert
       >
         <p>Delete item?</p>
-      </Modal>
+      </Modal> */}
       <br />
       <br />
-
+      {/* 
       <Modal
         title="Scrollable Modal"
-        buttonText="Scrollable modal"
         buttonModifiers={["outline", "dark", "rounded"]}
         actions={actions}
       >
@@ -98,6 +109,6 @@ storiesOf("Modal", module)
           Code for default modal, simple & alert below; Default modal with
           scrollable content:
         </p>
-      </Modal>
+      </Modal> */}
     </div>
   ));
