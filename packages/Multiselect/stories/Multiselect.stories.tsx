@@ -117,13 +117,13 @@ const DemoComponent = () => {
         data={multiselectData}
         selected={[
           {
-            id: 1,
+            id: 3,
             name: "Blaze 1",
             description: "Lorem ipsum dolor.",
             checked: true
           },
           {
-            id: 2,
+            id: 4,
             name: "Blaze 2",
             description: "Lorem ipsum dolor.",
             checked: true

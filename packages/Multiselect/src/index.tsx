@@ -100,11 +100,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     );
 
   const updateData = (element: number, value: boolean) => {
-    if (element >= 0) {
-      const newDataCopy = [...dataCopy];
-      newDataCopy[element].checked = value;
-      setDataCopy(newDataCopy);
-    }
+    const newDataCopy = [...dataCopy];
+    newDataCopy[element].checked = value;
+    setDataCopy(newDataCopy);
   };
 
   const handleKeyDown = ({
@@ -146,12 +144,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   const parseCheckBoxOptions = (elements: object[]): object[] => {
-    return elements
-      ? elements.map((element: any): object => ({
-          ...element,
-          label: element[keyValue]
-        }))
-      : [];
+    return elements.map((element: any): object => ({
+      ...element,
+      label: element[keyValue]
+    }));
   };
 
   const handleDelete = (id: string | number): void => {

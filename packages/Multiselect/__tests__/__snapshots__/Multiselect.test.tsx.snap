@@ -7,15 +7,15 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
       "data": Array [
         Object {
           "id": 1,
-          "name": "Project1",
+          "name": "Blaze 1",
         },
         Object {
           "id": 2,
-          "name": "Project2",
+          "name": "Blaze 2",
         },
         Object {
           "id": 3,
-          "name": "Project3",
+          "name": "Blaze 3",
         },
       ],
       "filterBy": Array [
@@ -30,7 +30,16 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
   notFoundMessage="No records available"
   onChange={[Function]}
   placeholder="Search..."
-  selected={[Function]}
+  selected={
+    Array [
+      Object {
+        "checked": true,
+        "description": "Lorem ipsum dolor.",
+        "id": 1,
+        "name": "Blaze 1",
+      },
+    ]
+  }
   utils={
     Object {
       "ErrorMessage": [Function],
