@@ -39,6 +39,7 @@ describe("Switches component", () => {
 
   test("should toggle Switch on click", () => {
     const override = {
+      error: true,
       modifier: Switches.availableModifiers.secondary,
       options: single,
       returnBoolean: true

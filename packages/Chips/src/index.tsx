@@ -8,7 +8,8 @@ type TModifiers = "deletable" | "outlined" | "primary" | "secondary" | "small";
 interface IChipsProps {
   children: JSX.Element | JSX.Element[];
   modifiers: TModifiers[];
-  action?: () => void;
+  action: () => void;
+  onDelete: () => void;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
   };
@@ -18,6 +19,7 @@ const Chips = withUtils(
     children,
     modifiers,
     action,
+    onDelete,
     utils: { classNames }
   }: IChipsProps): JSX.Element => {
     const [showChip, setChip] = useState<boolean>(true);
@@ -30,7 +32,10 @@ const Chips = withUtils(
       ? modifiers.map(modifier => `chip--${modifier}`).join(" ")
       : "";
 
-    const handleRemoveChip = (): void => setChip(false);
+    const handleRemoveChip = (): void => {
+      onDelete();
+      setChip(false);
+    };
 
     const chipClassNames: string = classNames("chip", {
       [formatedModifiers]: !!modifiers
@@ -77,5 +82,10 @@ Chips.Label = ChipLabel;
 Chips.Icon = ChipIcon;
 
 Chips.availableModifiers = availableModifiers;
+
+Chips.defaultProps = {
+  action: () => void 0,
+  onDelete: () => void 0
+};
 
 export default Chips;

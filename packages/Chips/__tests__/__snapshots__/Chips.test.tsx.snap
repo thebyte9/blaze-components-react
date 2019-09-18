@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chip component should be defined and renders correctly (snapshot) 1`] = `
-<WithUtils>
+<WithUtils
+  action={[Function]}
+  onDelete={[Function]}
+>
   <Component
+    action={[Function]}
+    onDelete={[Function]}
     utils={
       Object {
         "ErrorMessage": [Function],
@@ -16,6 +21,7 @@ exports[`Chip component should be defined and renders correctly (snapshot) 1`] =
     >
       <div
         className="chip"
+        onClick={[Function]}
       >
         <ChipLabel>
           <div

@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import { storiesOf } from "@storybook/react";
-import uuidv1 from "uuid/v1";
 import Modal from "@blaze-react/modal";
-import FileUpload from "../src";
+import { storiesOf } from "@storybook/react";
+import React, { Component } from "react";
 import FileUploadReadme from "../README.md";
+import FileUpload from "../src";
 
 storiesOf("FileUpload", module)
   .addParameters({
@@ -13,22 +12,34 @@ storiesOf("FileUpload", module)
   })
   .add("Introduction", () => {
     class ModalWithFileUpload extends Component {
-      state = {
-        previewImages: [],
-        filesToUpload: []
+      public state = {
+        filesToUpload: [],
+        previewImages: []
       };
-      handleDrop = ({ base64, canceled, files }: { base64: string[], canceled: boolean, files: any[] }) => {
+      public handleDrop = ({
+        previewFiles,
+        canceled,
+        files
+      }: {
+        previewFiles: object[];
+        canceled: boolean;
+        files: any[];
+      }) => {
         const { previewImages, filesToUpload } = this.state;
-        if (canceled) return this.setState({ previewImages: [] });
-        const images = base64.map(src => (
-          <img key={uuidv1()} src={src} alt="alt text" />
-        ));
+        if (canceled) {
+          return this.setState({ previewImages: [] });
+        }
+        const images = previewFiles.map(
+          ({ base64, name }: { base64: string; name: string }) => (
+            <img key={name} src={base64} alt="alt text" />
+          )
+        );
         this.setState({
-          previewImages: [...previewImages, ...images],
-          filesToUpload: [...filesToUpload, ...files]
+          filesToUpload: [...filesToUpload, ...files],
+          previewImages: [...previewImages, ...images]
         });
       };
-      render() {
+      public render() {
         const {
           state: { previewImages },
           handleDrop
@@ -38,7 +49,7 @@ storiesOf("FileUpload", module)
             isActive
             buttonText="Upload Files"
             title="Add media"
-            actions={[["submit", () => { }, "rounded outline"]]}
+            actions={[["submit", () => {}, "rounded outline"]]}
             upload
           >
             <FileUpload handleDrop={handleDrop}>

@@ -2,6 +2,7 @@
 
 exports[`Switches component should be defined and renders correctly (snapshot) 1`] = `
 <Component
+  error={false}
   labelPosition="right"
   modifier=""
   onChange={[Function]}
@@ -29,5 +30,6 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
       "uniqueId": [Function],
     }
   }
+  validationMessage="This field is required"
 />
 `;
