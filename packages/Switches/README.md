@@ -26,7 +26,7 @@ const multiple = [
 <Switches
   options={multiple}
   modifier={Switches.availableModifiers.secondary}
-  onChange={({ event, checked }) => {}}
+  onChange={({ event, value }) => {}}
 />;
 ```
 
@@ -41,7 +41,7 @@ const single = {
 <Switches
   options={single}
   returnBoolean
-  onChange={({ event, checked }) => {}}
+  onChange={({ event, value }) => {}}
 ```
 
 ## API
