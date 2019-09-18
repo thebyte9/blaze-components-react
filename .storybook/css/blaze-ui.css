@@ -5443,7 +5443,12 @@ hr {
   transform: translateY(100%);
   width: 100%;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-  background: white;
+  background: #ffffff;
+}
+
+.multiselect__dropdown p {
+  margin-top: 25px;
+  padding-left: 15px;
 }
 
 .multiselect .form-field {

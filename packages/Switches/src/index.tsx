@@ -24,11 +24,11 @@ interface ISwitchesProps {
   returnBoolean?: boolean;
   onChange: ({
     event,
-    checked,
+    value,
     data
   }: {
     event: React.ChangeEvent<HTMLInputElement>;
-    checked: IOptions[] | boolean;
+    value: IOptions[] | boolean;
     data: IOptions[];
   }) => void;
   utils: {
@@ -87,11 +87,11 @@ const Switches = withUtils(
       );
 
       if (returnBoolean) {
-        onChange({ event, checked: !!checked.length, data });
+        onChange({ event, value: !!checked.length, data });
         return;
       }
 
-      onChange({ event, checked, data });
+      onChange({ event, value: checked, data });
     };
 
     const switchClassNames: string = classNames("switch", {
