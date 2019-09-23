@@ -20,6 +20,8 @@
   "dependencies": {
     "@blaze-react/file-upload": "^0.3.32",
     "@blaze-react/utils": "^0.3.31",
+    "@blaze-react/modal": "^0.3.32",
+    "@blaze-react/input": "^0.3.31",
     "@types/draft-js": "^0.10.34",
     "draft-js": "^0.11.0",
     "draft-js-drag-n-drop-plugin": "^2.0.4",
