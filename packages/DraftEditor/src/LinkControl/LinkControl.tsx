@@ -1,9 +1,14 @@
 import Input from "@blaze-react/input";
 import Modal from "@blaze-react/modal";
 import { ContentState, EditorState, SelectionState } from "draft-js";
-import React, { useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import StyleButton from "../StyleButton";
 
+interface ILinkProps {
+  contentState: ContentState;
+  children: JSX.Element | JSX.Element[];
+  entityKey: string;
+}
 interface ILinkControlProps {
   editorState: EditorState;
   unSelectedText: string;
@@ -96,13 +101,15 @@ const LinkControl = ({
   );
 };
 
-const Link = (props: any): JSX.Element => {
-  const { url }: { url: string } = props.contentState
-    .getEntity(props.entityKey)
-    .getData();
+const Link: FunctionComponent<ILinkProps> = ({
+  contentState,
+  children,
+  entityKey
+}): JSX.Element => {
+  const { url }: { url: string } = contentState.getEntity(entityKey).getData();
   return (
     <a rel="nofollow noreferrer" href={url} target="_blank">
-      {props.children}
+      {children}
     </a>
   );
 };
