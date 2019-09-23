@@ -1,5 +1,6 @@
 import withUtils from "@blaze-react/utils";
 import {
+  CompositeDecorator,
   ContentBlock,
   ContentState,
   convertFromRaw,
@@ -22,6 +23,7 @@ import {
 import React, { FunctionComponent, useEffect, useState } from "react";
 import BlockControls from "./BlockControls";
 import InlineControls from "./InlineControls";
+import LinkControl from "./LinkControl";
 
 type DraftTextAlignment = "left" | "center" | "right";
 type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
@@ -31,6 +33,7 @@ interface IErrorMessage {
   icon?: string;
 }
 interface IDraftEditorProps {
+  unSelectedText: string;
   editorState?: EditorState;
   customStyleMap?: DraftStyleMap;
   textAlignment?: DraftTextAlignment;
@@ -130,6 +133,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   value,
   error,
   validationMessage,
+  unSelectedText,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = "handled";
@@ -139,11 +143,31 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     EditorState.createEmpty()
   );
 
+  const decorator = new CompositeDecorator([
+    {
+      component: LinkControl.Link,
+      strategy: (
+        contentBlock: ContentBlock,
+        callback: (start: number, end: number) => void,
+        availableContentState: ContentState
+      ) => {
+        contentBlock.findEntityRanges((character: any) => {
+          const entityKey = character.getEntity();
+          return (
+            entityKey &&
+            availableContentState.getEntity(entityKey).getType() === "LINK"
+          );
+        }, callback);
+      }
+    }
+  ]);
+
   useEffect((): void => {
     if (value) {
       const rawObjectValue: RawDraftContentState = JSON.parse(value);
       const state: EditorState = EditorState.createWithContent(
-        convertFromRaw(rawObjectValue)
+        convertFromRaw(rawObjectValue),
+        decorator
       );
       setEditorState(state);
     }
@@ -172,6 +196,14 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
   const toggleInlineStyle = (inlineStyle: DraftInlineStyleType): void =>
     onEditorChange(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+
+  const toggleLink = (
+    newEditorState: EditorState,
+    selection: SelectionState,
+    entityKey: string
+  ): void => {
+    onEditorChange(RichUtils.toggleLink(newEditorState, selection, entityKey));
+  };
 
   const handleKeyCommand = (command: DraftEditorCommand): DraftHandleValue => {
     const newState: EditorState = RichUtils.handleKeyCommand(
@@ -210,6 +242,12 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     <div className="custom-DraftEditor-root">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
       <InlineControls editorState={editorState} onToggle={toggleInlineStyle} />
+      <LinkControl
+        editorState={editorState}
+        onToggle={toggleLink}
+        unSelectedText={unSelectedText}
+      />
+
       <div className={editorClassName}>
         <Editor
           blockStyleFn={getBlockStyle}
@@ -227,6 +265,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 DraftEditor.defaultProps = {
   error: false,
   name: "editor",
+  unSelectedText: "Make sure you have a text selected",
   validationMessage: "This field is required"
 };
 

@@ -11,7 +11,6 @@ interface IActions {
 
 interface IModalProps {
   title?: string;
-  buttonModifiers?: string[];
   actions: IActions[];
   isSimple: boolean;
   isUpload: boolean;
@@ -78,7 +77,6 @@ const Modal: React.SFC<IModalProps> = ({
 };
 Modal.defaultProps = {
   actions: [],
-  buttonModifiers: ["outline"],
   children: "No content",
   isAlert: false,
   isSimple: false,

@@ -8,14 +8,11 @@ const ModalDemo = () => {
 
   const onClose = () => setModalStatus(false);
 
-  const actions = [
+  const alertActions = [
     {
       callback: () => ({}),
-      textButton: "Action 1"
-    },
-    {
-      callback: () => ({}),
-      textButton: "Action 2"
+      modifiers: "alert small",
+      textButton: "delete"
     }
   ];
 
@@ -24,9 +21,9 @@ const ModalDemo = () => {
       {modalStatus && (
         <Modal
           title="Simple Modal"
-          actions={actions}
+          actions={alertActions}
           onClose={onClose}
-          isSimple
+          isAlert
         >
           <p>lorem ipsum dolor...</p>
         </Modal>
