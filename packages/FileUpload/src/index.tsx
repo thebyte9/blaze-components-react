@@ -44,11 +44,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     if (!files || !files.length) {
       return;
     }
-    getPreview(files).then(
-      (previewFiles: any): void => {
-        handleDropProp({ event, files, previewFiles });
-      }
-    );
+    getPreview(files).then((previewFiles: any): void => {
+      handleDropProp({ event, files, previewFiles });
+    });
   };
   const handleChange = (event: any) => {
     event.preventDefault();
@@ -75,9 +73,11 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   const handleCancel = (event: any) => {
     handleDropProp({ event, canceled: true });
   };
+
   return (
     <div ref={area} className="upload" {...attr}>
       <i className="material-icons">arrow_upward</i>
+
       <p>Drag &amp; drop file to upload</p>
 
       <div className="upload__browse">

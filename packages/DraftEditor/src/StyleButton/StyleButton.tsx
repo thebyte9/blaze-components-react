@@ -5,7 +5,7 @@ interface IStyleButtonProps {
   onToggle: (style: string) => void;
   style: string;
   active: boolean;
-  label: string;
+  label: any;
   utils: {
     uniqueId: (element: any) => string;
     classNames: (className: string | object, classNames?: object) => string;

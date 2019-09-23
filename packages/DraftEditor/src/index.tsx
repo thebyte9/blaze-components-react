@@ -1,5 +1,7 @@
 import withUtils from "@blaze-react/utils";
+
 import {
+  AtomicBlockUtils,
   ContentBlock,
   ContentState,
   convertFromRaw,
@@ -12,7 +14,6 @@ import {
   DraftInlineStyle,
   DraftInlineStyleType,
   DraftStyleMap,
-  Editor,
   EditorState,
   RawDraftContentState,
   RichUtils,
@@ -20,7 +21,28 @@ import {
 } from "draft-js";
 
 import React, { FunctionComponent, useEffect, useState } from "react";
+
+import Editor, { composeDecorators } from "draft-js-plugins-editor";
+
+import createImagePlugin from "draft-js-image-plugin";
+
+import createFocusPlugin from "draft-js-focus-plugin";
+
+import createBlockDndPlugin from "draft-js-drag-n-drop-plugin";
+
+const focusPlugin = createFocusPlugin();
+const blockDndPlugin = createBlockDndPlugin();
+
+const decorator = composeDecorators(
+  focusPlugin.decorator,
+  blockDndPlugin.decorator
+);
+const imagePlugin = createImagePlugin({ decorator });
+
+const plugins = [blockDndPlugin, focusPlugin, imagePlugin];
+
 import BlockControls from "./BlockControls";
+import ImageControl from "./ImageControl";
 import InlineControls from "./InlineControls";
 
 type DraftTextAlignment = "left" | "center" | "right";
@@ -206,16 +228,24 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     });
   };
 
+  const handleClick = (newEditorState: EditorState, entityKey: string): void =>
+    onEditorChange(
+      AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, " ")
+    );
+
   return (
     <div className="custom-DraftEditor-root">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
       <InlineControls editorState={editorState} onToggle={toggleInlineStyle} />
+      <ImageControl editorState={editorState} onToggle={handleClick} />
+
       <div className={editorClassName}>
         <Editor
           blockStyleFn={getBlockStyle}
           editorState={editorState}
           onChange={onEditorChange}
           handleKeyCommand={handleKeyCommand}
+          plugins={plugins}
           {...attrs}
         />
       </div>
