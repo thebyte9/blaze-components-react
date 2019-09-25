@@ -4,7 +4,8 @@ import { ContentState, EditorState, SelectionState } from "draft-js";
 import React, { useState } from "react";
 import StyleButton from "../StyleButton";
 
-import { ILinkControlProps, LinkProps } from "../interfaces";
+import { IMMUTABLE, LINK } from "../constants";
+import { ILinkControlProps } from "../interfaces";
 
 const LinkControl = ({
   editorState,
@@ -38,8 +39,8 @@ const LinkControl = ({
     }
 
     const contentStateWithEntity: ContentState = contentState.createEntity(
-      "LINK",
-      "IMMUTABLE",
+      LINK,
+      IMMUTABLE,
       { url }
     );
     const entityKey: string = contentStateWithEntity.getLastCreatedEntityKey();
@@ -93,19 +94,6 @@ const LinkControl = ({
     </>
   );
 };
-
-const Link = (props: LinkProps): JSX.Element => {
-  const { url }: { url: string } = props.contentState
-    .getEntity(props.entityKey)
-    .getData();
-  return (
-    <a rel="nofollow noreferrer" href={url} target="_blank">
-      {props.children}
-    </a>
-  );
-};
-
-LinkControl.Link = Link;
 
 LinkControl.defaultProps = {
   error: false,

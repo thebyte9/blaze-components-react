@@ -23,6 +23,7 @@ import createFocusPlugin from "draft-js-focus-plugin";
 import createImagePlugin from "draft-js-image-plugin";
 import Editor, { composeDecorators } from "draft-js-plugins-editor";
 import React, { FunctionComponent, useEffect, useState } from "react";
+import { BLOCK_QUOTE, HANDLED, LINK, NOT_HANDLED, UNSTYLED } from "./constants";
 import { IDraftEditorProps } from "./interfaces";
 
 const focusPlugin = createFocusPlugin();
@@ -39,7 +40,7 @@ const plugins = [blockDndPlugin, focusPlugin, imagePlugin];
 import BlockControls from "./BlockControls";
 import ImageControl from "./ImageControl";
 import InlineControls from "./InlineControls";
-import LinkControl from "./LinkControl";
+import { Anchor, LinkControl } from "./LinkControl";
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -52,8 +53,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   previewImages,
   ...attrs
 }): JSX.Element => {
-  const draftHandledValue: DraftHandleValue = "handled";
-  const draftNotHandledValue: DraftHandleValue = "not-handled";
+  const draftHandledValue: DraftHandleValue = HANDLED;
+  const draftNotHandledValue: DraftHandleValue = NOT_HANDLED;
 
   const [editorState, setEditorState] = useState<EditorState>(
     EditorState.createEmpty()
@@ -61,7 +62,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
   const decorator = new CompositeDecorator([
     {
-      component: LinkControl.Link,
+      component: Anchor,
       strategy: (
         contentBlock: ContentBlock,
         callback: (start: number, end: number) => void,
@@ -72,7 +73,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
             const entityKey = character.getEntity();
 
             return entityKey
-              ? availableContentState.getEntity(entityKey).getType() === "LINK"
+              ? availableContentState.getEntity(entityKey).getType() === LINK
               : false;
           },
           callback
@@ -142,7 +143,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     contentState
       .getBlockMap()
       .first()
-      .getType() !== "unstyled";
+      .getType() !== UNSTYLED;
 
   const hasTextAndUnstyled: boolean = !contentState.hasText() && isUnstyled;
 
@@ -151,7 +152,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   });
 
   const getBlockStyle = (block: ContentBlock): string => {
-    const isBlockquote: boolean = block.getType() === "blockquote";
+    const isBlockquote: boolean = block.getType() === BLOCK_QUOTE;
     return classNames({
       "custom-DraftEditor-blockquote": isBlockquote
     });

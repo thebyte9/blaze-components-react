@@ -5,6 +5,7 @@ import { IImage, IInlineImageControlsProps } from "../interfaces";
 import { ContentState, EditorState } from "draft-js";
 import React, { FunctionComponent, useState } from "react";
 
+import { IMAGE, IMMUTABLE } from "../constants";
 import StyleButton from "../StyleButton";
 
 const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
@@ -24,8 +25,8 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   ): EditorState => {
     const contentState: ContentState = latestEditorState.getCurrentContent();
     const contentStateWithEntity: ContentState = contentState.createEntity(
-      "image",
-      "IMMUTABLE",
+      IMAGE,
+      IMMUTABLE,
       { src }
     );
     const entityKey: string = contentStateWithEntity.getLastCreatedEntityKey();

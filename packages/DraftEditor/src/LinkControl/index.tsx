@@ -1,3 +1,4 @@
+import Anchor from "./Anchor";
 import LinkControl from "./LinkControl";
 
-export default LinkControl;
+export { LinkControl, Anchor };
