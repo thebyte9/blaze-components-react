@@ -37,7 +37,7 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
     return onToggle(newEditorState, entityKey);
   };
 
-  const openModal = (): void => toggleModal();
+  const openModal = (): void => setModalStatus(true);
 
   const toggleModal = (): void => {
     setModalStatus(!modalStatus);
