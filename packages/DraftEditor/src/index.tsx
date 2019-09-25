@@ -2,6 +2,7 @@ import withUtils from "@blaze-react/utils";
 
 import {
   AtomicBlockUtils,
+  CharacterMetadata,
   CompositeDecorator,
   ContentBlock,
   ContentState,
@@ -66,13 +67,16 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         callback: (start: number, end: number) => void,
         availableContentState: ContentState
       ) => {
-        contentBlock.findEntityRanges((character: any) => {
-          const entityKey = character.getEntity();
-          return (
-            entityKey &&
-            availableContentState.getEntity(entityKey).getType() === "LINK"
-          );
-        }, callback);
+        contentBlock.findEntityRanges(
+          (character: CharacterMetadata): boolean => {
+            const entityKey = character.getEntity();
+
+            return entityKey
+              ? availableContentState.getEntity(entityKey).getType() === "LINK"
+              : false;
+          },
+          callback
+        );
       }
     }
   ]);

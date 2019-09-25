@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 
 import {
   ContentBlock,
+  ContentState,
   DraftBlockRenderMap,
   DraftBlockType,
   DraftDragType,
@@ -127,7 +128,7 @@ export interface IDraftEditorProps {
 export interface IInlineImageControlsProps {
   editorState: EditorState;
   previewImages: IImage[];
-  onToggle: (newEditorState: EditorState, entityKey: string) => void;
+  onToggle: (newEditorState: EditorState, entityKey: string) => EditorState;
 }
 
 export interface ILinkControlProps {
@@ -159,4 +160,10 @@ export interface IStyleButtonProps {
     uniqueId: (element: any) => string;
     classNames: (className: string | object, classNames?: object) => string;
   };
+}
+
+export interface LinkProps {
+  contentState: ContentState;
+  children: JSX.Element | JSX.Element[];
+  entityKey: string;
 }

@@ -4,7 +4,7 @@ import { ContentState, EditorState, SelectionState } from "draft-js";
 import React, { useState } from "react";
 import StyleButton from "../StyleButton";
 
-import { ILinkControlProps } from "../interfaces";
+import { ILinkControlProps, LinkProps } from "../interfaces";
 
 const LinkControl = ({
   editorState,
@@ -15,7 +15,7 @@ const LinkControl = ({
   const [url, setUrl] = useState<string>("");
   const [selectedContent, setSelectedContent] = useState<SelectionState>();
 
-  const getSelection = () => {
+  const getSelection = (): void => {
     const selection: SelectionState = editorState.getSelection();
 
     const start: number = selection.getStartOffset();
@@ -94,11 +94,7 @@ const LinkControl = ({
   );
 };
 
-const Link = (props: {
-  contentState: ContentState;
-  children: JSX.Element | JSX.Element[];
-  entityKey: string;
-}): JSX.Element => {
+const Link = (props: LinkProps): JSX.Element => {
   const { url }: { url: string } = props.contentState
     .getEntity(props.entityKey)
     .getData();

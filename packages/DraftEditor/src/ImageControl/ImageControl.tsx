@@ -13,12 +13,15 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   onToggle
 }): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
-  const [previewImages, setPreviewImages] = useState<object[]>(
+  const [previewImages, setPreviewImages] = useState<IImage[]>(
     preUploadedImages
   );
-  const [selectedImages, setSelectedImages] = useState<object[]>([]);
+  const [selectedImages, setSelectedImages] = useState<IImage[]>([]);
 
-  const insertImage = (src: string, latestEditorState: EditorState): any => {
+  const insertImage = (
+    src: string,
+    latestEditorState: EditorState
+  ): EditorState => {
     const contentState: ContentState = latestEditorState.getCurrentContent();
     const contentStateWithEntity: ContentState = contentState.createEntity(
       "image",
@@ -42,7 +45,7 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   };
 
   const addSelectedImagesToEditor = (): void => {
-    let latestEditorState = editorState;
+    let latestEditorState: EditorState = editorState;
     selectedImages.forEach((img: IImage) => {
       const { src } = img;
       latestEditorState = insertImage(src, latestEditorState);
@@ -96,7 +99,6 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   const showAllImages = (): JSX.Element[] => {
     return previewImages.map((image: IImage) => {
       const { src, key } = image;
-      console.log(key);
       return (
         <div
           className="custom-DraftEditor-previewImage"
