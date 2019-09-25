@@ -1,16 +1,7 @@
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, MouseEvent } from "react";
+import { IStyleButtonProps } from "../interfaces";
 
-interface IStyleButtonProps {
-  onToggle: (style: string) => void;
-  style: string;
-  active: boolean;
-  label: any;
-  utils: {
-    uniqueId: (element: any) => string;
-    classNames: (className: string | object, classNames?: object) => string;
-  };
-}
 const StyleButton: FunctionComponent<IStyleButtonProps> = ({
   onToggle,
   style,

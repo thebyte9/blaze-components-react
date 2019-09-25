@@ -4,15 +4,8 @@ import { ContentState, EditorState, SelectionState } from "draft-js";
 import React, { useState } from "react";
 import StyleButton from "../StyleButton";
 
-interface ILinkControlProps {
-  editorState: EditorState;
-  unSelectedText: string;
-  onToggle: (
-    newEditorState: EditorState,
-    selection: SelectionState,
-    entityKey: string
-  ) => void;
-}
+import { ILinkControlProps } from "../interfaces";
+
 const LinkControl = ({
   editorState,
   unSelectedText,
@@ -37,7 +30,7 @@ const LinkControl = ({
     toggleModal();
   };
 
-  const addLink = () => {
+  const addLink = (): void => {
     const contentState: ContentState = editorState.getCurrentContent();
 
     if (!selectedContent) {
@@ -61,7 +54,12 @@ const LinkControl = ({
   const alertActions = [
     {
       callback: addLink,
-      modifiers: ["small", "rounded", `${!!selectedContent ? "" : "disabled"}`],
+      modifiers: [
+        "small",
+        "rounded",
+        "outline",
+        `${!!selectedContent ? "" : "disabled"}`
+      ],
       textButton: "Add link"
     }
   ];
@@ -73,7 +71,7 @@ const LinkControl = ({
   const hasSelection: boolean = !!selectedContent;
 
   return (
-    <div className="custom-DraftEditor-controls">
+    <>
       <StyleButton
         label={<i className="material-icons link">insert_link</i>}
         onToggle={openModal}
@@ -92,7 +90,7 @@ const LinkControl = ({
           )}
         </Modal>
       )}
-    </div>
+    </>
   );
 };
 

@@ -2,10 +2,12 @@ import Button from "@blaze-react/button";
 import React, { useEffect, useRef } from "react";
 interface IFileUploadProps {
   handleDrop: (...args: any[]) => any;
+  onCancel?: () => void;
   children?: any;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
+  onCancel,
   handleDrop: handleDropProp,
   ...attr
 }) => {
@@ -20,6 +22,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       files.map(
         file =>
           new Promise((resolve, reject) => {
+            const date = new Date();
             if (file.type && file.type.includes("image")) {
               const reader = new FileReader();
               reader.readAsDataURL(file);
@@ -27,14 +30,16 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                 resolve({
                   base64: e.target.result,
                   name: file.name,
-                  type: "image"
+                  type: "image",
+                  key: `${file.name}-${date.getTime()}`
                 });
               reader.onerror = () =>
                 reject(new DOMException("Error parsing input file."));
             } else {
               resolve({
                 name: file.name,
-                type: "file"
+                type: "file",
+                key: `${file.name}-${date.getTime()}`
               });
             }
           })
@@ -72,6 +77,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   };
   const handleCancel = (event: any) => {
     handleDropProp({ event, canceled: true });
+    if (onCancel) {
+      onCancel();
+    }
   };
 
   return (
@@ -107,7 +115,10 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   );
 };
 FileUpload.defaultProps = {
-  children: "No content",
+  children: "",
+  onCancel: (): void => {
+    return;
+  },
   handleDrop: (): void => {
     return;
   }

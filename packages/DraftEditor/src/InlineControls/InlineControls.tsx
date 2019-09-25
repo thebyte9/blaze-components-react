@@ -1,15 +1,9 @@
-import { DraftBlockType, DraftInlineStyle, EditorState } from "draft-js";
+import { DraftInlineStyle } from "draft-js";
 import React, { FunctionComponent } from "react";
 import StyleButton from "../StyleButton";
 
-interface IInlineTypes {
-  label: string;
-  style: string;
-}
-interface IInlineControlsProps {
-  editorState: EditorState;
-  onToggle: (blockType: DraftBlockType) => void;
-}
+import { IInlineControlsProps, IInlineTypes } from "../interfaces";
+
 const InlineControls: FunctionComponent<IInlineControlsProps> = ({
   editorState,
   onToggle
