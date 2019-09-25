@@ -162,7 +162,7 @@ export interface IStyleButtonProps {
   };
 }
 
-export interface LinkProps {
+export interface ILinkProps {
   contentState: ContentState;
   children: JSX.Element | JSX.Element[];
   entityKey: string;

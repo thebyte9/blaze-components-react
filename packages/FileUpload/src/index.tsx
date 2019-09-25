@@ -29,17 +29,17 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               reader.onload = (e: any) =>
                 resolve({
                   base64: e.target.result,
+                  key: `${file.name}-${date.getTime()}`,
                   name: file.name,
-                  type: "image",
-                  key: `${file.name}-${date.getTime()}`
+                  type: "image"
                 });
               reader.onerror = () =>
                 reject(new DOMException("Error parsing input file."));
             } else {
               resolve({
+                key: `${file.name}-${date.getTime()}`,
                 name: file.name,
-                type: "file",
-                key: `${file.name}-${date.getTime()}`
+                type: "file"
               });
             }
           })
@@ -116,10 +116,10 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 };
 FileUpload.defaultProps = {
   children: "",
-  onCancel: (): void => {
+  handleDrop: (): void => {
     return;
   },
-  handleDrop: (): void => {
+  onCancel: (): void => {
     return;
   }
 };

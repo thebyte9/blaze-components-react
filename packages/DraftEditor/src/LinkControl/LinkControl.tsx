@@ -4,7 +4,7 @@ import { ContentState, EditorState, SelectionState } from "draft-js";
 import React, { useState } from "react";
 import StyleButton from "../StyleButton";
 
-import { ILinkControlProps, LinkProps } from "../interfaces";
+import { ILinkControlProps, ILinkProps } from "../interfaces";
 
 const LinkControl = ({
   editorState,
@@ -94,7 +94,7 @@ const LinkControl = ({
   );
 };
 
-const Link = (props: LinkProps): JSX.Element => {
+const Link = (props: ILinkProps): JSX.Element => {
   const { url }: { url: string } = props.contentState
     .getEntity(props.entityKey)
     .getData();
