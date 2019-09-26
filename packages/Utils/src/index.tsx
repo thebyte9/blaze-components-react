@@ -1,15 +1,21 @@
-import classNames from "classnames";
 import React, { FunctionComponent } from "react";
-import ErrorMessage from "./ErrorMessage";
-import uniqueId from "./uniqueId";
 
 export default (ChildComponent: any) => {
   const WithUtils: FunctionComponent = (props: object): JSX.Element => {
-    const utils = {
-      ErrorMessage,
-      classNames,
-      uniqueId
+    const handler = {
+      get({}, utilName: string) {
+        const allowedLibraries: string[] = [
+          "classNames",
+          "ErrorMessage",
+          "uniqueId",
+          "useDebounce"
+        ];
+        if (allowedLibraries.includes(utilName)) {
+          return require(`./${utilName}`).default;
+        }
+      }
     };
+    const utils = new Proxy({}, handler);
     return <ChildComponent utils={utils} {...props} />;
   };
   return WithUtils;

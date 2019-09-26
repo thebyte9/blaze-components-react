@@ -16,13 +16,7 @@ exports[`Modal component should be defined and renders correctly (snapshot) 1`] 
   onClose={[MockFunction]}
   overlay={true}
   title=""
-  utils={
-    Object {
-      "ErrorMessage": [Function],
-      "classNames": [Function],
-      "uniqueId": [Function],
-    }
-  }
+  utils={Object {}}
 >
   No content
 </Modal>

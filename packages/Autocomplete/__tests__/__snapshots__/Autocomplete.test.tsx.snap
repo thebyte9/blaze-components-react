@@ -58,13 +58,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
     }
     placeholder="Search"
     selected={[Function]}
-    utils={
-      Object {
-        "ErrorMessage": [Function],
-        "classNames": [Function],
-        "uniqueId": [Function],
-      }
-    }
+    utils={Object {}}
   >
     <WithUtils
       onChange={[Function]}
@@ -81,13 +75,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
         placeholder="Search"
         required={false}
         type="text"
-        utils={
-          Object {
-            "ErrorMessage": [Function],
-            "classNames": [Function],
-            "uniqueId": [Function],
-          }
-        }
+        utils={Object {}}
         validationMessage="This field is required"
         value=""
       >

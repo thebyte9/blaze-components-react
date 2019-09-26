@@ -93,13 +93,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
                 "name": true,
               }
             }
-            utils={
-              Object {
-                "ErrorMessage": [Function],
-                "classNames": [Function],
-                "uniqueId": [Function],
-              }
-            }
+            utils={Object {}}
           >
             <thead>
               <tr>
@@ -195,13 +189,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             identification="id"
             placeholder="No records available"
             selected={Array []}
-            utils={
-              Object {
-                "ErrorMessage": [Function],
-                "classNames": [Function],
-                "uniqueId": [Function],
-              }
-            }
+            utils={Object {}}
           >
             <tbody>
               <tr

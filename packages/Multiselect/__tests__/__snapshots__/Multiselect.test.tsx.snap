@@ -40,13 +40,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
       },
     ]
   }
-  utils={
-    Object {
-      "ErrorMessage": [Function],
-      "classNames": [Function],
-      "uniqueId": [Function],
-    }
-  }
+  utils={Object {}}
   validationMessage="This field is required"
 />
 `;

@@ -45,7 +45,6 @@ const Input: FunctionComponent<IInputProps> = ({
 }): JSX.Element => {
   const [newValue, setNewValue] = useState<string | undefined>(value);
   const [newType, setType] = useState<string | undefined>(type);
-
   useEffect(() => setNewValue(value), [value]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {

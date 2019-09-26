@@ -15,13 +15,7 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
     placeholder="Placeholder text"
     required={false}
     type="text"
-    utils={
-      Object {
-        "ErrorMessage": [Function],
-        "classNames": [Function],
-        "uniqueId": [Function],
-      }
-    }
+    utils={Object {}}
     validationMessage="This field is required"
     value=""
   >

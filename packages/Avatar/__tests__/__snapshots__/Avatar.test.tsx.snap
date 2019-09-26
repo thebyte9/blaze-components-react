@@ -10,13 +10,7 @@ exports[`Avatar component should be defined and renders correctly (snapshot) 1`]
     modifier="med"
     url="http://lorempixel.com/400/400/people/"
     username=""
-    utils={
-      Object {
-        "ErrorMessage": [Function],
-        "classNames": [Function],
-        "uniqueId": [Function],
-      }
-    }
+    utils={Object {}}
   >
     <div
       className="avatar avatar--med"
