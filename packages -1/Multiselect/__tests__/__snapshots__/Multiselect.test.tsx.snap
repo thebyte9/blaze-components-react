@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Multiselect component should be defined and renders correctly (snapshot) 1`] = `
+<MultiSelect
+  data={
+    Object {
+      "data": Array [
+        Object {
+          "id": 1,
+          "name": "Blaze 1",
+        },
+        Object {
+          "id": 2,
+          "name": "Blaze 2",
+        },
+        Object {
+          "id": 3,
+          "name": "Blaze 3",
+        },
+      ],
+      "filterBy": Array [
+        "name",
+      ],
+      "identification": "id",
+      "keyValue": "name",
+    }
+  }
+  error={false}
+  getSelected={[Function]}
+  notFoundMessage="No records available"
+  onChange={[Function]}
+  placeholder="Search..."
+  selected={
+    Array [
+      Object {
+        "checked": true,
+        "description": "Lorem ipsum dolor.",
+        "id": 1,
+        "name": "Blaze 1",
+      },
+    ]
+  }
+  utils={Object {}}
+  validationMessage="This field is required"
+/>
+`;

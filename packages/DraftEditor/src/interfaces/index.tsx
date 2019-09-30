@@ -167,3 +167,9 @@ export interface ILinkProps {
   children: JSX.Element | JSX.Element[];
   entityKey: string;
 }
+
+export interface IPreviewIages {
+  previewImages: IImage[];
+  isSelected: (src: string) => boolean;
+  addSelectedImage: (image: IImage) => void;
+}

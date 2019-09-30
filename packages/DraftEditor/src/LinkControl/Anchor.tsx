@@ -1,13 +1,15 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { ILinkProps } from "../interfaces";
 
-const Anchor = (props: ILinkProps): JSX.Element => {
-  const { url }: { url: string } = props.contentState
-    .getEntity(props.entityKey)
-    .getData();
+const Anchor: FunctionComponent<ILinkProps> = ({
+  contentState,
+  entityKey,
+  children
+}): JSX.Element => {
+  const { url }: { url: string } = contentState.getEntity(entityKey).getData();
   return (
     <a rel="nofollow noreferrer" href={url} target="_blank">
-      {props.children}
+      {children}
     </a>
   );
 };

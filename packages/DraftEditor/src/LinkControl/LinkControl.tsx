@@ -21,6 +21,7 @@ const LinkControl = ({
 
     const start: number = selection.getStartOffset();
     const end: number = selection.getEndOffset();
+
     if (start !== end) {
       setSelectedContent(selection);
     }
@@ -59,7 +60,7 @@ const LinkControl = ({
         "small",
         "rounded",
         "outline",
-        `${!!selectedContent ? "" : "disabled"}`
+        `${selectedContent ? "" : "disabled"}`
       ],
       textButton: "Add link"
     }
@@ -68,8 +69,6 @@ const LinkControl = ({
   const toggleModal = (): void => setModalStatus(!modalStatus);
 
   const handleChange = ({ value }: { value: string }): void => setUrl(value);
-
-  const hasSelection: boolean = !!selectedContent;
 
   return (
     <>
@@ -80,7 +79,7 @@ const LinkControl = ({
       />
       {modalStatus && (
         <Modal actions={alertActions} onClose={toggleModal} isAlert>
-          {hasSelection ? (
+          {selectedContent ? (
             <Input
               placeholder="Past link"
               onChange={handleChange}

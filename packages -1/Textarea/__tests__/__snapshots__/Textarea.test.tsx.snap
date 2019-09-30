@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea component should be defined and renders correctly (snapshot) 1`] = `
+<Textarea
+  error={false}
+  label="Simple extarea"
+  limit={0}
+  onChange={[Function]}
+  placeholder=""
+  required={false}
+  utils={Object {}}
+  validationMessage="This field is required"
+  value=""
+/>
+`;

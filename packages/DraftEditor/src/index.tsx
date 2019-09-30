@@ -171,8 +171,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return stateWithImageInserted;
   };
 
-  console.log(JSON.stringify(convertToRaw(editorState.getCurrentContent())));
-
   return (
     <div className="custom-DraftEditor-root">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />

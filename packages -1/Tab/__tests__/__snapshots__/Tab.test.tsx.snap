@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab component should be defined and renders correctly (snapshot) 1`] = `
+<div
+  className="tabs"
+>
+  <div
+    className="tabs__list"
+  >
+    <WithUtils
+      className="tabs__list-item "
+      disabled={false}
+      key="Unnamed tab"
+      onClick={[Function]}
+      type="button"
+    >
+      Unnamed tab
+    </WithUtils>
+    <WithUtils
+      className="tabs__list-item current"
+      disabled={false}
+      key="Advanced"
+      onClick={[Function]}
+      type="button"
+    >
+      Advanced
+    </WithUtils>
+    <WithUtils
+      className="tabs__list-item "
+      disabled={false}
+      key="Other"
+      onClick={[Function]}
+      type="button"
+    >
+      Other
+    </WithUtils>
+  </div>
+  <Component
+    action={[Function]}
+    title="Advanced"
+  >
+    Advanced content here
+  </Component>
+</div>
+`;

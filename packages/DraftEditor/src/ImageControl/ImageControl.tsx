@@ -7,6 +7,7 @@ import React, { FunctionComponent, useState } from "react";
 
 import { IMAGE, IMMUTABLE } from "../constants";
 import StyleButton from "../StyleButton";
+import PreviewImages from "./PreviewImages";
 
 const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   editorState,
@@ -97,26 +98,6 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
     return !!selectedImages.find((image: IImage) => image.src === src);
   };
 
-  const showAllImages = (): JSX.Element[] => {
-    return previewImages.map((image: IImage) => {
-      const { src, key } = image;
-      return (
-        <div
-          className="custom-DraftEditor-previewImage"
-          onClick={(): void => addSelectedImage(image)}
-          key={key}
-        >
-          {isSelected(src) && (
-            <span>
-              <i className="material-icons">done</i>
-            </span>
-          )}
-          <img src={src} />
-        </div>
-      );
-    });
-  };
-
   return (
     <>
       <StyleButton
@@ -126,7 +107,11 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
       {modalStatus && (
         <Modal title="Upload" actions={alertActions} onClose={toggleModal}>
           <FileUpload handleDrop={handleDrop} onCancel={onCancel} />
-          <div className="custom-DraftEditor-images">{showAllImages()}</div>
+          <PreviewImages
+            previewImages={previewImages}
+            isSelected={isSelected}
+            addSelectedImage={addSelectedImage}
+          />
         </Modal>
       )}
     </>
