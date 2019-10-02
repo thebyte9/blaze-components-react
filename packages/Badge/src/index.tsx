@@ -6,11 +6,13 @@ interface IBadgeProps {
   link?: boolean;
   pill?: boolean;
   icon?: boolean;
+  color?: string;
   children?: string | JSX.Element;
 }
 const Badge: FunctionComponent<IBadgeProps> = ({
   children,
   type,
+  color,
   pill,
   icon,
   round,
@@ -18,20 +20,19 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   link,
   ...attrs
 }) => {
-  const assignType = type ? `badge--${type}` : "";
   const isPill = pill ? "badge--pill" : "";
   const isRound = round ? "badge--round" : "";
   const withIcon = icon ? "badge--icon-text" : "";
-  const classes = `badge ${assignType} ${isRound} ${isPill} ${withIcon}`;
+  const classes = `badge ${color} ${isRound} ${isPill} ${withIcon} ${type}`;
   return link ? (
     <a href={to} className={classes} {...attrs}>
       {children}
     </a>
   ) : (
-    <span className={classes} {...attrs}>
-      {children}
-    </span>
-  );
+      <span className={classes} {...attrs}>
+        {children}
+      </span>
+    );
 };
 Badge.defaultProps = {
   children: "No content",
@@ -40,6 +41,7 @@ Badge.defaultProps = {
   pill: false,
   round: false,
   to: "#",
-  type: ""
+  color: "grey-dark",
+  type: "badge--pagebuilder"
 };
 export default Badge;
