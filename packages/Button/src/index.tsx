@@ -58,6 +58,7 @@ const Button = withUtils(
 const availableModifiers: object = {
   alert: "alert",
   back: "back",
+  cancel: "cancel",
   cta: "cta",
   dark: "dark",
   disabled: "disabled",
