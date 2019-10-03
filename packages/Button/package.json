@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/button",
-  "version": "0.3.31",
+  "version": "0.3.35",
   "publishConfig": {
     "access": "public"
   },
