@@ -1,25 +1,24 @@
 import React, { Fragment, FunctionComponent } from "react";
+
 interface IBadgeProps {
   type?: string;
-  to?: string;
   link?: boolean;
   icon?: boolean;
   color?: string;
-  children?: string | JSX.Element;
+  children?: any;
 }
 const Badge: FunctionComponent<IBadgeProps> = ({
   children,
   type,
   color,
   icon,
-  to,
   link,
   ...attrs
 }) => {
   const withIcon = icon ? "badge--icon-text" : "";
-  const classes = `badge ${type} ${withIcon} ${color}`;
+  const classes = `badge badge--${type} ${withIcon} ${color}`;
   return link ? (
-    <Fragment> {children}</Fragment>
+    <Fragment>{children}</Fragment>
   ) : (
     <span className={classes} {...attrs}>
       {children}
@@ -29,8 +28,6 @@ const Badge: FunctionComponent<IBadgeProps> = ({
 Badge.defaultProps = {
   children: "No content",
   icon: false,
-  link: false,
-  to: "#",
-  color: "grey-dark"
+  link: false
 };
 export default Badge;
