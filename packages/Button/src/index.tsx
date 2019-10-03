@@ -7,6 +7,7 @@ type TModifiers =
   | "rounded"
   | "outline"
   | "alert"
+  | "cancel"
   | "cta"
   | "light"
   | "dark"
