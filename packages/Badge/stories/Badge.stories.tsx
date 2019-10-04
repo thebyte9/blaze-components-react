@@ -64,8 +64,8 @@ storiesOf("Badges", module)
         displayed. The a tag has been removed to prevent browsers from
         interpreting it as an external link
       </p>
-      <Badge type="pagebuilder" color="grey-dark" link>
-        <a className="badge badge--primary">Go to byte9</a>
+      <Badge type="info" link>
+        <a className="badge badge--info">Go to byte9</a>
       </Badge>
       <br />
       <br />

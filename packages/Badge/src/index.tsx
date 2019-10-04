@@ -1,4 +1,5 @@
 import React, { Fragment, FunctionComponent } from "react";
+import removeExtraSpaces from "../../Utils/src/removeExtraSpaces";
 
 interface IBadgeProps {
   type?: string;
@@ -16,8 +17,9 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   ...attrs
 }) => {
   const withIcon = icon ? "badge--icon-text" : "";
-  const classType = `${`badge ${type ? `badge--${type}` : ""}`.trim()}`;
-  const classes = `${`${classType} ${withIcon}`.trim()} ${color}`.trim();
+  const classes = removeExtraSpaces(
+    `badge ${type ? `badge--${type}` : ""} ${withIcon} ${color}`
+  );
   return link ? (
     <Fragment>{children}</Fragment>
   ) : (
@@ -29,6 +31,7 @@ const Badge: FunctionComponent<IBadgeProps> = ({
 Badge.defaultProps = {
   children: "No content",
   icon: false,
-  link: false
+  link: false,
+  color: ""
 };
 export default Badge;
