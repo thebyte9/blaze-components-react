@@ -15,7 +15,7 @@ interface IAutocompleteProps {
   label?: string;
   placeholder?: string;
 }
-const Autocomplete: React.SFC<IAutocompleteProps> = ({ 
+const Autocomplete: React.SFC<IAutocompleteProps> = ({
   data: { data, filterBy: keys, keyValue },
   label,
   placeholder,

@@ -87,12 +87,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     Object.assign({}, obj, { show: status });
 
   const handleInputChange = ({
-      event,
-      value
-    }: {
-      event: any;
-      value: string;
-    }) => {
+    event,
+    value
+  }: {
+    event: any;
+    value: string;
+  }) => {
     const parsedDataCopy: object[] = parseDataCopy(value);
 
     if (onChange) {
@@ -230,7 +230,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onFocus={handleFocus}
-          className="multiselect__input" 
+          className="multiselect__input"
         />
         {show && !limitReached && (
           <div className="multiselect__dropdown">
