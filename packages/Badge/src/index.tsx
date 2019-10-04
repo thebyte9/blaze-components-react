@@ -30,8 +30,8 @@ const Badge: FunctionComponent<IBadgeProps> = ({
 };
 Badge.defaultProps = {
   children: "No content",
+  color: "",
   icon: false,
-  link: false,
-  color: ""
+  link: false
 };
 export default Badge;
