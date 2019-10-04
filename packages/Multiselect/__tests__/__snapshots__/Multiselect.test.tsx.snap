@@ -27,6 +27,9 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
   }
   error={false}
   getSelected={[Function]}
+  label=""
+  limit={0}
+  limitReachedMessage="Select item limit reached"
   notFoundMessage="No records available"
   onChange={[Function]}
   placeholder="Search..."

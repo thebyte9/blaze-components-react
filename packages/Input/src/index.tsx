@@ -11,13 +11,7 @@ interface IInputProps {
   id?: string;
   label?: string;
   modifier?: string;
-  onChange: ({
-    event,
-    value
-  }: {
-    event: React.ChangeEvent<HTMLInputElement>;
-    value: string;
-  }) => void;
+  onChange: ({ event, value }: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
   required?: boolean;
   error?: boolean;
   type?: string;
@@ -75,28 +69,16 @@ const Input: FunctionComponent<IInputProps> = ({
   });
 
   return (
-    <div
-      className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}
-    >
+    <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
       <label htmlFor={attrs.id} className={requiredClassName}>
         {label}
       </label>
 
-      <input
-        data-testid="input"
-        onChange={handleChange}
-        value={newValue}
-        disabled={disabled}
-        type={newType}
-        required={required}
-        {...attrs}
-      />
+      <input data-testid="input" onChange={handleChange} value={newValue} disabled={disabled} type={newType} required={required} {...attrs} />
 
       {error && <ErrorMessage message={validationMessage} />}
 
-      {!hideTypeToggle && isPassword && (
-        <ToggleInputType toggleType={handleToggleType} type={newType} />
-      )}
+      {!hideTypeToggle && isPassword && <ToggleInputType toggleType={handleToggleType} type={newType} />}
     </div>
   );
 };

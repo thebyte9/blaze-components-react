@@ -12,14 +12,10 @@ interface IAutocompleteProps {
     uniqueId: (element: any) => string;
   };
   selected: (...args: any[]) => any;
+  label?: string;
   placeholder?: string;
 }
-const Autocomplete: React.SFC<IAutocompleteProps> = ({
-  data: { data, filterBy: keys, keyValue },
-  placeholder,
-  selected,
-  utils: { uniqueId }
-}) => {
+const Autocomplete: React.SFC<IAutocompleteProps> = ({ data: { data, filterBy: keys, keyValue }, label, placeholder, selected, utils: { uniqueId } }) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [showSelect, setShowSelect] = useState<boolean>(false);
 
@@ -29,13 +25,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     filterByValue(value);
   };
 
-  const filterByValue = (value: string): object[] =>
-    data.filter(
-      (copy: object) =>
-        !!keys.some(key =>
-          copy[key].toLowerCase().includes(value.toLowerCase())
-        )
-    );
+  const filterByValue = (value: string): object[] => data.filter((copy: object) => !!keys.some(key => copy[key].toLowerCase().includes(value.toLowerCase())));
 
   const handleClick = (copiedData: object): void => {
     setInputValue(copiedData[keyValue]);
@@ -45,22 +35,12 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
 
   return (
     <Fragment>
-      <Input
-        placeholder={placeholder}
-        onChange={handleChange}
-        value={inputValue}
-      />
+      <Input placeholder={placeholder} label={label} onChange={handleChange} value={inputValue} />
 
       {showSelect &&
         filterByValue(inputValue).map(
           (copiedData: object, key: number): JSX.Element => (
-            <div
-              className="panel"
-              key={uniqueId(copiedData)}
-              onClick={() => handleClick(copiedData)}
-              role="button"
-              data-testid={`option-${key + 1}`}
-            >
+            <div className="panel" key={uniqueId(copiedData)} onClick={() => handleClick(copiedData)} role="button" data-testid={`option-${key + 1}`}>
               {copiedData[keyValue]}
             </div>
           )
@@ -69,6 +49,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   );
 };
 Autocomplete.defaultProps = {
+  label: "",
   placeholder: "Search",
   selected: (): void => {
     return;
