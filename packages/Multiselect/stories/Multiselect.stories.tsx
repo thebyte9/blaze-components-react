@@ -105,9 +105,11 @@ const DemoComponent = () => {
   return (
     <div className="component-wrapper">
       <h1>Multiselect</h1>
-
-      <p>MultiSelect is a component that allows you to select multiple items with check boxes. It is useful for labeling, contact lists, country selectors, etc.</p>
-
+      <p>
+        MultiSelect is a component that allows you to select multiple items with
+        check boxes. It is useful for labeling, contact lists, country
+        selectors, etc.
+      </p>
       <Multiselect
         name="multiselect"
         data={multiselectData}

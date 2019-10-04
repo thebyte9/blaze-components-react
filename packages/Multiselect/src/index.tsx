@@ -64,7 +64,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
-    const shouldUpdate = differenceWith(dataCopy, data, isEqual).length || differenceWith(data, dataCopy, isEqual).length;
+    const shouldUpdate =
+      differenceWith(dataCopy, data, isEqual).length ||
+      differenceWith(data, dataCopy, isEqual).length;
     const elementsWithSelected = unionBy(selected, data, "id");
     document.addEventListener("mousedown", handleOutsideClick);
 
@@ -81,9 +83,16 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     };
   }, [data]);
 
-  const setStatus = (obj: object, status: boolean): object => Object.assign({}, obj, { show: status });
+  const setStatus = (obj: object, status: boolean): object =>
+    Object.assign({}, obj, { show: status });
 
-  const handleInputChange = ({ event, value }: { event: any; value: string }) => {
+  const handleInputChange = ({
+      event,
+      value
+    }: {
+      event: any;
+      value: string;
+    }) => {
     const parsedDataCopy: object[] = parseDataCopy(value);
 
     if (onChange) {
@@ -128,13 +137,21 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     if (keyName === "Enter") {
       const parsedDataCopy: object[] = parseDataCopy(value);
 
-      const elementToAdd = parsedDataCopy.findIndex((parsedData: IData) => parsedData.show);
+      const elementToAdd = parsedDataCopy.findIndex(
+        (parsedData: IData) => parsedData.show
+      );
 
       updateData(elementToAdd, true);
     }
   };
 
-  const handleCheckBoxChange = ({ value, data: localData }: { value: any; data: any }) => {
+  const handleCheckBoxChange = ({
+    value,
+    data: localData
+  }: {
+    value: any;
+    data: any;
+  }) => {
     setDataCopy(localData);
     checkLimit(localData);
     getSelected({
@@ -155,7 +172,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   const handleDelete = (id: string | number): void => {
-    const elementToDelete: number = dataCopy.findIndex(({ id: itemId }: { id: string | number }) => itemId === id);
+    const elementToDelete: number = dataCopy.findIndex(
+      ({ id: itemId }: { id: string | number }) => itemId === id
+    );
     updateData(elementToDelete, false);
   };
 
@@ -189,7 +208,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           .map(
             (selectedValue: object): JSX.Element => (
               <Chip
-                modifiers={[Chip.availableModifiers.parent.deletable, Chip.availableModifiers.parent.small]}
+                modifiers={[
+                  Chip.availableModifiers.parent.deletable,
+                  Chip.availableModifiers.parent.small
+                ]}
                 onDelete={() => handleDelete(selectedValue[identification])}
                 action={() => handleDelete(selectedValue[identification])}
                 key={uniqueId(selectedValue)}
@@ -203,8 +225,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           )}
 
         {children}
-        <Input placeholder={placeholder} onChange={handleInputChange} onKeyDown={handleKeyDown} onFocus={handleFocus} className="multiselect__input" />
-
+        <Input 
+          placeholder={placeholder}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          onFocus={handleFocus}
+          className="multiselect__input" 
+        />
         {show && !limitReached && (
           <div className="multiselect__dropdown">
             {error && <ErrorMessage message={validationMessage} />}
