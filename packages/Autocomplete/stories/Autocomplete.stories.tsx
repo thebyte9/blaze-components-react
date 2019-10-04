@@ -33,10 +33,14 @@ storiesOf("Autocomplete", module)
     <div className="component-wrapper">
       <h1>Autocomplete</h1>
 
-      <p>
-        Autocomplete component allows users to quickly find and select one from suggested options.
-      </p>
+      <p>Autocomplete component allows users to quickly find and select one from suggested options.</p>
 
-      <Autocomplete data={data} selected={() => { return; }} />
+      <Autocomplete
+        data={data}
+        label="Autocomplete"
+        selected={() => {
+          return;
+        }}
+      />
     </div>
   ));
