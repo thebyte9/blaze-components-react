@@ -68,7 +68,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       differenceWith(dataCopy, data, isEqual).length ||
       differenceWith(data, dataCopy, isEqual).length;
     const elementsWithSelected = unionBy(selected, data, "id");
-    document.addEventListener("mousedown", handleOutsideClick);
 
     if (!dataCopy || shouldUpdate) {
       setDataCopy(
@@ -78,7 +77,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         })
       );
     }
-    return () => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return function cleanup() {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [data]);
@@ -86,13 +87,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const setStatus = (obj: object, status: boolean): object =>
     Object.assign({}, obj, { show: status });
 
-  const handleInputChange = ({
-    event,
-    value
-  }: {
-    event: any;
-    value: string;
-  }) => {
+  const handleInputChange = ({ event, value }: { event: any; value: string }) => {
     const parsedDataCopy: object[] = parseDataCopy(value);
 
     if (onChange) {
@@ -192,7 +187,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   const checkLimit = (dataToCheck: any) => {
     if (limit) {
-      const selectedOptions = dataToCheck.filter(({ checked }: { checked: boolean }) => checked);
+      const selectedOptions = dataToCheck.filter(
+        ({ checked }: { checked: boolean }) => checked
+      );
       const reachedLimit = selectedOptions.length >= limit;
       setLimitReached(reachedLimit);
     }
@@ -225,7 +222,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           )}
 
         {children}
-        <Input 
+        <Input
           placeholder={placeholder}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
@@ -238,7 +235,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
             {!matchQuery && <p>{notFoundMessage}</p>}
 
-            <Checkboxes options={parseCheckBoxOptions(dataCopy)} onChange={handleCheckBoxChange} />
+            <Checkboxes
+              options={parseCheckBoxOptions(dataCopy)}
+              onChange={handleCheckBoxChange}
+            />
           </div>
         )}
         <span className="multiselect__clear" onClick={handleClearAll}>
