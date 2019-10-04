@@ -6,7 +6,7 @@ import Badge from "../src";
 describe("Badge component", () => {
   test("should render badge type link", () => {
     const wrapper = shallow(
-      <Badge type="badge--pagebuilder" link>
+      <Badge type="pagebuilder" link>
         <a href="#"></a>
       </Badge>
     );
@@ -16,7 +16,7 @@ describe("Badge component", () => {
 
   test("should render badge type icon", () => {
     const wrapper = shallow(
-      <Badge type="badge--pagebuilder" color="blue" icon>
+      <Badge type="pagebuilder" color="blue" icon>
         Dolor
         <i className="fas fa image" />
       </Badge>

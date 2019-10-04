@@ -16,7 +16,7 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   ...attrs
 }) => {
   const withIcon = icon ? "badge--icon-text" : "";
-  const classes = `badge badge--${type} ${withIcon} ${color}`;
+  const classes = `badge ${type ? `badge--${type}` : ""} ${withIcon} ${color}`;
   return link ? (
     <Fragment>{children}</Fragment>
   ) : (
