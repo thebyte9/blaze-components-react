@@ -15,18 +15,32 @@ const FileUpload: React.SFC<IFileUploadProps> = ({ children, ...attr }) => {
     event.preventDefault();
   };
 
+  useEffect(() => {
+    const handleDrop = (event: any) => {
+      event.preventDefault();
+      event.stopPropagation();
+      let { dataTransfer: { files = {} } = {} } = event;
+      files = Object.values(files);
+      processFiles(files);
+    };
+    const { current: currentArea } = area;
+    currentArea.addEventListener("dragover", handleDragover);
+    currentArea.addEventListener("drop", handleDrop);
+  }, [previewImages, filesToUpload]);
+
   const getPreview = (files: any[]) =>
     Promise.all(
       files.map(
         file =>
           new Promise((resolve, reject) => {
+            const time = new Date().getTime();
             if (file.type && file.type.includes("image")) {
               const reader = new FileReader();
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
                 resolve({
                   base64: e.target.result,
-                  id: new Date().getTime(),
+                  id: time,
                   name: file.name,
                   type: "image"
                 });
@@ -34,7 +48,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({ children, ...attr }) => {
                 reject(new DOMException("Error parsing input file."));
             } else {
               resolve({
-                id: new Date().getTime(),
+                id: time,
                 name: file.name,
                 type: "file"
               });
@@ -42,7 +56,8 @@ const FileUpload: React.SFC<IFileUploadProps> = ({ children, ...attr }) => {
           })
       )
     );
-  const processFiles = async (event: any, files: any): Promise<any> => {
+
+  const processFiles = async (files: any): Promise<any> => {
     if (!files || !files.length) {
       return;
     }
@@ -55,20 +70,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({ children, ...attr }) => {
     event.preventDefault();
     let { target: { files = {} } = {} } = event;
     files = Object.values(files);
-    processFiles(event, files);
+    processFiles(files);
   };
-  useEffect(() => {
-    const handleDrop = (event: any) => {
-      event.preventDefault();
-      event.stopPropagation();
-      let { dataTransfer: { files = {} } = {} } = event;
-      files = Object.values(files);
-      processFiles(event, files);
-    };
-    const { current: currentArea } = area;
-    currentArea.addEventListener("dragover", handleDragover);
-    currentArea.addEventListener("drop", handleDrop);
-  }, [processFiles]);
+
   const handleBrowse = () => {
     const { current: currentSelectFile } = selectFile;
     currentSelectFile.click();
@@ -81,6 +85,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({ children, ...attr }) => {
     setFilesToUpload(fileToUploadUpdated);
     setPreviewImages(previewImagesUpdated);
   };
+
   return (
     <div ref={area} className="upload" {...attr}>
       <div className="upload__drag-drop">
