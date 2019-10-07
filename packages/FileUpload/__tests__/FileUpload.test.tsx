@@ -10,7 +10,7 @@ declare global {
 }
 
 const FileUploadComponent = (
-  <FileUpload handleDrop={() => {}}>Drag and drop here</FileUpload>
+  <FileUpload onChange={() => {}}>Drag and drop here</FileUpload>
 );
 
 describe("FileUpload component", () => {
@@ -19,15 +19,6 @@ describe("FileUpload component", () => {
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
-  });
-
-  test("should cancel operation", () => {
-    const wrapper = mount(FileUploadComponent);
-
-    wrapper
-      .find("button")
-      .at(1)
-      .simulate("click");
   });
 
   test("should browse file", async done => {
