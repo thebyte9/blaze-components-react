@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge component should render children without throwing error 1`] = `
+<Badge
+  color="blue"
+  icon={true}
+  link={false}
+  type="pagebuilder"
+  utils={
+    Object {
+      "ErrorMessage": [Function],
+      "classNames": [Function],
+      "uniqueId": [Function],
+    }
+  }
+>
+  BadgeText
+  <i
+    className="fas fa image"
+  />
+</Badge>
+`;
+
+exports[`Badge component should render properly when pass link prop without throwing error 1`] = `
+<Badge
+  color=""
+  icon={false}
+  link={true}
+  type="pagebuilder"
+  utils={
+    Object {
+      "ErrorMessage": [Function],
+      "classNames": [Function],
+      "uniqueId": [Function],
+    }
+  }
+>
+  <a
+    href="#"
+  />
+</Badge>
+`;

@@ -39,7 +39,6 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
                 Object {
                   "ErrorMessage": [Function],
                   "classNames": [Function],
-                  "removeExtraSpaces": [Function],
                   "uniqueId": [Function],
                 }
               }
