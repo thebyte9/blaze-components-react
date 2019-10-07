@@ -3,6 +3,7 @@
 exports[`FileUpload component should be defined and renders correctly (snapshot) 1`] = `
 <div
   className="upload"
+  handleDrop={[Function]}
 >
   <div
     className="upload__drag-drop"
@@ -45,18 +46,9 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
       type="file"
     />
   </div>
-  <WithUtils
-    disabled={false}
-    modifiers={
-      Array [
-        "cancel",
-      ]
-    }
-    onClick={[Function]}
-    type="button"
-  >
-    Cancel
-  </WithUtils>
-  Drag and drop here
+  <FileList
+    handleCancel={[Function]}
+    previewImages={Array []}
+  />
 </div>
 `;

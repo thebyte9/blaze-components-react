@@ -21,15 +21,6 @@ describe("FileUpload component", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("should cancel operation", () => {
-    const wrapper = mount(FileUploadComponent);
-
-    wrapper
-      .find("button")
-      .at(1)
-      .simulate("click");
-  });
-
   test("should browse file", async done => {
     const wrapper = mount(FileUploadComponent);
 
