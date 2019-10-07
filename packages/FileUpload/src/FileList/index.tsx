@@ -21,12 +21,14 @@ const FileList = ({
               <DocumentIcon />
             )}
           </div>
-          {file.name}
-          <i
-            onClick={() => handleCancel(file.id)}
-            className="fa fa-trash"
-            aria-hidden="true"
-          />
+          <div className="preview-filename-container">
+            <p className="preview-filename">{file.name}</p>
+            <i
+              onClick={() => handleCancel(file.id)}
+              className="fa fa-trash"
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </Fragment>
     ))}

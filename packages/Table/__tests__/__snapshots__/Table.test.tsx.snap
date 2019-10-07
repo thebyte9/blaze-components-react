@@ -38,7 +38,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
       className="table-scroll"
     >
       <table>
-        <WithUtils
+        <withUtils(TableHead)
           allRows={
             Array [
               Object {
@@ -97,6 +97,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
               Object {
                 "ErrorMessage": [Function],
                 "classNames": [Function],
+                "removeExtraSpaces": [Function],
                 "uniqueId": [Function],
               }
             }
@@ -139,8 +140,8 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
               </tr>
             </thead>
           </TableHead>
-        </WithUtils>
-        <WithUtils
+        </withUtils(TableHead)>
+        <withUtils(TableBody)
           allRows={
             Array [
               Object {
@@ -199,6 +200,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
               Object {
                 "ErrorMessage": [Function],
                 "classNames": [Function],
+                "removeExtraSpaces": [Function],
                 "uniqueId": [Function],
               }
             }
@@ -246,7 +248,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
               </tr>
             </tbody>
           </TableBody>
-        </WithUtils>
+        </withUtils(TableBody)>
       </table>
     </div>
   </div>
