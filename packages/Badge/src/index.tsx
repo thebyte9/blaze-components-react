@@ -1,5 +1,5 @@
+import withUtils from "@blaze-react/utils";
 import React, { Fragment, FunctionComponent } from "react";
-import removeExtraSpaces from "../../Utils/src/removeExtraSpaces";
 
 interface IBadgeProps {
   type?: string;
@@ -7,6 +7,9 @@ interface IBadgeProps {
   icon?: boolean;
   color?: string;
   children?: any;
+  utils: {
+    removeExtraSpaces: (...args: any) => string;
+  };
 }
 const Badge: FunctionComponent<IBadgeProps> = ({
   children,
@@ -14,6 +17,7 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   color,
   icon,
   link,
+  utils: { removeExtraSpaces },
   ...attrs
 }) => {
   const withIcon = icon ? "badge--icon-text" : "";
@@ -34,4 +38,4 @@ Badge.defaultProps = {
   icon: false,
   link: false
 };
-export default Badge;
+export default withUtils(Badge);
