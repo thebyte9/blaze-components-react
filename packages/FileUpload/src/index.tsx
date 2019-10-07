@@ -28,6 +28,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       let { dataTransfer: { files = {} } = {} } = event;
       files = Object.values(files);
       processFiles(files);
+      onChange(files);
     };
     const { current: currentArea } = area;
     currentArea.addEventListener("dragover", handleDragover);
