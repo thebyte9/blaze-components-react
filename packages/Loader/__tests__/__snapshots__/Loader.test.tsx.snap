@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loader component ProgressBar - should be defined and renders correctly (snapshot) 1`] = `
-<WithUtils
+<withUtils()
   customStyles={Object {}}
   message={Object {}}
   progress={0}
@@ -41,11 +41,11 @@ exports[`Loader component ProgressBar - should be defined and renders correctly 
       </div>
     </div>
   </Component>
-</WithUtils>
+</withUtils()>
 `;
 
 exports[`Loader component Spinner - should be defined and renders correctly (snapshot) 1`] = `
-<WithUtils
+<withUtils()
   animation="linear"
   size="small"
 >
@@ -73,11 +73,11 @@ exports[`Loader component Spinner - should be defined and renders correctly (sna
       </div>
     </div>
   </Component>
-</WithUtils>
+</withUtils()>
 `;
 
 exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
-<WithUtils
+<withUtils()
   customStyles={Object {}}
   message={
     Object {
@@ -171,5 +171,5 @@ exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
       </div>
     </div>
   </Component>
-</WithUtils>
+</withUtils()>
 `;
