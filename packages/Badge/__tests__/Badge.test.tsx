@@ -4,11 +4,21 @@ import React from "react";
 import Badge from "../src";
 
 describe("Badge component", () => {
+  let BadgeComponent: any;
+  beforeAll(() => {
+    BadgeComponent = Badge.WrappedComponent;
+  });
+
+  const utils = {
+    removeExtraSpaces: jest.fn()
+  };
+
   test("should render children when badge type is link", () => {
+    utils.removeExtraSpaces.mockReturnValueOnce("pagebuilder");
     const wrapper = shallow(
-      <Badge type="pagebuilder" link>
+      <BadgeComponent type="pagebuilder" link utils={utils}>
         <a href="#"></a>
-      </Badge>
+      </BadgeComponent>
     );
     const link = wrapper.find("a");
     expect(link.length).toBe(1);
@@ -16,20 +26,23 @@ describe("Badge component", () => {
 
   test("should render children within span when badge type is not link", () => {
     const wrapper = shallow(
-      <Badge type="primary">
+      <BadgeComponent type="primary" utils={utils}>
         <a href="#"></a>
-      </Badge>
+      </BadgeComponent>
     );
     const span = wrapper.find("span");
     expect(span.length).toBe(1);
   });
 
-  test("should render correct class when badge type is not link", () => {
+  test.only("should render correct class when badge type is not link", () => {
+    utils.removeExtraSpaces.mockReturnValueOnce(
+      "pagebuilder badge--icon-text deep-orange"
+    );
     const wrapper = shallow(
-      <Badge type="pagebuilder" icon color="deep-orange">
+      <BadgeComponent type="pagebuilder" icon color="deep-orange" utils={utils}>
         Social follow         
         <i className="fas fa-share" />
-      </Badge>
+      </BadgeComponent>
     );
     const span = wrapper.find("span");
     expect(span.prop("className")).toContain("pagebuilder");
@@ -39,10 +52,10 @@ describe("Badge component", () => {
 
   test("should render badge type icon and badge type text", () => {
     const wrapper = shallow(
-      <Badge type="pagebuilder" color="blue" icon>
+      <BadgeComponent type="pagebuilder" color="blue" icon utils={utils}>
         BadgeText         
         <i className="fas fa image" />
-      </Badge>
+      </BadgeComponent>
     );
     const badge = wrapper.find("span");
     expect(badge.text()).toContain("BadgeText");
@@ -51,11 +64,12 @@ describe("Badge component", () => {
   });
 
   test("should display correct class based on props", () => {
+    utils.removeExtraSpaces.mockReturnValueOnce("badge--icon-text");
     const wrapper = shallow(
-      <Badge icon>
+      <BadgeComponent icon utils={utils}>
         BadgeText
         <i className="fas fa-follow" />
-      </Badge>
+      </BadgeComponent>
     );
     const span = wrapper.find("span");
     expect(span.prop("className")).toContain("badge--icon-text");
