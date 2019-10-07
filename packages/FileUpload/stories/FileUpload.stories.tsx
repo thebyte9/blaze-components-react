@@ -1,6 +1,6 @@
 import Modal from "@blaze-react/modal";
 import { storiesOf } from "@storybook/react";
-import React from "react";
+import React, { useState } from "react";
 import FileUploadReadme from "../README.md";
 import FileUpload from "../src";
 
@@ -12,25 +12,29 @@ storiesOf("FileUpload", module)
   })
   .add("Introduction", () => {
     const FileUploadModal = ({ onClose }: any) => {
+      const [files, setFiles]: any[] = useState([]);
+      const onChange = (currentFiles: any[]) => {
+        setFiles(currentFiles);
+        // tslint:disable-next-line: no-console
+        console.log("files -->", files);
+      };
       return (
-        <>
-          <Modal
-            title="Add media"
-            actions={[
-              {
-                modifiers: ["cancel"],
-                textButton: "Cancel"
-              },
-              {
-                modifiers: [],
-                textButton: "Save"
-              }
-            ]}
-            upload
-          >
-            <FileUpload></FileUpload>
-          </Modal>
-        </>
+        <Modal
+          title="Add media"
+          actions={[
+            {
+              modifiers: ["cancel"],
+              textButton: "Cancel"
+            },
+            {
+              modifiers: [],
+              textButton: "Save"
+            }
+          ]}
+          upload
+        >
+          <FileUpload onChange={onChange}></FileUpload>
+        </Modal>
       );
     };
     return (

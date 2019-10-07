@@ -4,8 +4,13 @@ import FileList from "./FileList";
 
 interface IFileUploadProps {
   children?: any;
+  onChange: (...args: any[]) => void;
 }
-const FileUpload: React.SFC<IFileUploadProps> = ({ children, ...attr }) => {
+const FileUpload: React.SFC<IFileUploadProps> = ({
+  children,
+  onChange,
+  ...attr
+}) => {
   const [previewImages, setPreviewImages]: any[] = useState([]);
   const [filesToUpload, setFilesToUpload]: any[] = useState([]);
   const area: any = useRef(null);
@@ -71,6 +76,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({ children, ...attr }) => {
     let { target: { files = {} } = {} } = event;
     files = Object.values(files);
     processFiles(files);
+    onChange(files);
   };
 
   const handleBrowse = () => {
@@ -114,6 +120,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({ children, ...attr }) => {
   );
 };
 FileUpload.defaultProps = {
-  children: "No content"
+  children: "No content",
+  onChange: () => void 0
 };
 export default FileUpload;
