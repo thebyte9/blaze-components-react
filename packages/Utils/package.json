@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/utils",
-  "version": "0.3.39",
+  "version": "0.3.41",
   "publishConfig": {
     "access": "public"
   },
