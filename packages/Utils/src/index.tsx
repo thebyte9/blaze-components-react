@@ -1,18 +1,28 @@
 import classNames from "classnames";
-import React, { FunctionComponent } from "react";
+import hoistStatics from "hoist-non-react-statics";
+import React from "react";
 import ErrorMessage from "./ErrorMessage";
 import removeExtraSpaces from "./removeExtraSpaces";
 import uniqueId from "./uniqueId";
 
-export default (ChildComponent: any) => {
-  const WithUtils: FunctionComponent = (props: object): JSX.Element => {
+const withUtils = (Component: any) => {
+  const InnerComponent = (props: object): JSX.Element => {
     const utils = {
       ErrorMessage,
       classNames,
       removeExtraSpaces,
       uniqueId
     };
-    return <ChildComponent utils={utils} {...props} />;
+    return <Component utils={utils} {...props} />;
   };
-  return WithUtils;
+
+  InnerComponent.displayName = `withUtils(${Component.displayName ||
+    Component.name})`;
+  InnerComponent.WrappedComponent = Component;
+
+  return hoistStatics(InnerComponent, Component);
 };
+
+withUtils.displayName = "withUtils";
+
+export default withUtils;
