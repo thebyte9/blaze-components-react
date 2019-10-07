@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { FunctionComponent } from "react";
 import ErrorMessage from "./ErrorMessage";
+import removeExtraSpaces from "./removeExtraSpaces";
 import uniqueId from "./uniqueId";
 
 export default (ChildComponent: any) => {
@@ -8,6 +9,7 @@ export default (ChildComponent: any) => {
     const utils = {
       ErrorMessage,
       classNames,
+      removeExtraSpaces,
       uniqueId
     };
     return <ChildComponent utils={utils} {...props} />;
