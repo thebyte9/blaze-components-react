@@ -3,7 +3,6 @@
 exports[`FileUpload component should be defined and renders correctly (snapshot) 1`] = `
 <div
   className="upload"
-  handleDrop={[Function]}
 >
   <div
     className="upload__drag-drop"
