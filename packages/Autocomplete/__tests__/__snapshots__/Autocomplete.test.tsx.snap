@@ -63,6 +63,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
       Object {
         "ErrorMessage": [Function],
         "classNames": [Function],
+        "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }
     }
@@ -87,6 +88,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
           Object {
             "ErrorMessage": [Function],
             "classNames": [Function],
+            "removeExtraSpaces": [Function],
             "uniqueId": [Function],
           }
         }

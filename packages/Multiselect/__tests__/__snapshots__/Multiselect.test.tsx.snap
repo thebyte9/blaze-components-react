@@ -47,6 +47,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
     Object {
       "ErrorMessage": [Function],
       "classNames": [Function],
+      "removeExtraSpaces": [Function],
       "uniqueId": [Function],
     }
   }
