@@ -175,16 +175,18 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     <div className="custom-DraftEditor-root">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
       <InlineControls editorState={editorState} onToggle={toggleInlineStyle} />
-      <ImageControl
-        editorState={editorState}
-        onToggle={handleClick}
-        previewImages={previewImages}
-      />
-      <LinkControl
-        editorState={editorState}
-        onToggle={toggleLink}
-        unSelectedText={unSelectedText}
-      />
+      <div className="custom-DraftEditor-controls">
+        <ImageControl
+          editorState={editorState}
+          onToggle={handleClick}
+          previewImages={previewImages}
+        />
+        <LinkControl
+          editorState={editorState}
+          onToggle={toggleLink}
+          unSelectedText={unSelectedText}
+        />
+      </div>
 
       <div className={editorClassName}>
         <Editor

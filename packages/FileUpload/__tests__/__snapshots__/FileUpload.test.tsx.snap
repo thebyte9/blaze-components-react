@@ -4,17 +4,30 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
 <div
   className="upload"
 >
-  <i
-    className="material-icons"
+  <div
+    className="upload__drag-drop"
   >
-    arrow_upward
-  </i>
-  <p>
-    Drag & drop file to upload
-  </p>
+    <div
+      className="upload__icon"
+    >
+      <i
+        className="material-icons"
+      >
+        arrow_upward
+      </i>
+    </div>
+    <p>
+      Drag & drop file to upload
+    </p>
+  </div>
   <div
     className="upload__browse"
   >
+    <div
+      className="upload__text"
+    >
+      or
+    </div>
     <WithUtils
       disabled={false}
       onClick={[Function]}
@@ -32,17 +45,11 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
       type="file"
     />
   </div>
-  <div
-    className="upload__text"
-  >
-    or
-  </div>
   <WithUtils
     disabled={false}
     modifiers={
       Array [
-        "outline",
-        "dark",
+        "cancel",
       ]
     }
     onClick={[Function]}

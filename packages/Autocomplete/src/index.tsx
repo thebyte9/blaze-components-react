@@ -12,10 +12,12 @@ interface IAutocompleteProps {
     uniqueId: (element: any) => string;
   };
   selected: (...args: any[]) => any;
+  label?: string;
   placeholder?: string;
 }
 const Autocomplete: React.SFC<IAutocompleteProps> = ({
   data: { data, filterBy: keys, keyValue },
+  label,
   placeholder,
   selected,
   utils: { uniqueId }
@@ -47,9 +49,9 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     <Fragment>
       <Input
         placeholder={placeholder}
+        label={label}
         onChange={handleChange}
-        value={inputValue}
-      />
+        value={inputValue} />
 
       {showSelect &&
         filterByValue(inputValue).map(
@@ -69,6 +71,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   );
 };
 Autocomplete.defaultProps = {
+  label: "",
   placeholder: "Search",
   selected: (): void => {
     return;

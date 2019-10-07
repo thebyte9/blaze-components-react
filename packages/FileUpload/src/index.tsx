@@ -84,11 +84,15 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
   return (
     <div ref={area} className="upload" {...attr}>
-      <i className="material-icons">arrow_upward</i>
-
-      <p>Drag &amp; drop file to upload</p>
+      <div className="upload__drag-drop">
+        <div className="upload__icon">
+          <i className="material-icons">arrow_upward</i>
+        </div>
+        <p>Drag &amp; drop file to upload</p>
+      </div>
 
       <div className="upload__browse">
+        <div className="upload__text">or</div>
         <Button onClick={handleBrowse}>Browse</Button>
         <input
           type="file"
@@ -98,14 +102,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
         />
       </div>
 
-      <div className="upload__text">or</div>
-
       <Button
         onClick={handleCancel}
-        modifiers={[
-          Button.availableModifiers.outline,
-          Button.availableModifiers.dark
-        ]}
+        modifiers={[Button.availableModifiers.cancel]}
       >
         Cancel
       </Button>
