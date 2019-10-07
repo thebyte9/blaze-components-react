@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Avatar component should be defined and renders correctly (snapshot) 1`] = `
-<WithUtils
+<withUtils()
   modifier="med"
   url="http://lorempixel.com/400/400/people/"
   username=""
@@ -28,5 +28,5 @@ exports[`Avatar component should be defined and renders correctly (snapshot) 1`]
       />
     </div>
   </Component>
-</WithUtils>
+</withUtils()>
 `;
