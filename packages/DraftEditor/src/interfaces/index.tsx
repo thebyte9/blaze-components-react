@@ -22,7 +22,7 @@ export interface IImage {
   base64: string;
   src: string;
   name: string;
-  key?: string;
+  id?: string;
 }
 
 export interface IErrorMessage {

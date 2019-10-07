@@ -11,7 +11,7 @@ const ModalDemo = () => {
   const alertActions = [
     {
       callback: () => ({}),
-      modifiers: "alert small",
+      modifiers: ["alert", "small"],
       textButton: "delete"
     }
   ];

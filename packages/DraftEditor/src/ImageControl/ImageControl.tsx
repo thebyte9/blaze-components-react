@@ -63,20 +63,8 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
     }
   ];
 
-  const handleDrop = ({
-    previewFiles,
-    canceled
-  }: {
-    previewFiles: IImage[];
-    canceled: boolean;
-  }): void => {
-    if (canceled) {
-      return setPreviewImages([]);
-    }
-    setPreviewImages([...previewImages, ...formatImages(previewFiles)]);
-  };
-
-  const onCancel = (): void => setSelectedImages([]);
+  const handleDrop = ({ previewFiles }: { previewFiles: IImage[] }): void =>
+    setPreviewImages(formatImages(previewFiles));
 
   const formatImages = (images: IImage[]): IImage[] =>
     images.map((image: IImage) => ({
@@ -106,7 +94,7 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
       />
       {modalStatus && (
         <Modal title="Upload" actions={alertActions} onClose={toggleModal}>
-          <FileUpload handleDrop={handleDrop} onCancel={onCancel} />
+          <FileUpload handleDrop={handleDrop} customPreview />
           <PreviewImages
             previewImages={previewImages}
             isSelected={isSelected}

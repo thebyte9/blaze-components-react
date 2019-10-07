@@ -1,35 +1,59 @@
 import Button from "@blaze-react/button";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import FileList from "./FileList";
+
 interface IFileUploadProps {
-  handleDrop: (...args: any[]) => any;
-  onCancel?: () => void;
   children?: any;
+  customPreview?: boolean;
+  onChange: (...args: any[]) => void;
+  handleDrop?: (...args: any[]) => void;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
-  onCancel,
+  onChange,
   handleDrop: handleDropProp,
+  customPreview,
   ...attr
 }) => {
+  const [previewImages, setPreviewImages]: any[] = useState([]);
+  const [filesToUpload, setFilesToUpload]: any[] = useState([]);
   const area: any = useRef(null);
   const selectFile: any = useRef(null);
   const handleDragover = (event: any): void => {
     event.stopPropagation();
     event.preventDefault();
   };
+
+  useEffect(() => {
+    const handleDrop = (event: any) => {
+      event.preventDefault();
+      event.stopPropagation();
+      let { dataTransfer: { files = {} } = {} } = event;
+      files = Object.values(files);
+      processFiles(files);
+    };
+    const { current: currentArea } = area;
+    currentArea.addEventListener("dragover", handleDragover);
+    currentArea.addEventListener("drop", handleDrop);
+    return () => {
+      currentArea.removeEventListener("dragover", handleDragover);
+      currentArea.removeEventListener("drop", handleDrop);
+    };
+  }, [previewImages, filesToUpload]);
+
   const getPreview = (files: any[]) =>
     Promise.all(
       files.map(
         file =>
           new Promise((resolve, reject) => {
-            const date = new Date();
+            const time = new Date().getTime();
             if (file.type && file.type.includes("image")) {
               const reader = new FileReader();
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
                 resolve({
                   base64: e.target.result,
-                  key: `${file.name}-${date.getTime()}`,
+                  id: time,
                   name: file.name,
                   type: "image"
                 });
@@ -37,7 +61,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                 reject(new DOMException("Error parsing input file."));
             } else {
               resolve({
-                key: `${file.name}-${date.getTime()}`,
+                id: time,
                 name: file.name,
                 type: "file"
               });
@@ -45,41 +69,38 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           })
       )
     );
-  const processFiles = async (event: any, files: any): Promise<any> => {
+
+  const processFiles = async (files: any): Promise<any> => {
     if (!files || !files.length) {
       return;
     }
-    getPreview(files).then((previewFiles: any): void => {
-      handleDropProp({ event, files, previewFiles });
-    });
+
+    const previewFiles = await getPreview(files);
+    setFilesToUpload([...filesToUpload, ...files]);
+    setPreviewImages([...previewImages, ...previewFiles]);
+    if (handleDropProp) {
+      handleDropProp({ previewFiles: [...previewImages, ...previewFiles] });
+    }
   };
   const handleChange = (event: any) => {
     event.preventDefault();
     let { target: { files = {} } = {} } = event;
     files = Object.values(files);
-    processFiles(event, files);
+    processFiles(files);
+    onChange(files);
   };
-  useEffect(() => {
-    const handleDrop = (event: any) => {
-      event.preventDefault();
-      event.stopPropagation();
-      let { dataTransfer: { files = {} } = {} } = event;
-      files = Object.values(files);
-      processFiles(event, files);
-    };
-    const { current: currentArea } = area;
-    currentArea.addEventListener("dragover", handleDragover);
-    currentArea.addEventListener("drop", handleDrop);
-  }, [processFiles]);
+
   const handleBrowse = () => {
     const { current: currentSelectFile } = selectFile;
     currentSelectFile.click();
   };
-  const handleCancel = (event: any) => {
-    handleDropProp({ event, canceled: true });
-    if (onCancel) {
-      onCancel();
-    }
+  const handleCancel = (idToRemove: string): void => {
+    const validFiles = (files: any[]) =>
+      files.filter(({ id }: { id: string }) => id !== idToRemove);
+    const fileToUploadUpdated = validFiles(filesToUpload);
+    const previewImagesUpdated = validFiles(previewImages);
+    setFilesToUpload(fileToUploadUpdated);
+    setPreviewImages(previewImagesUpdated);
   };
 
   return (
@@ -102,24 +123,16 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
         />
       </div>
 
-      <Button
-        onClick={handleCancel}
-        modifiers={[Button.availableModifiers.cancel]}
-      >
-        Cancel
-      </Button>
-
-      {children}
+      {!customPreview && (
+        <FileList previewImages={previewImages} handleCancel={handleCancel} />
+      )}
     </div>
   );
 };
 FileUpload.defaultProps = {
-  children: "",
-  handleDrop: (): void => {
-    return;
-  },
-  onCancel: (): void => {
-    return;
-  }
+  children: "No content",
+  customPreview: false,
+  handleDrop: () => void 0,
+  onChange: () => void 0
 };
 export default FileUpload;

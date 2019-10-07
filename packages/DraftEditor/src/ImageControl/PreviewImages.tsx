@@ -9,12 +9,12 @@ const PreviewImages: FunctionComponent<IPreviewIages> = ({
   return (
     <div className="custom-DraftEditor-images">
       {previewImages.map((image: IImage) => {
-        const { src, key } = image;
+        const { src, id } = image;
         return (
           <div
             className="custom-DraftEditor-previewImage"
             onClick={(): void => addSelectedImage(image)}
-            key={key}
+            key={id}
           >
             {isSelected(src) && (
               <span>
