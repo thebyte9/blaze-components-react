@@ -116,10 +116,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
         />
       </div>
 
-      <FileList
-        previewImages={previewImages}
-        handleCancel={handleCancel}
-      ></FileList>
+      <FileList previewImages={previewImages} handleCancel={handleCancel} />
     </div>
   );
 };

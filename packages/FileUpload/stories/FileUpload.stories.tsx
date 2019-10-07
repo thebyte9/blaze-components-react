@@ -33,7 +33,7 @@ storiesOf("FileUpload", module)
           ]}
           upload
         >
-          <FileUpload onChange={onChange}></FileUpload>
+          <FileUpload onChange={onChange} />
         </Modal>
       );
     };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import DocumentIcon from "../DocumentIcon";
 
 const IMAGE = "image";
@@ -12,7 +12,7 @@ const FileList = ({
 }) => (
   <>
     {previewImages.map((file: any) => (
-      <React.Fragment key={file.id}>
+      <Fragment key={file.id}>
         <div className="preview-container">
           <div className="preview-file-container">
             {file.type === IMAGE ? (
@@ -28,7 +28,7 @@ const FileList = ({
             aria-hidden="true"
           />
         </div>
-      </React.Fragment>
+      </Fragment>
     ))}
   </>
 );
