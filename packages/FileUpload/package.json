@@ -19,7 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "@blaze-react/button": "^0.3.31",
-    "@blaze-react/modal": "^0.3.32"
+    "@blaze-react/modal": "^0.3.32",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

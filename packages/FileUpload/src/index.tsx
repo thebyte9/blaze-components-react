@@ -1,5 +1,6 @@
 import Button from "@blaze-react/button";
 import React, { useEffect, useRef, useState } from "react";
+import uuid from "uuid/v1";
 import FileList from "./FileList";
 
 interface IFileUploadProps {
@@ -42,14 +43,13 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       files.map(
         file =>
           new Promise((resolve, reject) => {
-            const time = new Date().getTime();
             if (file.type && file.type.includes("image")) {
               const reader = new FileReader();
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
                 resolve({
                   base64: e.target.result,
-                  id: time,
+                  id: uuid(),
                   name: file.name,
                   type: "image"
                 });
@@ -57,7 +57,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                 reject(new DOMException("Error parsing input file."));
             } else {
               resolve({
-                id: time,
+                id: uuid(),
                 name: file.name,
                 type: "file"
               });
