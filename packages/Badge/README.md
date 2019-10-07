@@ -1,51 +1,40 @@
+## Description
 
-## Description
+Badges are small components typically used to communicate a numerical value or indicate the status of an item to the user.
 
-Badges are small components typically used to communicate a numerical value or indicate the status of an item to the user.
+## Usage
 
-## Usage
-
-* Simple
+- Simple
 
 ```js
 <Badge type="primary">Badge</Badge>
 ```
 
-* Pill
+- Link
 
 ```js
-<Badge type="success" pill>Badge</Badge>
-```
-
-* Link
-
-```js
-<Badge 
-    type="info" 
-    link 
-    to="https://www.thebyte9.com/">
-    Go to byte9
+<Badge type="info" link>
+    <a href="https://www.thebyte9.com/">Go to byte9</a>
 </Badge>
 ```
 
-* Rounded
+- Icon
 
 ```js
-<Badge type="alert" round>10</Badge>
+<Badge type="pagebuilder" icon colour="deep-orange">
+    Social follow            
+  <i className="fas fa-share" />
+</Badge>
 ```
 
-## API
+## API
 
-##### Badges can receive a number of `props` as follow:
+##### Badges can receive a number of `props` as follow:
 
-
-| NAME   | TYPE | DEFAULT | Options |
-| :---  | :---:  | :---: | ------- |
-| type | String | empty | primary, secondary, success, warning, dark, info, light, cta |
-| to | String | # |
-| round | Boolean | false | 
-| link | Boolean | false | 
-| pill | Boolean | false | 
-| icon | Boolean | false | 
-| children | Single or array of nodes | No content | 
-
+| NAME     |           TYPE           |  DEFAULT   | Options                                                                                  |
+| :------- | :----------------------: | :--------: | ---------------------------------------------------------------------------------------- |
+| type     |          String          |   empty    | default, primary, secondary, success, alert, info, light, dark, link, pagebuilder        |
+| link     |         Boolean          |   false    |
+| icon     |         Boolean          |   false    |
+| color    |          String          |   empty    | blue, light-blue, deep-orange, orange, purple, deep-purple, pink, red, cyan, teal, green |
+| children | Single or array of nodes | No content |
