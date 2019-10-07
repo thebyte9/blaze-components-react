@@ -24,7 +24,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
           label=""
           toggled={false}
         >
-          <WithUtils
+          <withUtils()
             className="icon-button icon-button--round"
             disabled={false}
             onClick={[Function]}
@@ -39,6 +39,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
                 Object {
                   "ErrorMessage": [Function],
                   "classNames": [Function],
+                  "removeExtraSpaces": [Function],
                   "uniqueId": [Function],
                 }
               }
@@ -57,7 +58,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
                 </span>
               </button>
             </Component>
-          </WithUtils>
+          </withUtils()>
         </MoreAvatar>
         <MoreContent
           displayBg={false}

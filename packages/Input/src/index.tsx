@@ -75,13 +75,10 @@ const Input: FunctionComponent<IInputProps> = ({
   });
 
   return (
-    <div
-      className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}
-    >
+    <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
       <label htmlFor={attrs.id} className={requiredClassName}>
         {label}
       </label>
-
       <input
         data-testid="input"
         onChange={handleChange}
@@ -91,9 +88,7 @@ const Input: FunctionComponent<IInputProps> = ({
         required={required}
         {...attrs}
       />
-
       {error && <ErrorMessage message={validationMessage} />}
-
       {!hideTypeToggle && isPassword && (
         <ToggleInputType toggleType={handleToggleType} type={newType} />
       )}

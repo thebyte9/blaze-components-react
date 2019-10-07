@@ -64,8 +64,8 @@ storiesOf("Badges", module)
         displayed. The a tag has been removed to prevent browsers from
         interpreting it as an external link
       </p>
-      <Badge type="pagebuilder" color="grey-dark" link>
-        <a className="badge badge--primary">Go to byte9</a>
+      <Badge type="info" link>
+        <a className="badge badge--info">Go to byte9</a>
       </Badge>
       <br />
       <br />
@@ -73,7 +73,7 @@ storiesOf("Badges", module)
       <h4>Icon</h4>
       <p>Icon and icon name needs to be passed as children props of Badge</p>
       <Badge type="pagebuilder" color="deep-orange" icon>
-        "Social follow"
+        Social follow
         <i className="fas fa-share" />
       </Badge>
       <br />
