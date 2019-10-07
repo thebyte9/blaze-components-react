@@ -73,7 +73,7 @@ storiesOf("Badges", module)
       <h4>Icon</h4>
       <p>Icon and icon name needs to be passed as children props of Badge</p>
       <Badge type="pagebuilder" color="deep-orange" icon>
-        "Social follow"
+        Social follow
         <i className="fas fa-share" />
       </Badge>
       <br />

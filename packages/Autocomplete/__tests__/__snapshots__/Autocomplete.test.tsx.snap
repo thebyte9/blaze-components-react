@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Autocomplete component should be defined and renders correctly (snapshot) 1`] = `
-<withUtils(Autocomplete)
+<WithUtils
   data={
     Object {
       "data": Array [
@@ -68,7 +68,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
       }
     }
   >
-    <withUtils(Input)
+    <WithUtils
       label=""
       onChange={[Function]}
       placeholder="Search"
@@ -112,7 +112,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
           />
         </div>
       </Input>
-    </withUtils(Input)>
+    </WithUtils>
   </Autocomplete>
-</withUtils(Autocomplete)>
+</WithUtils>
 `;
