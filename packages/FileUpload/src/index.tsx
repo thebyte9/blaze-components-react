@@ -31,6 +31,10 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const { current: currentArea } = area;
     currentArea.addEventListener("dragover", handleDragover);
     currentArea.addEventListener("drop", handleDrop);
+    return () => {
+      currentArea.removeEventListener("dragover", handleDragover);
+      currentArea.removeEventListener("drop", handleDrop);
+    };
   }, [previewImages, filesToUpload]);
 
   const getPreview = (files: any[]) =>
