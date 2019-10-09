@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@blaze-react/button-select": "0.3.43",
     "@blaze-react/button": "^0.3.43",
     "@blaze-react/modal": "^0.3.43",
     "uuid": "^3.3.3"

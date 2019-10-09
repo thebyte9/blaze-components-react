@@ -13,8 +13,7 @@
     "test:coverage": "jest --coverage",
     "dev": "start-storybook",
     "start": "start-storybook",
-    "pre-publish": "npm run build && npm run lint && npm run test",
-    "build:declarations": "lerna exec --parallel 'tsc --project ../../tsconfig.build.json'"
+    "pre-publish": "npm run build && npm run lint && npm run test"
   },
   "pre-commit": [
     "lint",
