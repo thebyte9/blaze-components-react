@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/tooltip",
-  "version": "0.3.42",
+  "version": "0.3.43",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.3.42"
+    "@blaze-react/button": "^0.3.43"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
