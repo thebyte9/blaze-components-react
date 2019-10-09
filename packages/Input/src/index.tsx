@@ -44,15 +44,14 @@ const Input: FunctionComponent<IInputProps> = ({
   ...attrs
 }): JSX.Element => {
   const isValidValue = value !== null && value !== undefined;
+  const initialValue = isValidValue ? value : "";
 
-  const [newValue, setNewValue] = useState<string | undefined>(
-    isValidValue ? value : ""
-  );
+  const [newValue, setNewValue] = useState<string | undefined>(initialValue);
   const [newType, setType] = useState<string | undefined>(type);
   const [newError, setError] = useState<boolean | undefined>(error);
 
   useEffect(() => {
-    setError(isValidValue ? false : true);
+    setError(!isValidValue);
   }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
