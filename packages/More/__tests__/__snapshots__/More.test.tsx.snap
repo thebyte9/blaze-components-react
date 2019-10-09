@@ -24,7 +24,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
           label=""
           toggled={false}
         >
-          <withUtils()
+          <WithUtils
             className="icon-button icon-button--round"
             disabled={false}
             onClick={[Function]}
@@ -58,7 +58,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
                 </span>
               </button>
             </Component>
-          </withUtils()>
+          </WithUtils>
         </MoreAvatar>
         <MoreContent
           displayBg={false}
