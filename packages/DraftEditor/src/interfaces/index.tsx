@@ -137,7 +137,7 @@ export interface ILinkControlProps {
   onToggle: (
     newEditorState: EditorState,
     selection: SelectionState,
-    entityKey: string
+    entityKey: string | null
   ) => void;
 }
 

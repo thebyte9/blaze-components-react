@@ -72,9 +72,15 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           (character: CharacterMetadata): boolean => {
             const entityKey = character.getEntity();
 
-            return entityKey
-              ? availableContentState.getEntity(entityKey).getType() === LINK
-              : false;
+            if (
+              entityKey &&
+              availableContentState.getEntity(entityKey).getType() === LINK &&
+              availableContentState.getEntity(entityKey).getData().url
+            ) {
+              return true;
+            }
+
+            return false;
           },
           callback
         );

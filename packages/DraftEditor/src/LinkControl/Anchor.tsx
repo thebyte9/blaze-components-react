@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import eventBus from "../eventBus";
 import { ILinkProps } from "../interfaces";
 
 const Anchor: FunctionComponent<ILinkProps> = ({
@@ -7,8 +8,11 @@ const Anchor: FunctionComponent<ILinkProps> = ({
   children
 }): JSX.Element => {
   const { url }: { url: string } = contentState.getEntity(entityKey).getData();
+
+  const showModal = () => eventBus.$emit("edit-link", { url });
+
   return (
-    <a rel="nofollow noreferrer" href={url} target="_blank">
+    <a rel="nofollow noreferrer" href={url} target="_blank" onClick={showModal}>
       {children}
     </a>
   );

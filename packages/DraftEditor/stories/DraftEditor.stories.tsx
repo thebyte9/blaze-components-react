@@ -29,7 +29,7 @@ storiesOf("DraftEditor", module)
           }: {
             event: { target: { name: string; value: string } };
           }) => {
-            console.log("event --> ", name);
+            console.log("event --> ");
           }}
         />
       </div>
