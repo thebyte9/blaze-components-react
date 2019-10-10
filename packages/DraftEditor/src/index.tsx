@@ -23,7 +23,7 @@ import createFocusPlugin from "draft-js-focus-plugin";
 import createImagePlugin from "draft-js-image-plugin";
 import Editor, { composeDecorators } from "draft-js-plugins-editor";
 import React, { FunctionComponent, useEffect, useState } from "react";
-import { BLOCK_QUOTE, HANDLED, LINK, NOT_HANDLED, UNSTYLED } from "./constants";
+import { BLOCKQUOTE, HANDLED, LINK, NOT_HANDLED, UNSTYLED } from "./constants";
 import { IDraftEditorProps } from "./interfaces";
 
 const focusPlugin = createFocusPlugin();
@@ -158,7 +158,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   });
 
   const getBlockStyle = (block: ContentBlock): string => {
-    const isBlockquote: boolean = block.getType() === BLOCK_QUOTE;
+    const isBlockquote: boolean = block.getType() === BLOCKQUOTE;
     return classNames({
       "custom-DraftEditor-blockquote": isBlockquote
     });
