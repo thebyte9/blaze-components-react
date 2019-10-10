@@ -37,7 +37,9 @@ describe("Autocomplete component", () => {
   });
 
   test("should allow to filter", () => {
-    const { getByTestId, getByPlaceholderText } = render(AutocompleteComponent);
+    const { getByDisplayValue, getByTestId, getByPlaceholderText } = render(
+      AutocompleteComponent
+    );
 
     const input = getByPlaceholderText("Search");
 
@@ -51,6 +53,6 @@ describe("Autocomplete component", () => {
 
     fireEvent.click(button);
 
-    // getByDisplayValue("Laravel");
+    getByDisplayValue("Laravel");
   });
 });

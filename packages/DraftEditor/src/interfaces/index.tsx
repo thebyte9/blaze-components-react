@@ -14,23 +14,23 @@ import {
   SelectionState
 } from "draft-js";
 
-export type DraftTextAlignment = "left" | "center" | "right";
-export type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
-export type SyntheticEvent = React.SyntheticEvent<object>;
+type DraftTextAlignment = "left" | "center" | "right";
+type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
+type SyntheticEvent = React.SyntheticEvent<object>;
 
-export interface IImage {
+interface IImage {
   base64: string;
   src: string;
   name: string;
   id?: string;
 }
 
-export interface IErrorMessage {
+interface IErrorMessage {
   message: string | JSX.Element;
   icon?: string;
 }
 
-export interface IDraftEditorProps {
+interface IDraftEditorProps {
   unSelectedText: string;
   previewImages: IImage[];
   editorState?: EditorState;
@@ -125,13 +125,13 @@ export interface IDraftEditorProps {
   keyBindingFn?(e: SyntheticKeyboardEvent): DraftEditorCommand | null;
 }
 
-export interface IInlineImageControlsProps {
+interface IInlineImageControlsProps {
   editorState: EditorState;
   previewImages: IImage[];
   onToggle: (newEditorState: EditorState, entityKey: string) => EditorState;
 }
 
-export interface ILinkControlProps {
+interface ILinkControlProps {
   editorState: EditorState;
   unSelectedText: string;
   onToggle: (
@@ -141,17 +141,17 @@ export interface ILinkControlProps {
   ) => void;
 }
 
-export interface IInlineTypes {
+interface IInlineTypes {
   label: string;
   style: string;
 }
 
-export interface IInlineControlsProps {
+interface IInlineControlsProps {
   editorState: EditorState;
   onToggle: (blockType: DraftBlockType) => void;
 }
 
-export interface IStyleButtonProps {
+interface IStyleButtonProps {
   onToggle: (style: string) => void;
   style: string;
   active: boolean;
@@ -162,14 +162,30 @@ export interface IStyleButtonProps {
   };
 }
 
-export interface ILinkProps {
+interface ILinkProps {
   contentState: ContentState;
   children: JSX.Element | JSX.Element[];
   entityKey: string;
 }
 
-export interface IPreviewIages {
+interface IPreviewIages {
   previewImages: IImage[];
   isSelected: (src: string) => boolean;
   addSelectedImage: (image: IImage) => void;
 }
+
+export {
+  IErrorMessage,
+  DraftTextAlignment,
+  SyntheticKeyboardEvent,
+  SyntheticEvent,
+  IImage,
+  IDraftEditorProps,
+  IInlineImageControlsProps,
+  ILinkControlProps,
+  IInlineTypes,
+  IInlineControlsProps,
+  IStyleButtonProps,
+  ILinkProps,
+  IPreviewIages
+};
