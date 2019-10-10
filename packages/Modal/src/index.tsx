@@ -22,6 +22,7 @@ interface IModalProps {
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
   };
+  className: string;
 }
 const Modal: React.SFC<IModalProps> = ({
   children,
@@ -32,13 +33,14 @@ const Modal: React.SFC<IModalProps> = ({
   actions,
   overlay,
   utils: { classNames },
+  className,
   onClose = () => ({})
 }): JSX.Element => {
   const sections: string[] = ["header", "content", "footer"];
 
   const closeModal = (): void => onClose();
 
-  const modalClassNames: string = classNames("modal modal--show", {
+  const modalClassNames: string = classNames(`${className} modal modal--show`, {
     "modal--alert": isAlert,
     "modal--simple": isSimple,
     "modal--upload": isUpload

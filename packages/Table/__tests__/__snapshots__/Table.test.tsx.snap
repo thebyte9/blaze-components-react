@@ -38,7 +38,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
       className="table-scroll"
     >
       <table>
-        <withUtils(TableHead)
+        <WithUtils
           allRows={
             Array [
               Object {
@@ -140,8 +140,8 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
               </tr>
             </thead>
           </TableHead>
-        </withUtils(TableHead)>
-        <withUtils(TableBody)
+        </WithUtils>
+        <WithUtils
           allRows={
             Array [
               Object {
@@ -248,7 +248,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
               </tr>
             </tbody>
           </TableBody>
-        </withUtils(TableBody)>
+        </WithUtils>
       </table>
     </div>
   </div>
