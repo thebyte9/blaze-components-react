@@ -12,7 +12,6 @@ interface IErrorMessage {
   icon?: string;
 }
 
-
 interface IData {
   checked?: boolean;
   show?: boolean;
@@ -65,6 +64,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return function cleanup() {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
     const shouldUpdate =
       differenceWith(dataCopy, data, isEqual).length ||
       differenceWith(data, dataCopy, isEqual).length;
@@ -78,11 +85,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         })
       );
     }
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return function cleanup() {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
   }, [data]);
 
   const setStatus = (obj: object, status: boolean): object =>
@@ -114,11 +116,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       )
     );
 
-  const updateData = (element: number, value: boolean) => {
-    const newDataCopy = [...dataCopy];
-    newDataCopy[element].checked = value;
-    setDataCopy(newDataCopy);
-    checkLimit(newDataCopy);
+  const updateData = (newData: IData[]) => {
+    setDataCopy(newData);
+    checkLimit(newData);
   };
 
   const handleKeyDown = ({
@@ -136,8 +136,17 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       const elementToAdd = parsedDataCopy.findIndex(
         (parsedData: IData) => parsedData.show
       );
-
-      updateData(elementToAdd, true);
+      const newDataCopy: IData[] = [...dataCopy];
+      newDataCopy[elementToAdd].checked = true;
+      updateData(newDataCopy);
+      getSelected({
+        event: {
+          target: {
+            name,
+            value: newDataCopy.filter(({ checked }: { checked: boolean }) => checked)
+          }
+        }
+      });
     }
   };
 
@@ -171,13 +180,33 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     const elementToDelete: number = dataCopy.findIndex(
       ({ id: itemId }: { id: string | number }) => itemId === id
     );
-    updateData(elementToDelete, false);
+    const newDataCopy: IData[] = [...dataCopy];
+    newDataCopy[elementToDelete].checked = false;
+    updateData(newDataCopy);
+
+    getSelected({
+      event: {
+        target: {
+          name,
+          value: newDataCopy.filter(({ checked }: { checked: boolean }) => checked)
+        }
+      }
+    });
   };
 
   const handleClearAll = (): void => {
     const formatedElements: object[] = dataCopy.map((item: IData) => {
       item.checked = false;
       return item;
+    });
+
+    getSelected({
+      event: {
+        target: {
+          name,
+          value: []
+        }
+      }
     });
     setDataCopy(formatedElements);
     setShow(false);
@@ -211,7 +240,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
                   Chip.availableModifiers.parent.small
                 ]}
                 onDelete={() => handleDelete(selectedValue[identification])}
-                action={() => handleDelete(selectedValue[identification])}
                 key={uniqueId(selectedValue)}
               >
                 <Chip.Label>{selectedValue[keyValue]}</Chip.Label>
