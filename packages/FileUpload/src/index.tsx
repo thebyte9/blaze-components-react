@@ -1,4 +1,5 @@
 import Button from "@blaze-react/button";
+import ButtonSelect from "@blaze-react/button-select";
 import React, { useEffect, useRef, useState } from "react";
 import uuid from "uuid/v1";
 import FileList from "./FileList";
@@ -8,12 +9,14 @@ interface IFileUploadProps {
   customPreview?: boolean;
   onChange: (...args: any[]) => void;
   handleDrop?: (...args: any[]) => void;
+  handleLibraryClick?: (...args: any[]) => void;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
   onChange,
   handleDrop: handleDropProp,
   customPreview,
+  handleLibraryClick,
   ...attr
 }) => {
   const [previewImages, setPreviewImages]: any[] = useState([]);
@@ -115,7 +118,29 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
       <div className="upload__browse">
         <div className="upload__text">or</div>
-        <Button onClick={handleBrowse}>Browse</Button>
+        {!handleLibraryClick && <Button onClick={handleBrowse}>Browse</Button>}
+        {handleLibraryClick && (
+          <ButtonSelect text="Add files">
+            <Button
+              modifiers={[
+                Button.availableModifiers.plain,
+                Button.availableModifiers.fullWidth
+              ]}
+              onClick={handleLibraryClick}
+            >
+              From library
+            </Button>
+            <Button
+              modifiers={[
+                Button.availableModifiers.plain,
+                Button.availableModifiers.fullWidth
+              ]}
+              onClick={handleBrowse}
+            >
+              From device
+            </Button>
+          </ButtonSelect>
+        )}
         <input
           type="file"
           onChange={handleChange}

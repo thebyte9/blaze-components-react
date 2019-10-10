@@ -24,7 +24,6 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
       }
     }
     validationMessage="This field is required"
-    value=""
   >
     <div
       className="form-field form-field--input  "
@@ -41,6 +40,22 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
         type="text"
         value=""
       />
+      <ErrorMessage
+        icon="warning"
+        message="This field is required"
+      >
+        <div
+          className="validation"
+          data-testid="validation-message"
+        >
+          <i
+            className="material-icons"
+          >
+            warning
+          </i>
+          This field is required
+        </div>
+      </ErrorMessage>
     </div>
   </Input>
 </withUtils(Input)>

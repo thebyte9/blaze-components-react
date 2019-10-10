@@ -128,4 +128,21 @@ describe("Input component", () => {
     expect(getByTestId("input")).toHaveValue(inputValue);
     expect(stateValue).toEqual(inputValue);
   });
+
+  test("should display error message if input value is initially null", () => {
+    const override = { value: null };
+    const { getByTestId } = render(<Input {...defaultProps(override)} />);
+
+    expect(getByTestId("validation-message")).toHaveTextContent(
+      "This field is required"
+    );
+  });
+  test("should display error message if input value is initially undefined", () => {
+    const override = { value: undefined };
+    const { getByTestId } = render(<Input {...defaultProps(override)} />);
+
+    expect(getByTestId("validation-message")).toHaveTextContent(
+      "This field is required"
+    );
+  });
 });

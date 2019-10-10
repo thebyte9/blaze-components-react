@@ -1,6 +1,6 @@
-/* @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700"); */
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-/* @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css"); */
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
 /* Fixes an issue where Ruby locale is not set properly*/
 /* See https://github.com/sass-mq/sass-mq/pull/10*/
 /*/ Base font size on the `<body>` element*/
