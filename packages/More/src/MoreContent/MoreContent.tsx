@@ -22,7 +22,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
 
   const handleClickOutside = (event: any) => {
     if (event.target === wrapperRef.current) {
-      handleToggle();
+      handleToggle(event);
     }
   };
 
