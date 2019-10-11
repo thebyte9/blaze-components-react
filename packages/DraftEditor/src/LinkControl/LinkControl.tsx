@@ -10,7 +10,8 @@ import { ILinkControlProps } from "../interfaces";
 
 const LinkControl = ({
   editorState,
-  onToggle
+  onToggle,
+  unSelectedText
 }: ILinkControlProps): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
@@ -51,7 +52,7 @@ const LinkControl = ({
     let entityKey: string | null = null;
     let newEditorState: EditorState = editorState;
 
-    if (!isEditMode && url) {
+    if (url) {
       const contentStateWithEntity: ContentState = contentState.createEntity(
         LINK,
         IMMUTABLE,
@@ -72,7 +73,12 @@ const LinkControl = ({
   const alertActions = [
     {
       callback: addLink,
-      modifiers: ["small", "rounded", "outline"],
+      modifiers: [
+        "small",
+        "rounded",
+        "outline",
+        `${selectedContent ? "" : "disabled"}`
+      ],
       textButton: "Save"
     }
   ];
@@ -93,14 +99,20 @@ const LinkControl = ({
       />
       {modalStatus && (
         <Modal actions={alertActions} onClose={toggleModal} isAlert>
-          <Input
-            placeholder="Past link"
-            onChange={handleChange}
-            modifier="full-width"
-            value={url}
-          />
-          {isEditMode && (
-            <span>Note: keep it empty if you want to remove the link.</span>
+          {selectedContent ? (
+            <>
+              <Input
+                placeholder="Past link"
+                onChange={handleChange}
+                modifier="full-width"
+                value={url}
+              />
+              {isEditMode && (
+                <span>Note: keep it empty if you want to remove the link.</span>
+              )}
+            </>
+          ) : (
+            <p>{unSelectedText}</p>
           )}
         </Modal>
       )}
