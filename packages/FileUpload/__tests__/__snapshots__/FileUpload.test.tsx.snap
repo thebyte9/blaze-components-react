@@ -8,6 +8,7 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
         "current": null,
       }
     }
+    customPreview={false}
     handleCancel={[Function]}
     previewImages={Array []}
   >
