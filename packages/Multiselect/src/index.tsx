@@ -224,6 +224,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
         {children}
         <Input
+          value={dataCopy}
           placeholder={placeholder}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}

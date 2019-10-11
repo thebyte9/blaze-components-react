@@ -6,12 +6,16 @@ import FileList from "./FileList";
 
 interface IFileUploadProps {
   children?: any;
+  customPreview?: boolean;
   onChange: (...args: any[]) => void;
+  handleDrop?: (...args: any[]) => void;
   handleLibraryClick?: (...args: any[]) => void;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
   onChange,
+  handleDrop: handleDropProp,
+  customPreview,
   handleLibraryClick,
   ...attr
 }) => {
@@ -78,6 +82,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const previewFiles = await getPreview(files);
     setFilesToUpload([...filesToUpload, ...files]);
     setPreviewImages([...previewImages, ...previewFiles]);
+    if (handleDropProp) {
+      handleDropProp({ previewFiles: [...previewImages, ...previewFiles] });
+    }
   };
   const handleChange = (event: any) => {
     event.preventDefault();
@@ -142,12 +149,16 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
         />
       </div>
 
-      <FileList previewImages={previewImages} handleCancel={handleCancel} />
+      {!customPreview && (
+        <FileList previewImages={previewImages} handleCancel={handleCancel} />
+      )}
     </div>
   );
 };
 FileUpload.defaultProps = {
   children: "No content",
+  customPreview: false,
+  handleDrop: () => void 0,
   onChange: () => void 0
 };
 export default FileUpload;

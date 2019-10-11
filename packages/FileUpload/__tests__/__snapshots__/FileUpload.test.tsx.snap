@@ -28,13 +28,13 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
     >
       or
     </div>
-    <WithUtils
+    <withUtils()
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       Browse
-    </WithUtils>
+    </withUtils()>
     <input
       onChange={[Function]}
       style={
