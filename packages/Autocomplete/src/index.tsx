@@ -51,7 +51,8 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
         placeholder={placeholder}
         label={label}
         onChange={handleChange}
-        value={inputValue} />
+        value={inputValue}
+      />
 
       {showSelect &&
         filterByValue(inputValue).map(

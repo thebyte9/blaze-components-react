@@ -1,18 +1,24 @@
-import Button from "@blaze-react/button";
-import ButtonSelect from "@blaze-react/button-select";
 import React, { useEffect, useRef, useState } from "react";
 import uuid from "uuid/v1";
+import Actions from "./Actions";
+import DraggableFileUpload from "./DraggableFileUpload";
 import FileList from "./FileList";
 
 interface IFileUploadProps {
   children?: any;
+  customPreview?: boolean;
   onChange: (...args: any[]) => void;
+  handleDrop?: (...args: any[]) => void;
   handleLibraryClick?: (...args: any[]) => void;
+  enableDragAndDrop?: boolean;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
   onChange,
+  handleDrop: handleDropProp,
+  customPreview,
   handleLibraryClick,
+  enableDragAndDrop,
   ...attr
 }) => {
   const [previewImages, setPreviewImages]: any[] = useState([]);
@@ -34,12 +40,15 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       onChange(files);
     };
     const { current: currentArea } = area;
-    currentArea.addEventListener("dragover", handleDragover);
-    currentArea.addEventListener("drop", handleDrop);
-    return () => {
-      currentArea.removeEventListener("dragover", handleDragover);
-      currentArea.removeEventListener("drop", handleDrop);
-    };
+    if (enableDragAndDrop) {
+      currentArea.addEventListener("dragover", handleDragover);
+      currentArea.addEventListener("drop", handleDrop);
+      return () => {
+        currentArea.removeEventListener("dragover", handleDragover);
+        currentArea.removeEventListener("drop", handleDrop);
+      };
+    }
+    return;
   }, [previewImages, filesToUpload]);
 
   const getPreview = (files: any[]) =>
@@ -78,6 +87,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const previewFiles = await getPreview(files);
     setFilesToUpload([...filesToUpload, ...files]);
     setPreviewImages([...previewImages, ...previewFiles]);
+    if (handleDropProp) {
+      handleDropProp({ previewFiles: [...previewImages, ...previewFiles] });
+    }
   };
   const handleChange = (event: any) => {
     event.preventDefault();
@@ -101,53 +113,45 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   };
 
   return (
-    <div ref={area} className="upload" {...attr}>
-      <div className="upload__drag-drop">
-        <div className="upload__icon">
-          <i className="material-icons">arrow_upward</i>
-        </div>
-        <p>Drag &amp; drop file to upload</p>
-      </div>
-
-      <div className="upload__browse">
-        <div className="upload__text">or</div>
-        {!handleLibraryClick && <Button onClick={handleBrowse}>Browse</Button>}
-        {handleLibraryClick && (
-          <ButtonSelect text="Add files">
-            <Button
-              modifiers={[
-                Button.availableModifiers.plain,
-                Button.availableModifiers.fullWidth
-              ]}
-              onClick={handleLibraryClick}
-            >
-              From library
-            </Button>
-            <Button
-              modifiers={[
-                Button.availableModifiers.plain,
-                Button.availableModifiers.fullWidth
-              ]}
-              onClick={handleBrowse}
-            >
-              From device
-            </Button>
-          </ButtonSelect>
-        )}
-        <input
-          type="file"
-          onChange={handleChange}
-          ref={selectFile}
-          style={{ display: "none" }}
-        />
-      </div>
-
-      <FileList previewImages={previewImages} handleCancel={handleCancel} />
-    </div>
+    <>
+      {enableDragAndDrop ? (
+        <DraggableFileUpload
+          previewImages={previewImages}
+          handleCancel={handleCancel}
+          area={area}
+          {...attr}
+        >
+          <Actions
+            handleLibraryClick={handleLibraryClick}
+            handleBrowse={handleBrowse}
+            handleChange={handleChange}
+            selectFile={selectFile}
+          />
+        </DraggableFileUpload>
+      ) : (
+        <>
+          <Actions
+            handleLibraryClick={handleLibraryClick}
+            handleBrowse={handleBrowse}
+            handleChange={handleChange}
+            selectFile={selectFile}
+          />
+          {!customPreview && (
+            <FileList
+              previewImages={previewImages}
+              handleCancel={handleCancel}
+            />
+          )}
+        </>
+      )}
+    </>
   );
 };
 FileUpload.defaultProps = {
   children: "No content",
+  customPreview: false,
+  enableDragAndDrop: true,
+  handleDrop: () => void 0,
   onChange: () => void 0
 };
 export default FileUpload;

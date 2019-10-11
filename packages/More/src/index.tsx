@@ -11,7 +11,8 @@ interface IMoreProps {
 
 const More = ({ children, isHeader, isMoreMenu, onClose }: IMoreProps) => {
   const [toggled, setToggle] = useState(false);
-  const handleToggle = () => {
+  const handleToggle = (event: any) => {
+    event.stopPropagation();
     setToggle(!toggled);
     if (toggled) {
       onClose();

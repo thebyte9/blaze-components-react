@@ -54,13 +54,15 @@ const Input: FunctionComponent<IInputProps> = ({
     setError(!isValidValue);
   }, []);
 
+  useEffect(() => setNewValue(value), [value]);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const {
-      target: { value }
+      target: { value: targetValue }
     } = event;
 
     setNewValue(value);
-    onChange({ event, value });
+    onChange({ event, value: targetValue });
   };
 
   const handleToggleType = (inputType: string): void => {

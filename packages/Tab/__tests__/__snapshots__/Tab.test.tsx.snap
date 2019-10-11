@@ -7,7 +7,7 @@ exports[`Tab component should be defined and renders correctly (snapshot) 1`] = 
   <div
     className="tabs__list"
   >
-    <WithUtils
+    <withUtils()
       className="tabs__list-item "
       disabled={false}
       key="Unnamed tab"
@@ -15,8 +15,8 @@ exports[`Tab component should be defined and renders correctly (snapshot) 1`] = 
       type="button"
     >
       Unnamed tab
-    </WithUtils>
-    <WithUtils
+    </withUtils()>
+    <withUtils()
       className="tabs__list-item current"
       disabled={false}
       key="Advanced"
@@ -24,8 +24,8 @@ exports[`Tab component should be defined and renders correctly (snapshot) 1`] = 
       type="button"
     >
       Advanced
-    </WithUtils>
-    <WithUtils
+    </withUtils()>
+    <withUtils()
       className="tabs__list-item "
       disabled={false}
       key="Other"
@@ -33,7 +33,7 @@ exports[`Tab component should be defined and renders correctly (snapshot) 1`] = 
       type="button"
     >
       Other
-    </WithUtils>
+    </withUtils()>
   </div>
   <Component
     action={[Function]}

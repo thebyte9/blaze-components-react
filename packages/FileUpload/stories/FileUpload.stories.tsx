@@ -16,7 +16,7 @@ storiesOf("FileUpload", module)
       const onChange = (currentFiles: any[]) => {
         setFiles(currentFiles);
         // tslint:disable-next-line: no-console
-        console.log("files -->", files);
+        console.log("files -->", files, currentFiles);
       };
       return (
         <Modal
@@ -33,7 +33,11 @@ storiesOf("FileUpload", module)
           ]}
           upload
         >
-          <FileUpload onChange={onChange} />
+          <FileUpload
+            onChange={onChange}
+            enableDragAndDrop
+            // handleLibraryClick={(a: any) => {}}
+          />
         </Modal>
       );
     };
