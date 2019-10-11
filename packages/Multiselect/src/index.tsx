@@ -12,7 +12,6 @@ interface IErrorMessage {
   icon?: string;
 }
 
-
 interface IData {
   checked?: boolean;
   show?: boolean;
@@ -63,6 +62,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [dataCopy, setDataCopy] = useState<any>([]);
   const [limitReached, setLimitReached] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState<string>("");
 
   useEffect(() => {
     const shouldUpdate =
@@ -88,7 +88,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const setStatus = (obj: object, status: boolean): object =>
     Object.assign({}, obj, { show: status });
 
-  const handleInputChange = ({ event, value }: { event: any; value: string }) => {
+  const handleInputChange = ({
+    event,
+    value
+  }: {
+    event: any;
+    value: string;
+  }) => {
+    setSearchValue(value);
     const parsedDataCopy: object[] = parseDataCopy(value);
 
     if (onChange) {
@@ -182,6 +189,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     setDataCopy(formatedElements);
     setShow(false);
     checkLimit(formatedElements);
+    setSearchValue("");
   };
 
   const handleFocus = (): void => setShow(true);
@@ -195,7 +203,8 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       setLimitReached(reachedLimit);
     }
   };
-  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show).length;
+  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show)
+    .length;
 
   return (
     <>
@@ -224,7 +233,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
         {children}
         <Input
-          value={dataCopy}
+          value={searchValue}
           placeholder={placeholder}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
