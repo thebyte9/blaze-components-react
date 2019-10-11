@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/radio-button",
-  "version": "0.3.46",
+  "version": "0.3.47",
   "publishConfig": {
     "access": "public"
   },
@@ -18,9 +18,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.3.44",
-    "@blaze-react/input": "^0.3.46",
-    "@blaze-react/utils": "^0.3.44"
+    "@blaze-react/checkboxes": "^0.3.47",
+    "@blaze-react/input": "^0.3.47",
+    "@blaze-react/utils": "^0.3.47"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

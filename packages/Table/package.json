@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/table",
-  "version": "0.3.46",
+  "version": "0.3.47",
   "publishConfig": {
     "access": "public"
   },
@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.3.44",
-    "@blaze-react/utils": "^0.3.44",
+    "@blaze-react/checkboxes": "^0.3.47",
+    "@blaze-react/utils": "^0.3.47",
     "@types/lodash.orderby": "^4.6.6",
     "lodash.orderby": "^4.6.0"
   },
