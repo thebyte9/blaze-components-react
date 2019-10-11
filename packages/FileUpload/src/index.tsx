@@ -118,6 +118,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
         <DraggableFileUpload
           previewImages={previewImages}
           handleCancel={handleCancel}
+          customPreview={customPreview}
           area={area}
           {...attr}
         >
