@@ -24,7 +24,7 @@ const ModalFooter = ({
     <div className="modal__button">
       {isAlert && (
         <Button
-          modifiers={[Button.availableModifiers.link]}
+          modifiers={[Button.availableModifiers.cancel]}
           onClick={closeModal}
         >
           Cancel

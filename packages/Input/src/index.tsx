@@ -43,17 +43,26 @@ const Input: FunctionComponent<IInputProps> = ({
   utils: { classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
-  const [newValue, setNewValue] = useState<string | undefined>(value);
+  const isValidValue = value !== null && value !== undefined;
+  const initialValue = isValidValue ? value : "";
+
+  const [newValue, setNewValue] = useState<string | undefined>(initialValue);
   const [newType, setType] = useState<string | undefined>(type);
+  const [newError, setError] = useState<boolean | undefined>(error);
+
+  useEffect(() => {
+    setError(!isValidValue);
+  }, []);
 
   useEffect(() => setNewValue(value), [value]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const {
-      target: { value: inputValue }
+      target: { value: targetValue }
     } = event;
-    setNewValue(inputValue);
-    onChange({ event, value: inputValue });
+
+    setNewValue(value);
+    onChange({ event, value: targetValue });
   };
 
   const handleToggleType = (inputType: string): void => {
@@ -81,7 +90,6 @@ const Input: FunctionComponent<IInputProps> = ({
       <label htmlFor={attrs.id} className={requiredClassName}>
         {label}
       </label>
-
       <input
         data-testid="input"
         onChange={handleChange}
@@ -91,9 +99,7 @@ const Input: FunctionComponent<IInputProps> = ({
         required={required}
         {...attrs}
       />
-
-      {error && <ErrorMessage message={validationMessage} />}
-
+      {newError && <ErrorMessage message={validationMessage} />}
       {!hideTypeToggle && isPassword && (
         <ToggleInputType toggleType={handleToggleType} type={newType} />
       )}
@@ -108,7 +114,6 @@ Input.defaultProps = {
   modifier: "",
   required: false,
   type: "text",
-  validationMessage: "This field is required",
-  value: ""
+  validationMessage: "This field is required"
 };
 export default withUtils(Input);

@@ -3,11 +3,6 @@
 exports[`Modal component should be defined and renders correctly (snapshot) 1`] = `
 <Modal
   actions={Array []}
-  buttonModifiers={
-    Array [
-      "outline",
-    ]
-  }
   buttonText="Simple modal"
   isAlert={false}
   isSimple={true}
@@ -20,6 +15,7 @@ exports[`Modal component should be defined and renders correctly (snapshot) 1`] 
     Object {
       "ErrorMessage": [Function],
       "classNames": [Function],
+      "removeExtraSpaces": [Function],
       "uniqueId": [Function],
     }
   }

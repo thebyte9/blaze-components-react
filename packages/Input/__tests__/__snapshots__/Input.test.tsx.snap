@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input component should be defined and renders correctly (snapshot) 1`] = `
-<WithUtils
+<withUtils(Input)
   onChange={[Function]}
   placeholder="Placeholder text"
 >
@@ -19,11 +19,11 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
       Object {
         "ErrorMessage": [Function],
         "classNames": [Function],
+        "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }
     }
     validationMessage="This field is required"
-    value=""
   >
     <div
       className="form-field form-field--input  "
@@ -38,9 +38,24 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
         placeholder="Placeholder text"
         required={false}
         type="text"
-        value=""
       />
+      <ErrorMessage
+        icon="warning"
+        message="This field is required"
+      >
+        <div
+          className="validation"
+          data-testid="validation-message"
+        >
+          <i
+            className="material-icons"
+          >
+            warning
+          </i>
+          This field is required
+        </div>
+      </ErrorMessage>
     </div>
   </Input>
-</WithUtils>
+</withUtils(Input)>
 `;

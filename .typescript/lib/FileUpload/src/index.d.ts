@@ -1,7 +1,11 @@
 import React from "react";
 interface IFileUploadProps {
-    handleDrop: (...args: any[]) => any;
     children?: any;
+    customPreview?: boolean;
+    onChange: (...args: any[]) => void;
+    handleDrop?: (...args: any[]) => void;
+    handleLibraryClick?: (...args: any[]) => void;
+    enableDragAndDrop?: boolean;
 }
 declare const FileUpload: React.SFC<IFileUploadProps>;
 export default FileUpload;
