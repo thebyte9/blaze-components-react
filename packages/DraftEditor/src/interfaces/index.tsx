@@ -59,7 +59,7 @@ interface IDraftEditorProps {
   ariaAutoComplete?: string;
   ariaActiveDescendantID?: string;
 
-  value?: string;
+  value: string;
 
   customStyleFn?: (
     style: DraftInlineStyle,

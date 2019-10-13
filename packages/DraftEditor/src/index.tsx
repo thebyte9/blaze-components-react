@@ -13,7 +13,6 @@ import {
   DraftHandleValue,
   DraftInlineStyleType,
   EditorState,
-  RawDraftContentState,
   RichUtils,
   SelectionState
 } from "draft-js";
@@ -74,8 +73,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
             if (
               entityKey &&
-              availableContentState.getEntity(entityKey).getType() === LINK &&
-              availableContentState.getEntity(entityKey).getData().url
+              availableContentState.getEntity(entityKey).getType() === LINK
             ) {
               return true;
             }
@@ -89,14 +87,14 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   ]);
 
   useEffect((): void => {
-    if (value) {
-      const rawObjectValue: RawDraftContentState = JSON.parse(value);
-      const state: EditorState = EditorState.createWithContent(
-        convertFromRaw(rawObjectValue),
-        decorator
-      );
-      setEditorState(state);
-    }
+    const initialContentState: ContentState = value
+      ? convertFromRaw(JSON.parse(value))
+      : editorState.getCurrentContent();
+    const state: EditorState = EditorState.createWithContent(
+      initialContentState,
+      decorator
+    );
+    setEditorState(state);
   }, []);
 
   const onEditorChange = (newEditorState: EditorState): void => {

@@ -1,8 +1,8 @@
 import Input from "@blaze-react/input";
 import Modal from "@blaze-react/modal";
 import { ContentState, EditorState, SelectionState } from "draft-js";
-import React, { useEffect, useState } from "react";
-import eventBus from "../eventBus";
+import React, { useState } from "react";
+// import eventBus from "../eventBus";
 import StyleButton from "../StyleButton";
 
 import { IMMUTABLE, LINK } from "../constants";
@@ -15,31 +15,41 @@ const LinkControl = ({
 }: ILinkControlProps): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
-  const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [selectedContent, setSelectedContent] = useState<SelectionState>();
-
-  useEffect(() => {
-    eventBus.$on("edit-link", ({ url: oldUrl }: { url: string }) => {
-      openModal();
-      setUrl(oldUrl);
-      setIsEditMode(true);
-    });
-  }, []);
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   const getSelection = (): void => {
     const selection: SelectionState = editorState.getSelection();
+    const contentState = editorState.getCurrentContent();
 
-    const start: number = selection.getStartOffset();
-    const end: number = selection.getEndOffset();
+    if (!selection.isCollapsed()) {
+      const start: number = selection.getStartOffset();
+      const end: number = selection.getEndOffset();
 
-    if (start !== end) {
-      setSelectedContent(selection);
+      if (start !== end) {
+        const blockWithLinkAtBeginning = contentState.getBlockForKey(
+          selection.getStartKey()
+        );
+        const linkKey = blockWithLinkAtBeginning.getEntityAt(
+          selection.getStartOffset()
+        );
+
+        if (linkKey) {
+          const linkInstance = contentState.getEntity(linkKey);
+          const { url: oldUrl } = linkInstance.getData();
+
+          setUrl(oldUrl);
+          setIsEditMode(true);
+        }
+
+        setSelectedContent(selection);
+      }
     }
   };
 
   const openModal = (): void => {
-    getSelection();
     toggleModal();
+    getSelection();
   };
 
   const addLink = (): void => {
@@ -65,9 +75,10 @@ const LinkControl = ({
     }
 
     onToggle(newEditorState, selectedContent, entityKey);
-    toggleModal();
     setUrl("");
+    setSelectedContent(undefined);
     setIsEditMode(false);
+    toggleModal();
   };
 
   const alertActions = [
@@ -88,6 +99,11 @@ const LinkControl = ({
     setUrl("");
   };
 
+  const cancelAction = (): void => {
+    toggleModal();
+    setSelectedContent(undefined);
+  };
+
   const handleChange = ({ value }: { value: string }): void => setUrl(value);
 
   return (
@@ -98,7 +114,7 @@ const LinkControl = ({
         active={modalStatus}
       />
       {modalStatus && (
-        <Modal actions={alertActions} onClose={toggleModal} isAlert>
+        <Modal actions={alertActions} onClose={cancelAction} isAlert>
           {selectedContent ? (
             <>
               <Input
