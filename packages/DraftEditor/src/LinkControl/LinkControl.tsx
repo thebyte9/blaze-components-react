@@ -2,7 +2,6 @@ import Input from "@blaze-react/input";
 import Modal from "@blaze-react/modal";
 import { ContentState, EditorState, SelectionState } from "draft-js";
 import React, { useState } from "react";
-// import eventBus from "../eventBus";
 import StyleButton from "../StyleButton";
 
 import { IMMUTABLE, LINK } from "../constants";
@@ -100,8 +99,8 @@ const LinkControl = ({
   };
 
   const cancelAction = (): void => {
-    toggleModal();
     setSelectedContent(undefined);
+    toggleModal();
   };
 
   const handleChange = ({ value }: { value: string }): void => setUrl(value);
