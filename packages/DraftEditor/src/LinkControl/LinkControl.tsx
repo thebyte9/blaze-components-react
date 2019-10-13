@@ -100,6 +100,7 @@ const LinkControl = ({
 
   const cancelAction = (): void => {
     setSelectedContent(undefined);
+    setIsEditMode(false);
     toggleModal();
   };
 
