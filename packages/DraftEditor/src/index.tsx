@@ -13,6 +13,7 @@ import {
   DraftHandleValue,
   DraftInlineStyleType,
   EditorState,
+  RawDraftContentState,
   RichUtils,
   SelectionState
 } from "draft-js";
@@ -20,6 +21,7 @@ import {
 import createBlockDndPlugin from "draft-js-drag-n-drop-plugin";
 import createFocusPlugin from "draft-js-focus-plugin";
 import createImagePlugin from "draft-js-image-plugin";
+import createLinkifyPlugin from "draft-js-linkify-plugin";
 import Editor, { composeDecorators } from "draft-js-plugins-editor";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { BLOCKQUOTE, HANDLED, LINK, NOT_HANDLED, UNSTYLED } from "./constants";
@@ -27,6 +29,7 @@ import { IDraftEditorProps } from "./interfaces";
 
 const focusPlugin = createFocusPlugin();
 const blockDndPlugin = createBlockDndPlugin();
+const linkifyPlugin = createLinkifyPlugin();
 
 const composeDecorator = composeDecorators(
   focusPlugin.decorator,
@@ -34,7 +37,7 @@ const composeDecorator = composeDecorators(
 );
 const imagePlugin = createImagePlugin({ decorator: composeDecorator });
 
-const plugins = [blockDndPlugin, focusPlugin, imagePlugin];
+const plugins = [blockDndPlugin, focusPlugin, imagePlugin, linkifyPlugin];
 
 import BlockControls from "./BlockControls";
 import ImageControl from "./ImageControl";
@@ -73,7 +76,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
             if (
               entityKey &&
-              availableContentState.getEntity(entityKey).getType() === LINK
+              availableContentState.getEntity(entityKey).getType() === LINK &&
+              availableContentState.getEntity(entityKey).getData().url
             ) {
               return true;
             }
@@ -87,14 +91,14 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   ]);
 
   useEffect((): void => {
-    const initialContentState: ContentState = value
-      ? convertFromRaw(JSON.parse(value))
-      : editorState.getCurrentContent();
-    const state: EditorState = EditorState.createWithContent(
-      initialContentState,
-      decorator
-    );
-    setEditorState(state);
+    if (value) {
+      const rawObjectValue: RawDraftContentState = JSON.parse(value);
+      const state: EditorState = EditorState.createWithContent(
+        convertFromRaw(rawObjectValue),
+        decorator
+      );
+      setEditorState(state);
+    }
   }, []);
 
   const onEditorChange = (newEditorState: EditorState): void => {
