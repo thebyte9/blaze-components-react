@@ -46,11 +46,6 @@ const LinkControl = ({
     }
   };
 
-  const openModal = (): void => {
-    toggleModal();
-    getSelection();
-  };
-
   const addLink = (): void => {
     const contentState: ContentState = editorState.getCurrentContent();
 
@@ -74,10 +69,7 @@ const LinkControl = ({
     }
 
     onToggle(newEditorState, selectedContent, entityKey);
-    setUrl("");
-    setSelectedContent(undefined);
-    setIsEditMode(false);
-    toggleModal();
+    closeModal();
   };
 
   const alertActions = [
@@ -93,15 +85,16 @@ const LinkControl = ({
     }
   ];
 
-  const toggleModal = (): void => {
-    setModalStatus(!modalStatus);
-    setUrl("");
+  const openModal = (): void => {
+    setModalStatus(true);
+    getSelection();
   };
 
-  const cancelAction = (): void => {
+  const closeModal = (): void => {
+    setUrl("");
     setSelectedContent(undefined);
     setIsEditMode(false);
-    toggleModal();
+    setModalStatus(false);
   };
 
   const handleChange = ({ value }: { value: string }): void => setUrl(value);
@@ -114,7 +107,7 @@ const LinkControl = ({
         active={modalStatus}
       />
       {modalStatus && (
-        <Modal actions={alertActions} onClose={cancelAction} isAlert>
+        <Modal actions={alertActions} onClose={closeModal} isAlert>
           {selectedContent ? (
             <>
               <Input
