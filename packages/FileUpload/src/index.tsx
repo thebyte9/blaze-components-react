@@ -74,11 +74,12 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     if (!files || !files.length) {
       return;
     }
-
     const previewFiles = await getPreview(files);
+
     setFilesToUpload([...filesToUpload, ...files]);
     setPreviewImages([...previewImages, ...previewFiles]);
   };
+
   const handleChange = (event: any) => {
     event.preventDefault();
     let { target: { files = {} } = {} } = event;
@@ -91,6 +92,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const { current: currentSelectFile } = selectFile;
     currentSelectFile.click();
   };
+
   const handleCancel = (idToRemove: string): void => {
     const validFiles = (files: any[]) =>
       files.filter(({ id }: { id: string }) => id !== idToRemove);
@@ -98,6 +100,21 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const previewImagesUpdated = validFiles(previewImages);
     setFilesToUpload(fileToUploadUpdated);
     setPreviewImages(previewImagesUpdated);
+  };
+
+  const handleInputChange = (event: any) => {
+    const {
+      target: { value, id, name }
+    } = event;
+
+    const filesToUploadCopy = [...filesToUpload];
+    const previewImagesCopy = [...previewImages];
+    filesToUploadCopy[id][name] = value;
+    previewImagesCopy[id][name] = value;
+
+    setFilesToUpload(filesToUploadCopy);
+    setPreviewImages(previewImagesCopy);
+    onChange(filesToUploadCopy);
   };
 
   return (
@@ -141,8 +158,11 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           style={{ display: "none" }}
         />
       </div>
-
-      <FileList previewImages={previewImages} handleCancel={handleCancel} />
+      <FileList
+        previewImages={previewImages}
+        handleCancel={handleCancel}
+        handleInputChange={handleInputChange}
+      />
     </div>
   );
 };

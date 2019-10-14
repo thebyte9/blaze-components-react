@@ -18,6 +18,24 @@ storiesOf("FileUpload", module)
         // tslint:disable-next-line: no-console
         console.log("files -->", files);
       };
+
+      // const handleInputChange = (event: any) => {
+      //   const {
+      //     target: { value, id, name }
+      //   } = event;
+      //   debugger;
+      //   const filesToUploadCopy = [...setFiles];
+      //   // const previewImagesCopy = [...previewImages];
+      //   filesToUploadCopy[id][name] = value;
+      //   // previewImagesCopy[id][name] = value;
+
+      //   debugger;
+      //   setFiles(filesToUploadCopy);
+      //   // setPreviewImages(previewImagesCopy);
+      //   debugger;
+      //   // onChange(files);
+      // };
+
       return (
         <Modal
           title="Add media"
