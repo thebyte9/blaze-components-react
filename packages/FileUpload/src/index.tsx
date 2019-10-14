@@ -25,6 +25,16 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   };
 
   useEffect(() => {
+    const handler = setTimeout((): void => {
+      onChange(filesToUpload);
+    }, 500);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [filesToUpload]);
+
+  useEffect(() => {
     const handleDrop = (event: any) => {
       event.preventDefault();
       event.stopPropagation();
@@ -102,9 +112,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     setPreviewImages(previewImagesUpdated);
   };
 
-  const handleInputChange = (event: any) => {
+  const handleInputChange = ({ event }: any) => {
     const {
-      target: { value, id, name }
+      target: { id, name, value }
     } = event;
 
     const filesToUploadCopy = [...filesToUpload];
@@ -114,7 +124,6 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
     setFilesToUpload(filesToUploadCopy);
     setPreviewImages(previewImagesCopy);
-    onChange(filesToUploadCopy);
   };
 
   return (

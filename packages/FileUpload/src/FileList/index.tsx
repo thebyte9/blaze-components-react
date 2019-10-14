@@ -1,3 +1,4 @@
+import Input from "@blaze-react/input";
 import React, { Fragment } from "react";
 import DocumentIcon from "../DocumentIcon";
 
@@ -27,25 +28,22 @@ const FileList = ({
             <p className="preview-filename">{file.name}</p>
             {file.type === IMAGE && (
               <>
-                <label>Enter title</label>
-                <input
-                  type="text"
+                <Input
+                  label="Enter title"
                   onChange={handleInputChange}
-                  value={file.title || ""}
+                  value={file.title}
                   id={index}
                   name="title"
                 />
-                <label>Enter alternative text image</label>
-                <input
-                  type="text"
+                <Input
+                  label="Enter alternative text image"
                   onChange={handleInputChange}
                   value={file.altText || ""}
                   id={index}
                   name="altText"
                 />
-                <label>Enter caption</label>
-                <input
-                  type="text"
+                <Input
+                  label="Enter caption"
                   onChange={handleInputChange}
                   value={file.caption || ""}
                   id={index}
