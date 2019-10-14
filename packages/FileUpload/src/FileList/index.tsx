@@ -31,7 +31,7 @@ const FileList = ({
                 <Input
                   label="Enter title"
                   onChange={handleInputChange}
-                  value={file.title}
+                  value={file.title || ""}
                   id={index}
                   name="title"
                 />
