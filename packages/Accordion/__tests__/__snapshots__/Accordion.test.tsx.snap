@@ -56,36 +56,86 @@ exports[`Accordion component should be defined and renders correctly (snapshot) 
           <div
             className="accordion__footer"
           >
-            <Button
+            <withUtils()
               disabled={false}
-              modifiers="outline light rounded"
+              modifiers={
+                Array [
+                  "outline",
+                  "light",
+                  "rounded",
+                ]
+              }
               name="button"
-              submit={false}
+              type="button"
             >
-              <button
-                className="button button--outline button--light button--rounded"
+              <Component
                 disabled={false}
+                modifiers={
+                  Array [
+                    "outline",
+                    "light",
+                    "rounded",
+                  ]
+                }
                 name="button"
                 type="button"
+                utils={
+                  Object {
+                    "ErrorMessage": [Function],
+                    "classNames": [Function],
+                    "removeExtraSpaces": [Function],
+                    "uniqueId": [Function],
+                  }
+                }
               >
-                Cancel
-              </button>
-            </Button>
-            <Button
+                <button
+                  className="button button--outline button--light button--rounded"
+                  disabled={false}
+                  name="button"
+                  type="button"
+                >
+                  Cancel
+                </button>
+              </Component>
+            </withUtils()>
+            <withUtils()
               disabled={false}
-              modifiers="rounded"
+              modifiers={
+                Array [
+                  "rounded",
+                ]
+              }
               name="button"
-              submit={false}
+              type="button"
             >
-              <button
-                className="button button--rounded"
+              <Component
                 disabled={false}
+                modifiers={
+                  Array [
+                    "rounded",
+                  ]
+                }
                 name="button"
                 type="button"
+                utils={
+                  Object {
+                    "ErrorMessage": [Function],
+                    "classNames": [Function],
+                    "removeExtraSpaces": [Function],
+                    "uniqueId": [Function],
+                  }
+                }
               >
-                Save
-              </button>
-            </Button>
+                <button
+                  className="button button--rounded"
+                  disabled={false}
+                  name="button"
+                  type="button"
+                >
+                  Save
+                </button>
+              </Component>
+            </withUtils()>
           </div>
         </AccordionContentFooter>
       </AccordionContent>
