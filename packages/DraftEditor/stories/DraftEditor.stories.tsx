@@ -22,6 +22,8 @@ storiesOf("DraftEditor", module)
           placeholder="content here ..."
           autoCapitalize="words"
           value={testValueJSON}
+          onFilesChange={(files: any) => console.log("failes to upload", files)}
+          handleOnSaveFiles={() => console.log("save files")}
           onChange={({
             event: {
               target: { name, value }

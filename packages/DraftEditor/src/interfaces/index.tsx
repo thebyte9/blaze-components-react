@@ -60,6 +60,8 @@ interface IDraftEditorProps {
   ariaActiveDescendantID?: string;
 
   value: string;
+  onFilesChange: (files: object[]) => void;
+  handleOnSaveFiles: () => void;
 
   customStyleFn?: (
     style: DraftInlineStyle,
@@ -129,6 +131,8 @@ interface IInlineImageControlsProps {
   editorState: EditorState;
   previewImages: IImage[];
   onToggle: (newEditorState: EditorState, entityKey: string) => EditorState;
+  onFilesChange: (files: object[]) => void;
+  handleOnSaveFiles: () => void;
 }
 
 interface ILinkControlProps {

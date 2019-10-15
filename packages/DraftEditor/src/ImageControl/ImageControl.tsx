@@ -12,7 +12,9 @@ import PreviewImages from "./PreviewImages";
 const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   editorState,
   previewImages: preUploadedImages,
-  onToggle
+  onToggle,
+  onFilesChange,
+  handleOnSaveFiles
 }): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
   const [previewImages, setPreviewImages] = useState<IImage[]>(
@@ -52,6 +54,7 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
       const { src } = img;
       latestEditorState = insertImage(src, latestEditorState);
     });
+    handleOnSaveFiles();
     toggleModal();
   };
 
@@ -94,7 +97,11 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
       />
       {modalStatus && (
         <Modal title="Upload" actions={alertActions} onClose={toggleModal}>
-          <FileUpload handleDrop={handleDrop} customPreview />
+          <FileUpload
+            handleDrop={handleDrop}
+            onChange={onFilesChange}
+            customPreview
+          />
           <PreviewImages
             previewImages={previewImages}
             isSelected={isSelected}

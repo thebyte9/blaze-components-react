@@ -207,7 +207,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     .length;
 
   return (
-    <>
+    <div className="form-field form-field--multiselect">
       {label && <label>{label}</label>}
       <div className="multiselect" ref={multiRef}>
         {dataCopy
@@ -257,7 +257,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         </span>
         {limitReached && <p>{limitReachedMessage}</p>}
       </div>
-    </>
+    </div>
   );
 };
 MultiSelect.defaultProps = {
