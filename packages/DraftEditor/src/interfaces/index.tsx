@@ -62,6 +62,7 @@ interface IDraftEditorProps {
   value: string;
   onFilesChange: (files: object[]) => void;
   handleOnSaveFiles: () => void;
+  handleLibraryClick: () => void;
 
   customStyleFn?: (
     style: DraftInlineStyle,
@@ -133,6 +134,7 @@ interface IInlineImageControlsProps {
   onToggle: (newEditorState: EditorState, entityKey: string) => EditorState;
   onFilesChange: (files: object[]) => void;
   handleOnSaveFiles: () => void;
+  handleLibraryClick: () => void;
 }
 
 interface ILinkControlProps {

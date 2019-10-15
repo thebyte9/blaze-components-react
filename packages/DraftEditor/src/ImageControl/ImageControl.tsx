@@ -3,7 +3,7 @@ import Modal from "@blaze-react/modal";
 import { IImage, IInlineImageControlsProps } from "../interfaces";
 
 import { ContentState, EditorState } from "draft-js";
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 
 import { IMAGE, IMMUTABLE } from "../constants";
 import StyleButton from "../StyleButton";
@@ -14,13 +14,16 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   previewImages: preUploadedImages,
   onToggle,
   onFilesChange,
-  handleOnSaveFiles
+  handleOnSaveFiles,
+  handleLibraryClick
 }): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
   const [previewImages, setPreviewImages] = useState<IImage[]>(
     preUploadedImages
   );
   const [selectedImages, setSelectedImages] = useState<IImage[]>([]);
+
+  useEffect(() => setPreviewImages(preUploadedImages), [preUploadedImages]);
 
   const insertImage = (
     src: string,
@@ -101,6 +104,7 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
             handleDrop={handleDrop}
             onChange={onFilesChange}
             customPreview
+            handleLibraryClick={handleLibraryClick}
           />
           <PreviewImages
             previewImages={previewImages}

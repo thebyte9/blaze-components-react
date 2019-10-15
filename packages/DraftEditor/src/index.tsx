@@ -55,6 +55,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   previewImages,
   onFilesChange,
   handleOnSaveFiles,
+  handleLibraryClick,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -192,6 +193,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           previewImages={previewImages}
           onFilesChange={onFilesChange}
           handleOnSaveFiles={handleOnSaveFiles}
+          handleLibraryClick={handleLibraryClick}
         />
         <LinkControl
           editorState={editorState}
