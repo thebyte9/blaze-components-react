@@ -18,6 +18,7 @@ storiesOf("FileUpload", module)
         // tslint:disable-next-line: no-console
         console.log("files -->", files);
       };
+
       return (
         <Modal
           title="Add media"
