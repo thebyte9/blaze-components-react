@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+@charset "UTF-8";
 /* Fixes an issue where Ruby locale is not set properly*/
 /* See https://github.com/sass-mq/sass-mq/pull/10*/
 /*/ Base font size on the `<body>` element*/
@@ -155,7 +153,6 @@
 /*/  @include mq-show-breakpoints((L, XL), (S: 300px, L: 800px, XL: 1200px));*/
 .grid {
   display: grid;
-  grid-gap: 10px;
   width: 100%;
   margin: 0 auto; }
   .grid--site-container {
@@ -187,7 +184,7 @@
     /* Responsive support is disabled, rasterize the output outside @media blocks*/
     /* The browser will rely on the cascade itself.*/
     /* Remove unnecessary media query prefix 'all and '*/ }
-    @media (min-width: 41.25em) {
+    @media (min-width: 30em) {
       .grid--4-column {
         grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 48em) {
@@ -202,7 +199,7 @@
     /* Responsive support is disabled, rasterize the output outside @media blocks*/
     /* The browser will rely on the cascade itself.*/
     /* Remove unnecessary media query prefix 'all and '*/ }
-    @media (min-width: 48em) {
+    @media (min-width: 30em) {
       .grid--3-column {
         grid-template-columns: repeat(3, 1fr); } }
   .grid--2-column {
@@ -853,7 +850,8 @@ body {
 
 .page {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 100%; }
   .page__content {
     flex: 1 1 auto;
     display: flex;
@@ -1287,6 +1285,18 @@ a.badge:hover span {
       font-size: 1rem; }
     .icon-button--close:hover {
       opacity: .8; }
+  .icon-button--clear {
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    background-color: #f44336;
+    color: #ffffff;
+    opacity: .8; }
+    .icon-button--clear i,
+    .icon-button--clear span {
+      font-size: 1rem; }
+    .icon-button--clear:hover {
+      opacity: 1; }
   .icon-button--list {
     background-color: #b0bec5; }
   .icon-button--add {
@@ -1601,11 +1611,14 @@ a.badge:hover span {
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.19); }
   .card--media-list {
-    min-height: 100px;
+    min-height: 87px;
     flex-direction: row;
-    margin: 5px 0;
+    padding: 10px;
+    border-bottom: 1px solid #e2e9ea;
     box-shadow: none;
     position: inherit; }
+    .card--media-list:first-of-type {
+      border-top: 1px solid #e2e9ea; }
   .card--media-grid {
     min-height: 100px;
     display: inline-block;
@@ -1695,18 +1708,17 @@ a.badge:hover span {
       .card__content--prompt .button {
         margin: 25px auto 0; }
   .card__title--media-list {
-    margin-bottom: 5px; }
+    margin: 3px 0; }
     .card__title--media-list h2 {
       margin: 0;
-      font-size: .875rem;
-      word-break: break-all; }
+      font-size: 0.875rem; }
   .card__title--media-grid {
     flex: 1;
     min-width: 0;
     margin-bottom: 5px; }
     .card__title--media-grid h2 {
       margin: 0;
-      font-size: .875rem;
+      font-size: 0.875rem;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis; }
@@ -1722,27 +1734,26 @@ a.badge:hover span {
       border-color: #616161; }
   .card__image {
     line-height: 0;
-    background: #e91e63 url("https://clients.thebyte9.com/blaze/project/public/images/login-tile.png");
+    background: #e91e63;
     height: 213px;
     display: flex;
     justify-content: center;
     align-items: center; }
     .card__image--media-list {
       display: inherit;
-      flex: 0 0 30%;
-      height: 120px;
-      /* From: this breakpoint (inclusive)*/
-      /* Until: that breakpoint (exclusive)*/
-      /* Responsive support is disabled, rasterize the output outside @media blocks*/
-      /* The browser will rely on the cascade itself.*/
-      /* Remove unnecessary media query prefix 'all and '*/ }
+      flex: 0 0 100px;
+      height: 67px;
+      overflow: hidden; }
       .card__image--media-list img {
         object-fit: cover;
         height: 100%;
         width: 100%; }
-      @media (min-width: 48em) {
-        .card__image--media-list {
-          flex: 0 0 20%; } }
+      .card__image--media-list-document {
+        flex: 0 0 100px;
+        height: 67px;
+        overflow: hidden;
+        background: none;
+        padding: 20px; }
     .card__image--media-grid {
       height: auto;
       display: inherit;
@@ -1765,7 +1776,7 @@ a.badge:hover span {
       width: 100%;
       height: 75%;
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
       display: flex;
       justify-content: center;
@@ -1801,7 +1812,7 @@ a.badge:hover span {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    font-size: .813rem;
+    font-size: 0.813rem;
     color: #616161;
     text-transform: uppercase;
     /* From: this breakpoint (inclusive)*/
@@ -1818,20 +1829,33 @@ a.badge:hover span {
     .card__footer p {
       margin: 10px;
       font-weight: 700;
-      letter-spacing: 0.05rem; }
+      letter-spacing: 0.03rem; }
     .card__footer--media-list {
       text-transform: none;
       background: none;
       position: relative;
-      padding: 10px;
+      padding: 0 0 0 20px;
       margin-top: 0;
       flex: 1 1 auto;
       display: flex;
-      justify-content: space-between;
-      align-items: center; }
+      justify-content: flex-start;
+      align-items: center;
+      /* From: this breakpoint (inclusive)*/
+      /* Until: that breakpoint (exclusive)*/
+      /* Responsive support is disabled, rasterize the output outside @media blocks*/
+      /* The browser will rely on the cascade itself.*/
+      /* Remove unnecessary media query prefix 'all and '*/ }
+      @media (min-width: 48em) {
+        .card__footer--media-list {
+          min-height: 20px; } }
       .card__footer--media-list p {
         margin: 0;
         font-weight: 400; }
+      .card__footer--media-list .icon-button--clear {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%); }
     .card__footer--media-grid {
       display: inherit;
       text-transform: none;
@@ -1861,7 +1885,7 @@ a.badge:hover span {
       width: 100%;
       position: absolute;
       left: 0;
-      bottom: 0;
+      top: 0;
       background: none;
       display: flex;
       justify-content: space-between;
@@ -1886,7 +1910,7 @@ a.badge:hover span {
         /* Remove unnecessary media query prefix 'all and '*/ }
         @media (min-width: 48em) {
           .card__footer--element p {
-            font-size: .688rem;
+            font-size: 0.688rem;
             white-space: nowrap;
             max-width: 100px;
             overflow: hidden;
@@ -1918,9 +1942,9 @@ a.badge:hover span {
     right: 10px;
     z-index: 11; }
     .card__close i {
-      font-size: .75rem; }
+      font-size: 0.75rem; }
   .card__alert {
-    font-size: .875rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: #f44336;
     margin-top: auto;
@@ -1935,15 +1959,21 @@ a.badge:hover span {
       .card__alert {
         padding: 15px 30px; } }
   .card__details {
-    text-align: left; }
+    text-align: left;
+    width: 80%;
+    overflow: hidden; }
     .card__details p {
-      font-size: .875rem; }
+      font-size: 0.75rem; }
     .card__details span {
       margin-right: 10px; }
       .card__details span:last-of-type {
         margin-right: 0; }
   .card__menu--list {
-    margin-left: auto; }
+    z-index: 110;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); }
   .card__menu--grid {
     position: absolute;
     right: 5px;
@@ -2391,18 +2421,18 @@ textarea {
   font-size: 0.813rem; }
 
 input {
-  border: 0;
-  border-bottom: 1px solid #bdbdbd;
-  width: 100%; }
+  border: 1px solid #cfd8dc;
+  width: 100%;
+  border-radius: 3px; }
 
 textarea {
-  border: 1px solid #bdbdbd;
+  border: 1px solid #cfd8dc;
   padding: 10px;
   width: 100%; }
 
 /*all inputs styling apart from types excluded*/
 input:not([type='submit']):not([type='file']):not([type='radio']):not([type='checkbox']) {
-  padding: 10px 0; }
+  padding: 10px; }
 
 input.input-search {
   border-color: #ffffff; }
@@ -2436,6 +2466,8 @@ label {
   margin: 0 0 5px; }
   label::first-letter {
     text-transform: capitalize; }
+  label:empty {
+    display: none; }
 
 input[type][disabled] {
   background-color: #f5f5f5;
@@ -2470,7 +2502,7 @@ select[disabled] + label {
   max-width: 760px; }
 
 .form-field {
-  margin: 0 0 40px;
+  margin: 0 0 30px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -2483,7 +2515,7 @@ select[disabled] + label {
   @media (min-width: 48em) {
     .form-field {
       max-width: 400px; } }
-  .form-field--input label {
+  .form-field:last-of-type {
     margin: 0; }
   .form-field--select label {
     margin-bottom: 10px; }
@@ -2514,9 +2546,9 @@ select[disabled] + label {
     flex-direction: row;
     align-items: flex-start;
     max-width: 100%;
-    margin-bottom: 10px; }
-    .form-field--checkbox:last-of-type {
-      margin-bottom: 40px; }
+    margin-bottom: 30px; }
+    .form-field--checkbox + .form-field--checkbox {
+      margin-top: -20px; }
     .form-field--checkbox input {
       width: 20px;
       height: 20px; }
@@ -2541,7 +2573,9 @@ select[disabled] + label {
       display: flex;
       align-items: center;
       cursor: pointer;
-      opacity: .6; }
+      color: #9e9e9e;
+      background-color: #ffffff;
+      padding-left: 5px; }
       .form-field--password .show-hide-password i {
         width: 18px;
         font-size: 1rem;
@@ -3144,6 +3178,16 @@ input.form-password {
   @media (min-width: 48em) {
     .listing {
       padding: 0 20px 20px; } }
+  .listing--media {
+    padding: 10px;
+    /* From: this breakpoint (inclusive)*/
+    /* Until: that breakpoint (exclusive)*/
+    /* Responsive support is disabled, rasterize the output outside @media blocks*/
+    /* The browser will rely on the cascade itself.*/
+    /* Remove unnecessary media query prefix 'all and '*/ }
+    @media (min-width: 48em) {
+      .listing--media {
+        padding: 0 20px 20px; } }
 
 .login {
   width: 100%;
@@ -3467,7 +3511,9 @@ input.form-password {
     .modal__content--alert {
       max-height: 300px;
       overflow-y: scroll;
-      padding: 20px 30px; }
+      padding: 20px; }
+      .modal__content--alert p {
+        font-size: .875rem; }
     .modal__content--upload {
       overflow: visible;
       padding-top: 0;
@@ -3489,7 +3535,7 @@ input.form-password {
     align-items: center;
     justify-content: flex-end; }
     .modal__footer--alert {
-      padding: 0 30px;
+      padding: 0 10px;
       background: none; }
   .modal__button {
     flex: 1 1 auto;
@@ -3887,7 +3933,7 @@ hr {
       .page-header__heading {
         font-size: 1.5rem; } }
   .page-header__subheading {
-    font-size: .813rem;
+    font-size: 0.813rem;
     color: #616161; }
   .page-header__button {
     flex: 1 0 24px;
@@ -3962,6 +4008,28 @@ hr {
   .upload__text {
     margin: 0 0 20px;
     color: #aeaeae; }
+  .add .preview-container,
+  .upload .preview-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .add .preview-container .preview-file-container,
+    .upload .preview-container .preview-file-container {
+      flex: 0 0 150px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .add .preview-container .preview-filename-container,
+    .upload .preview-container .preview-filename-container {
+      /* display: flex; */
+      align-items: center;
+      flex: 1 1 auto;
+      justify-content: flex-end; }
+      .add .preview-container .preview-filename-container i,
+      .upload .preview-container .preview-filename-container i {
+        margin-left: 8px; }
 
 .add {
   margin: 20px 0; }
@@ -3972,6 +4040,9 @@ hr {
 
 .pink {
   background-color: #e91e63; }
+
+.pink-dark {
+  background-color: #ad1457; }
 
 .purple {
   background-color: #9c27b0; }
@@ -4308,7 +4379,6 @@ hr {
 
 .side-panel {
   background-color: #eceff1;
-  padding: 15px;
   text-align: left;
   /* From: this breakpoint (inclusive)*/
   /* Until: that breakpoint (exclusive)*/
@@ -4317,12 +4387,12 @@ hr {
   /* Remove unnecessary media query prefix 'all and '*/ }
   @media (min-width: 48em) {
     .side-panel {
-      padding: 30px 10px 30px 30px;
       max-width: 200px; } }
   .side-panel__list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    text-align: right;
     /* From: this breakpoint (inclusive)*/
     /* Until: that breakpoint (exclusive)*/
     /* Responsive support is disabled, rasterize the output outside @media blocks*/
@@ -4333,26 +4403,21 @@ hr {
         flex-direction: column;
         margin-bottom: 10px; } }
   .side-panel__list-item {
-    padding: 5px 15px 5px 0;
     font-size: .813rem;
-    font-weight: 700;
-    /* From: this breakpoint (inclusive)*/
-    /* Until: that breakpoint (exclusive)*/
-    /* Responsive support is disabled, rasterize the output outside @media blocks*/
-    /* The browser will rely on the cascade itself.*/
-    /* Remove unnecessary media query prefix 'all and '*/ }
-    @media (min-width: 48em) {
-      .side-panel__list-item {
-        padding: 10px 0; } }
+    font-weight: 600; }
     .side-panel__list-item.active {
-      text-decoration: underline; }
+      color: #263238;
+      background-color: #f5f6f7;
+      padding: 10px 20px; }
     .side-panel__list-item a {
-      border-bottom: 1px solid transparent;
       transition: all 0.5s ease;
-      color: #455a64; }
+      color: #607d8b;
+      padding: 10px 20px;
+      display: inline-block;
+      width: 100%; }
       .side-panel__list-item a:hover {
         text-decoration: none;
-        border-color: #728f9d; }
+        background-color: #f5f6f7; }
 
 .table-scroll {
   position: relative;
@@ -4389,18 +4454,7 @@ hr {
       padding: 10px;
       font-weight: 600;
       z-index: 1;
-      text-align: left;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      /* From: this breakpoint (inclusive)*/
-      /* Until: that breakpoint (exclusive)*/
-      /* Responsive support is disabled, rasterize the output outside @media blocks*/
-      /* The browser will rely on the cascade itself.*/
-      /* Remove unnecessary media query prefix 'all and '*/ }
-      @media (min-width: 48em) {
-        .table-scroll table th {
-          max-width: 100px; } }
+      text-align: left; }
       .table-scroll table th:first-of-type {
         width: 41px;
         max-width: 41px;
@@ -4488,6 +4542,8 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .tabs--modal {
+    margin: -30px 0; }
   .tabs__list {
     margin: 0;
     padding: 0;
@@ -4526,6 +4582,15 @@ hr {
     .tabs__content.current {
       display: flex;
       flex-direction: column; }
+    .tabs__content--modal {
+      padding-bottom: 0; }
+
+/*Below styles tabs in a modal until a modifier can be added to tabs & tab__content if in modal. Classes for that already added above & these can be deleted then*/
+.modal__content .tabs {
+  margin: -30px 0; }
+
+.modal__content .tabs__content {
+  padding-bottom: 0; }
 
 .tags__tags-item {
   display: inline-block;
@@ -4649,32 +4714,34 @@ hr {
 .multiselect {
   display: flex;
   flex-wrap: wrap;
-  position: relative; }
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px; }
   .multiselect__clear {
     position: absolute;
     right: 0;
-    cursor: pointer; }
+    cursor: pointer;
+    margin: 10px; }
   .multiselect__input {
-    width: 100%;
-    border: 0;
-    background: transparent; }
+    width: 100%; }
   .multiselect__dropdown {
     position: absolute;
     left: 0;
-    bottom: 0%;
+    bottom: 0;
     max-height: 250px;
     overflow-y: auto;
     transform: translateY(100%);
     width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.19);
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e9ea;
     background: #ffffff;
     z-index: 1000; }
+    .multiselect__dropdown .form-field {
+      padding: 10px; }
     .multiselect__dropdown p {
-      margin-top: 25px;
-      padding: 5px;
+      margin: 0;
       font-size: 0.813rem; }
   .multiselect .form-field {
-    width: 40%;
     margin: 0; }
   .multiselect .form-group {
     margin: 0;
@@ -4682,3 +4749,8 @@ hr {
   .multiselect .form-group:hover {
     background: #e2e9ea;
     cursor: pointer; }
+
+.sidebar .multiselect {
+  margin: 0; }
+  .sidebar .multiselect + .multiselect {
+    margin-top: 10px; }

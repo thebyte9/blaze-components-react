@@ -5,6 +5,7 @@ interface IDraggableFileUpload {
   handleLibraryClick?: (...args: any[]) => void;
   handleBrowse?: (...args: any[]) => void;
   handleCancel?: (...args: any[]) => void;
+  handleInputChange?: (...args: any[]) => void;
   area: any;
   customPreview?: boolean;
   previewImages: object[];
@@ -16,6 +17,7 @@ const DraggableFileUpload = ({
   area,
   customPreview,
   previewImages,
+  handleInputChange,
   children,
   ...attrs
 }: IDraggableFileUpload) => {
@@ -38,7 +40,11 @@ const DraggableFileUpload = ({
       </div>
 
       {!customPreview && (
-        <FileList previewImages={imagesToPreview} handleCancel={handleCancel} />
+        <FileList
+          previewImages={imagesToPreview}
+          handleCancel={handleCancel}
+          handleInputChange={handleInputChange}
+        />
       )}
     </div>
   );
