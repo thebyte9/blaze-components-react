@@ -33,26 +33,40 @@ exports[`Drawer component should be defined and renders correctly (snapshot) 1`]
           <div
             className="drawer__header drawer__header--right"
           >
-            <Button
+            <withUtils()
               className="icon-button"
               disabled={false}
-              modifiers=""
               onClick={[Function]}
-              submit={false}
+              type="button"
             >
-              <button
+              <Component
                 className="icon-button"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
+                utils={
+                  Object {
+                    "ErrorMessage": [Function],
+                    "classNames": [Function],
+                    "removeExtraSpaces": [Function],
+                    "uniqueId": [Function],
+                  }
+                }
               >
-                <i
-                  className="material-icons"
+                <button
+                  className="icon-button"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
                 >
-                  keyboard_arrow_right
-                </i>
-              </button>
-            </Button>
+                  <i
+                    className="material-icons"
+                  >
+                    keyboard_arrow_right
+                  </i>
+                </button>
+              </Component>
+            </withUtils()>
           </div>
           <div
             className="drawer__content"
@@ -75,26 +89,40 @@ exports[`Drawer component should be defined and renders correctly (snapshot) 1`]
         <div
           className="page__header page__header--drawer page__header--opens-right"
         >
-          <Button
+          <withUtils()
             className="icon-button"
             disabled={false}
-            modifiers=""
             onClick={[Function]}
-            submit={false}
+            type="button"
           >
-            <button
+            <Component
               className="icon-button"
               disabled={false}
               onClick={[Function]}
               type="button"
+              utils={
+                Object {
+                  "ErrorMessage": [Function],
+                  "classNames": [Function],
+                  "removeExtraSpaces": [Function],
+                  "uniqueId": [Function],
+                }
+              }
             >
-              <i
-                className="material-icons"
+              <button
+                className="icon-button"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
               >
-                menu
-              </i>
-            </button>
-          </Button>
+                <i
+                  className="material-icons"
+                >
+                  menu
+                </i>
+              </button>
+            </Component>
+          </withUtils()>
           Drawer Component
         </div>
         <div
