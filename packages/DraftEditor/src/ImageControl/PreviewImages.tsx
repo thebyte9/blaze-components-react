@@ -9,7 +9,7 @@ const PreviewImages: FunctionComponent<IPreviewIages> = ({
   return (
     <div className="custom-DraftEditor-images">
       {previewImages.map((image: IImage) => {
-        const { src, id } = image;
+        const { src, id, name } = image;
         return (
           <div
             className="custom-DraftEditor-previewImage"

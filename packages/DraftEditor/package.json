@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.3.47",
+  "version": "0.3.48",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/file-upload": "^0.3.49",
+    "@blaze-react/file-upload": "^0.3.48",
     "@blaze-react/input": "^0.3.47",
     "@blaze-react/modal": "^0.3.47",
     "@blaze-react/utils": "^0.3.47",

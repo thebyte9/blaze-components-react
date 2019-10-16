@@ -31,6 +31,16 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   };
 
   useEffect(() => {
+    const handler = setTimeout((): void => {
+      onChange(filesToUpload);
+    }, 500);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [filesToUpload]);
+
+  useEffect(() => {
     const handleDrop = (event: any) => {
       event.preventDefault();
       event.stopPropagation();
@@ -62,7 +72,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               reader.onload = (e: any) =>
                 resolve({
                   base64: e.target.result,
-                  id: uuid(),
+                  id: file.id,
                   name: file.name,
                   type: "image"
                 });
@@ -70,7 +80,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                 reject(new DOMException("Error parsing input file."));
             } else {
               resolve({
-                id: uuid(),
+                id: file.id,
                 name: file.name,
                 type: "file"
               });
@@ -84,17 +94,25 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       return;
     }
 
+    files = files.map((file: any) => {
+      file.id = uuid();
+      return file;
+    });
+
     const previewFiles = await getPreview(files);
+
     setFilesToUpload([...filesToUpload, ...files]);
     setPreviewImages([...previewImages, ...previewFiles]);
     if (handleDropProp) {
       handleDropProp({ previewFiles: [...previewImages, ...previewFiles] });
     }
   };
+
   const handleChange = (event: any) => {
     event.preventDefault();
     let { target: { files = {} } = {} } = event;
     files = Object.values(files);
+
     processFiles(files);
     onChange(files);
   };
@@ -103,6 +121,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const { current: currentSelectFile } = selectFile;
     currentSelectFile.click();
   };
+
   const handleCancel = (idToRemove: string): void => {
     const validFiles = (files: any[]) =>
       files.filter(({ id }: { id: string }) => id !== idToRemove);
@@ -110,6 +129,26 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const previewImagesUpdated = validFiles(previewImages);
     setFilesToUpload(fileToUploadUpdated);
     setPreviewImages(previewImagesUpdated);
+    onChange(fileToUploadUpdated);
+    if (handleDropProp) {
+      handleDropProp({
+        previewFiles: previewImagesUpdated
+      });
+    }
+  };
+
+  const handleInputChange = ({ event }: any) => {
+    const {
+      target: { id, name, value }
+    } = event;
+
+    const filesToUploadCopy = [...filesToUpload];
+    const previewImagesCopy = [...previewImages];
+    filesToUploadCopy[id][name] = value;
+    previewImagesCopy[id][name] = value;
+
+    setFilesToUpload(filesToUploadCopy);
+    setPreviewImages(previewImagesCopy);
   };
 
   return (
@@ -120,6 +159,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           handleCancel={handleCancel}
           customPreview={customPreview}
           area={area}
+          handleInputChange={handleInputChange}
           {...attr}
         >
           <Actions
@@ -141,6 +181,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
             <FileList
               previewImages={previewImages}
               handleCancel={handleCancel}
+              handleInputChange={handleInputChange}
             />
           )}
         </>
