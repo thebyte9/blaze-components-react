@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.3.48",
+  "version": "0.3.49",
   "publishConfig": {
     "access": "public"
   },
@@ -18,10 +18,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/file-upload": "^0.3.48",
-    "@blaze-react/input": "^0.3.47",
-    "@blaze-react/modal": "^0.3.47",
-    "@blaze-react/utils": "^0.3.47",
+    "@blaze-react/file-upload": "^0.3.49",
+    "@blaze-react/input": "^0.3.49",
+    "@blaze-react/modal": "^0.3.49",
+    "@blaze-react/utils": "^0.3.49",
     "@types/draft-js": "0.10.34",
     "draft-js": "0.11.0",
     "draft-js-drag-n-drop-plugin": "2.0.4",
