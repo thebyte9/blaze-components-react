@@ -1,5 +1,5 @@
 import _orderBy from "lodash.orderby";
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 
@@ -17,6 +17,7 @@ interface ITableProps {
     orderBy: string[];
     rows: object[];
   };
+  stickyScroll?: boolean;
   value?: string;
   onSelect?: (arg: any[]) => any;
 }
@@ -24,7 +25,8 @@ const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy },
   onSelect = () => ({}),
   checkboxes,
-  placeholder
+  placeholder,
+  stickyScroll
 }) => {
   type TSortDirection = "asc" | "desc" | boolean;
 
@@ -97,7 +99,7 @@ const Table: FunctionComponent<ITableProps> = ({
   };
 
   const enableOrderBy = (column: string): JSX.Element => (
-    <Fragment>
+    <div className="sortable">
       <span
         data-testid={`sortby-${column}`}
         onClick={() => sort(column)}
@@ -112,12 +114,17 @@ const Table: FunctionComponent<ITableProps> = ({
             : "keyboard_arrow_down"}
         </i>
       )}
-    </Fragment>
+    </div>
   );
 
+  const tableWrapperClassName = `table__wrapper ${
+    stickyScroll ? "table__wrapper--scroll" : ""
+  }`.trim();
+  const tableClassName = `table ${stickyScroll ? "table--scroll" : ""}`.trim();
+
   return (
-    <div className="table-scroll__wrapper">
-      <div className="table-scroll">
+    <div className={tableWrapperClassName}>
+      <div className={tableClassName}>
         <table>
           <TableHead
             checkboxes={checkboxes}
@@ -151,6 +158,7 @@ Table.defaultProps = {
     orderBy: [],
     rows: []
   },
-  placeholder: "No records available"
+  placeholder: "No records available",
+  stickyScroll: false
 };
 export default Table;
