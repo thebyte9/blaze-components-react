@@ -18,16 +18,8 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   handleLibraryClick
 }): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
-  // const [previewImages, setPreviewImages] = useState<IImage[]>(
-  //   preUploadedImages
-  // );
-  const [selectedImages, setSelectedImages] = useState<IImage[]>([]);
-  // const [, setPreUploadedImages] = useState<IImage[]>(previewImages);
 
-  // useEffect(() => {
-  // setPreviewImages([...previewImages, ...preUploadedImages]);
-  //   setPreUploadedImages(previewImages);
-  // }, [previewImages]);
+  const [selectedImages, setSelectedImages] = useState<IImage[]>([]);
 
   const insertImage = (
     src: string,
@@ -52,7 +44,6 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   const toggleModal = (): void => {
     setModalStatus(!modalStatus);
     setSelectedImages([]);
-    // setPreviewImages([]);
   };
 
   const addSelectedImagesToEditor = (): void => {
@@ -73,33 +64,14 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
     }
   ];
 
-  const handleDrop = ({ previewFiles }: { previewFiles: IImage[] }): void => {
-    const formatPreviewsFiles = formatImages(previewFiles);
-    // setPreviewImages([...previewImages, ...formatPreviewsFiles]);
-    setSelectedImages(formatPreviewsFiles);
-  };
+  const handleDrop = ({ previewFiles }: { previewFiles: IImage[] }): void =>
+    setSelectedImages(formatImages(previewFiles));
 
   const formatImages = (images: IImage[]): IImage[] =>
-    images
-      // .filter(image => !previewImages.map(pi => pi.id).includes(image.id))
-      .map((image: IImage) => ({
-        ...image,
-        src: image.src || image.base64
-      }));
-
-  const addSelectedImage = (image: IImage): void => {
-    const { id } = image;
-    if (isSelected(id)) {
-      return setSelectedImages(
-        selectedImages.filter((img: IImage) => id !== img.id)
-      );
-    }
-    setSelectedImages([...selectedImages, image]);
-  };
-
-  const isSelected = (id: string): boolean => {
-    return !!selectedImages.find((image: IImage) => image.id === id);
-  };
+    images.map((image: IImage) => ({
+      ...image,
+      src: image.src || image.base64
+    }));
 
   return (
     <>
@@ -112,14 +84,9 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
           <FileUpload
             handleDrop={handleDrop}
             onChange={onFilesChange}
-            // customPreview
             handleLibraryClick={handleLibraryClick}
           />
-          <PreviewImages
-            previewImages={previewImages}
-            isSelected={isSelected}
-            addSelectedImage={addSelectedImage}
-          />
+          <PreviewImages previewImages={previewImages} />
         </Modal>
       )}
     </>

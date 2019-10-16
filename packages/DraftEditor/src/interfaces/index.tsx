@@ -176,8 +176,6 @@ interface ILinkProps {
 
 interface IPreviewIages {
   previewImages: IImage[];
-  isSelected: (src: string) => boolean;
-  addSelectedImage: (image: IImage) => void;
 }
 
 export {
