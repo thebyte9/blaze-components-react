@@ -4033,8 +4033,8 @@ hr {
 }
 
 .custom-DraftEditor-previewImage {
-  width: 23%;
-  height: 160px;
+  width: 30%;
+  height: 180px;
   cursor: pointer;
   padding: 5px;
   margin: 10px 0 5px 0;
@@ -4044,16 +4044,20 @@ hr {
 
 .custom-DraftEditor-previewImage span {
   position: absolute;
-  bottom: -5px;
-  right: -5px;
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  background: #03a9f4;
+  bottom: 5px;
+  right: 5px;
+  height: 30px;
+  width: 30px;
+  background: #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top-left-radius: 25%;
 }
 
 .custom-DraftEditor-previewImage span i {
-  color: #ffffff;
+  color: #00bcd4;
 }
 
 .custom-DraftEditor-previewImage img {

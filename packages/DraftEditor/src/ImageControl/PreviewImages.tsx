@@ -16,12 +16,13 @@ const PreviewImages: FunctionComponent<IPreviewIages> = ({
             onClick={(): void => addSelectedImage(image)}
             key={id}
           >
-            {isSelected(src) && (
+            {isSelected(id) && (
               <span>
                 <i className="material-icons">done</i>
               </span>
             )}
             <img src={src} />
+            <div className="custom-DraftEditor-previewImageName">{name}</div>
           </div>
         );
       })}

@@ -69,27 +69,32 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
     }
   ];
 
-  const handleDrop = ({ previewFiles }: { previewFiles: IImage[] }): void =>
-    setPreviewImages(formatImages(previewFiles));
+  const handleDrop = ({ previewFiles }: { previewFiles: IImage[] }): void => {
+    const formatPreviewsFiles = formatImages(previewFiles);
+    setPreviewImages([...previewImages, ...formatPreviewsFiles]);
+    setSelectedImages([...selectedImages, ...formatPreviewsFiles]);
+  };
 
   const formatImages = (images: IImage[]): IImage[] =>
-    images.map((image: IImage) => ({
-      ...image,
-      src: image.src || image.base64
-    }));
+    images
+      .filter(image => !previewImages.map(pi => pi.id).includes(image.id))
+      .map((image: IImage) => ({
+        ...image,
+        src: image.src || image.base64
+      }));
 
   const addSelectedImage = (image: IImage): void => {
-    const { src } = image;
-    if (isSelected(src)) {
+    const { id } = image;
+    if (isSelected(id)) {
       return setSelectedImages(
-        selectedImages.filter((img: IImage) => src !== img.src)
+        selectedImages.filter((img: IImage) => id !== img.id)
       );
     }
     setSelectedImages([...selectedImages, image]);
   };
 
-  const isSelected = (src: string): boolean => {
-    return !!selectedImages.find((image: IImage) => image.src === src);
+  const isSelected = (id: string): boolean => {
+    return !!selectedImages.find((image: IImage) => image.id === id);
   };
 
   return (
