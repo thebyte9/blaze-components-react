@@ -1,3 +1,4 @@
+import classnames from "classnames";
 import _orderBy from "lodash.orderby";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import TableBody from "./TableBody";
@@ -117,10 +118,15 @@ const Table: FunctionComponent<ITableProps> = ({
     </div>
   );
 
-  const tableWrapperClassName = `table__wrapper ${
-    stickyScroll ? "table__wrapper--scroll" : ""
-  }`.trim();
-  const tableClassName = `table ${stickyScroll ? "table--scroll" : ""}`.trim();
+  const tableWrapperClassName = classnames({
+    table__wrapper: !stickyScroll,
+    "table__wrapper table__wrapper--scroll": stickyScroll
+  });
+
+  const tableClassName = classnames({
+    table: !stickyScroll,
+    "table table--scroll": stickyScroll
+  });
 
   return (
     <div className={tableWrapperClassName}>
