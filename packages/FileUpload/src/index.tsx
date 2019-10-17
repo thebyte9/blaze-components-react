@@ -72,7 +72,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               reader.onload = (e: any) =>
                 resolve({
                   base64: e.target.result,
-                  id: uuid(),
+                  id: file.id,
                   name: file.name,
                   type: "image"
                 });
@@ -80,7 +80,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                 reject(new DOMException("Error parsing input file."));
             } else {
               resolve({
-                id: uuid(),
+                id: file.id,
                 name: file.name,
                 type: "file"
               });
@@ -93,6 +93,16 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     if (!files || !files.length) {
       return;
     }
+
+    files = files.map((file: any) => {
+      try {
+        file.id = uuid();
+      } catch (e) {
+        return file;
+      }
+      return file;
+    });
+
     const previewFiles = await getPreview(files);
 
     setFilesToUpload([...filesToUpload, ...files]);
@@ -106,6 +116,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     event.preventDefault();
     let { target: { files = {} } = {} } = event;
     files = Object.values(files);
+
     processFiles(files);
     onChange(files);
   };
@@ -122,6 +133,12 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const previewImagesUpdated = validFiles(previewImages);
     setFilesToUpload(fileToUploadUpdated);
     setPreviewImages(previewImagesUpdated);
+    onChange(fileToUploadUpdated);
+    if (handleDropProp) {
+      handleDropProp({
+        previewFiles: previewImagesUpdated
+      });
+    }
   };
 
   const handleInputChange = ({ event }: any) => {

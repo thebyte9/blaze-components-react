@@ -113,7 +113,7 @@ describe("Checkboxes component", () => {
     const wrapper = mount(<Checkboxes {...defaultProps()} />);
 
     wrapper
-      .find(".form-group")
+      .find(".form-field")
       .at(2)
       .simulate("click");
 
