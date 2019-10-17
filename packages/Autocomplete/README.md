@@ -28,7 +28,7 @@ const data = {
   ]
 };
 
-<Multiselect data={data} selected={(selected) => {}}/>
+<Autocomplete data={data} selected={(selected) => {}}/>
 ```
 
 ## API
