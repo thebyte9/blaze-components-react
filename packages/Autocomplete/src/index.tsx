@@ -14,9 +14,11 @@ interface IAutocompleteProps {
   selected: (...args: any[]) => any;
   label?: string;
   placeholder?: string;
+  disabled?: boolean
 }
 const Autocomplete: React.SFC<IAutocompleteProps> = ({
   data: { data, filterBy: keys, keyValue },
+  disabled,
   label,
   placeholder,
   selected,
@@ -52,6 +54,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
         label={label}
         onChange={handleChange}
         value={inputValue}
+        disabled={disabled}
       />
 
       {showSelect &&
@@ -72,6 +75,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   );
 };
 Autocomplete.defaultProps = {
+  disabled: false,
   label: "",
   placeholder: "Search",
   selected: (): void => {
