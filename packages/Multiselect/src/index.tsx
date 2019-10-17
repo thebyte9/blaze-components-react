@@ -206,13 +206,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show)
     .length;
 
+  const checkedItems = dataCopy.filter((item: IData) => item.checked);
+
   return (
     <div className="form-field form-field--multiselect">
       {label && <label>{label}</label>}
       <div className="multiselect" ref={multiRef}>
-        {dataCopy
-          .filter((item: IData) => item.checked)
-          .map(
+        <div className="chip__wrapper">
+          {checkedItems.map(
             (selectedValue: object): JSX.Element => (
               <Chip
                 modifiers={[
@@ -230,6 +231,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
               </Chip>
             )
           )}
+        </div>
 
         {children}
         <Input
@@ -252,9 +254,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
             />
           </div>
         )}
-        <span className="multiselect__clear" onClick={handleClearAll}>
-          <i className="material-icons">clear</i>
-        </span>
+        <div className="multiselect__clear">
+          {!!checkedItems.length && (
+            <button className="button button--link" onClick={handleClearAll}>
+              Clear all
+            </button>
+          )}
+        </div>
         {limitReached && <p>{limitReachedMessage}</p>}
       </div>
     </div>
@@ -271,7 +277,7 @@ MultiSelect.defaultProps = {
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },
-  placeholder: "Search...",
+  placeholder: "Choose...",
   validationMessage: "This field is required"
 };
 export default withUtils(MultiSelect);

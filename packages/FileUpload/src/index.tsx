@@ -95,7 +95,11 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     }
 
     files = files.map((file: any) => {
-      file.id = uuid();
+      try {
+        file.id = uuid();
+      } catch (e) {
+        return file;
+      }
       return file;
     });
 

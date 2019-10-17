@@ -32,7 +32,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
   limitReachedMessage="Select item limit reached"
   notFoundMessage="No records available"
   onChange={[Function]}
-  placeholder="Search..."
+  placeholder="Choose..."
   selected={
     Array [
       Object {
