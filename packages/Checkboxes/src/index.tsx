@@ -34,20 +34,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
   utils: { uniqueId, classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
-  const {
-    formClassName,
-    formatedOptions
-  }: { formClassName: string; formatedOptions: object[] } = Array.isArray(
-    options
-  )
-    ? {
-        formClassName: "form-group form-group--checkbox",
-        formatedOptions: options
-      }
-    : {
-        formClassName: "form-field form-field--checkbox",
-        formatedOptions: [options]
-      };
+  const formatedOptions = Array.isArray(options) ? options : [options];
 
   const [data, setData]: any = useState(formatedOptions);
 
@@ -98,13 +85,16 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
             return <Fragment key={id} />;
           }
 
-          const requiredClassName = classNames({ required });
+          const checkboxClassName = classNames(
+            "form-field form-field--checkbox",
+            { required }
+          );
 
           return (
             <div
               data-testid={`checkbox-${key + 1}`}
               key={id}
-              className={`${formClassName} ${requiredClassName}`}
+              className={checkboxClassName}
               onClick={(event): void => toggle({ event, item, key })}
               role="button"
             >

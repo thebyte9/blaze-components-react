@@ -41,7 +41,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
     if (!content && value) {
       setContent(value);
     }
-  }, []);
+  }, [value]);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>

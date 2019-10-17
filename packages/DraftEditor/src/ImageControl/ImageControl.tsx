@@ -9,15 +9,16 @@ import { IMAGE, IMMUTABLE } from "../constants";
 import StyleButton from "../StyleButton";
 import PreviewImages from "./PreviewImages";
 
-const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
+const ImageControl: FunctionComponent<IInlineImageControlsProps> = ({
   editorState,
-  previewImages: preUploadedImages,
-  onToggle
+  previewImages,
+  onToggle,
+  onFilesChange,
+  handleOnSaveFiles,
+  handleLibraryClick
 }): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
-  const [previewImages, setPreviewImages] = useState<IImage[]>(
-    preUploadedImages
-  );
+
   const [selectedImages, setSelectedImages] = useState<IImage[]>([]);
 
   const insertImage = (
@@ -42,16 +43,18 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
 
   const toggleModal = (): void => {
     setModalStatus(!modalStatus);
-    setSelectedImages(preUploadedImages);
-    setPreviewImages([]);
+    setSelectedImages([]);
   };
 
   const addSelectedImagesToEditor = (): void => {
     let latestEditorState: EditorState = editorState;
-    selectedImages.forEach((img: IImage) => {
+    previewImages.concat(selectedImages).forEach((img: IImage) => {
       const { src } = img;
       latestEditorState = insertImage(src, latestEditorState);
     });
+    if (handleOnSaveFiles) {
+      handleOnSaveFiles();
+    }
     toggleModal();
   };
 
@@ -64,27 +67,13 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   ];
 
   const handleDrop = ({ previewFiles }: { previewFiles: IImage[] }): void =>
-    setPreviewImages(formatImages(previewFiles));
+    setSelectedImages(formatImages(previewFiles));
 
   const formatImages = (images: IImage[]): IImage[] =>
     images.map((image: IImage) => ({
       ...image,
       src: image.src || image.base64
     }));
-
-  const addSelectedImage = (image: IImage): void => {
-    const { src } = image;
-    if (isSelected(src)) {
-      return setSelectedImages(
-        selectedImages.filter((img: IImage) => src !== img.src)
-      );
-    }
-    setSelectedImages([...selectedImages, image]);
-  };
-
-  const isSelected = (src: string): boolean => {
-    return !!selectedImages.find((image: IImage) => image.src === src);
-  };
 
   return (
     <>
@@ -94,16 +83,16 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
       />
       {modalStatus && (
         <Modal title="Upload" actions={alertActions} onClose={toggleModal}>
-          <FileUpload handleDrop={handleDrop} customPreview />
-          <PreviewImages
-            previewImages={previewImages}
-            isSelected={isSelected}
-            addSelectedImage={addSelectedImage}
+          <FileUpload
+            handleDrop={handleDrop}
+            onChange={onFilesChange}
+            handleLibraryClick={handleLibraryClick}
           />
+          <PreviewImages previewImages={previewImages} />
         </Modal>
       )}
     </>
   );
 };
 
-export default InlineControls;
+export default ImageControl;

@@ -22,7 +22,7 @@ interface IImage {
   base64: string;
   src: string;
   name: string;
-  id?: string;
+  id: string;
 }
 
 interface IErrorMessage {
@@ -59,7 +59,10 @@ interface IDraftEditorProps {
   ariaAutoComplete?: string;
   ariaActiveDescendantID?: string;
 
-  value?: string;
+  value: string;
+  onFilesChange: (files: object[]) => void;
+  handleOnSaveFiles: () => void;
+  handleLibraryClick: () => void;
 
   customStyleFn?: (
     style: DraftInlineStyle,
@@ -129,6 +132,9 @@ interface IInlineImageControlsProps {
   editorState: EditorState;
   previewImages: IImage[];
   onToggle: (newEditorState: EditorState, entityKey: string) => EditorState;
+  onFilesChange: (files: object[]) => void;
+  handleOnSaveFiles: () => void;
+  handleLibraryClick: () => void;
 }
 
 interface ILinkControlProps {
@@ -170,8 +176,6 @@ interface ILinkProps {
 
 interface IPreviewIages {
   previewImages: IImage[];
-  isSelected: (src: string) => boolean;
-  addSelectedImage: (image: IImage) => void;
 }
 
 export {

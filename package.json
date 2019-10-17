@@ -34,15 +34,16 @@
     "@types/draft-js": "0.10.34",
     "classnames": "^2.2.6",
     "draft-js": "0.11.0",
+    "draft-js-linkify-plugin": "^2.0.2",
     "enzyme-to-json": "^3.3.5",
     "lodash.orderby": "^4.6.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -100,7 +101,7 @@
     "pre-commit": "^1.2.2",
     "react-docgen-typescript-loader": "^3.1.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "react-test-renderer": "^16.8.6",
+    "react-test-renderer": "^16.9.0",
     "rimraf": "^3.0.0",
     "sass-loader": "^7.1.0",
     "storybook-readme": "^5.0.3",
