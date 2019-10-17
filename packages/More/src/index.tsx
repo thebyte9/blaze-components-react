@@ -1,16 +1,25 @@
 import classnames from "classnames";
-import React, { useState } from "react";
+import Popper from "popper.js";
+import React, { useEffect, useRef, useState } from "react";
 import MoreAvatar from "./MoreAvatar";
 import MoreContent from "./MoreContent";
 interface IMoreProps {
   isHeader?: boolean;
   isMoreMenu?: boolean;
+  displayBg?: boolean;
   children?: any;
   onClose: () => void;
 }
 
-const More = ({ children, isHeader, isMoreMenu, onClose }: IMoreProps) => {
-  const [toggled, setToggle] = useState(false);
+const More = ({
+  children,
+  isHeader,
+  isMoreMenu,
+  displayBg,
+  onClose
+}: IMoreProps) => {
+  const moreMenuRef = useRef<HTMLDivElement>(null);
+  const [toggled, setToggle] = useState<boolean>(false);
   const handleToggle = (event: any) => {
     event.stopPropagation();
     setToggle(!toggled);
@@ -30,24 +39,59 @@ const More = ({ children, isHeader, isMoreMenu, onClose }: IMoreProps) => {
     "more-menu__list-item": isMoreMenu
   });
 
+  useEffect(() => {
+    document.addEventListener("mousedown", (event): any =>
+      handleOutsideClick(event)
+    );
+
+    return function cleanup() {
+      document.removeEventListener("mousedown", (event): any =>
+        handleOutsideClick(event)
+      );
+    };
+  }, []);
+
+  const handleOutsideClick = (event: any) => {
+    if (
+      moreMenuRef.current !== null &&
+      !moreMenuRef.current.contains(event.target)
+    ) {
+      setToggle(false);
+    }
+  };
+
+  const refEl = document.getElementById("more-menu__wrapper");
+  const popEl = document.getElementById("more-menu__popper");
+
+  const popper = new Popper(refEl, popEl, {
+    placement: "left"
+  });
+
+  console.log("popper", popper);
+
   return (
-    <div className="more-menu__wrapper">
-      <ul className={ulClassName}>
-        <li className={liClassName}>
-          {React.Children.map(children, (child: any) =>
-            React.cloneElement(child, {
-              handleToggle,
-              toggled
-            })
-          )}
-        </li>
-      </ul>
-    </div>
+    <>
+      <div className="more-menu__wrapper" ref={moreMenuRef}>
+        <ul className={ulClassName}>
+          <li className={liClassName}>
+            {React.Children.map(children, (child: any) =>
+              React.cloneElement(child, {
+                handleToggle,
+                toggled,
+                displayBg
+              })
+            )}
+          </li>
+        </ul>
+      </div>
+      <div className="more-menu__popper">popper</div>
+    </>
   );
 };
 More.defaultProps = {
   isHeader: false,
   isMoreMenu: false,
+  displayBg: false,
   onClose: () => void 0
 };
 More.Avatar = MoreAvatar;

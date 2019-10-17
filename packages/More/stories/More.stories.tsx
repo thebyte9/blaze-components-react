@@ -14,18 +14,18 @@ storiesOf("More", module)
         <More.Avatar isMoreMenu>
           <span className="material-icons">more_vert</span>
         </More.Avatar>
-        <More.Content displayBg isMoreMenu>
+        <More.Content isMoreMenu>
           <a href="/">Link</a>
           <a href="/">Link</a>
           <a href="/">Link</a>
         </More.Content>
       </More>
 
-      <More isMoreMenu>
+      <More displayBg isMoreMenu>
         <More.Avatar isMoreMenu>
           <span className="material-icons">more_vert</span>
         </More.Avatar>
-        <More.Content displayBg isMoreMenu>
+        <More.Content isMoreMenu>
           <a href="/">Link</a>
           <a href="/">Link</a>
           <a href="/">Link</a>

@@ -7,7 +7,7 @@ interface IMoreContentProps {
   isMoreMenu?: boolean;
   isDropdown?: boolean;
   handleToggle?: any;
-  displayBg?: any;
+  displayBg?: boolean;
 }
 const MoreContent: React.SFC<IMoreContentProps> = ({
   children,
