@@ -28,7 +28,7 @@ const FileList = ({
       ) => (
         <Fragment key={file.id}>
           <div className="preview">
-            <div className="preview__file">
+            <div className={`preview__file preview__file--${file.type}`}>
               {file.type === IMAGE ? (
                 <img src={file.base64} />
               ) : (
