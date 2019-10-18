@@ -1,5 +1,4 @@
 import classnames from "classnames";
-import Popper from "popper.js";
 import React, { useEffect, useRef, useState } from "react";
 import MoreAvatar from "./MoreAvatar";
 import MoreContent from "./MoreContent";
@@ -60,15 +59,6 @@ const More = ({
     }
   };
 
-  const refEl = document.getElementById("more-menu__wrapper");
-  const popEl = document.getElementById("more-menu__popper");
-
-  const popper = new Popper(refEl, popEl, {
-    placement: "left"
-  });
-
-  console.log("popper", popper);
-
   return (
     <>
       <div className="more-menu__wrapper" ref={moreMenuRef}>
@@ -84,7 +74,6 @@ const More = ({
           </li>
         </ul>
       </div>
-      <div className="more-menu__popper">popper</div>
     </>
   );
 };
