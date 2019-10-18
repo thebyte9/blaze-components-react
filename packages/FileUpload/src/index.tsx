@@ -139,7 +139,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
   const handleCancel = (idToRemove: string): void => {
     const validFiles = (files: any[]) =>
-      files.filter(({ id }: { id: string }) => id !== idToRemove);
+      files.filter(({file:{ id }}: {file:{ id: string }}) => id !== idToRemove);
     const fileToUploadUpdated = validFiles(filesToUpload);
     const previewImagesUpdated = validFiles(previewImages);
     setFilesToUpload(fileToUploadUpdated);
