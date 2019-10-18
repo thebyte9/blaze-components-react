@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import uuid from "uuid/v1";
 import Actions from "./Actions";
+import { DATA_ATTRIBUTS } from "./constants";
 import DraggableFileUpload from "./DraggableFileUpload";
 import FileList from "./FileList";
 
@@ -71,18 +72,24 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
                 resolve({
-                  base64: e.target.result,
-                  id: uuid(),
-                  name: file.name,
-                  type: "image"
+                  data: DATA_ATTRIBUTS,
+                  file: {
+                    base64: e.target.result,
+                    id: uuid(),
+                    name: file.name,
+                    type: "image"
+                  }
                 });
               reader.onerror = () =>
                 reject(new DOMException("Error parsing input file."));
             } else {
               resolve({
-                id: uuid(),
-                name: file.name,
-                type: "file"
+                data: DATA_ATTRIBUTS,
+                file: {
+                  id: uuid(),
+                  name: file.name,
+                  type: "file"
+                }
               });
             }
           })
@@ -94,8 +101,12 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       return;
     }
     const previewFiles = await getPreview(files);
+    const formatFiles = files.map((file: any) => ({
+      data: DATA_ATTRIBUTS,
+      file
+    }));
 
-    setFilesToUpload([...filesToUpload, ...files]);
+    setFilesToUpload([...filesToUpload, ...formatFiles]);
     setPreviewImages([...previewImages, ...previewFiles]);
     if (handleDropProp) {
       handleDropProp({ previewFiles: [...previewImages, ...previewFiles] });
@@ -131,8 +142,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
     const filesToUploadCopy = [...filesToUpload];
     const previewImagesCopy = [...previewImages];
-    filesToUploadCopy[id][name] = value;
-    previewImagesCopy[id][name] = value;
+
+    filesToUploadCopy[id].data[name] = value;
+    previewImagesCopy[id].data[name] = value;
 
     setFilesToUpload(filesToUploadCopy);
     setPreviewImages(previewImagesCopy);
