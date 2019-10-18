@@ -1,5 +1,4 @@
 import Button from "@blaze-react/button";
-import ButtonSelect from "@blaze-react/button-select";
 import React from "react";
 
 interface IActions {
@@ -18,26 +17,7 @@ const Actions = ({
   <>
     {!handleLibraryClick && <Button onClick={handleBrowse}>Browse</Button>}
     {handleLibraryClick && (
-      <ButtonSelect text="Add files">
-        <Button
-          modifiers={[
-            Button.availableModifiers.plain,
-            Button.availableModifiers.fullWidth
-          ]}
-          onClick={handleLibraryClick}
-        >
-          From library
-        </Button>
-        <Button
-          modifiers={[
-            Button.availableModifiers.plain,
-            Button.availableModifiers.fullWidth
-          ]}
-          onClick={handleBrowse}
-        >
-          From device
-        </Button>
-      </ButtonSelect>
+      <Button onClick={handleLibraryClick}>Add files</Button>
     )}
     <input
       type="file"
