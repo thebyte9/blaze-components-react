@@ -13,3 +13,4 @@ declare module "@blaze-react/file-upload";
 declare module "@blaze-react/utils";
 declare module "@blaze-react/chips";
 declare module "@types/draft-js";
+declare module "draft-js-linkify-plugin";

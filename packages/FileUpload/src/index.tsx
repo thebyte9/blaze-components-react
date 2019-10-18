@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import uuid from "uuid/v1";
 import Actions from "./Actions";
+import { DATA_ATTRIBUTS } from "./constants";
+import { NAME } from "./constants";
 import DraggableFileUpload from "./DraggableFileUpload";
 import FileList from "./FileList";
 
@@ -71,18 +73,34 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
                 resolve({
-                  base64: e.target.result,
-                  id: uuid(),
-                  name: file.name,
-                  type: "image"
+                  data: DATA_ATTRIBUTS,
+                  file: {
+                    base64: e.target.result,
+                    id: uuid(),
+                    name: file.name,
+                    type: "image"
+                  },
+                  name: ""
                 });
               reader.onerror = () =>
                 reject(new DOMException("Error parsing input file."));
+            } else if (file.type && file.type.includes("video")) {
+              resolve({
+                file: {
+                  id: uuid(),
+                  name: file.name,
+                  type: "video"
+                },
+                name: ""
+              });
             } else {
               resolve({
-                id: uuid(),
-                name: file.name,
-                type: "file"
+                file: {
+                  id: uuid(),
+                  name: file.name,
+                  type: "doc"
+                },
+                name: ""
               });
             }
           })
@@ -93,9 +111,23 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     if (!files || !files.length) {
       return;
     }
-    const previewFiles = await getPreview(files);
 
-    setFilesToUpload([...filesToUpload, ...files]);
+    files = files.map((file: any) => {
+      try {
+        file.id = uuid();
+      } catch (e) {
+        return file;
+      }
+      return file;
+    });
+
+    const previewFiles = await getPreview(files);
+    const formatFiles = files.map((file: any) => ({
+      data: DATA_ATTRIBUTS,
+      file
+    }));
+
+    setFilesToUpload([...filesToUpload, ...formatFiles]);
     setPreviewImages([...previewImages, ...previewFiles]);
     if (handleDropProp) {
       handleDropProp({ previewFiles: [...previewImages, ...previewFiles] });
@@ -106,6 +138,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     event.preventDefault();
     let { target: { files = {} } = {} } = event;
     files = Object.values(files);
+
     processFiles(files);
     onChange(files);
   };
@@ -117,11 +150,19 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
   const handleCancel = (idToRemove: string): void => {
     const validFiles = (files: any[]) =>
-      files.filter(({ id }: { id: string }) => id !== idToRemove);
+      files.filter(
+        ({ file: { id } }: { file: { id: string } }) => id !== idToRemove
+      );
     const fileToUploadUpdated = validFiles(filesToUpload);
     const previewImagesUpdated = validFiles(previewImages);
     setFilesToUpload(fileToUploadUpdated);
     setPreviewImages(previewImagesUpdated);
+    onChange(fileToUploadUpdated);
+    if (handleDropProp) {
+      handleDropProp({
+        previewFiles: previewImagesUpdated
+      });
+    }
   };
 
   const handleInputChange = ({ event }: any) => {
@@ -131,8 +172,14 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
     const filesToUploadCopy = [...filesToUpload];
     const previewImagesCopy = [...previewImages];
-    filesToUploadCopy[id][name] = value;
-    previewImagesCopy[id][name] = value;
+
+    if (name !== NAME) {
+      filesToUploadCopy[id].data[name] = value;
+      previewImagesCopy[id].data[name] = value;
+    } else {
+      filesToUploadCopy[id][name] = value;
+      previewImagesCopy[id][name] = value;
+    }
 
     setFilesToUpload(filesToUploadCopy);
     setPreviewImages(previewImagesCopy);

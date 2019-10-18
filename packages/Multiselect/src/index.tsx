@@ -13,6 +13,7 @@ interface IErrorMessage {
 }
 
 interface IData {
+  id?: string;
   checked?: boolean;
   show?: boolean;
 }
@@ -65,6 +66,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [searchValue, setSearchValue] = useState<string>("");
 
   useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return function cleanup() {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
     const shouldUpdate =
       differenceWith(dataCopy, data, isEqual).length ||
       differenceWith(data, dataCopy, isEqual).length;
@@ -78,11 +87,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         })
       );
     }
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return function cleanup() {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
   }, [data]);
 
   const setStatus = (obj: object, status: boolean): object =>
@@ -121,11 +125,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       )
     );
 
-  const updateData = (element: number, value: boolean) => {
-    const newDataCopy = [...dataCopy];
-    newDataCopy[element].checked = value;
-    setDataCopy(newDataCopy);
-    checkLimit(newDataCopy);
+  const updateData = (newData: IData[]) => {
+    setDataCopy(newData);
+    checkLimit(newData);
   };
 
   const handleKeyDown = ({
@@ -143,8 +145,11 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       const elementToAdd = parsedDataCopy.findIndex(
         (parsedData: IData) => parsedData.show
       );
-
-      updateData(elementToAdd, true);
+      const newDataCopy: IData[] = [...dataCopy];
+      newDataCopy[elementToAdd].checked = true;
+      updateData(newDataCopy);
+      const selectedData = getChecked(newDataCopy);
+      callGetSelected(selectedData);
     }
   };
 
@@ -157,14 +162,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   }) => {
     setDataCopy(localData);
     checkLimit(localData);
-    getSelected({
-      event: {
-        target: {
-          name,
-          value
-        }
-      }
-    });
+    callGetSelected(value);
   };
 
   const parseCheckBoxOptions = (elements: object[]): object[] => {
@@ -178,14 +176,34 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     const elementToDelete: number = dataCopy.findIndex(
       ({ id: itemId }: { id: string | number }) => itemId === id
     );
-    updateData(elementToDelete, false);
+    const newDataCopy: IData[] = [...dataCopy];
+    newDataCopy[elementToDelete].checked = false;
+    updateData(newDataCopy);
+
+    const selectedData = getChecked(newDataCopy);
+    callGetSelected(selectedData);
   };
+
+  const getChecked = (newDataCopy: IData[]) =>
+    newDataCopy.filter(({ checked }: { checked: boolean }) => checked);
+
+  const callGetSelected = (newDataCopy: IData[]) =>
+    getSelected({
+      event: {
+        target: {
+          name,
+          value: newDataCopy.map(({ id }: IData) => id)
+        }
+      }
+    });
 
   const handleClearAll = (): void => {
     const formatedElements: object[] = dataCopy.map((item: IData) => {
       item.checked = false;
       return item;
     });
+
+    callGetSelected([]);
     setDataCopy(formatedElements);
     setShow(false);
     checkLimit(formatedElements);
@@ -203,16 +221,18 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       setLimitReached(reachedLimit);
     }
   };
+
   const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show)
     .length;
 
+  const checkedItems = dataCopy.filter((item: IData) => item.checked);
+
   return (
-    <>
+    <div className="form-field form-field--multiselect">
       {label && <label>{label}</label>}
       <div className="multiselect" ref={multiRef}>
-        {dataCopy
-          .filter((item: IData) => item.checked)
-          .map(
+        <div className="chip__wrapper">
+          {checkedItems.map(
             (selectedValue: object): JSX.Element => (
               <Chip
                 modifiers={[
@@ -230,6 +250,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
               </Chip>
             )
           )}
+          {!!checkedItems.length && (
+            <button className="button button--link" onClick={handleClearAll}>
+              Clear all
+            </button>
+          )}
+        </div>
 
         {children}
         <Input
@@ -252,12 +278,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
             />
           </div>
         )}
-        <span className="multiselect__clear" onClick={handleClearAll}>
-          <i className="material-icons">clear</i>
-        </span>
         {limitReached && <p>{limitReachedMessage}</p>}
       </div>
-    </>
+    </div>
   );
 };
 MultiSelect.defaultProps = {
@@ -271,7 +294,7 @@ MultiSelect.defaultProps = {
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },
-  placeholder: "Search...",
+  placeholder: "Choose...",
   validationMessage: "This field is required"
 };
 export default withUtils(MultiSelect);

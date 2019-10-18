@@ -29,13 +29,14 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
       ],
     }
   }
-  placeholder="No records available"
+  placeholder="No records available"
+  stickyScroll={false}
 >
   <div
-    className="table-scroll__wrapper"
+    className="table__wrapper"
   >
     <div
-      className="table-scroll"
+      className="table"
     >
       <table>
         <withUtils(TableHead)
@@ -107,35 +108,47 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
                 <th
                   key="uid-ImlkIg=="
                 >
-                  <span
-                    data-testid="sortby-id"
-                    onClick={[Function]}
-                    role="button"
+                  <div
+                    className="sortable"
                   >
-                    id
-                  </span>
+                    <span
+                      data-testid="sortby-id"
+                      onClick={[Function]}
+                      role="button"
+                    >
+                      id
+                    </span>
+                  </div>
                 </th>
                 <th
                   key="uid-Im5hbWUi"
                 >
-                  <span
-                    data-testid="sortby-name"
-                    onClick={[Function]}
-                    role="button"
+                  <div
+                    className="sortable"
                   >
-                    name
-                  </span>
+                    <span
+                      data-testid="sortby-name"
+                      onClick={[Function]}
+                      role="button"
+                    >
+                      name
+                    </span>
+                  </div>
                 </th>
                 <th
                   key="uid-ImFnZSI="
                 >
-                  <span
-                    data-testid="sortby-age"
-                    onClick={[Function]}
-                    role="button"
+                  <div
+                    className="sortable"
                   >
-                    age
-                  </span>
+                    <span
+                      data-testid="sortby-age"
+                      onClick={[Function]}
+                      role="button"
+                    >
+                      age
+                    </span>
+                  </div>
                 </th>
               </tr>
             </thead>
@@ -166,7 +179,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
           }
           handleSelected={[Function]}
           identification="id"
-          placeholder="No records available"
+          placeholder="No records available"
           selected={Array []}
         >
           <TableBody
@@ -194,7 +207,7 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
             }
             handleSelected={[Function]}
             identification="id"
-            placeholder="No records available"
+            placeholder="No records available"
             selected={Array []}
             utils={
               Object {

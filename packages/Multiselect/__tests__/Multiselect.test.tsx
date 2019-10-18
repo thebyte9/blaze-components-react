@@ -30,6 +30,12 @@ const defaultProps = (override: object = {}) => ({
       name: "Blaze 1",
       description: "Lorem ipsum dolor.",
       checked: true
+    },
+    {
+      id: 2,
+      name: "Blaze 2",
+      description: "Lorem ipsum dolor.",
+      checked: true
     }
   ],
   ...override
@@ -43,7 +49,7 @@ describe("Multiselect component", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("should select first option and clear selected", () => {
+  test("should select first option", () => {
     const wrapper = mount(<Multiselect {...defaultProps()} />);
 
     wrapper
@@ -52,7 +58,7 @@ describe("Multiselect component", () => {
       .simulate("focus");
 
     wrapper
-      .find(".form-group--checkbox")
+      .find(".form-field--checkbox")
       .at(0)
       .simulate("click");
 
@@ -62,13 +68,6 @@ describe("Multiselect component", () => {
         .at(0)
         .text()
     ).toContain("Blaze 1");
-
-    wrapper
-      .find(".multiselect__clear")
-      .at(0)
-      .simulate("click");
-
-    expect(wrapper.find(".chip__label").length).toBe(0);
   });
 
   test("should allow to filter", () => {
@@ -85,7 +84,7 @@ describe("Multiselect component", () => {
       .simulate("change", { target: { value: "Blaze 2" } });
     expect(
       wrapper
-        .find(".form-group--checkbox")
+        .find(".form-field--checkbox")
         .at(0)
         .text()
     ).toContain("Blaze 2");
@@ -146,7 +145,7 @@ describe("Multiselect component", () => {
       .at(0)
       .simulate("click");
 
-    expect(wrapper.find(".chip__label").length).toBe(0);
+    expect(wrapper.find(".chip__label").length).toBe(1);
 
     wrapper
       .find("input")
@@ -161,5 +160,12 @@ describe("Multiselect component", () => {
         .at(0)
         .text()
     ).toContain("Blaze 1");
+
+    wrapper
+      .find(".button--link")
+      .at(0)
+      .simulate("click");
+
+    expect(wrapper.find(".chip__label").length).toBe(0);
   });
 });

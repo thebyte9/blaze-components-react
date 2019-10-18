@@ -1,6 +1,8 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+
 /* Fixes an issue where Ruby locale is not set properly*/
 /* See https://github.com/sass-mq/sass-mq/pull/10*/
 /*/ Base font size on the `<body>` element*/
@@ -2922,6 +2924,24 @@ p {
   position: absolute;
   left: -3px;
   top: -20px;
+}
+
+.custom-DraftEditor-previewImage span {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  height: 30px;
+  width: 30px;
+  background: #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top-left-radius: 25%;
+}
+
+.custom-DraftEditor-previewImage span i {
+  color: #00bcd4;
 }
 
 .dropdown--header {
