@@ -60,21 +60,19 @@ const More = ({
   };
 
   return (
-    <>
-      <div className="more-menu__wrapper" ref={moreMenuRef}>
-        <ul className={ulClassName}>
-          <li className={liClassName}>
-            {React.Children.map(children, (child: any) =>
-              React.cloneElement(child, {
-                handleToggle,
-                toggled,
-                displayBg
-              })
-            )}
-          </li>
-        </ul>
-      </div>
-    </>
+    <div className="more-menu__wrapper" ref={moreMenuRef}>
+      <ul className={ulClassName}>
+        <li className={liClassName}>
+          {React.Children.map(children, (child: any) =>
+            React.cloneElement(child, {
+              handleToggle,
+              toggled,
+              displayBg
+            })
+          )}
+        </li>
+      </ul>
+    </div>
   );
 };
 More.defaultProps = {
