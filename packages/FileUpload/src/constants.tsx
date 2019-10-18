@@ -3,11 +3,11 @@ const DATA_ATTRIBUTS = {
   caption: ""
 };
 
-const DATA_ATTRIBUTS_KEYS = {
+const DATA_ATTRIBUTES = {
   ALT_TEXT: "altText",
   CAPTION: "caption"
 };
 
 const NAME = "name";
 
-export { DATA_ATTRIBUTS, DATA_ATTRIBUTS_KEYS, NAME };
+export { DATA_ATTRIBUTS, DATA_ATTRIBUTES, NAME };
