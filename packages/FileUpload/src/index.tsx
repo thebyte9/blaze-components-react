@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import uuid from "uuid/v1";
 import Actions from "./Actions";
 import { DATA_ATTRIBUTS } from "./constants";
+import { NAME } from "./constants";
 import DraggableFileUpload from "./DraggableFileUpload";
 import FileList from "./FileList";
 
@@ -78,27 +79,28 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                     id: uuid(),
                     name: file.name,
                     type: "image"
-                  }
+                  },
+                  name: ""
                 });
               reader.onerror = () =>
                 reject(new DOMException("Error parsing input file."));
             } else if (file.type && file.type.includes("video")) {
               resolve({
-                data: DATA_ATTRIBUTS,
                 file: {
                   id: uuid(),
                   name: file.name,
                   type: "video"
-                }
+                },
+                name: ""
               });
             } else {
               resolve({
-                data: DATA_ATTRIBUTS,
                 file: {
                   id: uuid(),
                   name: file.name,
                   type: "doc"
-                }
+                },
+                name: ""
               });
             }
           })
@@ -171,8 +173,13 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const filesToUploadCopy = [...filesToUpload];
     const previewImagesCopy = [...previewImages];
 
-    filesToUploadCopy[id].data[name] = value;
-    previewImagesCopy[id].data[name] = value;
+    if (name !== NAME) {
+      filesToUploadCopy[id].data[name] = value;
+      previewImagesCopy[id].data[name] = value;
+    } else {
+      filesToUploadCopy[id][name] = value;
+      previewImagesCopy[id][name] = value;
+    }
 
     setFilesToUpload(filesToUploadCopy);
     setPreviewImages(previewImagesCopy);

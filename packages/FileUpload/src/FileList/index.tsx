@@ -1,6 +1,6 @@
 import Input from "@blaze-react/input";
 import React, { Fragment } from "react";
-import { DATA_ATTRIBUTS_KEYS } from "../constants";
+import { DATA_ATTRIBUTS_KEYS, NAME } from "../constants";
 import DocumentIcon from "../DocumentIcon";
 
 const IMAGE = "image";
@@ -19,10 +19,12 @@ const FileList = ({
       (
         {
           file,
-          data: { title, altText, caption }
+          name,
+          data
         }: {
           file: any;
-          data: { title: string; altText: string; caption: string };
+          name: string;
+          data: any | null;
         },
         index: any
       ) => (
@@ -43,21 +45,21 @@ const FileList = ({
                     <Input
                       label="Image title"
                       onChange={handleInputChange}
-                      value={title}
+                      value={name}
                       id={index}
-                      name={DATA_ATTRIBUTS_KEYS.TITLE}
+                      name={NAME}
                     />
                     <Input
                       label="Alternative text"
                       onChange={handleInputChange}
-                      value={altText}
+                      value={data.altText}
                       id={index}
                       name={DATA_ATTRIBUTS_KEYS.ALT_TEXT}
                     />
                     <Input
                       label="Image caption"
                       onChange={handleInputChange}
-                      value={caption}
+                      value={data.caption}
                       id={index}
                       name={DATA_ATTRIBUTS_KEYS.CAPTION}
                     />
