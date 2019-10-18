@@ -44,18 +44,16 @@ const Chips = withUtils(
     return (
       <Fragment>
         {showChip && (
-          <div className="chip__wrapper">
-            <div className={chipClassNames} onClick={action}>
-              {isRemovable
-                ? React.Children.map(
-                    children,
-                    (child: ReactElement): ReactElement =>
-                      React.cloneElement(child, {
-                        handleRemoveChip
-                      })
-                  )
-                : children}
-            </div>
+          <div className={chipClassNames} onClick={action}>
+            {isRemovable
+              ? React.Children.map(
+                  children,
+                  (child: ReactElement): ReactElement =>
+                    React.cloneElement(child, {
+                      handleRemoveChip
+                    })
+                )
+              : children}
           </div>
         )}
       </Fragment>

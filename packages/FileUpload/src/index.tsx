@@ -100,6 +100,16 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     if (!files || !files.length) {
       return;
     }
+
+    files = files.map((file: any) => {
+      try {
+        file.id = uuid();
+      } catch (e) {
+        return file;
+      }
+      return file;
+    });
+
     const previewFiles = await getPreview(files);
     const formatFiles = files.map((file: any) => ({
       data: DATA_ATTRIBUTS,
@@ -117,6 +127,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     event.preventDefault();
     let { target: { files = {} } = {} } = event;
     files = Object.values(files);
+
     processFiles(files);
     onChange(files);
   };
@@ -133,6 +144,12 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const previewImagesUpdated = validFiles(previewImages);
     setFilesToUpload(fileToUploadUpdated);
     setPreviewImages(previewImagesUpdated);
+    onChange(fileToUploadUpdated);
+    if (handleDropProp) {
+      handleDropProp({
+        previewFiles: previewImagesUpdated
+      });
+    }
   };
 
   const handleInputChange = ({ event }: any) => {
