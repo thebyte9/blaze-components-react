@@ -8,6 +8,7 @@ interface ITableProps {
         orderBy: string[];
         rows: object[];
     };
+    stickyScroll?: boolean;
     value?: string;
     onSelect?: (arg: any[]) => any;
 }

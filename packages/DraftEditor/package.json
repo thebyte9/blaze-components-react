@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.3.49",
+  "version": "0.3.50",
   "publishConfig": {
     "access": "public"
   },
@@ -18,17 +18,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/file-upload": "^0.3.49",
-    "@blaze-react/input": "^0.3.49",
-    "@blaze-react/modal": "^0.3.49",
-    "@blaze-react/utils": "^0.3.49",
+    "@blaze-react/file-upload": "^0.3.50",
+    "@blaze-react/input": "^0.3.50",
+    "@blaze-react/modal": "^0.3.50",
+    "@blaze-react/utils": "^0.3.50",
     "@types/draft-js": "0.10.34",
     "draft-js": "0.11.0",
-    "draft-js-plugins-editor": "^3.0.0",
     "draft-js-drag-n-drop-plugin": "2.0.4",
     "draft-js-focus-plugin": "3.0.1",
     "draft-js-image-plugin": "2.0.7",
-    "draft-js-linkify-plugin": "^2.0.2"
+    "draft-js-linkify-plugin": "^2.0.2",
+    "draft-js-plugins-editor": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

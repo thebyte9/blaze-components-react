@@ -9,7 +9,7 @@ import { IMAGE, IMMUTABLE } from "../constants";
 import StyleButton from "../StyleButton";
 import PreviewImages from "./PreviewImages";
 
-const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
+const ImageControl: FunctionComponent<IInlineImageControlsProps> = ({
   editorState,
   previewImages,
   onToggle,
@@ -52,7 +52,9 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
       const { src } = img;
       latestEditorState = insertImage(src, latestEditorState);
     });
-    handleOnSaveFiles();
+    if (handleOnSaveFiles) {
+      handleOnSaveFiles();
+    }
     toggleModal();
   };
 
@@ -93,4 +95,4 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   );
 };
 
-export default InlineControls;
+export default ImageControl;
