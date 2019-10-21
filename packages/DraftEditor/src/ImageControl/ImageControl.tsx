@@ -21,9 +21,11 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   const [modalStatus, setModalStatus] = useState<boolean>(false);
 
   useEffect(() => {
-    let latestEditorState: EditorState = editorState;
-    const { url }: { url: string } = uploadedFile;
-    latestEditorState = insertImage(url, latestEditorState);
+    if (uploadedFile) {
+      let latestEditorState: EditorState = editorState;
+      const { url }: { url: string } = uploadedFile;
+      latestEditorState = insertImage(url, latestEditorState);
+    }
   }, [uploadedFile]);
 
   const insertImage = (
