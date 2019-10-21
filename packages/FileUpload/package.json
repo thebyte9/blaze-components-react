@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/file-upload",
-  "version": "0.3.51",
+  "version": "0.3.52",
   "publishConfig": {
     "access": "public"
   },
@@ -18,10 +18,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.3.51",
-    "@blaze-react/button-select": "^0.3.51",
-    "@blaze-react/input": "^0.3.51",
-    "@blaze-react/modal": "^0.3.51",
+    "@blaze-react/button": "^0.3.52",
+    "@blaze-react/button-select": "^0.3.52",
+    "@blaze-react/input": "^0.3.52",
+    "@blaze-react/modal": "^0.3.52",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
