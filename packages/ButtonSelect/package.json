@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/button-select",
-  "version": "0.3.50",
+  "version": "0.3.51",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.3.50",
+    "@blaze-react/button": "^0.3.51",
     "@types/uuid": "^3.4.4"
   },
   "devDependencies": {
