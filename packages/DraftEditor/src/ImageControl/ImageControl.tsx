@@ -58,7 +58,9 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
       const { src } = img;
       latestEditorState = insertImage(src, latestEditorState);
     });
-    handleOnSaveFiles();
+    if (handleOnSaveFiles) {
+      handleOnSaveFiles();
+    }
     toggleModal();
   };
 

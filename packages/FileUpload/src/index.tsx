@@ -76,7 +76,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                   data: DATA_ATTRIBUTS,
                   file: {
                     base64: e.target.result,
-                    id: uuid(),
+                    id: file.id,
                     name: file.name,
                     type: "image"
                   },
@@ -87,7 +87,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
             } else if (file.type && file.type.includes("video")) {
               resolve({
                 file: {
-                  id: uuid(),
+                  id: file.id,
                   name: file.name,
                   type: "video"
                 },
@@ -96,7 +96,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
             } else {
               resolve({
                 file: {
-                  id: uuid(),
+                  id: file.id,
                   name: file.name,
                   type: "doc"
                 },
