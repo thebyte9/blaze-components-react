@@ -1,6 +1,7 @@
 import Checkboxes from "@blaze-react/checkboxes";
 import withUtils from "@blaze-react/utils";
 import React from "react";
+import VirtualList from "react-tiny-virtual-list";
 interface ICheckbox {
   checked: boolean;
   id: string | number;
@@ -33,44 +34,53 @@ const TableBody = ({
   placeholder,
   utils: { uniqueId }
 }: ITableBody): JSX.Element => (
-  <tbody>
-    {allRows.map(
-      (row: object, key: number): JSX.Element => (
-        <tr key={uniqueId(row)} data-testid={`tablerow-${key + 1}`}>
+  <div>
+    <VirtualList
+      width="100%"
+      height={450}
+      itemCount={allRows.length}
+      itemSize={62}
+      renderItem={({ index, style }) => (
+        <div
+          key={uniqueId(allRows[index])}
+          data-testid={`tablerow-${index + 1}`}
+          style={style}
+        >
           {checkboxes && (
-            <td>
+            <div>
               <Checkboxes
-                data-testid={`row-checkbox-${key + 1}`}
+                data-testid={`row-checkbox-${index + 1}`}
                 options={{
-                  checked: selected.includes(row[identification]),
-                  id: row[identification],
-                  value: row[identification]
+                  checked: selected.includes(allRows[index][identification]),
+                  id: allRows[index][identification],
+                  value: allRows[index][identification]
                 }}
                 onChange={({ value }: { value: ICheckbox[] }): void =>
-                  handleSelected(value, row[identification])
+                  handleSelected(value, allRows[index][identification])
                 }
               />
-            </td>
+            </div>
           )}
           {columns.map(
             (column: string): JSX.Element => (
-              <td key={column}>{row[column]}</td>
+              <div key={column}>{allRows[index][column]}</div>
             )
           )}
-        </tr>
-      )
-    )}
+        </div>
+      )}
+    ></VirtualList>
+
     {!allRows.length && (
-      <tr>
-        <td
-          colSpan={checkboxes ? columns.length + 1 : columns.length}
-          align="center"
+      <div>
+        <div
+        // colSpan={checkboxes ? columns.length + 1 : columns.length}
+        // align="center"
         >
           {placeholder}
-        </td>
-      </tr>
+        </div>
+      </div>
     )}
-  </tbody>
+  </div>
 );
 
 export default withUtils(TableBody);

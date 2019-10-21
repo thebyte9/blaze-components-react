@@ -1,67 +1,63 @@
 import { storiesOf } from "@storybook/react";
+import faker from "faker";
 import React, { useEffect, useState } from "react";
 import TableReadme from "../README.md";
 import Table from "../src";
 
-const initialData = {
-  columns: ["name", "age"],
-  identification: "id",
-  orderBy: ["age", "name"],
-  rows: [
-    {
-      id: 1,
-      name: "Oscar Leon",
-      age: 26
-    },
-    {
-      id: 2,
-      name: "Ismael Haytam",
-      age: 23
-    },
-    {
-      id: 3,
-      name: "Admin",
-      age: 45
-    }
-  ]
-};
-
-const finalData = {
-  identification: "id",
-  columns: ["name", "lastName", "age", "tel"],
-  orderBy: ["age", "name"],
-  rows: [
-    {
-      id: 1,
-      name: "Oscar Leon",
-      lastName: "abc",
-      age: 26,
-      tel: "213123123"
-    },
-    {
-      id: 2,
-      name: "Ismael Haytam",
-      lastName: "def",
-      age: 23,
-      tel: "213123123"
-    },
-    {
-      id: 3,
-      name: "Robert",
-      lastName: "nop",
-      age: 45,
-      tel: "213123123"
-    }
-  ]
-};
+// const secondTableData = {
+//   identification: "id",
+//   columns: ["name", "lastName", "age", "tel"],
+//   orderBy: ["age", "name"],
+//   rows: [
+//     {
+//       id: 1,
+//       name: "Oscar Leon",
+//       lastName: "abc",
+//       age: 26,
+//       tel: "213123123"
+//     },
+//     {
+//       id: 2,
+//       name: "Ismael Haytam",
+//       lastName: "def",
+//       age: 23,
+//       tel: "213123123"
+//     },
+//     {
+//       id: 3,
+//       name: "Robert",
+//       lastName: "nop",
+//       age: 45,
+//       tel: "213123123"
+//     }
+//   ]
+// };
 
 const DemoComponent = () => {
-  const [data, setData] = useState<any>(initialData);
+  const [data, setData] = useState<any>({
+    columns: ["name", "email"],
+    identification: "id",
+    orderBy: ["email", "name"],
+    rows: []
+  });
+
+  const generateFakeData = () => {
+    const rows = [];
+    for (let i = 0; i < 100; i++) {
+      rows.push({
+        email: faker.internet.email(),
+        id: 1,
+        name: faker.internet.userName()
+      });
+    }
+    return rows;
+  };
 
   useEffect(() => {
-    setTimeout(() => {
-      setData(finalData);
-    }, 2000);
+    if (data.rows && !data.rows.length) {
+      const updatedData = { ...data, rows: generateFakeData() };
+      setData(updatedData);
+    }
   }, []);
 
   return <Table checkboxes data={data} onSelect={() => ({})} />;
@@ -86,13 +82,18 @@ storiesOf("Table", module)
 
       <DemoComponent />
 
-      <h1>Sticky scrollable table</h1>
+      {/* <h1>Sticky scrollable table</h1>
 
       <p>
         We can choose to render a table with scrollable content by changing the
                 prop boolean value of <code>stickyScroll</code>
-      </p>
+      </p> */}
 
-      <Table stickyScroll checkboxes data={finalData} onSelect={() => ({})} />
+      {/* <Table
+        stickyScroll
+        checkboxes
+        data={secondTableData}
+        onSelect={() => ({})}
+      /> */}
     </div>
   ));
