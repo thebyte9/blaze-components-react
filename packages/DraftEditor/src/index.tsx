@@ -55,6 +55,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   onFilesChange,
   handleOnSaveFiles,
   handleLibraryClick,
+  uploadedFile,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -193,6 +194,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           onFilesChange={onFilesChange}
           handleOnSaveFiles={handleOnSaveFiles}
           handleLibraryClick={handleLibraryClick}
+          uploadedFile={uploadedFile}
         />
         <LinkControl
           editorState={editorState}

@@ -21,6 +21,7 @@ type SyntheticEvent = React.SyntheticEvent<object>;
 interface IImage {
   base64: string;
   src: string;
+  url: string;
   name: string;
   id: string;
 }
@@ -33,6 +34,7 @@ interface IErrorMessage {
 interface IDraftEditorProps {
   unSelectedText: string;
   previewImages: IImage[];
+  uploadedFile: IImage;
   editorState?: EditorState;
   customStyleMap?: DraftStyleMap;
   textAlignment?: DraftTextAlignment;
@@ -135,6 +137,7 @@ interface IInlineImageControlsProps {
   onFilesChange: (files: object[]) => void;
   handleOnSaveFiles: () => void;
   handleLibraryClick: () => void;
+  uploadedFile: IImage;
 }
 
 interface ILinkControlProps {
