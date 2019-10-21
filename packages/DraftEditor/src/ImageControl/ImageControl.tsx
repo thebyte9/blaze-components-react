@@ -3,7 +3,7 @@ import Modal from "@blaze-react/modal";
 import { IImage, IInlineImageControlsProps } from "../interfaces";
 
 import { ContentState, EditorState } from "draft-js";
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 
 import { IMAGE, IMMUTABLE } from "../constants";
 import StyleButton from "../StyleButton";
@@ -15,11 +15,18 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
   onToggle,
   onFilesChange,
   handleOnSaveFiles,
-  handleLibraryClick
+  handleLibraryClick,
+  uploadedFile
 }): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
 
-  const [selectedImages, setSelectedImages] = useState<IImage[]>([]);
+  useEffect(() => {
+    if (uploadedFile) {
+      let latestEditorState: EditorState = editorState;
+      const { url }: { url: string } = uploadedFile;
+      latestEditorState = insertImage(url, latestEditorState);
+    }
+  }, [uploadedFile]);
 
   const insertImage = (
     src: string,
@@ -43,16 +50,17 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
 
   const toggleModal = (): void => {
     setModalStatus(!modalStatus);
-    setSelectedImages([]);
   };
 
   const addSelectedImagesToEditor = (): void => {
     let latestEditorState: EditorState = editorState;
-    previewImages.concat(selectedImages).forEach((img: IImage) => {
+    previewImages.forEach((img: IImage) => {
       const { src } = img;
       latestEditorState = insertImage(src, latestEditorState);
     });
-    handleOnSaveFiles();
+    if (handleOnSaveFiles) {
+      handleOnSaveFiles();
+    }
     toggleModal();
   };
 
@@ -64,15 +72,6 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
     }
   ];
 
-  const handleDrop = ({ previewFiles }: { previewFiles: IImage[] }): void =>
-    setSelectedImages(formatImages(previewFiles));
-
-  const formatImages = (images: IImage[]): IImage[] =>
-    images.map((image: IImage) => ({
-      ...image,
-      src: image.src || image.base64
-    }));
-
   return (
     <>
       <StyleButton
@@ -82,7 +81,6 @@ const InlineControls: FunctionComponent<IInlineImageControlsProps> = ({
       {modalStatus && (
         <Modal title="Upload" actions={alertActions} onClose={toggleModal}>
           <FileUpload
-            handleDrop={handleDrop}
             onChange={onFilesChange}
             handleLibraryClick={handleLibraryClick}
           />
