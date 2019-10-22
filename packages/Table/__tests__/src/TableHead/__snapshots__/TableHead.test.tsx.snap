@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table head should render without throwing error 1`] = `
+<div>
+  <div
+    class="table-head"
+  >
+    <div
+      class="table-cell--checkbox"
+    />
+    <div
+      class="table-cell"
+    >
+      <div>
+        Sortable.cell
+      </div>
+    </div>
+    <div
+      class="table-cell"
+    >
+      <div>
+        Sortable.cell
+      </div>
+    </div>
+    <div
+      class="table-cell"
+    >
+      <div>
+        Sortable.cell
+      </div>
+    </div>
+  </div>
+</div>
+`;

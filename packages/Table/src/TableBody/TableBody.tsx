@@ -91,7 +91,7 @@ const TableBody = ({
               )}
             </div>
           )}
-        ></VirtualList>
+        />
       )}
 
       {!allRows.length && (
