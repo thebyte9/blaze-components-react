@@ -40,27 +40,6 @@ describe("Table component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  test("should toggle multiselect and one by one", () => {
-    let selectedRows: [] = [];
-
-    const onSelect = (selected: []) => {
-      selectedRows = selected;
-    };
-
-    const override = {
-      checkboxes: true,
-      onSelect
-    };
-
-    const { getByTestId } = render(<Table {...defaultProps(override)} />);
-
-    fireEvent.click(getByTestId("row-checkbox-1"));
-    expect(selectedRows).toEqual([1]);
-
-    fireEvent.click(getByTestId("row-checkbox-1"));
-    expect(selectedRows).toEqual([]);
-  });
-
   test("should show placeholder if there is no data yet", () => {
     const placeholder = "The table is empty of records";
 
