@@ -1,4 +1,3 @@
-// import Checkboxes from "@blaze-react/checkboxes";
 import withUtils from "@blaze-react/utils";
 import React from "react";
 import SortableCell from "./SortableCell";
