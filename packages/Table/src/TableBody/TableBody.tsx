@@ -22,6 +22,10 @@ interface ITableBody {
   utils: {
     uniqueId: (element: any) => string;
   };
+  bodyRef: any;
+  scrollToIndex: number;
+  overScanBuffer: number;
+  onRenderItems?: (arg: any) => void;
 }
 
 const TableBody = ({
@@ -32,55 +36,68 @@ const TableBody = ({
   handleSelected,
   columns,
   placeholder,
-  utils: { uniqueId }
-}: ITableBody): JSX.Element => (
-  <div>
-    <VirtualList
-      width="100%"
-      height={450}
-      itemCount={allRows.length}
-      itemSize={62}
-      renderItem={({ index, style }) => (
-        <div
-          key={uniqueId(allRows[index])}
-          data-testid={`tablerow-${index + 1}`}
-          style={style}
-        >
-          {checkboxes && (
-            <div>
-              <Checkboxes
-                data-testid={`row-checkbox-${index + 1}`}
-                options={{
-                  checked: selected.includes(allRows[index][identification]),
-                  id: allRows[index][identification],
-                  value: allRows[index][identification]
-                }}
-                onChange={({ value }: { value: ICheckbox[] }): void =>
-                  handleSelected(value, allRows[index][identification])
-                }
-              />
+  utils: { uniqueId },
+  bodyRef,
+  overScanBuffer = 20,
+  onRenderItems,
+  scrollToIndex = 0
+}: ITableBody): JSX.Element => {
+  return (
+    <div ref={bodyRef} className="table-body">
+      {bodyRef.current && allRows.length && (
+        <VirtualList
+          width={"100%"}
+          height={bodyRef.current.offsetHeight}
+          itemCount={allRows.length}
+          itemSize={62}
+          scrollToIndex={scrollToIndex}
+          overscanCount={overScanBuffer}
+          onItemsRendered={onRenderItems}
+          renderItem={({ index, style }) => (
+            <div
+              className="table-row"
+              key={uniqueId(allRows[index])}
+              data-testid={`tablerow-${index + 1}`}
+              style={style}
+            >
+              {checkboxes && (
+                <div className="table-cell--checkbox">
+                  <Checkboxes
+                    data-testid={`row-checkbox-${index + 1}`}
+                    options={{
+                      checked: selected.includes(
+                        allRows[index][identification]
+                      ),
+                      id: allRows[index][identification],
+                      value: allRows[index][identification]
+                    }}
+                    onChange={({ value }: { value: ICheckbox[] }): void =>
+                      handleSelected(value, allRows[index][identification])
+                    }
+                  />
+                </div>
+              )}
+              {columns.map(
+                (column: string): JSX.Element => (
+                  <div className="table-cell" key={column}>
+                    <div className="table-cell--content">
+                      {allRows[index][column]}
+                    </div>
+                  </div>
+                )
+              )}
             </div>
           )}
-          {columns.map(
-            (column: string): JSX.Element => (
-              <div key={column}>{allRows[index][column]}</div>
-            )
-          )}
+        ></VirtualList>
+      )}
+
+      {!allRows.length && (
+        <div className="table-body-placeholder">
+          <div>{placeholder}</div>
         </div>
       )}
-    ></VirtualList>
-
-    {!allRows.length && (
-      <div>
-        <div
-        // colSpan={checkboxes ? columns.length + 1 : columns.length}
-        // align="center"
-        >
-          {placeholder}
-        </div>
-      </div>
-    )}
-  </div>
-);
+    </div>
+  );
+};
 
 export default withUtils(TableBody);

@@ -1,43 +1,15 @@
 import { storiesOf } from "@storybook/react";
 import faker from "faker";
 import React, { useEffect, useState } from "react";
+import uuid from "uuid/v1";
 import TableReadme from "../README.md";
 import Table from "../src";
 
-// const secondTableData = {
-//   identification: "id",
-//   columns: ["name", "lastName", "age", "tel"],
-//   orderBy: ["age", "name"],
-//   rows: [
-//     {
-//       id: 1,
-//       name: "Oscar Leon",
-//       lastName: "abc",
-//       age: 26,
-//       tel: "213123123"
-//     },
-//     {
-//       id: 2,
-//       name: "Ismael Haytam",
-//       lastName: "def",
-//       age: 23,
-//       tel: "213123123"
-//     },
-//     {
-//       id: 3,
-//       name: "Robert",
-//       lastName: "nop",
-//       age: 45,
-//       tel: "213123123"
-//     }
-//   ]
-// };
-
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
-    columns: ["name", "email"],
+    columns: ["name", "email", "city", "zipCode"],
     identification: "id",
-    orderBy: ["email", "name"],
+    orderBy: ["email", "name", "city", "zipCode"],
     rows: []
   });
 
@@ -45,9 +17,11 @@ const DemoComponent = () => {
     const rows = [];
     for (let i = 0; i < 100; i++) {
       rows.push({
+        city: faker.address.city(),
         email: faker.internet.email(),
-        id: 1,
-        name: faker.internet.userName()
+        id: uuid(),
+        name: faker.internet.userName(),
+        zipCode: faker.address.zipCode()
       });
     }
     return rows;
@@ -80,20 +54,8 @@ storiesOf("Table", module)
 
       <h4>With Checkboxes</h4>
 
-      <DemoComponent />
-
-      {/* <h1>Sticky scrollable table</h1>
-
-      <p>
-        We can choose to render a table with scrollable content by changing the
-                prop boolean value of <code>stickyScroll</code>
-      </p> */}
-
-      {/* <Table
-        stickyScroll
-        checkboxes
-        data={secondTableData}
-        onSelect={() => ({})}
-      /> */}
+      <div style={{ margin: "20px", height: "100%" }}>
+        <DemoComponent />
+      </div>
     </div>
   ));
