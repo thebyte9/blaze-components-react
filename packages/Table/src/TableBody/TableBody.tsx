@@ -26,6 +26,7 @@ interface ITableBody {
   scrollToIndex: number;
   overScanBuffer: number;
   onRenderItems?: (arg: any) => void;
+  onClickRow: (arg: any) => void;
 }
 
 const TableBody = ({
@@ -40,7 +41,8 @@ const TableBody = ({
   bodyRef,
   overScanBuffer = 20,
   onRenderItems,
-  scrollToIndex = 0
+  scrollToIndex = 0,
+  onClickRow
 }: ITableBody): JSX.Element => {
   return (
     <div ref={bodyRef} className="table-body">
@@ -55,6 +57,7 @@ const TableBody = ({
           onItemsRendered={onRenderItems}
           renderItem={({ index, style }) => (
             <div
+              onClick={() => onClickRow({ ...allRows[index], index })}
               className="table-row"
               key={uniqueId(allRows[index])}
               data-testid={`tablerow-${index + 1}`}

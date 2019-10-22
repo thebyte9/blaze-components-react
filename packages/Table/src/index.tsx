@@ -21,11 +21,13 @@ interface ITableProps {
   onSelect?: (arg: any[]) => any;
   onSort?: (arg: any) => any;
   onRenderItems?: (arg: any) => void;
+  onClickRow?: (arg: any) => void;
 }
 const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy },
   onSelect = () => ({}),
   onSort = () => ({}),
+  onClickRow = () => ({}),
   checkboxes,
   placeholder,
   overScanBuffer,
@@ -43,7 +45,12 @@ const Table: FunctionComponent<ITableProps> = ({
   }, [rows, columns]);
 
   useEffect(() => {
-    if (bodyRef && bodyRef.current && allRows.length) {
+    if (
+      bodyRef &&
+      bodyRef.current &&
+      bodyRef.current.firstElementChild &&
+      allRows.length
+    ) {
       bodyRef.current.firstElementChild.addEventListener(
         "scroll",
         (event: any) => syncScroll(headRef.current, event)
@@ -56,11 +63,15 @@ const Table: FunctionComponent<ITableProps> = ({
       );
     }
     return () => {
-      bodyRef.current.firstElementChild.removeEventListener(
-        "scroll",
-        syncScroll
-      );
-      headRef.current.removeEventListener("scroll", syncScroll);
+      if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild) {
+        bodyRef.current.firstElementChild.removeEventListener(
+          "scroll",
+          syncScroll
+        );
+      }
+      if (headRef.current) {
+        headRef.current.removeEventListener("scroll", syncScroll);
+      }
     };
   }, [bodyRef.current, headRef.current, allRows]);
 
@@ -98,6 +109,7 @@ const Table: FunctionComponent<ITableProps> = ({
         columns={allColumns}
       />
       <TableBody
+        onClickRow={onClickRow}
         bodyRef={bodyRef}
         allRows={allRows}
         checkboxes={checkboxes}
