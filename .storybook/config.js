@@ -20,10 +20,6 @@ addParameters({
   }
 });
 
-configureReadme({
-  footer: 'Keep it simple'
-});
-
 addDecorator(addReadme);
 
 function loadStories() {

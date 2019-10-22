@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component should be defined and renders correctly (snapshot) 1`] = `
+<div>
+  <div
+    class="table-wrapper"
+  >
+    <div>
+      Table.head
+    </div>
+    <div>
+      Table.body
+    </div>
+  </div>
+</div>
+`;
