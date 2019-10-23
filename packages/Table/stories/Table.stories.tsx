@@ -7,6 +7,7 @@ import Table from "../src";
 
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
+    appliedSort: { name: "asc" },
     columns: ["name", "email", "city", "zipCode"],
     identification: "id",
     orderBy: ["email", "name", "city", "zipCode"],
