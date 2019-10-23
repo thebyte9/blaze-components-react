@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/table",
-  "version": "0.3.56",
+  "version": "0.3.57",
   "publishConfig": {
     "access": "public"
   },
