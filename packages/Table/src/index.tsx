@@ -42,7 +42,7 @@ const Table: FunctionComponent<ITableProps> = ({
   useEffect(() => {
     setAllRows(rows);
     setAllColumns(columns);
-  }, [rows, columns]);
+  }, [rows, rows && rows.length, columns, columns && columns.length]);
 
   useEffect(() => {
     if (
