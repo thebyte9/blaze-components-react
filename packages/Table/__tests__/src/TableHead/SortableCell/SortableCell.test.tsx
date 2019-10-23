@@ -14,6 +14,7 @@ describe("Sortable cell", () => {
   it("should render without throwing error", () => {
     const { container } = render(
       <SortableCell
+        appliedSort={null}
         onSort={jest.fn()}
         orderBy={data.orderBy}
         column={data.columns[0]}
@@ -29,6 +30,7 @@ describe("Sortable cell", () => {
 
     const { getByTestId } = render(
       <SortableCell
+        appliedSort={{ name: "asc" }}
         onSort={onSortMock}
         orderBy={data.orderBy}
         column={data.columns[1]}
@@ -40,6 +42,6 @@ describe("Sortable cell", () => {
 
     fireEvent.click(sort);
 
-    expect(onSortMock).toHaveBeenCalledWith({ [data.columns[1]]: "asc" });
+    expect(onSortMock).toHaveBeenCalledWith({ [data.columns[1]]: "desc" });
   });
 });
