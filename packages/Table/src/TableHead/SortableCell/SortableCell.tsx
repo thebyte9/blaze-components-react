@@ -61,7 +61,7 @@ const SortableCell = ({
       if (tableColumns[col] !== direction) {
         const merged = {
           ...tableColumns,
-          [col]: "asc"
+          [col]: direction
         };
 
         setTableColumns(merged);
