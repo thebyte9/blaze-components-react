@@ -22,6 +22,7 @@ interface ITableProps {
   onSort?: (arg: any) => any;
   onRenderItems?: (arg: any) => void;
   onClickRow?: (arg: any) => void;
+  scrollToIndex?: number;
 }
 const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy },
@@ -31,7 +32,8 @@ const Table: FunctionComponent<ITableProps> = ({
   checkboxes,
   placeholder,
   overScanBuffer,
-  onRenderItems
+  onRenderItems,
+  scrollToIndex
 }) => {
   const [selected, setSelected] = useState<any[]>([]);
   const [allRows, setAllRows] = useState<object[]>(rows);
@@ -109,6 +111,7 @@ const Table: FunctionComponent<ITableProps> = ({
         columns={allColumns}
       />
       <TableBody
+        scrollToIndex={scrollToIndex}
         onClickRow={onClickRow}
         bodyRef={bodyRef}
         allRows={allRows}
