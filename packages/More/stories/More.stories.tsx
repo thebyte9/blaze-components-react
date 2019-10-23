@@ -11,7 +11,7 @@ storiesOf("More", module)
   .add("Introduction", () => (
     <div className="component-wrapper">
       <More isMoreMenu onClose={() => ({})}>
-        <More.Avatar isMoreMenu>
+        <More.Avatar isMoreMenu handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
         </More.Avatar>
         <More.Content isMoreMenu>
@@ -22,7 +22,7 @@ storiesOf("More", module)
       </More>
 
       <More displayBg isMoreMenu>
-        <More.Avatar isMoreMenu>
+        <More.Avatar isMoreMenu handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
         </More.Avatar>
         <More.Content isMoreMenu>
