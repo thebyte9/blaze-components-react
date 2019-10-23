@@ -56,14 +56,16 @@ const SortableCell = ({
   };
 
   useEffect(() => {
-    const [[col, direction]] = Object.entries(appliedSort);
-    if (tableColumns[col] !== direction) {
-      const merged = {
-        ...tableColumns,
-        [col]: "asc"
-      };
+    if (appliedSort) {
+      const [[col, direction]] = appliedSort && Object.entries(appliedSort);
+      if (tableColumns[col] !== direction) {
+        const merged = {
+          ...tableColumns,
+          [col]: "asc"
+        };
 
-      setTableColumns(merged);
+        setTableColumns(merged);
+      }
     }
   }, [appliedSort]);
 
