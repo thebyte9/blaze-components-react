@@ -1,32 +1,22 @@
-import FileUpload from "@blaze-react/file-upload";
-import Modal from "@blaze-react/modal";
-import { IImage, IInlineImageControlsProps } from "../interfaces";
-
 import { ContentState, EditorState } from "draft-js";
-import React, { FunctionComponent, useEffect, useState } from "react";
-
+import React, { FunctionComponent, useEffect } from "react";
 import { IMAGE, IMMUTABLE } from "../constants";
+import { IImage, IInlineImageControlsProps } from "../interfaces";
 import StyleButton from "../StyleButton";
-import PreviewImages from "./PreviewImages";
 
 const ImageControl: FunctionComponent<IInlineImageControlsProps> = ({
   editorState,
-  previewImages,
+  selectedImages,
   onToggle,
-  onFilesChange,
-  handleOnSaveFiles,
-  handleLibraryClick,
-  uploadedFile
+  handleLibraryClick
 }): JSX.Element => {
-  const [modalStatus, setModalStatus] = useState<boolean>(false);
-
   useEffect(() => {
-    if (uploadedFile) {
-      let latestEditorState: EditorState = editorState;
-      const { url }: { url: string } = uploadedFile;
-      latestEditorState = insertImage(url, latestEditorState);
-    }
-  }, [uploadedFile]);
+    let latestEditorState: EditorState = editorState;
+    selectedImages.forEach((img: IImage) => {
+      const { src } = img;
+      latestEditorState = insertImage(src, latestEditorState);
+    });
+  }, [selectedImages]);
 
   const insertImage = (
     src: string,
@@ -46,48 +36,11 @@ const ImageControl: FunctionComponent<IInlineImageControlsProps> = ({
     return onToggle(newEditorState, entityKey);
   };
 
-  const openModal = (): void => setModalStatus(true);
-
-  const toggleModal = (): void => {
-    setModalStatus(!modalStatus);
-  };
-
-  const addSelectedImagesToEditor = (): void => {
-    let latestEditorState: EditorState = editorState;
-    previewImages.forEach((img: IImage) => {
-      const { src } = img;
-      latestEditorState = insertImage(src, latestEditorState);
-    });
-    if (handleOnSaveFiles) {
-      handleOnSaveFiles();
-    }
-    toggleModal();
-  };
-
-  const alertActions: object[] = [
-    {
-      callback: addSelectedImagesToEditor,
-      modifiers: ["rounded", "outline"],
-      textButton: "Save"
-    }
-  ];
-
   return (
-    <>
-      <StyleButton
-        label={<i className="material-icons">add_photo_alternate</i>}
-        onToggle={openModal}
-      />
-      {modalStatus && (
-        <Modal title="Upload" actions={alertActions} onClose={toggleModal}>
-          <FileUpload
-            onChange={onFilesChange}
-            handleLibraryClick={handleLibraryClick}
-          />
-          <PreviewImages previewImages={previewImages} />
-        </Modal>
-      )}
-    </>
+    <StyleButton
+      label={<i className="material-icons">add_photo_alternate</i>}
+      onToggle={handleLibraryClick}
+    />
   );
 };
 

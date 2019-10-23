@@ -51,11 +51,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   error,
   validationMessage,
   unSelectedText,
-  previewImages,
-  onFilesChange,
-  handleOnSaveFiles,
+  selectedImages,
   handleLibraryClick,
-  uploadedFile,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -79,8 +76,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
             if (
               entityKey &&
-              availableContentState.getEntity(entityKey).getType() === LINK &&
-              availableContentState.getEntity(entityKey).getData().url
+              availableContentState.getEntity(entityKey).getType() === LINK
             ) {
               return true;
             }
@@ -184,24 +180,28 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
   return (
     <div className="custom-DraftEditor-root">
-      <BlockControls editorState={editorState} onToggle={toggleBlockType} />
-      <InlineControls editorState={editorState} onToggle={toggleInlineStyle} />
-      <div className="custom-DraftEditor-controls">
-        <ImageControl
-          editorState={editorState}
-          onToggle={handleClick}
-          previewImages={previewImages}
-          onFilesChange={onFilesChange}
-          handleOnSaveFiles={handleOnSaveFiles}
-          handleLibraryClick={handleLibraryClick}
-          uploadedFile={uploadedFile}
-        />
-        <LinkControl
-          editorState={editorState}
-          onToggle={toggleLink}
-          unSelectedText={unSelectedText}
-        />
-      </div>
+      <section className="custom-DraftEditor-utils">
+        <BlockControls editorState={editorState} onToggle={toggleBlockType} />
+        <div className="custom-DraftEditor-inlineControls">
+          <InlineControls
+            editorState={editorState}
+            onToggle={toggleInlineStyle}
+          />
+          <>
+            <ImageControl
+              editorState={editorState}
+              onToggle={handleClick}
+              selectedImages={selectedImages}
+              handleLibraryClick={handleLibraryClick}
+            />
+            <LinkControl
+              editorState={editorState}
+              onToggle={toggleLink}
+              unSelectedText={unSelectedText}
+            />
+          </>
+        </div>
+      </section>
 
       <div className={editorClassName}>
         <Editor
@@ -221,7 +221,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 DraftEditor.defaultProps = {
   error: false,
   name: "editor",
-  previewImages: [],
+  selectedImages: [],
   unSelectedText: "Make sure you have a text selected",
   validationMessage: "This field is required"
 };

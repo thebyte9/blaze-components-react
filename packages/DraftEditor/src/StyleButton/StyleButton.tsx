@@ -14,16 +14,13 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
     onToggle(style);
   };
 
-  const styleButtonClassName = classNames({
-    "custom-DraftEditor-activeButton": active,
-    "custom-DraftEditor-styleButton": !active
+  const styleButtonClassName = classNames("custom-DraftEditor-styleButton", {
+    "custom-DraftEditor-activeButton": active
   });
-
-  const labelStatus: JSX.Element = active ? <b>{label}</b> : <>{label}</>;
 
   return (
     <span className={styleButtonClassName} onMouseDown={handelToggle}>
-      {labelStatus}
+      {label}
     </span>
   );
 };

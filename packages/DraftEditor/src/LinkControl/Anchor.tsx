@@ -13,9 +13,7 @@ const Anchor: FunctionComponent<ILinkProps> = ({
       rel="nofollow noreferrer"
       href={url}
       target="_blank"
-      onClick={() => {
-        window.open(url, "_blank");
-      }}
+      onClick={() => window.open(url, "_blank")}
     >
       {children}
     </a>
