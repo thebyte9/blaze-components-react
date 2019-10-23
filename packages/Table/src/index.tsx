@@ -1,6 +1,4 @@
-import classnames from "classnames";
-import _orderBy from "lodash.orderby";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 
@@ -17,36 +15,72 @@ interface ITableProps {
     columns: string[];
     orderBy: string[];
     rows: object[];
+    appliedSort?: any;
   };
-  stickyScroll?: boolean;
   value?: string;
+  overScanBuffer?: number;
   onSelect?: (arg: any[]) => any;
+  onSort?: (arg: any) => any;
+  onRenderItems?: (arg: any) => void;
+  onClickRow?: (arg: any) => void;
+  scrollToIndex?: number;
 }
 const Table: FunctionComponent<ITableProps> = ({
-  data: { columns, rows, identification, orderBy },
+  data: { columns, rows, identification, orderBy, appliedSort },
   onSelect = () => ({}),
+  onSort = () => ({}),
+  onClickRow = () => ({}),
   checkboxes,
   placeholder,
-  stickyScroll
+  overScanBuffer,
+  onRenderItems,
+  scrollToIndex
 }) => {
-  type TSortDirection = "asc" | "desc" | boolean;
-
-  const asc: TSortDirection = "asc";
-  const desc: TSortDirection = "desc";
-  const hide: TSortDirection = true;
-
-  const formatColumns = columns.reduce((result, item) => {
-    return { ...result, [item]: hide };
-  }, {});
-
   const [selected, setSelected] = useState<any[]>([]);
-  const [sortColumns, setSortColumns] = useState(formatColumns);
-  const [allRows, setRows] = useState<object[]>(rows);
+  const [allRows, setAllRows] = useState<object[]>(rows);
+  const [allColumns, setAllColumns] = useState<any>(columns);
+  const headRef = useRef<any>(null);
+  const bodyRef = useRef<any>(null);
 
   useEffect(() => {
-    setRows(rows);
-    setSortColumns(formatColumns);
-  }, [rows, columns]);
+    setAllRows(rows);
+    setAllColumns(columns);
+  }, [rows, rows && rows.length, columns, columns && columns.length]);
+
+  useEffect(() => {
+    if (
+      bodyRef &&
+      bodyRef.current &&
+      bodyRef.current.firstElementChild &&
+      allRows.length
+    ) {
+      bodyRef.current.firstElementChild.addEventListener(
+        "scroll",
+        (event: any) => syncScroll(headRef.current, event)
+      );
+    }
+
+    if (headRef && headRef.current && headRef.current.firstElementChild) {
+      headRef.current.addEventListener("scroll", (event: any) =>
+        syncScroll(bodyRef.current.firstElementChild, event)
+      );
+    }
+    return () => {
+      if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild) {
+        bodyRef.current.firstElementChild.removeEventListener(
+          "scroll",
+          syncScroll
+        );
+      }
+      if (headRef.current) {
+        headRef.current.removeEventListener("scroll", syncScroll);
+      }
+    };
+  }, [bodyRef.current, headRef.current, allRows]);
+
+  const syncScroll = (ref: any, event: any) => {
+    ref.scrollLeft = event.target.scrollLeft;
+  };
 
   const handleSelected = (
     [checked]: ICheckbox[],
@@ -65,93 +99,33 @@ const Table: FunctionComponent<ITableProps> = ({
       checkedValue = checked ? [...checked.value] : [];
     }
 
-    updateSelected(checkedValue);
+    setSelected(checkedValue);
+    onSelect(checkedValue);
   };
-
-  const updateSelected = (selectedRows: any[]) => {
-    setSelected(selectedRows);
-    onSelect(selectedRows);
-  };
-
-  const getSortDirection = (column: string): TSortDirection => {
-    if (sortColumns[column] === hide) {
-      return asc;
-    }
-    return sortColumns[column] === asc ? desc : asc;
-  };
-
-  const sort = (column: any) => {
-    if (!orderBy.includes(column)) {
-      return;
-    }
-
-    const resetSortColumns = {};
-
-    Object.keys(sortColumns).forEach(key => (resetSortColumns[key] = hide));
-
-    const sortDirection = getSortDirection(column);
-
-    setRows([..._orderBy(allRows, [column], [sortDirection])]);
-
-    setSortColumns({
-      ...resetSortColumns,
-      [column]: sortDirection
-    });
-  };
-
-  const enableOrderBy = (column: string): JSX.Element => (
-    <div className="sortable">
-      <span
-        data-testid={`sortby-${column}`}
-        onClick={() => sort(column)}
-        role="button"
-      >
-        {column}
-      </span>
-      {sortColumns[column] !== hide && (
-        <i className="material-icons">
-          {sortColumns[column] === asc
-            ? "keyboard_arrow_up"
-            : "keyboard_arrow_down"}
-        </i>
-      )}
-    </div>
-  );
-
-  const tableWrapperClassName = classnames({
-    table__wrapper: !stickyScroll,
-    "table__wrapper table__wrapper--scroll": stickyScroll
-  });
-
-  const tableClassName = classnames({
-    table: !stickyScroll,
-    "table table--scroll": stickyScroll
-  });
 
   return (
-    <div className={tableWrapperClassName}>
-      <div className={tableClassName}>
-        <table>
-          <TableHead
-            checkboxes={checkboxes}
-            selected={selected}
-            identification={identification}
-            allRows={allRows}
-            handleSelected={handleSelected}
-            enableOrderBy={enableOrderBy}
-            sortColumns={sortColumns}
-          />
-          <TableBody
-            allRows={allRows}
-            checkboxes={checkboxes}
-            identification={identification}
-            selected={selected}
-            handleSelected={handleSelected}
-            columns={columns}
-            placeholder={placeholder}
-          />
-        </table>
-      </div>
+    <div className="table-wrapper">
+      <TableHead
+        onSort={onSort}
+        orderBy={orderBy}
+        headRef={headRef}
+        columns={allColumns}
+        appliedSort={appliedSort}
+      />
+      <TableBody
+        scrollToIndex={scrollToIndex}
+        onClickRow={onClickRow}
+        bodyRef={bodyRef}
+        allRows={allRows}
+        checkboxes={checkboxes}
+        identification={identification}
+        selected={selected}
+        handleSelected={handleSelected}
+        columns={columns}
+        placeholder={placeholder}
+        overScanBuffer={overScanBuffer}
+        onRenderItems={onRenderItems}
+      />
     </div>
   );
 };
@@ -164,7 +138,6 @@ Table.defaultProps = {
     orderBy: [],
     rows: []
   },
-  placeholder: "No records available",
-  stickyScroll: false
+  placeholder: "No records available"
 };
 export default Table;

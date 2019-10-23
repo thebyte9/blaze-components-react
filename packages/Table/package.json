@@ -21,7 +21,8 @@
     "@blaze-react/checkboxes": "^0.3.50",
     "@blaze-react/utils": "^0.3.50",
     "@types/lodash.orderby": "^4.6.6",
-    "lodash.orderby": "^4.6.0"
+    "lodash.orderby": "^4.6.0",
+    "react-tiny-virtual-list": "^2.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

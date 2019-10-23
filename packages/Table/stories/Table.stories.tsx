@@ -1,67 +1,38 @@
 import { storiesOf } from "@storybook/react";
+import faker from "faker";
 import React, { useEffect, useState } from "react";
+import uuid from "uuid/v1";
 import TableReadme from "../README.md";
 import Table from "../src";
 
-const initialData = {
-  columns: ["name", "age"],
-  identification: "id",
-  orderBy: ["age", "name"],
-  rows: [
-    {
-      id: 1,
-      name: "Oscar Leon",
-      age: 26
-    },
-    {
-      id: 2,
-      name: "Ismael Haytam",
-      age: 23
-    },
-    {
-      id: 3,
-      name: "Admin",
-      age: 45
-    }
-  ]
-};
-
-const finalData = {
-  identification: "id",
-  columns: ["name", "lastName", "age", "tel"],
-  orderBy: ["age", "name"],
-  rows: [
-    {
-      id: 1,
-      name: "Oscar Leon",
-      lastName: "abc",
-      age: 26,
-      tel: "213123123"
-    },
-    {
-      id: 2,
-      name: "Ismael Haytam",
-      lastName: "def",
-      age: 23,
-      tel: "213123123"
-    },
-    {
-      id: 3,
-      name: "Robert",
-      lastName: "nop",
-      age: 45,
-      tel: "213123123"
-    }
-  ]
-};
-
 const DemoComponent = () => {
-  const [data, setData] = useState<any>(initialData);
+  const [data, setData] = useState<any>({
+    appliedSort: { name: "asc" },
+    columns: ["name", "email", "city", "zipCode"],
+    identification: "id",
+    orderBy: ["email", "name", "city", "zipCode"],
+    rows: []
+  });
+
+  const generateFakeData = () => {
+    const rows = [];
+    for (let i = 0; i < 100; i++) {
+      rows.push({
+        city: faker.address.city(),
+        email: faker.internet.email(),
+        id: uuid(),
+        name: faker.internet.userName(),
+        zipCode: faker.address.zipCode()
+      });
+    }
+    return rows;
+  };
 
   useEffect(() => {
-    setTimeout(() => {
-      setData(finalData);
-    }, 2000);
+    if (data.rows && !data.rows.length) {
+      const updatedData = { ...data, rows: generateFakeData() };
+      setData(updatedData);
+    }
   }, []);
 
   return <Table checkboxes data={data} onSelect={() => ({})} />;
@@ -84,15 +55,8 @@ storiesOf("Table", module)
 
       <h4>With Checkboxes</h4>
 
-      <DemoComponent />
-
-      <h1>Sticky scrollable table</h1>
-
-      <p>
-        We can choose to render a table with scrollable content by changing the
-                prop boolean value of <code>stickyScroll</code>
-      </p>
-
-      <Table stickyScroll checkboxes data={finalData} onSelect={() => ({})} />
+      <div style={{ margin: "20px", height: "100%" }}>
+        <DemoComponent />
+      </div>
     </div>
   ));

@@ -1,64 +1,42 @@
-import Checkboxes from "@blaze-react/checkboxes";
 import withUtils from "@blaze-react/utils";
 import React from "react";
-interface ICheckbox {
-  checked: boolean;
-  id: string | number;
-  value: any;
-}
+import SortableCell from "./SortableCell";
+
 interface ITableHead {
-  checkboxes?: boolean;
-  selected: any[];
-  identification: string;
-  allRows: object[];
-  handleSelected: (
-    checked: ICheckbox[],
-    value: string | ICheckbox[],
-    isMultiselect?: boolean
-  ) => void;
-  enableOrderBy: (column: string) => JSX.Element;
-  sortColumns: object[];
+  columns: any;
+  headRef: any;
+  onSort: any;
   utils: {
     uniqueId: (element: any) => string;
   };
+  orderBy: any;
+  appliedSort: any;
 }
 
 const TableHead = ({
-  checkboxes,
-  selected,
-  identification,
-  allRows,
-  handleSelected,
-  enableOrderBy,
-  sortColumns,
-  utils: { uniqueId }
+  onSort,
+  orderBy,
+  columns,
+  utils: { uniqueId },
+  headRef,
+  appliedSort
 }: ITableHead): JSX.Element => (
-  <thead>
-    <tr>
-      {checkboxes && (
-        <th>
-          <Checkboxes
-            options={Object.assign(
-              {},
-              {
-                checked: selected.length === allRows.length,
-                value: allRows.map((row: object) => row[identification])
-              }
-            )}
-            onChange={({ value }: { value: ICheckbox[] }): void =>
-              handleSelected(value, value, true)
-            }
-            data-testid="select_all"
+  <div className="table-head" ref={headRef}>
+    <div className="table-cell--checkbox"></div>
+    {columns.map(
+      (column: string): JSX.Element => (
+        <div key={uniqueId(column)} className="table-cell">
+          <SortableCell
+            appliedSort={appliedSort}
+            onSort={onSort}
+            orderBy={orderBy}
+            column={column}
+            columns={columns}
           />
-        </th>
-      )}
-      {Object.keys(sortColumns).map(
-        (column: string): JSX.Element => (
-          <th key={uniqueId(column)}>{enableOrderBy(column)}</th>
-        )
-      )}
-    </tr>
-  </thead>
+        </div>
+      )
+    )}
+  </div>
 );
 
 export default withUtils(TableHead);
