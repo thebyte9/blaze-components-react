@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const SortableCell = ({
   onSort,
   orderBy,
   column,
-  columns
+  columns,
+  appliedSort
 }: {
   onSort: any;
   orderBy: any;
   column: any;
   columns: any;
+  appliedSort: any;
 }) => {
   const formatColumns = columns.reduce((acc: any, item: any): any => {
     return { ...acc, [item]: null };
@@ -52,6 +54,18 @@ const SortableCell = ({
       [column]: sortDirection
     });
   };
+
+  useEffect(() => {
+    const [[col, direction]] = Object.entries(appliedSort);
+    if (tableColumns[col] !== direction) {
+      const merged = {
+        ...tableColumns,
+        [col]: "asc"
+      };
+
+      setTableColumns(merged);
+    }
+  }, [appliedSort]);
 
   return (
     <div className="sortable">

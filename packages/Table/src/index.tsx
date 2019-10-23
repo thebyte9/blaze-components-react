@@ -15,6 +15,7 @@ interface ITableProps {
     columns: string[];
     orderBy: string[];
     rows: object[];
+    appliedSort?: any;
   };
   value?: string;
   overScanBuffer?: number;
@@ -25,7 +26,7 @@ interface ITableProps {
   scrollToIndex?: number;
 }
 const Table: FunctionComponent<ITableProps> = ({
-  data: { columns, rows, identification, orderBy },
+  data: { columns, rows, identification, orderBy, appliedSort },
   onSelect = () => ({}),
   onSort = () => ({}),
   onClickRow = () => ({}),
@@ -109,6 +110,7 @@ const Table: FunctionComponent<ITableProps> = ({
         orderBy={orderBy}
         headRef={headRef}
         columns={allColumns}
+        appliedSort={appliedSort}
       />
       <TableBody
         scrollToIndex={scrollToIndex}
