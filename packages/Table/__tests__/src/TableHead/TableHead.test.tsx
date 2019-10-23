@@ -15,7 +15,7 @@ describe("Table head", () => {
     expect(TableHead).toBeDefined();
   });
 
-  it.only("should render without throwing error", () => {
+  it("should render without throwing error", () => {
     const { container } = render(
       <TableHead
         headRef={{ current: true }}
