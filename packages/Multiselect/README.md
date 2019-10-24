@@ -12,16 +12,22 @@ const data = {
   filterBy: ["name", "description"],
   data: [
     {
+      show: true,
+      checked: true,
       id: 1,
       name: "Blaze",
       description: "Lorem ipsum dolor."
     },
     {
+      show: true,
+      checked: false,
       id: 2,
       name: "KP",
       description: "Aliquam tincidunt."
     },
     {
+      show: true,
+      checked: true,
       id: 3,
       name: "Pulser",
       description: "Vestibulum auctor."
@@ -29,7 +35,7 @@ const data = {
   ]
 };
 
-<Multiselect data={data} selected={result => {}} />;
+<Multiselect data={data} />;
 ```
 
 ## API
