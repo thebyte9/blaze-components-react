@@ -2,6 +2,7 @@
 
 exports[`More component should be defined and renders correctly (snapshot) 1`] = `
 <More
+  displayBg={false}
   isHeader={false}
   isMoreMenu={true}
   onClose={[Function]}
@@ -17,6 +18,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
       >
         <MoreAvatar
           className=""
+          displayBg={false}
           handleToggle={[Function]}
           isHeader={false}
           isMoreMenu={true}
