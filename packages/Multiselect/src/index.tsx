@@ -2,8 +2,8 @@ import Checkboxes from "@blaze-react/checkboxes";
 import Chip from "@blaze-react/chips";
 import Input from "@blaze-react/input";
 import withUtils from "@blaze-react/utils";
-import differenceWith from "lodash.differencewith";
-import isEqual from "lodash.isequal";
+// import differenceWith from "lodash.differencewith";
+// import isEqual from "lodash.isequal";
 import unionBy from "lodash.unionby";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 
@@ -30,7 +30,7 @@ interface IMultiSelectProps {
   limit?: number;
   placeholder?: string;
   children?: any;
-  selected?: any[];
+  // selected?: any[];
   notFoundMessage?: string;
   limitReachedMessage?: string;
   onChange?: (arg: { event: Event; value: string; name: string }) => void;
@@ -56,8 +56,8 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   children,
   onChange,
   error,
-  name,
-  selected
+  name
+  // selected
 }): JSX.Element => {
   const multiRef = useRef<HTMLDivElement>(null);
   const [dataCopy, setDataCopy] = useState<any>([]);
@@ -74,31 +74,16 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   }, []);
 
   useEffect(() => {
-    const shouldUpdate =
-      differenceWith(dataCopy, data, isEqual).length ||
-      differenceWith(data, dataCopy, isEqual).length;
-    const elementsWithSelected = unionBy(selected, data, "id");
-
-    if (!dataCopy || shouldUpdate) {
-      setDataCopy(
-        elementsWithSelected.map((element: IData) => {
-          element.show = true;
-          return element;
-        })
-      );
+    if (data) {
+      const updatedData = unionBy([...dataCopy], [...data], "id");
+      setDataCopy(updatedData);
     }
   }, [data]);
 
   const setStatus = (obj: object, status: boolean): object =>
     Object.assign({}, obj, { show: status });
 
-  const handleInputChange = ({
-    event,
-    value
-  }: {
-    event: any;
-    value: string;
-  }) => {
+  const handleInputChange = ({ event, value }: { event: any; value: string }) => {
     setSearchValue(value);
     const parsedDataCopy: object[] = parseDataCopy(value);
 
@@ -222,8 +207,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     }
   };
 
-  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show)
-    .length;
+  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show).length;
 
   const checkedItems = dataCopy.filter((item: IData) => item.checked);
 
