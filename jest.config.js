@@ -15,6 +15,9 @@ module.exports = {
   setupFilesAfterEnv: [
     '@testing-library/react/cleanup-after-each'
   ],
+  moduleNameMapper: {
+    "\\.(css|less|sass|scss)$": "<rootDir>/packages/__mocks__/styles.mock.js",
+  },
   setupFiles: ["./.typescript/setupTests.js"],
   snapshotSerializers: ["enzyme-to-json/serializer"],
   setupFilesAfterEnv: [

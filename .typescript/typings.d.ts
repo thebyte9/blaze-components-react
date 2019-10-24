@@ -14,3 +14,5 @@ declare module "@blaze-react/utils";
 declare module "@blaze-react/chips";
 declare module "@types/draft-js";
 declare module "draft-js-linkify-plugin";
+declare module "draft-js-alignment-plugin";
+declare module "draft-js-resizeable-plugin";
