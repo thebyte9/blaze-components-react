@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/loader",
-  "version": "0.3.53",
+  "version": "0.3.58",
   "publishConfig": {
     "access": "public"
   },
@@ -18,9 +18,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.3.53",
-    "@blaze-react/input": "^0.3.53",
-    "@blaze-react/utils": "^0.3.53",
+    "@blaze-react/button": "^0.3.58",
+    "@blaze-react/input": "^0.3.58",
+    "@blaze-react/utils": "^0.3.58",
     "classnames": "^2.2.6"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/alert",
-  "version": "0.3.53",
+  "version": "0.3.58",
   "publishConfig": {
     "access": "public"
   },
@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.3.53",
-    "@blaze-react/utils": "^0.3.53"
+    "@blaze-react/button": "^0.3.58",
+    "@blaze-react/utils": "^0.3.58"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
