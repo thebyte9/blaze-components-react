@@ -231,33 +231,4 @@ describe("More component", () => {
       .simulate("click");
     expect(wrapper.find(".more-menu__background")).toHaveLength(0);
   });
-
-  test("should add event listener and call setToggle when clicking more menu", () => {
-    const spyFunction = jest.fn();
-    wrapper = mount(
-      <More isHeader isMoreMenu onClose={() => ({})}>
-        <More.Avatar isHeader handleToggle={spyFunction}>
-          <span className="material-icons">more_vert</span>
-        </More.Avatar>
-        <More.Content isMoreMenu displayBg toggled>
-          <a href="/">Link</a>
-        </More.Content>
-      </More>
-    );
-
-    console.log(wrapper.debug());
-
-    // const avatar = wrapper.find(MoreAvatar).simulate("click");
-    // console.log(avatar.html());
-    const content = wrapper.find(MoreContent);
-    console.log("content", content.html());
-    const portal = wrapper.find("div.more-menu__background");
-    console.log("portal", portal);
-    const portalClick = wrapper.find(portal).simulate("click");
-    console.log("portalClick", portalClick);
-
-    // expect(wrapper.refInput).toBeTruthy();
-  });
-
-  // TODO Check add event, setToggle and remove event (both with overlay or not)
 });
