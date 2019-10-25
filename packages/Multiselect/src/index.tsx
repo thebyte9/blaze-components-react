@@ -2,8 +2,6 @@ import Checkboxes from "@blaze-react/checkboxes";
 import Chip from "@blaze-react/chips";
 import Input from "@blaze-react/input";
 import withUtils from "@blaze-react/utils";
-// import differenceWith from "lodash.differencewith";
-// import isEqual from "lodash.isequal";
 import unionBy from "lodash.unionby";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 
@@ -30,7 +28,6 @@ interface IMultiSelectProps {
   limit?: number;
   placeholder?: string;
   children?: any;
-  // selected?: any[];
   notFoundMessage?: string;
   limitReachedMessage?: string;
   onChange?: (arg: { event: Event; value: string; name: string }) => void;
@@ -57,7 +54,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   onChange,
   error,
   name
-  // selected
 }): JSX.Element => {
   const multiRef = useRef<HTMLDivElement>(null);
   const [dataCopy, setDataCopy] = useState<any>([]);
