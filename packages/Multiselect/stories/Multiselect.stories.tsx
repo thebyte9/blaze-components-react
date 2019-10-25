@@ -105,7 +105,7 @@ const DemoComponent = () => {
             show: true
           },
           {
-            checked: true,
+            checked: false,
             description: "Lorem ipsum dolor.",
             id: 33,
             name: "Blaze 33",
