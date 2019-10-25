@@ -114,6 +114,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       decorator
     );
     setEditorState(state);
+    onEditorChange(state);
   }, []);
 
   const onEditorChange = (newEditorState: EditorState): void => {
