@@ -141,7 +141,6 @@ describe("Multiselect component", () => {
       .find(".chip__icon")
       .at(0)
       .simulate("click");
-    console.log(wrapper.find(".chip__label").length);
     expect(wrapper.find(".chip__label").length).toBe(1);
 
     wrapper
