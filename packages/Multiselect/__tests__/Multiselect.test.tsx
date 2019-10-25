@@ -11,33 +11,28 @@ const defaultProps = (override: object = {}) => ({
     filterBy: ["name"],
     data: [
       {
+        checked: true,
+        description: "Lorem ipsum dolor.",
         id: 1,
-        name: "Blaze 1"
+        name: "Blaze 1",
+        show: true
       },
       {
+        checked: true,
+        description: "Lorem ipsum dolor.",
         id: 2,
-        name: "Blaze 2"
+        name: "Blaze 2",
+        show: true
       },
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 3,
-        name: "Blaze 3"
+        name: "Blaze 3",
+        show: true
       }
     ]
   },
-  selected: [
-    {
-      id: 1,
-      name: "Blaze 1",
-      description: "Lorem ipsum dolor.",
-      checked: true
-    },
-    {
-      id: 2,
-      name: "Blaze 2",
-      description: "Lorem ipsum dolor.",
-      checked: true
-    }
-  ],
   ...override
 });
 
@@ -126,6 +121,8 @@ describe("Multiselect component", () => {
         keyValue: "name",
         data: [
           {
+            checked: false,
+            show: true,
             id: 1,
             name: "Blaze 11",
             description: "Lorem ipsum dolor."
@@ -144,7 +141,6 @@ describe("Multiselect component", () => {
       .find(".chip__icon")
       .at(0)
       .simulate("click");
-
     expect(wrapper.find(".chip__label").length).toBe(1);
 
     wrapper
