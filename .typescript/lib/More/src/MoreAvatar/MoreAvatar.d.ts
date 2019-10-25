@@ -1,6 +1,6 @@
 import React from "react";
 interface IMoreAvatarProps {
-    handleToggle?: (...args: any[]) => any;
+    handleToggle: (...args: any[]) => any;
     label?: string;
     isHeader?: boolean;
     isMoreMenu?: boolean;

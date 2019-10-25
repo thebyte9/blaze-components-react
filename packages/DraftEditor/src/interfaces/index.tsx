@@ -33,8 +33,7 @@ interface IErrorMessage {
 
 interface IDraftEditorProps {
   unSelectedText: string;
-  previewImages: IImage[];
-  uploadedFile: IImage;
+  selectedImages: IImage[];
   editorState?: EditorState;
   customStyleMap?: DraftStyleMap;
   textAlignment?: DraftTextAlignment;
@@ -63,7 +62,6 @@ interface IDraftEditorProps {
 
   value: string;
   onFilesChange: (files: object[]) => void;
-  handleOnSaveFiles: () => void;
   handleLibraryClick: () => void;
 
   customStyleFn?: (
@@ -132,12 +130,9 @@ interface IDraftEditorProps {
 
 interface IInlineImageControlsProps {
   editorState: EditorState;
-  previewImages: IImage[];
+  selectedImages: IImage[];
   onToggle: (newEditorState: EditorState, entityKey: string) => EditorState;
-  onFilesChange: (files: object[]) => void;
-  handleOnSaveFiles: () => void;
   handleLibraryClick: () => void;
-  uploadedFile: IImage;
 }
 
 interface ILinkControlProps {

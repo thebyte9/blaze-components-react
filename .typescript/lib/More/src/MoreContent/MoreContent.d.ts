@@ -5,7 +5,7 @@ interface IMoreContentProps {
     isMoreMenu?: boolean;
     isDropdown?: boolean;
     handleToggle?: any;
-    displayBg?: any;
+    displayBg?: boolean;
 }
 declare const MoreContent: React.SFC<IMoreContentProps>;
 export default MoreContent;

@@ -10,54 +10,74 @@ const DemoComponent = () => {
     keyValue: "name",
     data: [
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 1,
         name: "Blaze 1",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: true,
+        description: "Lorem ipsum dolor.",
         id: 2,
         name: "Blaze 2",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 3,
         name: "Blaze 3",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 4,
         name: "Blaze 4",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 5,
         name: "Blaze 5",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 6,
         name: "Blaze 6",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: true,
+        description: "Lorem ipsum dolor.",
         id: 7,
         name: "Blaze 7",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 8,
         name: "Blaze 8",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 9,
         name: "Blaze 9",
-        description: "Lorem ipsum dolor."
+        show: true
       },
       {
+        checked: false,
+        description: "Lorem ipsum dolor.",
         id: 10,
         name: "Blaze 10",
-        description: "Lorem ipsum dolor."
+        show: true
       }
     ]
   });
@@ -71,24 +91,32 @@ const DemoComponent = () => {
         keyValue: "name",
         data: [
           {
-            id: 1,
+            checked: false,
+            description: "Lorem ipsum dolor.",
+            id: 11,
             name: "Blaze 11",
-            description: "Lorem ipsum dolor."
+            show: true
           },
           {
-            id: 2,
-            name: "Blaze 22",
-            description: "Lorem ipsum dolor."
+            checked: false,
+            description: "Lorem ipsum dolor.",
+            id: 12,
+            name: "Blaze 12",
+            show: true
           },
           {
-            id: 3,
+            checked: false,
+            description: "Lorem ipsum dolor.",
+            id: 33,
             name: "Blaze 33",
-            description: "Lorem ipsum dolor."
+            show: true
           },
           {
-            id: 4,
-            name: "Blaze 44",
-            description: "Lorem ipsum dolor."
+            checked: false,
+            description: "Lorem ipsum dolor.",
+            id: 44,
+            name: "Blaze 4",
+            show: true
           }
         ]
       });
@@ -106,29 +134,15 @@ const DemoComponent = () => {
     <div className="component-wrapper">
       <h1>Multiselect</h1>
       <p>
-        MultiSelect is a component that allows you to select multiple items with
-        check boxes. It is useful for labeling, contact lists, country
-        selectors, etc.
+        MultiSelect is a component that allows you to select multiple items with check
+        boxes. It is useful for labeling, contact lists, country selectors, etc.
       </p>
       <Multiselect
         name="multiselect"
         data={multiselectData}
         label="Multi Select"
         limit={3}
-        selected={[
-          {
-            id: 3,
-            name: "Blaze 1",
-            description: "Lorem ipsum dolor.",
-            checked: true
-          },
-          {
-            id: 4,
-            name: "Blaze 2",
-            description: "Lorem ipsum dolor.",
-            checked: true
-          }
-        ]}
+        selected={[3, 5]}
         getSelected={(selected: any) => {
           console.log("selected", selected);
         }}
