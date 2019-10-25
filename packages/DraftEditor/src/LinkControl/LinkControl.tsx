@@ -57,10 +57,14 @@ const LinkControl = ({
     let newEditorState: EditorState = editorState;
 
     if (url) {
+      const formatedURL =
+        url.includes(".") && !url.match(/^http[s]?:\/\//)
+          ? `http://${url}`
+          : url;
       const contentStateWithEntity: ContentState = contentState.createEntity(
         LINK,
         IMMUTABLE,
-        { url }
+        { url: formatedURL }
       );
       entityKey = contentStateWithEntity.getLastCreatedEntityKey();
       newEditorState = EditorState.set(editorState, {
@@ -75,12 +79,7 @@ const LinkControl = ({
   const alertActions = [
     {
       callback: addLink,
-      modifiers: [
-        "small",
-        "rounded",
-        "outline",
-        `${selectedContent ? "" : "disabled"}`
-      ],
+      modifiers: ["small", `${selectedContent ? "" : "disabled"}`],
       textButton: "Save"
     }
   ];
@@ -102,7 +101,7 @@ const LinkControl = ({
   return (
     <>
       <StyleButton
-        label={<i className="material-icons link">insert_link</i>}
+        label={<i className="material-icons">insert_link</i>}
         onToggle={openModal}
         active={modalStatus}
       />
@@ -111,7 +110,7 @@ const LinkControl = ({
           {selectedContent ? (
             <>
               <Input
-                placeholder="Past link"
+                placeholder="Insert URL"
                 onChange={handleChange}
                 modifier="full-width"
                 value={url}

@@ -1,5 +1,4 @@
 import withUtils from "@blaze-react/utils";
-
 import {
   AtomicBlockUtils,
   CharacterMetadata,
@@ -17,32 +16,49 @@ import {
   SelectionState
 } from "draft-js";
 
+import createAlignmentPlugin from "draft-js-alignment-plugin";
+import "draft-js-alignment-plugin/lib/plugin.css";
 import createBlockDndPlugin from "draft-js-drag-n-drop-plugin";
 import createFocusPlugin from "draft-js-focus-plugin";
+import "draft-js-focus-plugin/lib/plugin.css";
 import createImagePlugin from "draft-js-image-plugin";
+import "draft-js-image-plugin/lib/plugin.css";
 import createLinkifyPlugin from "draft-js-linkify-plugin";
 import Editor, { composeDecorators } from "draft-js-plugins-editor";
+import createResizeablePlugin from "draft-js-resizeable-plugin";
 import React, { FunctionComponent, useEffect, useState } from "react";
+import BlockControls from "./BlockControls";
 import { BLOCKQUOTE, HANDLED, LINK, NOT_HANDLED, UNSTYLED } from "./constants";
+import ImageControl from "./ImageControl";
+import InlineControls from "./InlineControls";
 import { IDraftEditorProps } from "./interfaces";
+import { Anchor, LinkControl } from "./LinkControl";
 
 const focusPlugin = createFocusPlugin();
 const blockDndPlugin = createBlockDndPlugin();
 const linkifyPlugin = createLinkifyPlugin();
+const resizeablePlugin = createResizeablePlugin();
+const alignmentPlugin = createAlignmentPlugin();
+const { AlignmentTool } = alignmentPlugin;
 
-const composeDecorator = composeDecorators(
-  focusPlugin.decorator,
-  blockDndPlugin.decorator
-);
-const imagePlugin = createImagePlugin({ decorator: composeDecorator });
+const imagePlugin = createImagePlugin({
+  decorator: composeDecorators(
+    blockDndPlugin.decorator,
+    alignmentPlugin.decorator,
+    resizeablePlugin.decorator,
+    focusPlugin.decorator
+  )
+});
 
-const plugins = [blockDndPlugin, focusPlugin, imagePlugin, linkifyPlugin];
-
-import BlockControls from "./BlockControls";
-import ImageControl from "./ImageControl";
-import InlineControls from "./InlineControls";
-import { Anchor, LinkControl } from "./LinkControl";
-
+const plugins = [
+  focusPlugin,
+  blockDndPlugin,
+  imagePlugin,
+  linkifyPlugin,
+  alignmentPlugin,
+  resizeablePlugin,
+  imagePlugin
+];
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
   onChange,
@@ -51,11 +67,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   error,
   validationMessage,
   unSelectedText,
-  previewImages,
-  onFilesChange,
-  handleOnSaveFiles,
+  selectedImages,
   handleLibraryClick,
-  uploadedFile,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -79,8 +92,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
             if (
               entityKey &&
-              availableContentState.getEntity(entityKey).getType() === LINK &&
-              availableContentState.getEntity(entityKey).getData().url
+              availableContentState.getEntity(entityKey).getType() === LINK
             ) {
               return true;
             }
@@ -184,24 +196,29 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
   return (
     <div className="custom-DraftEditor-root">
-      <BlockControls editorState={editorState} onToggle={toggleBlockType} />
-      <InlineControls editorState={editorState} onToggle={toggleInlineStyle} />
-      <div className="custom-DraftEditor-controls">
-        <ImageControl
-          editorState={editorState}
-          onToggle={handleClick}
-          previewImages={previewImages}
-          onFilesChange={onFilesChange}
-          handleOnSaveFiles={handleOnSaveFiles}
-          handleLibraryClick={handleLibraryClick}
-          uploadedFile={uploadedFile}
-        />
-        <LinkControl
-          editorState={editorState}
-          onToggle={toggleLink}
-          unSelectedText={unSelectedText}
-        />
-      </div>
+      <section className="custom-DraftEditor-utils">
+        <AlignmentTool />
+        <BlockControls editorState={editorState} onToggle={toggleBlockType} />
+        <div className="custom-DraftEditor-inlineControls">
+          <InlineControls
+            editorState={editorState}
+            onToggle={toggleInlineStyle}
+          />
+          <>
+            <ImageControl
+              editorState={editorState}
+              onToggle={handleClick}
+              selectedImages={selectedImages}
+              handleLibraryClick={handleLibraryClick}
+            />
+            <LinkControl
+              editorState={editorState}
+              onToggle={toggleLink}
+              unSelectedText={unSelectedText}
+            />
+          </>
+        </div>
+      </section>
 
       <div className={editorClassName}>
         <Editor
@@ -221,7 +238,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 DraftEditor.defaultProps = {
   error: false,
   name: "editor",
-  previewImages: [],
+  selectedImages: [],
   unSelectedText: "Make sure you have a text selected",
   validationMessage: "This field is required"
 };
