@@ -2,6 +2,7 @@ import { storiesOf } from "@storybook/react";
 import React from "react";
 import DraftEditorReadme from "../README.md";
 import DraftEditor from "../src";
+
 storiesOf("DraftEditor", module)
   .addParameters({
     readme: {

@@ -2,7 +2,7 @@ import { DraftInlineStyle } from "draft-js";
 import React, { FunctionComponent } from "react";
 import StyleButton from "../StyleButton";
 
-import { IInlineControlsProps, IInlineTypes } from "../interfaces";
+import { IInlineControlsProps, IInlineTypes } from "../../../interfaces";
 
 const InlineControls: FunctionComponent<IInlineControlsProps> = ({
   editorState,
