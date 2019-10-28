@@ -4,8 +4,8 @@ import { ContentState, EditorState, SelectionState } from "draft-js";
 import React, { useState } from "react";
 import StyleButton from "../StyleButton";
 
-import { IMMUTABLE, LINK } from "../constants";
-import { ILinkControlProps } from "../interfaces";
+import { IMMUTABLE, LINK } from "../../../constants";
+import { ILinkControlProps } from "../../../interfaces";
 
 const LinkControl = ({
   editorState,

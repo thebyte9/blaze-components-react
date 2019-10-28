@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ILinkProps } from "../interfaces";
+import { ILinkProps } from "../../../interfaces";
 
 const Anchor: FunctionComponent<ILinkProps> = ({
   contentState,
