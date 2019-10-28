@@ -15,16 +15,13 @@ import {
 } from "draft-js-buttons";
 import createBlockDndPlugin from "draft-js-drag-n-drop-plugin";
 import createFocusPlugin from "draft-js-focus-plugin";
-import "draft-js-focus-plugin/lib/plugin.css";
 import createImagePlugin from "draft-js-image-plugin";
-import "draft-js-image-plugin/lib/plugin.css";
 import createInlineToolbarPlugin from "draft-js-inline-toolbar-plugin";
-import "draft-js-inline-toolbar-plugin/lib/plugin.css";
 import createLinkifyPlugin from "draft-js-linkify-plugin";
-import "draft-js-linkify-plugin/lib/plugin.css";
 import { composeDecorators } from "draft-js-plugins-editor";
 import createResizeablePlugin from "draft-js-resizeable-plugin";
 import React, { useEffect } from "react";
+import "./styles";
 
 const focusPlugin = createFocusPlugin();
 const blockDndPlugin = createBlockDndPlugin();
@@ -59,6 +56,9 @@ const HeadlinesPicker = (props: any) => {
   useEffect(() => {
     setTimeout(() => {
       window.addEventListener("click", onWindowClick);
+      return () => {
+        window.removeEventListener("click", () => ({}));
+      };
     });
   }, []);
 
