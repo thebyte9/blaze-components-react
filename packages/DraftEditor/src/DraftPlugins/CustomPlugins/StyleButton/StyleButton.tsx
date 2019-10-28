@@ -1,6 +1,6 @@
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, MouseEvent } from "react";
-import { IStyleButtonProps } from "../interfaces";
+import { IStyleButtonProps } from "../../../interfaces";
 
 const StyleButton: FunctionComponent<IStyleButtonProps> = ({
   onToggle,
@@ -11,7 +11,9 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
 }): JSX.Element => {
   const handelToggle = (event: MouseEvent): void => {
     event.preventDefault();
-    onToggle(style);
+    if (onToggle) {
+      onToggle(style);
+    }
   };
 
   const styleButtonClassName = classNames("custom-DraftEditor-styleButton", {

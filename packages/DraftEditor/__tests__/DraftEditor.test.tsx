@@ -4,7 +4,15 @@ import expect from "expect";
 import React from "react";
 import DraftEditor from "../src";
 
+declare let window: any;
+
 describe("DraftEditor component", () => {
+  window.getSelection = () => {
+    return {
+      removeAllRanges: () => ({})
+    };
+  };
+
   test("should be defined and renders correctly (snapshot)", () => {
     const { container, rerender } = render(<DraftEditor />);
 
