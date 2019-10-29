@@ -2,7 +2,6 @@ import Checkboxes from "@blaze-react/checkboxes";
 import Chip from "@blaze-react/chips";
 import Input from "@blaze-react/input";
 import withUtils from "@blaze-react/utils";
-import unionBy from "lodash.unionby";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 
 interface IErrorMessage {
@@ -71,8 +70,11 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   useEffect(() => {
     if (data) {
-      const updatedData = unionBy([...dataCopy], [...data], "id");
-      setDataCopy(updatedData);
+      const reachedLimit = checkLimit(data);
+      const verifiedData = reachedLimit
+        ? data.map((option: any) => ({ ...option, disabled: !option.checked }))
+        : data;
+      updateData(verifiedData);
     }
   }, [data]);
 
@@ -82,11 +84,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const handleInputChange = ({ event, value }: { event: any; value: string }) => {
     setSearchValue(value);
     const parsedDataCopy: object[] = parseDataCopy(value);
-
     if (onChange) {
       onChange({ event, value, name });
     }
-    setDataCopy(parsedDataCopy);
+    updateData(parsedDataCopy);
   };
 
   const handleOutsideClick = (event: any) => {
@@ -107,8 +108,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     );
 
   const updateData = (newData: IData[]) => {
-    setDataCopy(newData);
-    checkLimit(newData);
+    const reachedLimit = checkLimit(newData);
+    const verifiedData = newData.map((ele: any): object => ({
+      ...ele,
+      disabled: reachedLimit && !ele.checked
+    }));
+    setDataCopy(verifiedData);
+    setLimitReached(reachedLimit);
   };
 
   const handleKeyDown = ({
@@ -141,8 +147,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     value: any;
     data: any;
   }) => {
-    setDataCopy(localData);
-    checkLimit(localData);
+    updateData(localData);
     callGetSelected(value);
   };
 
@@ -157,11 +162,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     const elementToDelete: number = dataCopy.findIndex(
       ({ id: itemId }: { id: string | number }) => itemId === id
     );
-    const newDataCopy: IData[] = [...dataCopy];
-    newDataCopy[elementToDelete].checked = false;
-    updateData(newDataCopy);
-
-    const selectedData = getChecked(newDataCopy);
+    const updatedData = [...dataCopy];
+    updatedData[elementToDelete].checked = false;
+    const selectedData = getChecked(updatedData);
+    updateData(updatedData);
     callGetSelected(selectedData);
   };
 
@@ -179,16 +183,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     });
 
   const handleClearAll = (): void => {
-    const formatedElements: object[] = dataCopy.map((item: IData) => {
-      item.checked = false;
-      return item;
-    });
-
+    const formatedElements: object[] = dataCopy.map((item: IData) => ({
+      ...item,
+      checked: false
+    }));
     callGetSelected([]);
-    setDataCopy(formatedElements);
     setShow(false);
-    checkLimit(formatedElements);
     setSearchValue("");
+    updateData(formatedElements);
   };
 
   const handleFocus = (): void => setShow(true);
@@ -199,12 +201,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         ({ checked }: { checked: boolean }) => checked
       );
       const reachedLimit = selectedOptions.length >= limit;
-      setLimitReached(reachedLimit);
+      return reachedLimit;
     }
+    return false;
   };
 
   const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show).length;
-
   const checkedItems = dataCopy.filter((item: IData) => item.checked);
 
   return (
@@ -246,7 +248,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           onFocus={handleFocus}
           className="multiselect__input"
         />
-        {show && !limitReached && (
+        {show && (
           <div className="multiselect__dropdown">
             {error && <ErrorMessage message={validationMessage} />}
 
