@@ -166,6 +166,11 @@ interface IStyleButtonProps {
   };
 }
 
+interface IHTMLProps {
+  isDraftEditor: boolean;
+  onToggle: () => void;
+}
+
 interface ILinkProps {
   contentState: ContentState;
   children: JSX.Element | JSX.Element[];
@@ -189,5 +194,6 @@ export {
   IInlineControlsProps,
   IStyleButtonProps,
   ILinkProps,
-  IPreviewIages
+  IPreviewIages,
+  IHTMLProps
 };
