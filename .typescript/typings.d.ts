@@ -16,3 +16,5 @@ declare module "@types/draft-js";
 declare module "draft-js-linkify-plugin";
 declare module "draft-js-alignment-plugin";
 declare module "draft-js-resizeable-plugin";
+declare module "draftjs-to-html";
+declare module "html-to-draftjs";
