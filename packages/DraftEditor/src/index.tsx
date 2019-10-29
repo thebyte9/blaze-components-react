@@ -34,23 +34,19 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const draftHandledValue: DraftHandleValue = HANDLED;
   const draftNotHandledValue: DraftHandleValue = NOT_HANDLED;
 
-  const [editorState, setEditorState] = useState<EditorState>(
-    EditorState.createWithContent(
-      EditorState.createEmpty().getCurrentContent(),
-      decorator
-    )
-  );
+  const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty());
 
   useEffect((): void => {
-    if (value) {
-      const state: EditorState = EditorState.createWithContent(
-        convertFromRaw(JSON.parse(value)),
-        decorator
-      );
-      setEditorState(state);
-      onEditorChange(state);
-    }
-  }, [value]);
+    const initialEditorState = value
+      ? convertFromRaw(JSON.parse(value))
+      : EditorState.createEmpty().getCurrentContent();
+    const state: EditorState = EditorState.createWithContent(
+      initialEditorState,
+      decorator
+    );
+    setEditorState(state);
+    onEditorChange(state);
+  }, []);
 
   const onEditorChange = (newEditorState: EditorState): void => {
     try {
@@ -66,8 +62,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         }
       };
       if (onChange) {
-        onChange(eventFormat);
         setEditorState(newEditorState);
+        onChange(eventFormat);
       }
     } catch (error) {
       // tslint:disable-next-line: no-console
@@ -97,10 +93,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   const handleKeyCommand = (command: DraftEditorCommand): DraftHandleValue => {
-    const newState: EditorState = RichUtils.handleKeyCommand(
-      editorState,
-      command
-    );
+    const newState: EditorState = RichUtils.handleKeyCommand(editorState, command);
     if (newState) {
       onEditorChange(newState);
       return draftHandledValue;
