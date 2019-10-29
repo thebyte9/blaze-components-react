@@ -10,7 +10,7 @@ const DemoComponent = () => {
     keyValue: "name",
     data: [
       {
-        checked: false,
+        checked: true,
         description: "Lorem ipsum dolor.",
         id: 1,
         name: "Blaze 1",
@@ -24,7 +24,7 @@ const DemoComponent = () => {
         show: true
       },
       {
-        checked: false,
+        checked: true,
         description: "Lorem ipsum dolor.",
         id: 3,
         name: "Blaze 3",
@@ -52,7 +52,7 @@ const DemoComponent = () => {
         show: true
       },
       {
-        checked: true,
+        checked: false,
         description: "Lorem ipsum dolor.",
         id: 7,
         name: "Blaze 7",
@@ -120,7 +120,7 @@ const DemoComponent = () => {
           }
         ]
       });
-    }, 3000);
+    }, 15000);
   };
 
   useEffect(() => {
@@ -142,7 +142,6 @@ const DemoComponent = () => {
         data={multiselectData}
         label="Multi Select"
         limit={3}
-        selected={[3, 5]}
         getSelected={(selected: any) => {
           console.log("selected", selected);
         }}
