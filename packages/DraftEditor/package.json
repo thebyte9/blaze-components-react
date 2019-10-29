@@ -39,8 +39,8 @@
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.0.0-rc",
-    "react-dom": "^16.0.0-rc"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "babel": {
     "presets": [
