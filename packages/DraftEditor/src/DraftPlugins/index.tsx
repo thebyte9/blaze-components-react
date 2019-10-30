@@ -3,8 +3,6 @@ import "draft-js-alignment-plugin/lib/plugin.css";
 import {
   BlockquoteButton,
   BoldButton,
-  CodeBlockButton,
-  CodeButton,
   HeadlineOneButton,
   HeadlineThreeButton,
   HeadlineTwoButton,
@@ -95,16 +93,13 @@ const DraftPlugins = () => (
     <InlineToolbar>
       {(props: any) => (
         <>
-          <OrderedListButton {...props} />
           <BoldButton {...props} />
           <ItalicButton {...props} />
           <UnderlineButton {...props} />
-          <CodeButton {...props} />
           <HeadlinesButton {...props} />
           <UnorderedListButton {...props} />
           <OrderedListButton {...props} />
           <BlockquoteButton {...props} />
-          <CodeBlockButton {...props} />
         </>
       )}
     </InlineToolbar>
