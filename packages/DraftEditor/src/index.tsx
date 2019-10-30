@@ -1,6 +1,8 @@
 import withUtils from "@blaze-react/utils";
 import Editor from "draft-js-plugins-editor";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import draftToHtml from "draftjs-to-html";
+import htmlToDraft from "html-to-draftjs";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import { BLOCKQUOTE, HANDLED, NOT_HANDLED, UNSTYLED } from "./constants";
 import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
@@ -34,7 +36,11 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const draftHandledValue: DraftHandleValue = HANDLED;
   const draftNotHandledValue: DraftHandleValue = NOT_HANDLED;
 
-  const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty());
+  const [editorState, setEditorState] = useState<EditorState>(
+    EditorState.createEmpty()
+  );
+  const [isDraftEditor, setIsDraftEditor] = useState<boolean>(true);
+  const HTMLEditor = useRef(null);
 
   useEffect((): void => {
     const initialEditorState = value
@@ -49,25 +55,20 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   }, []);
 
   const onEditorChange = (newEditorState: EditorState): void => {
-    try {
-      const currentContent = newEditorState.getCurrentContent();
-      const rawValue = convertToRaw(currentContent);
-      const rawValueString = JSON.stringify(rawValue);
-      const eventFormat = {
-        event: {
-          target: {
-            name,
-            value: rawValueString
-          }
+    const currentContent = newEditorState.getCurrentContent();
+    const rawValue = convertToRaw(currentContent);
+    const rawValueString = JSON.stringify(rawValue);
+    const eventFormat = {
+      event: {
+        target: {
+          name,
+          value: rawValueString
         }
-      };
-      if (onChange) {
-        setEditorState(newEditorState);
-        onChange(eventFormat);
       }
-    } catch (error) {
-      // tslint:disable-next-line: no-console
-      console.log(error);
+    };
+    if (onChange) {
+      setEditorState(newEditorState);
+      onChange(eventFormat);
     }
   };
 
@@ -93,13 +94,38 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   const handleKeyCommand = (command: DraftEditorCommand): DraftHandleValue => {
-    const newState: EditorState = RichUtils.handleKeyCommand(editorState, command);
+    const newState: EditorState = RichUtils.handleKeyCommand(
+      editorState,
+      command
+    );
     if (newState) {
       onEditorChange(newState);
       return draftHandledValue;
     }
     return draftNotHandledValue;
   };
+
+  const onHTMLCodeChange = (html: string = "") => {
+    const blocksFromHtml = htmlToDraft(html);
+    const { contentBlocks, entityMap } = blocksFromHtml;
+    const ccontentState = ContentState.createFromBlockArray(
+      contentBlocks,
+      entityMap
+    );
+    setEditorState(EditorState.createWithContent(ccontentState));
+  };
+
+  const toggleDraftEditor = () => {
+    if (!isDraftEditor) {
+      const { current = {} }: { current: any } = HTMLEditor;
+      onHTMLCodeChange(current.textContent);
+    }
+    setIsDraftEditor(!isDraftEditor);
+  };
+
+  const stateToHTML = draftToHtml(
+    convertToRaw(editorState.getCurrentContent())
+  );
 
   return (
     <div className="custom-DraftEditor-root">
@@ -109,17 +135,25 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         handleLibraryClick={handleLibraryClick}
         unSelectedText={unSelectedText}
         onEditorChange={onEditorChange}
+        toggleDraftEditor={toggleDraftEditor}
+        isDraftEditor={isDraftEditor}
       />
 
       <div className={editorClassName}>
-        <Editor
-          handleKeyCommand={handleKeyCommand}
-          blockStyleFn={getBlockStyle}
-          editorState={editorState}
-          onChange={onEditorChange}
-          plugins={plugins}
-          {...attrs}
-        />
+        {isDraftEditor ? (
+          <Editor
+            handleKeyCommand={handleKeyCommand}
+            blockStyleFn={getBlockStyle}
+            editorState={editorState}
+            onChange={onEditorChange}
+            plugins={plugins}
+            {...attrs}
+          />
+        ) : (
+          <div ref={HTMLEditor} suppressContentEditableWarning contentEditable>
+            <code>{stateToHTML}</code>
+          </div>
+        )}
         <DraftPlugins />
       </div>
       {error && <ErrorMessage message={validationMessage} />}
