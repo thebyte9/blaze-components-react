@@ -1,13 +1,19 @@
-import React from "react";
+import Button from "@blaze-react/button";
+import React, { useEffect } from "react";
 
 const Pickers = (components: any[]) => {
   return (props: any) => {
+    useEffect(() => {
+      window.addEventListener("click", onWindowClick);
+      return () => window.removeEventListener("click", onWindowClick);
+    }, []);
+
     const onWindowClick = () => props.onOverrideContent(undefined);
 
     return (
       <div onClick={onWindowClick}>
-        {components.map((Button, i) => (
-          <Button key={i} {...props} />
+        {components.map((DraftButton, i) => (
+          <DraftButton key={i} {...props} />
         ))}
       </div>
     );
@@ -23,9 +29,9 @@ const NewPicker = (components: any[], icon: JSX.Element) => {
 
     return (
       <div onMouseDown={onMouseDown} className="headlineButtonWrapper">
-        <button onClick={onClick} className="headlineButton">
+        <Button onClick={onClick} className="headlineButton">
           {icon}
-        </button>
+        </Button>
       </div>
     );
   };
