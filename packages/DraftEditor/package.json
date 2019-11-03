@@ -32,7 +32,8 @@
     "draft-js-linkify-plugin": "^2.0.2",
     "draft-js-plugins-editor": "^3.0.0",
     "draft-js-resizeable-plugin": "^2.0.1",
-    "draftjs-to-html": "^0.8.4"
+    "draftjs-to-html": "^0.8.4",
+    "html-to-draftjs": "^1.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

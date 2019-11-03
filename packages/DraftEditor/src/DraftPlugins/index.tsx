@@ -3,8 +3,6 @@ import "draft-js-alignment-plugin/lib/plugin.css";
 import {
   BlockquoteButton,
   BoldButton,
-  CodeBlockButton,
-  CodeButton,
   HeadlineOneButton,
   HeadlineThreeButton,
   HeadlineTwoButton,
@@ -20,7 +18,8 @@ import createInlineToolbarPlugin from "draft-js-inline-toolbar-plugin";
 import createLinkifyPlugin from "draft-js-linkify-plugin";
 import { composeDecorators } from "draft-js-plugins-editor";
 import createResizeablePlugin from "draft-js-resizeable-plugin";
-import React, { useEffect } from "react";
+import React from "react";
+import NewPicker from "./InlineToolbar";
 import "./styles";
 
 const focusPlugin = createFocusPlugin();
@@ -52,42 +51,20 @@ const plugins = [
   resizeablePlugin
 ];
 
-const HeadlinesPicker = (props: any) => {
-  useEffect(() => {
-    setTimeout(() => {
-      window.addEventListener("click", onWindowClick);
-      return () => {
-        window.removeEventListener("click", () => ({}));
-      };
-    });
-  }, []);
+const HeadlinesButton = NewPicker(
+  [HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton],
+  <b>H</b>
+);
 
-  const onWindowClick = () => props.onOverrideContent(undefined);
+const BlockControlsButton = NewPicker(
+  [OrderedListButton, UnorderedListButton, BlockquoteButton],
+  <i className="material-icons">list</i>
+);
 
-  const buttons = [HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton];
-  return (
-    <div>
-      {buttons.map((Button, i) => (
-        <Button key={i} {...props} />
-      ))}
-    </div>
-  );
-};
-
-const HeadlinesButton = (props: any) => {
-  const onMouseDown = (event: React.MouseEvent<HTMLInputElement>) =>
-    event.preventDefault();
-
-  const onClick = () => props.onOverrideContent(HeadlinesPicker);
-
-  return (
-    <div onMouseDown={onMouseDown} className="headlineButtonWrapper">
-      <button onClick={onClick} className="headlineButton">
-        H
-      </button>
-    </div>
-  );
-};
+const InlineControlsButton = NewPicker(
+  [BoldButton, ItalicButton, UnderlineButton],
+  <i className="material-icons">text_format</i>
+);
 
 const DraftPlugins = () => (
   <>
@@ -95,16 +72,9 @@ const DraftPlugins = () => (
     <InlineToolbar>
       {(props: any) => (
         <>
-          <OrderedListButton {...props} />
-          <BoldButton {...props} />
-          <ItalicButton {...props} />
-          <UnderlineButton {...props} />
-          <CodeButton {...props} />
+          <InlineControlsButton {...props} />
           <HeadlinesButton {...props} />
-          <UnorderedListButton {...props} />
-          <OrderedListButton {...props} />
-          <BlockquoteButton {...props} />
-          <CodeBlockButton {...props} />
+          <BlockControlsButton {...props} />
         </>
       )}
     </InlineToolbar>
