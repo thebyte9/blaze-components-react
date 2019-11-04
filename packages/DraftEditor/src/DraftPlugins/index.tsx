@@ -52,17 +52,17 @@ const plugins = [
 ];
 
 const HeadlinesButton = NewPicker(
-  [HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton],
+  { HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton },
   <b>H</b>
 );
 
 const BlockControlsButton = NewPicker(
-  [OrderedListButton, UnorderedListButton, BlockquoteButton],
+  { OrderedListButton, UnorderedListButton, BlockquoteButton },
   <i className="material-icons">list</i>
 );
 
 const InlineControlsButton = NewPicker(
-  [BoldButton, ItalicButton, UnderlineButton],
+  { BoldButton, ItalicButton, UnderlineButton },
   <i className="material-icons">text_format</i>
 );
 

@@ -12,20 +12,25 @@ const Pickers = (components: any[]) => {
 
     return (
       <div onClick={onWindowClick}>
-        {components.map((DraftButton, i) => (
-          <DraftButton key={i} {...props} />
+        {components.map(([componentName, DraftButton]) => (
+          <DraftButton key={componentName} {...props} />
         ))}
       </div>
     );
   };
 };
 
-const NewPicker = (components: any[], icon: JSX.Element) => {
+const NewPicker = (components: object, icon: JSX.Element) => {
   return (props: any) => {
     const onMouseDown = (event: React.MouseEvent<HTMLInputElement>) =>
       event.preventDefault();
 
-    const onClick = () => props.onOverrideContent(Pickers(components));
+    const formatedComponents = Object.keys(components).map(key => [
+      key,
+      components[key]
+    ]);
+
+    const onClick = () => props.onOverrideContent(Pickers(formatedComponents));
 
     return (
       <div onMouseDown={onMouseDown} className="headlineButtonWrapper">
