@@ -43,25 +43,20 @@ const Input: FunctionComponent<IInputProps> = ({
   utils: { classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
-  const isValidValue = value !== null && value !== undefined;
-  const initialValue = isValidValue ? value : "";
-
+  const initialValue = value ? value : "";
   const [newValue, setNewValue] = useState<string | undefined>(initialValue);
   const [newType, setType] = useState<string | undefined>(type);
   const [newError, setError] = useState<boolean | undefined>(error);
 
   useEffect(() => {
-    setError(!isValidValue);
-  }, []);
-
-  useEffect(() => setNewValue(value), [value]);
+    setError(error);
+  }, [error]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const {
       target: { value: targetValue }
     } = event;
-
-    setNewValue(value);
+    setNewValue(targetValue);
     onChange({ event, value: targetValue });
   };
 
