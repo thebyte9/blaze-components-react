@@ -170,8 +170,8 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       target: { id, name, value }
     } = event;
 
-    const filesToUploadCopy = [...filesToUpload];
-    const previewImagesCopy = [...previewImages];
+    const filesToUploadCopy = JSON.parse(JSON.stringify(filesToUpload));
+    const previewImagesCopy = JSON.parse(JSON.stringify(previewImages));
 
     if (name !== NAME) {
       filesToUploadCopy[id].data[name] = value;
@@ -204,22 +204,22 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           />
         </DraggableFileUpload>
       ) : (
-        <>
-          <Actions
-            handleLibraryClick={handleLibraryClick}
-            handleBrowse={handleBrowse}
-            handleChange={handleChange}
-            selectFile={selectFile}
-          />
-          {!customPreview && (
-            <FileList
-              previewImages={previewImages}
-              handleCancel={handleCancel}
-              handleInputChange={handleInputChange}
+          <>
+            <Actions
+              handleLibraryClick={handleLibraryClick}
+              handleBrowse={handleBrowse}
+              handleChange={handleChange}
+              selectFile={selectFile}
             />
-          )}
-        </>
-      )}
+            {!customPreview && (
+              <FileList
+                previewImages={previewImages}
+                handleCancel={handleCancel}
+                handleInputChange={handleInputChange}
+              />
+            )}
+          </>
+        )}
     </>
   );
 };
