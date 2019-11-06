@@ -27,7 +27,15 @@ storiesOf("Text Inputs", module)
         required
         error
       />
-
+      <h4>Number</h4>
+      <Input
+        label="Number Input"
+        value="9"
+        onChange={(): void => {
+          return;
+        }}
+        type="number"
+      />
       <h4>Disabled</h4>
       <Input
         label="Text input disabled"
