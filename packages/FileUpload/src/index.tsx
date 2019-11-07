@@ -5,6 +5,7 @@ import { DATA_ATTRIBUTS } from "./constants";
 import { NAME } from "./constants";
 import DraggableFileUpload from "./DraggableFileUpload";
 import FileList from "./FileList";
+import cloneDeep from 'lodash.clonedeep';
 
 interface IFileUploadProps {
   children?: any;
@@ -170,8 +171,8 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       target: { id, name, value }
     } = event;
 
-    const filesToUploadCopy = JSON.parse(JSON.stringify(filesToUpload));
-    const previewImagesCopy = JSON.parse(JSON.stringify(previewImages));
+    const filesToUploadCopy = cloneDeep(filesToUpload);
+    const previewImagesCopy = cloneDeep(previewImages);
 
     if (name !== NAME) {
       filesToUploadCopy[id].data[name] = value;
