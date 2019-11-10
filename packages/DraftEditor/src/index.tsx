@@ -1,13 +1,5 @@
+import Textarea from "@blaze-react/text-area";
 import withUtils from "@blaze-react/utils";
-import Editor from "draft-js-plugins-editor";
-import draftToHtml from "draftjs-to-html";
-import htmlToDraft from "html-to-draftjs";
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
-import { BLOCKQUOTE, HANDLED, NOT_HANDLED, UNSTYLED } from "./constants";
-import { DraftPlugins, plugins } from "./DraftPlugins";
-import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
-import decorator from "./DraftPlugins/CustomPlugins/decorator";
-
 import {
   ContentBlock,
   ContentState,
@@ -18,8 +10,16 @@ import {
   EditorState,
   RichUtils
 } from "draft-js";
-
+import Editor from "draft-js-plugins-editor";
+import draftToHtml from "draftjs-to-html";
+import htmlToDraft from "html-to-draftjs";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import { BLOCKQUOTE, HANDLED, NOT_HANDLED, UNSTYLED } from "./constants";
+import { DraftPlugins, plugins } from "./DraftPlugins";
+import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
+import decorator from "./DraftPlugins/CustomPlugins/decorator";
 import { IDraftEditorProps } from "./interfaces";
+import { getEditorHeight } from "./utils";
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -40,7 +40,9 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     EditorState.createEmpty()
   );
   const [isDraftEditor, setIsDraftEditor] = useState<boolean>(true);
-  const HTMLEditor = useRef(null);
+  const [editorHeight, setEditorHeight] = useState<any>({});
+
+  const inputEl = useRef(null);
 
   useEffect((): void => {
     const initialEditorState = value
@@ -53,6 +55,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     setEditorState(state);
     onEditorChange(state);
   }, []);
+
+  useEffect((): void => {
+    setEditorHeight(getEditorHeight(inputEl.current));
+  }, [editorState]);
 
   const onEditorChange = (newEditorState: EditorState): void => {
     const currentContent = newEditorState.getCurrentContent();
@@ -105,22 +111,18 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return draftNotHandledValue;
   };
 
-  const onHTMLCodeChange = (html: string = "") => {
-    const blocksFromHtml = htmlToDraft(html);
+  const toggleDraftEditor = () => setIsDraftEditor(!isDraftEditor);
+
+  const handleHtmlToDraft = ({ value: HTMLContent }: { value: string }) => {
+    const blocksFromHtml = htmlToDraft(HTMLContent);
     const { contentBlocks, entityMap } = blocksFromHtml;
     const ccontentState = ContentState.createFromBlockArray(
       contentBlocks,
       entityMap
     );
-    setEditorState(EditorState.createWithContent(ccontentState));
-  };
-
-  const toggleDraftEditor = () => {
-    if (!isDraftEditor) {
-      const { current = {} }: { current: any } = HTMLEditor;
-      onHTMLCodeChange(current.textContent);
-    }
-    setIsDraftEditor(!isDraftEditor);
+    const newEditorState = EditorState.createWithContent(ccontentState);
+    setEditorState(newEditorState);
+    onEditorChange(newEditorState);
   };
 
   const stateToHTML = draftToHtml(
@@ -139,9 +141,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         isDraftEditor={isDraftEditor}
       />
 
-      <div className={editorClassName}>
+      <div className={editorClassName} style={editorHeight}>
         {isDraftEditor ? (
           <Editor
+            ref={inputEl}
             handleKeyCommand={handleKeyCommand}
             blockStyleFn={getBlockStyle}
             editorState={editorState}
@@ -150,9 +153,11 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
             {...attrs}
           />
         ) : (
-          <div ref={HTMLEditor} suppressContentEditableWarning contentEditable>
-            <code>{stateToHTML}</code>
-          </div>
+          <Textarea
+            onChange={handleHtmlToDraft}
+            rows={10}
+            value={stateToHTML}
+          />
         )}
         <DraftPlugins />
       </div>
