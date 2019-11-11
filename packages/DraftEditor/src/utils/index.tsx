@@ -1,7 +1,8 @@
 import ReactDOM from "react-dom";
+import { DEFAULT_HEIGHT, LEFT, RIGHT } from "../constants";
 
 const getEditorHeight = (element: any) => {
-  let editorHeight = { height: "100%" };
+  let editorHeight = { height: DEFAULT_HEIGHT };
   try {
     if (!element) {
       return editorHeight;
@@ -10,19 +11,22 @@ const getEditorHeight = (element: any) => {
     const editor = ReactDOM.findDOMNode(element);
 
     if (editor instanceof HTMLElement) {
-      const images = [...editor.querySelectorAll("img")];
+      const images: NodeListOf<Element> = editor.querySelectorAll("img");
 
-      const totalImagesSizes = images.reduce((accumulator, image) => {
-        const imageStyles: any = getComputedStyle(image);
-        if (imageStyles.float === "left" || imageStyles.float === "right") {
-          return image.clientHeight + accumulator;
-        }
-        return accumulator;
-      }, 0);
+      const totalImagesSize = Array.from(images).reduce(
+        (accumulator, image) => {
+          const { float }: any = getComputedStyle(image);
+          if (float === LEFT || float === RIGHT) {
+            return image.clientHeight + accumulator;
+          }
+          return accumulator;
+        },
+        0
+      );
 
-      if (totalImagesSizes) {
+      if (totalImagesSize) {
         editorHeight = {
-          height: `${totalImagesSizes + editor.clientHeight}px`
+          height: `${totalImagesSize + editor.clientHeight}px`
         };
       }
     }
