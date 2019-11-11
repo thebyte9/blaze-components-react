@@ -53,6 +53,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       decorator
     );
     setEditorState(state);
+    setEditorHeight(getEditorHeight(inputEl.current));
     onEditorChange(state);
   }, []);
 
@@ -111,16 +112,16 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return draftNotHandledValue;
   };
 
-  const toggleDraftEditor = () => setIsDraftEditor(!isDraftEditor);
+  const toggleDraftEditor = (): void => setIsDraftEditor(!isDraftEditor);
 
   const handleHtmlToDraft = ({ value: HTMLContent }: { value: string }) => {
     const blocksFromHtml = htmlToDraft(HTMLContent);
     const { contentBlocks, entityMap } = blocksFromHtml;
-    const ccontentState = ContentState.createFromBlockArray(
+    const newContentState = ContentState.createFromBlockArray(
       contentBlocks,
       entityMap
     );
-    const newEditorState = EditorState.createWithContent(ccontentState);
+    const newEditorState = EditorState.createWithContent(newContentState);
     setEditorState(newEditorState);
     onEditorChange(newEditorState);
   };

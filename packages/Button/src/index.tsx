@@ -2,27 +2,12 @@ import withUtils from "@blaze-react/utils";
 import React, { ButtonHTMLAttributes } from "react";
 
 type TType = "button" | "submit" | "reset";
-type TModifiers =
-  | ""
-  | "rounded"
-  | "outline"
-  | "alert"
-  | "cancel"
-  | "cta"
-  | "light"
-  | "dark"
-  | "disabled"
-  | "icon"
-  | "small"
-  | "full-width"
-  | "back"
-  | "plain"
-  | "link";
+
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   children?: JSX.Element | string;
   type?: TType;
-  modifiers?: TModifiers[];
+  modifiers?: string[];
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
   };
@@ -56,24 +41,6 @@ const Button = withUtils(
     );
   }
 );
-const availableModifiers: object = {
-  alert: "alert",
-  back: "back",
-  cancel: "cancel",
-  cta: "cta",
-  dark: "dark",
-  disabled: "disabled",
-  fullWidth: "full-width",
-  icon: "icon",
-  light: "light",
-  link: "link",
-  outline: "outline",
-  plain: "plain",
-  rounded: "rounded",
-  small: "small"
-};
-
-Button.availableModifiers = availableModifiers;
 
 Button.defaultProps = {
   children: "",

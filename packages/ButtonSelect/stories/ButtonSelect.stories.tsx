@@ -20,31 +20,13 @@ storiesOf("ButtonSelect", module)
         The ButtonSelect component extends the button to show a list of actions.
       </p>
       <ButtonSelect text="Actions">
-        <Button
-          modifiers={[
-            Button.availableModifiers.plain,
-            Button.availableModifiers.fullWidth
-          ]}
-          style={buttonStyles}
-        >
+        <Button modifiers={["plain", "full-width"]} style={buttonStyles}>
           Settings
         </Button>
-        <Button
-          modifiers={[
-            Button.availableModifiers.plain,
-            Button.availableModifiers.fullWidth
-          ]}
-          style={buttonStyles}
-        >
+        <Button modifiers={["plain", "full-width"]} style={buttonStyles}>
           Sign out
         </Button>
-        <Button
-          modifiers={[
-            Button.availableModifiers.plain,
-            Button.availableModifiers.fullWidth
-          ]}
-          style={buttonStyles}
-        >
+        <Button modifiers={["plain", "full-width"]} style={buttonStyles}>
           Help
         </Button>
       </ButtonSelect>

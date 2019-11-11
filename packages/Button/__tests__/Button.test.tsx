@@ -4,10 +4,7 @@ import React from "react";
 import Button from "../src";
 
 const testProps = {
-  modifiers: [
-    Button.availableModifiers.outline,
-    Button.availableModifiers.rounded
-  ]
+  modifiers: ["outline", "rounded"]
 };
 
 describe("Button component", () => {
