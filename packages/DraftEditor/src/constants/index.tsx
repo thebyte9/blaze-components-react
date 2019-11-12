@@ -8,7 +8,7 @@ const IMMUTABLE = "IMMUTABLE";
 const RIGHT = "right";
 const LEFT = "left";
 const DEFAULT_HEIGHT = "auto";
-const MARGIN_IMAGE = 30;
+const MARGIN_IMAGE = 50;
 
 export {
   LINK,
