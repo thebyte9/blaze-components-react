@@ -7,5 +7,5 @@ declare const UNSTYLED = "unstyled";
 declare const IMMUTABLE = "IMMUTABLE";
 declare const RIGHT = "right";
 declare const LEFT = "left";
-declare const DEFAULT_HEIGHT = "100%";
+declare const DEFAULT_HEIGHT = "auto";
 export { LINK, HANDLED, NOT_HANDLED, BLOCKQUOTE, UNSTYLED, IMAGE, IMMUTABLE, DEFAULT_HEIGHT, LEFT, RIGHT };

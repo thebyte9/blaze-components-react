@@ -7,7 +7,7 @@ const UNSTYLED = "unstyled";
 const IMMUTABLE = "IMMUTABLE";
 const RIGHT = "right";
 const LEFT = "left";
-const DEFAULT_HEIGHT = "100%";
+const DEFAULT_HEIGHT = "auto";
 
 export {
   LINK,
