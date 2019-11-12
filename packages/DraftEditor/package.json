@@ -22,6 +22,7 @@
     "@blaze-react/input": "^0.3.58",
     "@blaze-react/modal": "^0.3.59",
     "@blaze-react/utils": "^0.3.58",
+    "@blaze-react/text-area": "^0.3.50",
     "@types/draft-js": "0.10.34",
     "draft-js": "^0.11.0",
     "draft-js-alignment-plugin": "^2.0.6",

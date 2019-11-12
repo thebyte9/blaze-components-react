@@ -18,7 +18,7 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({
   return (
     <div className="more-menu__wrapper">
       <Button
-        modifiers={[Button.availableModifiers.fullWidth]}
+        modifiers={["full-width"]}
         onClick={(): void => setToggled(!toggled)}
         {...Attr}
       >

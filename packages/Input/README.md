@@ -1,6 +1,6 @@
 ## Description
 
-Create basic single-line text fields.
+Create basic single-line input fields.
 
 ## Usage
 

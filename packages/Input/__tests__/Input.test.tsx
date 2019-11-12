@@ -5,6 +5,7 @@ import React from "react";
 import Input from "../src";
 
 const defaultProps = (override: object = {}) => ({
+  error: true,
   onChange: () => void 0,
   placeholder: "Placeholder text",
   ...override
@@ -26,9 +27,7 @@ describe("Input component", () => {
     const { getByTestId } = render(<Input {...defaultProps(override)} />);
 
     expect(getByTestId("toggle-input-type")).toHaveClass("active");
-    expect(getByTestId("toggle-input-type")).toHaveTextContent(
-      "visibility_off"
-    );
+    expect(getByTestId("toggle-input-type")).toHaveTextContent("visibility_off");
   });
 
   test("should renders input with label", () => {
@@ -63,9 +62,7 @@ describe("Input component", () => {
     fireEvent.click(getByTestId("toggle-input-type"));
 
     expect(getByTestId("toggle-input-type")).toHaveClass("active");
-    expect(getByTestId("toggle-input-type")).toHaveTextContent(
-      "visibility_off"
-    );
+    expect(getByTestId("toggle-input-type")).toHaveTextContent("visibility_off");
   });
 
   test("should display validation message", () => {
@@ -76,13 +73,9 @@ describe("Input component", () => {
       required: true
     };
 
-    const { getByTestId, rerender } = render(
-      <Input {...defaultProps(override)} />
-    );
+    const { getByTestId, rerender } = render(<Input {...defaultProps(override)} />);
 
-    expect(getByTestId("validation-message")).toHaveTextContent(
-      "This field is required"
-    );
+    expect(getByTestId("validation-message")).toHaveTextContent("This field is required");
 
     const validationMessage = "Email address is required";
 
@@ -93,9 +86,7 @@ describe("Input component", () => {
 
     rerender(<Input {...defaultProps(override)} />);
 
-    expect(getByTestId("validation-message")).toHaveTextContent(
-      validationMessage
-    );
+    expect(getByTestId("validation-message")).toHaveTextContent(validationMessage);
   });
 
   test("should change input", () => {
@@ -127,22 +118,5 @@ describe("Input component", () => {
 
     expect(getByTestId("input")).toHaveValue(inputValue);
     expect(stateValue).toEqual(inputValue);
-  });
-
-  test("should display error message if input value is initially null", () => {
-    const override = { value: null };
-    const { getByTestId } = render(<Input {...defaultProps(override)} />);
-
-    expect(getByTestId("validation-message")).toHaveTextContent(
-      "This field is required"
-    );
-  });
-  test("should display error message if input value is initially undefined", () => {
-    const override = { value: undefined };
-    const { getByTestId } = render(<Input {...defaultProps(override)} />);
-
-    expect(getByTestId("validation-message")).toHaveTextContent(
-      "This field is required"
-    );
   });
 });

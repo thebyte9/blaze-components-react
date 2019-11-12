@@ -5,4 +5,7 @@ declare const NOT_HANDLED = "not-handled";
 declare const BLOCKQUOTE = "blockquote";
 declare const UNSTYLED = "unstyled";
 declare const IMMUTABLE = "IMMUTABLE";
-export { LINK, HANDLED, NOT_HANDLED, BLOCKQUOTE, UNSTYLED, IMAGE, IMMUTABLE };
+declare const RIGHT = "right";
+declare const LEFT = "left";
+declare const DEFAULT_HEIGHT = "100%";
+export { LINK, HANDLED, NOT_HANDLED, BLOCKQUOTE, UNSTYLED, IMAGE, IMMUTABLE, DEFAULT_HEIGHT, LEFT, RIGHT };

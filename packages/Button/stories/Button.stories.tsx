@@ -36,55 +36,13 @@ storiesOf("Button", module)
         </p>
 
         <div style={showCaseDivStyles}>
-          <Button modifiers={[Button.availableModifiers.outline]}>PLAIN</Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.outline,
-              Button.availableModifiers.rounded
-            ]}
-          >
-            ROUNDED
-          </Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.outline,
-              Button.availableModifiers.cta
-            ]}
-          >
-            CTA
-          </Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.outline,
-              Button.availableModifiers.disabled
-            ]}
-          >
-            DISABLED
-          </Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.outline,
-              Button.availableModifiers.alert
-            ]}
-          >
-            ALERT
-          </Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.outline,
-              Button.availableModifiers.light
-            ]}
-          >
-            LIGHT
-          </Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.outline,
-              Button.availableModifiers.dark
-            ]}
-          >
-            DARK
-          </Button>
+          <Button modifiers={["outline"]}>PLAIN</Button>
+          <Button modifiers={["outline", "rounded"]}>ROUNDED</Button>
+          <Button modifiers={["outline", "cta"]}>CTA</Button>
+          <Button modifiers={["outline", "disabled"]}>DISABLED</Button>
+          <Button modifiers={["outline", "alert"]}>ALERT</Button>
+          <Button modifiers={["outline", "light"]}>LIGHT</Button>
+          <Button modifiers={["outline", "dark"]}>DARK</Button>
         </div>
 
         <h3>Rounded Buttons</h3>
@@ -98,38 +56,10 @@ storiesOf("Button", module)
         </p>
 
         <div style={showCaseDivStyles}>
-          <Button
-            modifiers={[
-              Button.availableModifiers.cta,
-              Button.availableModifiers.rounded
-            ]}
-          >
-            CTA
-          </Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.alert,
-              Button.availableModifiers.rounded
-            ]}
-          >
-            ALERT
-          </Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.light,
-              Button.availableModifiers.rounded
-            ]}
-          >
-            LIGHT
-          </Button>
-          <Button
-            modifiers={[
-              Button.availableModifiers.dark,
-              Button.availableModifiers.rounded
-            ]}
-          >
-            DARK
-          </Button>
+          <Button modifiers={["cta", "rounded"]}>CTA</Button>
+          <Button modifiers={["alert", "rounded"]}>ALERT</Button>
+          <Button modifiers={["light", "rounded"]}>LIGHT</Button>
+          <Button modifiers={["dark", "rounded"]}>DARK</Button>
         </div>
 
         <h3>Sizing</h3>
@@ -147,10 +77,8 @@ storiesOf("Button", module)
         </p>
 
         <div style={showCaseDivStyles}>
-          <Button modifiers={[Button.availableModifiers.small]}>Small</Button>
-          <Button modifiers={[Button.availableModifiers.fullWidth]}>
-            Full width
-          </Button>
+          <Button modifiers={["small"]}>Small</Button>
+          <Button modifiers={["full-width"]}>Full width</Button>
         </div>
       </section>
     </div>
