@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.3.67",
+  "version": "0.4.0",
   "publishConfig": {
     "access": "public"
   },
@@ -18,11 +18,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/file-upload": "^0.3.67",
-    "@blaze-react/input": "^0.3.66",
-    "@blaze-react/modal": "^0.3.59",
-    "@blaze-react/utils": "^0.3.58",
-    "@blaze-react/text-area": "^0.3.50",
+    "@blaze-react/button": "^0.4.0",
+    "@blaze-react/file-upload": "^0.4.0",
+    "@blaze-react/input": "^0.4.0",
+    "@blaze-react/modal": "^0.4.0",
+    "@blaze-react/text-area": "^0.4.0",
+    "@blaze-react/utils": "^0.4.0",
     "@types/draft-js": "0.10.34",
     "draft-js": "^0.11.0",
     "draft-js-alignment-plugin": "^2.0.6",
@@ -34,8 +35,7 @@
     "draft-js-plugins-editor": "^3.0.0",
     "draft-js-resizeable-plugin": "^2.0.1",
     "draftjs-to-html": "^0.8.4",
-    "html-to-draftjs": "^1.4.0",
-    "@blaze-react/button": "^0.3.50"
+    "html-to-draftjs": "^1.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
