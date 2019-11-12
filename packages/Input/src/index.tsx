@@ -52,6 +52,8 @@ const Input: FunctionComponent<IInputProps> = ({
     setError(error);
   }, [error]);
 
+  useEffect(() => setNewValue(value || ""), [value]);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const {
       target: { value: targetValue }
