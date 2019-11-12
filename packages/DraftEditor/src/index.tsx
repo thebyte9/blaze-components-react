@@ -37,7 +37,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const draftNotHandledValue: DraftHandleValue = NOT_HANDLED;
 
   const [editorState, setEditorState] = useState<EditorState>(
-    EditorState.createEmpty()
+    EditorState.createWithContent(
+      EditorState.createEmpty().getCurrentContent(),
+      decorator
+    )
   );
   const [isDraftEditor, setIsDraftEditor] = useState<boolean>(true);
   const [editorHeight, setEditorHeight] = useState<any>({});
