@@ -18,3 +18,4 @@ declare module "draft-js-alignment-plugin";
 declare module "draft-js-resizeable-plugin";
 declare module "draftjs-to-html";
 declare module "html-to-draftjs";
+declare module "@blaze-react/text-area";

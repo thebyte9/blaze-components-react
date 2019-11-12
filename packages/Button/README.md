@@ -13,14 +13,7 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 - With modifiers
 
 ```js
-<Button
-  modifiers={[
-    Button.availableModifiers.outline,
-    Button.availableModifiers.dark
-  ]}
->
-  Rounded/Outline
-</Button>
+<Button modifiers={["outline", "dark"]}>Rounded/Outline</Button>
 ```
 
 - Type submit
@@ -35,7 +28,7 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 
 | NAME      |         TYPE          | DEFAULT | OPTIONS                                                                                         |
 | :-------- | :-------------------: | :-----: | ----------------------------------------------------------------------------------------------- |
-| modifiers |        String         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
+| modifiers |         Array         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
 | type      |        String         | button  | button, submit, reset                                                                           |
 | disabled  |        Boolean        |  false  |
 | children  | single/array of nodes |  null   |
