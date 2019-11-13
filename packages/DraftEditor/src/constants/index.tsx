@@ -7,7 +7,8 @@ const UNSTYLED = "unstyled";
 const IMMUTABLE = "IMMUTABLE";
 const RIGHT = "right";
 const LEFT = "left";
-const DEFAULT_HEIGHT = "100%";
+const DEFAULT_HEIGHT = "auto";
+const MARGIN_IMAGE = 50;
 
 export {
   LINK,
@@ -19,5 +20,6 @@ export {
   IMMUTABLE,
   DEFAULT_HEIGHT,
   LEFT,
-  RIGHT
+  RIGHT,
+  MARGIN_IMAGE
 };
