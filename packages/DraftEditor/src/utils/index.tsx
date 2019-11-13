@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import { DEFAULT_HEIGHT, LEFT, RIGHT } from "../constants";
+import { DEFAULT_HEIGHT, LEFT, MARGIN_IMAGE, RIGHT } from "../constants";
 
 const getEditorHeight = (element: any) => {
   let editorHeight = { height: DEFAULT_HEIGHT };
@@ -17,7 +17,7 @@ const getEditorHeight = (element: any) => {
         (accumulator, image) => {
           const { float }: any = getComputedStyle(image);
           if (float === LEFT || float === RIGHT) {
-            return image.clientHeight + accumulator;
+            return image.clientHeight + accumulator + MARGIN_IMAGE;
           }
           return accumulator;
         },

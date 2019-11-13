@@ -44,8 +44,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   );
   const [isDraftEditor, setIsDraftEditor] = useState<boolean>(true);
   const [editorHeight, setEditorHeight] = useState<any>({});
-
-  const inputEl = useRef(null);
+  const inputEl = useRef<any>(null);
 
   useEffect((): void => {
     const initialEditorState = value
@@ -56,13 +55,16 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       decorator
     );
     setEditorState(state);
-    setEditorHeight(getEditorHeight(inputEl.current));
     onEditorChange(state);
+    calculateEditorHeight(500);
   }, []);
 
   useEffect((): void => {
-    setEditorHeight(getEditorHeight(inputEl.current));
+    calculateEditorHeight();
   }, [editorState]);
+
+  const calculateEditorHeight = (time = 0) =>
+    setTimeout(() => setEditorHeight(getEditorHeight(inputEl.current)), time);
 
   const onEditorChange = (newEditorState: EditorState): void => {
     const currentContent = newEditorState.getCurrentContent();
