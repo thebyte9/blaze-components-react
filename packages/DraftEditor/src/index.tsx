@@ -1,4 +1,3 @@
-import Textarea from "@blaze-react/text-area";
 import withUtils from "@blaze-react/utils";
 import {
   ContentBlock,
@@ -13,10 +12,6 @@ import {
   RichUtils
 } from "draft-js";
 import Editor from "draft-js-plugins-editor";
-// import draftToHtml from "draftjs-to-html";
-import htmlToDraft from "html-to-draftjs";
-import { stateToHTML } from "draft-js-export-html";
-const entities = require("entities");
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import { BLOCKQUOTE, HANDLED, NOT_HANDLED, UNSTYLED } from "./constants";
 import { DraftPlugins, plugins } from "./DraftPlugins";
@@ -41,19 +36,12 @@ const blockRenderer = (contentBlock: any) => {
 };
 
 const Component = (props: any) => {
-  // const { block, contentState, blockProps } = props;
-  // const data = contentState.getEntity(block.getEntityAt(0)).getData();
-
-  // console.log(props, data, blockProps);
-
   return (
-    <section style={{ background: "lavender" }}>
-      <pre>
-        <code>
-          <EditorBlock {...props} />
-        </code>
-      </pre>
-    </section>
+    <pre>
+      <code>
+        <EditorBlock {...props} />
+      </code>
+    </pre>
   );
 };
 
@@ -78,7 +66,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       decorator
     )
   );
-  const [isDraftEditor, setIsDraftEditor] = useState<boolean>(true);
   const [editorHeight, setEditorHeight] = useState<any>({});
   const inputEl = useRef<any>(null);
 
@@ -153,46 +140,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return draftNotHandledValue;
   };
 
-  const toggleDraftEditor = (): void => setIsDraftEditor(!isDraftEditor);
-
-  const handleHtmlToDraft = ({ value: HTMLContent }: { value: string }) => {
-    const blocksFromHtml = htmlToDraft(HTMLContent);
-    const { contentBlocks, entityMap } = blocksFromHtml;
-    const newContentState = ContentState.createFromBlockArray(
-      contentBlocks,
-      entityMap
-    );
-    const newEditorState = EditorState.createWithContent(newContentState);
-    setEditorState(newEditorState);
-    onEditorChange(newEditorState);
-  };
-
-  // const options = {
-  //   blockRenderers: {
-  //     atomic: (block: any) => {
-  //       console.log("jjjjjjjjj");
-  //       return "<div>" + escape(block.getText()) + "</div>";
-  //       return "";
-  //     }
-  //   }
-  // };
-
-  const astateToHTML: any = stateToHTML(
-    editorState.getCurrentContent()
-    // options
-  );
-
-  const sn = () => {
-    console.log(astateToHTML.includes(entities.encodeHTML("<!--aaaa-->")));
-    let a = astateToHTML.replace("</code></pre>", "");
-    a = a.replace("<pre><code>", "");
-    const b = entities.decodeHTML(astateToHTML);
-    console.log(b.includes("<!--aaaa-->"));
-    return b;
-  };
-
-  console.log(sn());
-
   const insertBlock = () => {
     const ccontentState = editorState.getCurrentContent();
 
@@ -220,31 +167,23 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         handleLibraryClick={handleLibraryClick}
         unSelectedText={unSelectedText}
         onEditorChange={onEditorChange}
-        toggleDraftEditor={toggleDraftEditor}
-        isDraftEditor={isDraftEditor}
+        toggleDraftEditor={insertBlock}
       />
 
-      <button onClick={insertBlock}>Insert block</button>
-
       <div className={editorClassName} style={editorHeight}>
-        {isDraftEditor ? (
-          <Editor
-            ref={inputEl}
-            handleKeyCommand={handleKeyCommand}
-            blockStyleFn={getBlockStyle}
-            editorState={editorState}
-            onChange={onEditorChange}
-            blockRendererFn={blockRenderer}
-            plugins={plugins}
-            {...attrs}
-          />
-        ) : (
-          <Textarea onChange={handleHtmlToDraft} rows={10} value={sn()} />
-        )}
+        <Editor
+          ref={inputEl}
+          handleKeyCommand={handleKeyCommand}
+          blockStyleFn={getBlockStyle}
+          editorState={editorState}
+          onChange={onEditorChange}
+          blockRendererFn={blockRenderer}
+          plugins={plugins}
+          {...attrs}
+        />
         <DraftPlugins />
       </div>
       {error && <ErrorMessage message={validationMessage} />}
-      <div dangerouslySetInnerHTML={{ __html: sn() }} />
     </div>
   );
 };
