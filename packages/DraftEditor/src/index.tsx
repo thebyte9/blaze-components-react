@@ -27,9 +27,7 @@ const blockRenderer = (contentBlock: any) => {
     return {
       component: Component,
       editable: true,
-      props: {
-        foo: "bar"
-      }
+      props: {}
     };
   }
   return "";
@@ -144,9 +142,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     const ccontentState = editorState.getCurrentContent();
 
     const contentStateWithEntity = ccontentState.createEntity(
-      "TEST",
-      "MUTABLE",
-      { foo: "bar" }
+      "CODE",
+      "MUTABLE"
     );
 
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();

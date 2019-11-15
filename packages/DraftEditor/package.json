@@ -38,8 +38,7 @@
     "draft-js-utils": "^1.4.0",
     "draftjs-to-html": "^0.8.4",
     "entities": "^2.0.0",
-    "html-to-draftjs": "^1.4.0",
-    "immutable": "github:facebook/immutable-js#npm"
+    "html-to-draftjs": "^1.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
