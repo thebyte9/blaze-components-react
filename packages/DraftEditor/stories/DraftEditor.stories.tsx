@@ -25,29 +25,50 @@ storiesOf("DraftEditor", module)
       }: {
         event: { target: { name: string; value: string } };
       }) => {
-        setDraftContent(draftContent);
+        setDraftContent(value);
+      };
+
+      const options = {
+        entityStyleFn: (entity: any) => {
+          const entityType = entity.get("type").toLowerCase();
+          if (entityType === "image") {
+            const data = entity.getData();
+            // console.log(data);
+            return {
+              element: "img",
+              attributes: {
+                src: data.src
+              },
+              style: {
+                // Put styles here...
+              }
+            };
+          }
+          return undefined;
+        }
       };
 
       const preview = () => {
-        let convertTtateToHTML: any = entities.decodeHTML(
+        let convertStateToHTML: any = entities.decodeHTML(
           stateToHTML(
             EditorState.createWithContent(
               convertFromRaw(JSON.parse(draftContent))
-            ).getCurrentContent()
+            ).getCurrentContent(),
+            options
           )
         );
 
         const code =
-          convertTtateToHTML.match(/<pre><code>(?:.*?)<\/code><\/pre>/g) || [];
+          convertStateToHTML.match(/<pre><code>(?:.*?)<\/code><\/pre>/g) || [];
 
         code.forEach((htmlCode: string) => {
-          convertTtateToHTML = convertTtateToHTML.replace(
+          convertStateToHTML = convertStateToHTML.replace(
             htmlCode,
             entities.encode(htmlCode)
           );
         });
 
-        return convertTtateToHTML;
+        return convertStateToHTML;
       };
 
       return (

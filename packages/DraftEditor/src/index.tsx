@@ -1,4 +1,6 @@
 import withUtils from "@blaze-react/utils";
+import eventBus from "./eventBus";
+
 import {
   ContentBlock,
   ContentState,
@@ -16,9 +18,10 @@ import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import { BLOCKQUOTE, HANDLED, NOT_HANDLED, UNSTYLED } from "./constants";
 import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
+import { AddImageAttributes } from "./DraftPlugins/CustomPlugins/ImageControl";
 import decorator from "./DraftPlugins/CustomPlugins/decorator";
 import { IDraftEditorProps } from "./interfaces";
-import { getEditorHeight } from "./utils";
+import { getEditorHeight, addButtonToAlignmentToolContainer } from "./utils";
 
 const blockRenderer = (contentBlock: any) => {
   const type = contentBlock.getType();
@@ -65,7 +68,12 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     )
   );
   const [editorHeight, setEditorHeight] = useState<any>({});
+  const [imageAttributesStatus, setImageAttributesStatus] = useState<boolean>(
+    false
+  );
+  const [imageAttributesData, setImageAttributesData] = useState<object>({});
   const inputEl = useRef<any>(null);
+  const globalRef = useRef<any>(null);
 
   useEffect((): void => {
     const initialEditorState = value
@@ -78,7 +86,17 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     setEditorState(state);
     onEditorChange(state);
     calculateEditorHeight(500);
+    addButtonToAlignmentToolContainer(globalRef.current);
+    eventBus.$on("editImageAttributes", focusedImageURL => {
+      setImageAttributesStatus(true);
+      setImageAttributesData({ url: focusedImageURL });
+    });
   }, []);
+
+  const closeImageAttributesModal = () => setImageAttributesStatus(false);
+
+  const saveImageAttributes = (imageAttributes: any) =>
+    setImageAttributesData(imageAttributes);
 
   useEffect((): void => {
     calculateEditorHeight();
@@ -90,7 +108,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const onEditorChange = (newEditorState: EditorState): void => {
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
-    const rawValueString = JSON.stringify(rawValue);
+
+    const rawValueString = JSON.stringify({ ...rawValue, imageAttributesData });
+
+    console.log(rawValueString);
     const eventFormat = {
       event: {
         target: {
@@ -157,7 +178,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   return (
-    <div className="custom-DraftEditor-root">
+    <div className="custom-DraftEditor-root" ref={globalRef}>
       <CustomDraftPlugins
         editorState={editorState}
         selectedImages={selectedImages}
@@ -166,6 +187,13 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         onEditorChange={onEditorChange}
         toggleDraftEditor={insertBlock}
       />
+      {imageAttributesStatus && (
+        <AddImageAttributes
+          imageAttributesData={imageAttributesData}
+          saveImageAttributes={saveImageAttributes}
+          closeImageAttributesModal={closeImageAttributesModal}
+        />
+      )}
 
       <div className={editorClassName} style={editorHeight}>
         <Editor

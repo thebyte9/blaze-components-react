@@ -9,7 +9,7 @@ import {
 import React from "react";
 import BlockControls from "./BlockControls";
 import HTMLEditor from "./HTMLEditor";
-import ImageControl from "./ImageControl";
+import { ImageControl } from "./ImageControl";
 import InlineControls from "./InlineControls";
 import { Anchor, LinkControl } from "./LinkControl";
 
