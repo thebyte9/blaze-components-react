@@ -1,6 +1,6 @@
 import Input from "@blaze-react/input";
 import Modal from "@blaze-react/modal";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const AddImageAttributes = ({
   imageAttributesData,
@@ -11,12 +11,25 @@ const AddImageAttributes = ({
     imageAttributesData
   );
 
+  const [newImageAttributes, setNewImageAttributes] = useState<any>(
+    imageAttributes.images.find(
+      ({ url }: { url: string }) => url === imageAttributes.focusedImageURL
+    ) || {}
+  );
+
   useEffect(() => {
     setImageAttributes(imageAttributesData);
   }, [imageAttributesData]);
 
   const saveAttributes = (): void => {
-    saveImageAttributes(imageAttributes);
+    const removeDuplicatesImages = imageAttributes.images.filter(
+      ({ url }: { url: string }) => url !== imageAttributes.focusedImageURL
+    );
+
+    saveImageAttributes({
+      ...imageAttributes,
+      images: [...removeDuplicatesImages, newImageAttributes]
+    });
     closeImageAttributesModal();
   };
 
@@ -36,8 +49,9 @@ const AddImageAttributes = ({
     },
     name: string
   ): void => {
-    setImageAttributes({
-      ...imageAttributes,
+    setNewImageAttributes({
+      ...newImageAttributes,
+      url: imageAttributes.focusedImageURL,
       [name]: value
     });
   };
@@ -49,19 +63,19 @@ const AddImageAttributes = ({
           placeholder="Modifier"
           onChange={(event: any) => handleChange(event, "modifier")}
           modifier="full-width"
-          value={imageAttributes.modifier}
+          value={newImageAttributes.modifier}
         />
         <Input
           placeholder="Alt Text"
           onChange={(event: any) => handleChange(event, "altText")}
           modifier="full-width"
-          value={imageAttributes.altText}
+          value={newImageAttributes.altText}
         />
         <Input
           placeholder="Caption"
           onChange={(event: any) => handleChange(event, "caption")}
           modifier="full-width"
-          value={imageAttributes.caption}
+          value={newImageAttributes.caption}
         />
       </Modal>
     </>

@@ -28,33 +28,12 @@ storiesOf("DraftEditor", module)
         setDraftContent(value);
       };
 
-      const options = {
-        entityStyleFn: (entity: any) => {
-          const entityType = entity.get("type").toLowerCase();
-          if (entityType === "image") {
-            const data = entity.getData();
-            // console.log(data);
-            return {
-              element: "img",
-              attributes: {
-                src: data.src
-              },
-              style: {
-                // Put styles here...
-              }
-            };
-          }
-          return undefined;
-        }
-      };
-
       const preview = () => {
         let convertStateToHTML: any = entities.decodeHTML(
           stateToHTML(
             EditorState.createWithContent(
               convertFromRaw(JSON.parse(draftContent))
-            ).getCurrentContent(),
-            options
+            ).getCurrentContent()
           )
         );
 

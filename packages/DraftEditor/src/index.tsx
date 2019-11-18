@@ -2,15 +2,15 @@ import withUtils from "@blaze-react/utils";
 import eventBus from "./eventBus";
 
 import {
+  AtomicBlockUtils,
   ContentBlock,
   ContentState,
   convertFromRaw,
   convertToRaw,
   DraftEditorCommand,
   DraftHandleValue,
-  EditorState,
-  AtomicBlockUtils,
   EditorBlock,
+  EditorState,
   RichUtils
 } from "draft-js";
 import Editor from "draft-js-plugins-editor";
@@ -18,10 +18,10 @@ import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import { BLOCKQUOTE, HANDLED, NOT_HANDLED, UNSTYLED } from "./constants";
 import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
-import { AddImageAttributes } from "./DraftPlugins/CustomPlugins/ImageControl";
 import decorator from "./DraftPlugins/CustomPlugins/decorator";
+import { AddImageAttributes } from "./DraftPlugins/CustomPlugins/ImageControl";
 import { IDraftEditorProps } from "./interfaces";
-import { getEditorHeight, addButtonToAlignmentToolContainer } from "./utils";
+import { addButtonToAlignmentToolContainer, getEditorHeight } from "./utils";
 
 const blockRenderer = (contentBlock: any) => {
   const type = contentBlock.getType();
@@ -71,7 +71,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const [imageAttributesStatus, setImageAttributesStatus] = useState<boolean>(
     false
   );
-  const [imageAttributesData, setImageAttributesData] = useState<object>({});
+  const [imageAttributesData, setImageAttributesData] = useState<any>({
+    focusedImageURL: null,
+    images: []
+  });
   const inputEl = useRef<any>(null);
   const globalRef = useRef<any>(null);
 
@@ -89,14 +92,20 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     addButtonToAlignmentToolContainer(globalRef.current);
     eventBus.$on("editImageAttributes", focusedImageURL => {
       setImageAttributesStatus(true);
-      setImageAttributesData({ url: focusedImageURL });
+
+      setImageAttributesData({
+        ...imageAttributesData,
+        focusedImageURL
+      });
     });
   }, []);
 
   const closeImageAttributesModal = () => setImageAttributesStatus(false);
 
-  const saveImageAttributes = (imageAttributes: any) =>
+  const saveImageAttributes = (imageAttributes: any) => {
     setImageAttributesData(imageAttributes);
+    onEditorChange(editorState, imageAttributes.images);
+  };
 
   useEffect((): void => {
     calculateEditorHeight();
@@ -105,11 +114,17 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const calculateEditorHeight = (time = 0) =>
     setTimeout(() => setEditorHeight(getEditorHeight(inputEl.current)), time);
 
-  const onEditorChange = (newEditorState: EditorState): void => {
+  const onEditorChange = (
+    newEditorState: EditorState,
+    imagesAttr?: any[]
+  ): void => {
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
 
-    const rawValueString = JSON.stringify({ ...rawValue, imageAttributesData });
+    const rawValueString = JSON.stringify({
+      ...rawValue,
+      imageAttributes: imagesAttr
+    });
 
     console.log(rawValueString);
     const eventFormat = {
