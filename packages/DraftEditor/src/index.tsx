@@ -36,15 +36,15 @@ const blockRenderer = (contentBlock: any) => {
   return "";
 };
 
-const Component = (props: any) => {
-  return (
+const Component = (props: any) => (
+  <div style={{ background: "lavander" }}>
     <pre>
       <code>
         <EditorBlock {...props} />
       </code>
     </pre>
-  );
-};
+  </div>
+);
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -79,9 +79,22 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const globalRef = useRef<any>(null);
 
   useEffect((): void => {
-    const initialEditorState = value
-      ? convertFromRaw(JSON.parse(value))
-      : EditorState.createEmpty().getCurrentContent();
+    let initialEditorState = EditorState.createEmpty().getCurrentContent();
+    let images: any = [];
+
+    if (value) {
+      const parsedValue = JSON.parse(value);
+      images =
+        parsedValue.imageAttributes instanceof Array
+          ? parsedValue.imageAttributes
+          : [];
+      setImageAttributesData({
+        focusedImageURL: null,
+        images
+      });
+      initialEditorState = convertFromRaw(parsedValue);
+    }
+
     const state: EditorState = EditorState.createWithContent(
       initialEditorState,
       decorator
@@ -92,10 +105,9 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     addButtonToAlignmentToolContainer(globalRef.current);
     eventBus.$on("editImageAttributes", focusedImageURL => {
       setImageAttributesStatus(true);
-
       setImageAttributesData({
-        ...imageAttributesData,
-        focusedImageURL
+        focusedImageURL,
+        images
       });
     });
   }, []);
@@ -105,6 +117,13 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const saveImageAttributes = (imageAttributes: any) => {
     setImageAttributesData(imageAttributes);
     onEditorChange(editorState, imageAttributes.images);
+    eventBus.$on("editImageAttributes", focusedImageURL => {
+      setImageAttributesStatus(true);
+      setImageAttributesData({
+        focusedImageURL,
+        images: imageAttributes.images
+      });
+    });
   };
 
   useEffect((): void => {
@@ -121,9 +140,18 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
 
+    const blocks = rawValue.blocks.map(block => {
+      if (block.type === "atomic" && !!block.text.trim()) {
+        block.text = block.text.replace(/\s+/g, " ");
+      }
+      return block;
+    });
+
+    rawValue.blocks = blocks;
+
     const rawValueString = JSON.stringify({
       ...rawValue,
-      imageAttributes: imagesAttr
+      imageAttributes: imagesAttr instanceof Array ? imagesAttr : []
     });
 
     const eventFormat = {

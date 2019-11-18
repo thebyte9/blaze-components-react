@@ -12,12 +12,18 @@ const AddImageAttributes = ({
   );
 
   const [newImageAttributes, setNewImageAttributes] = useState<any>(
-    imageAttributes.images.find(
+    imageAttributesData.images.find(
       ({ url }: { url: string }) => url === imageAttributes.focusedImageURL
     ) || {}
   );
 
   useEffect(() => {
+    setNewImageAttributes(
+      imageAttributesData.images.find(
+        ({ url }: { url: string }) =>
+          url === imageAttributesData.focusedImageURL
+      ) || {}
+    );
     setImageAttributes(imageAttributesData);
   }, [imageAttributesData]);
 
@@ -30,6 +36,7 @@ const AddImageAttributes = ({
       ...imageAttributes,
       images: [...removeDuplicatesImages, newImageAttributes]
     });
+
     closeImageAttributesModal();
   };
 
@@ -60,22 +67,28 @@ const AddImageAttributes = ({
     <>
       <Modal actions={alertActions} onClose={closeImageAttributesModal} isAlert>
         <Input
-          placeholder="Modifier"
+          label="Modifier"
           onChange={(event: any) => handleChange(event, "modifier")}
           modifier="full-width"
           value={newImageAttributes.modifier}
         />
         <Input
-          placeholder="Alt Text"
+          label="Alt Text"
           onChange={(event: any) => handleChange(event, "altText")}
           modifier="full-width"
           value={newImageAttributes.altText}
         />
         <Input
-          placeholder="Caption"
+          label="Caption"
           onChange={(event: any) => handleChange(event, "caption")}
           modifier="full-width"
           value={newImageAttributes.caption}
+        />
+        <Input
+          label="link"
+          onChange={(event: any) => handleChange(event, "link")}
+          modifier="full-width"
+          value={newImageAttributes.link}
         />
       </Modal>
     </>
