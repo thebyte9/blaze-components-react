@@ -126,7 +126,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       imageAttributes: imagesAttr
     });
 
-    console.log(rawValueString);
     const eventFormat = {
       event: {
         target: {
