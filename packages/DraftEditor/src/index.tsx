@@ -15,7 +15,13 @@ import {
 } from "draft-js";
 import Editor from "draft-js-plugins-editor";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
-import { BLOCKQUOTE, HANDLED, NOT_HANDLED, UNSTYLED } from "./constants";
+import {
+  ATOMIC,
+  BLOCKQUOTE,
+  HANDLED,
+  NOT_HANDLED,
+  UNSTYLED
+} from "./constants";
 import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
 import decorator from "./DraftPlugins/CustomPlugins/decorator";
@@ -26,7 +32,7 @@ import { addButtonToAlignmentToolContainer, getEditorHeight } from "./utils";
 const blockRenderer = (contentBlock: any) => {
   const type = contentBlock.getType();
 
-  if (type === "atomic") {
+  if (type === ATOMIC) {
     return {
       component: Component,
       editable: true,
