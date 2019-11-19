@@ -37,13 +37,11 @@ const blockRenderer = (contentBlock: any) => {
 };
 
 const Component = (props: any) => (
-  <div style={{ background: "lavander" }}>
-    <pre>
-      <code>
-        <EditorBlock {...props} />
-      </code>
-    </pre>
-  </div>
+  <pre>
+    <code>
+      <EditorBlock {...props} />
+    </code>
+  </pre>
 );
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({

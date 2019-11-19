@@ -19,8 +19,7 @@ const CustomDraftPlugins = ({
   handleLibraryClick,
   unSelectedText,
   onEditorChange,
-  toggleDraftEditor,
-  isDraftEditor
+  toggleDraftEditor
 }: any) => {
   const toggleBlockType = (blockType: DraftBlockType): void =>
     onEditorChange(RichUtils.toggleBlockType(editorState, blockType));
@@ -69,10 +68,7 @@ const CustomDraftPlugins = ({
             onToggle={toggleLink}
             unSelectedText={unSelectedText}
           />
-          <HTMLEditor
-            isDraftEditor={isDraftEditor}
-            onToggle={toggleDraftEditor}
-          />
+          <HTMLEditor onToggle={toggleDraftEditor} />
         </>
       </div>
     </section>

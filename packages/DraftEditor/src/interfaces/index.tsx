@@ -167,7 +167,6 @@ interface IStyleButtonProps {
 }
 
 interface IHTMLProps {
-  isDraftEditor: boolean;
   onToggle: () => void;
 }
 
