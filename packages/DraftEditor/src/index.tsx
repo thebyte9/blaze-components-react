@@ -153,7 +153,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
     const rawValueString = JSON.stringify({
       ...rawValue,
-      imageAttributes: imagesAttr instanceof Array ? imagesAttr : []
+      imageAttributes:
+        imagesAttr instanceof Array ? imagesAttr : imageAttributesData.images
     });
 
     const eventFormat = {
