@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "publishConfig": {
     "access": "public"
   },
@@ -18,12 +18,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.4.0",
-    "@blaze-react/file-upload": "^0.4.0",
-    "@blaze-react/input": "^0.4.0",
-    "@blaze-react/modal": "^0.4.0",
-    "@blaze-react/text-area": "^0.4.0",
-    "@blaze-react/utils": "^0.4.0",
+    "@blaze-react/button": "^0.4.3",
+    "@blaze-react/file-upload": "^0.4.3",
+    "@blaze-react/input": "^0.4.3",
+    "@blaze-react/modal": "^0.4.3",
+    "@blaze-react/text-area": "^0.4.3",
+    "@blaze-react/utils": "^0.4.3",
     "@types/draft-js": "0.10.34",
     "draft-js": "^0.11.0",
     "draft-js-alignment-plugin": "^2.0.6",
