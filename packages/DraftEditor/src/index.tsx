@@ -1,25 +1,54 @@
-import Textarea from "@blaze-react/text-area";
 import withUtils from "@blaze-react/utils";
+import eventBus from "./eventBus";
+
 import {
+  AtomicBlockUtils,
   ContentBlock,
   ContentState,
   convertFromRaw,
   convertToRaw,
   DraftEditorCommand,
   DraftHandleValue,
+  EditorBlock,
   EditorState,
   RichUtils
 } from "draft-js";
 import Editor from "draft-js-plugins-editor";
-import draftToHtml from "draftjs-to-html";
-import htmlToDraft from "html-to-draftjs";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
-import { BLOCKQUOTE, HANDLED, NOT_HANDLED, UNSTYLED } from "./constants";
+import {
+  ATOMIC,
+  BLOCKQUOTE,
+  HANDLED,
+  NOT_HANDLED,
+  UNSTYLED
+} from "./constants";
 import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
 import decorator from "./DraftPlugins/CustomPlugins/decorator";
+import { AddImageAttributes } from "./DraftPlugins/CustomPlugins/ImageControl";
 import { IDraftEditorProps } from "./interfaces";
-import { getEditorHeight } from "./utils";
+import { addButtonToAlignmentToolContainer, getEditorHeight } from "./utils";
+
+const blockRenderer = (contentBlock: any) => {
+  const type = contentBlock.getType();
+
+  if (type === ATOMIC) {
+    return {
+      component: Component,
+      editable: true,
+      props: {}
+    };
+  }
+  return "";
+};
+
+const Component = (props: any) => (
+  <pre>
+    <code>
+      <EditorBlock {...props} />
+    </code>
+  </pre>
+);
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -37,16 +66,39 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const draftNotHandledValue: DraftHandleValue = NOT_HANDLED;
 
   const [editorState, setEditorState] = useState<EditorState>(
-    EditorState.createEmpty()
+    EditorState.createWithContent(
+      EditorState.createEmpty().getCurrentContent(),
+      decorator
+    )
   );
-  const [isDraftEditor, setIsDraftEditor] = useState<boolean>(true);
   const [editorHeight, setEditorHeight] = useState<any>({});
+  const [imageAttributesStatus, setImageAttributesStatus] = useState<boolean>(
+    false
+  );
+  const [imageAttributesData, setImageAttributesData] = useState<any>({
+    focusedImageURL: null,
+    images: []
+  });
   const inputEl = useRef<any>(null);
+  const globalRef = useRef<any>(null);
 
   useEffect((): void => {
-    const initialEditorState = value
-      ? convertFromRaw(JSON.parse(value))
-      : EditorState.createEmpty().getCurrentContent();
+    let initialEditorState = EditorState.createEmpty().getCurrentContent();
+    let images: any = [];
+
+    if (value) {
+      const parsedValue = JSON.parse(value);
+      images =
+        parsedValue.imageAttributes instanceof Array
+          ? parsedValue.imageAttributes
+          : [];
+      setImageAttributesData({
+        focusedImageURL: null,
+        images
+      });
+      initialEditorState = convertFromRaw(parsedValue);
+    }
+
     const state: EditorState = EditorState.createWithContent(
       initialEditorState,
       decorator
@@ -54,19 +106,57 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     setEditorState(state);
     onEditorChange(state);
     calculateEditorHeight(500);
+    addButtonToAlignmentToolContainer(globalRef.current);
+    handleEditImageEvent(images);
   }, []);
+
+  const closeImageAttributesModal = () => setImageAttributesStatus(false);
+
+  const saveImageAttributes = (imageAttributes: any) => {
+    setImageAttributesData(imageAttributes);
+    onEditorChange(editorState, imageAttributes.images);
+    handleEditImageEvent(imageAttributes.images);
+  };
 
   useEffect((): void => {
     calculateEditorHeight();
   }, [editorState]);
 
+  const handleEditImageEvent = (images: any) => {
+    eventBus.$on("editImageAttributes", focusedImageURL => {
+      setImageAttributesStatus(true);
+      setImageAttributesData({
+        focusedImageURL,
+        images
+      });
+    });
+  };
+
   const calculateEditorHeight = (time = 0) =>
     setTimeout(() => setEditorHeight(getEditorHeight(inputEl.current)), time);
 
-  const onEditorChange = (newEditorState: EditorState): void => {
+  const onEditorChange = (
+    newEditorState: EditorState,
+    imagesAttr?: any[]
+  ): void => {
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
-    const rawValueString = JSON.stringify(rawValue);
+
+    const blocks = rawValue.blocks.map(block => {
+      if (block.type === "atomic" && !!block.text.trim()) {
+        block.text = block.text.replace(/\s+/g, " ");
+      }
+      return block;
+    });
+
+    rawValue.blocks = blocks;
+
+    const rawValueString = JSON.stringify({
+      ...rawValue,
+      imageAttributes:
+        imagesAttr instanceof Array ? imagesAttr : imageAttributesData.images
+    });
+
     const eventFormat = {
       event: {
         target: {
@@ -114,54 +204,53 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return draftNotHandledValue;
   };
 
-  const toggleDraftEditor = (): void => setIsDraftEditor(!isDraftEditor);
+  const insertBlock = () => {
+    const ccontentState = editorState.getCurrentContent();
 
-  const handleHtmlToDraft = ({ value: HTMLContent }: { value: string }) => {
-    const blocksFromHtml = htmlToDraft(HTMLContent);
-    const { contentBlocks, entityMap } = blocksFromHtml;
-    const newContentState = ContentState.createFromBlockArray(
-      contentBlocks,
-      entityMap
+    const contentStateWithEntity = ccontentState.createEntity(
+      "CODE",
+      "MUTABLE"
     );
-    const newEditorState = EditorState.createWithContent(newContentState);
-    setEditorState(newEditorState);
-    onEditorChange(newEditorState);
+
+    const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+    const newEditorState = EditorState.set(editorState, {
+      currentContent: contentStateWithEntity
+    });
+
+    setEditorState(
+      AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, " ")
+    );
   };
 
-  const stateToHTML = draftToHtml(
-    convertToRaw(editorState.getCurrentContent())
-  );
-
   return (
-    <div className="custom-DraftEditor-root">
+    <div className="custom-DraftEditor-root" ref={globalRef}>
       <CustomDraftPlugins
         editorState={editorState}
         selectedImages={selectedImages}
         handleLibraryClick={handleLibraryClick}
         unSelectedText={unSelectedText}
         onEditorChange={onEditorChange}
-        toggleDraftEditor={toggleDraftEditor}
-        isDraftEditor={isDraftEditor}
+        toggleDraftEditor={insertBlock}
       />
+      {imageAttributesStatus && (
+        <AddImageAttributes
+          imageAttributesData={imageAttributesData}
+          saveImageAttributes={saveImageAttributes}
+          closeImageAttributesModal={closeImageAttributesModal}
+        />
+      )}
 
       <div className={editorClassName} style={editorHeight}>
-        {isDraftEditor ? (
-          <Editor
-            ref={inputEl}
-            handleKeyCommand={handleKeyCommand}
-            blockStyleFn={getBlockStyle}
-            editorState={editorState}
-            onChange={onEditorChange}
-            plugins={plugins}
-            {...attrs}
-          />
-        ) : (
-          <Textarea
-            onChange={handleHtmlToDraft}
-            rows={10}
-            value={stateToHTML}
-          />
-        )}
+        <Editor
+          ref={inputEl}
+          handleKeyCommand={handleKeyCommand}
+          blockStyleFn={getBlockStyle}
+          editorState={editorState}
+          onChange={onEditorChange}
+          blockRendererFn={blockRenderer}
+          plugins={plugins}
+          {...attrs}
+        />
         <DraftPlugins />
       </div>
       {error && <ErrorMessage message={validationMessage} />}

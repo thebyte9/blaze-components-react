@@ -9,7 +9,7 @@ import {
 import React from "react";
 import BlockControls from "./BlockControls";
 import HTMLEditor from "./HTMLEditor";
-import ImageControl from "./ImageControl";
+import { ImageControl } from "./ImageControl";
 import InlineControls from "./InlineControls";
 import { Anchor, LinkControl } from "./LinkControl";
 
@@ -19,8 +19,7 @@ const CustomDraftPlugins = ({
   handleLibraryClick,
   unSelectedText,
   onEditorChange,
-  toggleDraftEditor,
-  isDraftEditor
+  toggleDraftEditor
 }: any) => {
   const toggleBlockType = (blockType: DraftBlockType): void =>
     onEditorChange(RichUtils.toggleBlockType(editorState, blockType));
@@ -69,10 +68,7 @@ const CustomDraftPlugins = ({
             onToggle={toggleLink}
             unSelectedText={unSelectedText}
           />
-          <HTMLEditor
-            isDraftEditor={isDraftEditor}
-            onToggle={toggleDraftEditor}
-          />
+          <HTMLEditor onToggle={toggleDraftEditor} />
         </>
       </div>
     </section>

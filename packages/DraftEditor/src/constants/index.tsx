@@ -9,6 +9,7 @@ const RIGHT = "right";
 const LEFT = "left";
 const DEFAULT_HEIGHT = "auto";
 const MARGIN_IMAGE = 50;
+const ATOMIC = "atomic";
 
 export {
   LINK,
@@ -21,5 +22,6 @@ export {
   DEFAULT_HEIGHT,
   LEFT,
   RIGHT,
-  MARGIN_IMAGE
+  MARGIN_IMAGE,
+  ATOMIC
 };
