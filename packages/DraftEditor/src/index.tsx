@@ -103,13 +103,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     onEditorChange(state);
     calculateEditorHeight(500);
     addButtonToAlignmentToolContainer(globalRef.current);
-    eventBus.$on("editImageAttributes", focusedImageURL => {
-      setImageAttributesStatus(true);
-      setImageAttributesData({
-        focusedImageURL,
-        images
-      });
-    });
+    handleEditImageEvent(images);
   }, []);
 
   const closeImageAttributesModal = () => setImageAttributesStatus(false);
@@ -117,18 +111,22 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const saveImageAttributes = (imageAttributes: any) => {
     setImageAttributesData(imageAttributes);
     onEditorChange(editorState, imageAttributes.images);
-    eventBus.$on("editImageAttributes", focusedImageURL => {
-      setImageAttributesStatus(true);
-      setImageAttributesData({
-        focusedImageURL,
-        images: imageAttributes.images
-      });
-    });
+    handleEditImageEvent(imageAttributes.images);
   };
 
   useEffect((): void => {
     calculateEditorHeight();
   }, [editorState]);
+
+  const handleEditImageEvent = (images: any) => {
+    eventBus.$on("editImageAttributes", focusedImageURL => {
+      setImageAttributesStatus(true);
+      setImageAttributesData({
+        focusedImageURL,
+        images
+      });
+    });
+  };
 
   const calculateEditorHeight = (time = 0) =>
     setTimeout(() => setEditorHeight(getEditorHeight(inputEl.current)), time);
