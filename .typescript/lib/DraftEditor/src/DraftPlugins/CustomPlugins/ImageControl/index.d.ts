@@ -1,2 +1,3 @@
+import AddImageAttributes from "./AddImageAttributes";
 import ImageControl from "./ImageControl";
-export default ImageControl;
+export { ImageControl, AddImageAttributes };
