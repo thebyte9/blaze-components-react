@@ -63,33 +63,57 @@ const AddImageAttributes = ({
     });
   };
 
+  const imageOptions = [
+    {
+      name: "modifier",
+      type: "string",
+      label: "Modifier"
+    },
+    {
+      name: "altText",
+      type: "string",
+      label: "Alt text"
+    },
+    {
+      name: "caption",
+      type: "string",
+      label: "Caption"
+    },
+    {
+      name: "marginTop",
+      type: "number",
+      label: "Margin top (px)"
+    },
+    {
+      name: "marginLeft",
+      type: "number",
+      label: "Margin left (px)"
+    },
+    {
+      name: "marginRight",
+      type: "number",
+      label: "Margin right (px)"
+    },
+    {
+      name: "marginBottom",
+      type: "number",
+      label: "Margin bottom (px)"
+    }
+  ];
+
   return (
     <>
       <Modal actions={alertActions} onClose={closeImageAttributesModal} isAlert>
-        <Input
-          label="Modifier"
-          onChange={(event: any) => handleChange(event, "modifier")}
-          modifier="full-width"
-          value={newImageAttributes.modifier}
-        />
-        <Input
-          label="Alt Text"
-          onChange={(event: any) => handleChange(event, "altText")}
-          modifier="full-width"
-          value={newImageAttributes.altText}
-        />
-        <Input
-          label="Caption"
-          onChange={(event: any) => handleChange(event, "caption")}
-          modifier="full-width"
-          value={newImageAttributes.caption}
-        />
-        <Input
-          label="link"
-          onChange={(event: any) => handleChange(event, "link")}
-          modifier="full-width"
-          value={newImageAttributes.link}
-        />
+        {imageOptions.map((option: any) => (
+          <Input
+            label={option.label}
+            onChange={(event: any) => handleChange(event, option.name)}
+            modifier="full-width"
+            value={newImageAttributes[option.name]}
+            key={option.name}
+            type={option.type}
+          />
+        ))}
       </Modal>
     </>
   );
