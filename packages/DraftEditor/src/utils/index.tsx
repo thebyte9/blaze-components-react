@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import { DEFAULT_HEIGHT, LEFT, MARGIN_IMAGE, RIGHT } from "../constants";
 import eventBus from "../eventBus";
+import { MARGINS, STYLE_AUTO } from "../constants";
 
 declare let window: any;
 
@@ -43,11 +44,14 @@ const findElements = (node: any, element: string) => {
 };
 
 const updateElementStyles = (element: any, styles: any) => {
-  const margins = ["marginTop", "marginLeft", "marginRight", "marginBottom"];
-
   Object.entries(styles).forEach(([key, value]) => {
-    if (margins.includes(key)) {
-      element.style[key] = `${value}px`;
+    if (MARGINS.includes(key)) {
+      if (
+        element.style[key] !== STYLE_AUTO &&
+        element.style[key] !== STYLE_AUTO
+      ) {
+        element.style[key] = `${value}px`;
+      }
     }
   });
 };
