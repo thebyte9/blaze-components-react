@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import { DEFAULT_HEIGHT, LEFT, MARGIN_IMAGE, RIGHT } from "../constants";
-import eventBus from "../eventBus";
 import { MARGINS, STYLE_AUTO } from "../constants";
+import eventBus from "../eventBus";
 
 declare let window: any;
 
