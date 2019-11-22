@@ -46,10 +46,7 @@ const findElements = (node: any, element: string) => {
 const updateElementStyles = (element: any, styles: any) => {
   Object.entries(styles).forEach(([key, value]) => {
     if (MARGINS.includes(key)) {
-      if (
-        element.style[key] !== STYLE_AUTO &&
-        element.style[key] !== STYLE_AUTO
-      ) {
+      if (element.style[key] !== STYLE_AUTO) {
         element.style[key] = `${value}px`;
       }
     }
@@ -94,11 +91,14 @@ const getEditorHeight = (element: any) => {
       const images: any[] = findElements(element, "img");
 
       const totalImagesSize = images.reduce((accumulator, image) => {
-        const { float }: any = getComputedStyle(image);
+        const { float, marginTop, marginBottom }: any = getComputedStyle(image);
+        const total =
+          // tslint:disable-next-line: radix
+          accumulator + parseInt(marginTop) + parseInt(marginBottom);
         if (float === LEFT || float === RIGHT) {
-          return image.clientHeight + accumulator + MARGIN_IMAGE;
+          return total + image.clientHeight + MARGIN_IMAGE;
         }
-        return accumulator;
+        return total;
       }, 0);
 
       if (totalImagesSize) {
