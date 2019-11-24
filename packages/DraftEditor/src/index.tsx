@@ -29,8 +29,8 @@ import { AddImageAttributes } from "./DraftPlugins/CustomPlugins/ImageControl";
 import { IDraftEditorProps } from "./interfaces";
 import {
   addButtonToAlignmentToolContainer,
-  getEditorHeight,
-  findImageAndUpdateStyles
+  findImageAndUpdateStyles,
+  getEditorHeight
 } from "./utils";
 
 const blockRenderer = (contentBlock: any) => {
@@ -108,7 +108,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       decorator
     );
     setEditorState(state);
-    onEditorChange(state);
+    onEditorChange(state, images);
     calculateEditorHeight(500);
     addButtonToAlignmentToolContainer(globalRef.current);
     handleEditImageEvent(images);
