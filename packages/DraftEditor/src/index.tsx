@@ -27,7 +27,11 @@ import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
 import decorator from "./DraftPlugins/CustomPlugins/decorator";
 import { AddImageAttributes } from "./DraftPlugins/CustomPlugins/ImageControl";
 import { IDraftEditorProps } from "./interfaces";
-import { addButtonToAlignmentToolContainer, getEditorHeight } from "./utils";
+import {
+  addButtonToAlignmentToolContainer,
+  findImageAndUpdateStyles,
+  getEditorHeight
+} from "./utils";
 
 const blockRenderer = (contentBlock: any) => {
   const type = contentBlock.getType();
@@ -104,7 +108,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       decorator
     );
     setEditorState(state);
-    onEditorChange(state);
+    onEditorChange(state, images);
     calculateEditorHeight(500);
     addButtonToAlignmentToolContainer(globalRef.current);
     handleEditImageEvent(images);
@@ -113,6 +117,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const closeImageAttributesModal = () => setImageAttributesStatus(false);
 
   const saveImageAttributes = (imageAttributes: any) => {
+    findImageAndUpdateStyles(globalRef.current, imageAttributes);
     setImageAttributesData(imageAttributes);
     onEditorChange(editorState, imageAttributes.images);
     handleEditImageEvent(imageAttributes.images);
@@ -132,8 +137,12 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     });
   };
 
-  const calculateEditorHeight = (time = 0) =>
-    setTimeout(() => setEditorHeight(getEditorHeight(inputEl.current)), time);
+  const calculateEditorHeight = (time = 0) => {
+    setTimeout(() => {
+      setEditorHeight(getEditorHeight(inputEl.current));
+      findImageAndUpdateStyles(inputEl.current, imageAttributesData.images);
+    }, time);
+  };
 
   const onEditorChange = (
     newEditorState: EditorState,
