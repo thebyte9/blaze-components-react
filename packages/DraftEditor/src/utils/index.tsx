@@ -11,6 +11,10 @@ const addButtonToAlignmentToolContainer = (element: any) => {
     ".draftJsEmojiPlugin__alignmentTool__2mkQr"
   );
 
+  if (!alignmentToolContainer) {
+    return;
+  }
+
   window.showModal = () => {
     const [focusedImage]: any = findElements(
       element,
