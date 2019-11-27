@@ -10,6 +10,8 @@ const LEFT = "left";
 const DEFAULT_HEIGHT = "auto";
 const MARGIN_IMAGE = 50;
 const ATOMIC = "atomic";
+const STYLE_AUTO = "auto";
+const MARGINS = ["marginTop", "marginLeft", "marginRight", "marginBottom"];
 
 export {
   LINK,
@@ -23,5 +25,7 @@ export {
   LEFT,
   RIGHT,
   MARGIN_IMAGE,
-  ATOMIC
+  ATOMIC,
+  STYLE_AUTO,
+  MARGINS
 };
