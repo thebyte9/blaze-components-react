@@ -82,4 +82,4 @@ const disabled = ["17006"]
 | selected |  String  |    ''    |
 | keys     |  Array   |    []    |
 | onChange | Function | () => {} |
-| disabled | Array    |    []    |
+| disabled |  Array   |    []    |
