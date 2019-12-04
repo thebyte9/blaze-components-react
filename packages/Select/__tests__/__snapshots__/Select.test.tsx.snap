@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input component should be defined and renders correctly (snapshot) 1`] = `
+exports[`Select component should be defined and renders correctly (snapshot) 1`] = `
 <withUtils(Select)
   onChange={[Function]}
   options={
@@ -11,6 +11,7 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
   }
 >
   <Select
+    disabled={Array []}
     error={false}
     keys={Array []}
     label=""
@@ -48,12 +49,91 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
           Please Choose...
         </option>
         <option
+          disabled={false}
           key="lorem"
           value="lorem"
         >
           lorem
         </option>
         <option
+          disabled={false}
+          key="ipsum"
+          value="ipsum"
+        >
+          ipsum
+        </option>
+      </select>
+    </div>
+  </Select>
+</withUtils(Select)>
+`;
+
+exports[`Select component should render some options disabled 1`] = `
+<withUtils(Select)
+  disabled={
+    Array [
+      "ipsum",
+    ]
+  }
+  onChange={[Function]}
+  options={
+    Array [
+      "lorem",
+      "ipsum",
+    ]
+  }
+>
+  <Select
+    disabled={
+      Array [
+        "ipsum",
+      ]
+    }
+    error={false}
+    keys={Array []}
+    label=""
+    onChange={[Function]}
+    options={
+      Array [
+        "lorem",
+        "ipsum",
+      ]
+    }
+    required={false}
+    selected=""
+    utils={
+      Object {
+        "ErrorMessage": [Function],
+        "classNames": [Function],
+        "removeExtraSpaces": [Function],
+        "uniqueId": [Function],
+      }
+    }
+    validationMessage="This field is required"
+  >
+    <div
+      className="form-field form-field--select"
+    >
+      <select
+        disabled={false}
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          defaultValue=""
+          disabled={false}
+        >
+          Please Choose...
+        </option>
+        <option
+          disabled={false}
+          key="lorem"
+          value="lorem"
+        >
+          lorem
+        </option>
+        <option
+          disabled={true}
           key="ipsum"
           value="ipsum"
         >

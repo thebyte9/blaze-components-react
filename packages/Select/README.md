@@ -55,6 +55,15 @@ const arrayOfObjects = [
 />;
 ```
 
+- Disabling some options
+
+```js
+const disabled = ["17006"]
+
+
+<Select label="Disabled option" onChange={({ event, value }) => {}} options={options} disabled={disabled} />
+```
+
 - By default is disabled if none options
 
 ```js
@@ -73,3 +82,4 @@ const arrayOfObjects = [
 | selected |  String  |    ''    |
 | keys     |  Array   |    []    |
 | onChange | Function | () => {} |
+| disabled | Array    |    []    |
