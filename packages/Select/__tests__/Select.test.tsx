@@ -9,7 +9,7 @@ const defaultProps = (override: object = {}) => ({
   ...override
 });
 
-describe("Input component", () => {
+describe("Select component", () => {
   test("should be defined and renders correctly (snapshot)", () => {
     const wrapper = mount(<Select {...defaultProps()} />);
     expect(wrapper).toBeDefined();
@@ -58,5 +58,13 @@ describe("Input component", () => {
     const wrapper = mount(<Select {...defaultProps(override)} />);
     wrapper.find("select").simulate("change", { target: { value: 1 } });
     expect(wrapper.find("select").prop("value")).toBe(1);
+  });
+
+  test("should render some options disabled", () => {
+    const override = {
+      disabled: ['ipsum']
+    };
+    const wrapper = mount(<Select {...defaultProps(override)} />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

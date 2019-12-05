@@ -21,6 +21,7 @@ interface ISelectProps {
   validationMessage: string | JSX.Element;
   selected?: any;
   id?: string;
+  disabled?: any[],
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
@@ -35,6 +36,7 @@ const Select: React.SFC<ISelectProps> = ({
   keys,
   error,
   validationMessage,
+  disabled,
   utils: { classNames, ErrorMessage },
   ...attrs
 }) => {
@@ -56,11 +58,14 @@ const Select: React.SFC<ISelectProps> = ({
     required
   });
 
-  const setOption = (value: string, text?: string): JSX.Element => (
-    <option key={value} value={value}>
-      {text || value}
-    </option>
-  );
+  const setOption = (value: string, text?: string): JSX.Element => {
+    const isDisabled = disabled && disabled.includes(value);
+    return (
+      <option key={value} value={value} disabled={isDisabled}>
+        {text || value}
+      </option>
+    )
+  };
 
   const renderOptions = () => {
     const [first]: any = options;
@@ -99,6 +104,7 @@ const Select: React.SFC<ISelectProps> = ({
   );
 };
 Select.defaultProps = {
+  disabled: [],
   error: false,
   keys: [],
   label: "",
