@@ -114,7 +114,7 @@ describe("Modal component", () => {
 
     const wrapper = mount(<Modal {...defaultProps(override)} />);
 
-    expect(wrapper.find(".modal__title").text()).toContain("Scrollable Modal");;
+    expect(wrapper.find(".modal__title").text()).toContain("Scrollable Modal");
 
     wrapper.find(".modal__close").simulate("click");
     expect(props.onClose).not.toHaveBeenCalled();

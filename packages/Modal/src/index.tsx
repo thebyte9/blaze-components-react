@@ -70,7 +70,7 @@ const Modal: React.SFC<IModalProps> = ({
   return (
     <>
       {overlay && <div className="overlay" onClick={closeModal} />}
-      <div className={modalClassNames} >
+      <div className={modalClassNames}>
         <div className={modalHeaderClassNames}>
           {!isAlert && <ModalHeader title={title} closeModal={closeModal} />}
         </div>
