@@ -7,26 +7,49 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
   <div
     className="more-menu__wrapper"
   >
-    <Button
+    <withUtils()
       disabled={false}
-      modifiers=""
+      modifiers={
+        Array [
+          "full-width",
+        ]
+      }
       onClick={[Function]}
-      submit={false}
+      type="button"
     >
-      <button
-        className="button "
+      <Component
         disabled={false}
+        modifiers={
+          Array [
+            "full-width",
+          ]
+        }
         onClick={[Function]}
         type="button"
+        utils={
+          Object {
+            "ErrorMessage": [Function],
+            "classNames": [Function],
+            "removeExtraSpaces": [Function],
+            "uniqueId": [Function],
+          }
+        }
       >
-        <i
-          className="material-icons"
+        <button
+          className="button button--full-width"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
         >
-          keyboard_arrow_down
-        </i>
-        Actions
-      </button>
-    </Button>
+          <i
+            className="material-icons"
+          >
+            keyboard_arrow_down
+          </i>
+          Actions
+        </button>
+      </Component>
+    </withUtils()>
   </div>
 </ButtonSelect>
 `;

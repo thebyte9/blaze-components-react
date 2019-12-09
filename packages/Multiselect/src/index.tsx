@@ -1,80 +1,282 @@
 import Checkboxes from "@blaze-react/checkboxes";
+import Chip from "@blaze-react/chips";
 import Input from "@blaze-react/input";
-import React, { Fragment, useState } from "react";
-import uuidv1 from "uuid/v1";
+import withUtils from "@blaze-react/utils";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
+
+interface IData {
+  id?: string;
+  checked?: boolean;
+  show?: boolean;
+}
+
 interface IMultiSelectProps {
   data: {
+    identification: string;
     keyValue: string;
     filterBy: any[];
     data: object[];
   };
-  selected: (...args: any[]) => any;
+  getSelected: (...args: any[]) => any;
+  label?: string;
+  limit?: number;
   placeholder?: string;
   children?: any;
+  notFoundMessage?: string;
+  limitReachedMessage?: string;
+  onChange?: (arg: { event: Event; value: string; name: string }) => void;
+  error?: boolean;
+  name: string;
+  validationMessage: string | JSX.Element;
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+    uniqueId: (element: any) => string;
+  };
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
-  data: { data, filterBy: keys, keyValue },
-  selected: getSelected,
+  data: { data, filterBy: keys, keyValue, identification },
+  utils: { ErrorMessage, uniqueId },
+  validationMessage,
+  notFoundMessage,
+  limitReachedMessage,
+  getSelected,
+  label,
+  limit,
   placeholder,
-  children
-}) => {
-  const [selected, setSelected] = useState([]);
-  const [dataCopy, setDataCopy] = useState(data);
-  const setStatus = (obj: any, status: any) =>
+  children,
+  onChange,
+  error,
+  name
+}): JSX.Element => {
+  const multiRef = useRef<HTMLDivElement>(null);
+  const [dataCopy, setDataCopy] = useState<any>([]);
+  const [limitReached, setLimitReached] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return function cleanup() {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (data) {
+      const reachedLimit = checkLimit(data);
+      const verifiedData = reachedLimit
+        ? data.map((option: any) => ({ ...option, disabled: !option.checked }))
+        : data;
+      updateData(verifiedData);
+    }
+  }, [data]);
+
+  const setStatus = (obj: object, status: boolean): object =>
     Object.assign({}, obj, { show: status });
-  const handleKeyUp = (event: any) => {
-    const {
-      target: { value }
-    } = event;
-    const parsedDataCopy = dataCopy.map(copy => {
-      let newCopy = setStatus(copy, false);
-      keys.forEach(key => {
-        const match = copy[key].toLowerCase().includes(value.toLowerCase());
-        if (match) {
-          newCopy = setStatus(copy, true);
-        }
-      });
-      return newCopy;
-    });
-    setDataCopy(parsedDataCopy);
+
+  const handleInputChange = ({ event, value }: { event: any; value: string }) => {
+    setSearchValue(value);
+    const parsedDataCopy: object[] = parseDataCopy(value);
+    if (onChange) {
+      onChange({ event, value, name });
+    }
+    updateData(parsedDataCopy);
   };
-  const handleChange = ({
-    checked,
+
+  const handleOutsideClick = (event: any) => {
+    if (multiRef.current !== null && !multiRef.current.contains(event.target)) {
+      setShow(false);
+    }
+  };
+
+  const parseDataCopy = (value: string) =>
+    dataCopy.map((copy: object) =>
+      setStatus(
+        copy,
+        !!keys.some(key => {
+          const copyKey = copy[key].toString().toLowerCase();
+          return copyKey.includes(value.toLowerCase());
+        })
+      )
+    );
+
+  const updateData = (newData: IData[]) => {
+    const reachedLimit = checkLimit(newData);
+    const verifiedData = newData.map((ele: any): object => ({
+      ...ele,
+      disabled: reachedLimit && !ele.checked
+    }));
+    setDataCopy(verifiedData);
+    setLimitReached(reachedLimit);
+  };
+
+  const handleKeyDown = ({
+    key: keyName,
+    target: { value }
+  }: {
+    key: string;
+    target: {
+      value: string;
+    };
+  }) => {
+    if (keyName === "Enter") {
+      const parsedDataCopy: object[] = parseDataCopy(value);
+
+      const elementToAdd = parsedDataCopy.findIndex(
+        (parsedData: IData) => parsedData.show
+      );
+      const newDataCopy: IData[] = [...dataCopy];
+      newDataCopy[elementToAdd].checked = true;
+      updateData(newDataCopy);
+      const selectedData = getChecked(newDataCopy);
+      callGetSelected(selectedData);
+    }
+  };
+
+  const handleCheckBoxChange = ({
+    value,
     data: localData
   }: {
-    checked: any;
+    value: any;
     data: any;
   }) => {
-    setSelected(checked);
-    setDataCopy(localData);
-    getSelected(localData);
+    updateData(localData);
+    callGetSelected(value);
   };
-  return (
-    <Fragment>
-      {selected.map(selectedValue => (
-        <div key={uuidv1()}>{selectedValue[keyValue]}</div>
-      ))}
 
-      {children}
+  const parseCheckBoxOptions = (elements: object[]): object[] => {
+    return elements.map((element: any): object => ({
+      ...element,
+      label: element[keyValue]
+    }));
+  };
 
-      <Input placeholder={placeholder} onKeyUp={handleKeyUp} />
-      {
-        <Checkboxes
-          options={dataCopy.map(copiedData =>
-            Object.assign({}, copiedData, { label: copiedData[keyValue] })
-          )}
-          onChange={handleChange}
-          withEffect
-        />
+  const handleDelete = (id: string | number): void => {
+    const elementToDelete: number = dataCopy.findIndex(
+      ({ id: itemId }: { id: string | number }) => itemId === id
+    );
+    const updatedData = [...dataCopy];
+    updatedData[elementToDelete].checked = false;
+    const selectedData = getChecked(updatedData);
+    updateData(updatedData);
+    callGetSelected(selectedData);
+  };
+
+  const getChecked = (newDataCopy: IData[]) =>
+    newDataCopy.filter(({ checked }: { checked: boolean }) => checked);
+
+  const callGetSelected = (newDataCopy: IData[]) =>
+    getSelected({
+      event: {
+        target: {
+          name,
+          value: newDataCopy.map(({ id }: IData) => id)
+        }
       }
-    </Fragment>
+    });
+
+  const handleClearAll = (): void => {
+    const formatedElements: object[] = dataCopy.map((item: IData) => ({
+      ...item,
+      checked: false
+    }));
+    callGetSelected([]);
+    setShow(false);
+    setSearchValue("");
+    updateData(formatedElements);
+  };
+
+  const handleFocus = (): void => setShow(true);
+
+  const checkLimit = (dataToCheck: any) => {
+    if (limit) {
+      const selectedOptions = dataToCheck.filter(
+        ({ checked }: { checked: boolean }) => checked
+      );
+      const reachedLimit = selectedOptions.length >= limit;
+      return reachedLimit;
+    }
+    return false;
+  };
+
+  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show).length;
+  const checkedItems = dataCopy.filter((item: IData) => item.checked);
+
+  return (
+    <div className="form-field form-field--multiselect">
+      {label && <label>{label}</label>}
+      <div className="multiselect" ref={multiRef}>
+        <div className="chip__wrapper">
+          {checkedItems.map(
+            (selectedValue: object): JSX.Element => (
+              <Chip
+                modifiers={[
+                  Chip.availableModifiers.parent.deletable,
+                  Chip.availableModifiers.parent.small
+                ]}
+                onDelete={() => handleDelete(selectedValue[identification])}
+                action={() => handleDelete(selectedValue[identification])}
+                key={uniqueId(selectedValue)}
+              >
+                <Chip.Label>{selectedValue[keyValue]}</Chip.Label>
+                <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
+                  <i className="material-icons">clear</i>
+                </Chip.Icon>
+              </Chip>
+            )
+          )}
+          {!!checkedItems.length && (
+            <button className="button button--link" onClick={handleClearAll}>
+              Clear all
+            </button>
+          )}
+        </div>
+
+        {children}
+        <Input
+          value={searchValue}
+          placeholder={placeholder}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          onFocus={handleFocus}
+          className="multiselect__input"
+        />
+        {show && (
+          <div className="multiselect__dropdown">
+            {error && <ErrorMessage message={validationMessage} />}
+
+            {!matchQuery && <p>{notFoundMessage}</p>}
+
+            <Checkboxes
+              options={parseCheckBoxOptions(dataCopy)}
+              onChange={handleCheckBoxChange}
+            />
+          </div>
+        )}
+        {limitReached && <p>{limitReachedMessage}</p>}
+      </div>
+    </div>
   );
 };
 MultiSelect.defaultProps = {
   children: "",
-  placeholder: "Search",
-  selected: (): void => {
-    return;
-  }
+  error: false,
+  getSelected: () => void 0,
+  label: "",
+  limit: 0,
+  limitReachedMessage: "Select item limit reached",
+  notFoundMessage: "No records available",
+  onChange: (arg: { event: Event; value: string }) => {
+    return arg;
+  },
+  placeholder: "Choose...",
+  validationMessage: "This field is required"
 };
-export default MultiSelect;
+export default withUtils(MultiSelect);

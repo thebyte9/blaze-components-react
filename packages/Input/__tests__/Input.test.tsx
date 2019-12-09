@@ -1,47 +1,122 @@
-import React from 'react';
-import expect from 'expect';
-import { shallow, render } from 'enzyme';
-import Input from '../src';
+import { fireEvent, render } from "@testing-library/react";
+import { mount } from "enzyme";
+import "jest-dom/extend-expect";
+import React from "react";
+import Input from "../src";
 
-const testProps = {
-  placeholder: 'Placeholder text',
-  onChange: () => {}
-};
+const defaultProps = (override: object = {}) => ({
+  error: true,
+  onChange: () => void 0,
+  placeholder: "Placeholder text",
+  ...override
+});
 
-describe('Input component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Input hideTypeToggle type="password" {...testProps} />);
+describe("Input component", () => {
+  test("should be defined and renders correctly (snapshot)", () => {
+    const wrapper = mount(<Input {...defaultProps()} />);
+
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('visibility should be off', () => {
-    const wrapper = render(<Input type="password" required {...testProps} />);
+  test("visibility should be off", () => {
+    const override = {
+      type: "password"
+    };
 
-    expect(wrapper.text()).toContain('Show');
-    expect(wrapper.text()).toContain('visibility_off');
+    const { getByTestId } = render(<Input {...defaultProps(override)} />);
+
+    expect(getByTestId("toggle-input-type")).toHaveClass("active");
+    expect(getByTestId("toggle-input-type")).toHaveTextContent("visibility_off");
   });
 
-  test('should renders input with label', () => {
-    const wrapper = render(<Input label="Text input label" {...testProps} />);
-    expect(wrapper.find('label')).toBeDefined;
+  test("should renders input with label", () => {
+    const label = "Text input label";
+    const value = "lorem ipsum";
+
+    const override = {
+      id: 1,
+      label,
+      value
+    };
+
+    const { getByLabelText } = render(<Input {...defaultProps(override)} />);
+
+    const input = getByLabelText(label);
+
+    expect(input).toHaveValue(value);
   });
 
-  test('should show or hide password on toggle', () => {
-    const wrapper = shallow(<Input type="password" {...testProps} />);
-    const icon = wrapper.find('.material-icons');
+  test("should show or hide password on toggle", () => {
+    const override = {
+      type: "password"
+    };
 
-    wrapper.find('.show-hide-password').simulate('click');
-    expect(icon.text()).toContain('visibility');
+    const { getByTestId } = render(<Input {...defaultProps(override)} />);
 
-    wrapper.find('.show-hide-password').simulate('click');
-    expect(icon.text()).toContain('visibility_off');
+    fireEvent.click(getByTestId("toggle-input-type"));
+
+    expect(getByTestId("toggle-input-type")).toHaveClass("hide");
+    expect(getByTestId("toggle-input-type")).toHaveTextContent("visibility");
+
+    fireEvent.click(getByTestId("toggle-input-type"));
+
+    expect(getByTestId("toggle-input-type")).toHaveClass("active");
+    expect(getByTestId("toggle-input-type")).toHaveTextContent("visibility_off");
   });
 
-  test('should change input', () => {
-    const wrapper = shallow(<Input {...testProps} />);
+  test("should display validation message", () => {
+    let override = {
+      error: true,
+      modifier: "full-width",
+      placeholder: "Enter email",
+      required: true
+    };
 
-    wrapper.find('input').simulate('change', { target: { value: 'byte9' } });
-    expect(wrapper.find('input').prop('value')).toBe('byte9');
+    const { getByTestId, rerender } = render(<Input {...defaultProps(override)} />);
+
+    expect(getByTestId("validation-message")).toHaveTextContent("This field is required");
+
+    const validationMessage = "Email address is required";
+
+    override = {
+      ...override,
+      ...{ validationMessage }
+    };
+
+    rerender(<Input {...defaultProps(override)} />);
+
+    expect(getByTestId("validation-message")).toHaveTextContent(validationMessage);
+  });
+
+  test("should change input", () => {
+    interface IOnChangeArgs {
+      value: string;
+      event: React.ChangeEvent<HTMLInputElement>;
+    }
+
+    let stateValue: string = "";
+
+    const onChange = (args: IOnChangeArgs): void => {
+      const { value } = args;
+      stateValue = value;
+    };
+
+    const override = {
+      onChange
+    };
+
+    const { getByTestId } = render(<Input {...defaultProps(override)} />);
+
+    const inputValue = "lorem ipsum";
+
+    fireEvent.change(getByTestId("input"), {
+      target: {
+        value: inputValue
+      }
+    });
+
+    expect(getByTestId("input")).toHaveValue(inputValue);
+    expect(stateValue).toEqual(inputValue);
   });
 });

@@ -1,7 +1,7 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Button from '../src';
-import ButtonReadme from '../README.md';
+import { storiesOf } from "@storybook/react";
+import React from "react";
+import ButtonReadme from "../README.md";
+import Button from "../src";
 
 const showCaseDivStyles: React.CSSProperties = {
   display: "flex",
@@ -36,13 +36,13 @@ storiesOf("Button", module)
         </p>
 
         <div style={showCaseDivStyles}>
-          <Button modifiers="outline">PLAIN</Button>
-          <Button modifiers="outline rounded">ROUNDED</Button>
-          <Button modifiers="outline cta">CTA</Button>
-          <Button modifiers="outline disabled">DISABLED</Button>
-          <Button modifiers="outline alert">ALERT</Button>
-          <Button modifiers="outline light">LIGHT</Button>
-          <Button modifiers="outline dark">DARK</Button>
+          <Button modifiers={["outline"]}>PLAIN</Button>
+          <Button modifiers={["outline", "rounded"]}>ROUNDED</Button>
+          <Button modifiers={["outline", "cta"]}>CTA</Button>
+          <Button modifiers={["outline", "disabled"]}>DISABLED</Button>
+          <Button modifiers={["outline", "alert"]}>ALERT</Button>
+          <Button modifiers={["outline", "light"]}>LIGHT</Button>
+          <Button modifiers={["outline", "dark"]}>DARK</Button>
         </div>
 
         <h3>Rounded Buttons</h3>
@@ -56,10 +56,10 @@ storiesOf("Button", module)
         </p>
 
         <div style={showCaseDivStyles}>
-          <Button modifiers="cta rounded">CTA</Button>
-          <Button modifiers="alert rounded">ALERT</Button>
-          <Button modifiers="light rounded">LIGHT</Button>
-          <Button modifiers="dark rounded">DARK</Button>
+          <Button modifiers={["cta", "rounded"]}>CTA</Button>
+          <Button modifiers={["alert", "rounded"]}>ALERT</Button>
+          <Button modifiers={["light", "rounded"]}>LIGHT</Button>
+          <Button modifiers={["dark", "rounded"]}>DARK</Button>
         </div>
 
         <h3>Sizing</h3>
@@ -77,8 +77,8 @@ storiesOf("Button", module)
         </p>
 
         <div style={showCaseDivStyles}>
-          <Button modifiers="small">Small</Button>
-          <Button modifiers="full-width">Full width</Button>
+          <Button modifiers={["small"]}>Small</Button>
+          <Button modifiers={["full-width"]}>Full width</Button>
         </div>
       </section>
     </div>

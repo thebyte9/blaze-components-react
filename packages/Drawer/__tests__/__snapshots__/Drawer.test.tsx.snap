@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer component should be defined and renders correctly (snapshot) 1`] = `
+<withUtils()
+  isPermanent={false}
+  isResponsive={false}
+  modifier="right"
+  title="Drawer Component"
+>
+  <Component
+    isPermanent={false}
+    isResponsive={false}
+    modifier="right"
+    title="Drawer Component"
+    utils={
+      Object {
+        "ErrorMessage": [Function],
+        "classNames": [Function],
+        "removeExtraSpaces": [Function],
+        "uniqueId": [Function],
+      }
+    }
+  >
+    <div
+      className="drawer__wrapper drawer__wrapper--drawer-right"
+    >
+      <div
+        className="drawer drawer--right"
+      >
+        <div
+          className="drawer__content-wrapper"
+        >
+          <div
+            className="drawer__header drawer__header--right"
+          >
+            <withUtils()
+              className="icon-button"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              <Component
+                className="icon-button"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+                utils={
+                  Object {
+                    "ErrorMessage": [Function],
+                    "classNames": [Function],
+                    "removeExtraSpaces": [Function],
+                    "uniqueId": [Function],
+                  }
+                }
+              >
+                <button
+                  className="icon-button"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="material-icons"
+                  >
+                    keyboard_arrow_right
+                  </i>
+                </button>
+              </Component>
+            </withUtils()>
+          </div>
+          <div
+            className="drawer__content"
+          >
+            <DrawerMainContent>
+              <div
+                className="drawer__content"
+              >
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                </p>
+              </div>
+            </DrawerMainContent>
+          </div>
+        </div>
+      </div>
+      <div
+        className="page page--drawer"
+      >
+        <div
+          className="page__header page__header--drawer page__header--opens-right"
+        >
+          <withUtils()
+            className="icon-button"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <Component
+              className="icon-button"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+              utils={
+                Object {
+                  "ErrorMessage": [Function],
+                  "classNames": [Function],
+                  "removeExtraSpaces": [Function],
+                  "uniqueId": [Function],
+                }
+              }
+            >
+              <button
+                className="icon-button"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="material-icons"
+                >
+                  menu
+                </i>
+              </button>
+            </Component>
+          </withUtils()>
+          Drawer Component
+        </div>
+        <div
+          className="page__content page__content--drawer"
+        >
+          <DrawerPageContent>
+            <div
+              className="page__content page__content--drawer"
+            >
+              <p>
+                Cum assumenda ullam explicabo nostrum nam natus.
+              </p>
+            </div>
+          </DrawerPageContent>
+        </div>
+      </div>
+    </div>
+  </Component>
+</withUtils()>
+`;

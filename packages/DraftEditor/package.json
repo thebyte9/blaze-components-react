@@ -1,0 +1,59 @@
+{
+  "name": "@blaze-react/drafteditor",
+  "version": "0.4.5",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/*.tsx ./src/**/*.tsx  --outDir lib ",
+    "build-storybook": "build-storybook -c .storybook -o docs-build",
+    "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "pre-publish": "npm run build && npm run lint && npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@blaze-react/button": "^0.4.3",
+    "@blaze-react/file-upload": "^0.4.3",
+    "@blaze-react/input": "^0.4.3",
+    "@blaze-react/modal": "^0.4.3",
+    "@blaze-react/text-area": "^0.4.3",
+    "@blaze-react/utils": "^0.4.3",
+    "@types/draft-js": "0.10.34",
+    "draft-js": "^0.11.0",
+    "draft-js-alignment-plugin": "^2.0.6",
+    "draft-js-drag-n-drop-plugin": "2.0.4",
+    "draft-js-export-html": "^1.4.1",
+    "draft-js-focus-plugin": "3.0.1",
+    "draft-js-image-plugin": "2.0.7",
+    "draft-js-inline-toolbar-plugin": "^3.0.1",
+    "draft-js-linkify-plugin": "^2.0.2",
+    "draft-js-plugins-editor": "^3.0.0",
+    "draft-js-resizeable-plugin": "^2.0.1",
+    "draft-js-utils": "^1.4.0",
+    "draftjs-to-html": "^0.8.4",
+    "entities": "^2.0.0",
+    "html-to-draftjs": "^1.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "gitHead": "986a601913a963e035b116f643ed1d9230ea1a87"
+}

@@ -1,28 +1,43 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Table from "../src";
+import faker from "faker";
+import React, { useEffect, useState } from "react";
+import uuid from "uuid/v1";
 import TableReadme from "../README.md";
-const data = {
-  identification: "id",
-  columns: ["name", "age"],
-  rows: [
-    {
-      id: 1,
-      name: "Oscar Leon",
-      age: 26
-    },
-    {
-      id: 2,
-      name: "Ismael Haytam",
-      age: 23
-    },
-    {
-      id: 3,
-      name: "Robert",
-      age: 45
+import Table from "../src";
+
+const DemoComponent = () => {
+  const [data, setData] = useState<any>({
+    appliedSort: { name: "asc" },
+    columns: ["name", "email", "city", "zipCode"],
+    identification: "id",
+    orderBy: ["email", "name", "city", "zipCode"],
+    rows: []
+  });
+
+  const generateFakeData = () => {
+    const rows = [];
+    for (let i = 0; i < 100; i++) {
+      rows.push({
+        city: faker.address.city(),
+        email: faker.internet.email(),
+        id: uuid(),
+        name: faker.internet.userName(),
+        zipCode: faker.address.zipCode()
+      });
     }
-  ]
+    return rows;
+  };
+
+  useEffect(() => {
+    if (data.rows && !data.rows.length) {
+      const updatedData = { ...data, rows: generateFakeData() };
+      setData(updatedData);
+    }
+  }, []);
+
+  return <Table checkboxes data={data} onSelect={() => ({})} />;
 };
+
 storiesOf("Table", module)
   .addParameters({
     readme: {
@@ -34,17 +49,14 @@ storiesOf("Table", module)
       <h1>Table</h1>
 
       <p>
-        We can choose to render a table with or without row selection by
-        changing the prop boolean value of <code>checkboxes</code>
+        We can choose to render a table with or without row selection by
+                changing the prop boolean value of <code>checkboxes</code>
       </p>
 
-      <h4>With Checkboxes</h4>
+      <h4>With Checkboxes</h4>
 
-      <Table checkboxes data={data} onSelect={() => { }} />
-
-      <br />
-      <h4>Static table</h4>
-
-      <Table data={data} onSelect={(select) => console.log(select)} />
+      <div style={{ margin: "20px", height: "100%" }}>
+        <DemoComponent />
+      </div>
     </div>
   ));

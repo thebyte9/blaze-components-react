@@ -1,68 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkboxes component should be defined and renders correctly (snapshot) 1`] = `
-<Fragment>
-  <div
-    className="form-field form-field--checkbox "
-    key="one"
-    onClick={[Function]}
-    role="button"
-  >
-    <input
-      checked={false}
-      className="form-checkbox"
-      id="one"
-      readOnly={true}
-      type="checkbox"
-      value={1}
-    />
-    <label
-      htmlFor="one"
-    >
-      Example
-    </label>
-  </div>
-  <div
-    className="form-field form-field--checkbox required"
-    key="two"
-    onClick={[Function]}
-    role="button"
-  >
-    <input
-      checked={false}
-      className="form-checkbox"
-      id="two"
-      readOnly={true}
-      required={true}
-      type="checkbox"
-      value="accepted"
-    />
-    <label
-      htmlFor="two"
-    >
-      I accept
-    </label>
-  </div>
-  <div
-    className="form-field form-field--checkbox "
-    key="three"
-    onClick={[Function]}
-    role="button"
-  >
-    <input
-      checked={false}
-      className="form-checkbox"
-      disabled={true}
-      id="three"
-      readOnly={true}
-      type="checkbox"
-      value=""
-    />
-    <label
-      htmlFor="three"
-    >
-      Disabled
-    </label>
-  </div>
-</Fragment>
+<Checkboxes
+  error={false}
+  onChange={[Function]}
+  options={
+    Array [
+      Object {
+        "id": 1,
+        "label": "first",
+        "value": "lorem ipsum",
+      },
+      Object {
+        "id": 2,
+        "label": "I accept",
+        "required": true,
+        "value": "accepted",
+      },
+      Object {
+        "disabled": true,
+        "id": 3,
+        "label": "Disabled",
+        "value": "",
+      },
+      Object {
+        "id": 4,
+        "label": "display none",
+        "show": false,
+      },
+    ]
+  }
+  returnBoolean={false}
+  utils={
+    Object {
+      "ErrorMessage": [Function],
+      "classNames": [Function],
+      "removeExtraSpaces": [Function],
+      "uniqueId": [Function],
+    }
+  }
+  validationMessage="This field is required"
+/>
 `;

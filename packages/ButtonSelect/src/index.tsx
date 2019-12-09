@@ -17,7 +17,11 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({
   const [toggled, setToggled] = useState(false);
   return (
     <div className="more-menu__wrapper">
-      <Button onClick={(): void => setToggled(!toggled)} {...Attr}>
+      <Button
+        modifiers={["full-width"]}
+        onClick={(): void => setToggled(!toggled)}
+        {...Attr}
+      >
         <i className="material-icons">{`keyboard_arrow_${
           toggled ? "up" : "down"
         }`}</i>
@@ -25,7 +29,7 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({
       </Button>
 
       {toggled && (
-        <div className="more-menu open" style={menuStyles}>
+        <div className="more-menu--open" style={menuStyles}>
           {children}
         </div>
       )}

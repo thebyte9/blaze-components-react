@@ -1,8 +1,8 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
 import Button from "@blaze-react/button";
-import ButtonSelect from "../src";
+import { storiesOf } from "@storybook/react";
+import React from "react";
 import ButtonSelectReadme from "../README.md";
+import ButtonSelect from "../src";
 const buttonStyles = {
   border: 0,
   borderRadius: 0
@@ -20,13 +20,13 @@ storiesOf("ButtonSelect", module)
         The ButtonSelect component extends the button to show a list of actions.
       </p>
       <ButtonSelect text="Actions">
-        <Button modifiers="plain full-width" style={buttonStyles}>
+        <Button modifiers={["plain", "full-width"]} style={buttonStyles}>
           Settings
         </Button>
-        <Button modifiers="plain full-width" style={buttonStyles}>
+        <Button modifiers={["plain", "full-width"]} style={buttonStyles}>
           Sign out
         </Button>
-        <Button modifiers="plain full-width" style={buttonStyles}>
+        <Button modifiers={["plain", "full-width"]} style={buttonStyles}>
           Help
         </Button>
       </ButtonSelect>

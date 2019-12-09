@@ -1,40 +1,81 @@
-import React from 'react';
-import expect from 'expect';
-import { shallow } from 'enzyme';
-import Modal from '../src';
+import { mount, shallow } from "enzyme";
+import expect from "expect";
+import React from "react";
+import Modal from "../src";
 
-describe('Modal component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(<Modal actions={[]} simple isActive buttonText="Simple modal" />);
+const props = {
+  actions: [],
+  buttonText: "Simple modal",
+  isSimple: true,
+  onChange: () => void 0,
+  onClose: jest.fn()
+};
+
+const defaultProps = (override: object = {}) => ({
+  ...props,
+  ...override
+});
+
+describe("Modal component", () => {
+  test("should be defined and renders correctly (snapshot)", () => {
+    const wrapper = shallow(<Modal {...defaultProps()} />);
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should toggle modal on click button', () => {
-    const wrapper = shallow(<Modal actions={[]} isActive buttonText="Simple modal" />);
+  test("should close modal on overlay clicked", () => {
+    const wrapper = mount(<Modal {...defaultProps()} />);
     wrapper
-      .find('Button')
+      .find(".overlay")
       .at(0)
-      .simulate('click');
-    expect(wrapper.find('.modal')).toHaveLength(0);
+      .simulate("click");
+    expect(props.onClose).toHaveBeenCalled();
   });
 
-  test('should render and close alert modal', () => {
-    const actions = [['delete', () => { }, 'alert small']];
-    const wrapper = shallow(<Modal alert isActive actions={actions} />);
-    expect(wrapper.find('.modal--alert')).toHaveLength(1);
+  test("should render and close alert modal", () => {
+    const actions = [
+      {
+        callback: () => ({}),
+        modifiers: ["alert", "small"],
+        textButton: "delete"
+      }
+    ];
+    const override = {
+      actions,
+      isAlert: true
+    };
+    const wrapper = mount(<Modal {...defaultProps(override)} />);
+    expect(wrapper.find(".modal--alert")).toHaveLength(1);
     wrapper
-      .find('Button')
+      .find("button")
       .at(0)
-      .simulate('click');
-    expect(wrapper.find('.modal--alert')).toHaveLength(0);
+      .simulate("click");
+    expect(props.onClose).toHaveBeenCalled();
   });
 
-  test('should render and close scrollable modal', () => {
-    const actions = [['Action 1', () => { }], ['Action 2', () => { }]];
-    const wrapper = shallow(<Modal isActive actions={actions} title="Scrollable Modal" />);
-    expect(wrapper.find('.modal__title').text()).toContain('Scrollable Modal');
-    wrapper.find('.modal__close').simulate('click');
-    expect(wrapper.find('.modal')).toHaveLength(0);
+  test("should render and close scrollable modal", () => {
+    const actions = [
+      {
+        callback: () => ({}),
+        textButton: "Action 1"
+      },
+      {
+        callback: () => ({}),
+        textButton: "Action 2"
+      }
+    ];
+
+    const override = {
+      actions,
+      onClose: undefined,
+      title: "Scrollable Modal"
+    };
+
+    const wrapper = mount(<Modal {...defaultProps(override)} />);
+
+    expect(wrapper.find(".modal__title").text()).toContain("Scrollable Modal");
+
+    wrapper.find(".modal__close").simulate("click");
+    expect(props.onClose).toHaveBeenCalled();
   });
 });

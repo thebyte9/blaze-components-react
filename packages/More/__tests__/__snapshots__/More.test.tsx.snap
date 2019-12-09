@@ -2,8 +2,10 @@
 
 exports[`More component should be defined and renders correctly (snapshot) 1`] = `
 <More
+  displayBg={false}
   isHeader={false}
   isMoreMenu={true}
+  onClose={[Function]}
 >
   <div
     className="more-menu__wrapper"
@@ -16,6 +18,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
       >
         <MoreAvatar
           className=""
+          displayBg={false}
           handleToggle={[Function]}
           isHeader={false}
           isMoreMenu={true}
@@ -23,29 +26,44 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
           label=""
           toggled={false}
         >
-          <Button
+          <withUtils()
             className="icon-button icon-button--round"
             disabled={false}
-            modifiers=""
             onClick={[Function]}
-            submit={false}
+            type="button"
           >
-            <button
+            <Component
               className="icon-button icon-button--round"
               disabled={false}
               onClick={[Function]}
               type="button"
+              utils={
+                Object {
+                  "ErrorMessage": [Function],
+                  "classNames": [Function],
+                  "removeExtraSpaces": [Function],
+                  "uniqueId": [Function],
+                }
+              }
             >
-              <span
-                className="material-icons"
-                key=".0"
+              <button
+                className="icon-button icon-button--round"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
               >
-                more_vert
-              </span>
-            </button>
-          </Button>
+                <span
+                  className="material-icons"
+                  key=".0"
+                >
+                  more_vert
+                </span>
+              </button>
+            </Component>
+          </withUtils()>
         </MoreAvatar>
         <MoreContent
+          displayBg={false}
           handleToggle={[Function]}
           isDropdown={false}
           isHeader={false}
@@ -61,7 +79,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
               key=".0"
             >
               <a
-                className="undefined "
+                className=" more-menu__link"
                 href="/"
               >
                 Link

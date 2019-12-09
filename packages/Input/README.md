@@ -1,58 +1,60 @@
-
 ## Description
 
-Create basic single-line text fields.
+Create basic single-line input fields.
 
 ## Usage
 
-* simple
+- Required
 
 ```js
 <Input
   label="Text input required"
   placeholder="Placeholder text"
-  onChange={({event, value}) => {}}
+  onChange={({ event, value }) => {}}
   modifier="full-width"
+  validationMessage="Email address is required"
+  error
   required
-  />
+/>
 ```
 
-* Disabled
+- Disabled
 
 ```js
 <Input
   label="Text input disabled"
   placeholder="Placeholder text"
-  onChange={({event, value}) => {}}
+  onChange={({ event, value }) => {}}
   type="password"
   hideTypeToggle
   disabled
-  />
+/>
 ```
 
-* Password toggle type
+- Password toggle type
 
 ```js
 <Input
   label="Password - show hide"
   placeholder="******"
-  onChange={({event, value}) => {}}
+  onChange={({ event, value }) => {}}
   type="password"
   value="Lorem ipsum"
-  />
+/>
 ```
 
 ## API
 
 ##### Input can receive a number of `props` as follow:
 
-
-| NAME   | TYPE | DEFAULT | 
-| :---  | :---:  | :---: | 
-| label | String | empty | 
-| type | String | text | 
-| value | String | empty | 
-| disabled | Boolean | false | 
-| required | Boolean | false | 
-| hideTypeToggle | Boolean | false |
-| onChange | Function | () => {} |
+| NAME              |   TYPE   |        DEFAULT         |
+| :---------------- | :------: | :--------------------: |
+| label             |  String  |         empty          |
+| type              |  String  |          text          |
+| value             |  String  |         empty          |
+| validationMessage |  String  | This field is required |
+| disabled          | Boolean  |         false          |
+| required          | Boolean  |         false          |
+| hideTypeToggle    | Boolean  |         false          |
+| error             | Boolean  |         false          |
+| onChange          | Function |        () => {}        |

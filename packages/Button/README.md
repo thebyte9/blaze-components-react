@@ -1,52 +1,34 @@
-
 ## Description
 
 Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
 
 ## Usage
 
-* Simple
+- Simple
 
 ```js
 <Button>Button</Button>
 ```
 
-* With modifier
+- With modifiers
 
 ```js
-<Button modifiers="plain">Plain</Button>
-
-<Button modifiers="small">Small</Button>
+<Button modifiers={["outline", "dark"]}>Rounded/Outline</Button>
 ```
 
-* Combining modifiers
+- Type submit
 
 ```js
-<Button modifiers="outline rounded">
-  Rounded/Outline
-</Button>
-```
-
-* Disabled
-
-```js
-<Button disabled>Alert</Button>
-```
-
-* Type submit
-
-```js
-<Button submit>Send</Button>
+<Button type="submit">Send</Button>
 ```
 
 ## API
 
 ##### Buttons can receive a number of `props` as follow:
 
-
-| NAME   | TYPE | DEFAULT | OPTIONS |
-| :---  | :---:  | :---: | ------- |
-| modifiers | String | empty | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, back, link |
-| submit | Boolean | false | 
-| disabled | Boolean | false | 
-| children | single/array of nodes | null | 
+| NAME      |         TYPE          | DEFAULT | OPTIONS                                                                                         |
+| :-------- | :-------------------: | :-----: | ----------------------------------------------------------------------------------------------- |
+| modifiers |         Array         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
+| type      |        String         | button  | button, submit, reset                                                                           |
+| disabled  |        Boolean        |  false  |
+| children  | single/array of nodes |  null   |

@@ -1,42 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DragableArea component should be defined and renders correctly (snapshot) 1`] = `
-<Fragment>
-  <Input
-    disabled={false}
-    hideTypeToggle={false}
-    label=""
-    modifier=""
-    onChange={[Function]}
-    onKeyUp={[Function]}
-    placeholder="Search"
-    required={false}
-    type="text"
-    value=""
-  />
-  <Checkboxes
-    bool={false}
-    onChange={[Function]}
-    options={
-      Array [
+exports[`Multiselect component should be defined and renders correctly (snapshot) 1`] = `
+<MultiSelect
+  data={
+    Object {
+      "data": Array [
         Object {
+          "checked": true,
+          "description": "Lorem ipsum dolor.",
           "id": 1,
-          "label": "Project1",
-          "name": "Project1",
+          "name": "Blaze 1",
+          "show": true,
         },
         Object {
+          "checked": true,
+          "description": "Lorem ipsum dolor.",
           "id": 2,
-          "label": "Project2",
-          "name": "Project2",
+          "name": "Blaze 2",
+          "show": true,
         },
         Object {
+          "checked": false,
+          "description": "Lorem ipsum dolor.",
           "id": 3,
-          "label": "Project3",
-          "name": "Project3",
+          "name": "Blaze 3",
+          "show": true,
         },
-      ]
+      ],
+      "filterBy": Array [
+        "name",
+      ],
+      "identification": "id",
+      "keyValue": "name",
     }
-    withEffect={true}
-  />
-</Fragment>
+  }
+  error={false}
+  getSelected={[Function]}
+  label=""
+  limit={0}
+  limitReachedMessage="Select item limit reached"
+  notFoundMessage="No records available"
+  onChange={[Function]}
+  placeholder="Choose..."
+  utils={
+    Object {
+      "ErrorMessage": [Function],
+      "classNames": [Function],
+      "removeExtraSpaces": [Function],
+      "uniqueId": [Function],
+    }
+  }
+  validationMessage="This field is required"
+/>
 `;

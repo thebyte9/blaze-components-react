@@ -11,6 +11,7 @@ The HTML table element represents tabular data — that is, information presente
 const data =  {
   identification: 'id',
   columns: ['name', 'age'], 
+  orderBy: ['age'],
   rows: [{
     id: 1,
     name: 'Oscar Leon',

@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Select from "../src";
+import React, { useEffect, useState } from "react";
 import selectReadme from "../README.md";
+import Select from "../src";
 const arrayOfObjects = [
   {
     id: 1,
@@ -12,6 +12,24 @@ const arrayOfObjects = [
     username: "Ismael"
   }
 ];
+const SelectDemo = () => {
+  const [selected, setSelected] = useState<string>("Munich");
+
+  useEffect((): void => {
+    setTimeout((): void => setSelected("Paris"), 3000);
+  }, []);
+
+  return (
+    <Select
+      label="Select a city"
+      options={["London", "Paris", "Munich"]}
+      selected={selected}
+      onChange={() => ({})}
+      required
+    />
+  );
+};
+
 storiesOf("Select", module)
   .addParameters({
     readme: {
@@ -33,12 +51,7 @@ storiesOf("Select", module)
       <section className="exampleSection">
         <div className="form-field form-field--select">
           <h4>Array of options</h4>
-          <Select
-            label="Select a city"
-            options={["London", "Paris", "Munich"]}
-            onChange={() => {}}
-            required
-          />
+          <SelectDemo />
           <br />
           <br />
 
@@ -47,7 +60,7 @@ storiesOf("Select", module)
             label="Select label"
             selected="08001"
             options={[["08001", "Barcelona"], ["17006", "Madrid"]]}
-            onChange={() => {}}
+            onChange={() => ({})}
           />
           <br />
           <br />
@@ -58,13 +71,23 @@ storiesOf("Select", module)
             selected="1"
             options={arrayOfObjects}
             keys={["id", "username"]}
-            onChange={() => {}}
+            onChange={() => ({})}
+          />
+          <br />
+          <br />
+
+          <h4>Disabling some options</h4>
+          <Select
+            label="Disabled option"
+            options={[["08001", "Barcelona"], ["17006", "Madrid"]]}
+            onChange={() => ({})}
+            disabled={['17006']}
           />
           <br />
           <br />
 
           <h4>By default is disabled if none options</h4>
-          <Select label="Disabled" onChange={() => {}} options={[]} />
+          <Select label="Disabled" onChange={() => ({})} options={[]} />
         </div>
       </section>
     </div>

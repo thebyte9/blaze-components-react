@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip component should be defined and renders correctly (snapshot) 1`] = `
+<withUtils()
+  action={[Function]}
+  onDelete={[Function]}
+>
+  <Component
+    action={[Function]}
+    onDelete={[Function]}
+    utils={
+      Object {
+        "ErrorMessage": [Function],
+        "classNames": [Function],
+        "removeExtraSpaces": [Function],
+        "uniqueId": [Function],
+      }
+    }
+  >
+    <div
+      className="chip"
+      onClick={[Function]}
+    >
+      <ChipLabel>
+        <div
+          className="chip__label"
+        >
+          Basic chip
+        </div>
+      </ChipLabel>
+    </div>
+  </Component>
+</withUtils()>
+`;

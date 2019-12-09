@@ -2,7 +2,7 @@ import Button from "@blaze-react/button";
 import classnames from "classnames";
 import React, { Fragment } from "react";
 interface IMoreAvatarProps {
-  handleToggle?: (...args: any[]) => any;
+  handleToggle: (...args: any[]) => any;
   label?: string;
   isHeader?: boolean;
   isMoreMenu?: boolean;
@@ -22,6 +22,7 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
     "icon-button icon-button--round": isMoreMenu,
     [className as string]: Boolean(className)
   });
+
   return (
     <Button onClick={handleToggle} className={buttonClassName}>
       {isHeader ? (
@@ -42,9 +43,6 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
 MoreAvatar.defaultProps = {
   children: null,
   className: "",
-  handleToggle: (): void => {
-    return;
-  },
   isHeader: false,
   isMoreMenu: false,
   label: ""

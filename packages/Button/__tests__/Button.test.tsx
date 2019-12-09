@@ -1,32 +1,26 @@
-import React from 'react';
-import expect from 'expect';
-import { shallow } from 'enzyme';
-import Button from '../src';
+import { mount } from "enzyme";
+import expect from "expect";
+import React from "react";
+import Button from "../src";
 
 const testProps = {
-  modifiers: 'outline rounded'
+  modifiers: ["outline", "rounded"]
 };
 
-describe('Button component', () => {
-  const wrapper = shallow(<Button {...testProps} />);
+describe("Button component", () => {
+  const wrapper = mount(<Button {...testProps} />);
 
-  test('should be defined', () => {
+  test("should be defined and renders correctly (snapshot)", () => {
     expect(wrapper).toBeDefined();
-  });
-
-  test('should render without throwing an error', () => {
-    expect(wrapper.is('.button')).toBe(true);
-  });
-
-  test('should be type button by default', () => {
-    expect(wrapper.props().type).toBe('button');
-  });
-
-  test('should renders correctly (snapshot)', () => {
     expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(".button").length).toBe(1);
   });
 
-  test('should be type submit when passing isSubmit prop', () => {
-    expect(shallow(<Button submit />).props().type).toBe('submit');
+  test("should be type button by default", () => {
+    expect(wrapper.find(".button").props().type).toBe("button");
+  });
+
+  test("should be type submit when passing isSubmit prop", () => {
+    expect(mount(<Button type="submit" />).props().type).toBe("submit");
   });
 });

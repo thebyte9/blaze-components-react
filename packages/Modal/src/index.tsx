@@ -1,99 +1,89 @@
-import Button from "@blaze-react/button";
-import React, { Fragment, useState } from "react";
+import withUtils from "@blaze-react/utils";
+import React, { Fragment } from "react";
+import ModalFooter from "./ModalFooter";
+import ModalHeader from "./ModalHeader";
+
+interface IActions {
+  textButton: string;
+  callback: () => void;
+  modifiers?: string[];
+}
+
 interface IModalProps {
   title?: string;
-  buttonText?: string;
-  buttonModifiers?: string;
-  actions: any[][];
-  simple?: boolean;
-  upload?: boolean;
-  alert?: boolean;
-  isActive?: boolean;
+  actions: IActions[];
+  isSimple: boolean;
+  isUpload: boolean;
+  isAlert: boolean;
+  overlay?: boolean;
   children?: any;
+  onClose?: () => void;
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+  };
+  className: string;
 }
 const Modal: React.SFC<IModalProps> = ({
   children,
-  simple,
-  alert,
+  isSimple,
+  isAlert,
   title,
-  upload,
+  isUpload,
   actions,
-  isActive,
-  buttonText,
-  buttonModifiers
-}) => {
-  const [modalStatus, setModalStatus] = useState(isActive);
-  const type = () => {
-    if (simple) {
-      return "--simple";
-    }
-    if (alert) {
-      return "--alert";
-    }
-    if (upload) {
-      return "--upload";
-    }
-    return "";
-  };
-  const renderModal = (
-    <Fragment>
-      <div className="overlay" />
-      <div className={`modal modal${type()} modal--show`}>
-        <div className={`modal__header modal__header${type()}`}>
-          {!alert && <div className="modal__title">{title}</div>}
-          {!alert && (
-            <div
-              className="modal__close"
-              role="button"
-              onClick={() => setModalStatus(false)}
-            >
-              <i className="material-icons">close</i>
-            </div>
-          )}
-        </div>
-        <div className={`modal__content modal__content${type()}`}>
-          {children}
-        </div>
-        <div className={`modal__footer modal__footer${type()}`}>
-          <div className="modal__button">
-            {alert && (
-              <Button modifiers="link" onClick={() => setModalStatus(false)}>
-                Cancel
-              </Button>
-            )}
-            {actions.map(([text, func, modifiers = "link"]) => (
-              <Button key={text} modifiers={modifiers} onClick={func}>
-                {text}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Fragment>
+  overlay,
+  utils: { classNames },
+  className,
+  onClose = () => ({})
+}): JSX.Element => {
+  const sections: string[] = ["header", "content", "footer"];
+
+  const closeModal = (): void => onClose();
+
+  const modalClassNames: string = classNames(`${className} modal modal--show`, {
+    "modal--alert": isAlert,
+    "modal--simple": isSimple,
+    "modal--upload": isUpload
+  });
+
+  const [
+    modalHeaderClassNames,
+    modalContentClassNames,
+    modalFooterClassNames
+  ]: string[] = sections.map((alertType: string): string =>
+    classNames(`modal__${alertType}`, {
+      [`modal__${alertType}--alert`]: isAlert,
+      [`modal__${alertType}--simple`]: isSimple,
+      [`modal__${alertType}--upload`]: isUpload
+    })
   );
+
   return (
     <Fragment>
-      {modalStatus && renderModal}
-      {buttonText && (
-        <Button
-          modifiers={buttonModifiers}
-          onClick={() => setModalStatus(!modalStatus)}
-        >
-          {buttonText}
-        </Button>
-      )}
+      {overlay && <div className="overlay" onClick={closeModal} />}
+      <div className={modalClassNames}>
+        <div className={modalHeaderClassNames}>
+          {!isAlert && <ModalHeader title={title} closeModal={closeModal} />}
+        </div>
+
+        <div className={modalContentClassNames}>{children}</div>
+
+        <ModalFooter
+          isAlert={isAlert}
+          footerClassNames={modalFooterClassNames}
+          closeModal={closeModal}
+          actions={actions}
+        />
+      </div>
     </Fragment>
   );
 };
 Modal.defaultProps = {
   actions: [],
-  alert: false,
-  buttonModifiers: "outline",
-  buttonText: "",
   children: "No content",
-  isActive: false,
-  simple: false,
-  title: "",
-  upload: false
+  isAlert: false,
+  isSimple: false,
+  isUpload: false,
+  overlay: true,
+  title: ""
 };
-export default Modal;
+export default withUtils(Modal);

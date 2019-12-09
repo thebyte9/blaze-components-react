@@ -1,41 +1,71 @@
+import withUtils from "@blaze-react/utils";
 import React, {
-  Fragment,
   FunctionComponent,
   TextareaHTMLAttributes,
+  useEffect,
   useState
 } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
 interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   required?: boolean;
   limit?: number;
   onChange: (...args: any[]) => void;
   value?: string;
-  placeholder: string;
+  error?: boolean;
+  validationMessage: string | JSX.Element;
+  placeholder?: string;
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+  };
 }
 const Textarea: FunctionComponent<ITextareaProps> = ({
   value,
   label,
   limit,
   onChange,
+  error,
+  validationMessage,
   required,
   id,
+  utils: { classNames, ErrorMessage },
   ...attrs
 }) => {
   const [content, setContent] = useState<string>("");
-  const handleChange = (event: any) => {
-    let newContent = event.target.value;
+
+  useEffect((): void => {
+    if (!content && value) {
+      setContent(value);
+    }
+  }, [value]);
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
+    let {
+      target: { value: newContent }
+    } = event;
+
     if (limit && newContent.length > limit) {
       newContent = newContent.slice(0, limit);
     }
+
     setContent(newContent);
     onChange({ event, value: newContent });
   };
-  const isRequired = required ? "required" : "";
-  const total = limit && limit - content.length;
+
+  const requiredClassName: string = classNames({ required });
+
+  const total: number = !limit ? 0 : limit - content.length;
+
   return (
-    <Fragment>
+    <div className="form-field form-field--textarea">
       {label && (
-        <label htmlFor={id} className={isRequired}>
+        <label htmlFor={id} className={requiredClassName}>
           {label}
         </label>
       )}
@@ -48,16 +78,17 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
         {...attrs}
       />
       {!!limit && <span>{total}</span>}
-    </Fragment>
+      {error && <ErrorMessage message={validationMessage} />}
+    </div>
   );
 };
 Textarea.defaultProps = {
+  error: false,
   label: "",
   limit: 0,
-  onChange: (): void => {
-    return;
-  },
+  placeholder: "",
   required: false,
+  validationMessage: "This field is required",
   value: ""
 };
-export default Textarea;
+export default withUtils(Textarea);

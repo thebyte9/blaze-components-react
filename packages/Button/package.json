@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/button",
-  "version": "0.2.5",
+  "version": "0.4.3",
   "publishConfig": {
     "access": "public"
   },
@@ -22,10 +22,13 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5"
   },
+  "dependencies": {
+    "@blaze-react/utils": "^0.4.3"
+  },
   "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "babel": {
     "presets": [
@@ -33,5 +36,5 @@
       "@babel/preset-react"
     ]
   },
-  "gitHead": "1edd29612d1854f0418c0b81d8755dd0cbd8bfb5"
+  "gitHead": "3638834d2211cc16d965ecafbf5ab2eeddceca12"
 }

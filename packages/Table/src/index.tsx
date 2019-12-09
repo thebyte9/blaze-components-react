@@ -1,148 +1,131 @@
-import Checkboxes from "@blaze-react/checkboxes";
-import orderBy from "lodash.orderby";
-import React, { FunctionComponent, useEffect, useState } from "react";
-import uuidv1 from "uuid/v1";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import TableBody from "./TableBody";
+import TableHead from "./TableHead";
 
+interface ICheckbox {
+  checked: boolean;
+  id: string | number;
+  value: any;
+}
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
   data: {
     identification: string;
     columns: string[];
-    rows: any[];
+    orderBy: string[];
+    rows: object[];
+    appliedSort?: any;
   };
   value?: string;
-  onSelect: (...args: any[]) => any;
+  overScanBuffer?: number;
+  onSelect?: (arg: any[]) => any;
+  onSort?: (arg: any) => any;
+  onRenderItems?: (arg: any) => void;
+  onClickRow?: (arg: any) => void;
+  scrollToIndex?: number;
 }
 const Table: FunctionComponent<ITableProps> = ({
-  data: { columns, rows, identification },
-  onSelect,
+  data: { columns, rows, identification, orderBy, appliedSort },
+  onSelect = () => ({}),
+  onSort = () => ({}),
+  onClickRow = () => ({}),
   checkboxes,
   placeholder,
-  value
+  overScanBuffer,
+  onRenderItems,
+  scrollToIndex
 }) => {
   const [selected, setSelected] = useState<any[]>([]);
-  const [allRows, setRows] = useState(rows);
-  const [sortColumns, setSortColumns] = useState(
-    columns.reduce((result, item) => ({ ...result, [item]: "asc" }), {})
-  );
+  const [allRows, setAllRows] = useState<object[]>(rows);
+  const [allColumns, setAllColumns] = useState<any>(columns);
+  const headRef = useRef<any>(null);
+  const bodyRef = useRef<any>(null);
+
+  useEffect(() => {
+    setAllRows(rows);
+    setAllColumns(columns);
+  }, [rows, rows && rows.length, columns, columns && columns.length]);
+
+  useEffect(() => {
+    if (
+      bodyRef &&
+      bodyRef.current &&
+      bodyRef.current.firstElementChild &&
+      allRows.length
+    ) {
+      bodyRef.current.firstElementChild.addEventListener(
+        "scroll",
+        (event: any) => syncScroll(headRef.current, event)
+      );
+    }
+
+    if (headRef && headRef.current && headRef.current.firstElementChild) {
+      headRef.current.addEventListener("scroll", (event: any) =>
+        syncScroll(bodyRef.current.firstElementChild, event)
+      );
+    }
+    return () => {
+      if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild) {
+        bodyRef.current.firstElementChild.removeEventListener(
+          "scroll",
+          syncScroll
+        );
+      }
+      if (headRef.current) {
+        headRef.current.removeEventListener("scroll", syncScroll);
+      }
+    };
+  }, [bodyRef.current, headRef.current, allRows]);
+
+  const syncScroll = (ref: any, event: any) => {
+    ref.scrollLeft = event.target.scrollLeft;
+  };
 
   const handleSelected = (
-    [checked]: [{ checked: boolean; id: string | number; value: any }],
+    [checked]: ICheckbox[],
+    value: string | ICheckbox[],
     multiselect = false
-  ) => {
-    if (multiselect) {
-      let checkedValue = [];
-      if (checked) {
-        checkedValue = Array.isArray(checked.value)
-          ? [...checked.value]
-          : [checked.value];
-      }
-      setSelected(checkedValue);
-      return;
-    }
+  ): void => {
+    let checkedValue = [];
+
     if (checked && !selected.includes(checked.value)) {
-      setSelected([...selected, checked.value]);
+      checkedValue = [...selected, checked.value];
     } else {
-      setSelected(selected.filter(currentValue => currentValue !== value));
+      checkedValue = selected.filter(currentValue => currentValue !== value);
     }
+
+    if (multiselect) {
+      checkedValue = checked ? [...checked.value] : [];
+    }
+
+    setSelected(checkedValue);
+    onSelect(checkedValue);
   };
 
-  const sort = (column: any) => {
-    setRows([...orderBy(allRows, [column], [sortColumns[column]])]);
-
-    setSortColumns({
-      ...sortColumns,
-      [column]: sortColumns[column] === "asc" ? "desc" : "asc"
-    });
-  };
-
-  useEffect(() => onSelect(selected));
-  const colSpan = checkboxes ? columns.length + 1 : columns.length;
-  const thead = (
-    <thead>
-      <tr>
-        {checkboxes && (
-          <th>
-            <Checkboxes
-              withEffect
-              options={[
-                Object.assign(
-                  {},
-                  {
-                    checked: selected.length === allRows.length,
-                    id: "Select_all",
-                    value: allRows.map(row => row[identification])
-                  }
-                )
-              ]}
-              onChange={({ checked }: { checked: any }) =>
-                handleSelected(checked, true)
-              }
-            />
-          </th>
-        )}
-        {Object.keys(sortColumns).map(column => (
-          <th key={column || uuidv1()}>
-            {column}
-            <i
-              id={`sort_${column}`}
-              className="material-icons"
-              onClick={() => sort(column)}
-              role="button"
-            >
-              {sortColumns[column] === "asc"
-                ? "keyboard_arrow_up"
-                : "keyboard_arrow_down"}
-            </i>
-          </th>
-        ))}
-      </tr>
-    </thead>
-  );
-  const tbody = (
-    <tbody>
-      {allRows.map(row => (
-        <tr key={row.id || uuidv1()}>
-          {checkboxes && (
-            <td>
-              <Checkboxes
-                withEffect
-                options={[
-                  {
-                    checked: selected.includes(row[identification]),
-                    id: row[identification],
-                    value: row[identification]
-                  }
-                ]}
-                onChange={({ checked }: any) =>
-                  handleSelected(checked, row[identification])
-                }
-              />
-            </td>
-          )}
-          {columns.map(column => (
-            <td key={`${row.id}${row[column]}` || uuidv1()}>{row[column]}</td>
-          ))}
-        </tr>
-      ))}
-      {!allRows.length && (
-        <tr>
-          <td colSpan={colSpan} align="center">
-            {placeholder}
-          </td>
-        </tr>
-      )}
-    </tbody>
-  );
   return (
-    <div className="table-scroll__wrapper">
-      <div className="table-scroll">
-        <table>
-          {thead}
-          {tbody}
-        </table>
-      </div>
+    <div className="table-wrapper">
+      <TableHead
+        onSort={onSort}
+        orderBy={orderBy}
+        headRef={headRef}
+        columns={allColumns}
+        appliedSort={appliedSort}
+      />
+      <TableBody
+        scrollToIndex={scrollToIndex}
+        onClickRow={onClickRow}
+        bodyRef={bodyRef}
+        allRows={allRows}
+        checkboxes={checkboxes}
+        identification={identification}
+        selected={selected}
+        handleSelected={handleSelected}
+        columns={columns}
+        placeholder={placeholder}
+        overScanBuffer={overScanBuffer}
+        onRenderItems={onRenderItems}
+      />
     </div>
   );
 };
@@ -152,11 +135,9 @@ Table.defaultProps = {
   data: {
     columns: [],
     identification: "",
+    orderBy: [],
     rows: []
   },
-  onSelect: (): void => {
-    return;
-  },
-  placeholder: "No records available"
+  placeholder: "No records available"
 };
 export default Table;

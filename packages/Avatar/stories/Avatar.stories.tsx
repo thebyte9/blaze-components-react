@@ -1,7 +1,7 @@
-import React from "react";
 import { storiesOf } from "@storybook/react";
-import Avatar from "../src";
+import React from "react";
 import avatarReadme from "../README.md";
+import Avatar from "../src";
 const url = "http://lorempixel.com/400/400/people/";
 storiesOf("Avatar", module)
   .addParameters({
@@ -17,14 +17,21 @@ storiesOf("Avatar", module)
         alter ego or character.
       </p>
       <h4>Image</h4>
-      <Avatar url={url} modifier="med" />
-      <Avatar url={url} username="Ismael Haytam" modifier="small" />
+      <Avatar url={url} modifier={Avatar.availableModifiers.med} />
+      <Avatar
+        url={url}
+        username="Ismael Haytam"
+        modifier={Avatar.availableModifiers.small}
+      />
 
       <br />
       <br />
 
       <h4>User Initials</h4>
-      <Avatar username="Blaz 2" />
-      <Avatar username="Kongan Page" modifier="x-small" />
+      <Avatar username="Blaz 2" modifier={Avatar.availableModifiers.med} />
+      <Avatar
+        username="Lorem Ipsum"
+        modifier={Avatar.availableModifiers.xSmall}
+      />
     </div>
   ));

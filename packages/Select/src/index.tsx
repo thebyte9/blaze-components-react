@@ -1,12 +1,31 @@
-import React, { Fragment, InputHTMLAttributes, useState } from "react";
-interface ISelectProps extends InputHTMLAttributes<HTMLSelectElement> {
+import withUtils from "@blaze-react/utils";
+import React, { FunctionComponent, useEffect, useState } from "react";
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
+
+interface ISelectProps {
   label?: string;
-  keys?: any[];
+  keys?: string[];
   options: any[];
   required?: boolean;
-  onChange: (...args: any[]) => any;
+  onChange: ({
+    event,
+    value
+  }: {
+    event: React.ChangeEvent<HTMLSelectElement>;
+    value: string;
+  }) => void;
+  error?: boolean;
+  validationMessage: string | JSX.Element;
   selected?: any;
   id?: string;
+  disabled?: any[],
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+  };
 }
 const Select: React.SFC<ISelectProps> = ({
   label,
@@ -15,19 +34,39 @@ const Select: React.SFC<ISelectProps> = ({
   options,
   selected,
   keys,
+  error,
+  validationMessage,
+  disabled,
+  utils: { classNames, ErrorMessage },
   ...attrs
 }) => {
-  const [selectedOption, setSelectedOption] = useState(selected);
-  const handleChange = (event: any) => {
-    setSelectedOption(event.target.value);
-    onChange({ event, selected: event.target.value });
+  const [selectedOption, setSelectedOption] = useState<string>(selected);
+
+  useEffect(() => {
+    setSelectedOption(selected);
+  }, [selected]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const {
+      target: { value }
+    } = event;
+    setSelectedOption(value);
+    onChange({ event, value });
   };
-  const isRequired = required ? "required" : "";
-  const setOption = (value: string, text?: string) => (
-    <option key={value} value={value}>
-      {text || value}
-    </option>
-  );
+
+  const requiredClassName: string = classNames({
+    required
+  });
+
+  const setOption = (value: string, text?: string): JSX.Element => {
+    const isDisabled = disabled && disabled.includes(value);
+    return (
+      <option key={value} value={value} disabled={isDisabled}>
+        {text || value}
+      </option>
+    )
+  };
+
   const renderOptions = () => {
     const [first]: any = options;
     if (typeof first === "string") {
@@ -41,26 +80,32 @@ const Select: React.SFC<ISelectProps> = ({
       return setOption(option[value], option[text]);
     });
   };
+
   return (
-    <Fragment>
+    <div className="form-field form-field--select">
       {label && (
-        <label htmlFor={attrs.id} className={isRequired}>
+        <label htmlFor={attrs.id} className={requiredClassName}>
           {label}
         </label>
       )}
       <select
         onChange={handleChange}
-        defaultValue={selectedOption}
         disabled={!options.length}
+        value={selectedOption}
         {...attrs}
       >
-        <option>Please Choose...</option>
+        <option defaultValue={selectedOption} disabled={!!selectedOption}>
+          Please Choose...
+        </option>
         {renderOptions()}
       </select>
-    </Fragment>
+      {error && <ErrorMessage message={validationMessage} />}
+    </div>
   );
 };
 Select.defaultProps = {
+  disabled: [],
+  error: false,
   keys: [],
   label: "",
   onChange: (): void => {
@@ -68,6 +113,7 @@ Select.defaultProps = {
   },
   options: [],
   required: false,
-  selected: ""
+  selected: "",
+  validationMessage: "This field is required"
 };
-export default Select;
+export default withUtils(Select);
