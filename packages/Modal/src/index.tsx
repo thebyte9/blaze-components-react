@@ -2,6 +2,7 @@ import withUtils from "@blaze-react/utils";
 import React, { useEffect } from "react";
 import ModalFooter from "./ModalFooter";
 import ModalHeader from "./ModalHeader";
+import { ESCAPE_KEY_CODE } from './constants';
 
 interface IActions {
   textButton: string;
@@ -45,7 +46,7 @@ const Modal: React.SFC<IModalProps> = ({
     };
   }, []);
 
-  const handleKey = ({ keyCode }: any) => keyCode === 27 && closeModal();
+  const handleKey = ({ keyCode }: any) => keyCode === ESCAPE_KEY_CODE && closeModal();
 
   const closeModal = (): void => onClose();
 
