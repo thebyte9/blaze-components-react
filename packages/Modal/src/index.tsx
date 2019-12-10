@@ -1,7 +1,8 @@
 import withUtils from "@blaze-react/utils";
-import React, { Fragment } from "react";
+import React, { useEffect } from "react";
 import ModalFooter from "./ModalFooter";
 import ModalHeader from "./ModalHeader";
+import { ESCAPE_KEY_CODE } from './constants';
 
 interface IActions {
   textButton: string;
@@ -37,6 +38,16 @@ const Modal: React.SFC<IModalProps> = ({
 }): JSX.Element => {
   const sections: string[] = ["header", "content", "footer"];
 
+  useEffect(() => {
+    document.addEventListener("keydown", handleKey, false);
+
+    return () => {
+      document.removeEventListener("keydown", handleKey, false);
+    };
+  }, []);
+
+  const handleKey = ({ keyCode }: any) => keyCode === ESCAPE_KEY_CODE && closeModal();
+
   const closeModal = (): void => onClose();
 
   const modalClassNames: string = classNames(`${className} modal modal--show`, {
@@ -58,7 +69,7 @@ const Modal: React.SFC<IModalProps> = ({
   );
 
   return (
-    <Fragment>
+    <>
       {overlay && <div className="overlay" onClick={closeModal} />}
       <div className={modalClassNames}>
         <div className={modalHeaderClassNames}>
@@ -74,7 +85,7 @@ const Modal: React.SFC<IModalProps> = ({
           actions={actions}
         />
       </div>
-    </Fragment>
+    </>
   );
 };
 Modal.defaultProps = {
