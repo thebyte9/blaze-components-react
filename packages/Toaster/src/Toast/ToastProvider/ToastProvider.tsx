@@ -19,7 +19,7 @@ class ToastProvider extends Component<IProps, IState> {
   public static defaultProps = {
     autoDismiss: false,
     autoDismissTimeout: 5000,
-    components: { Toast: DefaultToast, Container: ToastContainer },
+    components: { Toast: DefaultToast, ToastContainer },
     placement: "top-right",
     transitionDuration: 220
   };
@@ -104,7 +104,7 @@ class ToastProvider extends Component<IProps, IState> {
       placement,
       transitionDuration
     } = this.props;
-    const { Toast, ToastContainer } = components;
+    const { Toast, ToastContainer } = { ...components };
     const { add, remove, removeAll, update } = this;
     const toasts = Object.freeze(this.state.toasts);
 
@@ -163,7 +163,7 @@ class ToastProvider extends Component<IProps, IState> {
             portalTarget
           )
         ) : (
-          <ToastContainer placement={placement} hasToasts={hasToasts} /> // ReactDOM.hydrate
+          <ToastContainer placement={placement} hasToasts={hasToasts} /> // keep ReactDOM.hydrate happy
         )}
       </ToastContext.Provider>
     );
