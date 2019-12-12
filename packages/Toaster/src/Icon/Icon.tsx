@@ -1,22 +1,25 @@
 import React from "react";
-import { appearances } from "../appearances";
+import { AlertIcon, CheckIcon, FlameIcon, InfoIcon } from "../Icons";
 import ToastCountdown from "../Toast/ToastCountdown";
 
+const iconsByAppearance = {
+  error: FlameIcon,
+  info: InfoIcon,
+  success: CheckIcon,
+  warning: AlertIcon
+};
+
 const Icon = ({
-  appearance = "success",
+  appearance,
   autoDismiss,
   autoDismissTimeout,
   isRunning
 }: any) => {
-  const { fg, bg, icon: Glyph } = appearances[appearance];
+  const Glyph = iconsByAppearance[appearance];
 
   return (
     <div
-      className="react-toast-notifications__toast__icon-wrapper"
-      style={{
-        backgroundColor: fg,
-        color: bg
-      }}
+      className={`react-toast-notifications__toast__icon-wrapper react-toast-notifications__toast__icon-wrapper--${appearance}`}
     >
       <ToastCountdown
         opacity={autoDismiss ? 1 : 0}

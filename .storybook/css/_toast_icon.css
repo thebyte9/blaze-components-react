@@ -10,6 +10,26 @@
   border-top-left-radius: 4px;
 }
 
+.react-toast-notifications__toast__icon-wrapper.react-toast-notifications__toast__icon-wrapper--error {
+  background-color: #ff5630;
+  color: #ffebe6;
+}
+
+.react-toast-notifications__toast__icon-wrapper.react-toast-notifications__toast__icon-wrapper--success {
+  background-color: #36b37e;
+  color: #e3fcef;
+}
+
+.react-toast-notifications__toast__icon-wrapper.react-toast-notifications__toast__icon-wrapper--warning {
+  background-color: #ffab00;
+  color: #fffae6;
+}
+
+.react-toast-notifications__toast__icon-wrapper.react-toast-notifications__toast__icon-wrapper--info {
+  background-color: #2684ff;
+  color: #ffffff;
+}
+
 .react-toast-notifications__toast__icon {
   position: relative;
   z-index: 1;
