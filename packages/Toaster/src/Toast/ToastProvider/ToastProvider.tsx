@@ -109,7 +109,7 @@ class ToastProvider extends Component<IProps, IState> {
     const toasts = Object.freeze(this.state.toasts);
 
     const hasToasts = Boolean(toasts.length);
-    const portalTarget = canUseDOM ? document.body : null; // appease flow
+    const portalTarget = canUseDOM ? document.body : null;
 
     return (
       <ToastContext.Provider value={{ add, remove, removeAll, update, toasts }}>
