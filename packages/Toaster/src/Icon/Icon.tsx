@@ -1,6 +1,6 @@
 import React from "react";
 import { appearances } from "../appearances";
-import ToastCountdown from "../ToastCountdown";
+import ToastCountdown from "../Toast/ToastCountdown";
 
 const Icon = ({
   appearance = "success",
