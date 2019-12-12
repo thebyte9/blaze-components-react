@@ -1,45 +1,35 @@
+import Button from "@blaze-react/button";
 import { storiesOf } from "@storybook/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ToasterReadme from "../README.md";
-import Toaster from "../src";
-import { IMessage } from "../src/types";
+import { ToastProvider, useToasts } from "../src";
 
-const DemoComponent = () => {
-  let [counter, setCount] = useState(4);
-  const [message, setMessage] = useState<IMessage>({
-    id: "3",
-    message: "3",
-    messageType: "warning"
-  });
-  const [a, setA] = useState(false);
+function Toasts() {
+  const { addToast } = useToasts();
 
-  const registerInterval = () => {
-    setInterval(() => {
-      console.log("interval");
-      setCount(counter++);
-      setMessage({
-        id: counter.toString(),
-        message: counter.toString(),
-        messageType: "warning"
-      });
-      console.log(counter, "count");
-    }, 2000);
-  };
+  const add = (param: string) =>
+    addToast(`The current toasters is of type:${param}`, {
+      appearance: param,
+      autoDismiss: true
+    });
 
-  useEffect(() => {
-    if (!a) {
-      setA(true);
-      registerInterval();
-    }
-  }, [message]);
   return (
-    <div className="component-wrapper">
-      <section className="introductionSection">
-        <Toaster toastMessage={message} />
-      </section>
+    <div
+      style={{
+        bottom: "0",
+        display: "flex",
+        justifyContent: "space-between",
+        position: "absolute",
+        width: "100%"
+      }}
+    >
+      <Button onClick={() => add("success")}>Success</Button>
+      <Button onClick={() => add("error")}>Error</Button>
+      <Button onClick={() => add("warning")}>Warning</Button>
+      <Button onClick={() => add("info")}>Info</Button>
     </div>
   );
-};
+}
 
 storiesOf("Toaster", module)
   .addParameters({
@@ -48,5 +38,9 @@ storiesOf("Toaster", module)
     }
   })
   .add("Introduction", () => {
-    return <DemoComponent />;
+    return (
+      <ToastProvider>
+        <Toasts />
+      </ToastProvider>
+    );
   });
