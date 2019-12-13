@@ -35,7 +35,7 @@ interface IToastProps {
   appearance: AppearanceTypes;
   autoDismiss: boolean;
   autoDismissTimeout: number;
-  children: Node;
+  children: any;
   isRunning: boolean;
   onDismiss: typeof NOOP;
   onMouseEnter: HoverFn;
