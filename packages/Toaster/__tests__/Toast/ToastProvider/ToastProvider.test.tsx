@@ -56,11 +56,6 @@ describe("Toast provider", () => {
       add(FakeToasterTitleImplementation, FakeToasterConfigImplementation);
     });
 
-    console.log(
-      "ToastContext.Provider.mock.calls",
-      ToastContext.Provider.mock.calls[1][0].value.toasts
-    );
-
     const [
       ,
       [
