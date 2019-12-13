@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { createPortal } from "react-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
+import {
+  DEFAULT_AUTO_DISMISS_TIMEOUT,
+  DEFAULT_PLACEMENT,
+  DEFAULT_TRANSITION_DURATION
+} from "../constants";
 import DefaultToast from "../DefaultToast";
 import ToastContainer from "../ToastContainer/ToastContainer";
 import ToastContext from "../ToastContext";
@@ -18,10 +23,10 @@ const canUseDOM = !!(
 class ToastProvider extends Component<IProps, IState> {
   public static defaultProps = {
     autoDismiss: false,
-    autoDismissTimeout: 5000,
+    autoDismissTimeout: DEFAULT_AUTO_DISMISS_TIMEOUT,
     components: { Toast: DefaultToast, ToastContainer },
-    placement: "top-right",
-    transitionDuration: 220
+    placement: DEFAULT_PLACEMENT,
+    transitionDuration: DEFAULT_TRANSITION_DURATION
   };
 
   public state = { toasts: [] };

@@ -1,5 +1,5 @@
 import React from "react";
-import { placements } from "../constants";
+import { PLACEMENTS } from "../constants";
 import { IToastContainerProps } from "../types/container/container";
 
 const ToastContainer = ({
@@ -11,7 +11,7 @@ const ToastContainer = ({
     className="react-toast-notifications__container"
     style={{
       pointerEvents: hasToasts ? null : "none",
-      ...placements[placement]
+      ...PLACEMENTS[placement]
     }}
     {...props}
   />
