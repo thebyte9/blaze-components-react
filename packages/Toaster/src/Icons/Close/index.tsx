@@ -7,7 +7,7 @@ const CloseIcon = (props: any) => (
       height: 16,
       width: 14,
       viewBox: `0 0 14 16`,
-      fill: "#FFFFFF",
+      fill: "currentColor",
       style: {
         display: "inline-block",
         verticalAlign: "text-top"

@@ -15,13 +15,13 @@ class Timer {
   }
 
   public pause() {
-    clearTimeout(this.timerId);
+    this.clear();
     this.remaining -= Date.now() - this.start;
   }
 
   public resume() {
     this.start = Date.now();
-    clearTimeout(this.timerId);
+    this.clear();
     this.timerId = setTimeout(this.callback, this.remaining);
   }
 }

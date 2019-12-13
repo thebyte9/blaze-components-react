@@ -41,7 +41,9 @@ const DefaultToast = ({
         className="react-toast-notifications__toast__dismiss-button"
         onClick={onDismiss}
       >
-        <CloseIcon className="react-toast-notifications__toast__dismiss-icon" />
+        <CloseIcon
+          className={`react-toast-notifications__toast__dismiss-icon react-toast-notifications__toast__dismiss-icon--${appearance}`}
+        />
         <span className="react-toast-notifications__toast__dismiss-text" />
       </div>
     ) : null}
