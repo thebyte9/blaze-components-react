@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast consumer should pass the context to the children 1`] = `
+<div>
+  <div>
+    Fake.ToastConsumer.Children.immplementation
+  </div>
+</div>
+`;

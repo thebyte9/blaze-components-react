@@ -1,0 +1,9 @@
+.react-toast-notifications__container {
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 8px;
+  position: fixed;
+  z-index: 1000;
+}

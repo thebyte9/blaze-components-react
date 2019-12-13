@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast countdown should render without throwing error 1`] = `
+<div>
+  <div
+    class="react-toast-notifications__toast__countdown_animation"
+    style="animation-duration: 5000ms; animation-play-state: running; opacity: 1;"
+  />
+</div>
+`;
