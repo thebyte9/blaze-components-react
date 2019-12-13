@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "../../Icon";
 import { CloseIcon } from "../../Icons";
-import { ToastElement } from "../ToastElement";
+import ToastElement from "../ToastElement";
 import { IToastProps } from "../types/common";
 import { NOOP } from "../utils";
 

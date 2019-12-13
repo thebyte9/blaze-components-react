@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { gutter } from "./common";
+
 import toastStates from "./utils/transitions";
 
 const ToastElement = ({
@@ -15,7 +15,7 @@ const ToastElement = ({
   useEffect(() => {
     if (transitionState === "entered") {
       const el = elementRef.current;
-      setHeight(el.offsetHeight + gutter);
+      setHeight(el.offsetHeight + 8);
     }
     if (transitionState === "exiting") {
       setHeight(0);
