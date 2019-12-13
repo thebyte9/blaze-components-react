@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast provider should add a new toaster 1`] = `
+Array [
+  <FakeChildrenComponentImplementation />,
+  Object {
+    "$$typeof": Symbol(react.portal),
+    "children": <ToastContainer
+      hasToasts={true}
+      placement="top-right"
+    >
+      <TransitionGroup
+        childFactory={[Function]}
+        component={null}
+      >
+        <Transition
+          appear={true}
+          enter={true}
+          exit={true}
+          in={false}
+          mountOnEnter={true}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
+          timeout={220}
+          unmountOnExit={true}
+        >
+          [Function]
+        </Transition>
+      </TransitionGroup>
+    </ToastContainer>,
+    "containerInfo": <body>
+      <div />
+      <div
+        class="react-toast-notifications__container"
+        style="top: 0px; right: 0px;"
+      >
+        <div
+          style="height: auto; transition: height 120ms 100ms;"
+        >
+          <div
+            class="react-toast-notifications__toast react-toast-notifications__toast--success"
+            style="transition: transform 220ms cubic-bezier(0.2, 0, 0, 1), opacity 220ms; transform: translate3d(120%, 0, 0);"
+          >
+            <div
+              class="react-toast-notifications__toast__icon-wrapper react-toast-notifications__toast__icon-wrapper--success"
+            >
+              <div
+                class="react-toast-notifications__toast__countdown_animation"
+                style="animation-duration: 5000ms; animation-play-state: running; opacity: 1;"
+              />
+              <svg
+                aria-hidden="true"
+                class="react-toast-notifications__toast__icon"
+                fill="#FFFFFF"
+                height="16"
+                style="display: inline-block; vertical-align: text-top;"
+                viewBox="0 0 12 16"
+                width="12"
+              >
+                <path
+                  d="M12 5.5l-8 8-4-4L1.5 8 4 10.5 10.5 4 12 5.5z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="react-toast-notifications__toast__content"
+            >
+              Test toaster
+            </div>
+            <div
+              class="react-toast-notifications__toast__dismiss-button"
+              role="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="react-toast-notifications__toast__dismiss-icon react-toast-notifications__toast__dismiss-icon--success"
+                fill="currentColor"
+                height="16"
+                style="display: inline-block; vertical-align: text-top;"
+                viewBox="0 0 14 16"
+                width="14"
+              >
+                <path
+                  d="M7.71 8.23l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75L1 11.98l3.75-3.75L1 4.48 2.48 3l3.75 3.75L9.98 3l1.48 1.48-3.75 3.75z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <span
+                class="react-toast-notifications__toast__dismiss-text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>,
+    "implementation": null,
+    "key": null,
+  },
+]
+`;
+
+exports[`Toast provider should render without throwing error 1`] = `<div />`;
