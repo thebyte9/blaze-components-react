@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast container should be defined 1`] = `[Function]`;
+
+exports[`Toast container should render without throwing error 1`] = `
+<div>
+  <div
+    class="react-toast-notifications__container"
+    style="top: 0px; right: 0px;"
+  >
+    <div>
+      Fake.children.implementation
+    </div>
+  </div>
+</div>
+`;
