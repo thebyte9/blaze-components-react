@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Default toast should render without throwing error 1`] = `
+<div>
+  <div
+    style="height: 8px; transition: height 120ms 100ms;"
+  >
+    <div
+      class="react-toast-notifications__toast react-toast-notifications__toast--warning"
+      style="transition: transform 220ms cubic-bezier(0.2, 0, 0, 1), opacity 220ms; transform: translate3d(0,0,0);"
+    >
+      <div
+        class="react-toast-notifications__toast__icon-wrapper react-toast-notifications__toast__icon-wrapper--warning"
+      >
+        <div
+          class="react-toast-notifications__toast__countdown_animation"
+          style="animation-duration: 5000ms; animation-play-state: running; opacity: 1;"
+        />
+        <svg
+          aria-hidden="true"
+          class="react-toast-notifications__toast__icon"
+          fill="#FFFFFF"
+          height="16"
+          style="display: inline-block; vertical-align: text-top;"
+          viewBox="0 0 16 16"
+          width="16"
+        >
+          <path
+            d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="react-toast-notifications__toast__content"
+      >
+        <p>
+          "The current toasters is of type:warning"
+        </p>
+      </div>
+      <div
+        class="react-toast-notifications__toast__dismiss-button"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="react-toast-notifications__toast__dismiss-icon react-toast-notifications__toast__dismiss-icon--warning"
+          fill="currentColor"
+          height="16"
+          style="display: inline-block; vertical-align: text-top;"
+          viewBox="0 0 14 16"
+          width="14"
+        >
+          <path
+            d="M7.71 8.23l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75L1 11.98l3.75-3.75L1 4.48 2.48 3l3.75 3.75L9.98 3l1.48 1.48-3.75 3.75z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <span
+          class="react-toast-notifications__toast__dismiss-text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
