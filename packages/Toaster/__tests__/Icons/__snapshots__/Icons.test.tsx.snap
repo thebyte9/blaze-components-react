@@ -40,7 +40,7 @@ exports[`Icons should render whitout throwing an error 3`] = `
 <div>
   <svg
     aria-hidden="true"
-    fill="#FFFFFF"
+    fill="currentColor"
     height="16"
     style="display: inline-block; vertical-align: text-top;"
     viewBox="0 0 14 16"

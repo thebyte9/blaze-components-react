@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Transition, TransitionGroup } from "react-transition-group";
 import DefaultToast from "../DefaultToast";
 import ToastContainer from "../ToastContainer/ToastContainer";
-import ToastContext from "../ToastContext/ToastContext";
+import ToastContext from "../ToastContext";
 import ToastController from "../ToastController";
 import { Callback, Id, IOptions } from "../types/common";
 import { IProps, IState } from "../types/provider/provider";
