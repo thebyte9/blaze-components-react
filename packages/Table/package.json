@@ -1,5 +1,5 @@
 {
-  "name": "@blaze-react/toaster",
+  "name": "@blaze-react/table",
   "version": "0.4.3",
   "publishConfig": {
     "access": "public"

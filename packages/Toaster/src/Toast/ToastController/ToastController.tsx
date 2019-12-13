@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Timer from "../../Timer";
 import { IProps, IState } from "../types/controller/controller";
-import { NOOP } from "../utils";
 
 class ToastController extends Component<IProps, IState> {
   public static defaultProps = {
@@ -69,8 +68,8 @@ class ToastController extends Component<IProps, IState> {
     } = this.props;
     const { isRunning } = this.state;
 
-    const handleMouseEnter = autoDismiss ? this.onMouseEnter : NOOP;
-    const handleMouseLeave = autoDismiss ? this.onMouseLeave : NOOP;
+    const handleMouseEnter = autoDismiss ? this.onMouseEnter : null;
+    const handleMouseLeave = autoDismiss ? this.onMouseLeave : null;
 
     return (
       <Toast

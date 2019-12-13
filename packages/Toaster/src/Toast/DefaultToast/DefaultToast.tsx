@@ -3,7 +3,6 @@ import Icon from "../../Icon";
 import { CloseIcon } from "../../Icons";
 import ToastElement from "../ToastElement";
 import { IToastProps } from "../types/common";
-import { NOOP } from "../utils";
 
 const DefaultToast = ({
   appearance,
@@ -51,7 +50,9 @@ const DefaultToast = ({
 );
 
 DefaultToast.defaultProps = {
-  onDismiss: NOOP
+  onDismiss: () => {
+    return;
+  }
 };
 
 export default DefaultToast;
