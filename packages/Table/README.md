@@ -1,54 +1,132 @@
+### Use
 
-## Description
+Wrap your app in the `ToastProvider`, which provides context for the `Toast` descendants.
 
-The HTML table element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
+```jsx
+import { ToastProvider, useToasts } from "@blaze-cms/toaster";
 
-## Usage
+const FormWithToasts = () => {
+  const { addToast } = useToasts();
 
-* With Checkboxes
+  const onSubmit = async value => {
+    const { error } = await dataPersistenceLayer(value);
 
-```js
-const data =  {
-  identification: 'id',
-  columns: ['name', 'age'], 
-  orderBy: ['age'],
-  rows: [{
-    id: 1,
-    name: 'Oscar Leon',
-    age: 26,
-  }, {
-    id: 2,
-    name: 'Ismael Haytam',
-    age: 23,
-  }, {
-    id: 3,
-    name: 'Lorem Ipsum',
-    age: 18
-  }]
-}
+    if (error) {
+      addToast(error.message, { appearance: "error" });
+    } else {
+      addToast("Saved Successfully", { appearance: "success" });
+    }
+  };
 
-<Table 
-  checkboxes 
-  data={data} 
-  onSelect={(selected) => {}} />
+  return <form onSubmit={onSubmit}>...</form>;
+};
+
+const App = () => (
+  <ToastProvider>
+    <FormWithToasts />
+  </ToastProvider>
+);
 ```
 
-* Static table
+## ToastProvider Props
 
-```js
-<Table data={data} />
+For brevity:
+
+- `PlacementType` is equal to `'bottom-left' | 'bottom-center' | 'bottom-right' | 'top-left' | 'top-center' | 'top-right'`.
+- `TransitionState` is equal to `'entering' | 'entered' | 'exiting' | 'exited'`.
+
+| Property                               | Description                                                                              |
+| -------------------------------------- | ---------------------------------------------------------------------------------------- |
+| autoDismissTimeout `number`            | Default `5000`. The time until a toast will be dismissed automatically, in milliseconds. |
+| children `Node`                        | Required. Your app content.                                                              |
+| components `{ ToastContainer, Toast }` | Replace the underlying components.                                                       |
+| placement `PlacementType`              | Default `top-right`. Where, in relation to the viewport, to place the toasts.            |
+| transitionDuration `number`            | Default `220`. The duration of the CSS transition on the `Toast` component.              |
+
+## Toast Props
+
+| Property                           | Description                                                                                                                          |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| appearance                         | Required. One of `success`, `error`, `warning`, `info`                                                                               |
+| children                           | Required. The content of the toast notification.                                                                                     |
+| autoDismiss `boolean`              | Default: `false`. Whether or not to dismiss the toast automatically after a timeout. Inherited from `ToastProvider` if not provided. |
+| autoDismissTimeout `number`        | Inherited from `ToastProvider`.                                                                                                      |
+| onDismiss: `Id => void`            | Passed in dynamically.                                                                                                               |
+| placement `PlacementType`          | Inherited from `ToastProvider`.                                                                                                      |
+| transitionDuration `number`        | Inherited from `ToastProvider`.                                                                                                      |
+| transitionState: `TransitionState` | Passed in dynamically.                                                                                                               |
+
+## Hook
+
+The `useToast` hook has the following signature:
+
+```jsx
+const {
+  addToast,
+  removeToast,
+  removeAllToasts,
+  updateToast,
+  toastStack
+} = useToasts();
 ```
 
-## API
+The `addToast` method has three arguments:
 
-##### Table can receive a number of `props` as follow:
+1.  The first is the content of the toast, which can be any renderable `Node`.
+1.  The second is the `Options` object, which can take any shape you like. `Options.appearance` is required when using the `DefaultToast`. When departing from the default shape, you must provide an alternative, compliant `Toast` component.
+1.  The third is an optional callback, which is passed the added toast `ID`.
 
+The `removeToast` method has two arguments:
 
-| NAME   | TYPE | DEFAULT | 
-| :---  | :---:  | :---: | 
-| placeholder | string| No records available | 
-| data | Object | {}      | 
-| onSelect | Function | () => {}  | 
-| checkboxes | Boolean | false | 
+1.  The first is the `ID` of the toast to remove.
+1.  The second is an optional callback.
 
+The `removeAllToasts` method has no arguments.
 
+The `updateToast` method has three arguments:
+
+1.  The first is the `ID` of the toast to update.
+1.  The second is the `Options` object, which differs slightly from the add method because it accepts a `content` property.
+1.  The third is an optional callback, which is passed the updated toast `ID`.
+
+The `toastStack` is an array of objects representing the current toasts, e.g.
+
+```jsx
+[
+  {
+    content: "Something went wrong",
+    id: "generated-string",
+    appearance: "error"
+  },
+  { content: "Item saved", id: "generated-string", appearance: "success" }
+];
+```
+
+## Replaceable Components
+
+To bring each toast notification inline with your app, you can provide alternative components to the `ToastProvider`:
+
+```jsx
+import { ToastProvider } from "@blaze-cms/toaster";
+
+const MyCustomToast = ({ appearance, children }) => (
+  <div style={{ background: appearance === "error" ? "red" : "green" }}>
+    {children}
+  </div>
+);
+
+const App = () => (
+  <ToastProvider components={{ Toast: MyCustomToast }}>...</ToastProvider>
+);
+```
+
+To customize the existing component instead of creating a new one, you may import `DefaultToast`:
+
+```jsx
+import { DefaultToast } from "@blaze-cms/toaster";
+export const MyCustomToast = ({ children, ...props }) => (
+  <DefaultToast {...props}>
+    <SomethingSpecial>{children}</SomethingSpecial>
+  </DefaultToast>
+);
+```
