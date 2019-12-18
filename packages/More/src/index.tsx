@@ -39,18 +39,25 @@ const More = ({
   });
 
   useEffect(() => {
-    document.addEventListener("mousedown", (event): any =>
-      handleOutsideClick(event)
-    );
+    document.addEventListener("mousedown", (event): any => {
+      // console.log("adding event listener");
+      return handleOutsideClick(event);
+    });
 
     return function cleanup() {
-      document.removeEventListener("mousedown", (event): any =>
-        handleOutsideClick(event)
-      );
+      document.removeEventListener("mousedown", (event): any => {
+        // console.log("cleanup");
+        return handleOutsideClick(event);
+      });
     };
   }, []);
 
   const handleOutsideClick = (event: any) => {
+    // console.log("current ref", moreMenuRef.current);
+    // if (event && moreMenuRef.current)
+    //   console.log("contains", !moreMenuRef.current.contains(event.target));
+    // console.log("event", event.target);
+    // console.log("toggle", toggled);
     if (
       moreMenuRef.current !== null &&
       !moreMenuRef.current.contains(event.target)
