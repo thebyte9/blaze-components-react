@@ -78,6 +78,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
             required,
             label,
             show = true,
+            name,
             id = uniqueId(item)
           } = item;
 
@@ -107,6 +108,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
                 checked={checked}
                 required={required}
                 id={id}
+                name={name}
                 {...attrs}
               />
               <label htmlFor={id}>{label}</label>
