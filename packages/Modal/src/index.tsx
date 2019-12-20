@@ -95,6 +95,7 @@ Modal.defaultProps = {
   isSimple: false,
   isUpload: false,
   overlay: true,
-  title: ""
+  title: "",
+  className: ""
 };
 export default withUtils(Modal);
