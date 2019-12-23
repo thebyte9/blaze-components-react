@@ -2,15 +2,19 @@
   "name": "@blaze-react/components-styles",
   "version": "1.0.0",
   "description": "Blaze styles theme",
-  "main": "main.scss",
+  "main": "./lib/main.scss",
   "scripts": {
-    "lint:sass": "byte9-lint sass",
-    "build": "echo builded"
+    "lint:sass": "../../node_modules/.bin/byte9-lint sass",
+    "clean": "../../node_modules/.bin/rimraf ./lib",
+    "build": "npm run clean && cpx 'src/**/*.scss' ./lib"
   },
   "author": {
     "email": "hello@thebyte9.com",
     "name": "Byte9",
     "url": "https://thebyte9.com"
   },
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "cpx": "^1.5.0"
+  }
 }
