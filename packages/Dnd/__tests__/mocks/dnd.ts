@@ -429,24 +429,21 @@ const listWithChildrenOutput = [
     items: null,
     name: "image-1",
     settings: {},
-    type: "image",
-    undefined: null
+    type: "image"
   },
   {
     id: "7420d010-0f71-11ea-b1bb-1158c538d74f",
     items: null,
     name: "socialfollow-1",
     settings: {},
-    type: "socialfollow",
-    undefined: null
+    type: "socialfollow"
   },
   {
     id: "751da6a0-0f71-11ea-b1bb-1158c538d74f",
     items: [],
     name: "row-1",
     settings: {},
-    type: "row",
-    undefined: null
+    type: "row"
   },
   {
     id: "755b4be0-0f71-11ea-b1bb-1158c538d74f",
@@ -461,8 +458,7 @@ const listWithChildrenOutput = [
     ],
     name: "column-1",
     settings: {},
-    type: "column",
-    undefined: null
+    type: "column"
   }
 ];
 

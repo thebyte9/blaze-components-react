@@ -1,7 +1,7 @@
 import { cleanup, render } from "@testing-library/react";
 import expect from "expect";
 import React from "react";
-import DragHandler from "../../../../src/DragLayer";
+import DragHandler from "../../../../src/DragHandler";
 
 describe("Drag handler", () => {
   afterEach(cleanup);
