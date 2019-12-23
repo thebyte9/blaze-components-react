@@ -30,8 +30,8 @@ const NestableItem: React.SFC<INestableItemProps> = ({
     `nestable-item${isCopy ? "-copy" : ""}`,
     `nestable-item${isCopy ? "-copy" : ""}-${item.id}`,
     {
-      "nestable-item-parent": hasChildrenProperty,
-      "is-dragging": isDragging
+      "is-dragging": isDragging,
+      "nestable-item-parent": hasChildrenProperty
     }
   );
   return (
