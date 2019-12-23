@@ -21,6 +21,7 @@ interface INestableProps {
   renderItem?: (...args: any[]) => any;
   onChange?: any;
   confirmChange?: any;
+  childrenWrapperClassName?: any;
 }
 interface INestableState {
   items: any;
