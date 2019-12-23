@@ -1,11 +1,11 @@
-const getSplicePath = (path, options = {}) => {
+const getSplicePath = (path: any, options: any = {}) => {
   const splicePath = {};
   const numToRemove = options.numToRemove || 0;
   const itemsToInsert = options.itemsToInsert || [];
   const lastIndex = path.length - 1;
-  let currentPath = splicePath;
+  let currentPath: any = splicePath;
 
-  path.forEach((element, index) => {
+  path.forEach((element: any, index: number) => {
     if (index === lastIndex) {
       currentPath.$splice = [[element, numToRemove, ...itemsToInsert]];
     } else {

@@ -1,19 +1,19 @@
-import { getItemByPath } from './getItemByPath';
-import { getPathById } from './getPathById';
+import { getItemByPath } from "./getItemByPath";
+import { getPathById } from "./getPathById";
 
-const tryDecreaseDepth = ({ dragItem, items, childrenProp }) => {
+const tryDecreaseDepth = ({ dragItem, items, childrenProp }: any): any => {
   const pathFrom = getPathById({
+    childrenProp,
     id: dragItem.id,
-    items,
-    childrenProp
+    items
   });
   const itemIndex = pathFrom[pathFrom.length - 1];
 
   if (pathFrom.length > 1) {
     const parent = getItemByPath({
-      path: pathFrom.slice(0, -1),
+      childrenProp,
       items,
-      childrenProp
+      path: pathFrom.slice(0, -1)
     });
 
     if (itemIndex + 1 === parent[childrenProp].length) {

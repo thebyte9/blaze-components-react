@@ -14,22 +14,20 @@ import {
   listWithChildren,
   tryDecreaseDepth,
   tryIncreaseDepth
-} from "./utils/index";
-interface NestableProps {
-  items?: Array<{
-    id: any;
-  }>;
-  childrenProp?: string;
+} from "./utils";
+interface INestableProps {
+  items?: any;
+  childrenProp?: any;
   renderItem?: (...args: any[]) => any;
-  onChange?: (...args: any[]) => any;
-  confirmChange?: (...args: any[]) => any;
+  onChange?: any;
+  confirmChange?: any;
 }
-interface NestableState {
-  items: any | undefined[];
+interface INestableState {
+  items: any;
   dragItem: null;
   isDirty: boolean;
 }
-class Nestable extends Component<NestableProps, NestableState> {
+class Nestable extends Component<INestableProps, INestableState> {
   public static defaultProps = {
     childrenProp: "children",
     confirmChange: () => true,
@@ -37,13 +35,13 @@ class Nestable extends Component<NestableProps, NestableState> {
     onChange: () => {
       return;
     },
-    renderItem: ({ item }) => item.toString()
+    renderItem: ({ item }: { item: any }) => item.toString()
   };
   public state: any;
   public el: any;
   private dragLayerRef: any;
   private mouse: any;
-  constructor(props) {
+  constructor(props: INestableProps) {
     super(props);
     this.state = {
       dragItem: null,
@@ -58,14 +56,15 @@ class Nestable extends Component<NestableProps, NestableState> {
     };
   }
   public componentDidMount() {
-    let { items, childrenProp } = this.props;
+    let { items } = this.props;
+    const { childrenProp } = this.props;
     items = listWithChildren(items, childrenProp);
     this.setState({ items });
   }
-  public componentDidUpdate(prevProps) {
+  public componentDidUpdate(prevProps: any) {
     const { items: newItems, childrenProp } = this.props;
     const isPropsUpdated = shallowCompare(
-      { props: this.props, state: {} },
+      { props: this.props, state: {} } as any,
       prevProps,
       {}
     );
@@ -85,7 +84,7 @@ class Nestable extends Component<NestableProps, NestableState> {
     document.removeEventListener("mousemove", this.onMouseMove);
     document.removeEventListener("mouseup", this.onDragEnd);
   };
-  public onMouseEnter = (e, item) => {
+  public onMouseEnter = (e: any, item: any) => {
     e.preventDefault();
     e.stopPropagation();
     const { dragItem, items } = this.state;
@@ -105,7 +104,7 @@ class Nestable extends Component<NestableProps, NestableState> {
     });
     this.moveItem({ dragItem, pathFrom, pathTo });
   };
-  public onMouseMove = e => {
+  public onMouseMove = (e: any) => {
     const { childrenProp } = this.props;
     const { dragItem, items } = this.state;
     const { clientX, clientY } = e;
@@ -144,13 +143,13 @@ class Nestable extends Component<NestableProps, NestableState> {
       this.mouse.shift.x = 0;
     }
   };
-  public onDragEnd = e => {
+  public onDragEnd = (e: any) => {
     e && e.preventDefault();
     this.stopTrackMouse();
     this.el = null;
     this.dragApply();
   };
-  public onDragStart = (e, item) => {
+  public onDragStart = (e: any, item: any) => {
     e.preventDefault();
     e.stopPropagation();
     this.el = closest(e.target, ".nestable-item-parent");
@@ -160,14 +159,14 @@ class Nestable extends Component<NestableProps, NestableState> {
       dragItem: item
     });
   };
-  public updateProps(newItems, childrenProp) {
+  public updateProps(newItems: any, childrenProp: any) {
     this.setState({
       dragItem: null,
       isDirty: false,
       items: listWithChildren(newItems, childrenProp)
     });
   }
-  public moveItem({ dragItem, pathFrom, pathTo }) {
+  public moveItem({ dragItem, pathFrom, pathTo }: any) {
     const { childrenProp, confirmChange } = this.props;
     let { items } = this.state;
     const realPathTo = getRealNextPath({
@@ -220,7 +219,7 @@ class Nestable extends Component<NestableProps, NestableState> {
     return (
       <div className={wrapperClassName}>
         <ol className="nestable-list nestable-group">
-          {items.map((item, index) => (
+          {items.map((item: any, index: number) => (
             <NestableItem
               dragItem={dragItem}
               renderItem={renderItem}

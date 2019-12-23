@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import React from "react";
 import DragHandler from "../DragHandler";
-type NestableItemProps = {
+interface INestableItemProps {
   item: {
     id?: any;
   };
@@ -9,11 +9,11 @@ type NestableItemProps = {
   index?: number;
   onMouseEnter: (...args: any[]) => any;
   onDragStart: (...args: any[]) => any;
-  dragItem?: object;
-  renderItem: (...args: any[]) => any;
+  dragItem?: any;
+  renderItem: any;
   childrenProp: string;
-};
-const NestableItem: React.SFC<NestableItemProps> = ({
+}
+const NestableItem: React.SFC<INestableItemProps> = ({
   item,
   isCopy,
   index,
@@ -49,11 +49,11 @@ const NestableItem: React.SFC<NestableItemProps> = ({
         >
           {hasChildrenProperty && hasChildren ? (
             <ol className="nestable-list">
-              {item[childrenProp].map((_item, _index) => (
+              {item[childrenProp].map((element: any, i: number) => (
                 <NestableItem
-                  key={_item.id}
-                  index={_index}
-                  item={_item}
+                  key={element.id}
+                  index={i}
+                  item={element}
                   isCopy={isCopy}
                   dragItem={dragItem}
                   renderItem={RenderItem}
@@ -69,6 +69,7 @@ const NestableItem: React.SFC<NestableItemProps> = ({
     </li>
   );
 };
+
 NestableItem.defaultProps = {
   dragItem: null,
   isCopy: false

@@ -1,4 +1,4 @@
-const getTransformProps = (x, y) => ({
+const getTransformProps = (x: number, y: number) => ({
   transform: `translate(${x}px, ${y}px)`
 });
 

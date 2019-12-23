@@ -1,18 +1,18 @@
-import { getItemByPath } from './getItemByPath';
+import { getItemByPath } from "./getItemByPath";
 
-const getRealNextPath = ({ prevPath, nextPath, items, childrenProp }) => {
+const getRealNextPath = ({ prevPath, nextPath, items, childrenProp }: any) => {
   const prevPathLastIndex = prevPath.length - 1;
   const nextPathLastIndex = nextPath.length - 1;
 
   if (prevPath.length < nextPath.length) {
     let wasShifted = false;
 
-    return nextPath.map((nextElement, index) => {
+    return nextPath.map((nextElement: any, index: number) => {
       if (wasShifted) {
         return index === nextPathLastIndex ? nextElement + 1 : nextElement;
       }
 
-      if (typeof prevPath[index] !== 'number') {
+      if (typeof prevPath[index] !== "number") {
         return nextElement;
       }
 
@@ -27,9 +27,9 @@ const getRealNextPath = ({ prevPath, nextPath, items, childrenProp }) => {
   if (prevPath.length === nextPath.length) {
     if (nextPath[nextPathLastIndex] > prevPath[nextPathLastIndex]) {
       const target = getItemByPath({
-        path: nextPath,
+        childrenProp,
         items,
-        childrenProp
+        path: nextPath
       });
 
       if (target[childrenProp] && target[childrenProp].length) {

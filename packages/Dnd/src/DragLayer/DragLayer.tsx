@@ -1,14 +1,14 @@
 import React from "react";
-type DragLayerProps = {
-  dragItem: object,
-  dragLayerRef: object
-};
-const DragLayer: React.SFC<DragLayerProps> = ({
+interface IDragLayerProps {
+  dragItem: any;
+  dragLayerRef: any;
+}
+const DragLayer: React.SFC<IDragLayerProps> = ({
   dragItem,
   children,
   dragLayerRef
 }) => {
-  const el = document.querySelector(`.nestable-item-${dragItem.id}`);
+  const el: any = document.querySelector(`.nestable-item-${dragItem.id}`);
   return (
     <div className="nestable-drag-layer">
       <ol
