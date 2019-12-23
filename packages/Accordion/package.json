@@ -23,7 +23,8 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@types/classnames": "^2.2.8"
+    "@types/classnames": "^2.2.8",
+    "@blaze-react/components-styles": "^1.0.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",

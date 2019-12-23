@@ -25,7 +25,8 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@types/uuid": "^3.4.4"
+    "@types/uuid": "^3.4.4",
+    "@blaze-react/components-styles": "^1.0.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
