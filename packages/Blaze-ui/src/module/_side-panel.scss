@@ -1,0 +1,45 @@
+.side-panel {
+  background-color: $blue-grey-50;
+  text-align: left;
+  @include mq($from: tablet) {
+    max-width: 200px;
+  }
+
+  &__list {
+    @extend %list;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: right;
+    @include mq($from: tablet) {
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__list-item {
+    font-size: .813rem;
+    font-weight: $font-semi-bold;
+    cursor: default;
+
+    &.active {
+      color: $blue-grey-900;
+      background-color: lighten($blue-grey-50, 3%);
+      padding: 10px 20px;
+    }
+
+    & a {
+      transition: $animate-default;
+      color: $blue-grey-500;
+      padding: 10px 20px;
+      display: inline-block;
+      width: 100%;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: none;
+        background-color: lighten($blue-grey-50, 3%);
+      }
+    }
+  }
+}

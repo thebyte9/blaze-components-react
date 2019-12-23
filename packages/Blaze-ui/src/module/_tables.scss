@@ -1,0 +1,101 @@
+.table {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: scroll;
+  padding: 20px;
+  font-size: .813rem;
+}
+
+.table-head {
+  display: flex;
+  justify-content: space-between;
+  background-color: $blue-grey-100;
+  font-weight: bold;
+  height: 40px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.table-body-placeholder {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-cell {
+  flex: 1 0 140px;
+  padding: 8px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+
+  &:nth-last-of-type(1) {
+    justify-content: flex-end;
+    flex: 0 0 80px;
+  }
+
+  &:nth-last-of-type(2) {
+    flex: 1 0 140px;
+  }
+
+  & .icon-button--round {
+    background: none;
+    box-shadow: none;
+    color: $nearly-black;
+
+    &:hover {
+      box-shadow: none;
+      background: none;
+      opacity: .8;
+    }
+  }
+}
+
+.table-cell--checkbox {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 12px;
+}
+
+.table-row > .table-cell {
+  border-bottom: 1px solid $blue-grey-100;
+  background-color: $white;
+}
+
+.table-row > .table-cell--checkbox {
+  border-bottom: 1px solid $blue-grey-100;
+  background-color: $white;
+}
+
+.sortable {
+  /*sort by in table head*/
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  & i {
+    font-size: 1rem;
+  }
+}

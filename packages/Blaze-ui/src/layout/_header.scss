@@ -1,0 +1,205 @@
+.header {
+  @include mq($from: mobile) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+  height: 52px;
+  display: flex;
+  width: 100%;
+  background-color: $primary-color;
+  color: $white;
+  font-size: 0.813rem;
+  font-weight: 700;
+  z-index: 102;
+  position: fixed;
+  top: 0;
+  &--list {
+    background: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    z-index: auto;
+    position: relative;
+    top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 97%;
+    margin: 0 0 20px 3%;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0 10px;
+    height: 50px;
+    @include mq($from: tablet) {
+      align-items: center;
+    }
+  }
+
+  &-menu {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 auto;
+    height: 100%;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+
+    @include mq($from: tablet) {
+      flex: 0 0 230px;
+      text-align: left;
+      margin: 0;
+      margin-right: 8px;
+      justify-content: flex-start;
+    }
+    @include mq($from: desktop) {
+      flex: 0 0 280px;
+    }
+  }
+
+  &__search {
+    display: flex;
+    margin-left: 0;
+    @include mq($from: tablet) {
+      flex: 0 1 340px;
+      margin-right: auto;
+    }
+  }
+
+  &__search-icon {
+    margin-left: auto;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: $white;
+    @include mq($from: tablet) {
+      display: none;
+    }
+
+    & i {
+      font-size: 2rem;
+    }
+
+    & .search-close {
+      display: none;
+    }
+
+    &.open {
+      & .search-close {
+        display: block;
+      }
+
+      & .search-open {
+        display: none;
+      }
+    }
+  }
+
+  &__back {
+    margin-left: 0;
+    @include mq($from: tablet) {
+      margin-right: auto;
+    }
+
+    & button {
+      color: $white;
+    }
+  }
+
+  &__lang {
+    display: none;
+    @include mq($from: tablet) {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    & i {
+      color: $secondary-color;
+      margin-left: 5px;
+    }
+  }
+
+  &__user {
+    @include mq($from: tablet) {
+      flex: 0 1 150px;
+      margin-left: auto;
+    }
+  }
+
+  &__user-account {
+    & a {
+      padding: 5px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @include mq($from: tablet) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    @include mq($from: tablet) {
+      display: none;
+    }
+
+    &-burger {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 24px;
+      height: 4px;
+      background-color: #fff;
+      margin: 6px 0;
+      transition: 0.25s ease-in-out;
+      border-radius: 3px;
+    }
+
+    .change .bar1 {
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-8px, 6px);
+    }
+
+    .change .bar2 {
+      opacity: 0;
+    }
+
+    .change .bar3 {
+      -webkit-transform: rotate(45deg) translate(-8px, -6px);
+      transform: rotate(45deg) translate(-8px, -6px);
+    }
+  }
+}
+
+.logo {
+  display: none;
+  @include mq($from: tablet) {
+    display: block;
+  }
+
+  &--small {
+    display: block;
+    @include mq($from: tablet) {
+      display: none;
+    }
+  }
+}

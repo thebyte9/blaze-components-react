@@ -1,3 +1,4 @@
+import "@blaze-react/components-styles";
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import DndReadme from "../README.md";

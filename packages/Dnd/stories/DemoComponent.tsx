@@ -69,7 +69,13 @@ const DemoComponent = () => {
         childrenProp="items"
         onChange={handleOrder}
         renderItem={({ item, DragHandler, children }) => (
-          <div>
+          <div
+            style={{
+              padding: "20px",
+              border: "1px solid #F0F0F0",
+              backgroundColor: "#FFFFFF"
+            }}
+          >
             <p>{item.name}</p>
             <DragHandler />
             {children}

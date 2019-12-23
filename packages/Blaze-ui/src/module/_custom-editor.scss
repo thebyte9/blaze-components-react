@@ -1,0 +1,153 @@
+.custom-DraftEditor {
+  &-root {
+    position: relative;
+  }
+
+  &-editor .public-DraftEditor-content {
+    min-height: 100px;
+  }
+
+  &-editor .public-DraftEditorPlaceholder-inner {
+    color: $grey;
+  }
+
+  &-hidePlaceholder .public-DraftEditorPlaceholder-root {
+    display: none;
+  }
+
+  &-editor .public-DraftStyleDefault-pre {
+    background-color: $white;
+    border: 0;
+  }
+
+  &-root {
+    background: $white;
+    border: 1px solid $grey-light;
+    box-shadow: $box-shadow-small;
+  }
+
+  &-utils {
+    font-size: 0.813rem;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    background: $grey-lightest;
+  }
+
+  &-controls {
+    padding: 15px;
+    padding-right: 0;
+    & + .custom-DraftEditor-controls {
+      padding-top: 0;
+    }
+  }
+
+  &-inlineControls {
+    display: flex;
+    align-items: center;
+  }
+
+  &-styleButton {
+    transition: $animate-default;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid $grey-light;
+    border-radius: 5px;
+    background-color: $white;
+    color: $grey-dark;
+
+    &:hover {
+      background-color: $grey-dark;
+      color: $white;
+    }
+
+    & i {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &-activeButton {
+    background-color: $grey-dark;
+    color: $white;
+  }
+
+  &-editor {
+    cursor: text;
+    padding: 30px;
+    font-size: 1rem;
+  }
+
+  &-editor &-blockquote {
+    position: relative;
+    border-left: 4px solid $grey-light;
+    color: $grey-dark;
+    font-style: italic;
+    margin: 16px 0;
+    padding: 10px 20px 10px 30px;
+
+    &::before {
+      content: "\201C";
+      color: $grey-light;
+      font-size: 4rem;
+      position: absolute;
+      left: -3px;
+      top: -20px;
+    }
+  }
+
+  &-images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &-previewImage {
+    width: 23%;
+    height: 160px;
+    cursor: pointer;
+    padding: 5px;
+    margin: 10px 0 5px 0;
+    background: $grey-light;
+    position: relative;
+    & span {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      background: $primary-color;
+      & i {
+        color: $white;
+      }
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  }
+}
+.headlineButtonWrapper {
+  display: inline-block;
+}
+
+.headlineButton {
+  background: #fbfbfb;
+  color: #888;
+  font-size: 18px;
+  border: 0;
+  padding-top: 5px;
+  vertical-align: bottom;
+  height: 34px;
+  width: 36px;
+  &:hover,
+  :focus {
+    background: #f3f3f3;
+  }
+}

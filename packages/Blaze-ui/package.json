@@ -1,0 +1,16 @@
+{
+  "name": "@blaze-react/components-styles",
+  "version": "1.0.0",
+  "description": "Blaze styles theme",
+  "main": "main.scss",
+  "scripts": {
+    "lint:sass": "byte9-lint sass",
+    "build": "echo builded"
+  },
+  "author": {
+    "email": "hello@thebyte9.com",
+    "name": "Byte9",
+    "url": "https://thebyte9.com"
+  },
+  "license": "GPL-3.0"
+}
