@@ -1,8 +1,8 @@
+import "@blaze-react/components-styles";
 import Modal from "@blaze-react/modal";
 import { storiesOf } from "@storybook/react";
-import React, { useState } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import FileUploadReadme from "../README.md";
-import FileUpload from "../src";
 
 storiesOf("FileUpload", module)
   .addParameters({
@@ -10,7 +10,7 @@ storiesOf("FileUpload", module)
       sidebar: FileUploadReadme
     }
   })
-  .add("Introduction", () => {
+  .add("Introduction", (): any => {
     const FileUploadModal = ({ onClose }: any) => {
       const [files, setFiles]: any[] = useState([]);
       const onChange = (currentFiles: any[]) => {
@@ -19,23 +19,26 @@ storiesOf("FileUpload", module)
         console.log("files -->", files);
       };
 
+      const FileUpload: any = lazy(() => import("../src"));
       return (
-        <Modal
-          title="Add media"
-          actions={[
-            {
-              modifiers: ["cancel"],
-              textButton: "Cancel"
-            },
-            {
-              modifiers: [],
-              textButton: "Save"
-            }
-          ]}
-          upload
-        >
-          <FileUpload onChange={onChange} />
-        </Modal>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Modal
+            title="Add media"
+            actions={[
+              {
+                modifiers: ["cancel"],
+                textButton: "Cancel"
+              },
+              {
+                modifiers: [],
+                textButton: "Save"
+              }
+            ]}
+            upload
+          >
+            <FileUpload onChange={onChange} />
+          </Modal>
+        </Suspense>
       );
     };
     return (

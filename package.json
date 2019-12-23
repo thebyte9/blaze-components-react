@@ -11,7 +11,7 @@
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "dev": "start-storybook",
+    "dev": "start-storybook && lerna exec build:watch",
     "start": "start-storybook",
     "pre-publish": "npm run build && npm run lint && npm run test"
   },

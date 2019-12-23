@@ -1,7 +1,8 @@
+import "@blaze-react/components-styles";
 import { storiesOf } from "@storybook/react";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import CheckboxesReadme from "../README.md";
-import Checkboxes from "../src";
+
 const multiple = [
   {
     id: "one",
@@ -35,24 +36,29 @@ storiesOf("Checkboxes", module)
       sidebar: CheckboxesReadme
     }
   })
-  .add("Introduction", () => (
-    <div className="component-wrapper">
-      <section className="introductionSection">
-        <h1>Checkboxes</h1>
-        <p>
-          Boxes that are checked (ticked) when activated. They allow you to
-          select single values for submission in a form (or not).
-        </p>
-      </section>
+  .add("Introduction", (): any => {
+    const Checkboxes = lazy(() => import("../src"));
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="component-wrapper">
+          <section className="introductionSection">
+            <h1>Checkboxes</h1>
+            <p>
+              Boxes that are checked (ticked) when activated. They allow you to
+              select single values for submission in a form (or not).
+            </p>
+          </section>
 
-      <hr />
+          <hr />
 
-      <section className="exampleSection">
-        <h3>Multiselect</h3>
-        <Checkboxes options={multiple} onChange={() => ({})} />
+          <section className="exampleSection">
+            <h3>Multiselect</h3>
+            <Checkboxes options={multiple} onChange={() => ({})} />
 
-        <h3>Single</h3>
-        <Checkboxes returnBoolean options={single} onChange={() => ({})} />
-      </section>
-    </div>
-  ));
+            <h3>Single</h3>
+            <Checkboxes returnBoolean options={single} onChange={() => ({})} />
+          </section>
+        </div>
+      </Suspense>
+    );
+  });

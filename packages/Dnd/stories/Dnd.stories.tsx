@@ -1,8 +1,7 @@
 import "@blaze-react/components-styles";
 import { storiesOf } from "@storybook/react";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import DndReadme from "../README.md";
-import DemoComponent from "./DemoComponent";
 
 storiesOf("DnD", module)
   .addParameters({
@@ -10,4 +9,11 @@ storiesOf("DnD", module)
       sidebar: DndReadme
     }
   })
-  .add("Introduction", () => <DemoComponent />);
+  .add("Introduction", (): any => {
+    const DemoComponent: any = lazy((): any => import("./DemoComponent"));
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <DemoComponent />
+      </Suspense>
+    );
+  });

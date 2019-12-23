@@ -1,6 +1,6 @@
-import React from "react";
+import "@blaze-react/components-styles";
 import { storiesOf } from "@storybook/react";
-import SocialFollow from "../src";
+import React, { lazy, Suspense } from "react";
 import SocialReadme from "../README.md";
 const media = {
   facebook: "https://www.thebyte9.com",
@@ -16,22 +16,28 @@ storiesOf("Social Follow", module)
       sidebar: SocialReadme
     }
   })
-  .add("Introduction", () => (
-    <div className="component-wrapper">
-      <h1>Social Follow</h1>
+  .add("Introduction", () => {
+    const SocialFollow: any = lazy((): any => import("../src"));
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="component-wrapper">
+          <h1>Social Follow</h1>
 
-      <p>
-        The Social Icons Widget displays small graphics linked to your social
-        media accounts, and can be displayed on your site in different ways.
-      </p>
+          <p>
+            The Social Icons Widget displays small graphics linked to your
+            social media accounts, and can be displayed on your site in
+            different ways.
+          </p>
 
-      <h4>Share</h4>
-      <SocialFollow media={media} vertical />
+          <h4>Share</h4>
+          <SocialFollow media={media} vertical />
 
-      <br />
-      <br />
+          <br />
+          <br />
 
-      <h4>Follow</h4>
-      <SocialFollow media={media} type="follow" />
-    </div>
-  ));
+          <h4>Follow</h4>
+          <SocialFollow media={media} type="follow" />
+        </div>
+      </Suspense>
+    );
+  });

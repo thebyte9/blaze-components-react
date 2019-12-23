@@ -73,11 +73,12 @@ const DemoComponent = () => {
             style={{
               padding: "20px",
               border: "1px solid #F0F0F0",
-              backgroundColor: "#FFFFFF"
+              backgroundColor: "#FFFFFF",
+              display: "flex"
             }}
           >
-            <p>{item.name}</p>
             <DragHandler />
+            <p>{item.name}</p>
             {children}
           </div>
         )}

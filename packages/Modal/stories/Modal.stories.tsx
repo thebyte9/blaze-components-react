@@ -1,7 +1,7 @@
+import "@blaze-react/components-styles";
 import { storiesOf } from "@storybook/react";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, lazy, Suspense, useState } from "react";
 import ModalReadme from "../README.md";
-import Modal from "../src";
 
 const ModalDemo = () => {
   const [modalStatus, setModalStatus] = useState<boolean>(true);
@@ -16,19 +16,22 @@ const ModalDemo = () => {
     }
   ];
 
+  const Modal: any = lazy((): any => import("../src"));
   return (
-    <Fragment>
-      {modalStatus && (
-        <Modal
-          title="Simple Modal"
-          actions={alertActions}
-          onClose={onClose}
-          isAlert
-        >
-          <p>lorem ipsum dolor...</p>
-        </Modal>
-      )}
-    </Fragment>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Fragment>
+        {modalStatus && (
+          <Modal
+            title="Simple Modal"
+            actions={alertActions}
+            onClose={onClose}
+            isAlert
+          >
+            <p>lorem ipsum dolor...</p>
+          </Modal>
+        )}
+      </Fragment>
+    </Suspense>
   );
 };
 

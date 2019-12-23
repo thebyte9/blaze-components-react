@@ -2,11 +2,9 @@
   "name": "@blaze-react/components-styles",
   "version": "1.0.0",
   "description": "Blaze styles theme",
-  "main": "./lib/main.scss",
+  "main": "./src/main.scss",
   "scripts": {
-    "lint:sass": "../../node_modules/.bin/byte9-lint sass",
-    "clean": "../../node_modules/.bin/rimraf ./lib",
-    "build": "npm run clean && cpx 'src/**/*.scss' ./lib"
+    "lint:sass": "../../node_modules/.bin/byte9-lint sass"
   },
   "author": {
     "email": "hello@thebyte9.com",
