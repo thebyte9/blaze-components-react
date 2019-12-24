@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/blaze-components-theme",
-  "version": "1.0.0",
+  "version": "0.4.11",
   "description": "Blaze styles theme",
   "main": "./src/main.scss",
   "scripts": {
