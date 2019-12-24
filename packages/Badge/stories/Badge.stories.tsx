@@ -1,4 +1,4 @@
-import "@blaze-react/components-styles";
+import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense } from "react";
 import BadgeReadme from "../README.md";

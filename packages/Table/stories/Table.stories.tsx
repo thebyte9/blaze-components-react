@@ -1,4 +1,4 @@
-import "@blaze-react/components-styles";
+import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import faker from "faker";
 import React, { lazy, Suspense, useEffect, useState } from "react";

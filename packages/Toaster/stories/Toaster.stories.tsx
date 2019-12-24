@@ -1,5 +1,5 @@
 import Button from "@blaze-react/button";
-import "@blaze-react/components-styles";
+import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import ToasterReadme from "../README.md";

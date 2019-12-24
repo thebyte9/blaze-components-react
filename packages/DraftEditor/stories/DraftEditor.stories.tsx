@@ -1,4 +1,4 @@
-import "@blaze-react/components-styles";
+import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import { convertFromRaw, EditorState } from "draft-js";
 import { stateToHTML } from "draft-js-export-html";

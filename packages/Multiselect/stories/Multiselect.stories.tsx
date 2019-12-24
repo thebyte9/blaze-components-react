@@ -1,4 +1,4 @@
-import "@blaze-react/components-styles";
+import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React, { useEffect, useState } from "react";
 import MultiSelectReadme from "../README.md";

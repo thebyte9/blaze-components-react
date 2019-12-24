@@ -1,4 +1,4 @@
-import "@blaze-react/components-styles";
+import "@blaze-react/blaze-components-theme";
 import Modal from "@blaze-react/modal";
 import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense, useState } from "react";
