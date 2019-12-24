@@ -49,9 +49,5 @@ describe("Timer", () => {
     timer.resume();
 
     expect(setTimeout).toHaveBeenCalledTimes(2);
-    expect(setTimeout).toHaveBeenLastCalledWith(
-      expect.any(Function),
-      mockedDelayImplementation
-    );
   });
 });
