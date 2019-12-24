@@ -2,7 +2,7 @@
 
 exports[`Toast provider should add a new toaster 1`] = `
 Array [
-  <FakeChildrenComponentImplementation />,
+  <mockConstructor />,
   Object {
     "$$typeof": Symbol(react.portal),
     "children": <ToastContainer
@@ -33,7 +33,9 @@ Array [
       </TransitionGroup>
     </ToastContainer>,
     "containerInfo": <body>
-      <div />
+      <div>
+        <div />
+      </div>
       <div
         class="react-toast-notifications__container"
         style="top: 0px; right: 0px;"

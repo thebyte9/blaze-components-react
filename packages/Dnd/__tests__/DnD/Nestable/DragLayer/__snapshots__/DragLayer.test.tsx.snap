@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drag layer should render without throwing error 1`] = `
+<div>
+  <div
+    class="nestable-drag-layer"
+  >
+    <ol
+      class="nestable-list"
+      style="width: 300px;"
+    >
+      &lt;div&gt;children&lt;/div&gt;
+    </ol>
+  </div>
+</div>
+`;

@@ -1,0 +1,72 @@
+.multiselect {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+
+  & p {
+    margin: 0;
+    padding: 5px 2px;
+    font-size: $size-xx-small;
+    text-align: left;
+  }
+
+  &__clear {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &__dropdown {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    transform: translateY(100%);
+    width: 100%;
+    box-shadow: $box-shadow-small;
+    border: 1px solid $grey-light;
+    background: $white;
+    z-index: 1000;
+
+    & .form-field {
+      padding: 10px;
+    }
+
+    & p {
+      margin: 0;
+      padding: 10px;
+      font-size: $size-x-small;
+      text-align: left;
+    }
+  }
+
+  .form-field {
+    margin: 0;
+  }
+
+  .form-group {
+    margin: 0;
+    padding: 10px 20px;
+  }
+
+  .form-group:hover {
+    background: $grey-light;
+    cursor: pointer;
+  }
+}
+
+.sidebar .multiselect {
+  margin: 0;
+
+  & + .multiselect {
+    margin-top: 10px;
+  }
+}

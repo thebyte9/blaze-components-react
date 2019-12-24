@@ -1,0 +1,151 @@
+.dropdown {
+  &--header {
+    flex: 0 1 150px;
+  }
+
+  &__list {
+    @extend %list;
+    font-size: $size-x-small;
+    font-weight: 600;
+    width: 100%;
+    max-width: 300px;
+
+    &--header {
+      letter-spacing: $x-small-space;
+      display: none;
+      @include mq($from: tablet) {
+        display: block;
+      }
+    }
+  }
+
+  &__list-item {
+    color: $nearly-black;
+    display: flex;
+    position: relative;
+    text-decoration: none;
+    transition-duration: .5s;
+    white-space: nowrap;
+    background: transparent;
+    cursor: pointer;
+
+    &--displayed {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+
+    &:focus-within {
+      cursor: pointer;
+    }
+
+    &--submenu {
+      width: 100%;
+
+      &:hover {
+        background: darken($grey-100, 5%);
+      }
+
+      & a {
+        padding: 1rem;
+        justify-content: flex-start;
+        text-align: left;
+      }
+    }
+
+    &--header {
+      border: 0;
+      color: $white;
+      background: none;
+
+      & a {
+        color: $white;
+      }
+    }
+
+    & i {
+      color: $secondary-color;
+    }
+  }
+
+  &__list-item-link {
+    align-items: center;
+    color: $nearly-black;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    width: 100%;
+
+    &--header {
+      background: $primary-color;
+      border: 0;
+      color: $white;
+      padding: 1rem;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+
+      &:hover {
+        background: darken($primary-color, 5%);
+      }
+    }
+  }
+
+  & a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__link {
+    padding: 1rem;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: left;
+    z-index: 110;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    color: $white;
+    padding: 5px;
+    border: 0;
+    background: $primary-color;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  &__submenu {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all .5s ease;
+    margin-top: 2rem;
+    left: 0;
+    right: 0;
+    padding: 0;
+    background: $grey-lightest;
+    z-index: 110;
+
+    &--displayed {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &--header {
+      border: 1px solid darken($primary-color, 5%);
+      background: $primary-color;
+      margin-top: 36px;
+    }
+  }
+
+  &__name {
+    display: none;
+    @include mq($from: tablet) {
+      display: block;
+    }
+  }
+}

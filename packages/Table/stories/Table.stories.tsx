@@ -1,9 +1,9 @@
+import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import faker from "faker";
-import React, { useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import uuid from "uuid/v1";
 import TableReadme from "../README.md";
-import Table from "../src";
 
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
@@ -34,8 +34,12 @@ const DemoComponent = () => {
       setData(updatedData);
     }
   }, []);
-
-  return <Table checkboxes data={data} onSelect={() => ({})} />;
+  const Table: any = lazy((): any => import("../src"));
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Table checkboxes data={data} onSelect={() => ({})} />
+    </Suspense>
+  );
 };
 
 storiesOf("Table", module)
@@ -44,19 +48,21 @@ storiesOf("Table", module)
       sidebar: TableReadme
     }
   })
-  .add("Introduction", () => (
-    <div className="component-wrapper">
-      <h1>Table</h1>
+  .add("Introduction", () => {
+    return (
+      <div className="component-wrapper">
+        <h1>Table</h1>
 
-      <p>
-        We can choose to render a table with or without row selection by
-                changing the prop boolean value of <code>checkboxes</code>
-      </p>
+        <p>
+          We can choose to render a table with or without row selection by
+                  changing the prop boolean value of <code>checkboxes</code>
+        </p>
 
-      <h4>With Checkboxes</h4>
+        <h4>With Checkboxes</h4>
 
-      <div style={{ margin: "20px", height: "100%" }}>
-        <DemoComponent />
+        <div style={{ margin: "20px", height: "100%" }}>
+          <DemoComponent />
+        </div>
       </div>
-    </div>
-  ));
+    );
+  });
