@@ -19,6 +19,19 @@ const More = ({
 }: IMoreProps) => {
   const moreMenuRef = useRef<HTMLDivElement>(null);
   const [toggled, setToggle] = useState<boolean>(false);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", (event): any => {
+      return handleOutsideClick(event);
+    });
+
+    return function cleanup() {
+      document.removeEventListener("mousedown", (event): any => {
+        return handleOutsideClick(event);
+      });
+    };
+  }, []);
+
   const handleToggle = (event: any) => {
     event.stopPropagation();
     setToggle(!toggled);
@@ -38,26 +51,7 @@ const More = ({
     "more-menu__list-item": isMoreMenu
   });
 
-  useEffect(() => {
-    document.addEventListener("mousedown", (event): any => {
-      // console.log("adding event listener");
-      return handleOutsideClick(event);
-    });
-
-    return function cleanup() {
-      document.removeEventListener("mousedown", (event): any => {
-        // console.log("cleanup");
-        return handleOutsideClick(event);
-      });
-    };
-  }, []);
-
   const handleOutsideClick = (event: any) => {
-    // console.log("current ref", moreMenuRef.current);
-    // if (event && moreMenuRef.current)
-    //   console.log("contains", !moreMenuRef.current.contains(event.target));
-    // console.log("event", event.target);
-    // console.log("toggle", toggled);
     if (
       moreMenuRef.current !== null &&
       !moreMenuRef.current.contains(event.target)

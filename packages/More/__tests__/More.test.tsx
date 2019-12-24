@@ -1,7 +1,6 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import { act } from "react-dom/test-utils";
 import More from "../src";
 import MoreAvatar from "../src/MoreAvatar";
 import MoreContent from "../src/MoreContent";
@@ -266,43 +265,5 @@ describe("More component - event listeners", () => {
       "mousedown",
       expect.any(Function)
     );
-  });
-
-  describe("More content", () => {
-    let wrapper: any;
-    const spy = jest.fn();
-
-    test("should call handleToggle function when user clicks outside of menu", () => {
-      wrapper = mount(
-        <More isMoreMenu displayBg>
-          <More.Avatar isHeader handleToggle={() => ({})}>
-            <span className="material-icons">more_vert</span>
-          </More.Avatar>
-          <More.Content isMoreMenu displayBg handleToggle={spy}>
-            <a href="/">Link</a>
-          </More.Content>
-        </More>
-      );
-      wrapper
-        .find("button")
-        .at(0)
-        .simulate("click");
-      // expect(wrapper.find(".more-menu__background")).toHaveLength(1);
-      // console.log(wrapper.find(".more-menu__background").debug());
-      // wrapper.find(".more-menu__background").simulate("click");
-      // expect(wrapper.find(".more-menu__background")).toHaveLength(0);
-
-      act(() => {
-        wrapper.find(".more-menu__background").simulate("click");
-      });
-      expect(document.addEventListener).toHaveBeenCalled();
-      expect(spy).toHaveBeenCalled();
-
-      act(() => {
-        wrapper.unmount();
-      });
-      expect(document.removeEventListener).toHaveBeenCalled();
-      expect(spy).toHaveBeenCalled();
-    });
   });
 });
