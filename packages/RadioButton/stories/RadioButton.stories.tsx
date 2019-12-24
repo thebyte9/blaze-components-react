@@ -1,7 +1,8 @@
-import React from "react";
+import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
-import RadioButton from "../src";
+import React, { lazy, Suspense } from "react";
 import RadioReadme from "../README.md";
+
 const options = [
   {
     label: "A",
@@ -32,18 +33,23 @@ storiesOf("Radio Buttons", module)
       sidebar: RadioReadme
     }
   })
-  .add("Introduction", () => (
-    <form>
-      <div className="component-wrapper">
-        <h1>Radio Buttons</h1>
-        <p>
-          Only one radio button in a given group can be selected at the same
-          time. Radio buttons are typically rendered as small circles, which are
-          filled or highlighted when selected.
-        </p>
+  .add("Introduction", () => {
+    const RadioButton: any = lazy((): any => import("../src"));
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <form>
+          <div className="component-wrapper">
+            <h1>Radio Buttons</h1>
+            <p>
+              Only one radio button in a given group can be selected at the same
+              time. Radio buttons are typically rendered as small circles, which
+              are filled or highlighted when selected.
+            </p>
 
-        <h4>Choose</h4>
-        <RadioButton required options={options} onChange={() => {}} />
-      </div>
-    </form>
-  ));
+            <h4>Choose</h4>
+            <RadioButton required options={options} onChange={() => {}} />
+          </div>
+        </form>
+      </Suspense>
+    );
+  });

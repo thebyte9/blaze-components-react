@@ -10,7 +10,10 @@ jest.mock("../../../src/Toast/ToastContext", () => ({
 import ToastContext from "../../../src/Toast/ToastContext";
 
 describe("Toast provider", () => {
-  afterEach(cleanup);
+  afterEach(() => {
+    cleanup();
+    jest.clearAllMocks();
+  });
 
   it("should be defined", () => {
     expect(ToastProvider).toBeDefined();
@@ -29,14 +32,15 @@ describe("Toast provider", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it.only("should add a new toaster", () => {
+  it("should add a new toaster", () => {
     const FakeToasterTitleImplementation = "Test toaster";
     const FakeToasterConfigImplementation = {
       appearance: "success",
       autoDismiss: true
     };
-    const FakeChildrenComponentImplementation: any = () =>
-      jest.fn(children => <div>{children}</div>);
+    const FakeChildrenComponentImplementation: any = jest.fn(
+      ({ children: subChildren }) => <div>{subChildren}</div>
+    );
 
     render(
       <ToastProvider>

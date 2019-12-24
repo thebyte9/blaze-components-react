@@ -1,8 +1,6 @@
 import { addParameters, addDecorator, configure } from '@storybook/react';
 import { addReadme, configureReadme } from 'storybook-readme';
 import { create } from '@storybook/theming';
-import './css/blaze-ui.css';
-import './css/_toasters.css';
 
 const basicTheme = create({
   base: 'light',
