@@ -267,3 +267,33 @@ describe("More component - event listeners", () => {
     );
   });
 });
+
+describe("More content", () => {
+  let wrapper: any;
+
+  test("should display classname based on props", () => {
+    wrapper = mount(
+      <More displayBg isMoreMenu>
+        <More.Avatar isMoreMenu handleToggle={() => ({})}>
+          <span className="material-icons">more_vert</span>
+        </More.Avatar>
+        <More.Content isMoreMenu>
+          <a id="with-class" href="/" className="className-test">
+            Link
+          </a>
+          <a id="without-class" href="/">
+            Link
+          </a>
+          <a href="/">Link</a>
+        </More.Content>
+      </More>
+    );
+
+    expect(
+      wrapper.find("#with-class").hasClass("className-test more-menu__link")
+    ).toBeTruthy();
+    expect(
+      wrapper.find("#without-class").hasClass(" more-menu__link")
+    ).toBeTruthy();
+  });
+});
