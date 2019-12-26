@@ -67,4 +67,12 @@ describe("Select component", () => {
     const wrapper = mount(<Select {...defaultProps(override)} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  test("should render the default option disabled", () => {
+    const override = {
+      disableDefault: true
+    };
+    const wrapper = mount(<Select {...defaultProps(override)} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

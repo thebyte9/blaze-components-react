@@ -22,6 +22,7 @@ interface ISelectProps {
   selected?: any;
   id?: string;
   disabled?: any[],
+  disableDefault?: boolean,
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
@@ -37,6 +38,7 @@ const Select: React.SFC<ISelectProps> = ({
   error,
   validationMessage,
   disabled,
+  disableDefault,
   utils: { classNames, ErrorMessage },
   ...attrs
 }) => {
@@ -94,7 +96,7 @@ const Select: React.SFC<ISelectProps> = ({
         value={selectedOption}
         {...attrs}
       >
-        <option defaultValue={selectedOption} disabled={!!selectedOption}>
+        <option defaultValue={selectedOption} disabled={!!selectedOption || disableDefault}>
           Please Choose...
         </option>
         {renderOptions()}
@@ -104,6 +106,7 @@ const Select: React.SFC<ISelectProps> = ({
   );
 };
 Select.defaultProps = {
+  disableDefault: false,
   disabled: [],
   error: false,
   keys: [],

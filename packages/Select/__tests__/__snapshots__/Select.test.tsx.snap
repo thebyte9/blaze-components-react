@@ -11,6 +11,7 @@ exports[`Select component should be defined and renders correctly (snapshot) 1`]
   }
 >
   <Select
+    disableDefault={false}
     disabled={Array []}
     error={false}
     keys={Array []}
@@ -84,6 +85,7 @@ exports[`Select component should render some options disabled 1`] = `
   }
 >
   <Select
+    disableDefault={false}
     disabled={
       Array [
         "ipsum",
@@ -134,6 +136,76 @@ exports[`Select component should render some options disabled 1`] = `
         </option>
         <option
           disabled={true}
+          key="ipsum"
+          value="ipsum"
+        >
+          ipsum
+        </option>
+      </select>
+    </div>
+  </Select>
+</withUtils(Select)>
+`;
+
+exports[`Select component should render the default option disabled 1`] = `
+<withUtils(Select)
+  disableDefault={true}
+  onChange={[Function]}
+  options={
+    Array [
+      "lorem",
+      "ipsum",
+    ]
+  }
+>
+  <Select
+    disableDefault={true}
+    disabled={Array []}
+    error={false}
+    keys={Array []}
+    label=""
+    onChange={[Function]}
+    options={
+      Array [
+        "lorem",
+        "ipsum",
+      ]
+    }
+    required={false}
+    selected=""
+    utils={
+      Object {
+        "ErrorMessage": [Function],
+        "classNames": [Function],
+        "removeExtraSpaces": [Function],
+        "uniqueId": [Function],
+      }
+    }
+    validationMessage="This field is required"
+  >
+    <div
+      className="form-field form-field--select"
+    >
+      <select
+        disabled={false}
+        onChange={[Function]}
+        value=""
+      >
+        <option
+          defaultValue=""
+          disabled={true}
+        >
+          Please Choose...
+        </option>
+        <option
+          disabled={false}
+          key="lorem"
+          value="lorem"
+        >
+          lorem
+        </option>
+        <option
+          disabled={false}
           key="ipsum"
           value="ipsum"
         >
