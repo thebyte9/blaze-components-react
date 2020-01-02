@@ -23,6 +23,7 @@ describe("More component", () => {
         </More.Content>
       </More>
     );
+
     expect(More).toBeDefined();
     expect(typeof More).toBe("function");
     expect(More.Avatar).toBeDefined();
