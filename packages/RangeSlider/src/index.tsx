@@ -8,15 +8,15 @@ interface IRange {
 }
 
 interface IRangeSliderProps {
-  allowSameValues: boolean;
-  disabled: boolean;
-  draggableTrack: boolean;
-  maxValue: number;
-  minValue: number;
-  name: string;
-  onChange: (value: IRange | number) => void
-  step: number;
-  value: IRange | number
+  allowSameValues?: boolean;
+  disabled?: boolean;
+  draggableTrack?: boolean;
+  maxValue?: number;
+  minValue?: number;
+  name?: string;
+  onChange?: (value: IRange | number) => void
+  step?: number;
+  value?: IRange | number
 }
 const RangeSlider: React.SFC<IRangeSliderProps> = ({
   allowSameValues,
@@ -29,11 +29,13 @@ const RangeSlider: React.SFC<IRangeSliderProps> = ({
   step,
   value
 }) => {
-  const [updatedValue, setUpdatedValue] = useState<IRange | number>(value);
+  const [updatedValue, setUpdatedValue] = useState<IRange | number>(value || 0);
 
   const handleChange = (newValue: IRange | number) => {
     setUpdatedValue(newValue);
-    onChange(newValue);
+    if (onChange) {
+      onChange(newValue);
+    }
   };
 
   return (
@@ -60,7 +62,6 @@ RangeSlider.defaultProps = {
   onChange: (): void => {
     return;
   },
-  step: 1,
-  value: 0
+  step: 1
 };
 export default WithUtils(RangeSlider);
