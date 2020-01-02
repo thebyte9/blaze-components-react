@@ -18,8 +18,7 @@ const ErrorMessage: FunctionComponent<IErrorMessage> = ({
 };
 
 ErrorMessage.defaultProps = {
-  icon: "warning",
-  message: ""
+  icon: "warning"
 };
 
 export default ErrorMessage;

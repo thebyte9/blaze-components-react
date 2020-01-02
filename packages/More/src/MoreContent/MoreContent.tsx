@@ -15,25 +15,16 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   isHeader,
   isMoreMenu,
   isDropdown,
-  handleToggle,
   displayBg
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (event: any) => {
-    if (event.target === wrapperRef.current) {
-      handleToggle(event);
-    }
-  };
-
   const getContainer = () => {
     const id = "moreBackground";
     let containerElementRef = document.getElementById(id);
-    if (!containerElementRef) {
-      containerElementRef = document.createElement("div");
-      containerElementRef.id = id;
-      document.body.appendChild(containerElementRef);
-    }
+    containerElementRef = document.createElement("div");
+    containerElementRef.id = id;
+    document.body.appendChild(containerElementRef);
     return containerElementRef;
   };
 
@@ -60,11 +51,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
       {toggled &&
         displayBg &&
         createPortal(
-          <div
-            className="more-menu__background"
-            ref={wrapperRef}
-            onClick={handleClickOutside}
-          />,
+          <div className="more-menu__background" ref={wrapperRef} />,
           getContainer()
         )}
       <ul className={ulClassName}>
