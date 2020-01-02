@@ -12,6 +12,22 @@ const defaultProps = (override: object = {}) => ({
 });
 
 describe("RangeSlider component", () => {
+  let container: HTMLDivElement;
+  let requestAnimationFrame: ((callback: FrameRequestCallback) => number) & ((callback: FrameRequestCallback) => number);
+
+  beforeEach(() => {
+    requestAnimationFrame = window.requestAnimationFrame;
+    container = document.createElement('div');
+
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    window.requestAnimationFrame = requestAnimationFrame;
+
+    document.body.removeChild(container);
+  });
+
   test("should be defined and renders correctly (snapshot)", () => {
     const wrapper = mount(
       <RangeSlider {...defaultProps()} />
@@ -105,5 +121,61 @@ describe("RangeSlider component", () => {
         .at(1)
         .text()
     ).toBe("8");
+  });
+
+  it('should updated the current value when the user hits one of the arrow keys', () => {
+    // const wrapper = mount(
+    //   <RangeSlider {...defaultProps({ value: { min: 2, max: 8 } })} />
+    // );
+    // wrapper
+    //   .find('InputRange')
+    //   .at(0)
+    //   .props.onChange(1);
+    // await wrapper.update();
+    const jsx = (
+      <RangeSlider
+        {...defaultProps({ value: { min: 2, max: 10 }, onChange: (value: any) => component.setProps({ value }) })}
+      />
+    );
+    const component = mount(jsx);
+    const slider = component.find(`Slider [onKeyDown]`).first();
+
+    slider.simulate('keyDown', { keyCode: 37 });
+    slider.simulate('keyUp', { keyCode: 37 });
+    expect(component.props().value).toEqual({ min: 1, max: 10 });
+
+    slider.simulate('keyDown', { keyCode: 39 });
+    slider.simulate('keyUp', { keyCode: 39 });
+    expect(component.props().value).toEqual({ min: 2, max: 10 });
+
+    slider.simulate('keyDown', { keyCode: 39 });
+    slider.simulate('keyUp', { keyCode: 39 });
+    expect(component.props().value).toEqual({ min: 3, max: 10 });
+  });
+
+  it('does not respond to keyboard event when it is disabled', () => {
+    const jsx = (
+      <RangeSlider
+        {...defaultProps({ disabled: true, value: 2, onChange: (value: any) => component.setProps({ value }) })}
+      />
+    );
+    const component = mount(jsx);
+    const slider = component.find(`Slider [onKeyDown]`).first();
+
+    slider.simulate('keyDown', { keyCode: 37 });
+    slider.simulate('keyUp', { keyCode: 37 });
+    expect(component.props().value).toEqual(2);
+  });
+
+  it('displays the current value as a label', () => {
+    const jsx = (
+      <RangeSlider
+        {...defaultProps({ value: { min: 2, max: 10 } })}
+      />
+    );
+    const component = mount(jsx);
+    const label = component.find('Slider Label').first();
+
+    expect(label.text()).toEqual('2');
   });
 });
