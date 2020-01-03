@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.4.12",
+  "version": "0.4.13",
   "publishConfig": {
     "access": "public"
   },
@@ -18,11 +18,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.4.12",
-    "@blaze-react/file-upload": "^0.4.12",
-    "@blaze-react/input": "^0.4.12",
-    "@blaze-react/modal": "^0.4.12",
-    "@blaze-react/text-area": "^0.4.12",
+    "@blaze-react/button": "^0.4.13",
+    "@blaze-react/file-upload": "^0.4.13",
+    "@blaze-react/input": "^0.4.13",
+    "@blaze-react/modal": "^0.4.13",
+    "@blaze-react/text-area": "^0.4.13",
     "@blaze-react/utils": "^0.4.12",
     "@types/draft-js": "0.10.34",
     "draft-js": "^0.11.0",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.12"
+    "@blaze-react/blaze-components-theme": "^0.4.13"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
