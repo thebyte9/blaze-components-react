@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/table",
-  "version": "0.4.9",
+  "version": "0.4.12",
   "publishConfig": {
     "access": "public"
   },
@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.4.9",
-    "@blaze-react/utils": "^0.4.8",
+    "@blaze-react/checkboxes": "^0.4.12",
+    "@blaze-react/utils": "^0.4.12",
     "@types/lodash.orderby": "^4.6.6",
     "lodash.orderby": "^4.6.0",
     "react-tiny-virtual-list": "^2.2.0"
@@ -27,8 +27,8 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@types/uuid": "^3.4.4",
-    "@blaze-react/blaze-components-theme": "^1.0.0"
+    "@blaze-react/blaze-components-theme": "^0.4.12",
+    "@types/uuid": "^3.4.4"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -41,5 +41,5 @@
       "@babel/preset-react"
     ]
   },
-  "gitHead": "3638834d2211cc16d965ecafbf5ab2eeddceca12"
+  "gitHead": "c7cc1d26b4046b800c727feb1dd283dbd833328c"
 }

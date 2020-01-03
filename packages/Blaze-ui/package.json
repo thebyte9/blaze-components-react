@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/blaze-components-theme",
-  "version": "1.0.0",
+  "version": "0.4.12",
   "description": "Blaze styles theme",
   "main": "./src/main.scss",
   "scripts": {
@@ -14,5 +14,6 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "cpx": "^1.5.0"
-  }
+  },
+  "gitHead": "c7cc1d26b4046b800c727feb1dd283dbd833328c"
 }
