@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.13"
+    "@blaze-react/blaze-components-theme": "^0.4.12"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
