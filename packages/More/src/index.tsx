@@ -19,6 +19,19 @@ const More = ({
 }: IMoreProps) => {
   const moreMenuRef = useRef<HTMLDivElement>(null);
   const [toggled, setToggle] = useState<boolean>(false);
+
+  useEffect(() => {
+    document.addEventListener("mousedown", (event): any => {
+      return handleOutsideClick(event);
+    });
+
+    return function cleanup() {
+      document.removeEventListener("mousedown", (event): any => {
+        return handleOutsideClick(event);
+      });
+    };
+  }, []);
+
   const handleToggle = (event: any) => {
     event.stopPropagation();
     setToggle(!toggled);
@@ -37,18 +50,6 @@ const More = ({
     "dropdown__list-item dropdown__list-item--header": isHeader,
     "more-menu__list-item": isMoreMenu
   });
-
-  useEffect(() => {
-    document.addEventListener("mousedown", (event): any =>
-      handleOutsideClick(event)
-    );
-
-    return function cleanup() {
-      document.removeEventListener("mousedown", (event): any =>
-        handleOutsideClick(event)
-      );
-    };
-  }, []);
 
   const handleOutsideClick = (event: any) => {
     if (
@@ -83,4 +84,5 @@ More.defaultProps = {
 };
 More.Avatar = MoreAvatar;
 More.Content = MoreContent;
+
 export default More;

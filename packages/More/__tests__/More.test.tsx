@@ -23,6 +23,7 @@ describe("More component", () => {
         </More.Content>
       </More>
     );
+
     expect(More).toBeDefined();
     expect(typeof More).toBe("function");
     expect(More.Avatar).toBeDefined();
@@ -229,5 +230,71 @@ describe("More component", () => {
       .at(0)
       .simulate("click");
     expect(wrapper.find(".more-menu__background")).toHaveLength(0);
+  });
+});
+
+describe("More component - event listeners", () => {
+  let wrapper: any;
+
+  test("should add event listener when component is mounted and remove event listener when component is unmounted", () => {
+    const map: any = {};
+    document.addEventListener = jest.fn((event, callback) => {
+      map[event] = callback;
+    });
+    document.removeEventListener = jest.fn((event, callback) => {
+      map[event] = undefined;
+    });
+
+    wrapper = mount(
+      <More isMoreMenu onClose={() => ({})}>
+        <More.Avatar isHeader handleToggle={() => ({})}>
+          <span className="material-icons">more_vert</span>
+        </More.Avatar>
+        <More.Content isMoreMenu>
+          <a href="/">Link</a>
+        </More.Content>
+      </More>
+    );
+
+    expect(document.addEventListener).toBeCalledWith(
+      "mousedown",
+      expect.any(Function)
+    );
+
+    wrapper.unmount();
+    expect(document.removeEventListener).toBeCalledWith(
+      "mousedown",
+      expect.any(Function)
+    );
+  });
+});
+
+describe("More content", () => {
+  let wrapper: any;
+
+  test("should display classname based on props", () => {
+    wrapper = mount(
+      <More displayBg isMoreMenu>
+        <More.Avatar isMoreMenu handleToggle={() => ({})}>
+          <span className="material-icons">more_vert</span>
+        </More.Avatar>
+        <More.Content isMoreMenu>
+          <a id="with-class" href="/" className="className-test">
+            Link
+          </a>
+          <a id="without-class" href="/">
+            Link
+          </a>
+          <a href="/">Link</a>
+        </More.Content>
+      </More>
+    );
+
+    expect(
+      wrapper.find("#with-class").hasClass("className-test more-menu__link")
+    ).toBeTruthy();
+    expect(
+      wrapper.find("#without-class").hasClass(" more-menu__link")
+    ).toBeTruthy();
   });
 });
