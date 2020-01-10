@@ -46,21 +46,21 @@ const FileList = ({
                       label="Image title"
                       onChange={handleInputChange}
                       value={name}
-                      id={index}
+                      id={`${index}-title-${file.name}`}
                       name={NAME}
                     />
                     <Input
                       label="Alternative text"
                       onChange={handleInputChange}
                       value={data.altText}
-                      id={index}
+                      id={`${index}-altText-${file.name}`}
                       name={DATA_ATTRIBUTES.ALT_TEXT}
                     />
                     <Input
                       label="Image caption"
                       onChange={handleInputChange}
                       value={data.caption}
-                      id={index}
+                      id={`${index}-caption-${file.name}`}
                       name={DATA_ATTRIBUTES.CAPTION}
                     />
                   </>

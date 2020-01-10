@@ -5,7 +5,7 @@ import { DATA_ATTRIBUTS } from "./constants";
 import { NAME } from "./constants";
 import DraggableFileUpload from "./DraggableFileUpload";
 import FileList from "./FileList";
-import cloneDeep from 'lodash.clonedeep';
+import cloneDeep from "lodash.clonedeep";
 
 interface IFileUploadProps {
   children?: any;
@@ -168,18 +168,20 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
   const handleInputChange = ({ event }: any) => {
     const {
-      target: { id, name, value }
+      target: { id: _id, name, value }
     } = event;
 
     const filesToUploadCopy = cloneDeep(filesToUpload);
+
     const previewImagesCopy = cloneDeep(previewImages);
+    const position = _id.split("-")[0];
 
     if (name !== NAME) {
-      filesToUploadCopy[id].data[name] = value;
-      previewImagesCopy[id].data[name] = value;
+      filesToUploadCopy[position].data[name] = value;
+      previewImagesCopy[position].data[name] = value;
     } else {
-      filesToUploadCopy[id][name] = value;
-      previewImagesCopy[id][name] = value;
+      filesToUploadCopy[position][name] = value;
+      previewImagesCopy[position][name] = value;
     }
 
     setFilesToUpload(filesToUploadCopy);
@@ -205,22 +207,22 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           />
         </DraggableFileUpload>
       ) : (
-          <>
-            <Actions
-              handleLibraryClick={handleLibraryClick}
-              handleBrowse={handleBrowse}
-              handleChange={handleChange}
-              selectFile={selectFile}
+        <>
+          <Actions
+            handleLibraryClick={handleLibraryClick}
+            handleBrowse={handleBrowse}
+            handleChange={handleChange}
+            selectFile={selectFile}
+          />
+          {!customPreview && (
+            <FileList
+              previewImages={previewImages}
+              handleCancel={handleCancel}
+              handleInputChange={handleInputChange}
             />
-            {!customPreview && (
-              <FileList
-                previewImages={previewImages}
-                handleCancel={handleCancel}
-                handleInputChange={handleInputChange}
-              />
-            )}
-          </>
-        )}
+          )}
+        </>
+      )}
     </>
   );
 };

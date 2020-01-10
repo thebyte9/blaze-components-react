@@ -1,7 +1,7 @@
 import "@blaze-react/blaze-components-theme";
 import Modal from "@blaze-react/modal";
 import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense } from "react";
 import FileUploadReadme from "../README.md";
 
 storiesOf("FileUpload", module)
@@ -12,11 +12,10 @@ storiesOf("FileUpload", module)
   })
   .add("Introduction", (): any => {
     const FileUploadModal = ({ onClose }: any) => {
-      const [files, setFiles]: any[] = useState([]);
-      const onChange = (currentFiles: any[]) => {
-        setFiles(currentFiles);
+      const onChange = (event: any[], currentFiles: any[]) => {
         // tslint:disable-next-line: no-console
-        console.log("files -->", files);
+
+        console.log("currentfiles -->", currentFiles);
       };
 
       const FileUpload: any = lazy(() => import("../src"));
