@@ -3,6 +3,7 @@ declare module "*.md" {
   export default value;
 }
 
+declare module "intersection-observer";
 declare module "@blaze-react/button";
 declare module "@blaze-react/button-select";
 declare module "@blaze-react/modal";
