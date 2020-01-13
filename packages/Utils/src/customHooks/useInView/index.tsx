@@ -49,7 +49,7 @@ function useInView({ ref, once = true, offset = "0px" }: IUseInView) {
       };
     })();
   }, [offset, once, ref]);
-  console.log("isIntersecting", isIntersecting);
+
   return [isIntersecting, outerRef];
 }
 
