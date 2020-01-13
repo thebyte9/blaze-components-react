@@ -174,14 +174,14 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const filesToUploadCopy = cloneDeep(filesToUpload);
 
     const previewImagesCopy = cloneDeep(previewImages);
-    const position = _id.split("-")[0];
+    const index = _id.split("-")[0];
 
     if (name !== NAME) {
-      filesToUploadCopy[position].data[name] = value;
-      previewImagesCopy[position].data[name] = value;
+      filesToUploadCopy[index].data[name] = value;
+      previewImagesCopy[index].data[name] = value;
     } else {
-      filesToUploadCopy[position][name] = value;
-      previewImagesCopy[position][name] = value;
+      filesToUploadCopy[index][name] = value;
+      previewImagesCopy[index][name] = value;
     }
 
     setFilesToUpload(filesToUploadCopy);
