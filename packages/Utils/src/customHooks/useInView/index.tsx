@@ -18,6 +18,9 @@ function useInView({ ref, once = true, offset = "0px" }: IUseInView) {
   const outerRef = useRef();
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
     (async () => {
       const usableRef = ref || outerRef;
       const { current }: any = usableRef || {};
