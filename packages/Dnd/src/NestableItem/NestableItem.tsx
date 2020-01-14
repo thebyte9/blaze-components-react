@@ -28,14 +28,14 @@ const NestableItem: React.SFC<INestableItemProps> = ({
   const hasChildren = item[childrenProp] && item[childrenProp].length;
   const listItemClassName = classnames(
     `nestable-item${isCopy ? "-copy" : ""}`,
-    `nestable-item${isCopy ? "-copy" : ""}-${item.id}`,
     {
       "is-dragging": isDragging,
       "nestable-item-parent": hasChildrenProperty
     }
   );
+
   return (
-    <li className={listItemClassName}>
+    <li className={listItemClassName} id={item.id}>
       <div
         className="nestable-item-name"
         onMouseEnter={e => onMouseEnter(e, item)}
