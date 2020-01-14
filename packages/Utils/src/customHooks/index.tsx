@@ -1,3 +1,4 @@
 import useDebounce from "./useDebounce";
+import useInView from "./useInView";
 
-export { useDebounce };
+export { useDebounce, useInView };

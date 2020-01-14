@@ -11,8 +11,8 @@ describe("Drag layer", () => {
   });
 
   it("should render without throwing error", () => {
-    document.querySelector = jest.fn();
-    const { mockReturnValue }: any = document.querySelector;
+    document.getElementById = jest.fn();
+    const { mockReturnValue }: any = document.getElementById;
     mockReturnValue({ clientWidth: 300 });
     const { container } = render(<DragLayer {...dragLayerProps} />);
     expect(container).toMatchSnapshot();

@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/utils",
-  "version": "0.4.12",
+  "version": "0.4.16",
   "publishConfig": {
     "access": "public"
   },
@@ -19,7 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
-    "hoist-non-react-statics": "^3.3.0"
+    "hoist-non-react-statics": "^3.3.0",
+    "intersection-observer": "^0.7.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
