@@ -8,7 +8,7 @@ const DragLayer: React.SFC<IDragLayerProps> = ({
   children,
   dragLayerRef
 }) => {
-  const el: any = document.querySelector(`.nestable-item-${dragItem.id}`);
+  const el: any = document.getElementById(dragItem.id);
   return (
     <div className="nestable-drag-layer">
       <ol

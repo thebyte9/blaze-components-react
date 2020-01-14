@@ -14,7 +14,7 @@ const fakeData = [
       mobile: true,
       gtmClassName: null
     },
-    id: "5ee5aac0-20e9-11ea-9905-f1f9d0456f2f",
+
     items: [
       {
         type: "video",
@@ -53,7 +53,7 @@ const fakeData = [
         items: null
       }
     ],
-    name: "row-1"
+    name: "row 1"
   }
 ];
 
