@@ -19,14 +19,14 @@ const fakeData = [
       {
         type: "video",
         settings: {
-          name: "video-1",
+          name: "video 1",
           modifier: null,
           elementTitle: "video",
           url: "https://youtu.be/ZY3J3Y_OU0w",
           autoplay: false,
           gtmClassName: null
         },
-        id: "7baed110-20e7-11ea-a1ad-975b528f9c64",
+        id: "video 1",
         name: "video-1",
         items: null
       },
