@@ -64,8 +64,8 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     return;
   }, [previewImages, filesToUpload]);
 
-  const getPreview = (files: any[]) =>
-    Promise.all(
+  const getPreview = (files: any[]) => {
+    return Promise.all(
       files.map(
         file =>
           new Promise((resolve, reject) => {
@@ -74,7 +74,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
                 resolve({
-                  data: DATA_ATTRIBUTS,
+                  data: { ...DATA_ATTRIBUTS },
                   file: {
                     base64: e.target.result,
                     id: file.id,
@@ -107,6 +107,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           })
       )
     );
+  };
 
   const processFiles = async (files: any): Promise<any> => {
     if (!files || !files.length) {
@@ -124,7 +125,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
     const previewFiles = await getPreview(files);
     const formatFiles = files.map((file: any) => ({
-      data: DATA_ATTRIBUTS,
+      data: { ...DATA_ATTRIBUTS },
       file
     }));
 

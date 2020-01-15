@@ -28,7 +28,8 @@ const FileList = ({
         },
         index: any
       ) => {
-        const sanitizedFileName = file.name.replace(".", "");
+        const sanitizedFileName = file.name && file.name.replace(".", "");
+
         return (
           <Fragment key={file.id}>
             <div className="preview">
