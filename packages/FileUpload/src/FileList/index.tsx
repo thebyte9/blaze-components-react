@@ -57,14 +57,14 @@ const FileList = ({
                         onChange={handleInputChange}
                         value={data.altText}
                         id={`${index}-altText-${sanitizedFileName}`}
-                        name={`${DATA_ATTRIBUTES.ALT_TEXT}-${index}-caption-${sanitizedFileName}`}
+                        name={`${DATA_ATTRIBUTES.ALT_TEXT}-${index}-${sanitizedFileName}`}
                       />
                       <Input
                         label="Image caption"
                         onChange={handleInputChange}
                         value={data.caption}
                         id={`${index}-caption-${sanitizedFileName}`}
-                        name={`${DATA_ATTRIBUTES.CAPTION}-${index}-caption-${sanitizedFileName}`}
+                        name={`${DATA_ATTRIBUTES.CAPTION}-${index}-${sanitizedFileName}`}
                       />
                     </>
                   )}
