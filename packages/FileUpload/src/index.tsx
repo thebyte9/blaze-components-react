@@ -5,7 +5,7 @@ import { DATA_ATTRIBUTS } from "./constants";
 import { NAME } from "./constants";
 import DraggableFileUpload from "./DraggableFileUpload";
 import FileList from "./FileList";
-import cloneDeep from 'lodash.clonedeep';
+import cloneDeep from "lodash.clonedeep";
 
 interface IFileUploadProps {
   children?: any;
@@ -74,7 +74,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               reader.readAsDataURL(file);
               reader.onload = (e: any) =>
                 resolve({
-                  data: DATA_ATTRIBUTS,
+                  data: { ...DATA_ATTRIBUTS },
                   file: {
                     base64: e.target.result,
                     id: file.id,
@@ -124,7 +124,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
     const previewFiles = await getPreview(files);
     const formatFiles = files.map((file: any) => ({
-      data: DATA_ATTRIBUTS,
+      data: { ...DATA_ATTRIBUTS },
       file
     }));
 
@@ -174,12 +174,15 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const filesToUploadCopy = cloneDeep(filesToUpload);
     const previewImagesCopy = cloneDeep(previewImages);
 
+    const index = Number(id.split("-")[0]);
+
     if (name !== NAME) {
-      filesToUploadCopy[id].data[name] = value;
-      previewImagesCopy[id].data[name] = value;
+      const _name = name.split("-")[0];
+      filesToUploadCopy[index].data[_name] = value;
+      previewImagesCopy[index].data[_name] = value;
     } else {
-      filesToUploadCopy[id][name] = value;
-      previewImagesCopy[id][name] = value;
+      filesToUploadCopy[index][name] = value;
+      previewImagesCopy[index][name] = value;
     }
 
     setFilesToUpload(filesToUploadCopy);
@@ -205,22 +208,22 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           />
         </DraggableFileUpload>
       ) : (
-          <>
-            <Actions
-              handleLibraryClick={handleLibraryClick}
-              handleBrowse={handleBrowse}
-              handleChange={handleChange}
-              selectFile={selectFile}
+        <>
+          <Actions
+            handleLibraryClick={handleLibraryClick}
+            handleBrowse={handleBrowse}
+            handleChange={handleChange}
+            selectFile={selectFile}
+          />
+          {!customPreview && (
+            <FileList
+              previewImages={previewImages}
+              handleCancel={handleCancel}
+              handleInputChange={handleInputChange}
             />
-            {!customPreview && (
-              <FileList
-                previewImages={previewImages}
-                handleCancel={handleCancel}
-                handleInputChange={handleInputChange}
-              />
-            )}
-          </>
-        )}
+          )}
+        </>
+      )}
     </>
   );
 };
