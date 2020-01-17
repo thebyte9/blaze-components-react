@@ -44,7 +44,6 @@ exports[`Select component should be defined and renders correctly (snapshot) 1`]
       >
         <option
           defaultValue=""
-          disabled={false}
         >
           Please Choose...
         </option>
@@ -121,7 +120,6 @@ exports[`Select component should render some options disabled 1`] = `
       >
         <option
           defaultValue=""
-          disabled={false}
         >
           Please Choose...
         </option>
