@@ -62,9 +62,20 @@ describe("Select component", () => {
 
   test("should render some options disabled", () => {
     const override = {
-      disabled: ['ipsum']
+      disabled: ["ipsum"]
     };
     const wrapper = mount(<Select {...defaultProps(override)} />);
     expect(wrapper).toMatchSnapshot();
+  });
+
+  test("should render error correctly", () => {
+    const override = {
+      error: true
+    };
+    const wrapper = mount(<Select {...defaultProps(override)} />);
+
+    expect(wrapper.find("ErrorMessage").text()).toContain(
+      "This field is required"
+    );
   });
 });
