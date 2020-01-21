@@ -1,8 +1,8 @@
 import withUtils from "@blaze-react/utils";
 import React, { useEffect } from "react";
+import { ESCAPE_KEY_CODE } from "./constants";
 import ModalFooter from "./ModalFooter";
 import ModalHeader from "./ModalHeader";
-import { ESCAPE_KEY_CODE } from './constants';
 
 interface IActions {
   textButton: string;
@@ -15,6 +15,7 @@ interface IModalProps {
   actions: IActions[];
   isSimple: boolean;
   isUpload: boolean;
+  isFullScreen: boolean;
   isAlert: boolean;
   overlay?: boolean;
   children?: any;
@@ -28,6 +29,7 @@ const Modal: React.SFC<IModalProps> = ({
   children,
   isSimple,
   isAlert,
+  isFullScreen,
   title,
   isUpload,
   actions,
@@ -46,12 +48,14 @@ const Modal: React.SFC<IModalProps> = ({
     };
   }, []);
 
-  const handleKey = ({ keyCode }: any) => keyCode === ESCAPE_KEY_CODE && closeModal();
+  const handleKey = ({ keyCode }: any) =>
+    keyCode === ESCAPE_KEY_CODE && closeModal();
 
   const closeModal = (): void => onClose();
 
   const modalClassNames: string = classNames(`${className} modal modal--show`, {
     "modal--alert": isAlert,
+    "modal--full-screen": isFullScreen,
     "modal--simple": isSimple,
     "modal--upload": isUpload
   });
@@ -64,7 +68,8 @@ const Modal: React.SFC<IModalProps> = ({
     classNames(`modal__${alertType}`, {
       [`modal__${alertType}--alert`]: isAlert,
       [`modal__${alertType}--simple`]: isSimple,
-      [`modal__${alertType}--upload`]: isUpload
+      [`modal__${alertType}--upload`]: isUpload,
+      [`modal__${alertType}--full-screen`]: isUpload
     })
   );
 
@@ -91,11 +96,12 @@ const Modal: React.SFC<IModalProps> = ({
 Modal.defaultProps = {
   actions: [],
   children: "No content",
+  className: "",
   isAlert: false,
+  isFullScreen: false,
   isSimple: false,
   isUpload: false,
   overlay: true,
-  title: "",
-  className: ""
+  title: ""
 };
 export default withUtils(Modal);

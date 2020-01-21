@@ -25,7 +25,7 @@ const ModalDemo = () => {
             title="Simple Modal"
             actions={alertActions}
             onClose={onClose}
-            isAlert
+            isFullScreen
           >
             <p>lorem ipsum dolor...</p>
           </Modal>
