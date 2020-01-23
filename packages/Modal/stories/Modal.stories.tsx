@@ -21,12 +21,7 @@ const ModalDemo = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <Fragment>
         {modalStatus && (
-          <Modal
-            title="Simple Modal"
-            actions={alertActions}
-            onClose={onClose}
-            isFullScreen
-          >
+          <Modal title="Simple Modal" actions={alertActions} onClose={onClose}>
             <p>lorem ipsum dolor...</p>
           </Modal>
         )}
