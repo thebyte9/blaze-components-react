@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/select",
-  "version": "0.4.16",
+  "version": "0.4.20",
   "publishConfig": {
     "access": "public"
   },
