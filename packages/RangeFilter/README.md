@@ -52,6 +52,7 @@ const value = {
 | NAME              |   TYPE   |         DEFAULT         |
 | :---------------- | :------: | :---------------------: |
 | label             |  String  |          empty          |
+| name              |  String  |          empty          |
 | value             |  object  | {min, max, step, value} |
 | validationMessage |  String  | This field is required  |
 | required          | Boolean  |          false          |
