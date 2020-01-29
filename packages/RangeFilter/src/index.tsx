@@ -14,6 +14,7 @@ interface IRangeValue {
 interface IRangeFilterProps {
   label?: string;
   modifier?: string;
+  name?: string;
   id?: string;
   onChange: ({
     event,
@@ -40,6 +41,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   error,
   validationMessage,
   value,
+  name,
   utils: { classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
@@ -52,15 +54,18 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
 
   useEffect(() => setInputs(value), [value]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement> | any,
+    key: string
+  ): void => {
     const {
-      target: { value: targetValue, name }
+      target: { value: targetValue }
     } = event;
 
     const newValues = {
       ...inputs,
-      [name]: {
-        ...inputs[name],
+      [key]: {
+        ...inputs[key],
         value: parseFloat(targetValue)
       }
     };
@@ -88,10 +93,11 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
           <>
             <input
               type="range"
-              data-testid="input"
-              name={key}
+              data-testid={`input_${key}`}
+              data-key={key}
+              name={`${name}${key}`}
               key={key}
-              onChange={handleChange}
+              onChange={e => handleChange(e, key)}
               {...inputs[key]}
               {...attrs}
             />
@@ -109,6 +115,7 @@ RangeFilter.defaultProps = {
   error: false,
   label: "",
   modifier: "",
+  name: "",
   validationMessage: "This field is required"
 };
 
