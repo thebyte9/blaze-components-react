@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RanngeFilter component should be defined and renders correctly (snapshot) 1`] = `
+<withUtils(RangeFilter)
+  error={true}
+  onChange={[Function]}
+  placeholder="Placeholder text"
+  value={
+    Object {
+      "range": Object {
+        "max": 10,
+        "min": 0,
+        "step": 0,
+        "value": 7,
+      },
+    }
+  }
+>
+  <RangeFilter
+    error={true}
+    label=""
+    modifier=""
+    onChange={[Function]}
+    placeholder="Placeholder text"
+    utils={
+      Object {
+        "ErrorMessage": [Function],
+        "classNames": [Function],
+        "removeExtraSpaces": [Function],
+        "uniqueId": [Function],
+      }
+    }
+    validationMessage="This field is required"
+    value={
+      Object {
+        "range": Object {
+          "max": 10,
+          "min": 0,
+          "step": 0,
+          "value": 7,
+        },
+      }
+    }
+  >
+    <div
+      className="form-field form-field--range "
+    >
+      <div
+        className="range_fields"
+      >
+        <input
+          data-testid="input"
+          key="range"
+          max={10}
+          min={0}
+          name="range"
+          onChange={[Function]}
+          placeholder="Placeholder text"
+          step={0}
+          type="range"
+          value={7}
+        />
+        <span>
+          7
+        </span>
+      </div>
+      <ErrorMessage
+        icon="warning"
+        message="This field is required"
+      >
+        <div
+          className="validation"
+          data-testid="validation-message"
+        >
+          <i
+            className="material-icons"
+          >
+            warning
+          </i>
+          This field is required
+        </div>
+      </ErrorMessage>
+    </div>
+  </RangeFilter>
+</withUtils(RangeFilter)>
+`;
