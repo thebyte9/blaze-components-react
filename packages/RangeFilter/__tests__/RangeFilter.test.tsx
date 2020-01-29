@@ -14,6 +14,7 @@ const initialValue = {
 };
 const defaultProps = (override: object = {}) => ({
   error: true,
+  name: "_test_",
   onChange: () => void 0,
   placeholder: "Placeholder text",
   value: initialValue,
@@ -77,35 +78,16 @@ describe("RanngeFilter component", () => {
   });
 
   test("should handle change event", () => {
-    interface IOnChangeArgs {
-      value?: {
-        value?: string;
-        step?: number;
-        min?: number;
-        max?: number;
-      };
-      event: React.ChangeEvent<HTMLInputElement>;
-    }
+    const newRangeValue = 7;
 
-    let stateValue: any = {};
-    const newRangeValue = 5;
+    const { getByTestId } = render(<RangeFilter {...defaultProps()} />);
 
-    const onChange = (args: IOnChangeArgs): void => {
-      const { value } = args;
-      stateValue = value;
-    };
-
-    const { getByTestId } = render(
-      <RangeFilter {...defaultProps({ onChange })} />
-    );
-
-    fireEvent.change(getByTestId("input"), {
+    fireEvent.change(getByTestId("input_range"), {
       target: {
         value: newRangeValue
       }
     });
 
-    expect(getByTestId("input")).toHaveValue(newRangeValue.toString());
-    expect(stateValue.range.value).toEqual(newRangeValue);
+    expect(getByTestId("input_range")).toHaveValue(newRangeValue.toString());
   });
 });
