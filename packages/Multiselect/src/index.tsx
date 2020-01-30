@@ -26,8 +26,10 @@ interface IMultiSelectProps {
   label?: string;
   limit?: number;
   placeholder?: string;
+  id?: string;
   children?: any;
   notFoundMessage?: string;
+  required?: boolean;
   limitReachedMessage?: string;
   onChange?: (arg: { event: Event; value: string; name: string }) => void;
   error?: boolean;
@@ -41,7 +43,7 @@ interface IMultiSelectProps {
 }
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
-  utils: { ErrorMessage, uniqueId },
+  utils: { ErrorMessage, uniqueId, classNames },
   validationMessage,
   notFoundMessage,
   limitReachedMessage,
@@ -52,7 +54,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   children,
   onChange,
   error,
-  name
+  required,
+  name,
+  ...attrs
 }): JSX.Element => {
   const multiRef = useRef<HTMLDivElement>(null);
   const [dataCopy, setDataCopy] = useState<any>([]);
@@ -81,7 +85,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const setStatus = (obj: object, status: boolean): object =>
     Object.assign({}, obj, { show: status });
 
-  const handleInputChange = ({ event, value }: { event: any; value: string }) => {
+  const handleInputChange = ({
+    event,
+    value
+  }: {
+    event: any;
+    value: string;
+  }) => {
     setSearchValue(value);
     const parsedDataCopy: object[] = parseDataCopy(value);
     if (onChange) {
@@ -206,12 +216,17 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     return false;
   };
 
-  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show).length;
+  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show)
+    .length;
   const checkedItems = dataCopy.filter((item: IData) => item.checked);
+
+  const requiredClassName: string = classNames({ required });
 
   return (
     <div className="form-field form-field--multiselect">
-      {label && <label>{label}</label>}
+      <label htmlFor={attrs.id} className={requiredClassName}>
+        {label}
+      </label>
       <div className="multiselect" ref={multiRef}>
         <div className="chip__wrapper">
           {checkedItems.map(
@@ -277,6 +292,7 @@ MultiSelect.defaultProps = {
     return arg;
   },
   placeholder: "Choose...",
+  required: false,
   validationMessage: "This field is required"
 };
 export default withUtils(MultiSelect);
