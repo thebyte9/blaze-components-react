@@ -20,7 +20,7 @@ interface IRangeFilterProps {
     event,
     value
   }: {
-    event: React.ChangeEvent<HTMLInputElement>;
+    event?: React.ChangeEvent<HTMLInputElement>;
     value: IRangeValue;
   }) => void;
   required?: boolean;
@@ -52,7 +52,10 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     setError(error);
   }, [error]);
 
-  useEffect(() => setInputs(value), [value]);
+  useEffect(() => {
+    setInputs(value);
+    onChange({ value });
+  }, [value]);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement> | any,
