@@ -95,6 +95,7 @@ storiesOf("Select", module)
                 ]}
                 onChange={() => ({})}
                 disabled={["17006"]}
+                required
               />
               <br />
               <br />
