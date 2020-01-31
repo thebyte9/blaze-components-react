@@ -147,6 +147,7 @@ const DemoComponent = () => {
         getSelected={(selected: any) => {
           console.log("selected", selected);
         }}
+        required
       />
     </div>
   );

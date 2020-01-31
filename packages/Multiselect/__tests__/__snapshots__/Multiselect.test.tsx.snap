@@ -42,6 +42,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
   notFoundMessage="No records available"
   onChange={[Function]}
   placeholder="Choose..."
+  required={false}
   utils={
     Object {
       "ErrorMessage": [Function],
