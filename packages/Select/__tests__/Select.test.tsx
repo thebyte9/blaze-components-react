@@ -78,4 +78,15 @@ describe("Select component", () => {
       "This field is required"
     );
   });
+  test("should render 'Please select...' when prop required is not passed", () => {
+    const wrapper = mount(<Select {...defaultProps} />);
+    expect(wrapper.find('[defaultValue=""]')).toHaveLength(1);
+  });
+  test("should not render 'Please select...' when prop required is passed as true", () => {
+    const override = {
+      required: true
+    };
+    const wrapper = mount(<Select {...defaultProps(override)} />);
+    expect(wrapper.find('[defaultValue=""]')).toHaveLength(0);
+  });
 });

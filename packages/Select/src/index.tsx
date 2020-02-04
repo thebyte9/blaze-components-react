@@ -96,7 +96,7 @@ const Select: React.SFC<ISelectProps> = ({
         value={selectedOption}
         {...attrs}
       >
-        {required && <option defaultValue="">Please Choose...</option>}
+        {!required && <option defaultValue="">Please Choose...</option>}
         {renderOptions()}
       </select>
       {error && <ErrorMessage message={validationMessage} />}
