@@ -43,11 +43,6 @@ exports[`Select component should be defined and renders correctly (snapshot) 1`]
         value=""
       >
         <option
-          defaultValue=""
-        >
-          Please Choose...
-        </option>
-        <option
           disabled={false}
           key="lorem"
           value="lorem"
@@ -118,11 +113,6 @@ exports[`Select component should render some options disabled 1`] = `
         onChange={[Function]}
         value=""
       >
-        <option
-          defaultValue=""
-        >
-          Please Choose...
-        </option>
         <option
           disabled={false}
           key="lorem"
