@@ -20,6 +20,7 @@ interface IModalProps {
   overlay?: boolean;
   children?: any;
   onClose?: () => void;
+  showFooter?: boolean;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
   };
@@ -36,6 +37,7 @@ const Modal: React.SFC<IModalProps> = ({
   overlay,
   utils: { classNames },
   className,
+  showFooter,
   onClose = () => ({})
 }): JSX.Element => {
   const sections: string[] = ["header", "content", "footer"];
@@ -83,12 +85,14 @@ const Modal: React.SFC<IModalProps> = ({
 
         <div className={modalContentClassNames}>{children}</div>
 
-        <ModalFooter
-          isAlert={isAlert}
-          footerClassNames={modalFooterClassNames}
-          closeModal={closeModal}
-          actions={actions}
-        />
+        {showFooter && (
+          <ModalFooter
+            isAlert={isAlert}
+            footerClassNames={modalFooterClassNames}
+            closeModal={closeModal}
+            actions={actions}
+          />
+        )}
       </div>
     </>
   );
@@ -102,6 +106,7 @@ Modal.defaultProps = {
   isSimple: false,
   isUpload: false,
   overlay: true,
+  showFooter: true,
   title: ""
 };
 export default withUtils(Modal);

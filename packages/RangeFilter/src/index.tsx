@@ -1,5 +1,5 @@
 import withUtils from "@blaze-react/utils";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -93,19 +93,18 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
       )}
       <div className="range_fields">
         {Object.keys(inputs).map(key => (
-          <>
+          <Fragment key={key}>
             <input
               type="range"
               data-testid={`input_${key}`}
               data-key={key}
               name={`${name}${key}`}
-              key={key}
               onChange={e => handleChange(e, key)}
               {...inputs[key]}
               {...attrs}
             />
             <span>{inputs[key].value}</span>
-          </>
+          </Fragment>
         ))}
       </div>
 
