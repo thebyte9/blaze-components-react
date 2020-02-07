@@ -12,6 +12,7 @@ exports[`Modal component should be defined and renders correctly (snapshot) 1`] 
   onChange={[Function]}
   onClose={[MockFunction]}
   overlay={true}
+  showFooter={true}
   title=""
   utils={
     Object {

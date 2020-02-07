@@ -14,7 +14,7 @@ interface IAutocompleteProps {
   selected: (...args: any[]) => any;
   label?: string;
   placeholder?: string;
-  disabled?: boolean
+  disabled?: boolean;
 }
 const Autocomplete: React.SFC<IAutocompleteProps> = ({
   data: { data, filterBy: keys, keyValue },

@@ -79,8 +79,10 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
             label,
             show = true,
             name,
-            id = uniqueId(item)
+            id
           } = item;
+
+          const defaultId = uniqueId(item);
 
           if (!show) {
             return <Fragment key={id} />;
@@ -95,6 +97,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
             <div
               data-testid={`checkbox-${key + 1}`}
               key={id}
+              id={defaultId}
               className={checkboxClassName}
               onClick={(event): void => toggle({ event, item, key })}
               role="button"
@@ -107,11 +110,11 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
                 disabled={disabled}
                 checked={checked}
                 required={required}
-                id={id}
+                id={id || defaultId}
                 name={name}
                 {...attrs}
               />
-              <label htmlFor={id}>{label}</label>
+              <label htmlFor={defaultId}>{label}</label>
             </div>
           );
         }
