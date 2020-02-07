@@ -72,6 +72,6 @@ const alertActions = [
 | isAlert      | Boolean  |  false   |
 | isSimple     | Boolean  |  false   |
 | isUpload     | Boolean  |  false   |
-| showFooter   | Boolean  |  false   |
+| showFooter   | Boolean  |   true   |
 | isFullScreen | Boolean  |  false   |
 | onClose      | Function | () => {} |
