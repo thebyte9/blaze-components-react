@@ -264,18 +264,20 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           className="multiselect__input"
         />
         {show && (
-          <div className="multiselect__dropdown">
-            {error && <ErrorMessage message={validationMessage} />}
+          <>
+            <div className="multiselect__dropdown">
+              {error && <ErrorMessage message={validationMessage} />}
 
-            {!matchQuery && <p>{notFoundMessage}</p>}
+              {!matchQuery && <p>{notFoundMessage}</p>}
 
-            <Checkboxes
-              options={parseCheckBoxOptions(dataCopy)}
-              onChange={handleCheckBoxChange}
-            />
-          </div>
+              <Checkboxes
+                options={parseCheckBoxOptions(dataCopy)}
+                onChange={handleCheckBoxChange}
+              />
+            </div>
+            {limitReached && <p>{limitReachedMessage}</p>}
+          </>
         )}
-        {limitReached && <p>{limitReachedMessage}</p>}
       </div>
     </div>
   );
