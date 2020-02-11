@@ -53,8 +53,10 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   }, [error]);
 
   useEffect(() => {
-    setInputs(value);
-    onChange({ value });
+    if (value) {
+      setInputs(value);
+      onChange({ value });
+    }
   }, [value]);
 
   const handleChange = (
