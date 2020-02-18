@@ -5,12 +5,11 @@ import React from "react";
 import RangeFilter from "../src";
 
 const initialValue = {
-  range: {
-    max: 10,
-    min: 0,
-    step: 0,
-    value: 7
-  }
+  max: 20,
+  min: 0,
+  step: 1,
+  minValue: 5,
+  maxValue: 10
 };
 const defaultProps = (override: object = {}) => ({
   error: true,

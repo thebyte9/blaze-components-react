@@ -8,12 +8,11 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
   placeholder="Placeholder text"
   value={
     Object {
-      "range": Object {
-        "max": 10,
-        "min": 0,
-        "step": 0,
-        "value": 7,
-      },
+      "max": 20,
+      "maxValue": 10,
+      "min": 0,
+      "minValue": 5,
+      "step": 1,
     }
   }
 >
@@ -35,12 +34,11 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
     validationMessage="This field is required"
     value={
       Object {
-        "range": Object {
-          "max": 10,
-          "min": 0,
-          "step": 0,
-          "value": 7,
-        },
+        "max": 20,
+        "maxValue": 10,
+        "min": 0,
+        "minValue": 5,
+        "step": 1,
       }
     }
   >
@@ -49,11 +47,11 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
     >
       <div
         className="filter"
-        max="100"
-        max-value="40"
-        min="-100"
-        min-value="40"
-        step="1"
+        max={20}
+        max-value={10}
+        min={0}
+        min-value={5}
+        step={1}
       >
         <div
           className="filter-left-handler"

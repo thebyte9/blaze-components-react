@@ -46,6 +46,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   utils: { classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
+  const [inputs, setInputs] = useState<any>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
   const filterRef = useRef(null);
 
@@ -54,9 +55,16 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   }, [error]);
 
   useEffect(() => {
+    if (value) {
+      setInputs(value);
+      onChange({ value });
+    }
+  }, [value]);
+
+  useEffect(() => {
     const rangeFilter = init(filterRef.current);
-    rangeFilter.onChange = (min: any, max: any) =>
-      onChange({ value: { min, max } });
+    rangeFilter.onChange = (minvalue: any, maxvalue: any) =>
+      onChange({ value: { min: minvalue, max: maxvalue } });
   }, []);
 
   const modifierClassName: string = classNames({
@@ -64,6 +72,8 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   });
 
   const requiredClassName: string = classNames({ required });
+
+  const { min, max, step, minValue, maxValue } = inputs;
 
   return (
     <div className={`form-field form-field--range ${modifierClassName}`}>
@@ -74,11 +84,11 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
       )}
       <div
         ref={filterRef}
-        min="-100"
-        max="100"
-        step="1"
-        min-value="40"
-        max-value="40"
+        min={min}
+        max={max}
+        step={step}
+        min-value={minValue}
+        max-value={maxValue}
         className="filter"
       >
         <div className="filter-left-handler">
