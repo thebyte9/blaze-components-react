@@ -1,16 +1,15 @@
-import { fireEvent, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { mount } from "enzyme";
 import "jest-dom/extend-expect";
 import React from "react";
 import RangeFilter from "../src";
 
 const initialValue = {
-  range: {
-    max: 10,
-    min: 0,
-    step: 0,
-    value: 7
-  }
+  max: 20,
+  min: 0,
+  step: 1,
+  minValue: 5,
+  maxValue: 10
 };
 const defaultProps = (override: object = {}) => ({
   error: true,
@@ -27,24 +26,6 @@ describe("RanngeFilter component", () => {
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
-  });
-
-  test("should renders Range with label", () => {
-    const label = "range label";
-    const expectedValue = "7";
-
-    const override = {
-      id: 1,
-      label
-    };
-
-    const { getByLabelText } = render(
-      <RangeFilter {...defaultProps(override)} />
-    );
-
-    const input = getByLabelText(label);
-
-    expect(input).toHaveValue(expectedValue);
   });
 
   test("should display validation message", () => {
@@ -75,19 +56,5 @@ describe("RanngeFilter component", () => {
     expect(getByTestId("validation-message")).toHaveTextContent(
       validationMessage
     );
-  });
-
-  test("should handle change event", () => {
-    const newRangeValue = 7;
-
-    const { getByTestId } = render(<RangeFilter {...defaultProps()} />);
-
-    fireEvent.change(getByTestId("input_range"), {
-      target: {
-        value: newRangeValue
-      }
-    });
-
-    expect(getByTestId("input_range")).toHaveValue(newRangeValue.toString());
   });
 });
