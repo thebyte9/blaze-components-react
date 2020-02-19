@@ -46,6 +46,18 @@ const LinkControl = ({
     }
   };
 
+  const getUrl = (str: string) => {
+    if (
+      str.includes(".") &&
+      !str.match(/^http[s]?:\/\//) &&
+      !str.includes("mailto")
+    ) {
+      return `http://${str}`;
+    }
+
+    return str;
+  };
+
   const addLink = (): void => {
     const contentState: ContentState = editorState.getCurrentContent();
 
@@ -57,15 +69,13 @@ const LinkControl = ({
     let newEditorState: EditorState = editorState;
 
     if (url) {
-      const formatedURL =
-        url.includes(".") && !url.match(/^http[s]?:\/\//)
-          ? `http://${url}`
-          : url;
+      const formatedURL = getUrl(url);
       const contentStateWithEntity: ContentState = contentState.createEntity(
         LINK,
         IMMUTABLE,
         { url: formatedURL }
       );
+
       entityKey = contentStateWithEntity.getLastCreatedEntityKey();
       newEditorState = EditorState.set(editorState, {
         currentContent: contentStateWithEntity
