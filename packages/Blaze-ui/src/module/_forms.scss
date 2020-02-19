@@ -248,10 +248,10 @@ select[disabled] + label {
         box-sizing: border-box;
         display: block;
         position: absolute;
-        height: 36px;
-        width: 36px;
-        padding: 6px;
+        height: 20px;
+        width: 20px;
         z-index: 2;
+        cursor: pointer;
       }
       .filter-left-handler span,
       .filter-right-handler span {
@@ -265,9 +265,9 @@ select[disabled] + label {
       .filter-line {
         box-sizing: border-box;
         position: absolute;
-        width: calc(100% - 36px);
+        width: calc(100% - 20px);
         left: 18px;
-        top: 16px;
+        top: 8px;
         height: 4px;
         border-radius: 4px;
         background: $grey-light;
