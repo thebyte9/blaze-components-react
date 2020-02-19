@@ -55,7 +55,7 @@ const LinkControl = ({
       return `http://${str}`;
     }
 
-    return url;
+    return str;
   };
 
   const addLink = (): void => {
