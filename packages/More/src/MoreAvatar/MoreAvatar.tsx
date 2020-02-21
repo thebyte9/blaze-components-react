@@ -15,7 +15,8 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   label,
   isHeader,
   className,
-  isMoreMenu
+  isMoreMenu,
+  ...props
 }) => {
   const buttonClassName = classnames({
     dropdown__button: isHeader,
@@ -24,7 +25,7 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   });
 
   return (
-    <Button onClick={handleToggle} className={buttonClassName}>
+    <Button onClick={handleToggle} className={buttonClassName} {...props}>
       {isHeader ? (
         <Fragment>
           <span className="dropdown__name">{label}</span>
