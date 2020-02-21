@@ -42,7 +42,7 @@ function createFunction({ attributes, ctx, parent, type }) {
 
 const RangeFilter = function(currentElement) {
   let startX = 0;
-  let x = 0;
+  let xAxis = 0;
 
   const slider = ReactDOM.findDOMNode(currentElement);
   const { touchLeft, touchRight, lineSpan } = getElements(slider);
@@ -80,7 +80,7 @@ const RangeFilter = function(currentElement) {
   const normalizeFact = 26;
 
   this.reset = () => {
-    x = 0;
+    xAxis = 0;
     startX = 0;
     touchLeft.style.left = "0px";
     lineSpan.style.marginLeft = "0px";
@@ -130,9 +130,9 @@ const RangeFilter = function(currentElement) {
     event.preventDefault();
     let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
 
-    x = this === touchLeft ? touchLeft.offsetLeft : touchRight.offsetLeft;
+    xAxis = this === touchLeft ? touchLeft.offsetLeft : touchRight.offsetLeft;
 
-    startX = eventTouch.pageX - x;
+    startX = eventTouch.pageX - xAxis;
     selectedTouch = this;
 
     slider.addEventListener("mousemove", onMove);
@@ -165,23 +165,23 @@ const RangeFilter = function(currentElement) {
   const onMove = (event: any) => {
     let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
 
-    x = eventTouch.pageX - startX;
+    xAxis = eventTouch.pageX - startX;
 
     if (selectedTouch === touchLeft) {
-      if (x > touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN) {
-        x = touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN;
-      } else if (x < 0) {
-        x = 0;
+      if (xAxis > touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN) {
+        xAxis = touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN;
+      } else if (xAxis < 0) {
+        xAxis = 0;
       }
 
-      selectedTouch.style.left = `${x}px`;
+      selectedTouch.style.left = `${xAxis}px`;
     } else if (selectedTouch === touchRight) {
-      if (x < touchLeft.offsetLeft + touchLeft.offsetWidth - MARGIN) {
-        x = touchLeft.offsetLeft + touchLeft.offsetWidth - MARGIN;
-      } else if (x > maxX) {
-        x = maxX;
+      if (xAxis < touchLeft.offsetLeft + touchLeft.offsetWidth - MARGIN) {
+        xAxis = touchLeft.offsetLeft + touchLeft.offsetWidth - MARGIN;
+      } else if (xAxis > maxX) {
+        xAxis = maxX;
       }
-      selectedTouch.style.left = `${x}px`;
+      selectedTouch.style.left = `${xAxis}px`;
     }
 
     lineSpan.style.marginLeft = `${touchLeft.offsetLeft}px`;
