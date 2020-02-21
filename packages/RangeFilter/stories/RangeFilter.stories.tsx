@@ -35,16 +35,6 @@ storiesOf("Range Filter", module)
             onChange={(val: any): void => {
               // console.log(val);
             }}
-          />
-
-          <h4>Range Filter with one moveable handler</h4>
-          <RangeFilter
-            label="Required field with error activated"
-            validationMessage="This field is required"
-            value={value}
-            onChange={(val: any): void => {
-              // console.log(val);
-            }}
             required
             error
           />
