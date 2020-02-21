@@ -229,7 +229,7 @@ const RangeFilter = function(currentElement) {
   touchRight.addEventListener("touchstart", onStart);
 };
 
-function init(currentElement) {
+function init(currentElement: any) {
   if (!currentElement) {
     return {};
   }
