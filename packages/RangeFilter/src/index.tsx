@@ -1,6 +1,7 @@
+// @ts-nocheck
 import withUtils from "@blaze-react/utils";
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
-
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import init from "./logic";
 interface IErrorMessage {
   message: string | JSX.Element;
   icon?: string;
@@ -47,6 +48,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
 }): JSX.Element => {
   const [inputs, setInputs] = useState<any>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
+  const filterRef = useRef(null);
 
   useEffect(() => {
     setError(error);
@@ -59,32 +61,19 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     }
   }, [value]);
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement> | any,
-    key: string
-  ): void => {
-    const {
-      target: { value: targetValue }
-    } = event;
-
-    const newValues = {
-      ...inputs,
-      [key]: {
-        ...inputs[key],
-        value: parseFloat(targetValue)
-      }
-    };
-
-    setInputs(newValues);
-
-    onChange({ event, value: newValues });
-  };
+  useEffect(() => {
+    const rangeFilter = init(filterRef.current);
+    rangeFilter.onChange = (minvalue: any, maxvalue: any) =>
+      onChange({ value: { min: minvalue, max: maxvalue } });
+  }, []);
 
   const modifierClassName: string = classNames({
     [`form-field--${modifier}`]: !!modifier
   });
 
   const requiredClassName: string = classNames({ required });
+
+  const { min, max, step, minValue, maxValue } = inputs;
 
   return (
     <div className={`form-field form-field--range ${modifierClassName}`}>
@@ -93,23 +82,26 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
           {label}
         </label>
       )}
-      <div className="range_fields">
-        {Object.keys(inputs).map(key => (
-          <Fragment key={key}>
-            <input
-              type="range"
-              data-testid={`input_${key}`}
-              data-key={key}
-              name={`${name}${key}`}
-              onChange={e => handleChange(e, key)}
-              {...inputs[key]}
-              {...attrs}
-            />
-            <span>{inputs[key].value}</span>
-          </Fragment>
-        ))}
+      <div
+        ref={filterRef}
+        min={min}
+        max={max}
+        step={step}
+        min-value={minValue}
+        max-value={maxValue}
+        className="filter"
+      >
+        <div className="filter-left-handler">
+          <span></span>
+        </div>
+        <div className="filter-right-handler">
+          <span></span>
+        </div>
+        <div className="filter-line">
+          <span></span>
+        </div>
       </div>
-
+      <div id="result">Min: 0 Max: 140</div>
       {newError && <ErrorMessage message={validationMessage} />}
     </div>
   );

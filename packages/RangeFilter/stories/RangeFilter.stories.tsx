@@ -4,21 +4,12 @@ import React, { lazy, Suspense } from "react";
 import inputReadme from "../README.md";
 
 const value = {
-  firstHandler: {
-    max: 10,
-    min: 0,
-    step: 0,
-    value: 0
-  },
-  secondHandler: {
-    max: 10,
-    min: 0,
-    step: 0,
-    value: 0
-  }
+  max: 20,
+  min: 0,
+  step: 5,
+  minValue: 5,
+  maxValue: 10
 };
-
-const { firstHandler } = value;
 
 storiesOf("Range Filter", module)
   .addParameters({
@@ -48,7 +39,7 @@ storiesOf("Range Filter", module)
           <RangeFilter
             label="Required field with error activated"
             validationMessage="This field is required"
-            value={{ firstHandler }}
+            value={value}
             onChange={(val: any): void => {
               // console.log(val);
             }}

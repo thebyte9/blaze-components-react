@@ -8,12 +8,11 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
   placeholder="Placeholder text"
   value={
     Object {
-      "range": Object {
-        "max": 10,
-        "min": 0,
-        "step": 0,
-        "value": 7,
-      },
+      "max": 20,
+      "maxValue": 10,
+      "min": 0,
+      "minValue": 5,
+      "step": 1,
     }
   }
 >
@@ -35,12 +34,11 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
     validationMessage="This field is required"
     value={
       Object {
-        "range": Object {
-          "max": 10,
-          "min": 0,
-          "step": 0,
-          "value": 7,
-        },
+        "max": 20,
+        "maxValue": 10,
+        "min": 0,
+        "minValue": 5,
+        "step": 1,
       }
     }
   >
@@ -48,23 +46,33 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
       className="form-field form-field--range "
     >
       <div
-        className="range_fields"
+        className="filter"
+        max={20}
+        max-value={10}
+        min={0}
+        min-value={5}
+        step={1}
       >
-        <input
-          data-key="range"
-          data-testid="input_range"
-          max={10}
-          min={0}
-          name="_test_range"
-          onChange={[Function]}
-          placeholder="Placeholder text"
-          step={0}
-          type="range"
-          value={7}
-        />
-        <span>
-          7
-        </span>
+        <div
+          className="filter-left-handler"
+        >
+          <span />
+        </div>
+        <div
+          className="filter-right-handler"
+        >
+          <span />
+        </div>
+        <div
+          className="filter-line"
+        >
+          <span />
+        </div>
+      </div>
+      <div
+        id="result"
+      >
+        Min: 0 Max: 140
       </div>
       <ErrorMessage
         icon="warning"
