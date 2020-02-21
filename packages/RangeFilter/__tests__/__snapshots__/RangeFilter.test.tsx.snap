@@ -46,6 +46,16 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
       className="form-field form-field--range "
     >
       <div
+        className="values"
+      >
+        <span>
+          5
+        </span>
+        <span>
+          10
+        </span>
+      </div>
+      <div
         className="filter"
         max={20}
         max-value={10}
@@ -68,11 +78,6 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
         >
           <span />
         </div>
-      </div>
-      <div
-        id="result"
-      >
-        Min: 0 Max: 140
       </div>
       <ErrorMessage
         icon="warning"

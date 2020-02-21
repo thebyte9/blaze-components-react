@@ -6,10 +6,12 @@ import inputReadme from "../README.md";
 const value = {
   max: 20,
   min: 0,
-  step: 5,
+  step: 1,
   minValue: 5,
   maxValue: 10
 };
+
+// const value = null;
 
 storiesOf("Range Filter", module)
   .addParameters({
