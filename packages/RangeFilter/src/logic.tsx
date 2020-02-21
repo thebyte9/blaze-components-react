@@ -128,11 +128,7 @@ const RangeFilter = function(currentElement) {
 
   function onStart(event: any) {
     event.preventDefault();
-    let eventTouch = event;
-
-    if (event.touches) {
-      [eventTouch] = event.touches;
-    }
+    let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
 
     x = this === touchLeft ? touchLeft.offsetLeft : touchRight.offsetLeft;
 
@@ -167,11 +163,7 @@ const RangeFilter = function(currentElement) {
   };
 
   const onMove = (event: any) => {
-    let eventTouch = event;
-
-    if (event.touches) {
-      [eventTouch] = event.touches;
-    }
+    let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
 
     x = eventTouch.pageX - startX;
 
