@@ -237,6 +237,7 @@ select[disabled] + label {
   }
 
   &--range {
+    padding: 0 10px;
     .values {
       display: flex;
       width: 100%;

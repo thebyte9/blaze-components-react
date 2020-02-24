@@ -77,8 +77,6 @@ const RangeFilter = function(currentElement) {
     defaultMinValue = defaultMaxValue;
   }
 
-  const normalizeFact = 26;
-
   this.reset = () => {
     xAxis = 0;
     startX = 0;
@@ -121,7 +119,7 @@ const RangeFilter = function(currentElement) {
 
   const maxX = slider.offsetWidth - touchRight.offsetWidth;
   let selectedTouch = null;
-  const initialValue = lineSpan.offsetWidth - normalizeFact;
+  const initialValue = lineSpan.offsetWidth - SEPARATION_BETWEEN_HANDLERS;
 
   this.setMinValue(defaultMinValue);
   this.setMaxValue(defaultMaxValue);
@@ -162,28 +160,39 @@ const RangeFilter = function(currentElement) {
     slider.setAttribute("max-value", maxValue);
   };
 
+  const setxAxisLeftPosition = () => {
+    if (xAxis > touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN) {
+      xAxis = touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN;
+    }
+
+    if (xAxis < 0) {
+      xAxis = 0;
+    }
+  };
+
+  const setxAxisRightPosition = () => {
+    if (xAxis < touchLeft.offsetLeft + touchLeft.offsetWidth - MARGIN) {
+      xAxis = touchLeft.offsetLeft + touchLeft.offsetWidth - MARGIN;
+    }
+    if (xAxis > maxX) {
+      xAxis = maxX;
+    }
+  };
+
   const onMove = (event: any) => {
     let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
 
     xAxis = eventTouch.pageX - startX;
 
     if (selectedTouch === touchLeft) {
-      if (xAxis > touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN) {
-        xAxis = touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN;
-      } else if (xAxis < 0) {
-        xAxis = 0;
-      }
-
-      selectedTouch.style.left = `${xAxis}px`;
-    } else if (selectedTouch === touchRight) {
-      if (xAxis < touchLeft.offsetLeft + touchLeft.offsetWidth - MARGIN) {
-        xAxis = touchLeft.offsetLeft + touchLeft.offsetWidth - MARGIN;
-      } else if (xAxis > maxX) {
-        xAxis = maxX;
-      }
-      selectedTouch.style.left = `${xAxis}px`;
+      setxAxisLeftPosition();
     }
 
+    if (selectedTouch === touchRight) {
+      setxAxisRightPosition();
+    }
+
+    selectedTouch.style.left = `${xAxis}px`;
     lineSpan.style.marginLeft = `${touchLeft.offsetLeft}px`;
     lineSpan.style.width = `${touchRight.offsetLeft - touchLeft.offsetLeft}px`;
 
@@ -197,7 +206,7 @@ const RangeFilter = function(currentElement) {
     });
   };
 
-  const onStop = (event: any) => {
+  const onStop = () => {
     slider.removeEventListener("mousemove", onMove);
     slider.removeEventListener("mouseup", onStop);
     slider.removeEventListener("touchmove", onMove);
@@ -221,11 +230,11 @@ const RangeFilter = function(currentElement) {
   touchRight.addEventListener("touchstart", onStart);
 };
 
-function init(currentElement: any) {
+function initRangeFilter(currentElement: any) {
   if (!currentElement) {
     return {};
   }
   return new RangeFilter(currentElement);
 }
 
-export default init;
+export default initRangeFilter;
