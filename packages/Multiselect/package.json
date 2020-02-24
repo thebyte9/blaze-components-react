@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/multiselect",
-  "version": "0.4.33",
+  "version": "0.4.34",
   "publishConfig": {
     "access": "public"
   },
@@ -18,9 +18,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.4.33",
-    "@blaze-react/chips": "^0.4.33",
-    "@blaze-react/input": "^0.4.33",
+    "@blaze-react/checkboxes": "^0.4.34",
+    "@blaze-react/chips": "^0.4.34",
+    "@blaze-react/input": "^0.4.34",
     "@blaze-react/utils": "^0.4.16",
     "lodash.differencewith": "^4.5.0",
     "lodash.isequal": "^4.5.0",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.33",
+    "@blaze-react/blaze-components-theme": "^0.4.34",
     "@types/lodash.unionby": "^4.8.6"
   },
   "peerDependencies": {
