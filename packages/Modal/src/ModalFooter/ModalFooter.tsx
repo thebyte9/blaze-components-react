@@ -28,8 +28,18 @@ const ModalFooter = ({
         </Button>
       )}
       {actions.map(
-        ({ textButton, callback, modifiers = [] }: IActions): JSX.Element => (
-          <Button key={textButton} modifiers={modifiers} onClick={callback}>
+        ({
+          textButton,
+          callback,
+          modifiers = [],
+          ...props
+        }: IActions): JSX.Element => (
+          <Button
+            key={textButton}
+            modifiers={modifiers}
+            onClick={callback}
+            {...props}
+          >
             {textButton}
           </Button>
         )
