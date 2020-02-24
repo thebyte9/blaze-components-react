@@ -11,8 +11,6 @@ const value = {
   maxValue: 10
 };
 
-// const value = null;
-
 storiesOf("Range Filter", module)
   .addParameters({
     readme: {
