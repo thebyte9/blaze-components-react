@@ -12,6 +12,7 @@ const MARGIN_IMAGE = 50;
 const ATOMIC = "atomic";
 const STYLE_AUTO = "auto";
 const MARGINS = ["marginTop", "marginLeft", "marginRight", "marginBottom"];
+const BACKSPACE_COMMAND = "backspace";
 
 export {
   LINK,
@@ -27,5 +28,6 @@ export {
   MARGIN_IMAGE,
   ATOMIC,
   STYLE_AUTO,
-  MARGINS
+  MARGINS,
+  BACKSPACE_COMMAND
 };
