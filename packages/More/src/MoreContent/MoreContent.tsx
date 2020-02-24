@@ -22,9 +22,11 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   const getContainer = () => {
     const id = "moreBackground";
     let containerElementRef = document.getElementById(id);
-    containerElementRef = document.createElement("div");
-    containerElementRef.id = id;
-    document.body.appendChild(containerElementRef);
+    if (!containerElementRef) {
+      containerElementRef = document.createElement("div");
+      containerElementRef.id = id;
+      document.body.appendChild(containerElementRef);
+    }
     return containerElementRef;
   };
 
