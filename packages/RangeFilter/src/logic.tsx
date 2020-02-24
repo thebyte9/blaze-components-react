@@ -5,9 +5,9 @@ const MARGIN = 10;
 const SEPARATION_BETWEEN_HANDLERS = 26;
 
 function getElements(parent: any) {
-  const touchLeft: any = parent.querySelector(".filter-left-handler");
-  const touchRight: any = parent.querySelector(".filter-right-handler");
-  const lineSpan: any = parent.querySelector(".filter-line span");
+  const touchLeft: any = parent.querySelector(".filter--left");
+  const touchRight: any = parent.querySelector(".filter--right");
+  const lineSpan: any = parent.querySelector(".filter--line span");
   return { touchLeft, touchRight, lineSpan };
 }
 

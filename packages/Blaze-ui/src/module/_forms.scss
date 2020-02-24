@@ -250,8 +250,8 @@ select[disabled] + label {
       height: 36px;
       width: 100%;
       user-select: none;
-      &-left-handler,
-      &-right-handler {
+      &--left,
+      &--right {
         box-sizing: border-box;
         display: block;
         position: absolute;
@@ -260,8 +260,8 @@ select[disabled] + label {
         z-index: 2;
         cursor: pointer;
       }
-      &-left-handler,
-      &-right-handler {
+      &--left,
+      &--right {
         span {
           display: block;
           width: 100%;
@@ -270,7 +270,7 @@ select[disabled] + label {
           border-radius: 50%;
         }
       }
-      &-line {
+      &--line {
         box-sizing: border-box;
         position: absolute;
         width: calc(100% - 20px);

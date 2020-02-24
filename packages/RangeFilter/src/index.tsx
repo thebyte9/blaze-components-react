@@ -98,13 +98,13 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         max-value={maxValue}
         className="filter"
       >
-        <div className="filter-left-handler">
+        <div className="filter--left">
           <span></span>
         </div>
-        <div className="filter-right-handler">
+        <div className="filter--right">
           <span></span>
         </div>
-        <div className="filter-line">
+        <div className="filter--line">
           <span></span>
         </div>
       </div>
