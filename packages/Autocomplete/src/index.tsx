@@ -15,6 +15,7 @@ interface IAutocompleteProps {
   label?: string;
   placeholder?: string;
   disabled?: boolean;
+  inputProps: any;
 }
 const Autocomplete: React.SFC<IAutocompleteProps> = ({
   data: { data, filterBy: keys, keyValue },
@@ -22,7 +23,8 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   label,
   placeholder,
   selected,
-  utils: { uniqueId }
+  utils: { uniqueId },
+  inputProps
 }) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [showSelect, setShowSelect] = useState<boolean>(false);
@@ -50,6 +52,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   return (
     <Fragment>
       <Input
+        {...inputProps}
         placeholder={placeholder}
         label={label}
         onChange={handleChange}
@@ -74,6 +77,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     </Fragment>
   );
 };
+
 Autocomplete.defaultProps = {
   disabled: false,
   label: "",
