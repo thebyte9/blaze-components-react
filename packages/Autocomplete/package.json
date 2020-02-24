@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/autocomplete",
-  "version": "0.4.29",
+  "version": "0.4.31",
   "publishConfig": {
     "access": "public"
   },
