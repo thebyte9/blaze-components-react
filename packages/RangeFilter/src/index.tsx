@@ -1,7 +1,7 @@
 // @ts-nocheck
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
-import init from "./logic";
+import initRangeFilter from "./logic";
 interface IErrorMessage {
   message: string | JSX.Element;
   icon?: string;
@@ -46,7 +46,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   utils: { classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
-  const [inputs, setInputs] = useState<any>(value);
+  const [inputs, setInputs] = useState<any>(value || {});
   const [newError, setError] = useState<boolean | undefined>(error);
   const filterRef = useRef(null);
 
@@ -62,9 +62,12 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   }, [value]);
 
   useEffect(() => {
-    const rangeFilter = init(filterRef.current);
-    rangeFilter.onChange = (minvalue: any, maxvalue: any) =>
-      onChange({ value: { min: minvalue, max: maxvalue } });
+    const rangeFilter = initRangeFilter(filterRef.current);
+    rangeFilter.onChange = (minvalue: any, maxvalue: any) => {
+      const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
+      onChange({ value: newValue });
+      setInputs(newValue);
+    };
   }, []);
 
   const modifierClassName: string = classNames({
@@ -73,7 +76,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
 
   const requiredClassName: string = classNames({ required });
 
-  const { min, max, step, minValue, maxValue } = inputs;
+  const { min = 0, max = 0, step = 1, minValue = 0, maxValue = 0 } = inputs;
 
   return (
     <div className={`form-field form-field--range ${modifierClassName}`}>
@@ -82,6 +85,10 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
           {label}
         </label>
       )}
+      <div className="values">
+        <span>{minValue}</span>
+        <span>{maxValue}</span>
+      </div>
       <div
         ref={filterRef}
         min={min}
@@ -91,17 +98,16 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         max-value={maxValue}
         className="filter"
       >
-        <div className="filter-left-handler">
+        <div className="filter--left">
           <span></span>
         </div>
-        <div className="filter-right-handler">
+        <div className="filter--right">
           <span></span>
         </div>
-        <div className="filter-line">
+        <div className="filter--line">
           <span></span>
         </div>
       </div>
-      <div id="result">Min: 0 Max: 140</div>
       {newError && <ErrorMessage message={validationMessage} />}
     </div>
   );
