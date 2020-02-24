@@ -17,6 +17,7 @@ import Editor from "draft-js-plugins-editor";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import {
   ATOMIC,
+  BACKSPACE_COMMAND,
   BLOCKQUOTE,
   HANDLED,
   NOT_HANDLED,
@@ -206,7 +207,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       editorState,
       command
     );
-    if (newState) {
+    if (newState && command !== BACKSPACE_COMMAND) {
       onEditorChange(newState);
       return draftHandledValue;
     }
