@@ -50,7 +50,8 @@ const LinkControl = ({
     if (
       str.includes(".") &&
       !str.match(/^http[s]?:\/\//) &&
-      !str.includes("mailto")
+      !str.includes("mailto:") &&
+      !str.includes("tel:")
     ) {
       return `http://${str}`;
     }

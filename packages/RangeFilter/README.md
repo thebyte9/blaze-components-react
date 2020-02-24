@@ -4,39 +4,16 @@ Set a number within a range with a slider.
 
 ## Usage
 
-- Simple
-
-```js
-const value = {
-  range: {
-    max: 10,
-    value: 0,
-    ...otherValueProps
-  }
-};
-
-<RangeFilter value={value} onChange={({ event, value }) => {}} />;
-```
-
 - With two moveable handlers and custom step value
 
 ```js
 const value = {
-  firstHandler: {
-    max: 10,
-    min: 0,
-    step: 0,
-    value: 0,
-    ...otherValueProps
-  },
-  secondHandler: {
-    max: 10,
-    min: 0,
-    step: 0,
-    value: 0,
-    ...otherValueProps
-  }
-};
+  max: 20,
+  min: 0,
+  step: 1,
+  minValue: 5,
+  maxValue: 10
+}
 
 <RangeFilter
   label="Choose a range"
@@ -49,12 +26,12 @@ const value = {
 
 ##### RangeFilter can receive a number of `props` as follow:
 
-| NAME              |   TYPE   |         DEFAULT         |
-| :---------------- | :------: | :---------------------: |
-| label             |  String  |          empty          |
-| name              |  String  |          empty          |
-| value             |  object  | {min, max, step, value} |
-| validationMessage |  String  | This field is required  |
-| required          | Boolean  |          false          |
-| error             | Boolean  |          false          |
-| onChange          | Function |        () => {}         |
+| NAME              |   TYPE   |               DEFAULT                |
+| :---------------- | :------: | :----------------------------------: |
+| label             |  String  |                empty                 |
+| name              |  String  |                empty                 |
+| value             |  object  | {min, max, step, minValue, maxValue} |
+| validationMessage |  String  |        This field is required        |
+| required          | Boolean  |                false                 |
+| error             | Boolean  |                false                 |
+| onChange          | Function |               () => {}               |
