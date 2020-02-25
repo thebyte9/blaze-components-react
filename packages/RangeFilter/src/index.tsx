@@ -96,7 +96,8 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         step={step}
         min-value={minValue}
         max-value={maxValue}
-        className={`${name}Range filter`}
+        id={`${name}Range`}
+        className="filter"
       >
         <div className="filter--left">
           <span></span>

@@ -56,7 +56,8 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
         </span>
       </div>
       <div
-        className="_test_Range filter"
+        className="filter"
+        id="_test_Range"
         max={20}
         max-value={10}
         min={0}
