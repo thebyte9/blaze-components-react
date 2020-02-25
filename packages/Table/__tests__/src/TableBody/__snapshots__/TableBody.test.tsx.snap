@@ -21,7 +21,9 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
           >
             <div
               class="form-field form-field--checkbox"
+              data-cy="checkbox-cy-1"
               data-testid="checkbox-1"
+              id="uid-eyJjaGVja2VkIjpmYWxzZX0="
               role="button"
             >
               <input
@@ -75,7 +77,9 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
           >
             <div
               class="form-field form-field--checkbox"
+              data-cy="checkbox-cy-1"
               data-testid="checkbox-1"
+              id="uid-eyJjaGVja2VkIjpmYWxzZX0=_3"
               role="button"
             >
               <input
