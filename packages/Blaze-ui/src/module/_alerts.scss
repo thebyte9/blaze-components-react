@@ -106,3 +106,39 @@
     margin-bottom: 0;
   }
 }
+
+.multi_level_menu {
+  position: relative;
+  height: 200px;
+  width: 400px;
+  border: solid 1px #222;
+  ul li {
+    color: #333;
+  }
+  .hide {
+    margin-left: -200px;
+    transition: all 0.8s ease;
+  }
+
+  .side-menu {
+    position: absolute;
+    top: 30px;
+    background: #eeeeee;
+    color: white;
+    width: 200px;
+    height: 100%;
+  }
+  .show-menu {
+    margin-left: 0 !important;
+  }
+  .nav-link {
+    &--hide {
+      display: none;
+    }
+  }
+  #layer1 {
+    .nav-link > a {
+      color: red;
+    }
+  }
+}
