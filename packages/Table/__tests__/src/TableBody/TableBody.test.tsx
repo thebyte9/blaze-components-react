@@ -25,9 +25,10 @@ describe("Table body", () => {
     getByText(placeholder);
   });
 
-  it("should render data and pass it throught virtual list", () => {
+  it.only("should render data and pass it throught virtual list", () => {
     const { container } = render(
       <TableBody
+        identification='id'
         selected={[]}
         onItemsRendered={jest.fn}
         checkboxes={true}
