@@ -25,7 +25,7 @@ describe("Table body", () => {
     getByText(placeholder);
   });
 
-  it.only("should render data and pass it throught virtual list", () => {
+  it("should render data and pass it throught virtual list", () => {
     const { container } = render(
       <TableBody
         identification='id'
