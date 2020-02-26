@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/progress",
-  "version": "0.4.37-alpha.0",
+  "version": "0.4.37",
   "publishConfig": {
     "access": "public"
   },
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.37-alpha.0"
+    "@blaze-react/blaze-components-theme": "^0.4.37"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
