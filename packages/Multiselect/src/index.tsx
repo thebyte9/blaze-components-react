@@ -248,7 +248,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
             )
           )}
           {!!checkedItems.length && (
-            <button className="button button--link" onClick={handleClearAll}>
+            <button data-cy={`multiSelect-${label}-clearAll-button`} className="button button--link" onClick={handleClearAll}>
               Clear all
             </button>
           )}
@@ -262,6 +262,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           onKeyDown={handleKeyDown}
           onFocus={handleFocus}
           className="multiselect__input"
+          {...attrs}
         />
         {show && (
           <>

@@ -49,7 +49,7 @@ class ModalWithFileUpload extends Component {
             title="Add media"
             actions={[['submit', () => {}, 'rounded outline']]}
             upload>
-            <FileUpload handleDrop={handleDrop}>
+            <FileUpload handleDrop={handleDrop} actionText="Add file">
                 {previewImages}
             </FileUpload>
           </Modal>
@@ -64,8 +64,9 @@ class ModalWithFileUpload extends Component {
 
 ##### FileUpload can receive a number of `props` as follow:
 
-| NAME   | TYPE | DEFAULT | 
-| :---  | :---:  | :---: | 
-| handleDrop | Function | () => {} | 
-| children | Single or array of nodes | No content |
+| NAME       |           TYPE           |  DEFAULT   |
+| :--------- | :----------------------: | :--------: |
+| handleDrop |         Function         |  () => {}  |
+| children   | Single or array of nodes | No content |
+| actionText |          String          | Add files  |
 

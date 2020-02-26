@@ -29,13 +29,17 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
           <withUtils()
             className="icon-button icon-button--round"
             disabled={false}
+            displayBg={false}
             onClick={[Function]}
+            toggled={false}
             type="button"
           >
             <Component
               className="icon-button icon-button--round"
               disabled={false}
+              displayBg={false}
               onClick={[Function]}
+              toggled={false}
               type="button"
               utils={
                 Object {
@@ -49,7 +53,9 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
               <button
                 className="icon-button icon-button--round"
                 disabled={false}
+                displayBg={false}
                 onClick={[Function]}
+                toggled={false}
                 type="button"
               >
                 <span

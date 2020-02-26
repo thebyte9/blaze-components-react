@@ -237,14 +237,21 @@ select[disabled] + label {
   }
 
   &--range {
+    padding: 0 10px;
+    .values {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding-left: 5px;
+    }
     .filter {
       display: block;
       position: relative;
       height: 36px;
       width: 100%;
       user-select: none;
-      .filter-left-handler,
-      .filter-right-handler {
+      &--left,
+      &--right {
         box-sizing: border-box;
         display: block;
         position: absolute;
@@ -253,16 +260,17 @@ select[disabled] + label {
         z-index: 2;
         cursor: pointer;
       }
-      .filter-left-handler span,
-      .filter-right-handler span {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: $grey-light;
-        border: 1px solid $grey-medium;
-        border-radius: 50%;
+      &--left,
+      &--right {
+        span {
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: $grey;
+          border-radius: 50%;
+        }
       }
-      .filter-line {
+      &--line {
         box-sizing: border-box;
         position: absolute;
         width: calc(100% - 20px);
@@ -270,15 +278,15 @@ select[disabled] + label {
         top: 8px;
         height: 4px;
         border-radius: 4px;
-        background: $grey-light;
+        background: $grey-lightest;
         z-index: 0;
         overflow: hidden;
-      }
-      .filter-line span {
-        display: block;
-        height: 100%;
-        width: 0%;
-        background: $grey-medium;
+        span {
+          display: block;
+          height: 100%;
+          width: 0%;
+          background: $grey-light;
+        }
       }
     }
   }
