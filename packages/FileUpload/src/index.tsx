@@ -14,7 +14,7 @@ interface IFileUploadProps {
   handleDrop?: (...args: any[]) => void;
   handleLibraryClick?: (...args: any[]) => void;
   enableDragAndDrop?: boolean;
-  actionText?: string;
+  actionText?: any;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
