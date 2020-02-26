@@ -1,7 +1,10 @@
+// @ts-nocheck
+
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import inputReadme from "../README.md";
+import MultiLevelMenu from "../src";
 
 storiesOf("MultiLevelMenu", module)
   .addParameters({
@@ -10,21 +13,26 @@ storiesOf("MultiLevelMenu", module)
     }
   })
   .add("Introduction", () => {
-    const MultiLevelMenu: any = lazy(() => import("../src"));
     return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <div className="component-wrapper">
-          <section className="introductionSection">
-            <h1>MultiLevelMenu</h1>
-          </section>
+      <div className="component-wrapper">
+        <section className="introductionSection">
+          <h1>MultiLevelMenu</h1>
+        </section>
 
-          <MultiLevelMenu
-            onChange={(val: any): void => {
-              // console.log(val);
-            }}
-            error
-          />
-        </div>
-      </Suspense>
+        <MultiLevelMenu selected={1}>
+          <MultiLevelMenu.List id={1} active>
+            <MultiLevelMenu.Item to={2}>Level 1 menu ></MultiLevelMenu.Item>
+            <MultiLevelMenu.Item>Level 1 menu</MultiLevelMenu.Item>
+          </MultiLevelMenu.List>
+
+          <MultiLevelMenu.List id={2}>
+            <MultiLevelMenu.Item to={3}>Level 2 menu ></MultiLevelMenu.Item>
+          </MultiLevelMenu.List>
+
+          <MultiLevelMenu.List id={3}>
+            <MultiLevelMenu.Item>Level 3 menu ></MultiLevelMenu.Item>
+          </MultiLevelMenu.List>
+        </MultiLevelMenu>
+      </div>
     );
   });

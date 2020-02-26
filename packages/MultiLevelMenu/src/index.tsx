@@ -1,27 +1,15 @@
 // @ts-nocheck
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
-// import ReactDOM from "react-dom";
+import MultiLevelMenuList from "./MultiLevelMenuList";
+import MultiLevelMenuListItem from "./MultiLevelMenuListItem";
 
-interface IRangeFilterProps {
-  modifier?: string;
-  name?: string;
-  id?: string;
-  onChange: ({
-    event,
-    value
-  }: {
-    event?: React.ChangeEvent<HTMLInputElement>;
-    value: IRangeValue;
-  }) => void;
-  validationMessage: string | JSX.Element;
-  utils: {
-    classNames: (className: string | object, classNames?: object) => string;
-    ErrorMessage: FunctionComponent<IErrorMessage>;
-  };
+interface IMultiLevelMenuProps {
+  selected: number;
+  children: JSX.Element | [JSX.Element];
 }
 
-const MultiLevelMenu: FunctionComponent<IRangeFilterProps> = ({
+const MultiLevelMenu: FunctionComponent<IMultiLevelMenuProps> = ({
   label,
   modifier,
   onChange,
@@ -29,12 +17,13 @@ const MultiLevelMenu: FunctionComponent<IRangeFilterProps> = ({
   error,
   validationMessage,
   name,
-  utils: { classNames, ErrorMessage },
+  selected,
+  children,
   ...attrs
 }): JSX.Element => {
   const [backAttributes, setBackAttributes] = useState<any>({
     backLink: "#",
-    value: 1
+    value: selected
   });
 
   const menuRef = useRef(null);
@@ -52,6 +41,10 @@ const MultiLevelMenu: FunctionComponent<IRangeFilterProps> = ({
 
     const backLinkElement = menuRef.current.querySelector(backLink);
 
+    if (!backLinkElement) {
+      return;
+    }
+
     backLinkElement.classList.remove("hide-menu");
     backLinkElement.classList.toggle("show-menu");
   };
@@ -60,6 +53,7 @@ const MultiLevelMenu: FunctionComponent<IRangeFilterProps> = ({
     const { backLink, value } = backAttributes;
 
     const currenActiveMenu = menuRef.current.querySelector(backLink);
+
     currenActiveMenu.classList.remove("show-menu");
 
     const newBackLink = `#layer${value - 1}`;
@@ -74,65 +68,29 @@ const MultiLevelMenu: FunctionComponent<IRangeFilterProps> = ({
     sideMenus.forEach(item => item.addEventListener("click", handleClickMenu));
   }, []);
 
-  const navLinkModifier: string = classNames({
-    "nav-link--hide": backAttributes.value === 1
-  });
+  const navLinkModifier: string =
+    backAttributes.value === 1 ? "nav-link--hide" : "";
 
   return (
-    <div className="multi_level_menu" ref={menuRef}>
+    <div className="multi_level_menu" ref={menuRef} {...attrs}>
       <div className="nav-title">
         <a
           href={backAttributes.backLink}
           className={`nav-link ${navLinkModifier}`}
-          id="layer1"
+          id={`layer${selected}`}
           onClick={handleNavLinkClick}
           data-value={backAttributes.linkValue}
         >
           back
         </a>
-        <div className="side-menu" id="layer1">
-          <ul>
-            <li>
-              <a href="#" className="l1" data-value="2">
-                Level 1 menu >
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="layer1 side-menu hide" id="layer2">
-          <ul>
-            <li>
-              <a href="#" className="l1" data-value="3" id="l2">
-                Level 2 menu >
-              </a>
-            </li>
-            <li>
-              <a href="#" className="l1" id="l2">
-                Level 2 menu
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="layer2 side-menu hide" id="layer3">
-          <ul>
-            <li>
-              <a href="#" className="">
-                Level 3 menu >
-              </a>
-            </li>
-          </ul>
-        </div>
+
+        {children}
       </div>
     </div>
   );
 };
 
-MultiLevelMenu.defaultProps = {
-  error: false,
-  label: "",
-  modifier: "",
-  name: "",
-  validationMessage: "This field is required"
-};
+MultiLevelMenu.List = MultiLevelMenuList;
+MultiLevelMenu.Item = MultiLevelMenuListItem;
 
-export default withUtils(MultiLevelMenu);
+export default MultiLevelMenu;
