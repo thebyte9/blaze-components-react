@@ -58,7 +58,6 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     if (value) {
       setInputs(value);
       onChange({ value });
-      initRange();
     }
   }, [value]);
 
