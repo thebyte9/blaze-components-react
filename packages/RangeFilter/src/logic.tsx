@@ -1,13 +1,15 @@
 // @ts-nocheck
+// tslint:disable: no-console
+
 import ReactDOM from "react-dom";
 
 const MARGIN = 10;
 const SEPARATION_BETWEEN_HANDLERS = 26;
 
 function getElements(parent: any) {
-  const touchLeft: any = parent.querySelector(".filter--left");
-  const touchRight: any = parent.querySelector(".filter--right");
-  const lineSpan: any = parent.querySelector(".filter--line span");
+  const touchLeft: any = parent.querySelector(".range__filter--left");
+  const touchRight: any = parent.querySelector(".range__filter--right");
+  const lineSpan: any = parent.querySelector(".range__filter--line span");
   return { touchLeft, touchRight, lineSpan };
 }
 
@@ -45,6 +47,7 @@ const RangeFilter = function(currentElement) {
   let xAxis = 0;
 
   const slider = ReactDOM.findDOMNode(currentElement);
+  console.log(slider, "Slider");
   const { touchLeft, touchRight, lineSpan } = getElements(slider);
 
   const attributes = getAttributes(slider, [
@@ -78,6 +81,9 @@ const RangeFilter = function(currentElement) {
   }
 
   this.reset = () => {
+    console.log(slider.offsetWidth, "slider.offsetWidth");
+    console.log(touchLeft.offsetWidth, "touchLeft.offsetWidth");
+
     xAxis = 0;
     startX = 0;
     touchLeft.style.left = "0px";
