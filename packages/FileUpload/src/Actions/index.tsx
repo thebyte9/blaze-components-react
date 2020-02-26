@@ -6,18 +6,20 @@ interface IActions {
   handleBrowse?: (...args: any[]) => void;
   handleChange?: (...args: any[]) => void;
   selectFile: any;
+  actionText: string;
 }
 
 const Actions = ({
   handleBrowse,
   handleLibraryClick,
   handleChange,
-  selectFile
+  selectFile,
+  actionText
 }: IActions) => (
   <>
     {!handleLibraryClick && <Button onClick={handleBrowse}>Browse</Button>}
     {handleLibraryClick && (
-      <Button onClick={handleLibraryClick}>Add files</Button>
+      <Button onClick={handleLibraryClick}>{actionText}</Button>
     )}
     <input
       type="file"
