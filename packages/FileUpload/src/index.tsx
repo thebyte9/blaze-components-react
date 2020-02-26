@@ -1,3 +1,4 @@
+import cloneDeep from "lodash.clonedeep";
 import React, { useEffect, useRef, useState } from "react";
 import uuid from "uuid/v1";
 import Actions from "./Actions";
@@ -5,7 +6,6 @@ import { DATA_ATTRIBUTS } from "./constants";
 import { NAME } from "./constants";
 import DraggableFileUpload from "./DraggableFileUpload";
 import FileList from "./FileList";
-import cloneDeep from "lodash.clonedeep";
 
 interface IFileUploadProps {
   children?: any;
@@ -14,6 +14,7 @@ interface IFileUploadProps {
   handleDrop?: (...args: any[]) => void;
   handleLibraryClick?: (...args: any[]) => void;
   enableDragAndDrop?: boolean;
+  actionText: string;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
@@ -22,6 +23,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   customPreview,
   handleLibraryClick,
   enableDragAndDrop,
+  actionText,
   ...attr
 }) => {
   const [previewImages, setPreviewImages]: any[] = useState([]);
@@ -201,6 +203,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           {...attr}
         >
           <Actions
+            actionText={actionText}
             handleLibraryClick={handleLibraryClick}
             handleBrowse={handleBrowse}
             handleChange={handleChange}
@@ -210,6 +213,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       ) : (
         <>
           <Actions
+            actionText={actionText}
             handleLibraryClick={handleLibraryClick}
             handleBrowse={handleBrowse}
             handleChange={handleChange}
@@ -228,6 +232,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   );
 };
 FileUpload.defaultProps = {
+  actionText: "Add Files",
   children: "No content",
   customPreview: false,
   enableDragAndDrop: true,
