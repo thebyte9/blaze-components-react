@@ -23,9 +23,9 @@ function getLeftStyle({ ratio, parent, handler, isRight }) {
   const factor = isRight ? SEPARATION_BETWEEN_HANDLERS : 0;
   return `${Math.ceil(
     ratio *
-      (parent.offsetWidth -
-        (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
-      factor
+    (parent.offsetWidth -
+      (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
+    factor
   )}px`;
 }
 
@@ -42,7 +42,7 @@ function createFunction({ attributes, ctx, parent, type }) {
   }
 }
 
-const RangeFilter = function(currentElement) {
+const RangeFilter = function (currentElement) {
   let startX = 0;
   let xAxis = 0;
 
@@ -88,8 +88,18 @@ const RangeFilter = function(currentElement) {
     startX = 0;
     touchLeft.style.left = "0px";
     lineSpan.style.marginLeft = "0px";
-    lineSpan.style.width = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
-    touchRight.style.left = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
+    let sliderOffsetWidth = slider.offsetWidth;
+    let touchLeftOffsetWidth = touchLeft.offsetWidth;
+    let areNotZeroValues = !!sliderOffsetWidth && !!touchLeftOffsetWidth
+
+    while (areNotZeroValues && sliderOffsetWidth === touchLeftOffsetWidth) {
+      areNotZeroValues = !!sliderOffsetWidth && !!touchLeftOffsetWidth
+      sliderOffsetWidth = slider.offsetWidth;
+      touchLeftOffsetWidth = touchLeft.offsetWidth;
+    }
+
+    lineSpan.style.width = `${sliderOffsetWidth - touchLeftOffsetWidth}px`;
+    touchRight.style.left = `${sliderOffsetWidth - touchLeftOffsetWidth}px`;
   };
 
   this.setValue = ({ typeValue, attribute, isRight }) => {
