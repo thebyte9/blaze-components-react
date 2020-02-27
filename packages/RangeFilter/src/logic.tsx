@@ -153,6 +153,7 @@ const RangeFilter = function (currentElement) {
     slider.addEventListener("mouseup", onStop);
     slider.addEventListener("touchmove", onMove);
     slider.addEventListener("touchend", onStop);
+    document.addEventListener("click", onStop);
   }
 
   const calculateValue = () => {
@@ -223,10 +224,12 @@ const RangeFilter = function (currentElement) {
   };
 
   const onStop = () => {
+    document.removeEventListener("click", onStop);
     slider.removeEventListener("mousemove", onMove);
     slider.removeEventListener("mouseup", onStop);
     slider.removeEventListener("touchmove", onMove);
     slider.removeEventListener("touchend", onStop);
+
 
     selectedTouch = null;
 
