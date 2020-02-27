@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React from "react";
