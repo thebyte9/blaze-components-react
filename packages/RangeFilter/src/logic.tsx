@@ -47,7 +47,6 @@ const RangeFilter = function (currentElement) {
   let xAxis = 0;
 
   const slider = ReactDOM.findDOMNode(currentElement);
-  console.log(slider, "Slider");
   const { touchLeft, touchRight, lineSpan } = getElements(slider);
 
   const attributes = getAttributes(slider, [
@@ -229,7 +228,6 @@ const RangeFilter = function (currentElement) {
     slider.removeEventListener("mouseup", onStop);
     slider.removeEventListener("touchmove", onMove);
     slider.removeEventListener("touchend", onStop);
-
 
     selectedTouch = null;
 
