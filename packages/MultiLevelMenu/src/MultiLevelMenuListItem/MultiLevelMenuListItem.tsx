@@ -1,18 +1,20 @@
 import React from "react";
 
 interface IMultiLevelMenuListItemProps {
-  children: JSX.Element | JSX.Element[];
-  to: number;
+  children: string | JSX.Element | JSX.Element[];
+  to?: number;
+  handleClickMenu?: (to: number | undefined) => {};
 }
 
 const MultiLevelMenuListItem = ({
   children,
-  to
+  to,
+  handleClickMenu
 }: IMultiLevelMenuListItemProps): JSX.Element => (
   <li>
-    <a href="#" className="l1" data-value={to}>
+    <span onClick={() => handleClickMenu && handleClickMenu(to)}>
       {children}
-    </a>
+    </span>
   </li>
 );
 

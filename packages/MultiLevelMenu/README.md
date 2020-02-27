@@ -1,37 +1,32 @@
 ## Description
 
-Set a number within a range with a slider.
+Component to navigate between submenus.
 
 ## Usage
 
-- With two moveable handlers and custom step value
-
 ```js
-const value = {
-  max: 20,
-  min: 0,
-  step: 1,
-  minValue: 5,
-  maxValue: 10
-}
+<MultiLevelMenu main={1}>
+  <MultiLevelMenu.List id={1}>
+    <MultiLevelMenu.Item to={2}>Lorem</MultiLevelMenu.Item>
+  </MultiLevelMenu.List>
 
-<RangeFilter
-  label="Choose a range"
-  value={value}
-  onChange={({ event, value }) => {}}
+  <MultiLevelMenu.List id={2}>
+    <MultiLevelMenu.Item to={3}>Ipsum</MultiLevelMenu.Item>
+  </MultiLevelMenu.List>
+
+  <MultiLevelMenu.List id={3}>
+    <MultiLevelMenu.Item>Dolor</MultiLevelMenu.Item>
+  </MultiLevelMenu.List>
+</MultiLevelMenu>
 />;
 ```
 
 ## API
 
-##### RangeFilter can receive a number of `props` as follow:
+##### RMultiLevelMenu can receive a number of `props` as follow:
 
-| NAME              |   TYPE   |               DEFAULT                |
-| :---------------- | :------: | :----------------------------------: |
-| label             |  String  |                empty                 |
-| name              |  String  |                empty                 |
-| value             |  object  | {min, max, step, minValue, maxValue} |
-| validationMessage |  String  |        This field is required        |
-| required          | Boolean  |                false                 |
-| error             | Boolean  |                false                 |
-| onChange          | Function |               () => {}               |
+| NAME     |  TYPE  | DEFAULT  |
+| :------- | :----: | :------: |
+| main     | Number | required |
+| selected | Number |   main   |
+| to       | Number |  {empty  |

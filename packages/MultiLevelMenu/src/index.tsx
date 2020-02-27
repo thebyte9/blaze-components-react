@@ -1,91 +1,61 @@
-// @ts-nocheck
-import withUtils from "@blaze-react/utils";
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import MultiLevelMenuList from "./MultiLevelMenuList";
 import MultiLevelMenuListItem from "./MultiLevelMenuListItem";
 
 interface IMultiLevelMenuProps {
-  selected: number;
-  children: JSX.Element | [JSX.Element];
+  selected?: number;
+  main: number;
+  children: JSX.Element | JSX.Element[];
 }
 
-const MultiLevelMenu: FunctionComponent<IMultiLevelMenuProps> = ({
-  label,
-  modifier,
-  onChange,
-  required,
-  error,
-  validationMessage,
-  name,
+const MultiLevelMenu = ({
+  main,
   selected,
   children,
   ...attrs
-}): JSX.Element => {
-  const [backAttributes, setBackAttributes] = useState<any>({
-    backLink: "#",
-    value: selected
+}: IMultiLevelMenuProps): JSX.Element => {
+  const [menuStatus, setMenuStatus] = useState({
+    active: main || selected,
+    back: [selected]
   });
 
   const menuRef = useRef(null);
 
-  const handleClickMenu = (event: any) => {
-    const value = event.target.getAttribute("data-value");
-
-    if (!value) {
+  const handleClickMenu = (to: number | undefined) => {
+    if (!to) {
       return;
     }
 
-    const backLink = `#layer${value}`;
-
-    setBackAttributes({ value, backLink });
-
-    const backLinkElement = menuRef.current.querySelector(backLink);
-
-    if (!backLinkElement) {
-      return;
-    }
-
-    backLinkElement.classList.remove("hide-menu");
-    backLinkElement.classList.toggle("show-menu");
+    setMenuStatus({
+      active: to,
+      back: [...menuStatus.back, menuStatus.active]
+    });
   };
 
-  const handleNavLinkClick = () => {
-    const { backLink, value } = backAttributes;
-
-    const currenActiveMenu = menuRef.current.querySelector(backLink);
-
-    currenActiveMenu.classList.remove("show-menu");
-
-    const newBackLink = `#layer${value - 1}`;
-    const newValue = value - 1;
-
-    setBackAttributes({ value: newValue, backLink: newBackLink });
+  const handleBack = () => {
+    const back = [...menuStatus.back];
+    const previouslyActive = back.pop();
+    setMenuStatus({ active: previouslyActive, back });
   };
 
-  useEffect(() => {
-    const sideMenus = Array.from(menuRef.current.querySelectorAll(".l1"));
-
-    sideMenus.forEach(item => item.addEventListener("click", handleClickMenu));
-  }, []);
-
-  const navLinkModifier: string =
-    backAttributes.value === 1 ? "nav-link--hide" : "";
+  const { active } = menuStatus;
 
   return (
-    <div className="multi_level_menu" ref={menuRef} {...attrs}>
-      <div className="nav-title">
-        <a
-          href={backAttributes.backLink}
-          className={`nav-link ${navLinkModifier}`}
-          id={`layer${selected}`}
-          onClick={handleNavLinkClick}
-          data-value={backAttributes.linkValue}
+    <div className="multilevelmenu" ref={menuRef} {...attrs}>
+      {active !== main && (
+        <div
+          className="multilevelmenu__backlink"
+          onClick={handleBack}
+          role="button"
         >
+          <span>{`< Back`}</span>
           back
-        </a>
+        </div>
+      )}
 
-        {children}
-      </div>
+      {React.Children.map(children, (child: any) =>
+        React.cloneElement(child, { active, handleClickMenu })
+      )}
     </div>
   );
 };

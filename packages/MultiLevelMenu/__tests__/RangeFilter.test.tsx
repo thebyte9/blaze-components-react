@@ -1,60 +1,72 @@
-import { render } from "@testing-library/react";
 import { mount } from "enzyme";
 import "jest-dom/extend-expect";
 import React from "react";
-import RangeFilter from "../src";
+import MultiLevelMenu from "../src";
 
-const initialValue = {
-  max: 20,
-  min: 0,
-  step: 1,
-  minValue: 5,
-  maxValue: 10
-};
-const defaultProps = (override: object = {}) => ({
-  error: true,
-  name: "_test_",
-  onChange: () => void 0,
-  placeholder: "Placeholder text",
-  value: initialValue,
-  ...override
-});
+const MultiLevelMenuComponent = (
+  <MultiLevelMenu main={1}>
+    <MultiLevelMenu.List id={1}>
+      <MultiLevelMenu.Item to={2}>Lorem</MultiLevelMenu.Item>
+    </MultiLevelMenu.List>
+
+    <MultiLevelMenu.List id={2}>
+      <MultiLevelMenu.Item>Ipsum</MultiLevelMenu.Item>
+    </MultiLevelMenu.List>
+  </MultiLevelMenu>
+);
+
+const activeMenuClass = ".multilevelmenu__sidemenu--show span";
+const backLinkClass = ".multilevelmenu__backlink";
 
 describe("RanngeFilter component", () => {
   test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(<RangeFilter {...defaultProps()} />);
+    const wrapper = mount(MultiLevelMenuComponent);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("should display validation message", () => {
-    let override = {
-      error: true,
-      modifier: "full-width",
-      placeholder: "Select a range",
-      required: true
-    };
+  test("should navegate", () => {
+    const wrapper = mount(MultiLevelMenuComponent);
 
-    const { getByTestId, rerender } = render(
-      <RangeFilter {...defaultProps(override)} />
-    );
+    expect(
+      wrapper
+        .find(activeMenuClass)
+        .at(0)
+        .text()
+    ).toContain("Lorem");
 
-    expect(getByTestId("validation-message")).toHaveTextContent(
-      "This field is required"
-    );
+    wrapper
+      .find(activeMenuClass)
+      .at(0)
+      .simulate("click");
 
-    const validationMessage = "Range field is required";
+    expect(
+      wrapper
+        .find(activeMenuClass)
+        .at(0)
+        .text()
+    ).toContain("Ipsum");
+  });
 
-    override = {
-      ...override,
-      ...{ validationMessage }
-    };
+  test("should turn Back", () => {
+    const wrapper = mount(MultiLevelMenuComponent);
 
-    rerender(<RangeFilter {...defaultProps(override)} />);
+    wrapper
+      .find(activeMenuClass)
+      .at(0)
+      .simulate("click");
 
-    expect(getByTestId("validation-message")).toHaveTextContent(
-      validationMessage
-    );
+    wrapper
+      .find(backLinkClass)
+      .at(0)
+      .simulate("click");
+
+    expect(
+      wrapper
+        .find(activeMenuClass)
+        .at(0)
+        .text()
+    ).toContain("Lorem");
   });
 });

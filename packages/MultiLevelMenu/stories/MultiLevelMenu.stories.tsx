@@ -19,10 +19,12 @@ storiesOf("MultiLevelMenu", module)
           <h1>MultiLevelMenu</h1>
         </section>
 
-        <MultiLevelMenu selected={1}>
-          <MultiLevelMenu.List id={1} active>
-            <MultiLevelMenu.Item to={2}>Level 1 menu ></MultiLevelMenu.Item>
-            <MultiLevelMenu.Item>Level 1 menu</MultiLevelMenu.Item>
+        <MultiLevelMenu main={1}>
+          <MultiLevelMenu.List id={1}>
+            <MultiLevelMenu.Item to={4}>
+              Level 1 menu to 4 >
+            </MultiLevelMenu.Item>
+            <MultiLevelMenu.Item to={2}>Level 1 menu</MultiLevelMenu.Item>
           </MultiLevelMenu.List>
 
           <MultiLevelMenu.List id={2}>
@@ -30,7 +32,13 @@ storiesOf("MultiLevelMenu", module)
           </MultiLevelMenu.List>
 
           <MultiLevelMenu.List id={3}>
-            <MultiLevelMenu.Item>Level 3 menu ></MultiLevelMenu.Item>
+            <MultiLevelMenu.Item to={1}>
+              Level 3 menu to 1 >
+            </MultiLevelMenu.Item>
+          </MultiLevelMenu.List>
+
+          <MultiLevelMenu.List id={4}>
+            <MultiLevelMenu.Item>Level 4 menu</MultiLevelMenu.Item>
           </MultiLevelMenu.List>
         </MultiLevelMenu>
       </div>

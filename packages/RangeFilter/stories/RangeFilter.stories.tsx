@@ -7,7 +7,7 @@ const value = {
   max: 20,
   min: 0,
   step: 1,
-  minValue: 5,
+  minValue: 0,
   maxValue: 10
 };
 
