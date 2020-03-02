@@ -230,7 +230,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       <div className="multiselect" ref={multiRef}>
         <div className="chip__wrapper">
           {checkedItems.map(
-            (selectedValue: object): JSX.Element => (
+            (selectedValue: object, index: number): JSX.Element => (
               <Chip
                 modifiers={[
                   Chip.availableModifiers.parent.deletable,
@@ -240,8 +240,8 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
                 action={() => handleDelete(selectedValue[identification])}
                 key={uniqueId(selectedValue)}
               >
-                <Chip.Label>{selectedValue[keyValue]}</Chip.Label>
-                <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
+                <Chip.Label data-cy={`multiSelect-${label}-chip${index + 1}-label`}>{selectedValue[keyValue]}</Chip.Label>
+                <Chip.Icon data-cy={`multiSelect-${label}-chip${index + 1}-icon`} modifier={Chip.availableModifiers.icon.delete}>
                   <i className="material-icons">clear</i>
                 </Chip.Icon>
               </Chip>
