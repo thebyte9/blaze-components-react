@@ -1,8 +1,6 @@
 // @ts-nocheck
 // tslint:disable: no-console
 
-import ReactDOM from "react-dom";
-
 const MARGIN = 10;
 const SEPARATION_BETWEEN_HANDLERS = 26;
 
@@ -23,9 +21,9 @@ function getLeftStyle({ ratio, parent, handler, isRight }) {
   const factor = isRight ? SEPARATION_BETWEEN_HANDLERS : 0;
   return `${Math.ceil(
     ratio *
-    (parent.offsetWidth -
-      (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
-    factor
+      (parent.offsetWidth -
+        (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
+      factor
   )}px`;
 }
 
@@ -42,11 +40,14 @@ function createFunction({ attributes, ctx, parent, type }) {
   }
 }
 
-const RangeFilter = function (currentElement) {
+const RangeFilter = function(elementId: string) {
   let startX = 0;
   let xAxis = 0;
 
-  const slider = ReactDOM.findDOMNode(currentElement);
+  const slider = document.getElementById(elementId);
+  if (!slider) {
+    return;
+  }
   const { touchLeft, touchRight, lineSpan } = getElements(slider);
 
   const attributes = getAttributes(slider, [
@@ -83,22 +84,14 @@ const RangeFilter = function (currentElement) {
     console.log(slider.offsetWidth, "slider.offsetWidth");
     console.log(touchLeft.offsetWidth, "touchLeft.offsetWidth");
 
+    console.log(slider, "slider element");
+
     xAxis = 0;
     startX = 0;
     touchLeft.style.left = "0px";
     lineSpan.style.marginLeft = "0px";
-    let sliderOffsetWidth = slider.offsetWidth;
-    let touchLeftOffsetWidth = touchLeft.offsetWidth;
-    let areNotZeroValues = !!sliderOffsetWidth && !!touchLeftOffsetWidth
-
-    while (areNotZeroValues && sliderOffsetWidth === touchLeftOffsetWidth) {
-      areNotZeroValues = !!sliderOffsetWidth && !!touchLeftOffsetWidth
-      sliderOffsetWidth = slider.offsetWidth;
-      touchLeftOffsetWidth = touchLeft.offsetWidth;
-    }
-
-    lineSpan.style.width = `${sliderOffsetWidth - touchLeftOffsetWidth}px`;
-    touchRight.style.left = `${sliderOffsetWidth - touchLeftOffsetWidth}px`;
+    lineSpan.style.width = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
+    touchRight.style.left = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
   };
 
   this.setValue = ({ typeValue, attribute, isRight }) => {
@@ -247,11 +240,8 @@ const RangeFilter = function (currentElement) {
   touchRight.addEventListener("touchstart", onStart);
 };
 
-function initRangeFilter(currentElement: any) {
-  if (!currentElement) {
-    return {};
-  }
-  return new RangeFilter(currentElement);
+function initRangeFilter(elementId: string) {
+  return new RangeFilter(elementId);
 }
 
 export default initRangeFilter;

@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RanngeFilter component should be defined and renders correctly (snapshot) 1`] = `
+exports[`RangeFilter component should be defined and renders correctly (snapshot) 1`] = `
 <withUtils(RangeFilter)
   error={true}
   name="_test_"
   onChange={[Function]}
-  placeholder="Placeholder text"
   value={
     Object {
       "max": 20,
@@ -22,7 +21,6 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
     modifier=""
     name="_test_"
     onChange={[Function]}
-    placeholder="Placeholder text"
     utils={
       Object {
         "ErrorMessage": [Function],

@@ -8,7 +8,7 @@ const value = {
   min: 0,
   step: 1,
   minValue: 5,
-  maxValue: 10
+  maxValue: 15
 };
 
 storiesOf("Range Filter", module)
@@ -35,6 +35,16 @@ storiesOf("Range Filter", module)
             }}
             required
             error
+            name="price"
+          />
+
+          <RangeFilter
+            label="Choose a range"
+            value={value}
+            onChange={(val: any): void => {
+              // console.log(val);
+            }}
+            name="deposit"
           />
         </div>
       </Suspense>
