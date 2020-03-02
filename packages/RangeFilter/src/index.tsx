@@ -62,13 +62,17 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   }, [value]);
 
   useEffect(() => {
+    initRange();
+  }, []);
+
+  const initRange = () => {
     const rangeFilter = initRangeFilter(filterRef.current);
     rangeFilter.onChange = (minvalue: any, maxvalue: any) => {
       const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
       onChange({ value: newValue });
       setInputs(newValue);
     };
-  }, []);
+  };
 
   const modifierClassName: string = classNames({
     [`form-field--${modifier}`]: !!modifier
@@ -96,15 +100,16 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         step={step}
         min-value={minValue}
         max-value={maxValue}
-        className="filter"
+        id={`${name}Range`}
+        className="range__filter"
       >
-        <div className="filter--left">
+        <div className="range__filter--left">
           <span></span>
         </div>
-        <div className="filter--right">
+        <div className="range__filter--right">
           <span></span>
         </div>
-        <div className="filter--line">
+        <div className="range__filter--line">
           <span></span>
         </div>
       </div>

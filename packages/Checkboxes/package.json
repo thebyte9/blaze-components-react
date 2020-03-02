@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/checkboxes",
-  "version": "0.4.29",
+  "version": "0.4.37-alpha.0",
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.29",
+    "@blaze-react/blaze-components-theme": "^0.4.37-alpha.0",
     "@types/uuid": "^3.4.4"
   },
   "peerDependencies": {
