@@ -23,10 +23,10 @@ Component to navigate between submenus.
 
 ## API
 
-##### RMultiLevelMenu can receive a number of `props` as follow:
+##### MultiLevelMenu can receive a number of `props` as follow:
 
 | NAME     |  TYPE  | DEFAULT  |
 | :------- | :----: | :------: |
 | main     | Number | required |
 | selected | Number |   main   |
-| to       | Number |  {empty  |
+| to       | Number |    ''    |

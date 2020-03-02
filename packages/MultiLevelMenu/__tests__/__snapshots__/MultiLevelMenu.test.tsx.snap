@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RanngeFilter component should be defined and renders correctly (snapshot) 1`] = `
+exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] = `
 <MultiLevelMenu
   main={1}
 >
@@ -37,6 +37,7 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
             >
               <li>
                 <span
+                  data-cy="multiLevelMenuList-item"
                   onClick={[Function]}
                 >
                   Lorem
@@ -76,6 +77,7 @@ exports[`RanngeFilter component should be defined and renders correctly (snapsho
             >
               <li>
                 <span
+                  data-cy="multiLevelMenuList-item"
                   onClick={[Function]}
                 >
                   Ipsum

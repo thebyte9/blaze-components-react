@@ -20,7 +20,7 @@ const defaultProps = (override: object = {}) => ({
   ...override
 });
 
-describe("RanngeFilter component", () => {
+describe("RangeFilter component", () => {
   test("should be defined and renders correctly (snapshot)", () => {
     const wrapper = mount(<RangeFilter {...defaultProps()} />);
 

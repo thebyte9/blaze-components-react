@@ -7,8 +7,8 @@ const value = {
   max: 20,
   min: 0,
   step: 1,
-  minValue: 0,
-  maxValue: 10
+  minValue: 5,
+  maxValue: 15
 };
 
 storiesOf("Range Filter", module)
@@ -35,6 +35,30 @@ storiesOf("Range Filter", module)
             }}
             required
             error
+          />
+
+          <RangeFilter
+            label="Choose a range"
+            value={value}
+            onChange={(val: any): void => {
+              // console.log(val);
+            }}
+          />
+
+          <RangeFilter
+            label="Choose a range"
+            value={value}
+            onChange={(val: any): void => {
+              // console.log(val);
+            }}
+          />
+
+          <RangeFilter
+            label="Choose a range"
+            value={value}
+            onChange={(val: any): void => {
+              // console.log(val);
+            }}
           />
         </div>
       </Suspense>

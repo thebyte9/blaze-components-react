@@ -12,7 +12,10 @@ const MultiLevelMenuListItem = ({
   handleClickMenu
 }: IMultiLevelMenuListItemProps): JSX.Element => (
   <li>
-    <span onClick={() => handleClickMenu && handleClickMenu(to)}>
+    <span
+      data-cy="multiLevelMenuList-item"
+      onClick={() => handleClickMenu && handleClickMenu(to)}
+    >
       {children}
     </span>
   </li>

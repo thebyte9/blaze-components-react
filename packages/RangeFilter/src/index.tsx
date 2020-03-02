@@ -1,6 +1,7 @@
 // @ts-nocheck
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import isContentLoaded from "./isContentLoaded";
 import initRangeFilter from "./logic";
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -61,13 +62,21 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     }
   }, [value]);
 
-  useEffect(() => {
+  const init = () => {
     const rangeFilter = initRangeFilter(filterRef.current);
     rangeFilter.onChange = (minvalue: any, maxvalue: any) => {
       const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
       onChange({ value: newValue });
       setInputs(newValue);
     };
+  };
+
+  const reInit = () => {
+    setTimeout(init, 5000);
+  };
+
+  useEffect(() => {
+    isContentLoaded(init, reInit);
   }, []);
 
   const modifierClassName: string = classNames({

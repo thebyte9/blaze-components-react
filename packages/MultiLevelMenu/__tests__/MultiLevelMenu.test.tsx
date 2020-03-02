@@ -18,7 +18,7 @@ const MultiLevelMenuComponent = (
 const activeMenuClass = ".multilevelmenu__sidemenu--show span";
 const backLinkClass = ".multilevelmenu__backlink";
 
-describe("RanngeFilter component", () => {
+describe("MultiLevelMenu", () => {
   test("should be defined and renders correctly (snapshot)", () => {
     const wrapper = mount(MultiLevelMenuComponent);
 
