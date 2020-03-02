@@ -29,7 +29,7 @@ const value = {
 | NAME              |   TYPE   |               DEFAULT                |
 | :---------------- | :------: | :----------------------------------: |
 | label             |  String  |                empty                 |
-| name              |  String  |                empty                 |
+| name              |  String  |               required               |
 | value             |  object  | {min, max, step, minValue, maxValue} |
 | validationMessage |  String  |        This field is required        |
 | required          | Boolean  |                false                 |

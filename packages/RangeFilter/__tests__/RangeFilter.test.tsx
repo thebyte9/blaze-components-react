@@ -15,7 +15,6 @@ const defaultProps = (override: object = {}) => ({
   error: true,
   name: "_test_",
   onChange: () => void 0,
-  placeholder: "Placeholder text",
   value: initialValue,
   ...override
 });

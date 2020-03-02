@@ -96,6 +96,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
           return (
             <div
               data-testid={`checkbox-${key + 1}`}
+              data-cy={`checkbox-cy-${key + 1}`}
               key={id}
               id={defaultId}
               className={checkboxClassName}

@@ -5,7 +5,6 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
   error={true}
   name="_test_"
   onChange={[Function]}
-  placeholder="Placeholder text"
   value={
     Object {
       "max": 20,
@@ -22,7 +21,6 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
     modifier=""
     name="_test_"
     onChange={[Function]}
-    placeholder="Placeholder text"
     utils={
       Object {
         "ErrorMessage": [Function],
@@ -56,7 +54,7 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
         </span>
       </div>
       <div
-        className="filter"
+        className="range__filter"
         id="_test_Range"
         max={20}
         max-value={10}
@@ -65,17 +63,17 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
         step={1}
       >
         <div
-          className="filter--left"
+          className="range__filter--left"
         >
           <span />
         </div>
         <div
-          className="filter--right"
+          className="range__filter--right"
         >
           <span />
         </div>
         <div
-          className="filter--line"
+          className="range__filter--line"
         >
           <span />
         </div>

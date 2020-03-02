@@ -1,6 +1,6 @@
 // @ts-nocheck
 import withUtils from "@blaze-react/utils";
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import isContentLoaded from "./isContentLoaded";
 import initRangeFilter from "./logic";
 interface IErrorMessage {
@@ -16,7 +16,7 @@ interface IRangeValue {
 interface IRangeFilterProps {
   label?: string;
   modifier?: string;
-  name?: string;
+  name: string;
   id?: string;
   onChange: ({
     event,
@@ -49,7 +49,6 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
 }): JSX.Element => {
   const [inputs, setInputs] = useState<any>(value || {});
   const [newError, setError] = useState<boolean | undefined>(error);
-  const filterRef = useRef(null);
 
   useEffect(() => {
     setError(error);
@@ -63,7 +62,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   }, [value]);
 
   const init = () => {
-    const rangeFilter = initRangeFilter(filterRef.current);
+    const rangeFilter = initRangeFilter(`${name}Range`);
     rangeFilter.onChange = (minvalue: any, maxvalue: any) => {
       const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
       onChange({ value: newValue });
@@ -99,22 +98,21 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         <span>{maxValue}</span>
       </div>
       <div
-        ref={filterRef}
         min={min}
         max={max}
         step={step}
         min-value={minValue}
         max-value={maxValue}
         id={`${name}Range`}
-        className="filter"
+        className="range__filter"
       >
-        <div className="filter--left">
+        <div className="range__filter--left">
           <span></span>
         </div>
-        <div className="filter--right">
+        <div className="range__filter--right">
           <span></span>
         </div>
-        <div className="filter--line">
+        <div className="range__filter--line">
           <span></span>
         </div>
       </div>

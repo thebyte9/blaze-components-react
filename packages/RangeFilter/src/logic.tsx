@@ -1,13 +1,13 @@
 // @ts-nocheck
-import ReactDOM from "react-dom";
+// tslint:disable: no-console
 
 const MARGIN = 10;
 const SEPARATION_BETWEEN_HANDLERS = 26;
 
 function getElements(parent: any) {
-  const touchLeft: any = parent.querySelector(".filter--left");
-  const touchRight: any = parent.querySelector(".filter--right");
-  const lineSpan: any = parent.querySelector(".filter--line span");
+  const touchLeft: any = parent.querySelector(".range__filter--left");
+  const touchRight: any = parent.querySelector(".range__filter--right");
+  const lineSpan: any = parent.querySelector(".range__filter--line span");
   return { touchLeft, touchRight, lineSpan };
 }
 
@@ -40,11 +40,14 @@ function createFunction({ attributes, ctx, parent, type }) {
   }
 }
 
-const RangeFilter = function(currentElement) {
+const RangeFilter = function(elementId: string) {
   let startX = 0;
   let xAxis = 0;
 
-  const slider = ReactDOM.findDOMNode(currentElement);
+  const slider = document.getElementById(elementId);
+  if (!slider) {
+    return;
+  }
   const { touchLeft, touchRight, lineSpan } = getElements(slider);
 
   const attributes = getAttributes(slider, [
@@ -78,12 +81,25 @@ const RangeFilter = function(currentElement) {
   }
 
   this.reset = () => {
+    console.log(slider.offsetWidth, "slider.offsetWidth");
+    console.log(touchLeft.offsetWidth, "touchLeft.offsetWidth");
+
     xAxis = 0;
     startX = 0;
     touchLeft.style.left = "0px";
     lineSpan.style.marginLeft = "0px";
-    lineSpan.style.width = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
-    touchRight.style.left = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
+    let sliderOffsetWidth = slider.offsetWidth;
+    let touchLeftOffsetWidth = touchLeft.offsetWidth;
+    let areNotZeroValues = !!sliderOffsetWidth && !!touchLeftOffsetWidth;
+
+    while (areNotZeroValues && sliderOffsetWidth === touchLeftOffsetWidth) {
+      areNotZeroValues = !!sliderOffsetWidth && !!touchLeftOffsetWidth;
+      sliderOffsetWidth = slider.offsetWidth;
+      touchLeftOffsetWidth = touchLeft.offsetWidth;
+    }
+
+    lineSpan.style.width = `${sliderOffsetWidth - touchLeftOffsetWidth}px`;
+    touchRight.style.left = `${sliderOffsetWidth - touchLeftOffsetWidth}px`;
   };
 
   this.setValue = ({ typeValue, attribute, isRight }) => {
@@ -137,6 +153,7 @@ const RangeFilter = function(currentElement) {
     slider.addEventListener("mouseup", onStop);
     slider.addEventListener("touchmove", onMove);
     slider.addEventListener("touchend", onStop);
+    document.addEventListener("click", onStop);
   }
 
   const calculateValue = () => {
@@ -207,6 +224,7 @@ const RangeFilter = function(currentElement) {
   };
 
   const onStop = () => {
+    document.removeEventListener("click", onStop);
     slider.removeEventListener("mousemove", onMove);
     slider.removeEventListener("mouseup", onStop);
     slider.removeEventListener("touchmove", onMove);
@@ -230,11 +248,8 @@ const RangeFilter = function(currentElement) {
   touchRight.addEventListener("touchstart", onStart);
 };
 
-function initRangeFilter(currentElement: any) {
-  if (!currentElement) {
-    return {};
-  }
-  return new RangeFilter(currentElement);
+function initRangeFilter(elementId: string) {
+  return new RangeFilter(elementId);
 }
 
 export default initRangeFilter;

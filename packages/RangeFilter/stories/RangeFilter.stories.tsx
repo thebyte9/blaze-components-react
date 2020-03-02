@@ -35,6 +35,7 @@ storiesOf("Range Filter", module)
             }}
             required
             error
+            name="price"
           />
 
           <RangeFilter
@@ -43,22 +44,7 @@ storiesOf("Range Filter", module)
             onChange={(val: any): void => {
               // console.log(val);
             }}
-          />
-
-          <RangeFilter
-            label="Choose a range"
-            value={value}
-            onChange={(val: any): void => {
-              // console.log(val);
-            }}
-          />
-
-          <RangeFilter
-            label="Choose a range"
-            value={value}
-            onChange={(val: any): void => {
-              // console.log(val);
-            }}
+            name="deposit"
           />
         </div>
       </Suspense>
