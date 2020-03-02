@@ -15,12 +15,11 @@ const defaultProps = (override: object = {}) => ({
   error: true,
   name: "_test_",
   onChange: () => void 0,
-  placeholder: "Placeholder text",
   value: initialValue,
   ...override
 });
 
-describe("RanngeFilter component", () => {
+describe("RangeFilter component", () => {
   test("should be defined and renders correctly (snapshot)", () => {
     const wrapper = mount(<RangeFilter {...defaultProps()} />);
 

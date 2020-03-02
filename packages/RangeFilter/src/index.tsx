@@ -1,6 +1,7 @@
 // @ts-nocheck
 import withUtils from "@blaze-react/utils";
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import isContentLoaded from "./isContentLoaded";
 import initRangeFilter from "./logic";
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -15,7 +16,7 @@ interface IRangeValue {
 interface IRangeFilterProps {
   label?: string;
   modifier?: string;
-  name?: string;
+  name: string;
   id?: string;
   onChange: ({
     event,
@@ -48,7 +49,6 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
 }): JSX.Element => {
   const [inputs, setInputs] = useState<any>(value || {});
   const [newError, setError] = useState<boolean | undefined>(error);
-  const filterRef = useRef(null);
 
   useEffect(() => {
     setError(error);
@@ -61,18 +61,22 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     }
   }, [value]);
 
-  useEffect(() => {
-    initRange();
-  }, []);
-
-  const initRange = () => {
-    const rangeFilter = initRangeFilter(filterRef.current);
+  const init = () => {
+    const rangeFilter = initRangeFilter(`${name}Range`);
     rangeFilter.onChange = (minvalue: any, maxvalue: any) => {
       const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
       onChange({ value: newValue });
       setInputs(newValue);
     };
   };
+
+  const reInit = () => {
+    setTimeout(init, 5000);
+  };
+
+  useEffect(() => {
+    isContentLoaded(init, reInit);
+  }, []);
 
   const modifierClassName: string = classNames({
     [`form-field--${modifier}`]: !!modifier
@@ -94,7 +98,6 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         <span>{maxValue}</span>
       </div>
       <div
-        ref={filterRef}
         min={min}
         max={max}
         step={step}

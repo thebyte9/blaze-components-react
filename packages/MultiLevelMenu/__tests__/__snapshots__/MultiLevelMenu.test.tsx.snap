@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] = `
+<MultiLevelMenu
+  main={1}
+>
+  <div
+    className="multilevelmenu"
+  >
+    <withUtils(MultiLevelMenuList)
+      active={1}
+      handleClickMenu={[Function]}
+      id={1}
+      key=".0"
+    >
+      <MultiLevelMenuList
+        active={1}
+        handleClickMenu={[Function]}
+        id={1}
+        utils={
+          Object {
+            "ErrorMessage": [Function],
+            "classNames": [Function],
+            "removeExtraSpaces": [Function],
+            "uniqueId": [Function],
+          }
+        }
+      >
+        <div
+          className="multilevelmenu__sidemenu multilevelmenu__sidemenu--show"
+        >
+          <ul>
+            <MultiLevelMenuListItem
+              handleClickMenu={[Function]}
+              key=".0"
+              to={2}
+            >
+              <li>
+                <span
+                  data-cy="multiLevelMenuList-item"
+                  onClick={[Function]}
+                >
+                  Lorem
+                </span>
+              </li>
+            </MultiLevelMenuListItem>
+          </ul>
+        </div>
+      </MultiLevelMenuList>
+    </withUtils(MultiLevelMenuList)>
+    <withUtils(MultiLevelMenuList)
+      active={1}
+      handleClickMenu={[Function]}
+      id={2}
+      key=".1"
+    >
+      <MultiLevelMenuList
+        active={1}
+        handleClickMenu={[Function]}
+        id={2}
+        utils={
+          Object {
+            "ErrorMessage": [Function],
+            "classNames": [Function],
+            "removeExtraSpaces": [Function],
+            "uniqueId": [Function],
+          }
+        }
+      >
+        <div
+          className="multilevelmenu__sidemenu multilevelmenu__sidemenu--hide"
+        >
+          <ul>
+            <MultiLevelMenuListItem
+              handleClickMenu={[Function]}
+              key=".0"
+            >
+              <li>
+                <span
+                  data-cy="multiLevelMenuList-item"
+                  onClick={[Function]}
+                >
+                  Ipsum
+                </span>
+              </li>
+            </MultiLevelMenuListItem>
+          </ul>
+        </div>
+      </MultiLevelMenuList>
+    </withUtils(MultiLevelMenuList)>
+  </div>
+</MultiLevelMenu>
+`;

@@ -214,3 +214,42 @@
     }
   }
 }
+
+.multilevelmenu {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  background: white;
+  padding: 0 20px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      text-align: left;
+    }
+  }
+
+  &__backlink {
+    line-height: 50px;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  &__sidemenu {
+    position: absolute;
+    background: white;
+    top: 50px;
+    width: 200px;
+    height: calc(100% - 50px);
+    &--show {
+      margin-left: 0 !important;
+      transition: all 0.5s ease;
+    }
+
+    &--hide {
+      margin-left: -200px;
+      transition: all 0.5s ease;
+    }
+  }
+}
