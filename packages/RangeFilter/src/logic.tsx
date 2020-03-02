@@ -47,7 +47,6 @@ const RangeFilter = function (currentElement) {
   let xAxis = 0;
 
   const slider = ReactDOM.findDOMNode(currentElement);
-  console.log(slider, "Slider");
   const { touchLeft, touchRight, lineSpan } = getElements(slider);
 
   const attributes = getAttributes(slider, [
@@ -153,6 +152,7 @@ const RangeFilter = function (currentElement) {
     slider.addEventListener("mouseup", onStop);
     slider.addEventListener("touchmove", onMove);
     slider.addEventListener("touchend", onStop);
+    document.addEventListener("click", onStop);
   }
 
   const calculateValue = () => {
@@ -223,6 +223,7 @@ const RangeFilter = function (currentElement) {
   };
 
   const onStop = () => {
+    document.removeEventListener("click", onStop);
     slider.removeEventListener("mousemove", onMove);
     slider.removeEventListener("mouseup", onStop);
     slider.removeEventListener("touchmove", onMove);
