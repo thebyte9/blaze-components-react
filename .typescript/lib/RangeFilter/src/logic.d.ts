@@ -1,2 +1,2 @@
-declare function initRangeFilter(currentElement: any): any;
+declare function initRangeFilter(elementId: string): any;
 export default initRangeFilter;
