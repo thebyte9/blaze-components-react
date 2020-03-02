@@ -84,22 +84,14 @@ const RangeFilter = function(elementId: string) {
     console.log(slider.offsetWidth, "slider.offsetWidth");
     console.log(touchLeft.offsetWidth, "touchLeft.offsetWidth");
 
+    console.log(slider, "slider element");
+
     xAxis = 0;
     startX = 0;
     touchLeft.style.left = "0px";
     lineSpan.style.marginLeft = "0px";
-    let sliderOffsetWidth = slider.offsetWidth;
-    let touchLeftOffsetWidth = touchLeft.offsetWidth;
-    let areNotZeroValues = !!sliderOffsetWidth && !!touchLeftOffsetWidth;
-
-    while (areNotZeroValues && sliderOffsetWidth === touchLeftOffsetWidth) {
-      areNotZeroValues = !!sliderOffsetWidth && !!touchLeftOffsetWidth;
-      sliderOffsetWidth = slider.offsetWidth;
-      touchLeftOffsetWidth = touchLeft.offsetWidth;
-    }
-
-    lineSpan.style.width = `${sliderOffsetWidth - touchLeftOffsetWidth}px`;
-    touchRight.style.left = `${sliderOffsetWidth - touchLeftOffsetWidth}px`;
+    lineSpan.style.width = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
+    touchRight.style.left = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
   };
 
   this.setValue = ({ typeValue, attribute, isRight }) => {
