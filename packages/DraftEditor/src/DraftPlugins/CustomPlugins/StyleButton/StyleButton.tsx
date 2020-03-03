@@ -7,7 +7,8 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
   style,
   active,
   label,
-  utils: { classNames }
+  utils: { classNames },
+  'data-cy': datacy
 }): JSX.Element => {
   const handelToggle = (event: MouseEvent): void => {
     event.preventDefault();
@@ -21,7 +22,7 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
   });
 
   return (
-    <span className={styleButtonClassName} onMouseDown={handelToggle}>
+    <span className={styleButtonClassName} onMouseDown={handelToggle} data-cy={datacy || `styleButton-${label}`}>
       {label}
     </span>
   );
