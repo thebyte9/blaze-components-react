@@ -40,6 +40,7 @@ const ImageControl: FunctionComponent<IInlineImageControlsProps> = ({
     <StyleButton
       label={<i className="material-icons">add_photo_alternate</i>}
       onToggle={handleLibraryClick}
+      data-cy='styleButton-imageControl'
     />
   );
 };

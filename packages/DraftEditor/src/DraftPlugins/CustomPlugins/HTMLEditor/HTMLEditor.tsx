@@ -6,6 +6,7 @@ const HTMLEditor = ({ onToggle }: IHTMLProps): JSX.Element => (
   <StyleButton
     label={<i className="material-icons">code</i>}
     onToggle={onToggle}
+    data-cy='styleButton-HTMLEditor'
   />
 );
 
