@@ -164,6 +164,7 @@ interface IStyleButtonProps {
     uniqueId: (element: any) => string;
     classNames: (className: string | object, classNames?: object) => string;
   };
+  'data-cy'?: string;
 }
 
 interface IHTMLProps {
