@@ -71,7 +71,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   };
 
   const reInit = () => {
-    setTimeout(init, 5000);
+    setTimeout(init, 1000);
   };
 
   useEffect(() => {

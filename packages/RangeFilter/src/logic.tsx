@@ -21,9 +21,9 @@ function getLeftStyle({ ratio, parent, handler, isRight }) {
   const factor = isRight ? SEPARATION_BETWEEN_HANDLERS : 0;
   return `${Math.ceil(
     ratio *
-      (parent.offsetWidth -
-        (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
-      factor
+    (parent.offsetWidth -
+      (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
+    factor
   )}px`;
 }
 
@@ -40,7 +40,7 @@ function createFunction({ attributes, ctx, parent, type }) {
   }
 }
 
-const RangeFilter = function(elementId: string) {
+const RangeFilter = function (elementId: string) {
   let startX = 0;
   let xAxis = 0;
 
@@ -81,11 +81,6 @@ const RangeFilter = function(elementId: string) {
   }
 
   this.reset = () => {
-    console.log(slider.offsetWidth, "slider.offsetWidth");
-    console.log(touchLeft.offsetWidth, "touchLeft.offsetWidth");
-
-    console.log(slider, "slider element");
-
     xAxis = 0;
     startX = 0;
     touchLeft.style.left = "0px";
@@ -163,6 +158,10 @@ const RangeFilter = function(elementId: string) {
 
       multi = Math.floor(maxValue / step);
       maxValue = step * multi;
+    }
+
+    if (maxValue <= min || minValue >= max) {
+      return;
     }
 
     slider.setAttribute("min-value", minValue);
