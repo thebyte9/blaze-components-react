@@ -4,11 +4,11 @@ import React, { lazy, Suspense } from "react";
 import inputReadme from "../README.md";
 
 const value = {
-  max: 20,
-  min: 0,
+  max: 20000000,
+  min: 10000000,
   step: 1,
-  minValue: 5,
-  maxValue: 15
+  minValue: 10000000,
+  maxValue: 20000000
 };
 
 storiesOf("Range Filter", module)
@@ -26,7 +26,6 @@ storiesOf("Range Filter", module)
             <h1>Range Filter</h1>
           </section>
 
-          <h4>Range Filter with two moveable handlers</h4>
           <RangeFilter
             label="Choose a range"
             value={value}
@@ -36,15 +35,7 @@ storiesOf("Range Filter", module)
             required
             error
             name="price"
-          />
-
-          <RangeFilter
-            label="Choose a range"
-            value={value}
-            onChange={(val: any): void => {
-              // console.log(val);
-            }}
-            name="deposit"
+            id="price"
           />
         </div>
       </Suspense>

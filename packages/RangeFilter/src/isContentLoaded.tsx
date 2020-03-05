@@ -6,7 +6,7 @@ function isContentLoaded(init: any, reInit: any) {
   ) {
     init();
   }
-  reInit();
+  reInit(5000);
 }
 
 export default isContentLoaded;
