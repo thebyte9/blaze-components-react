@@ -115,6 +115,7 @@ const LinkControl = ({
         label={<i className="material-icons">insert_link</i>}
         onToggle={openModal}
         active={modalStatus}
+        data-cy='styleButton-linkControl'
       />
       {modalStatus && (
         <Modal actions={alertActions} onClose={closeModal} isAlert>
@@ -131,8 +132,8 @@ const LinkControl = ({
               )}
             </>
           ) : (
-            <p>{unSelectedText}</p>
-          )}
+              <p>{unSelectedText}</p>
+            )}
         </Modal>
       )}
     </>
