@@ -3,6 +3,7 @@
 exports[`RangeFilter component should be defined and renders correctly (snapshot) 1`] = `
 <withUtils(RangeFilter)
   error={true}
+  id="_test_"
   name="_test_"
   onChange={[Function]}
   value={
@@ -17,6 +18,7 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
 >
   <RangeFilter
     error={true}
+    id="_test_"
     label=""
     modifier=""
     name="_test_"
@@ -54,7 +56,7 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
         </span>
       </div>
       <div
-        className="range__filter"
+        className="range__filter _test_"
         id="_test_Range"
         max={20}
         max-value={10}

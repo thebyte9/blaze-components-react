@@ -1,5 +1,4 @@
 // @ts-nocheck
-// tslint:disable: no-console
 
 const MARGIN = 10;
 const SEPARATION_BETWEEN_HANDLERS = 26;
@@ -21,36 +20,27 @@ function getLeftStyle({ ratio, parent, handler, isRight }) {
   const factor = isRight ? SEPARATION_BETWEEN_HANDLERS : 0;
   return `${Math.ceil(
     ratio *
-    (parent.offsetWidth -
-      (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
-    factor
+      (parent.offsetWidth -
+        (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
+      factor
   )}px`;
 }
 
-function createFunction({ attributes, ctx, parent, type }) {
-  const [callback, minValue, maxValue] = getAttributes(parent, attributes);
-
-  if (callback) {
-    const fn = new Function("min, max", callback);
-    fn(minValue, maxValue);
-  }
-
-  if (ctx[type]) {
-    ctx[type](minValue, maxValue);
-  }
+function $(selector: string) {
+  return document.querySelector(`.${selector}`);
 }
 
-const RangeFilter = function (elementId: string) {
+const RangeFilter = (selector: string, getMinMax: any) => {
   let startX = 0;
   let xAxis = 0;
 
-  const slider = document.getElementById(elementId);
-  if (!slider) {
+  if (!$(selector)) {
     return;
   }
-  const { touchLeft, touchRight, lineSpan } = getElements(slider);
 
-  const attributes = getAttributes(slider, [
+  const { touchLeft, touchRight, lineSpan } = getElements($(selector));
+
+  const attributes = getAttributes($(selector), [
     "min",
     "max",
     "min-value",
@@ -80,52 +70,54 @@ const RangeFilter = function (elementId: string) {
     defaultMinValue = defaultMaxValue;
   }
 
-  this.reset = () => {
+  const reset = () => {
     xAxis = 0;
     startX = 0;
     touchLeft.style.left = "0px";
     lineSpan.style.marginLeft = "0px";
-    lineSpan.style.width = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
-    touchRight.style.left = `${slider.offsetWidth - touchLeft.offsetWidth}px`;
+    lineSpan.style.width = `${$(selector).offsetWidth -
+      touchLeft.offsetWidth}px`;
+    touchRight.style.left = `${$(selector).offsetWidth -
+      touchLeft.offsetWidth}px`;
   };
 
-  this.setValue = ({ typeValue, attribute, isRight }) => {
+  const setValue = ({ typeValue, attribute, isRight }) => {
     const ratio = (typeValue - min) / (max - min);
     const handleDirection = isRight ? touchRight : touchLeft;
     handleDirection.style.left = getLeftStyle({
       handler: touchLeft,
       isRight,
-      parent: slider,
+      parent: $(selector),
       ratio
     });
     lineSpan.style.marginLeft = `${touchLeft.offsetLeft}px`;
     lineSpan.style.width = `${touchRight.offsetLeft - touchLeft.offsetLeft}px`;
-    slider.setAttribute(attribute, typeValue);
+    $(selector).setAttribute(attribute, typeValue);
   };
 
-  this.setMinValue = (minValue: any) => {
-    this.setValue({
+  const setMinValue = (minValue: any) => {
+    setValue({
       attribute: "min-value",
       typeValue: minValue
     });
   };
 
-  this.setMaxValue = (maxValue: any) => {
-    this.setValue({
+  const setMaxValue = (maxValue: any) => {
+    setValue({
       attribute: "max-value",
       isRight: true,
       typeValue: maxValue
     });
   };
 
-  this.reset();
+  reset();
 
-  const maxX = slider.offsetWidth - touchRight.offsetWidth;
+  const maxX = $(selector).offsetWidth - touchRight.offsetWidth;
   let selectedTouch = null;
   const initialValue = lineSpan.offsetWidth - SEPARATION_BETWEEN_HANDLERS;
 
-  this.setMinValue(defaultMinValue);
-  this.setMaxValue(defaultMaxValue);
+  setMinValue(defaultMinValue);
+  setMaxValue(defaultMaxValue);
 
   function onStart(event: any) {
     event.preventDefault();
@@ -136,10 +128,10 @@ const RangeFilter = function (elementId: string) {
     startX = eventTouch.pageX - xAxis;
     selectedTouch = this;
 
-    slider.addEventListener("mousemove", onMove);
-    slider.addEventListener("mouseup", onStop);
-    slider.addEventListener("touchmove", onMove);
-    slider.addEventListener("touchend", onStop);
+    $(selector).addEventListener("mousemove", onMove);
+    $(selector).addEventListener("mouseup", onStop);
+    $(selector).addEventListener("touchmove", onMove);
+    $(selector).addEventListener("touchend", onStop);
     document.addEventListener("click", onStop);
   }
 
@@ -160,12 +152,8 @@ const RangeFilter = function (elementId: string) {
       maxValue = step * multi;
     }
 
-    if (maxValue <= min || minValue >= max) {
-      return;
-    }
-
-    slider.setAttribute("min-value", minValue);
-    slider.setAttribute("max-value", maxValue);
+    $(selector).setAttribute("min-value", minValue);
+    $(selector).setAttribute("max-value", maxValue);
   };
 
   const setxAxisLeftPosition = () => {
@@ -206,31 +194,31 @@ const RangeFilter = function (elementId: string) {
 
     calculateValue();
 
-    createFunction({
-      attributes: ["on-change", "min-value", "max-value"],
-      ctx: this,
-      parent: slider,
-      type: "onChange"
-    });
+    const [minValue, maxValue] = getAttributes($(selector), [
+      "min-value",
+      "max-value"
+    ]);
+
+    getMinMax(minValue, maxValue);
   };
 
   const onStop = () => {
     document.removeEventListener("click", onStop);
-    slider.removeEventListener("mousemove", onMove);
-    slider.removeEventListener("mouseup", onStop);
-    slider.removeEventListener("touchmove", onMove);
-    slider.removeEventListener("touchend", onStop);
+    $(selector).removeEventListener("mousemove", onMove);
+    $(selector).removeEventListener("mouseup", onStop);
+    $(selector).removeEventListener("touchmove", onMove);
+    $(selector).removeEventListener("touchend", onStop);
 
     selectedTouch = null;
 
     calculateValue();
 
-    createFunction({
-      attributes: ["did-changed", "min-value", "max-value"],
-      ctx: this,
-      parent: slider,
-      type: "didChanged"
-    });
+    const [minValue, maxValue] = getAttributes($(selector), [
+      "min-value",
+      "max-value"
+    ]);
+
+    getMinMax(minValue, maxValue);
   };
 
   touchLeft.addEventListener("mousedown", onStart);
@@ -239,8 +227,4 @@ const RangeFilter = function (elementId: string) {
   touchRight.addEventListener("touchstart", onStart);
 };
 
-function initRangeFilter(elementId: string) {
-  return new RangeFilter(elementId);
-}
-
-export default initRangeFilter;
+export default RangeFilter;

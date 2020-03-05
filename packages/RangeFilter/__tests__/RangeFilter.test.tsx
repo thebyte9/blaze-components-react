@@ -4,6 +4,12 @@ import "jest-dom/extend-expect";
 import React from "react";
 import RangeFilter from "../src";
 
+declare global {
+  interface Window {
+    Document: any;
+  }
+}
+
 const initialValue = {
   max: 20,
   min: 0,
@@ -14,6 +20,7 @@ const initialValue = {
 const defaultProps = (override: object = {}) => ({
   error: true,
   name: "_test_",
+  id: "_test_",
   onChange: () => void 0,
   value: initialValue,
   ...override

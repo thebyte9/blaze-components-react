@@ -17,7 +17,7 @@ interface IRangeFilterProps {
   label?: string;
   modifier?: string;
   name: string;
-  id?: string;
+  id: string;
   onChange: ({
     event,
     value
@@ -44,6 +44,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   validationMessage,
   value,
   name,
+  id,
   utils: { classNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
@@ -55,28 +56,31 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   }, [error]);
 
   useEffect(() => {
+    isContentLoaded(init, reInit);
+  }, []);
+
+  useEffect(() => {
     if (value) {
-      setInputs(value);
-      onChange({ value });
+      if (value.max !== inputs.max && value.min !== inputs.min) {
+        setInputs(value);
+        reInit();
+      }
     }
   }, [value]);
 
+  const getMinMax = (minvalue: any, maxvalue: any) => {
+    const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
+    onChange({ value: newValue });
+    setInputs(newValue);
+  };
+
   const init = () => {
-    const rangeFilter = initRangeFilter(`${name}Range`);
-    rangeFilter.onChange = (minvalue: any, maxvalue: any) => {
-      const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
-      onChange({ value: newValue });
-      setInputs(newValue);
-    };
+    initRangeFilter(id, getMinMax);
   };
 
-  const reInit = () => {
-    setTimeout(init, 1000);
+  const reInit = (time = 1000) => {
+    setTimeout(init, time);
   };
-
-  useEffect(() => {
-    isContentLoaded(init, reInit);
-  }, []);
 
   const modifierClassName: string = classNames({
     [`form-field--${modifier}`]: !!modifier
@@ -104,7 +108,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         min-value={minValue}
         max-value={maxValue}
         id={`${name}Range`}
-        className="range__filter"
+        className={`range__filter ${id}`}
       >
         <div className="range__filter--left">
           <span></span>
