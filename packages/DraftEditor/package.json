@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.4.43",
+  "version": "0.4.45",
   "publishConfig": {
     "access": "public"
   },
