@@ -240,15 +240,26 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
                 action={() => handleDelete(selectedValue[identification])}
                 key={uniqueId(selectedValue)}
               >
-                <Chip.Label data-cy={`multiSelect-${label}-chip${index + 1}-label`}>{selectedValue[keyValue]}</Chip.Label>
-                <Chip.Icon data-cy={`multiSelect-${label}-chip${index + 1}-icon`} modifier={Chip.availableModifiers.icon.delete}>
+                <Chip.Label
+                  data-cy={`multiSelect-${label}-chip${index + 1}-label`}
+                >
+                  {selectedValue[keyValue]}
+                </Chip.Label>
+                <Chip.Icon
+                  data-cy={`multiSelect-${label}-chip${index + 1}-icon`}
+                  modifier={Chip.availableModifiers.icon.delete}
+                >
                   <i className="material-icons">clear</i>
                 </Chip.Icon>
               </Chip>
             )
           )}
           {!!checkedItems.length && (
-            <button data-cy={`multiSelect-${label}-clearAll-button`} className="button button--link" onClick={handleClearAll}>
+            <button
+              data-cy={`multiSelect-${label}-clearAll-button`}
+              className="button button--link"
+              onClick={handleClearAll}
+            >
               Clear all
             </button>
           )}

@@ -14,7 +14,7 @@ const DemoComponent = () => {
         checked: true,
         description: "Lorem ipsum dolor.",
         id: 1,
-        name: "Blaze 1",
+        name: ["Multiselect option", "label longer text"],
         show: true
       },
       {
@@ -121,7 +121,7 @@ const DemoComponent = () => {
           }
         ]
       });
-    }, 15000);
+    }, 60000);
   };
 
   useEffect(() => {
@@ -148,6 +148,14 @@ const DemoComponent = () => {
           console.log("selected", selected);
         }}
         required
+      />
+
+      <h1>MultiSelect - label with longer text</h1>
+
+      <Multiselect
+        name="multiselect"
+        data={multiselectData}
+        label="MultiSelect - label with longer text"
       />
     </div>
   );
