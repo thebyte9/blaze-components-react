@@ -152,7 +152,7 @@ describe("Multiselect component", () => {
 
     expect(
       wrapper
-        .find(".chip__wrapper")
+        .find(".multiselect__input__container__chips")
         .at(0)
         .text()
     ).toContain("Blaze 1");

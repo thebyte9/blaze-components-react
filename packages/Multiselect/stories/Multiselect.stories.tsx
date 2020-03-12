@@ -143,19 +143,11 @@ const DemoComponent = () => {
         name="multiselect"
         data={multiselectData}
         label="Multi Select"
-        limit={3}
+        limit={5}
         getSelected={(selected: any) => {
           console.log("selected", selected);
         }}
         required
-      />
-
-      <h1>MultiSelect - label with longer text</h1>
-
-      <Multiselect
-        name="multiselect"
-        data={multiselectData}
-        label="MultiSelect - label with longer text"
       />
     </div>
   );
