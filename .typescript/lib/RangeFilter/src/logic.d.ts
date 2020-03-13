@@ -1,2 +1,2 @@
-declare function initRangeFilter(currentElement: any): any;
-export default initRangeFilter;
+declare const RangeFilter: (selector: string, getMinMax: any) => void;
+export default RangeFilter;

@@ -4,6 +4,7 @@ interface IActions {
     handleBrowse?: (...args: any[]) => void;
     handleChange?: (...args: any[]) => void;
     selectFile: any;
+    actionText: string;
 }
-declare const Actions: ({ handleBrowse, handleLibraryClick, handleChange, selectFile }: IActions) => JSX.Element;
+declare const Actions: ({ handleBrowse, handleLibraryClick, handleChange, selectFile, actionText }: IActions) => JSX.Element;
 export default Actions;
