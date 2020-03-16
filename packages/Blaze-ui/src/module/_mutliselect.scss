@@ -19,8 +19,23 @@
     margin: 10px;
   }
 
-  &__input {
+  &__input__container {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    &__chips {
+      width: 100%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .form-field {
+      width: auto;
+      input {
+        border: 0;
+      }
+    }
   }
 
   &__dropdown {

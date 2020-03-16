@@ -229,41 +229,56 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       </label>
       <div className="multiselect" ref={multiRef}>
         <div className="chip__wrapper">
-          {checkedItems.map(
-            (selectedValue: object, index: number): JSX.Element => (
-              <Chip
-                modifiers={[
-                  Chip.availableModifiers.parent.deletable,
-                  Chip.availableModifiers.parent.small
-                ]}
-                onDelete={() => handleDelete(selectedValue[identification])}
-                action={() => handleDelete(selectedValue[identification])}
-                key={uniqueId(selectedValue)}
-              >
-                <Chip.Label data-cy={`multiSelect-${label}-chip${index + 1}-label`}>{selectedValue[keyValue]}</Chip.Label>
-                <Chip.Icon data-cy={`multiSelect-${label}-chip${index + 1}-icon`} modifier={Chip.availableModifiers.icon.delete}>
-                  <i className="material-icons">clear</i>
-                </Chip.Icon>
-              </Chip>
-            )
-          )}
           {!!checkedItems.length && (
-            <button data-cy={`multiSelect-${label}-clearAll-button`} className="button button--link" onClick={handleClearAll}>
+            <button
+              data-cy={`multiSelect-${label}-clearAll-button`}
+              className="button button--link"
+              onClick={handleClearAll}
+            >
               Clear all
             </button>
           )}
         </div>
-
         {children}
-        <Input
-          value={searchValue}
-          placeholder={placeholder}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          onFocus={handleFocus}
-          className="multiselect__input"
-          {...attrs}
-        />
+
+        <div className="multiselect__input__container">
+          <div className="multiselect__input__container__chips">
+            {checkedItems.map(
+              (selectedValue: object, index: number): JSX.Element => (
+                <Chip
+                  modifiers={[
+                    Chip.availableModifiers.parent.deletable,
+                    Chip.availableModifiers.parent.small
+                  ]}
+                  onDelete={() => handleDelete(selectedValue[identification])}
+                  action={() => handleDelete(selectedValue[identification])}
+                  key={uniqueId(selectedValue)}
+                >
+                  <Chip.Label
+                    data-cy={`multiSelect-${label}-chip${index + 1}-label`}
+                  >
+                    {selectedValue[keyValue]}
+                  </Chip.Label>
+                  <Chip.Icon
+                    data-cy={`multiSelect-${label}-chip${index + 1}-icon`}
+                    modifier={Chip.availableModifiers.icon.delete}
+                  >
+                    <i className="material-icons">clear</i>
+                  </Chip.Icon>
+                </Chip>
+              )
+            )}
+            <Input
+              value={searchValue}
+              placeholder={placeholder}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              onFocus={handleFocus}
+              {...attrs}
+            />
+          </div>
+        </div>
+
         {show && (
           <>
             <div className="multiselect__dropdown">

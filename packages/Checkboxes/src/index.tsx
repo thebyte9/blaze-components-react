@@ -67,6 +67,19 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
     onChange({ event, value, data });
   };
 
+  const parsedLabel = (defaultId: any, label?: string | [string, string]) => {
+    if (Array.isArray(label)) {
+      const [labelText, labelLongerText] = label;
+      return (
+        <label htmlFor={defaultId}>
+          <p>{labelText}</p>
+          <p>{labelLongerText}</p>
+        </label>
+      );
+    }
+    return <label htmlFor={defaultId}>{label}</label>;
+  };
+
   return (
     <Fragment>
       {data.map(
@@ -115,7 +128,7 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
                 name={name}
                 {...attrs}
               />
-              <label htmlFor={defaultId}>{label}</label>
+              {parsedLabel(defaultId, label)}
             </div>
           );
         }

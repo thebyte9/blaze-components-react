@@ -14,7 +14,7 @@ const DemoComponent = () => {
         checked: true,
         description: "Lorem ipsum dolor.",
         id: 1,
-        name: "Blaze 1",
+        name: ["Multiselect option", "label longer text"],
         show: true
       },
       {
@@ -121,7 +121,7 @@ const DemoComponent = () => {
           }
         ]
       });
-    }, 15000);
+    }, 60000);
   };
 
   useEffect(() => {
@@ -143,7 +143,7 @@ const DemoComponent = () => {
         name="multiselect"
         data={multiselectData}
         label="Multi Select"
-        limit={3}
+        limit={5}
         getSelected={(selected: any) => {
           console.log("selected", selected);
         }}
