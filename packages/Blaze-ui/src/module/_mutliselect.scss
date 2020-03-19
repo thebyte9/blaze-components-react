@@ -23,12 +23,22 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    .chip {
+      background-color: #546e7a;
+      color: white;
+      margin-right: 5px;
+      margin-top: 5px;
+    }
     &__chips {
       width: 100%;
-      background-color: white;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      background-color: white;
+      padding: 7px;
+      border: 1px solid $blue-grey-100;
+      width: 100%;
+      border-radius: 3px;
     }
     .form-field {
       width: auto;
@@ -54,12 +64,26 @@
     & .form-field {
       padding: 10px;
     }
-
     & p {
       margin: 0;
       padding: 10px;
       font-size: $size-x-small;
       text-align: left;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      margin: 5px 0 0 10px;
+      span {
+        color: #444444;
+        line-height: 20px;
+        font-size: 13px;
+      }
+      span:nth-child(2) {
+        color: #9b9b9b;
+        font-size: 11px;
+        text-align: left;
+      }
     }
   }
 

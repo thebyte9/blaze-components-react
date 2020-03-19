@@ -121,7 +121,7 @@ const DemoComponent = () => {
           }
         ]
       });
-    }, 60000);
+    }, 600000);
   };
 
   useEffect(() => {
@@ -143,7 +143,7 @@ const DemoComponent = () => {
         name="multiselect"
         data={multiselectData}
         label="Multi Select"
-        limit={5}
+        limit={10}
         getSelected={(selected: any) => {
           console.log("selected", selected);
         }}
