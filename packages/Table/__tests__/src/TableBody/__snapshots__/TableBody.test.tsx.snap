@@ -36,7 +36,9 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
               />
               <label
                 for="uid-eyJjaGVja2VkIjpmYWxzZX0="
-              />
+              >
+                <span />
+              </label>
             </div>
           </div>
           <div
@@ -92,7 +94,9 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
               />
               <label
                 for="uid-eyJjaGVja2VkIjpmYWxzZX0=_3"
-              />
+              >
+                <span />
+              </label>
             </div>
           </div>
           <div

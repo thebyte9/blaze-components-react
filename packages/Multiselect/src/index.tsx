@@ -222,6 +222,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   const requiredClassName: string = classNames({ required });
 
+  const getChipLabel = (defaultLabel?: string | [string, string]) => {
+    if (Array.isArray(defaultLabel)) {
+      const [labelText, labelLongerText] = defaultLabel;
+      return `${labelText} ${labelLongerText}`;
+    }
+    return defaultLabel;
+  };
+
   return (
     <div className="form-field form-field--multiselect">
       <label htmlFor={attrs.id} className={requiredClassName}>
@@ -257,7 +265,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
                   <Chip.Label
                     data-cy={`multiSelect-${label}-chip${index + 1}-label`}
                   >
-                    {selectedValue[keyValue]}
+                    {getChipLabel(selectedValue[keyValue])}
                   </Chip.Label>
                   <Chip.Icon
                     data-cy={`multiSelect-${label}-chip${index + 1}-icon`}

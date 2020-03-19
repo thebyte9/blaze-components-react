@@ -72,12 +72,16 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
       const [labelText, labelLongerText] = label;
       return (
         <label htmlFor={defaultId}>
-          <p>{labelText}</p>
-          <p>{labelLongerText}</p>
+          <span>{labelText}</span>
+          <span>{labelLongerText}</span>
         </label>
       );
     }
-    return <label htmlFor={defaultId}>{label}</label>;
+    return (
+      <label htmlFor={defaultId}>
+        <span>{label}</span>
+      </label>
+    );
   };
 
   return (
