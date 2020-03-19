@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/more",
-  "version": "0.4.46",
+  "version": "0.4.47",
   "publishConfig": {
     "access": "public"
   },
@@ -18,13 +18,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.4.46",
+    "@blaze-react/button": "^0.4.47",
     "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.46",
+    "@blaze-react/blaze-components-theme": "^0.4.47",
     "@types/classnames": "^2.2.8"
   },
   "peerDependencies": {
