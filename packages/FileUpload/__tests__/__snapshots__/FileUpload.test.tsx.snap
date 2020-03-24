@@ -11,6 +11,7 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
     customPreview={false}
     handleCancel={[Function]}
     handleInputChange={[Function]}
+    handleSelectChange={[Function]}
     previewImages={Array []}
   >
     <Actions
