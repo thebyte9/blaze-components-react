@@ -10,7 +10,9 @@ declare global {
 }
 
 const FileUploadComponent = (
-  <FileUpload onChange={() => {}}>Drag and drop here</FileUpload>
+  <FileUpload selectOptions={[["default", "Default"]]} onChange={() => {}}>
+    Drag and drop here
+  </FileUpload>
 );
 
 describe("FileUpload component", () => {
