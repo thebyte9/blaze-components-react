@@ -158,7 +158,7 @@ describe("Multiselect component", () => {
     ).toContain("Blaze 1");
 
     wrapper
-      .find(".button--link")
+      .find(".chip__wrapper__clear")
       .at(0)
       .simulate("click");
 

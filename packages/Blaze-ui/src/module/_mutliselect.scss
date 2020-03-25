@@ -4,6 +4,16 @@
   position: relative;
   width: 100%;
   margin-bottom: 30px;
+  .chip {
+    &__wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: $light-blue;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
 
   & p {
     margin: 0;

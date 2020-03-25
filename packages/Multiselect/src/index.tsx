@@ -232,19 +232,19 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   return (
     <div className="form-field form-field--multiselect">
-      <label htmlFor={attrs.id} className={requiredClassName}>
-        {label}
-      </label>
       <div className="multiselect" ref={multiRef}>
         <div className="chip__wrapper">
+          <label htmlFor={attrs.id} className={requiredClassName}>
+            {label}
+          </label>
           {!!checkedItems.length && (
-            <button
+            <span
               data-cy={`multiSelect-${label}-clearAll-button`}
-              className="button button--link"
+              className="chip__wrapper__clear"
               onClick={handleClearAll}
             >
               Clear all
-            </button>
+            </span>
           )}
         </div>
         {children}

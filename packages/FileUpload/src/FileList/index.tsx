@@ -1,4 +1,5 @@
 import Input from "@blaze-react/input";
+import Select from "@blaze-react/select";
 import React, { Fragment } from "react";
 import { DATA_ATTRIBUTES, NAME } from "../constants";
 import DocumentIcon from "../DocumentIcon";
@@ -8,11 +9,15 @@ const IMAGE = "image";
 const FileList = ({
   previewImages,
   handleCancel,
-  handleInputChange
+  handleInputChange,
+  handleSelectChange,
+  selectOptions
 }: {
   previewImages: any;
   handleCancel: any;
   handleInputChange: any;
+  handleSelectChange: any;
+  selectOptions: any[];
 }) => (
   <>
     {previewImages.map(
@@ -65,6 +70,13 @@ const FileList = ({
                         value={data.caption}
                         id={`${index}-caption-${sanitizedFileName}`}
                         name={`${DATA_ATTRIBUTES.CAPTION}-${index}-${sanitizedFileName}`}
+                      />
+                      <Select
+                        label="Store type"
+                        options={selectOptions}
+                        onChange={(event: any) =>
+                          handleSelectChange(event, index)
+                        }
                       />
                     </>
                   )}
