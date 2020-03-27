@@ -15,6 +15,7 @@ interface IFileUploadProps {
   handleLibraryClick?: (...args: any[]) => void;
   enableDragAndDrop?: boolean;
   actionText?: any;
+  selectOptions: any[];
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   children,
@@ -24,6 +25,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   handleLibraryClick,
   enableDragAndDrop,
   actionText,
+  selectOptions,
   ...attr
 }) => {
   const [previewImages, setPreviewImages]: any[] = useState([]);
@@ -191,6 +193,17 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     setPreviewImages(previewImagesCopy);
   };
 
+  const handleSelectChange = ({ event }: any, index: number) => {
+    const {
+      target: { value }
+    } = event;
+
+    const filesToUploadCopy = cloneDeep(filesToUpload);
+
+    filesToUploadCopy[index].storeKey = value;
+    setFilesToUpload(filesToUploadCopy);
+  };
+
   return (
     <>
       {enableDragAndDrop ? (
@@ -200,6 +213,8 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           customPreview={customPreview}
           area={area}
           handleInputChange={handleInputChange}
+          handleSelectChange={handleSelectChange}
+          selectOptions={selectOptions}
           {...attr}
         >
           <Actions
@@ -224,6 +239,8 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               previewImages={previewImages}
               handleCancel={handleCancel}
               handleInputChange={handleInputChange}
+              handleSelectChange={handleSelectChange}
+              selectOptions={selectOptions}
             />
           )}
         </>

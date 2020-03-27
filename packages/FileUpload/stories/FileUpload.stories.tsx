@@ -35,7 +35,10 @@ storiesOf("FileUpload", module)
             ]}
             upload
           >
-            <FileUpload onChange={onChange} />
+            <FileUpload
+              onChange={onChange}
+              selectOptions={[["default", "Default"]]}
+            />
           </Modal>
         </Suspense>
       );
