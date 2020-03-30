@@ -21,14 +21,14 @@ const defaultProps = (override: object = {}) => ({
         checked: true,
         description: "Lorem ipsum dolor.",
         id: 2,
-        name: "Blaze 2",
+        name: [["Blaze 2", 'multi main label'], ['Sub label 1', 'sub label 2', 'sub label 3']],
         show: true
       },
       {
         checked: false,
         description: "Lorem ipsum dolor.",
         id: 3,
-        name: "Blaze 3",
+        name: ["Blaze 3", ['Sub label 1', 'sub label 2']],
         show: true
       }
     ]
@@ -37,14 +37,14 @@ const defaultProps = (override: object = {}) => ({
 });
 
 describe("Multiselect component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
+  it("should be defined and renders correctly (snapshot)", () => {
     const wrapper = shallow(<Multiselect {...defaultProps()} />);
 
     expect(wrapper).toBeDefined();
     expect(wrapper).toMatchSnapshot();
   });
 
-  test("should select first option", () => {
+  it("should select first option", () => {
     const wrapper = mount(<Multiselect {...defaultProps()} />);
 
     wrapper
@@ -65,7 +65,7 @@ describe("Multiselect component", () => {
     ).toContain("Blaze 1");
   });
 
-  test("should allow to filter", () => {
+  it("should allow to filter", () => {
     const wrapper = mount(<Multiselect {...defaultProps()} />);
 
     wrapper
@@ -85,7 +85,7 @@ describe("Multiselect component", () => {
     ).toContain("Blaze 2");
   });
 
-  test("should render without available data", () => {
+  it("should render without available data", () => {
     const override = {
       data: [],
       error: true,
@@ -111,7 +111,7 @@ describe("Multiselect component", () => {
     ).toContain("No records available");
   });
 
-  test("should rerender on receive props", () => {
+  it("should rerender on receive props", () => {
     const { rerender } = render(<Multiselect {...defaultProps()} />);
 
     const override = {
@@ -134,7 +134,7 @@ describe("Multiselect component", () => {
     rerender(<Multiselect {...defaultProps(override)} />);
   });
 
-  test("should be removed by clicking on the chip", () => {
+  it("should be removed by clicking on the chip", () => {
     const wrapper = mount(<Multiselect {...defaultProps()} />);
 
     wrapper
@@ -163,5 +163,18 @@ describe("Multiselect component", () => {
       .simulate("click");
 
     expect(wrapper.find(".chip__label").length).toBe(0);
+  });
+
+  it("should display chip labels based on props", () => {
+    const wrapper = mount(<Multiselect {...defaultProps()} />);
+    const firstChipLabel = wrapper.find(".chip__label").at(0).text();
+    const secondChipLabel = wrapper.find(".chip__label").at(1).text();
+
+    const [firstChip, secondChip] = defaultProps().data.data
+    const [main] = secondChip.name
+    const expectedValueSecondChip = `${main[0]}, ${main[1]}`
+
+    expect(firstChipLabel).toBe(firstChip.name);
+    expect(secondChipLabel).toBe(expectedValueSecondChip);
   });
 });
