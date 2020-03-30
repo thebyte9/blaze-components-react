@@ -164,7 +164,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const parseCheckBoxOptions = (elements: object[]): object[] => {
     return elements.map((element: any): object => ({
       ...element,
-      label: element[keyValue]
+      label: getLabel(element[keyValue], false)
     }));
   };
 
@@ -222,10 +222,15 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   const requiredClassName: string = classNames({ required });
 
-  const getChipLabel = (defaultLabel?: string | [string, string]) => {
+  const labelParser = (defaultLabel: string | [string, string]) => Array.isArray(defaultLabel) ? defaultLabel.join(', ') : defaultLabel;
+
+  const getLabel = (defaultLabel?: string | [string, string], isChip?: boolean) => {
     if (Array.isArray(defaultLabel)) {
-      const [labelText, labelLongerText] = defaultLabel;
-      return `${labelText} ${labelLongerText}`;
+      const [main, sub] = defaultLabel;
+      const mainLabel = labelParser(main);
+      const subLabel = labelParser(sub);
+
+      return isChip ? mainLabel : `${mainLabel} ${subLabel}`;
     }
     return defaultLabel;
   };
@@ -265,7 +270,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
                   <Chip.Label
                     data-cy={`multiSelect-${label}-chip${index + 1}-label`}
                   >
-                    {getChipLabel(selectedValue[keyValue])}
+                    {getLabel(selectedValue[keyValue], true)}
                   </Chip.Label>
                   <Chip.Icon
                     data-cy={`multiSelect-${label}-chip${index + 1}-icon`}
