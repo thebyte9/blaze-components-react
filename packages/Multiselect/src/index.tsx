@@ -162,7 +162,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   const parseCheckBoxOptions = (elements: object[]): object[] => {
-    // TODO
     return elements.map((element: any): object => ({
       ...element,
       label: getLabel(element[keyValue], false)
@@ -226,7 +225,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const labelParser = (label: string | [string, string]) => Array.isArray(label) ? label.join(', ') : label;
 
   const getLabel = (defaultLabel?: string | [string, string], isChip?: boolean) => {
-    // TODO
     if (Array.isArray(defaultLabel)) {
       const [main, sub] = defaultLabel;
       const mainLabel = labelParser(main);
