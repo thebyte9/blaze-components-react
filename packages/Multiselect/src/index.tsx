@@ -222,7 +222,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   const requiredClassName: string = classNames({ required });
 
-  const labelParser = (label: string | [string, string]) => Array.isArray(label) ? label.join(', ') : label;
+  const labelParser = (defaultLabel: string | [string, string]) => Array.isArray(defaultLabel) ? defaultLabel.join(', ') : defaultLabel;
 
   const getLabel = (defaultLabel?: string | [string, string], isChip?: boolean) => {
     if (Array.isArray(defaultLabel)) {
