@@ -230,7 +230,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       const mainLabel = labelParser(main);
       const subLabel = labelParser(sub);
 
-      return isChip ? mainLabel : `${mainLabel} ${subLabel}`;
+      return isChip ? mainLabel : [mainLabel, subLabel];
     }
     return defaultLabel;
   };
