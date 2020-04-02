@@ -7,7 +7,9 @@ interface IDateRangeProps {
 
 interface IDateValidation {
   date: TMoment;
-  dateToEvaluate: any;
+  dateToEvaluate?: TMoment;
+  startDate?: TMoment;
+  endDate?: TMoment;
   type: string;
 }
 

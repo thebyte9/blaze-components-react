@@ -1,7 +1,6 @@
 // @ts-nocheck
 import Select from "@blaze-react/select";
 import cloneDeep from "lodash.clonedeep";
-// import moment from "moment/src/moment.js";
 import React, { useState } from "react";
 import { IDateRangeProps, IOnChangeArguments, TMoment } from "../interfaces";
 import DateRangeDays from "./DateRangeDays";
@@ -42,50 +41,53 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     setDate(newDate);
   };
 
-  const changeDate = (newDate: any) => {
-    let dateStartCopy = cloneDeep(startDate);
-    let dateEndCopy = cloneDeep(endDate);
-
+  const evaluate = (newDate: TMoment) => {
     if (
       startDate === null ||
-      Moment.isTheBeforeDate(
-        { date: newDate, dateToEvaluate: startDate, type: "day" },
-        "day"
-      ) ||
-      !Moment.isTheSameDate(
-        { date: startDate, dateToEvaluate: endDate, type: "day" },
-        "day"
-      )
+      Moment.isTheBeforeDate({
+        date: newDate,
+        dateToEvaluate: startDate
+      }) ||
+      !Moment.isTheSameDate({
+        date: startDate,
+        dateToEvaluate: endDate
+      })
     ) {
-      dateStartCopy = Moment.instance(newDate);
-      dateEndCopy = Moment.instance(newDate);
-    } else if (
-      Moment.isTheSameDate(
-        { date: newDate, dateToEvaluate: startDate, type: "day" },
-        "day"
-      ) &&
-      Moment.isTheSameDate(
-        { date: newDate, dateToEvaluate: endDate, type: "day" },
-        "day"
-      )
-    ) {
-      dateStartCopy = null;
-      dateEndCopy = null;
-    } else if (
-      Moment.isTheAfterDate(
-        { date: newDate, dateToEvaluate: startDate, type: "day" },
-        "day"
-      )
-    ) {
-      dateEndCopy = Moment.instance(newDate);
+      return {
+        end: Moment.instance(newDate),
+        start: Moment.instance(newDate)
+      };
     }
 
-    setStartDate(dateStartCopy);
-    setEndStartDate(dateEndCopy);
+    if (Moment.isTodaysDate({ date: newDate, endDate, startDate })) {
+      return {
+        end: null,
+        start: null
+      };
+    }
+
+    if (
+      Moment.isTheAfterDate({
+        date: newDate,
+        dateToEvaluate: startDate
+      })
+    ) {
+      return {
+        end: Moment.instance(newDate),
+        start: cloneDeep(startDate)
+      };
+    }
+  };
+
+  const changeDate = (newDate: any) => {
+    const { start, end } = evaluate(newDate);
+
+    setStartDate(start);
+    setEndStartDate(end);
 
     onChange({
-      end: Moment.formatDate(dateEndCopy),
-      start: Moment.formatDate(dateStartCopy)
+      end: Moment.formatDate(end),
+      start: Moment.formatDate(start)
     });
   };
 

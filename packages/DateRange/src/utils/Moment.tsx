@@ -16,16 +16,48 @@ class Moment {
     return Number.isInteger(Number(value));
   }
 
-  public isTheSameDate({ date, dateToEvaluate, type }: IDateValidation) {
+  public isTheSameDate({
+    date,
+    dateToEvaluate,
+    type = "day"
+  }: IDateValidation) {
     return date.isSame(dateToEvaluate, type);
   }
 
-  public isTheAfterDate({ date, dateToEvaluate, type }: IDateValidation) {
+  public isTheAfterDate({
+    date,
+    dateToEvaluate,
+    type = "day"
+  }: IDateValidation) {
     return date.isAfter(dateToEvaluate, type);
   }
 
-  public isTheBeforeDate({ date, dateToEvaluate, type }: IDateValidation) {
+  public isTheBeforeDate({
+    date,
+    dateToEvaluate,
+    type = "day"
+  }: IDateValidation) {
     return date.isBefore(dateToEvaluate, type);
+  }
+
+  public isTodaysDate({
+    date,
+    startDate,
+    endDate,
+    type = "day"
+  }: IDateValidation) {
+    return (
+      this.isTheSameDate({
+        date,
+        dateToEvaluate: startDate,
+        type
+      }) &&
+      this.isTheSameDate({
+        date,
+        dateToEvaluate: endDate,
+        type
+      })
+    );
   }
 
   public subtract({ value, type }: ISubtract) {
