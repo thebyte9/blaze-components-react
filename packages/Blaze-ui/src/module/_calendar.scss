@@ -9,13 +9,10 @@ $radius: 30px;
   width: 300px;
   padding: 15px;
   border: 1px solid rgb(65, 65, 65);
-  // box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
-  // border-radius: 30px;
   overflow: hidden;
 
   &--nav {
     margin: -15px -15px 15px;
-    // padding: 0 15px;
     background-color: #fafafa;
     color: #000;
     height: 40px;
@@ -51,15 +48,8 @@ $radius: 30px;
       right: 40px;
       text-align: center;
       cursor: pointer;
-      // font-weight: 400;
       font-size: 30px;
-      // line-height: 66px;
       user-select: none;
-    }
-
-    small {
-      // font-weight: 300;
-      // font-size: 60%;
     }
   }
 
@@ -80,7 +70,6 @@ $radius: 30px;
       &.label {
         text-transform: uppercase;
         font-weight: 700;
-        // color: rgba(0, 0, 0, 0.3);
         font-size: 12px;
         cursor: initial;
       }
@@ -89,7 +78,6 @@ $radius: 30px;
         font-weight: 700;
         background-color: rgb(65, 65, 65);
         color: #fff;
-        // border-radius: $radius;
       }
 
       &.muted {
@@ -108,15 +96,6 @@ $radius: 30px;
       }
 
       &.start {
-        // border-radius: $radius 0 0 $radius;
-      }
-
-      &.end {
-        // border-radius: 0 $radius $radius 0;
-      }
-
-      &.start.end {
-        // border-radius: $radius;
       }
 
       &.between:nth-child(7n):after,
