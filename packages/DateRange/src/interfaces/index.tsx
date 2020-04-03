@@ -24,10 +24,26 @@ interface IOnChangeArguments {
   selectedDate?: string;
 }
 
+interface IDateRangeHeadingProps {
+  date: TMoment;
+  changeMonthTo: (month: TMoment) => void;
+  resetDate: () => void;
+}
+
+interface IDateRangeDayProps {
+  date: TMoment;
+  currentDate: TMoment;
+  onClick: (event: any) => void;
+  startDate: TMoment;
+  endDate: TMoment;
+}
+
 export {
   IDateRangeProps,
   IDateValidation,
   ISubtract,
   TMoment,
-  IOnChangeArguments
+  IOnChangeArguments,
+  IDateRangeHeadingProps,
+  IDateRangeDayProps
 };

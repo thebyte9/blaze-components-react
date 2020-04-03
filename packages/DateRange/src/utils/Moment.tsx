@@ -1,41 +1,37 @@
 // @ts-nocheck
 import moment from "moment/src/moment.js";
+import { DAY, DEFAULT_FORMAT } from "../constants";
 import { IDateValidation, ISubtract, TMoment } from "../interfaces";
 
 class Moment {
   constructor() {
     this.currentDate = moment();
     this.instance = moment;
-    this.format = "DD-MM-YYYY";
+    this.format = DEFAULT_FORMAT;
   }
-  public formatDate(date: TMoment) {
-    return date.format(this.format);
+  public formatDate(date: TMoment | null, format?: string) {
+    if (!date) {
+      return;
+    }
+    return date.format(format || this.format);
   }
 
   public isNumber(value: string) {
     return Number.isInteger(Number(value));
   }
 
-  public isTheSameDate({
-    date,
-    dateToEvaluate,
-    type = "day"
-  }: IDateValidation) {
+  public isTheSameDate({ date, dateToEvaluate, type = DAY }: IDateValidation) {
     return date.isSame(dateToEvaluate, type);
   }
 
-  public isTheAfterDate({
-    date,
-    dateToEvaluate,
-    type = "day"
-  }: IDateValidation) {
+  public isTheAfterDate({ date, dateToEvaluate, type = DAY }: IDateValidation) {
     return date.isAfter(dateToEvaluate, type);
   }
 
   public isTheBeforeDate({
     date,
     dateToEvaluate,
-    type = "day"
+    type = DAY
   }: IDateValidation) {
     return date.isBefore(dateToEvaluate, type);
   }
@@ -44,7 +40,7 @@ class Moment {
     date,
     startDate,
     endDate,
-    type = "day"
+    type = DAY
   }: IDateValidation) {
     return (
       this.isTheSameDate({
@@ -62,6 +58,18 @@ class Moment {
 
   public subtract({ value, type }: ISubtract) {
     return this.instance().subtract(value, type);
+  }
+
+  public previousDate(date: TMoment) {
+    return date.month() - 1;
+  }
+
+  public nextDate(date: TMoment) {
+    return date.month() + 1;
+  }
+
+  public isToday(date: TMoment, type: string) {
+    return this.instance().isSame(date, type);
   }
 }
 

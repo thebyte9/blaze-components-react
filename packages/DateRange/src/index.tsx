@@ -3,6 +3,7 @@ import Select from "@blaze-react/select";
 import cloneDeep from "lodash.clonedeep";
 import React, { useState } from "react";
 import { IDateRangeProps, IOnChangeArguments, TMoment } from "../interfaces";
+import { DAY, MONTH } from "./constants";
 import DateRangeDays from "./DateRangeDays";
 import DateRangeHeading from "./DateRangeHeading";
 import { Moment } from "./utils";
@@ -34,12 +35,6 @@ const DateRange: React.SFC<IDateRangeProps> = ({
   const [endDate, setEndStartDate] = useState<TMoment | null>(null);
 
   const resetDate = () => setDate(Moment.currentDate);
-
-  const changeMonth = (month: string) => {
-    const newDate = cloneDeep(date);
-    newDate.month(month);
-    setDate(newDate);
-  };
 
   const evaluate = (newDate: TMoment) => {
     if (
@@ -91,6 +86,12 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     });
   };
 
+  const changeMonthTo = (month: string) => {
+    const newDate = cloneDeep(date);
+    newDate.month(month);
+    setDate(newDate);
+  };
+
   const isCustom = selectedOption === "custom";
 
   const handleOnChange = ({ value } = {}) => {
@@ -98,7 +99,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
 
     if (Moment.isNumber(value)) {
       const isMonth = Number(value) === 12;
-      const type = isMonth ? "month" : "day";
+      const type = isMonth ? MONTH : DAY;
 
       const selectedDate = Moment.subtract({ value, type });
       onChange({ selectedDate: Moment.formatDate(selectedDate) });
@@ -116,12 +117,12 @@ const DateRange: React.SFC<IDateRangeProps> = ({
         <div className="calendar">
           <DateRangeHeading
             date={date}
-            changeMonth={(month: any) => changeMonth(month)}
+            changeMonthTo={(month: TMoment) => changeMonthTo(month)}
             resetDate={resetDate}
           />
 
           <DateRangeDays
-            onClick={(d: any) => changeDate(d)}
+            onClick={(d: TMoment) => changeDate(d)}
             date={date}
             startDate={startDate}
             endDate={endDate}

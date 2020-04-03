@@ -1,15 +1,8 @@
 // @ts-nocheck
-
-import moment from "moment/src/moment.js";
 import React from "react";
-
-interface IDateRangeDayProps {
-  date: any;
-  currentDate: any;
-  onClick: (event: any) => void;
-  startDate: any;
-  endDate: any;
-}
+import { DAY, MONTH } from "../constants";
+import { IDateRangeDayProps } from "../interfaces";
+import { Moment } from "../utils";
 
 const DateRangeDay = ({
   currentDate,
@@ -20,23 +13,23 @@ const DateRangeDay = ({
 }: IDateRangeDayProps): JSX.Element => {
   const className = [];
 
-  if (moment().isSame(date, "day")) {
+  if (Moment.isToday(date, DAY)) {
     className.push("active");
   }
 
-  if (date.isSame(startDate, "day")) {
+  if (date.isSame(startDate, DAY)) {
     className.push("start");
   }
 
-  if (date.isBetween(startDate, endDate, "day")) {
+  if (date.isBetween(startDate, endDate, DAY)) {
     className.push("between");
   }
 
-  if (date.isSame(endDate, "day")) {
+  if (date.isSame(endDate, DAY)) {
     className.push("end");
   }
 
-  if (!date.isSame(currentDate, "month")) {
+  if (!date.isSame(currentDate, MONTH)) {
     className.push("muted");
   }
 

@@ -1,33 +1,35 @@
 // @ts-nocheck
-
 import React, { useEffect, useState } from "react";
-
-interface IDateRangeHeadingProps {
-  date: any;
-  changeMonth: (month: any) => void;
-  resetDate: () => void;
-}
+import { MONTH_FORMAT, NEXT, PREVIOUS, YEAR_FORMAT } from "../constants";
+import { IDateRangeHeadingProps, TMoment } from "../interfaces";
+import { Moment } from "../utils";
 
 const DateRangeHeading = ({
   date,
-  changeMonth,
+  changeMonthTo,
   resetDate
 }: IDateRangeHeadingProps): JSX.Element => {
-  const [activeDate, setActiveDate] = useState(date);
+  const [activeDate, setActiveDate] = useState<TMoment>(date);
 
   useEffect(() => {
     setActiveDate(date);
   }, [date]);
 
+  const handlePreviousDate = () =>
+    changeMonthTo(Moment.previousDate(activeDate));
+
+  const handleNextDate = () => changeMonthTo(Moment.nextDate(activeDate));
+
   return (
     <nav className="calendar--nav">
-      <a onClick={() => changeMonth(activeDate.month() - 1)}> {"<"}</a>
+      <span onClick={handlePreviousDate}>{PREVIOUS}</span>
 
-      <h1 onClick={() => resetDate()}>
-        {activeDate.format("MMMM")} <small>{activeDate.format("YYYY")}</small>
+      <h1 onClick={resetDate}>
+        {Moment.formatDate(activeDate, MONTH_FORMAT)}
+        {Moment.formatDate(activeDate, YEAR_FORMAT)}
       </h1>
 
-      <a onClick={() => changeMonth(activeDate.month() + 1)}> {">"} </a>
+      <span onClick={handleNextDate}>{NEXT}</span>
     </nav>
   );
 };
