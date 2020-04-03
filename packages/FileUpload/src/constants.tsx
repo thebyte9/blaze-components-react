@@ -5,9 +5,17 @@ const DATA_ATTRIBUTS = {
 
 const DATA_ATTRIBUTES = {
   ALT_TEXT: "altText",
-  CAPTION: "caption"
+  CAPTION: "caption",
+  TITLE: 'title'
 };
+
+const IMAGE = "image";
+
+const DOC = "doc";
 
 const NAME = "name";
 
-export { DATA_ATTRIBUTS, DATA_ATTRIBUTES, NAME };
+const VIDEO = 'video'
+
+
+export { DATA_ATTRIBUTS, DATA_ATTRIBUTES, DOC, IMAGE, NAME, VIDEO };
