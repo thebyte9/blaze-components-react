@@ -1,4 +1,5 @@
 import {
+  AtomicBlockUtils,
   DraftBlockType,
   DraftInlineStyleType,
   EditorState,
@@ -8,11 +9,14 @@ import {
 import React from "react";
 import BlockControls from "./BlockControls";
 import HTMLEditor from "./HTMLEditor";
+import { ImageControl } from "./ImageControl";
 import InlineControls from "./InlineControls";
 import { Anchor, LinkControl } from "./LinkControl";
 
 const CustomDraftPlugins = ({
   editorState,
+  selectedImages,
+  handleLibraryClick,
   unSelectedText,
   onEditorChange,
   toggleDraftEditor
@@ -31,6 +35,19 @@ const CustomDraftPlugins = ({
     onEditorChange(RichUtils.toggleLink(newEditorState, selection, entityKey));
   };
 
+  const handleClick = (
+    newEditorState: EditorState,
+    entityKey: string
+  ): EditorState => {
+    const stateWithImageInserted: EditorState = AtomicBlockUtils.insertAtomicBlock(
+      newEditorState,
+      entityKey,
+      " "
+    );
+    onEditorChange(stateWithImageInserted);
+    return stateWithImageInserted;
+  };
+
   return (
     <section className="custom-DraftEditor-utils">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
@@ -40,6 +57,12 @@ const CustomDraftPlugins = ({
           onToggle={toggleInlineStyle}
         />
         <>
+          <ImageControl
+            editorState={editorState}
+            onToggle={handleClick}
+            selectedImages={selectedImages}
+            handleLibraryClick={handleLibraryClick}
+          />
           <LinkControl
             editorState={editorState}
             onToggle={toggleLink}
