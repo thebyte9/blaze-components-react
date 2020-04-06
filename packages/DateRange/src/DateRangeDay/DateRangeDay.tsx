@@ -1,4 +1,5 @@
 // @ts-nocheck
+import withUtils from "@blaze-react/utils";
 import React from "react";
 import { DAY, MONTH } from "../constants";
 import { IDateRangeDayProps } from "../interfaces";
@@ -9,39 +10,28 @@ const DateRangeDay = ({
   date,
   startDate,
   endDate,
-  onClick
+  onClick,
+  utils: { classNames }
 }: IDateRangeDayProps): JSX.Element => {
-  const className = [];
+  const handleOnClick = () => onClick(date);
 
-  if (Moment.isToday(date, DAY)) {
-    className.push("active");
-  }
-
-  if (date.isSame(startDate, DAY)) {
-    className.push("start");
-  }
-
-  if (date.isBetween(startDate, endDate, DAY)) {
-    className.push("between");
-  }
-
-  if (date.isSame(endDate, DAY)) {
-    className.push("end");
-  }
-
-  if (!date.isSame(currentDate, MONTH)) {
-    className.push("muted");
-  }
+  const dayClassName: string = classNames({
+    active: Moment.isToday(date, DAY),
+    between: date.isBetween(startDate, endDate, DAY),
+    end: date.isSame(endDate, DAY),
+    muted: !date.isSame(currentDate, MONTH),
+    start: date.isSame(startDate, DAY)
+  });
 
   return (
     <span
-      onClick={() => onClick(date)}
+      onClick={handleOnClick}
       currentDate={date}
-      className={className.join(" ")}
+      className={`day ${dayClassName}`}
     >
       {date.date()}
     </span>
   );
 };
 
-export default DateRangeDay;
+export default withUtils(DateRangeDay);

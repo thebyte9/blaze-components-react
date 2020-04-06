@@ -22,14 +22,18 @@ const DateRangeHeading = ({
 
   return (
     <nav className="calendar--nav">
-      <span onClick={handlePreviousDate}>{PREVIOUS}</span>
+      <span className="previous" onClick={handlePreviousDate}>
+        {PREVIOUS}
+      </span>
 
-      <h1 onClick={resetDate}>
+      <h1 className="current-date" onClick={resetDate}>
         {Moment.formatDate(activeDate, MONTH_FORMAT)}
         {Moment.formatDate(activeDate, YEAR_FORMAT)}
       </h1>
 
-      <span onClick={handleNextDate}>{NEXT}</span>
+      <span className="next" onClick={handleNextDate}>
+        {NEXT}
+      </span>
     </nav>
   );
 };

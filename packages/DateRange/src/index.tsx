@@ -2,34 +2,21 @@
 import Select from "@blaze-react/select";
 import cloneDeep from "lodash.clonedeep";
 import React, { useState } from "react";
-import { IDateRangeProps, IOnChangeArguments, TMoment } from "../interfaces";
-import { DAY, MONTH } from "./constants";
+import { IDateRangeProps, TMoment } from "../interfaces";
+import { DAY, DEFAULT_OPTIONS, MONTH } from "./constants";
 import DateRangeDays from "./DateRangeDays";
 import DateRangeHeading from "./DateRangeHeading";
 import { Moment } from "./utils";
 
-const DEFAULT_OPTIONS = [
-  [1, "Last 24 hours"],
-  [2, "Last 48 hours"],
-  [3, "Last 72 hours"],
-  [7, "Last 7 days"],
-  [30, "Last 30 days"],
-  [12, "Last 12 month"],
-  ["custom", "Custom range date"],
-  ["any", "Any date"]
-];
-
-interface IDateRangeProps {
-  children?: any;
-  onChange: (args: IOnChangeArguments) => void;
-}
-
 const DateRange: React.SFC<IDateRangeProps> = ({
   children,
   onChange,
+  selected,
   ...attr
 }) => {
-  const [selectedOption, setSelectedOption] = useState<string | number>("any");
+  const [selectedOption, setSelectedOption] = useState<string | number>(
+    selected
+  );
   const [date, setDate] = useState<TMoment | null>(Moment.currentDate);
   const [startDate, setStartDate] = useState<TMoment | null>(null);
   const [endDate, setEndStartDate] = useState<TMoment | null>(null);
@@ -135,6 +122,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
 
 DateRange.defaultProps = {
   children: "No content",
-  onChange: () => void 0
+  onChange: () => void 0,
+  selected: "any"
 };
 export default DateRange;

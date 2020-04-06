@@ -4,7 +4,7 @@ import React from "react";
 import DateRangeReadme from "../README.md";
 import DateRange from "../src/";
 
-storiesOf("DateRange", module)
+storiesOf("DateRange ---------", module)
   .addParameters({
     readme: {
       sidebar: DateRangeReadme
@@ -15,7 +15,11 @@ storiesOf("DateRange", module)
       <div className="component-wrapper">
         <h1>DateRange</h1>
 
-        <DateRange onChange={value => console.log(value)} />
+        <DateRange
+          onChange={(value: any) => {
+            // console.log(value)
+          }}
+        />
       </div>
     );
   });

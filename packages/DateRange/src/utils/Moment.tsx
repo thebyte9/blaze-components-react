@@ -1,7 +1,14 @@
 // @ts-nocheck
-import moment from "moment/src/moment.js";
-import { DAY, DEFAULT_FORMAT } from "../constants";
-import { IDateValidation, ISubtract, TMoment } from "../interfaces";
+import moment from "moment";
+import { DAY, DAY_FORMAT, DEFAULT_FORMAT } from "../constants";
+import {
+  IDateValidation,
+  IGetDaysInMonthProps,
+  IGetNextMonthDaysProps,
+  IGetPreviousMonthDaysProps,
+  ISubtract,
+  TMoment
+} from "../interfaces";
 
 class Moment {
   constructor() {
@@ -70,6 +77,54 @@ class Moment {
 
   public isToday(date: TMoment, type: string) {
     return this.instance().isSame(date, type);
+  }
+
+  public getDayName(dayNumber: number) {
+    return this.instance()
+      .day(dayNumber)
+      .format(DAY_FORMAT);
+  }
+
+  public getPreviousMonthDays({
+    firstDayDate,
+    previousMonth,
+    previousMonthDays,
+    PreviousMonthDayWrapper
+  }: IGetPreviousMonthDaysProps) {
+    const days = [];
+
+    for (let i = firstDayDate.day(); i > 1; i--) {
+      previousMonth.date(previousMonthDays - i + 2);
+      days.push(PreviousMonthDayWrapper(previousMonth));
+    }
+    return days;
+  }
+
+  public getNextMonthDays({
+    NextMonthDayWrapper,
+    calendar,
+    nextsMonth
+  }: IGetNextMonthDaysProps) {
+    const daysCount = calendar.length;
+    for (let i = 1; i <= 42 - daysCount; i++) {
+      nextsMonth.date(i);
+      calendar.push(NextMonthDayWrapper(nextsMonth));
+    }
+    return calendar;
+  }
+
+  public getDaysInMonth({
+    DayInMonthWrapper,
+    daysInMonth,
+    thisDate,
+    calendar
+  }: IGetDaysInMonthProps) {
+    for (let i = 1; i <= daysInMonth; i++) {
+      thisDate.date(i);
+      calendar.push(DayInMonthWrapper(thisDate));
+    }
+
+    return calendar;
   }
 }
 

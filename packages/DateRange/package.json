@@ -20,6 +20,7 @@
   "dependencies": {
     "@blaze-react/select": "^0.4.47",
     "moment": "^2.24.0",
+    "@blaze-react/utils": "^0.4.37",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
