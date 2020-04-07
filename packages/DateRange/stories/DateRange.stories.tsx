@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React from "react";
@@ -17,7 +19,7 @@ storiesOf("DateRange ---------", module)
 
         <DateRange
           onChange={(value: any) => {
-            // console.log(value)
+            console.log(value);
           }}
         />
       </div>

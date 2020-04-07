@@ -1,12 +1,23 @@
-const MONTH_FORMAT = "MMMM";
-const YEAR_FORMAT = "YYYY";
-const DAY_FORMAT = "ddd";
 const PREVIOUS = "<";
 const NEXT = ">";
-const DAY = "day";
-const MONTH = "month";
 const DEFAULT_FORMAT = "DD-MM-YYYY";
+const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
 const WEEKDAYS = 7;
+const DAYS_PER_LIST = 42;
 const DEFAULT_OPTIONS = [
   [1, "Last 24 hours"],
   [2, "Last 48 hours"],
@@ -17,16 +28,16 @@ const DEFAULT_OPTIONS = [
   ["custom", "Custom range date"],
   ["any", "Any date"]
 ];
+const SEPARATOR = "/";
 
 export {
   DEFAULT_FORMAT,
-  MONTH,
-  YEAR_FORMAT,
-  MONTH_FORMAT,
   PREVIOUS,
   NEXT,
-  DAY,
-  DAY_FORMAT,
   WEEKDAYS,
-  DEFAULT_OPTIONS
+  DEFAULT_OPTIONS,
+  DAYS_PER_LIST,
+  DAYS,
+  MONTHS,
+  SEPARATOR
 };

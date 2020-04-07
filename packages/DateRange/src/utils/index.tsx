@@ -1,3 +1,3 @@
-import Moment from "./Moment";
+import DateUtils from "./DateUtils";
 
-export { Moment };
+export { DateUtils };
