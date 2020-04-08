@@ -9,6 +9,7 @@ import { DateUtils } from "../utils";
 
 const DateRange: React.SFC<IDateRangeProps> = ({
   onChange,
+  type,
   utils: { classNames }
 }) => {
   const [year, setYear] = useState<string | number>(new Date().getFullYear());
@@ -21,7 +22,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     const pickedDate = DateUtils.formatDate(DD, MM, YY);
 
     setSelectedDate(pickedDate);
-    onChange({ pickedDate });
+    onChange({ [type.toLowerCase()]: pickedDate });
   };
 
   const changeDate = (event: any) => {
@@ -34,6 +35,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     setYear(YY);
     setMonth(MM);
     setDate(DateUtils.formatDate(DD, MM, YY));
+    setCalendarStatus(false);
   };
 
   const handlePreviousMonth = () => {
@@ -76,31 +78,22 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     setDate(newDate);
   };
 
-  const handleOnFocus = () => setCalendarStatus(true);
-
-  const getInputValue = () => {
-    const [DD, MM, YY] = selectedDate.split(SEPARATOR);
-    if (!DD || !MM || !YY) {
-      return;
-    }
-    return `${YY}-${MM.padStart(2, "0")}-${DD.padStart(2, "0")}`;
-  };
+  const handleOnClick = () => setCalendarStatus(!calendarStatus);
 
   return (
     <div className="calendar-container">
       <div className="calendar-input">
-        <span>From</span>
+        <span>{type}</span>
         <Input
           onChange={() => ""}
           placeholder="dd/mm/yy"
-          value={getInputValue}
-          onFocus={handleOnFocus}
+          value={selectedDate}
           className="range-date"
-          type="date"
+          onClick={handleOnClick}
         />
       </div>
       {calendarStatus && (
-        <div className="calendar">
+        <div className="calendar" for={type}>
           <div className="header">
             <span className="prevMonth" onClick={handlePreviousMonth}>
               {PREVIOUS}

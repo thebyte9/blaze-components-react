@@ -9,10 +9,18 @@ const DateRange: React.SFC<IDateRangeProps> = ({ onChange, selected }) => {
   const [selectedOption, setSelectedOption] = useState<string | number>(
     selected
   );
-
-  const isCustom = selectedOption === "custom";
+  const [selectedDate, setSelectedDate] = useState<object>({});
 
   const handleOnChange = ({ value } = {}) => setSelectedOption(value);
+  const handleSelectedDate = (date: any) => {
+    const rangeDate = {
+      ...selectedDate,
+      ...date
+    };
+    setSelectedDate(rangeDate);
+    onChange(rangeDate);
+  };
+  const isCustom = selectedOption === "custom";
 
   return (
     <>
@@ -25,7 +33,8 @@ const DateRange: React.SFC<IDateRangeProps> = ({ onChange, selected }) => {
       {isCustom ||
         (true && (
           <>
-            <DateRangeSelectDay onChange={onChange} />
+            <DateRangeSelectDay onChange={handleSelectedDate} type="From" />
+            <DateRangeSelectDay onChange={handleSelectedDate} type="To" />
           </>
         ))}
     </>
