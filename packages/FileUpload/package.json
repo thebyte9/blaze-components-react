@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/file-upload",
-  "version": "0.4.48",
+  "version": "0.4.51",
   "publishConfig": {
     "access": "public"
   },
