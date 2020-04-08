@@ -5,6 +5,10 @@ declare const DATA_ATTRIBUTS: {
 declare const DATA_ATTRIBUTES: {
     ALT_TEXT: string;
     CAPTION: string;
+    TITLE: string;
 };
+declare const IMAGE = "image";
+declare const DOC = "doc";
 declare const NAME = "name";
-export { DATA_ATTRIBUTS, DATA_ATTRIBUTES, NAME };
+declare const VIDEO = "video";
+export { DATA_ATTRIBUTS, DATA_ATTRIBUTES, DOC, IMAGE, NAME, VIDEO };
