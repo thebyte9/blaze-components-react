@@ -1,10 +1,7 @@
-import Input from "@blaze-react/input";
-import Select from "@blaze-react/select";
 import React, { Fragment } from "react";
-import { DATA_ATTRIBUTES, NAME } from "../constants";
+import { DOC, IMAGE } from "../constants";
 import DocumentIcon from "../DocumentIcon";
-
-const IMAGE = "image";
+import FileInputs from "../FileInputs";
 
 const FileList = ({
   previewImages,
@@ -19,82 +16,62 @@ const FileList = ({
   handleSelectChange: any;
   selectOptions: any[];
 }) => (
-  <>
-    {previewImages.map(
-      (
-        {
-          file,
-          name,
-          data
-        }: {
-          file: any;
-          name: string;
-          data: any | null;
-        },
-        index: any
-      ) => {
-        const sanitizedFileName = file.name && file.name.replace(".", "");
+    <>
+      {previewImages.map(
+        (
+          {
+            file,
+            name,
+            data
+          }: {
+            file: any;
+            name: string;
+            data: any | null;
+          },
+          index: any
+        ) => {
+          const fileInputsProps = {
+            data,
+            file,
+            handleInputChange,
+            handleSelectChange,
+            index,
+            name,
+            selectOptions
+          }
+          const isImage = file.type === IMAGE;
 
-        return (
-          <Fragment key={file.id}>
-            <div className="preview">
-              <div className={`preview__file preview__file--${file.type}`}>
-                {file.type === IMAGE ? (
-                  <img src={file.base64} />
-                ) : (
-                  <DocumentIcon />
-                )}
-              </div>
-              <div className="preview__details">
-                <div className="preview__filename">{file.name}</div>
-                <div className="preview__form">
-                  {file.type === IMAGE && (
-                    <>
-                      <Input
-                        label="Image title"
-                        onChange={handleInputChange}
-                        value={name}
-                        id={`${index}-title-${sanitizedFileName}`}
-                        name={NAME}
-                      />
-                      <Input
-                        label="Alternative text"
-                        onChange={handleInputChange}
-                        value={data.altText}
-                        id={`${index}-altText-${sanitizedFileName}`}
-                        name={`${DATA_ATTRIBUTES.ALT_TEXT}-${index}-${sanitizedFileName}`}
-                      />
-                      <Input
-                        label="Image caption"
-                        onChange={handleInputChange}
-                        value={data.caption}
-                        id={`${index}-caption-${sanitizedFileName}`}
-                        name={`${DATA_ATTRIBUTES.CAPTION}-${index}-${sanitizedFileName}`}
-                      />
-                      <Select
-                        label="Store type"
-                        options={selectOptions}
-                        onChange={(event: any) =>
-                          handleSelectChange(event, index)
-                        }
-                      />
-                    </>
-                  )}
-                  <i
-                    onClick={() => handleCancel(file.id)}
-                    className="material-icons"
-                    aria-hidden="true"
-                  >
-                    delete_outline
+          return (
+            <Fragment key={file.id}>
+              <div className="preview">
+                <div className={`preview__file preview__file--${file.type}`}>
+                  {isImage ? (
+                    <img src={file.base64} />
+                  ) : (
+                      <DocumentIcon />
+                    )}
+                </div>
+                <div className="preview__details">
+                  <div className="preview__filename">{file.name}</div>
+                  <div className="preview__form">
+                    {(isImage || file.type === DOC) &&
+                      <FileInputs {...fileInputsProps} />
+                    }
+                    <i
+                      onClick={() => handleCancel(file.id)}
+                      className="material-icons"
+                      aria-hidden="true"
+                    >
+                      delete_outline
                   </i>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Fragment>
-        );
-      }
-    )}
-  </>
-);
+            </Fragment>
+          );
+        }
+      )}
+    </>
+  );
 
 export default FileList;
