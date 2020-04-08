@@ -1,0 +1,29 @@
+import { FunctionComponent } from 'react'
+
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
+
+interface ICheckboxesProps {
+  options?: any[] | object;
+  returnBoolean?: boolean;
+  onChange: ({
+    event,
+    value,
+    data
+  }: {
+    event: React.MouseEvent<HTMLDivElement>;
+    value: boolean | object;
+    data: object[];
+  }) => void;
+  error?: boolean;
+  validationMessage: string | JSX.Element;
+  utils: {
+    uniqueId: (element: any) => string;
+    classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+  };
+}
+
+export { IErrorMessage, ICheckboxesProps }

@@ -1,37 +1,15 @@
 import withUtils from "@blaze-react/utils";
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
-interface IErrorMessage {
-  message: string | JSX.Element;
-  icon?: string;
-}
+import React, { FunctionComponent, useEffect, useState } from "react";
+import Checkbox from "./Checkbox";
+import { ICheckboxesProps } from './interface'
 
-interface ICheckboxesProps {
-  options?: any[] | object;
-  returnBoolean?: boolean;
-  onChange: ({
-    event,
-    value,
-    data
-  }: {
-    event: React.MouseEvent<HTMLDivElement>;
-    value: boolean | object;
-    data: object[];
-  }) => void;
-  error?: boolean;
-  validationMessage: string | JSX.Element;
-  utils: {
-    uniqueId: (element: any) => string;
-    classNames: (className: string | object, classNames?: object) => string;
-    ErrorMessage: FunctionComponent<IErrorMessage>;
-  };
-}
 const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
   returnBoolean,
-  onChange,
+  onChange: onChangeCheckboxList,
   options,
   error,
   validationMessage,
-  utils: { uniqueId, classNames, ErrorMessage },
+  utils: { ErrorMessage },
   ...attrs
 }): JSX.Element => {
   const formatedOptions = Array.isArray(options) ? options : [options];
@@ -40,105 +18,75 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
 
   useEffect(() => setData(formatedOptions), [options]);
 
-  const toggle = ({
+  const onChange = ({
     event,
-    item,
-    key
+    value
   }: {
     event: React.MouseEvent<HTMLDivElement>;
-    item: any;
-    key: number;
+    value: any;
   }): void => {
-    if (item.disabled) {
+    if (value.disabled) {
       return;
     }
 
-    data[key].checked = !item.checked;
+    const currentIndex = data.findIndex(
+      ({ id }: { id: string }) => id === value.id
+    );
+    if (currentIndex < 0) {
+      return;
+    }
+
+    data[currentIndex].checked = value.checked;
     setData([...data]);
 
-    let value = data.filter(
+    let currentValues = data.filter(
       ({ checked }: { checked: boolean }): boolean => checked
     );
 
     if (returnBoolean) {
-      value = !!value.length;
+      currentValues = !!currentValues.length;
     }
 
-    onChange({ event, value, data });
-  };
-
-  const parsedLabel = (defaultId: any, label?: string | [string, string]) => {
-    if (Array.isArray(label)) {
-      const [labelText, labelLongerText] = label;
-      return (
-        <label htmlFor={defaultId}>
-          <span>{labelText}</span>
-          <span>{labelLongerText}</span>
-        </label>
-      );
-    }
-    return (
-      <label htmlFor={defaultId}>
-        <span>{label}</span>
-      </label>
-    );
+    onChangeCheckboxList({ event, value: currentValues, data });
   };
 
   return (
-    <Fragment>
+    <>
       {data.map(
-        (item: any, key: number): JSX.Element => {
-          const {
+        (
+          {
             checked = false,
-            value,
             disabled,
-            required,
+            id,
             label,
-            show = true,
             name,
-            id
-          } = item;
-
-          const defaultId = uniqueId(item);
-
-          if (!show) {
-            return <Fragment key={id} />;
-          }
-
-          const checkboxClassName = classNames(
-            "form-field form-field--checkbox",
-            { required }
-          );
-
-          return (
-            <div
-              data-testid={`checkbox-${key + 1}`}
-              data-cy={`checkbox-cy-${key + 1}`}
+            required,
+            show = true,
+            value
+          }: any,
+          key: number
+        ): JSX.Element | null =>
+          show ? (
+            <Checkbox
               key={id}
-              id={defaultId}
-              className={checkboxClassName}
-              onClick={(event): void => toggle({ event, item, key })}
-              role="button"
-            >
-              <input
-                readOnly
-                type="checkbox"
-                className="form-checkbox"
-                value={value}
-                disabled={disabled}
-                checked={checked}
-                required={required}
-                id={id || defaultId}
-                name={name}
-                {...attrs}
-              />
-              {parsedLabel(defaultId, label)}
-            </div>
-          );
-        }
+              onChange={onChange}
+              checked={checked}
+              disabled={disabled}
+              id={id}
+              label={label}
+              name={name}
+              required={required}
+              show={show}
+              value={value}
+              attrs={{
+                dataCy: attrs["data-cy"] || `checkbox-cy-${key + 1}`,
+                testId: attrs["test-id"] || `checkbox-${key + 1}`
+              }}
+            />
+          ) : null
       )}
       {error && <ErrorMessage message={validationMessage} />}
-    </Fragment>
+    </>
   );
 };
 Checkboxes.defaultProps = {

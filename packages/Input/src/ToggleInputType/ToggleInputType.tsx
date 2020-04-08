@@ -44,6 +44,7 @@ const ToggleInputType = ({
 
   const { status, icon, text }: IPasswordState = passwordClasses;
 
+
   return (
     <span
       data-testid="toggle-input-type"
