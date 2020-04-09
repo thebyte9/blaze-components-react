@@ -16,6 +16,7 @@ const MultiSelectList = ({
   limitReachedMessage,
   handleCheckBoxChange,
   onItemsRendered,
+  getLabel,
   utils: { ErrorMessage },
 }: any) => {
   const [list, setList] = useState([])
@@ -27,20 +28,6 @@ const MultiSelectList = ({
       setList(newList)
     }
   }, [matchQuery, dataCopy])
-
-  const labelParser = (label: string[] | string) => Array.isArray(label) ? label.join(', ') : label
-  const getLabel = ({ label, isChip }: { label: string | [string, string], isChip?: boolean }) => {
-    console.log('label', label)
-    if (Array.isArray(label)) {
-      const [main, sub] = label;
-      const mainLabel = labelParser(main);
-      const subLabel = labelParser(sub);
-      return isChip ? mainLabel : [mainLabel, subLabel];
-    }
-    return label;
-  };
-
-
 
   return (
     <>

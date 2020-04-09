@@ -18,19 +18,11 @@ const MultiSelectBar = ({
   handleInputChange,
   handleKeyDown,
   handleFocus,
+  getLabel,
   utils: { classNames },
 }: any) => {
   const requiredClassName: string = classNames({ required });
-  const labelParser = (label: string[] | string) => Array.isArray(label) ? label.join(', ') : label
-  const getLabel = ({ label, isChip }: { label: string | [string, string], isChip?: boolean }) => {
-    if (Array.isArray(label)) {
-      const [main, sub] = label;
-      const mainLabel = labelParser(main);
-      const subLabel = labelParser(sub);
-      return isChip ? mainLabel : [mainLabel, subLabel];
-    }
-    return label;
-  };
+
   return (
     <>
       <div className="chip__wrapper">

@@ -200,9 +200,18 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     });
   };
 
+  const labelParser = (label: string[] | string) => Array.isArray(label) ? label.join(', ') : label
+  const getLabel = ({ label, isChip }: { label: string | [string, string], isChip?: boolean }) => {
+    if (Array.isArray(label)) {
+      const [main, sub] = label;
+      const mainLabel = labelParser(main);
+      const subLabel = labelParser(sub);
+      return isChip ? mainLabel : [mainLabel, subLabel];
+    }
+    return label;
+  };
+
   const handleFocus = (): void => setShow(true);
-
-
 
   const matchQuery: any = dataCopy.filter((item: IData) => item.show)
   const checkedItems = dataCopy.filter((item: IData) => item.checked);
@@ -226,6 +235,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           handleKeyDown={handleKeyDown}
           handleFocus={handleFocus}
           classNames={classNames}
+          getLabel={getLabel}
         />
 
         {show && (<MultiSelectList
@@ -240,6 +250,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           limitReachedMessage={limitReachedMessage}
           handleCheckBoxChange={handleCheckBoxChange}
           ErrorMessage={ErrorMessage}
+          getLabel={getLabel}
         />)}
       </div>
     </div>
