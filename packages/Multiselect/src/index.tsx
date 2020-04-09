@@ -55,17 +55,19 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     }
   }, [data]);
 
-  const handleOnItemsRenderer = (params: any) => {
+  const handleOnItemsRenderer = async (params: any) => {
     if (!isDynamic) return
     const { startIndex, stopIndex } = params;
     const rowsLength = dataCopy.length;
     const loadIndex = Math.floor(rowsLength / 2);
     if (loadIndex > 0 && loadIndex < startIndex && !verifiedRanges.includes(loadIndex) || stopIndex === rowsLength - 1 && startIndex === 0) {
       console.log('entra')
-      onItemsRendered({ ...params }).then((response) => {
-        setVerifiedRanges([...verifiedRanges, loadIndex]);
-        setDataCopy(response.data);
-      })
+      const response = await onItemsRendered({ ...params })
+      console.log('response', response)
+      console.log('dataCopy', dataCopy)
+      setVerifiedRanges([...verifiedRanges, loadIndex]);
+      setDataCopy(response.data);
+
     }
   }
 

@@ -53,7 +53,7 @@ storiesOf("Multiselect", module)
         keyValue: "",
         data: []
       })
-      const random = () => [...new Array(40)].map((e, index) => ({
+      const random = (quantity: number) => [...new Array(quantity)].map((e, index) => ({
         checked: index % 50 === 0,
         description: faker.random.word(),
         id: faker.random.uuid(),
@@ -66,7 +66,7 @@ storiesOf("Multiselect", module)
           filterBy: ["name", "description"],
           identification: "id",
           keyValue: "name",
-          data: random()
+          data: random(20)
         };
 
         setList(multiselectData)
@@ -74,14 +74,15 @@ storiesOf("Multiselect", module)
 
       const onItemsRendered = async () => {
         setList({
-          ...list, data: [...list.data, random()]
+          ...list, data: [...list.data, ...random(20)]
         })
+        return list
       }
 
       const handleChange = (change: any) => {
         change.clearList()
         setList({
-          ...list, data: random()
+          ...list, data: random(40)
         })
       }
 
