@@ -43,14 +43,13 @@ const MultiSelectList = ({
             itemSize={itemSize}
             overscanCount={20}
             onItemsRendered={onItemsRendered}
-            renderItem={({ index, style }) => {
-              console.log('list[index][keyValue] ->', list[index][keyValue])
-              return (
+            renderItem={({ index, style }) =>
+              (
                 <div style={style} key={index}  >
                   <Checkbox {...list[index]} label={getLabel({ label: list[index][keyValue], isChip: false })} onChange={({ value }: { value: any }) => handleCheckBoxChange({ index, value, data: dataCopy })} />
                 </div>
               )
-            }}></VirtualList>
+            }></VirtualList>
         </div>}
 
       </div>
