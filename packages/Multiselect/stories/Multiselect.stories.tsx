@@ -38,7 +38,7 @@ storiesOf("Multiselect", module)
           label="Multi Select"
           limit={90}
           getSelected={(selected: any) => {
-            console.log("selected", selected);
+            console.log("selected", selected); //eslint-diisable-line
           }}
           required
         />

@@ -202,15 +202,15 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     });
   };
 
-  const labelParser = (label: string[] | string) => Array.isArray(label) ? label.join(', ') : label
-  const getLabel = ({ label, isChip }: { label: string | [string, string], isChip?: boolean }) => {
-    if (Array.isArray(label)) {
-      const [main, sub] = label;
-      const mainLabel = labelParser(main);
-      const subLabel = labelParser(sub);
+  const labelParser = ({ label: _label }: { label: string[] | string }) => Array.isArray(_label) ? _label.join(', ') : label
+  const getLabel = ({ label: _label, isChip }: { label: string | [string, string], isChip?: boolean }) => {
+    if (Array.isArray(_label)) {
+      const [main, sub] = _label;
+      const mainLabel = labelParser({ label: main });
+      const subLabel = labelParser({ label: sub });
       return isChip ? mainLabel : [mainLabel, subLabel];
     }
-    return label;
+    return _label;
   };
 
   const handleFocus = (): void => setShow(true);
