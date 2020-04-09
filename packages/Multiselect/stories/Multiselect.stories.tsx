@@ -5,8 +5,6 @@ import React, { useState, useEffect } from "react";
 import MultiSelectReadme from "../README.md";
 import Multiselect from "../src";
 
-
-
 storiesOf("Multiselect", module)
   .addParameters({
     readme: {
@@ -82,7 +80,6 @@ storiesOf("Multiselect", module)
 
       const handleChange = (change: any) => {
         change.clearList()
-        console.log('cleared')
         setList({
           ...list, data: random()
         })
