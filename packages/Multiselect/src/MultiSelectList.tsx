@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react'
 import Checkbox from "@blaze-react/checkboxes/src/Checkbox";
-import VirtualList from "react-tiny-virtual-list";
-import withUtils from "@blaze-react/utils";
 import differenceWith from 'lodash.differencewith'
 import isEqual from 'lodash.isequal'
+import React, { useEffect, useState } from 'react'
+import VirtualList from "react-tiny-virtual-list";
+import withUtils from "@blaze-react/utils";
 
 const MultiSelectList = ({
-  error,
-  validationMessage,
-  matchQuery,
-  notFoundMessage,
   dataCopy,
+  error,
+  getLabel,
+  handleCheckBoxChange,
   keyValue,
   limitReached,
   limitReachedMessage,
-  handleCheckBoxChange,
+  matchQuery,
+  notFoundMessage,
   onItemsRendered,
-  getLabel,
   utils: { ErrorMessage },
+  validationMessage,
 }: any) => {
   const [list, setList] = useState([])
   const itemSize = 45;

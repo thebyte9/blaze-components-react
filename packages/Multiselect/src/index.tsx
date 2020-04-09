@@ -56,15 +56,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   }, [data]);
 
   const handleOnItemsRenderer = async (params: any) => {
-    if (!isDynamic) return
+    if (!isDynamic) { return }
     const { startIndex, stopIndex } = params;
     const rowsLength = dataCopy.length;
     const loadIndex = Math.floor(rowsLength / 2);
     if (loadIndex > 0 && loadIndex < startIndex && !verifiedRanges.includes(loadIndex) || stopIndex === rowsLength - 1 && startIndex === 0) {
-      console.log('entra')
       const response = await onItemsRendered({ ...params })
-      console.log('response', response)
-      console.log('dataCopy', dataCopy)
       setVerifiedRanges([...verifiedRanges, loadIndex]);
       setDataCopy(response.data);
 
@@ -93,7 +90,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     if (onChange) {
       onChange({ event, value, name, clearList: () => setDataCopy([]) });
     }
-    if (isDynamic) return
+    if (isDynamic) { return }
     const parsedDataCopy: object[] = parseDataCopy(value);
     updateData(parsedDataCopy);
   };
@@ -133,13 +130,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const handleKeyDown = (event: any) => {
     const { keyCode } = event
 
-    if (keyCode === 27) { //escape
-      if (!show) return
+    if (keyCode === 27) { // escape
+      if (!show) { return }
       setShow(!show)
     }
 
     if (keyCode === 40) { // arrow down
-      if (show) return
+      if (show) { return }
       setShow(!show)
     }
   };
@@ -202,15 +199,15 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     });
   };
 
-  const labelParser = ({ label: _label }: { label: string[] | string }) => Array.isArray(_label) ? _label.join(', ') : label
-  const getLabel = ({ label: _label, isChip }: { label: string | [string, string], isChip?: boolean }) => {
-    if (Array.isArray(_label)) {
-      const [main, sub] = _label;
+  const labelParser = ({ label: lab }: { label: string[] | string }) => Array.isArray(lab) ? lab.join(', ') : lab
+  const getLabel = ({ label: lab, isChip }: { label: string | [string, string], isChip?: boolean }) => {
+    if (Array.isArray(lab)) {
+      const [main, sub] = lab;
       const mainLabel = labelParser({ label: main });
       const subLabel = labelParser({ label: sub });
       return isChip ? mainLabel : [mainLabel, subLabel];
     }
-    return _label;
+    return lab;
   };
 
   const handleFocus = (): void => setShow(true);
@@ -261,6 +258,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 MultiSelect.defaultProps = {
   error: false,
   getSelected: () => void 0,
+  isDynamic: false,
   label: "",
   limit: 0,
   limitReachedMessage: "Select item limit reached",
@@ -271,6 +269,5 @@ MultiSelect.defaultProps = {
   placeholder: "Choose...",
   required: false,
   validationMessage: "This field is required",
-  isDynamic: false
 };
 export default withUtils(MultiSelect);

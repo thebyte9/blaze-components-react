@@ -1,24 +1,24 @@
-import React from 'react'
 import Chip from "@blaze-react/chips";
 import Input from "@blaze-react/input";
+import React from 'react'
 import withUtils from "@blaze-react/utils";
 
 const MultiSelectBar = ({
-  required,
-  label,
   attrs,
   checkedItems,
+  getLabel,
   handleClearAll,
   handleDelete,
-  identification,
-  uniqueId,
-  keyValue,
-  searchValue,
-  placeholder,
+  handleFocus,
   handleInputChange,
   handleKeyDown,
-  handleFocus,
-  getLabel,
+  identification,
+  keyValue,
+  label,
+  placeholder,
+  required,
+  searchValue,
+  uniqueId,
   utils: { classNames },
 }: any) => {
   const requiredClassName: string = classNames({ required });
