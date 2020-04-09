@@ -15,28 +15,30 @@ const MultiSelectList = ({
   limitReached,
   limitReachedMessage,
   handleCheckBoxChange,
-  activeElement,
   onItemsRendered,
   utils: { ErrorMessage },
 }: any) => {
-  const [currentIndex, setCurrentIndex] = useState(activeElement)
-  const [scrollOffset, setScrollOffset] = useState(0)
-  const [listLength, setListLength] = useState(0)
   const [list, setList] = useState([])
   const itemSize = 45;
 
   useEffect(() => {
-    if (activeElement !== currentIndex) {
-      setCurrentIndex(activeElement)
-      setScrollOffset(itemSize * activeElement)
-    }
-    if (activeElement === currentIndex || differenceWith(dataCopy, list, isEqual)) {
-      const length = matchQuery.length > 0 ? matchQuery.length : dataCopy.length
+    if (differenceWith(dataCopy, list, isEqual)) {
       const newList = matchQuery.length ? matchQuery : dataCopy
-      setListLength(length)
       setList(newList)
     }
-  }, [activeElement, matchQuery, dataCopy])
+  }, [matchQuery, dataCopy])
+
+  const labelParser = (label: string[] | string) => Array.isArray(label) ? label.join(', ') : label
+  const getLabel = ({ label, isChip }: { label: string | [string, string], isChip?: boolean }) => {
+    console.log('label', label)
+    if (Array.isArray(label)) {
+      const [main, sub] = label;
+      const mainLabel = labelParser(main);
+      const subLabel = labelParser(sub);
+      return isChip ? mainLabel : [mainLabel, subLabel];
+    }
+    return label;
+  };
 
 
 
@@ -50,16 +52,18 @@ const MultiSelectList = ({
           <VirtualList
             width={"100%"}
             height={'245px'}
-            itemCount={listLength}
+            itemCount={list.length}
             itemSize={itemSize}
-            scrollOffset={scrollOffset}
             overscanCount={20}
             onItemsRendered={onItemsRendered}
-            renderItem={({ index, style }) => (
-              <div style={{ ...style, ...activeElement === index ? { background: '#F0F0F0' } : {} }} key={index}  >
-                <Checkbox {...list[index]} label={list[index][keyValue]} onChange={({ value }: { value: any }) => handleCheckBoxChange({ index, value, data: dataCopy })} />
-              </div>
-            )}></VirtualList>
+            renderItem={({ index, style }) => {
+              console.log('list[index][keyValue] ->', list[index][keyValue])
+              return (
+                <div style={style} key={index}  >
+                  <Checkbox {...list[index]} label={getLabel({ label: list[index][keyValue], isChip: false })} onChange={({ value }: { value: any }) => handleCheckBoxChange({ index, value, data: dataCopy })} />
+                </div>
+              )
+            }}></VirtualList>
         </div>}
 
       </div>

@@ -7,6 +7,7 @@ import MultiSelectList from "./MultiSelectList";
 
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
+  onItemsRendered,
   utils: { ErrorMessage, uniqueId, classNames },
   validationMessage,
   notFoundMessage,
@@ -19,6 +20,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   error,
   required,
   name,
+  isDynamic,
   ...attrs
 }): JSX.Element => {
   const multiRef = useRef<HTMLDivElement>(null);
@@ -26,7 +28,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [limitReached, setLimitReached] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
-  const [activeElement, setActiveElement] = useState(0);
+  const [verifiedRanges, setVerifiedRanges] = useState<number[]>([])
 
   const handleOutsideClick = (event: any) => {
     if (multiRef.current !== null && !multiRef.current.contains(event.target)) {
@@ -53,6 +55,20 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     }
   }, [data]);
 
+  const handleOnItemsRenderer = (params: any) => {
+    if (!isDynamic) return
+    const { startIndex, stopIndex } = params;
+    const rowsLength = dataCopy.length;
+    const loadIndex = Math.floor(rowsLength / 2);
+    if (loadIndex > 0 && loadIndex < startIndex && !verifiedRanges.includes(loadIndex) || stopIndex === rowsLength - 1 && startIndex === 0) {
+      console.log('entra')
+      onItemsRendered({ ...params }).then((response) => {
+        setVerifiedRanges([...verifiedRanges, loadIndex]);
+        setDataCopy(response.data);
+      })
+    }
+  }
+
   const parseDataCopy = (value: string) => {
     return dataCopy.map((copy: any) => ({
       ...copy,
@@ -72,11 +88,11 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     value: string;
   }) => {
     setSearchValue(value);
-    const parsedDataCopy: object[] = parseDataCopy(value);
-    setActiveElement(0)
     if (onChange) {
-      onChange({ event, value, name });
+      onChange({ event, value, name, clearList: () => setDataCopy([]) });
     }
+    if (isDynamic) return
+    const parsedDataCopy: object[] = parseDataCopy(value);
     updateData(parsedDataCopy);
   };
 
@@ -120,33 +136,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       setShow(!show)
     }
 
-    if (keyCode === 38) { // arrow up
-      if (activeElement === 0) return
-      setActiveElement(activeElement - 1)
-
-    }
     if (keyCode === 40) { // arrow down
-      if (activeElement === dataCopy.length - 1) return
-      setActiveElement(activeElement + 1)
-    }
-
-    if (keyCode === 13) { // enter
-      if (searchValue) {
-        const originalIndex = matchQuery[activeElement].index
-        console.log('originalIndex', dataCopy[originalIndex])
-        handleCheckBoxChange({
-          index: originalIndex,
-          value: { checked: !dataCopy[originalIndex].checked },
-          data: dataCopy
-        })
-        return
-      }
-
-      handleCheckBoxChange({
-        index: activeElement,
-        value: { checked: !dataCopy[activeElement].checked },
-        data: dataCopy
-      })
+      if (show) return
+      setShow(!show)
     }
   };
 
@@ -160,9 +152,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     data: any;
   }) => {
     const updatedData = [...localData]
-    if (index !== activeElement) {
-      setActiveElement(index)
-    }
     updatedData[index].checked = value.checked
     updateData(updatedData);
     getSelected({
@@ -240,7 +229,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         />
 
         {show && (<MultiSelectList
-          activeElement={activeElement}
+          onItemsRendered={handleOnItemsRenderer}
           error={error}
           validationMessage={validationMessage}
           matchQuery={matchQuery}
@@ -268,6 +257,7 @@ MultiSelect.defaultProps = {
   },
   placeholder: "Choose...",
   required: false,
-  validationMessage: "This field is required"
+  validationMessage: "This field is required",
+  isDynamic: false
 };
 export default withUtils(MultiSelect);

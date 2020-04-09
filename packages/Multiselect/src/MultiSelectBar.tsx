@@ -21,6 +21,16 @@ const MultiSelectBar = ({
   utils: { classNames },
 }: any) => {
   const requiredClassName: string = classNames({ required });
+  const labelParser = (label: string[] | string) => Array.isArray(label) ? label.join(', ') : label
+  const getLabel = ({ label, isChip }: { label: string | [string, string], isChip?: boolean }) => {
+    if (Array.isArray(label)) {
+      const [main, sub] = label;
+      const mainLabel = labelParser(main);
+      const subLabel = labelParser(sub);
+      return isChip ? mainLabel : [mainLabel, subLabel];
+    }
+    return label;
+  };
   return (
     <>
       <div className="chip__wrapper">
@@ -53,7 +63,7 @@ const MultiSelectBar = ({
                 <Chip.Label
                   data-cy={`multiSelect-${label}-chip${index + 1}-label`}
                 >
-                  {selectedValue[keyValue]}
+                  {getLabel({ label: selectedValue[keyValue], isChip: true })}
                 </Chip.Label>
                 <Chip.Icon
                   data-cy={`multiSelect-${label}-chip${index + 1}-icon`}

@@ -18,15 +18,16 @@ interface IMultiSelectProps {
     data: object[];
   };
   getSelected: (...args: any[]) => any;
+  onItemsRendered: (...args: any[]) => Promise<any>;
   label?: string;
   limit?: number;
   placeholder?: string;
   id?: string;
-  children?: any;
   notFoundMessage?: string;
   required?: boolean;
+  isDynamic?: boolean;
   limitReachedMessage?: string;
-  onChange?: (arg: { event: Event; value: string; name: string }) => void;
+  onChange?: (arg: { event: Event; value: string; name: string, clearList: () => void }) => void;
   error?: boolean;
   name: string;
   validationMessage: string | JSX.Element;
