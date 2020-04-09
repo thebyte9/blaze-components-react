@@ -22,10 +22,7 @@ storiesOf("Multiselect", module)
         checked: index % 50 === 0,
         description: faker.random.word(),
         id: faker.random.uuid(),
-        name: [
-          faker.name.findName(),
-          [faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName()]
-        ],
+        name: [faker.name.findName(), [faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName()]],
         show: true
       }))
     };

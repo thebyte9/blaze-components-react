@@ -68,7 +68,7 @@
     z-index: 1000;
 
     & .form-field {
-      padding: 10px;
+      padding: 0 10px;
     }
     & p {
       margin: 0;
@@ -92,6 +92,10 @@
         color: $multiselect-label-longer;
         font-size: 11px;
         text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 250px;
       }
     }
   }
