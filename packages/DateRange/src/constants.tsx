@@ -29,6 +29,14 @@ const DEFAULT_OPTIONS = [
   ["any", "Any date"]
 ];
 const SEPARATOR = "/";
+const CUSTOM_DATE = "custom";
+const ANY_DATE = "any";
+
+const TYPE = {
+  days: "days",
+  months: "months",
+  years: "years"
+};
 
 export {
   DEFAULT_FORMAT,
@@ -39,5 +47,8 @@ export {
   DAYS_PER_LIST,
   DAYS,
   MONTHS,
-  SEPARATOR
+  SEPARATOR,
+  ANY_DATE,
+  CUSTOM_DATE,
+  TYPE
 };

@@ -31,17 +31,17 @@ describe("DateRange component", () => {
       .simulate("click");
 
     const currentDate = wrapper
-      .find(".monthAndYear")
+      .find(".calendar__header__year")
       .at(0)
       .text();
 
-    wrapper.find(".nextMonth").simulate("click");
-    const nextDate = wrapper.find(".monthAndYear").text();
+    wrapper.find(".calendar__header__next").simulate("click");
+    const nextDate = wrapper.find(".calendar__header__year").text();
 
     expect(currentDate).not.toBe(nextDate);
 
-    wrapper.find(".prevMonth").simulate("click");
-    const previousDate = wrapper.find(".monthAndYear").text();
+    wrapper.find(".calendar__header__prev").simulate("click");
+    const previousDate = wrapper.find(".calendar__header__year").text();
 
     expect(currentDate).toBe(previousDate);
   });
@@ -63,7 +63,7 @@ describe("DateRange component", () => {
       wrapper
         .find(".day")
         .at(FIRST_DAY_OF_SECONND_ROW)
-        .hasClass("pointDate")
+        .hasClass("active")
     ).toEqual(true);
 
     wrapper
@@ -75,14 +75,14 @@ describe("DateRange component", () => {
       wrapper
         .find(".day")
         .at(LAST_DAY_OF_SECONND_ROW)
-        .hasClass("pointDate")
+        .hasClass("active")
     ).toEqual(true);
 
     expect(
       wrapper
         .find(".day")
         .at(FIRST_DAY_OF_SECONND_ROW)
-        .hasClass("pointDate")
+        .hasClass("active")
     ).toEqual(false);
   });
 });

@@ -76,9 +76,9 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     );
 
     return classNames({
-      outDate: dateToCheck.getMonth() !== month,
-      pointDate: pickedDate === date,
-      today: DateUtils.isToday(dateToCheck) && pickedDate !== date
+      active: pickedDate === date,
+      current: DateUtils.isToday(dateToCheck) && pickedDate !== date,
+      disabled: dateToCheck.getMonth() !== month
     });
   };
 
@@ -114,7 +114,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
   return (
     <div className="calendar-container" ref={wrapperRef}>
       <div className="calendar-input" onClick={handleOnClick}>
-        <span>{type}</span>
+        <span className="calendar-input__label">{type}</span>
         <Input
           placeholder="dd/mm/yy"
           value={selectedDate}
@@ -124,16 +124,19 @@ const DateRange: React.SFC<IDateRangeProps> = ({
       </div>
       {calendarStatus && (
         <div className="calendar" for={type}>
-          <div className="header">
-            <span className="prevMonth" onClick={handlePreviousMonth}>
+          <div className="calendar__header">
+            <span
+              className="calendar__header__prev"
+              onClick={handlePreviousMonth}
+            >
               {PREVIOUS}
             </span>
-            <div className="monthAndYear">
+            <div className="calendar__header__year">
               <span onClick={resetDate}>
                 {MONTHS[month]} {year}
               </span>
             </div>
-            <span className="nextMonth" onClick={handleNextMonth}>
+            <span className="calendar__header__next" onClick={handleNextMonth}>
               {NEXT}
             </span>
           </div>

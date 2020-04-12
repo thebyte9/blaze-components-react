@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from "react";
-import { DAYS, DAYS_PER_LIST, SEPARATOR } from "../constants";
+import { DAYS, DAYS_PER_LIST, SEPARATOR, TYPE } from "../constants";
 
 class DateUtils {
   constructor() {
@@ -81,15 +81,15 @@ class DateUtils {
   public subtractDate(total: number, type: string) {
     const currentDate = new Date();
 
-    if (type === "days") {
+    if (type === TYPE.days) {
       currentDate.setDate(currentDate.getDate() - total);
     }
 
-    if (type === "months") {
+    if (type === TYPE.months) {
       currentDate.setMonth(currentDate.getMonth() - total);
     }
 
-    if (type === "years") {
+    if (type === TYPE.years) {
       currentDate.setFullYear(currentDate.getFullYear() - total);
     }
 

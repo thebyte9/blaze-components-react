@@ -7,7 +7,7 @@
   .range-date {
     border: 0;
     margin-left: 5px;
-    border-left: 1px solid #cfd8dc;
+    border-left: 1px solid $blue-grey-100;
     border-radius: 0;
     height: 30px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%23688EBB' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3E%3Crect width='18' height='18' y='2' rx='2'/%3E%3Cpath d='M13 0L13 4M5 0L5 4M0 8L18 8'/%3E%3C/g%3E%3C/svg%3E")
@@ -19,35 +19,37 @@
     align-items: center;
     background-color: white;
     padding: 0 5px;
-    border: 1px solid #cfd8dc;
+    border: 1px solid $blue-grey-100;
     border-radius: 3px 3px 0 0;
     height: 40px;
+    &__label {
+      font-size: 13px;
+    }
   }
   .calendar {
     width: 250px;
-    height: 330px;
     background: white;
-    border: 1px solid #cfd8dc;
+    border: 1px solid $blue-grey-100;
     border-top: 0;
     position: absolute;
     z-index: 10;
-    > .header {
+    &__header {
       padding: 15px 12px;
-      color: #444;
+      color: $nearly-black;
       font-size: 18px;
       display: flex;
       justify-content: space-between;
       position: relative;
-      .changeYear {
-        color: #0073e3;
+      &__year {
         cursor: pointer;
+        color: $nearly-black;
+        font-size: 13px;
       }
-      > .changeMonth {
+      &__year,
+      &__next,
+      &__prev {
         cursor: pointer;
-        > .nextMonth {
-          margin-left: 15px;
-          color: #444444;
-        }
+        font-weight: bold;
       }
     }
     &__content {
@@ -60,7 +62,7 @@
         justify-content: space-around;
         align-items: center;
         line-height: 16px;
-        color: #888888;
+        color: $grey-medium;
         font-size: 11px;
       }
       &__days {
@@ -77,16 +79,19 @@
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          color: #444444;
-          &.outDate {
+          color: $nearly-black;
+          font-size: 12px;
+          &.disabled {
             color: #aaa;
           }
-          &.pointDate {
-            color: #fff;
-            background: #0073e3;
+          &.active {
+            color: white;
+            background: $primary-color;
+            font-weight: bold;
+            border-radius: 2px;
           }
-          &.today {
-            color: #0073e3;
+          &.current {
+            color: $primary-color;
             font-weight: bold;
           }
         }
