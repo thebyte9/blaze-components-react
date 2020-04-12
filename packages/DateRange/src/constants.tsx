@@ -19,12 +19,12 @@ const MONTHS = [
 const WEEKDAYS = 7;
 const DAYS_PER_LIST = 42;
 const DEFAULT_OPTIONS = [
-  [1, "Last 24 hours"],
-  [2, "Last 48 hours"],
-  [3, "Last 72 hours"],
-  [7, "Last 7 days"],
-  [30, "Last 30 days"],
-  [12, "Last 12 month"],
+  [["days", 1], "Last 24 hours"],
+  [["days", 2], "Last 48 hours"],
+  [["days", 3], "Last 72 hours"],
+  [["days", 7], "Last 7 days"],
+  [["days", 30], "Last 30 days"],
+  [["years", 1], "Last 12 months"],
   ["custom", "Custom range date"],
   ["any", "Any date"]
 ];

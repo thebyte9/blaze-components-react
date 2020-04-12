@@ -42,7 +42,7 @@ class DateUtils {
       const currentDate = new Date(
         year,
         month,
-        i + 1 - this.getFirstDay(year, month)
+        i + 2 - this.getFirstDay(year, month)
       );
 
       const currentYearToString = currentDate.getFullYear().toString();
@@ -50,12 +50,16 @@ class DateUtils {
       const currentDateToString = currentDate.getDate().toString();
 
       return {
-        currentYearToString,
-        currentMonthToString,
+        currentDate,
         currentDateToString,
-        currentDate
+        currentMonthToString,
+        currentYearToString
       };
     });
+  }
+
+  public padDate(date: string) {
+    return date.toString().padStart(2, "0");
   }
 
   public dateToNumber(DD: string, MM: string, YY: string) {
@@ -67,7 +71,33 @@ class DateUtils {
   }
 
   public formatDate(DD: string, MM: string, YY: string) {
-    return DD + SEPARATOR + MM + SEPARATOR + YY;
+    return this.padDate(DD) + SEPARATOR + this.padDate(MM) + SEPARATOR + YY;
+  }
+
+  public isInvalidDate(DD: string, MM: string, YY: string) {
+    return DD.length !== 2 || MM.length !== 2 || YY.length !== 4;
+  }
+
+  public subtractDate(total: number, type: string) {
+    const currentDate = new Date();
+
+    if (type === "days") {
+      currentDate.setDate(currentDate.getDate() - total);
+    }
+
+    if (type === "months") {
+      currentDate.setMonth(currentDate.getMonth() - total);
+    }
+
+    if (type === "years") {
+      currentDate.setFullYear(currentDate.getFullYear() - total);
+    }
+
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const date = currentDate.getDate();
+
+    return this.formatDate(date, month, year);
   }
 }
 

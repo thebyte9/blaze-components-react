@@ -25,15 +25,23 @@ describe("DateRange component", () => {
 
   test("should handle next and previous month", () => {
     const wrapper = mount(<DateRange {...defaultProps()} />);
+    wrapper
+      .find(".calendar-input")
+      .at(0)
+      .simulate("click");
 
-    const currentDate = wrapper.find(".current-date").text();
-    wrapper.find(".next").simulate("click");
-    const nextDate = wrapper.find(".current-date").text();
+    const currentDate = wrapper
+      .find(".monthAndYear")
+      .at(0)
+      .text();
+
+    wrapper.find(".nextMonth").simulate("click");
+    const nextDate = wrapper.find(".monthAndYear").text();
 
     expect(currentDate).not.toBe(nextDate);
 
-    wrapper.find(".previous").simulate("click");
-    const previousDate = wrapper.find(".current-date").text();
+    wrapper.find(".prevMonth").simulate("click");
+    const previousDate = wrapper.find(".monthAndYear").text();
 
     expect(currentDate).toBe(previousDate);
   });
@@ -42,9 +50,21 @@ describe("DateRange component", () => {
     const wrapper = mount(<DateRange {...defaultProps()} />);
 
     wrapper
+      .find(".calendar-input")
+      .at(0)
+      .simulate("click");
+
+    wrapper
       .find(".day")
       .at(FIRST_DAY_OF_SECONND_ROW)
       .simulate("click");
+
+    expect(
+      wrapper
+        .find(".day")
+        .at(FIRST_DAY_OF_SECONND_ROW)
+        .hasClass("pointDate")
+    ).toEqual(true);
 
     wrapper
       .find(".day")
@@ -54,29 +74,15 @@ describe("DateRange component", () => {
     expect(
       wrapper
         .find(".day")
-        .at(FIRST_DAY_OF_SECONND_ROW)
-        .hasClass("start")
-    ).toEqual(true);
-
-    expect(
-      wrapper
-        .find(".day")
         .at(LAST_DAY_OF_SECONND_ROW)
-        .hasClass("end")
+        .hasClass("pointDate")
     ).toEqual(true);
 
     expect(
       wrapper
         .find(".day")
-        .at(FIRST_DAY_OF_SECONND_ROW + 1)
-        .hasClass("between")
-    ).toEqual(true);
-
-    expect(
-      wrapper
-        .find(".day")
-        .at(LAST_DAY_OF_SECONND_ROW - 1)
-        .hasClass("between")
-    ).toEqual(true);
+        .at(FIRST_DAY_OF_SECONND_ROW)
+        .hasClass("pointDate")
+    ).toEqual(false);
   });
 });

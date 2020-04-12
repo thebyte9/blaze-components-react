@@ -1,7 +1,7 @@
 // @ts-nocheck
 import Input from "@blaze-react/input";
 import withUtils from "@blaze-react/utils";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MONTHS, NEXT, PREVIOUS, SEPARATOR } from "../constants";
 import { IDateRangeProps } from "../interfaces";
 
@@ -14,9 +14,10 @@ const DateRange: React.SFC<IDateRangeProps> = ({
 }) => {
   const [year, setYear] = useState<string | number>(new Date().getFullYear());
   const [month, setMonth] = useState<string | number>(new Date().getMonth());
-  const [date, setDate] = useState<string | null>(null);
+  const [date, setDate] = useState<string | null>(new Date().getDate());
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [calendarStatus, setCalendarStatus] = useState<boolean>(false);
+  const wrapperRef = useRef(null);
 
   const changeValue = (DD: string, MM: string, YY: string) => {
     const pickedDate = DateUtils.formatDate(DD, MM, YY);
@@ -24,6 +25,22 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     setSelectedDate(pickedDate);
     onChange({ [type.toLowerCase()]: pickedDate });
   };
+
+  const handleCloseCalendar = (event: any) => {
+    if (wrapperRef) {
+      const { current } = wrapperRef;
+      if (current && !current.contains(event.target)) {
+        setCalendarStatus(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleCloseCalendar);
+    return () => {
+      document.removeEventListener("mousedown", handleCloseCalendar);
+    };
+  }, [wrapperRef]);
 
   const changeDate = (event: any) => {
     const { target: { dataset: { currentdate } = {} } = {} } = event;
@@ -35,7 +52,6 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     setYear(YY);
     setMonth(MM);
     setDate(DateUtils.formatDate(DD, MM, YY));
-    setCalendarStatus(false);
   };
 
   const handlePreviousMonth = () => {
@@ -78,18 +94,32 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     setDate(newDate);
   };
 
-  const handleOnClick = () => setCalendarStatus(!calendarStatus);
+  const handleInputChange = ({ value }) => {
+    const [newDate, newMonth, newYear] = value.split(SEPARATOR);
+
+    if (DateUtils.isInvalidDate(newDate, newMonth, newYear)) {
+      return;
+    }
+
+    const { DD, MM, YY } = DateUtils.dateToNumber(newDate, newMonth, newYear);
+
+    changeValue(DD, MM, YY);
+    setYear(YY);
+    setMonth(MM - 1);
+    setDate(DateUtils.formatDate(DD, MM - 1, YY));
+  };
+
+  const handleOnClick = () => setCalendarStatus(true);
 
   return (
-    <div className="calendar-container">
-      <div className="calendar-input">
+    <div className="calendar-container" ref={wrapperRef}>
+      <div className="calendar-input" onClick={handleOnClick}>
         <span>{type}</span>
         <Input
-          onChange={() => ""}
           placeholder="dd/mm/yy"
           value={selectedDate}
           className="range-date"
-          onClick={handleOnClick}
+          onChange={handleInputChange}
         />
       </div>
       {calendarStatus && (
@@ -120,7 +150,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
                   currentDate
                 }) => (
                   <li
-                    className={`calendar__content__days__item ${getDayClassName(
+                    className={`calendar__content__days__item day ${getDayClassName(
                       currentDate
                     )}`}
                     data-currentdate={DateUtils.formatDate(
@@ -143,6 +173,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
 };
 
 DateRange.defaultProps = {
-  onChange: () => void 0
+  onChange: () => void 0,
+  type: "selectedDate"
 };
 export default withUtils(DateRange);
