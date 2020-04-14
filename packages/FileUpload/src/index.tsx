@@ -100,6 +100,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               });
             } else {
               resolve({
+                data: { ...DATA_ATTRIBUTS },
                 file: {
                   id: file.id,
                   name: file.name,
@@ -226,25 +227,25 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           />
         </DraggableFileUpload>
       ) : (
-        <>
-          <Actions
-            actionText={actionText}
-            handleLibraryClick={handleLibraryClick}
-            handleBrowse={handleBrowse}
-            handleChange={handleChange}
-            selectFile={selectFile}
-          />
-          {!customPreview && (
-            <FileList
-              previewImages={previewImages}
-              handleCancel={handleCancel}
-              handleInputChange={handleInputChange}
-              handleSelectChange={handleSelectChange}
-              selectOptions={selectOptions}
+          <>
+            <Actions
+              actionText={actionText}
+              handleLibraryClick={handleLibraryClick}
+              handleBrowse={handleBrowse}
+              handleChange={handleChange}
+              selectFile={selectFile}
             />
-          )}
-        </>
-      )}
+            {!customPreview && (
+              <FileList
+                previewImages={previewImages}
+                handleCancel={handleCancel}
+                handleInputChange={handleInputChange}
+                handleSelectChange={handleSelectChange}
+                selectOptions={selectOptions}
+              />
+            )}
+          </>
+        )}
     </>
   );
 };
