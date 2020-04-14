@@ -1,6 +1,6 @@
 ## Description
 
-DateRange component allows you to select a data range among several options.
+DateRange component allows you to select a date range among several options.
 
 ## Usage
 
