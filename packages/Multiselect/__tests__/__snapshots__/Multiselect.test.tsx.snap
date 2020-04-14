@@ -16,14 +16,30 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
           "checked": true,
           "description": "Lorem ipsum dolor.",
           "id": 2,
-          "name": "Blaze 2",
+          "name": Array [
+            Array [
+              "Blaze 2",
+              "multi main label",
+            ],
+            Array [
+              "Sub label 1",
+              "sub label 2",
+              "sub label 3",
+            ],
+          ],
           "show": true,
         },
         Object {
           "checked": false,
           "description": "Lorem ipsum dolor.",
           "id": 3,
-          "name": "Blaze 3",
+          "name": Array [
+            "Blaze 3",
+            Array [
+              "Sub label 1",
+              "sub label 2",
+            ],
+          ],
           "show": true,
         },
       ],
