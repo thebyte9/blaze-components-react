@@ -1,6 +1,6 @@
 ## Description
 
-DateRage component allows you to select a data range among several options.
+DateRange component allows you to select a data range among several options.
 
 ## Usage
 
@@ -10,7 +10,7 @@ DateRage component allows you to select a data range among several options.
 
 ## API
 
-##### DateRage can receive a number of `props` as follow:
+##### DateRange can receive a number of `props` as follow:
 
 | NAME     |       TYPE       |           DEFAULT            |
 | :------- | :--------------: | :--------------------------: |
