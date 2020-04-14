@@ -1,4 +1,3 @@
-const esModules = ['moment/src/moment.js'].join('|');
 module.exports = {
   transform: {
     "^.+\\.tsx?$": "ts-jest",
@@ -19,7 +18,6 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css|less|sass|scss)$": "<rootDir>/packages/__mocks__/styles.mock.js",
   },
-  transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
   setupFiles: ["./.typescript/setupTests.js"],
   snapshotSerializers: ["enzyme-to-json/serializer"],
   setupFilesAfterEnv: [
