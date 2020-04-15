@@ -10,8 +10,8 @@ const entities = require("entities");
 storiesOf("DraftEditor", module)
   .addParameters({
     readme: {
-      sidebar: DraftEditorReadme
-    }
+      sidebar: DraftEditorReadme,
+    },
   })
   .add("Introduction", (): any => {
     const Editor = () => {
@@ -21,8 +21,8 @@ storiesOf("DraftEditor", module)
 
       const onChange = ({
         event: {
-          target: { name, value }
-        }
+          target: { name, value },
+        },
       }: {
         event: { target: { name: string; value: string } };
       }) => {
