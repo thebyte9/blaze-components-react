@@ -1,7 +1,7 @@
 import Chip from "@blaze-react/chips";
 import Input from "@blaze-react/input";
-import React from 'react'
 import withUtils from "@blaze-react/utils";
+import React from 'react'
 
 const MultiSelectBar = ({
   attrs,

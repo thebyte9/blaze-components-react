@@ -1,4 +1,4 @@
-import Checkboxes from "@blaze-react/checkboxes";
+import { Checkboxes } from "@blaze-react/checkboxes";
 import withUtils from "@blaze-react/utils";
 import React from "react";
 import VirtualList from "react-tiny-virtual-list";

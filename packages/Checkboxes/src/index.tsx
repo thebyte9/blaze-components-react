@@ -95,4 +95,4 @@ Checkboxes.defaultProps = {
   returnBoolean: false,
   validationMessage: "This field is required"
 };
-export default withUtils(Checkboxes);
+export default { Checkboxes: withUtils(Checkboxes), Checkbox };

@@ -1,9 +1,9 @@
-import Checkbox from "@blaze-react/checkboxes/src/Checkbox";
+import { Checkbox } from "@blaze-react/checkboxes";
+import withUtils from "@blaze-react/utils";
 import differenceWith from 'lodash.differencewith'
 import isEqual from 'lodash.isequal'
 import React, { useEffect, useState } from 'react'
 import VirtualList from "react-tiny-virtual-list";
-import withUtils from "@blaze-react/utils";
 
 const MultiSelectList = ({
   dataCopy,
