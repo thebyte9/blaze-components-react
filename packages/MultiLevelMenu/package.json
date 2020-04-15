@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/multi-level-menu",
-  "version": "0.4.52",
+  "version": "0.4.54",
   "publishConfig": {
     "access": "public"
   },
@@ -18,12 +18,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/utils": "^0.4.46"
+    "@blaze-react/utils": "^0.4.54"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.52"
+    "@blaze-react/blaze-components-theme": "^0.4.54"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
