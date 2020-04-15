@@ -50,8 +50,6 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
     onChangeCheckboxList({ event, value: currentValues, data });
   };
 
-  console.log('attrs', attrs)
-
   return (
     <>
       {data.map(
