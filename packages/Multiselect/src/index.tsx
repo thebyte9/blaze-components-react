@@ -60,7 +60,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     const { startIndex, stopIndex } = params;
     const rowsLength = dataCopy.length;
     const loadIndex = Math.floor(rowsLength / 2);
-    console.log('loadIndex > 0 && loadIndex < startIndex && !verifiedRanges.includes(loadIndex)', loadIndex > 0 && loadIndex < startIndex && !verifiedRanges.includes(loadIndex))
     if (loadIndex > 0 && loadIndex < startIndex && !verifiedRanges.includes(loadIndex) || stopIndex === rowsLength - 1 && startIndex === 0) {
       const response = await onItemsRendered({ ...params })
       setVerifiedRanges([...verifiedRanges, loadIndex]);
