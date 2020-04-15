@@ -15,6 +15,7 @@ interface IErrorMessage {
     icon?: string;
 }
 interface IDraftEditorProps {
+    showImagePlugin?: boolean;
     unSelectedText: string;
     selectedImages: IImage[];
     editorState?: EditorState;
@@ -118,4 +119,4 @@ interface ILinkProps {
 interface IPreviewIages {
     previewImages: IImage[];
 }
-export { IErrorMessage, DraftTextAlignment, SyntheticKeyboardEvent, SyntheticEvent, IImage, IDraftEditorProps, IInlineImageControlsProps, ILinkControlProps, IInlineTypes, IInlineControlsProps, IStyleButtonProps, ILinkProps, IPreviewIages, IHTMLProps };
+export { IErrorMessage, DraftTextAlignment, SyntheticKeyboardEvent, SyntheticEvent, IImage, IDraftEditorProps, IInlineImageControlsProps, ILinkControlProps, IInlineTypes, IInlineControlsProps, IStyleButtonProps, ILinkProps, IPreviewIages, IHTMLProps, };
