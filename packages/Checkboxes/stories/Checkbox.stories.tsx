@@ -38,8 +38,8 @@ storiesOf("Checkboxes", module)
   })
   .add("Introduction", (): any => {
     const Checkboxes: any = lazy(async (): Promise<{ default: FunctionComponent }> => {
-      const result = await import("../src")
-      return { default: result.default.Checkboxes }
+      const { Checkboxes } = await import("../src")
+      return { default: Checkboxes }
     });
 
     return (

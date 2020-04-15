@@ -5,7 +5,7 @@ interface IErrorMessage {
   icon?: string;
 }
 
-interface ICheckboxesProps {
+interface ICheckBoxesProps {
   options?: any[] | object;
   returnBoolean?: boolean;
   onChange: ({
@@ -26,4 +26,4 @@ interface ICheckboxesProps {
   };
 }
 
-export { IErrorMessage, ICheckboxesProps }
+export { IErrorMessage, ICheckBoxesProps }

@@ -1,9 +1,9 @@
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import Checkbox from "./Checkbox";
-import { ICheckboxesProps } from './interface'
+import { ICheckBoxesProps } from './interface'
 
-const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
+const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   returnBoolean,
   onChange: onChangeCheckboxList,
   options,
@@ -89,10 +89,11 @@ const Checkboxes: FunctionComponent<ICheckboxesProps> = ({
     </>
   );
 };
-Checkboxes.defaultProps = {
+CheckBoxes.defaultProps = {
   error: false,
   options: [],
   returnBoolean: false,
   validationMessage: "This field is required"
 };
-export default { Checkboxes: withUtils(Checkboxes), Checkbox };
+const Checkboxes = withUtils(CheckBoxes)
+export { Checkbox, Checkboxes }
