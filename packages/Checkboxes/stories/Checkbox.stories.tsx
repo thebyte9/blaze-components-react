@@ -1,6 +1,6 @@
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, FunctionComponent } from "react";
 import CheckboxesReadme from "../README.md";
 
 const multiple = [
@@ -37,7 +37,11 @@ storiesOf("Checkboxes", module)
     }
   })
   .add("Introduction", (): any => {
-    const { Checkboxes }: any = lazy(() => import("../src") as Promise<{ default: any }>);
+    const Checkboxes: any = lazy(async (): Promise<{ default: FunctionComponent }> => {
+      const result = await import("../src")
+      return { default: result.default.Checkboxes }
+    });
+
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
