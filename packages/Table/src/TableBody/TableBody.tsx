@@ -66,7 +66,7 @@ const TableBody = ({
               {checkboxes && (
                 <div className="table-cell--checkbox">
                   <Checkboxes
-                    data-testid={`row-checkbox-${index + 1}`}
+                    test-id={`row-checkbox-${index + 1}`}
                     options={{
                       checked: selected.includes(
                         allRows[index][identification]

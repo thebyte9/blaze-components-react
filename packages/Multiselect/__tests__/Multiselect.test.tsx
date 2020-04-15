@@ -137,19 +137,6 @@ describe("Multiselect component", () => {
   it("should be removed by clicking on the chip", () => {
     const wrapper = mount(<Multiselect {...defaultProps()} />);
 
-    wrapper
-      .find(".chip__icon")
-      .at(0)
-      .simulate("click");
-    expect(wrapper.find(".chip__label").length).toBe(1);
-
-    wrapper
-      .find("input")
-      .at(0)
-      .simulate("focus")
-      .simulate("keyDown", { key: "ArrowLeft" })
-      .simulate("keyDown", { key: "Enter" });
-
     expect(
       wrapper
         .find(".multiselect__input__container__chips")

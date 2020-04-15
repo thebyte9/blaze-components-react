@@ -29,6 +29,7 @@ const Checkbox = ({
     })
     setIsChecked(!isChecked)
   }
+
   return (
     <div
       data-testid={attrs.testId}

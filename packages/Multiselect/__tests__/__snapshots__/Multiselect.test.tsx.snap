@@ -52,6 +52,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
   }
   error={false}
   getSelected={[Function]}
+  isDynamic={false}
   label=""
   limit={0}
   limitReachedMessage="Select item limit reached"
