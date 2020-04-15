@@ -1,47 +1,30 @@
-import { render } from "@testing-library/react";
-import { mount, shallow } from "enzyme";
+import { render, act, fireEvent } from "@testing-library/react";
+import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
 import Multiselect from "../src";
+import { props } from './mocks'
 
 const defaultProps = (override: object = {}) => ({
-  data: {
-    identification: "id",
-    keyValue: "name",
-    filterBy: ["name"],
-    data: [
-      {
-        checked: true,
-        description: "Lorem ipsum dolor.",
-        id: 1,
-        name: "Blaze 1",
-        show: true
-      },
-      {
-        checked: true,
-        description: "Lorem ipsum dolor.",
-        id: 2,
-        name: [["Blaze 2", 'multi main label'], ['Sub label 1', 'sub label 2', 'sub label 3']],
-        show: true
-      },
-      {
-        checked: false,
-        description: "Lorem ipsum dolor.",
-        id: 3,
-        name: ["Blaze 3", ['Sub label 1', 'sub label 2']],
-        show: true
-      }
-    ]
-  },
+  ...props,
   ...override
 });
 
 describe("Multiselect component", () => {
   it("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = shallow(<Multiselect {...defaultProps()} />);
+    const { container } = render(<Multiselect {...defaultProps()} />);
 
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should be defined and renders correctly when is opened (snapshot)", () => {
+    const { container, getByTestId } = render(<Multiselect {...defaultProps()} />);
+
+    act(() => {
+      getByTestId('input').focus()
+    })
+
+    expect(container).toMatchSnapshot();
   });
 
   it("should select first option", () => {
@@ -137,19 +120,6 @@ describe("Multiselect component", () => {
   it("should be removed by clicking on the chip", () => {
     const wrapper = mount(<Multiselect {...defaultProps()} />);
 
-    wrapper
-      .find(".chip__icon")
-      .at(0)
-      .simulate("click");
-    expect(wrapper.find(".chip__label").length).toBe(1);
-
-    wrapper
-      .find("input")
-      .at(0)
-      .simulate("focus")
-      .simulate("keyDown", { key: "ArrowLeft" })
-      .simulate("keyDown", { key: "Enter" });
-
     expect(
       wrapper
         .find(".multiselect__input__container__chips")
@@ -177,4 +147,27 @@ describe("Multiselect component", () => {
     expect(firstChipLabel).toBe(firstChip.name);
     expect(secondChipLabel).toBe(expectedValueSecondChip);
   });
+
+  it('should handle delete', () => {
+    const mockedGetSelected = jest.fn();
+    const { getByTestId, container } = render(<Multiselect {...defaultProps({ getSelected: mockedGetSelected })} />);
+    act(() => {
+      getByTestId('input').focus()
+    })
+    act(() => {
+      const [element] = container.querySelectorAll('.chip__icon--delete')
+      fireEvent(element, new MouseEvent('click', { bubbles: true, cancelable: false }))
+
+    })
+    expect(mockedGetSelected).toHaveBeenCalledWith({
+      event: {
+        target: {
+          name: "Blaze 1",
+          value: [
+            2,
+          ],
+        },
+      },
+    })
+  })
 });

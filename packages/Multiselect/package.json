@@ -7,7 +7,7 @@
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
+    "build": "../../node_modules/.bin/rimraf ./lib && ../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
     "test": "jest",
@@ -22,6 +22,7 @@
     "@blaze-react/chips": "^0.4.42",
     "@blaze-react/input": "^0.4.42",
     "@blaze-react/utils": "^0.4.37",
+    "@koale/useworker": "^2.1.3",
     "lodash.differencewith": "^4.5.0",
     "lodash.isequal": "^4.5.0",
     "lodash.unionby": "^4.8.0"
