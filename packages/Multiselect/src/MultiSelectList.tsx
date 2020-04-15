@@ -46,7 +46,11 @@ const MultiSelectList = ({
             renderItem={({ index, style }) =>
               (
                 <div style={style} key={index}  >
-                  <Checkbox {...list[index]} label={getLabel({ label: list[index][keyValue], isChip: false })} onChange={({ value }: { value: any }) => handleCheckBoxChange({ index, value, data: dataCopy })} />
+                  <Checkbox
+                    testId={`checkbox-${index}`}
+                    {...list[index]}
+                    label={getLabel({ label: list[index][keyValue], isChip: false })}
+                    onChange={({ value }: { value: any }) => handleCheckBoxChange({ index, value, data: dataCopy, name: list[index][keyValue] })} />
                 </div>
               )
             }></VirtualList>

@@ -1,5 +1,5 @@
-import { render } from "@testing-library/react";
-import { mount, shallow } from "enzyme";
+import { render, act, fireEvent } from "@testing-library/react";
+import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
 import Multiselect from "../src";
@@ -38,10 +38,19 @@ const defaultProps = (override: object = {}) => ({
 
 describe("Multiselect component", () => {
   it("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = shallow(<Multiselect {...defaultProps()} />);
+    const { container } = render(<Multiselect {...defaultProps()} />);
 
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should be defined and renders correctly when is opened (snapshot)", () => {
+    const { container, getByTestId } = render(<Multiselect {...defaultProps()} />);
+
+    act(() => {
+      getByTestId('input').focus()
+    })
+
+    expect(container).toMatchSnapshot();
   });
 
   it("should select first option", () => {
@@ -164,4 +173,27 @@ describe("Multiselect component", () => {
     expect(firstChipLabel).toBe(firstChip.name);
     expect(secondChipLabel).toBe(expectedValueSecondChip);
   });
+
+  it('should handle delete', () => {
+    const mockedGetSelected = jest.fn();
+    const { getByTestId, container } = render(<Multiselect {...defaultProps({ getSelected: mockedGetSelected })} />);
+    act(() => {
+      getByTestId('input').focus()
+    })
+    act(() => {
+      const [element] = container.querySelectorAll('.chip__icon--delete')
+      fireEvent(element, new MouseEvent('click', { bubbles: true, cancelable: false }))
+
+    })
+    expect(mockedGetSelected).toHaveBeenCalledWith({
+      event: {
+        target: {
+          name: "Blaze 1",
+          value: [
+            2,
+          ],
+        },
+      },
+    })
+  })
 });

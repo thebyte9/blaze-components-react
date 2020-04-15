@@ -1,73 +1,284 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Multiselect component should be defined and renders correctly (snapshot) 1`] = `
-<MultiSelect
-  data={
-    Object {
-      "data": Array [
-        Object {
-          "checked": true,
-          "description": "Lorem ipsum dolor.",
-          "id": 1,
-          "name": "Blaze 1",
-          "show": true,
-        },
-        Object {
-          "checked": true,
-          "description": "Lorem ipsum dolor.",
-          "id": 2,
-          "name": Array [
-            Array [
-              "Blaze 2",
-              "multi main label",
-            ],
-            Array [
-              "Sub label 1",
-              "sub label 2",
-              "sub label 3",
-            ],
-          ],
-          "show": true,
-        },
-        Object {
-          "checked": false,
-          "description": "Lorem ipsum dolor.",
-          "id": 3,
-          "name": Array [
-            "Blaze 3",
-            Array [
-              "Sub label 1",
-              "sub label 2",
-            ],
-          ],
-          "show": true,
-        },
-      ],
-      "filterBy": Array [
-        "name",
-      ],
-      "identification": "id",
-      "keyValue": "name",
-    }
-  }
-  error={false}
-  getSelected={[Function]}
-  isDynamic={false}
-  label=""
-  limit={0}
-  limitReachedMessage="Select item limit reached"
-  notFoundMessage="No records available"
-  onChange={[Function]}
-  placeholder="Choose..."
-  required={false}
-  utils={
-    Object {
-      "ErrorMessage": [Function],
-      "classNames": [Function],
-      "removeExtraSpaces": [Function],
-      "uniqueId": [Function],
-    }
-  }
-  validationMessage="This field is required"
-/>
+<div>
+  <div
+    class="form-field form-field--multiselect"
+  >
+    <div
+      class="multiselect"
+    >
+      <div
+        class="chip__wrapper"
+      >
+        <label
+          class=""
+        />
+        <span
+          class="chip__wrapper__clear"
+          data-cy="multiSelect--clearAll-button"
+        >
+          Clear all
+        </span>
+      </div>
+      <div
+        class="multiselect__input__container"
+      >
+        <div
+          class="multiselect__input__container__chips"
+        >
+          <div
+            class="chip chip--deletable chip--small"
+          >
+            <div
+              class="chip__label"
+              data-cy="multiSelect--chip1-label"
+            >
+              Blaze 1
+            </div>
+            <div
+              class="chip__icon chip__icon--delete"
+              data-cy="multiSelect--chip1-icon"
+            >
+              <i
+                class="material-icons"
+              >
+                clear
+              </i>
+            </div>
+          </div>
+          <div
+            class="chip chip--deletable chip--small"
+          >
+            <div
+              class="chip__label"
+              data-cy="multiSelect--chip2-label"
+            >
+              Blaze 2, multi main label
+            </div>
+            <div
+              class="chip__icon chip__icon--delete"
+              data-cy="multiSelect--chip2-icon"
+            >
+              <i
+                class="material-icons"
+              >
+                clear
+              </i>
+            </div>
+          </div>
+          <div
+            class="form-field form-field--input  "
+          >
+            <label
+              class=""
+            />
+            <input
+              data-testid="input"
+              placeholder="Choose..."
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Multiselect component should be defined and renders correctly when is opened (snapshot) 1`] = `
+<div>
+  <div
+    class="form-field form-field--multiselect"
+  >
+    <div
+      class="multiselect"
+    >
+      <div
+        class="chip__wrapper"
+      >
+        <label
+          class=""
+        />
+        <span
+          class="chip__wrapper__clear"
+          data-cy="multiSelect--clearAll-button"
+        >
+          Clear all
+        </span>
+      </div>
+      <div
+        class="multiselect__input__container"
+      >
+        <div
+          class="multiselect__input__container__chips"
+        >
+          <div
+            class="chip chip--deletable chip--small"
+          >
+            <div
+              class="chip__label"
+              data-cy="multiSelect--chip1-label"
+            >
+              Blaze 1
+            </div>
+            <div
+              class="chip__icon chip__icon--delete"
+              data-cy="multiSelect--chip1-icon"
+            >
+              <i
+                class="material-icons"
+              >
+                clear
+              </i>
+            </div>
+          </div>
+          <div
+            class="chip chip--deletable chip--small"
+          >
+            <div
+              class="chip__label"
+              data-cy="multiSelect--chip2-label"
+            >
+              Blaze 2, multi main label
+            </div>
+            <div
+              class="chip__icon chip__icon--delete"
+              data-cy="multiSelect--chip2-icon"
+            >
+              <i
+                class="material-icons"
+              >
+                clear
+              </i>
+            </div>
+          </div>
+          <div
+            class="form-field form-field--input  "
+          >
+            <label
+              class=""
+            />
+            <input
+              data-testid="input"
+              placeholder="Choose..."
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="multiselect__dropdown"
+      >
+        <div>
+          <div
+            style="overflow: auto; will-change: transform; height: 245px; width: 100%;"
+          >
+            <div
+              style="position: relative; width: 100%; min-height: 100%; height: 135px;"
+            >
+              <div
+                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 45px;"
+              >
+                <div
+                  class="form-field form-field--checkbox"
+                  data-testid="checkbox-0"
+                  id="uid-IkJsYXplIDEi"
+                  role="button"
+                >
+                  <input
+                    checked=""
+                    class="form-checkbox"
+                    description="Lorem ipsum dolor."
+                    id="1"
+                    index="0"
+                    name="Blaze 1"
+                    readonly=""
+                    testid="checkbox-0"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label
+                    for="uid-IkJsYXplIDEi"
+                  >
+                    <span>
+                      Blaze 1
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                style="position: absolute; top: 45px; left: 0px; width: 100%; height: 45px;"
+              >
+                <div
+                  class="form-field form-field--checkbox"
+                  data-testid="checkbox-1"
+                  id="uid-W1siQmxhemUgMiIsIm11bHRpIG1haW4gbGFiZWwiXSxbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiLCJzdWIgbGFiZWwgMyJdXQ=="
+                  role="button"
+                >
+                  <input
+                    checked=""
+                    class="form-checkbox"
+                    description="Lorem ipsum dolor."
+                    id="2"
+                    index="1"
+                    name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
+                    readonly=""
+                    testid="checkbox-1"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label
+                    for="uid-W1siQmxhemUgMiIsIm11bHRpIG1haW4gbGFiZWwiXSxbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiLCJzdWIgbGFiZWwgMyJdXQ=="
+                  >
+                    <span>
+                      Blaze 2, multi main label
+                    </span>
+                    <span>
+                      Sub label 1, sub label 2, sub label 3
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                style="position: absolute; top: 90px; left: 0px; width: 100%; height: 45px;"
+              >
+                <div
+                  class="form-field form-field--checkbox"
+                  data-testid="checkbox-2"
+                  id="uid-WyJCbGF6ZSAzIixbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiXV0="
+                  role="button"
+                >
+                  <input
+                    class="form-checkbox"
+                    description="Lorem ipsum dolor."
+                    id="3"
+                    index="2"
+                    name="Blaze 3,Sub label 1,sub label 2"
+                    readonly=""
+                    testid="checkbox-2"
+                    type="checkbox"
+                    value=""
+                  />
+                  <label
+                    for="uid-WyJCbGF6ZSAzIixbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiXV0="
+                  >
+                    <span>
+                      Blaze 3
+                    </span>
+                    <span>
+                      Sub label 1, sub label 2
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

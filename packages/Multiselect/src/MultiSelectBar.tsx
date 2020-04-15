@@ -48,8 +48,8 @@ const MultiSelectBar = ({
                   Chip.availableModifiers.parent.deletable,
                   Chip.availableModifiers.parent.small
                 ]}
-                onDelete={() => handleDelete(selectedValue[identification])}
-                action={() => handleDelete(selectedValue[identification])}
+                onDelete={() => handleDelete({ id: selectedValue[identification], name: selectedValue[keyValue] })}
+                action={() => handleDelete({ id: selectedValue[identification], name: selectedValue[keyValue] })}
                 key={uniqueId(selectedValue)}
               >
                 <Chip.Label
