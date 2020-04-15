@@ -37,7 +37,7 @@ storiesOf("Checkboxes", module)
     }
   })
   .add("Introduction", (): any => {
-    const Checkboxes = lazy(() => import("../src"));
+    const { Checkboxes }: any = lazy(() => import("../src") as Promise<{ default: any }>);
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
