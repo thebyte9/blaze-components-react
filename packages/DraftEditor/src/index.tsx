@@ -11,7 +11,7 @@ import {
   DraftHandleValue,
   EditorBlock,
   EditorState,
-  RichUtils
+  RichUtils,
 } from "draft-js";
 import Editor from "draft-js-plugins-editor";
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
@@ -21,7 +21,7 @@ import {
   BLOCKQUOTE,
   HANDLED,
   NOT_HANDLED,
-  UNSTYLED
+  UNSTYLED,
 } from "./constants";
 import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
@@ -31,7 +31,7 @@ import { IDraftEditorProps } from "./interfaces";
 import {
   addButtonToAlignmentToolContainer,
   findImageAndUpdateStyles,
-  getEditorHeight
+  getEditorHeight,
 } from "./utils";
 
 const blockRenderer = (contentBlock: any) => {
@@ -41,7 +41,7 @@ const blockRenderer = (contentBlock: any) => {
     return {
       component: Component,
       editable: true,
-      props: {}
+      props: {},
     };
   }
   return "";
@@ -65,6 +65,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   unSelectedText,
   selectedImages,
   handleLibraryClick,
+  showImagePlugin,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -82,7 +83,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   );
   const [imageAttributesData, setImageAttributesData] = useState<any>({
     focusedImageURL: null,
-    images: []
+    images: [],
   });
   const inputEl = useRef<any>(null);
   const globalRef = useRef<any>(null);
@@ -99,7 +100,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           : [];
       setImageAttributesData({
         focusedImageURL: null,
-        images
+        images,
       });
       initialEditorState = convertFromRaw(parsedValue);
     }
@@ -129,11 +130,11 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   }, [editorState]);
 
   const handleEditImageEvent = (images: any) => {
-    eventBus.$on("editImageAttributes", focusedImageURL => {
+    eventBus.$on("editImageAttributes", (focusedImageURL) => {
       setImageAttributesStatus(true);
       setImageAttributesData({
         focusedImageURL,
-        images
+        images,
       });
     });
   };
@@ -152,7 +153,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
 
-    const blocks = rawValue.blocks.map(block => {
+    const blocks = rawValue.blocks.map((block) => {
       if (block.type === "atomic" && !!block.text.trim()) {
         block.text = block.text.replace(/\s+/g, " ");
       }
@@ -164,16 +165,16 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     const rawValueString = JSON.stringify({
       ...rawValue,
       imageAttributes:
-        imagesAttr instanceof Array ? imagesAttr : imageAttributesData.images
+        imagesAttr instanceof Array ? imagesAttr : imageAttributesData.images,
     });
 
     const eventFormat = {
       event: {
         target: {
           name,
-          value: rawValueString
-        }
-      }
+          value: rawValueString,
+        },
+      },
     };
     if (onChange) {
       setEditorState(newEditorState);
@@ -184,21 +185,18 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const contentState: ContentState = editorState.getCurrentContent();
 
   const isUnstyled: boolean =
-    contentState
-      .getBlockMap()
-      .first()
-      .getType() !== UNSTYLED;
+    contentState.getBlockMap().first().getType() !== UNSTYLED;
 
   const hasTextAndUnstyled: boolean = !contentState.hasText() && isUnstyled;
 
   const editorClassName: string = classNames("custom-DraftEditor-editor", {
-    "custom-DraftEditor-hidePlaceholder": hasTextAndUnstyled
+    "custom-DraftEditor-hidePlaceholder": hasTextAndUnstyled,
   });
 
   const getBlockStyle = (block: ContentBlock): string => {
     const isBlockquote: boolean = block.getType() === BLOCKQUOTE;
     return classNames({
-      "custom-DraftEditor-blockquote": isBlockquote
+      "custom-DraftEditor-blockquote": isBlockquote,
     });
   };
 
@@ -224,7 +222,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
     const newEditorState = EditorState.set(editorState, {
-      currentContent: contentStateWithEntity
+      currentContent: contentStateWithEntity,
     });
 
     setEditorState(
@@ -241,6 +239,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         unSelectedText={unSelectedText}
         onEditorChange={onEditorChange}
         toggleDraftEditor={insertBlock}
+        showImagePlugin={showImagePlugin}
       />
       {imageAttributesStatus && (
         <AddImageAttributes
@@ -272,8 +271,9 @@ DraftEditor.defaultProps = {
   error: false,
   name: "editor",
   selectedImages: [],
+  showImagePlugin: false,
   unSelectedText: "Make sure you have a text selected",
-  validationMessage: "This field is required"
+  validationMessage: "This field is required",
 };
 
 export default withUtils(DraftEditor);
