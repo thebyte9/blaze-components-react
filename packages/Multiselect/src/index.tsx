@@ -1,13 +1,48 @@
+import Checkboxes from "@blaze-react/checkboxes";
+import Chip from "@blaze-react/chips";
+import Input from "@blaze-react/input";
 import withUtils from "@blaze-react/utils";
-import React, { useEffect, useRef, useState } from "react";
-import { IData, IMultiSelectProps } from "./interface";
-import MultiSelectBar from './MultiSelectBar'
-import MultiSelectList from "./MultiSelectList";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 
+interface IErrorMessage {
+  message: string | JSX.Element;
+  icon?: string;
+}
 
+interface IData {
+  id?: string;
+  checked?: boolean;
+  show?: boolean;
+}
+
+interface IMultiSelectProps {
+  data: {
+    identification: string;
+    keyValue: string;
+    filterBy: any[];
+    data: object[];
+  };
+  getSelected: (...args: any[]) => any;
+  label?: string;
+  limit?: number;
+  placeholder?: string;
+  id?: string;
+  children?: any;
+  notFoundMessage?: string;
+  required?: boolean;
+  limitReachedMessage?: string;
+  onChange?: (arg: { event: Event; value: string; name: string }) => void;
+  error?: boolean;
+  name: string;
+  validationMessage: string | JSX.Element;
+  utils: {
+    classNames: (className: string | object, classNames?: object) => string;
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+    uniqueId: (element: any) => string;
+  };
+}
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
-  onItemsRendered,
   utils: { ErrorMessage, uniqueId, classNames },
   validationMessage,
   notFoundMessage,
@@ -16,11 +51,11 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   label,
   limit,
   placeholder,
+  children,
   onChange,
   error,
   required,
   name,
-  isDynamic,
   ...attrs
 }): JSX.Element => {
   const multiRef = useRef<HTMLDivElement>(null);
@@ -28,19 +63,11 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [limitReached, setLimitReached] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
-  const [verifiedRanges, setVerifiedRanges] = useState<number[]>([])
-
-  const handleOutsideClick = (event: any) => {
-    if (multiRef.current !== null && !multiRef.current.contains(event.target)) {
-      setShow(false);
-    }
-  };
-
 
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
 
-    return () => {
+    return function cleanup() {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
@@ -55,28 +82,8 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     }
   }, [data]);
 
-  const handleOnItemsRenderer = async (params: any) => {
-    if (!isDynamic) { return }
-    const { startIndex, stopIndex } = params;
-    const rowsLength = dataCopy.length;
-    const loadIndex = Math.floor(rowsLength / 2);
-    if (loadIndex > 0 && loadIndex < startIndex && !verifiedRanges.includes(loadIndex) || stopIndex === rowsLength - 1 && startIndex === 0) {
-      const response = await onItemsRendered({ ...params })
-      setVerifiedRanges([...verifiedRanges, loadIndex]);
-      setDataCopy(response.data);
-    }
-  }
-
-  const parseDataCopy = (value: string) => {
-    return dataCopy.map((copy: any) => ({
-      ...copy,
-      show: !!keys.some((key: any) => {
-        const copyKey = copy[key].toString().toLowerCase();
-        return copyKey.includes(value.toLowerCase());
-      })
-    }));
-
-  }
+  const setStatus = (obj: object, status: boolean): object =>
+    Object.assign({}, obj, { show: status });
 
   const handleInputChange = ({
     event,
@@ -86,13 +93,117 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     value: string;
   }) => {
     setSearchValue(value);
-    if (onChange) {
-      onChange({ event, value, name, clearList: () => setDataCopy([]) });
-    }
-    if (isDynamic) { return }
     const parsedDataCopy: object[] = parseDataCopy(value);
+    if (onChange) {
+      onChange({ event, value, name });
+    }
     updateData(parsedDataCopy);
   };
+
+  const handleOutsideClick = (event: any) => {
+    if (multiRef.current !== null && !multiRef.current.contains(event.target)) {
+      setShow(false);
+    }
+  };
+
+  const parseDataCopy = (value: string) =>
+    dataCopy.map((copy: object) =>
+      setStatus(
+        copy,
+        !!keys.some(key => {
+          const copyKey = copy[key].toString().toLowerCase();
+          return copyKey.includes(value.toLowerCase());
+        })
+      )
+    );
+
+  const updateData = (newData: IData[]) => {
+    const reachedLimit = checkLimit(newData);
+    const verifiedData = newData.map((ele: any): object => ({
+      ...ele,
+      disabled: reachedLimit && !ele.checked
+    }));
+    setDataCopy(verifiedData);
+    setLimitReached(reachedLimit);
+  };
+
+  const handleKeyDown = ({
+    key: keyName,
+    target: { value }
+  }: {
+    key: string;
+    target: {
+      value: string;
+    };
+  }) => {
+    if (keyName === "Enter") {
+      const parsedDataCopy: object[] = parseDataCopy(value);
+
+      const elementToAdd = parsedDataCopy.findIndex(
+        (parsedData: IData) => parsedData.show
+      );
+      const newDataCopy: IData[] = [...dataCopy];
+      newDataCopy[elementToAdd].checked = true;
+      updateData(newDataCopy);
+      const selectedData = getChecked(newDataCopy);
+      callGetSelected(selectedData);
+    }
+  };
+
+  const handleCheckBoxChange = ({
+    value,
+    data: localData
+  }: {
+    value: any;
+    data: any;
+  }) => {
+    updateData(localData);
+    callGetSelected(value);
+  };
+
+  const parseCheckBoxOptions = (elements: object[]): object[] => {
+    return elements.map((element: any): object => ({
+      ...element,
+      label: getLabel(element[keyValue], false)
+    }));
+  };
+
+  const handleDelete = (id: string | number): void => {
+    const elementToDelete: number = dataCopy.findIndex(
+      ({ id: itemId }: { id: string | number }) => itemId === id
+    );
+    const updatedData = [...dataCopy];
+    updatedData[elementToDelete].checked = false;
+    const selectedData = getChecked(updatedData);
+    updateData(updatedData);
+    callGetSelected(selectedData);
+  };
+
+  const getChecked = (newDataCopy: IData[]) =>
+    newDataCopy.filter(({ checked }: { checked: boolean }) => checked);
+
+  const callGetSelected = (newDataCopy: IData[]) =>
+    getSelected({
+      event: {
+        target: {
+          name,
+          value: newDataCopy.map(({ id }: IData) => id)
+        }
+      }
+    });
+
+  const handleClearAll = (): void => {
+    const formatedElements: object[] = dataCopy.map((item: IData) => ({
+      ...item,
+      checked: false
+    }));
+    callGetSelected([]);
+    setShow(false);
+    setSearchValue("");
+    updateData(formatedElements);
+  };
+
+  const handleFocus = (): void => setShow(true);
 
   const checkLimit = (dataToCheck: any) => {
     if (limit) {
@@ -105,161 +216,105 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     return false;
   };
 
-  const getCheckedIds = (newDataCopy: IData[]) => {
-    return newDataCopy.reduce((acc: any, { checked, id }: { checked: boolean, id: string }) => {
-      if (checked) {
-        acc.push(id)
-      }
-      return acc
-    }, []);
-  }
+  const matchQuery: boolean = !!dataCopy.filter((item: IData) => item.show)
+    .length;
+  const checkedItems = dataCopy.filter((item: IData) => item.checked);
 
-  const updateData = (newData: IData[]) => {
-    const reachedLimit = checkLimit(newData);
-    const verifiedData = newData.map((ele: any, index: number): object => ({
-      index,
-      ...ele,
-      disabled: reachedLimit && !ele.checked
-    }));
-    setDataCopy(verifiedData);
-    setLimitReached(reachedLimit);
-    return verifiedData
-  };
+  const requiredClassName: string = classNames({ required });
 
-  const handleKeyDown = (event: any) => {
-    const { keyCode } = event
+  const labelParser = (defaultLabel: string | [string, string]) => Array.isArray(defaultLabel) ? defaultLabel.join(', ') : defaultLabel;
 
-    if (keyCode === 27) { // escape
-      if (!show) { return }
-      setShow(!show)
-    }
+  const getLabel = (defaultLabel?: string | [string, string], isChip?: boolean) => {
+    if (Array.isArray(defaultLabel)) {
+      const [main, sub] = defaultLabel;
+      const mainLabel = labelParser(main);
+      const subLabel = labelParser(sub);
 
-    if (keyCode === 40) { // arrow down
-      if (show) { return }
-      setShow(!show)
-    }
-  };
-
-  const handleCheckBoxChange = ({
-    index,
-    value,
-    name: element,
-    data: localData
-  }: {
-    index: number;
-    name: string;
-    value: any;
-    data: any;
-  }) => {
-    const updatedData = [...localData]
-    updatedData[index].checked = value.checked
-    updateData(updatedData);
-    getSelected({
-      event: {
-        target: {
-          name: element,
-          value: getCheckedIds(updatedData)
-        }
-      }
-    });
-  };
-
-  const handleDelete = ({ id, name: element }: { id: string | number, name: string }): void => {
-    const elementToDelete: number = dataCopy.findIndex(
-      ({ id: itemId }: { id: string | number }) => itemId === id
-    );
-    const updatedData = [...dataCopy];
-    updatedData[elementToDelete].checked = false;
-    const selectedData = getCheckedIds(updatedData);
-    updateData(updatedData);
-    getSelected({
-      event: {
-        target: {
-          name: element,
-          value: selectedData
-        }
-      }
-    });
-  };
-
-  const handleClearAll = (): void => {
-    const formatedElements: object[] = dataCopy.map((item: IData) => ({
-      ...item,
-      checked: false
-    }));
-    setShow(false);
-    setSearchValue("");
-    updateData(formatedElements);
-    getSelected({
-      event: {
-        target: {
-          name,
-          value: []
-        }
-      }
-    });
-  };
-
-  const labelParser = ({ label: lab }: { label: string[] | string }) => Array.isArray(lab) ? lab.join(', ') : lab
-  const getLabel = ({ label: lab, isChip }: { label: string | [string, string], isChip?: boolean }) => {
-    if (Array.isArray(lab)) {
-      const [main, sub] = lab;
-      const mainLabel = labelParser({ label: main });
-      const subLabel = labelParser({ label: sub });
       return isChip ? mainLabel : [mainLabel, subLabel];
     }
-    return lab;
+    return defaultLabel;
   };
-
-  const handleFocus = (): void => setShow(true);
-
-  const matchQuery: any = dataCopy.filter((item: IData) => item.show)
-  const checkedItems = dataCopy.filter((item: IData) => item.checked);
 
   return (
     <div className="form-field form-field--multiselect">
       <div className="multiselect" ref={multiRef}>
-        <MultiSelectBar
-          required={required}
-          label={label}
-          attrs={attrs}
-          checkedItems={checkedItems}
-          handleClearAll={handleClearAll}
-          handleDelete={handleDelete}
-          identification={identification}
-          uniqueId={uniqueId}
-          keyValue={keyValue}
-          searchValue={searchValue}
-          placeholder={placeholder}
-          handleInputChange={handleInputChange}
-          handleKeyDown={handleKeyDown}
-          handleFocus={handleFocus}
-          classNames={classNames}
-          getLabel={getLabel}
-        />
+        <div className="chip__wrapper">
+          <label htmlFor={attrs.id} className={requiredClassName}>
+            {label}
+          </label>
+          {!!checkedItems.length && (
+            <span
+              data-cy={`multiSelect-${label}-clearAll-button`}
+              className="chip__wrapper__clear"
+              onClick={handleClearAll}
+            >
+              Clear all
+            </span>
+          )}
+        </div>
+        {children}
 
-        {show && (<MultiSelectList
-          onItemsRendered={handleOnItemsRenderer}
-          error={error}
-          validationMessage={validationMessage}
-          matchQuery={matchQuery}
-          notFoundMessage={notFoundMessage}
-          dataCopy={dataCopy}
-          keyValue={keyValue}
-          limitReached={limitReached}
-          limitReachedMessage={limitReachedMessage}
-          handleCheckBoxChange={handleCheckBoxChange}
-          ErrorMessage={ErrorMessage}
-          getLabel={getLabel}
-        />)}
+        <div className="multiselect__input__container">
+          <div className="multiselect__input__container__chips">
+            {checkedItems.map(
+              (selectedValue: object, index: number): JSX.Element => (
+                <Chip
+                  modifiers={[
+                    Chip.availableModifiers.parent.deletable,
+                    Chip.availableModifiers.parent.small
+                  ]}
+                  onDelete={() => handleDelete(selectedValue[identification])}
+                  action={() => handleDelete(selectedValue[identification])}
+                  key={uniqueId(selectedValue)}
+                >
+                  <Chip.Label
+                    data-cy={`multiSelect-${label}-chip${index + 1}-label`}
+                  >
+                    {getLabel(selectedValue[keyValue], true)}
+                  </Chip.Label>
+                  <Chip.Icon
+                    data-cy={`multiSelect-${label}-chip${index + 1}-icon`}
+                    modifier={Chip.availableModifiers.icon.delete}
+                  >
+                    <i className="material-icons">clear</i>
+                  </Chip.Icon>
+                </Chip>
+              )
+            )}
+            <Input
+              value={searchValue}
+              placeholder={placeholder}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              onFocus={handleFocus}
+              {...attrs}
+            />
+          </div>
+        </div>
+
+        {show && (
+          <>
+            <div className="multiselect__dropdown">
+              {error && <ErrorMessage message={validationMessage} />}
+
+              {!matchQuery && <p>{notFoundMessage}</p>}
+
+              <Checkboxes
+                options={parseCheckBoxOptions(dataCopy)}
+                onChange={handleCheckBoxChange}
+              />
+            </div>
+            {limitReached && <p>{limitReachedMessage}</p>}
+          </>
+        )}
       </div>
     </div>
   );
 };
 MultiSelect.defaultProps = {
+  children: "",
   error: false,
   getSelected: () => void 0,
-  isDynamic: false,
   label: "",
   limit: 0,
   limitReachedMessage: "Select item limit reached",
@@ -269,6 +324,6 @@ MultiSelect.defaultProps = {
   },
   placeholder: "Choose...",
   required: false,
-  validationMessage: "This field is required",
+  validationMessage: "This field is required"
 };
 export default withUtils(MultiSelect);

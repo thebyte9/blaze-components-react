@@ -4,18 +4,22 @@
   position: relative;
   width: 100%;
   margin-bottom: 30px;
+  .chip {
+    &__wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: $light-blue;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
 
   & p {
-    margin: 0 0 -1px;
-    padding: 10px;
-    width: 100%;
+    margin: 0;
+    padding: 5px 2px;
     font-size: $size-xx-small;
     text-align: left;
-    background-color: rgba($white, 0.8);
-    border-left: 1px solid $grey-light;
-    border-right: 1px solid $grey-light;
-    border-bottom: 1px solid $grey-light;
-    color: $red;
   }
 
   &__clear {
@@ -30,12 +34,13 @@
     display: flex;
     flex-wrap: wrap;
     .chip {
-      background-color: $chip-color;
+      background-color: #546e7a;
       color: white;
       margin-right: 5px;
       margin-top: 5px;
     }
     &__chips {
+      width: 100%;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
@@ -49,7 +54,6 @@
       width: auto;
       input {
         border: 0;
-        height: 25px;
       }
     }
   }
@@ -68,7 +72,7 @@
     z-index: 1000;
 
     & .form-field {
-      padding: 0 10px;
+      padding: 10px;
     }
     & p {
       margin: 0;
@@ -80,28 +84,17 @@
       display: flex;
       flex-direction: column;
       margin: 5px 0 0 10px;
-      flex: inherit;
-
       span {
-        color: $multiselect-label;
-        text-align: left;
+        color: #444444;
         line-height: 20px;
         font-size: 13px;
       }
       span:nth-child(2) {
-        color: $multiselect-label-longer;
+        color: #9b9b9b;
         font-size: 11px;
         text-align: left;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 250px;
       }
     }
-  }
-
-  &__input {
-    width: 100%;
   }
 
   .form-field {
