@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/multiselect",
-  "version": "0.4.42",
+  "version": "0.4.54",
   "publishConfig": {
     "access": "public"
   },
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.42",
+    "@blaze-react/blaze-components-theme": "^0.4.54",
     "@types/lodash.unionby": "^4.8.6"
   },
   "peerDependencies": {
