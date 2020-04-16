@@ -22,6 +22,6 @@ module.exports = ({config}) => {
     include: path.resolve(__dirname, '../'),
   }
   );
-  config.resolve.extensions.push('.ts', '.tsx', '.js');
+  config.resolve.extensions.push('.ts', '.tsx');
   return config;
 };

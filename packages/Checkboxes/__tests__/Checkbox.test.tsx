@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/react";
 import { mount, shallow } from "enzyme";
 import expect from "expect";
 import React from "react";
-import { Checkboxes } from "../src";
+import Checkboxes from "../src";
 
 const options = [
   {
