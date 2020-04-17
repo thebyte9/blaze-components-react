@@ -12,13 +12,13 @@ const defaultProps = (override: object = {}) => ({
 
 describe("Multiselect component", () => {
   it("should be defined and renders correctly (snapshot)", () => {
-    const { container } = render(<Multiselect {...defaultProps()} />);
+    const { container } = render(<Multiselect name="test" {...defaultProps()} />);
 
     expect(container).toMatchSnapshot();
   });
 
   it("should be defined and renders correctly when is opened (snapshot)", () => {
-    const { container, getByTestId } = render(<Multiselect {...defaultProps()} />);
+    const { container, getByTestId } = render(<Multiselect name="test" {...defaultProps()} />);
 
     act(() => {
       getByTestId('input').focus()
@@ -28,7 +28,7 @@ describe("Multiselect component", () => {
   });
 
   it("should select first option", () => {
-    const wrapper = mount(<Multiselect {...defaultProps()} />);
+    const wrapper = mount(<Multiselect name="test" {...defaultProps()} />);
 
     wrapper
       .find("input")
@@ -49,7 +49,7 @@ describe("Multiselect component", () => {
   });
 
   it("should allow to filter", () => {
-    const wrapper = mount(<Multiselect {...defaultProps()} />);
+    const wrapper = mount(<Multiselect name="test" {...defaultProps()} />);
 
     wrapper
       .find("input")
@@ -74,7 +74,7 @@ describe("Multiselect component", () => {
       error: true,
       onChange: null
     };
-    const wrapper = mount(<Multiselect {...defaultProps(override)} />);
+    const wrapper = mount(<Multiselect name="test" {...defaultProps(override)} />);
 
     wrapper
       .find("input")
@@ -95,7 +95,7 @@ describe("Multiselect component", () => {
   });
 
   it("should rerender on receive props", () => {
-    const { rerender } = render(<Multiselect {...defaultProps()} />);
+    const { rerender } = render(<Multiselect name="test" {...defaultProps()} />);
 
     const override = {
       data: {
@@ -114,11 +114,11 @@ describe("Multiselect component", () => {
       }
     };
 
-    rerender(<Multiselect {...defaultProps(override)} />);
+    rerender(<Multiselect name="test" {...defaultProps(override)} />);
   });
 
   it("should be removed by clicking on the chip", () => {
-    const wrapper = mount(<Multiselect {...defaultProps()} />);
+    const wrapper = mount(<Multiselect name="test" {...defaultProps()} />);
 
     expect(
       wrapper
@@ -136,7 +136,7 @@ describe("Multiselect component", () => {
   });
 
   it("should display chip labels based on props", () => {
-    const wrapper = mount(<Multiselect {...defaultProps()} />);
+    const wrapper = mount(<Multiselect name="test" {...defaultProps()} />);
     const firstChipLabel = wrapper.find(".chip__label").at(0).text();
     const secondChipLabel = wrapper.find(".chip__label").at(1).text();
 
@@ -150,7 +150,7 @@ describe("Multiselect component", () => {
 
   it('should handle delete', () => {
     const mockedGetSelected = jest.fn();
-    const { getByTestId, container } = render(<Multiselect {...defaultProps({ getSelected: mockedGetSelected })} />);
+    const { getByTestId, container } = render(<Multiselect name="test" {...defaultProps({ getSelected: mockedGetSelected })} />);
     act(() => {
       getByTestId('input').focus()
     })
@@ -162,7 +162,7 @@ describe("Multiselect component", () => {
     expect(mockedGetSelected).toHaveBeenCalledWith({
       event: {
         target: {
-          name: "Blaze 1",
+          name: "test",
           value: [
             2,
           ],
