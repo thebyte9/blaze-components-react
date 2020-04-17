@@ -143,7 +143,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const handleCheckBoxChange = ({
     index,
     value,
-    name: element,
     data: localData
   }: {
     index: number;
@@ -157,14 +156,14 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     getSelected({
       event: {
         target: {
-          name: element,
+          name,
           value: getCheckedIds(updatedData)
         }
       }
     });
   };
 
-  const handleDelete = ({ id, name: element }: { id: string | number, name: string }): void => {
+  const handleDelete = ({ id }: { id: string | number }): void => {
     const elementToDelete: number = dataCopy.findIndex(
       ({ id: itemId }: { id: string | number }) => itemId === id
     );
@@ -175,7 +174,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     getSelected({
       event: {
         target: {
-          name: element,
+          name,
           value: selectedData
         }
       }

@@ -12,38 +12,43 @@ storiesOf("Multiselect", module)
     }
   })
   .add("Static data", () => {
-    const multiselectData = {
-      filterBy: ["name", "description"],
-      identification: "id",
-      keyValue: "name",
-      data: [...new Array(20)].map((e, index) => ({
+    const DemoComponent = () => {
+      const data = [...new Array(2)].map((e, index) => ({
         checked: index % 50 === 0,
         description: faker.random.word(),
         id: faker.random.uuid(),
         name: [faker.name.findName(), [faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName()]],
         show: true
       }))
-    };
-    return (
-      <div className="component-wrapper">
-        <h1>Multiselect</h1>
-        <p>
-          MultiSelect is a component that allows you to select multiple items with
-          check boxes. It is useful for labeling, contact lists, country
-          selectors, etc.
-      </p>
-        <Multiselect
-          name="multiselect"
-          data={multiselectData}
-          label="Multi Select"
-          limit={90}
-          getSelected={(selected: any) => {
-            console.log("selected", selected); //eslint-diisable-line
-          }}
-          required
-        />
-      </div>
-    );
+      const [state, setState] = useState<any>({
+        filterBy: ["name", "description"],
+        identification: "id",
+        keyValue: "name",
+        data: data
+      })
+
+      return (
+        <div className="component-wrapper">
+          <h1>Multiselect</h1>
+          <p>
+            MultiSelect is a component that allows you to select multiple items with
+            check boxes. It is useful for labeling, contact lists, country
+            selectors, etc.
+        </p>
+          <Multiselect
+            name="multiselect"
+            data={state}
+            label="Multi Select"
+            limit={90}
+            getSelected={(selected: any) => {
+              setState({ ...state, data: data })
+            }}
+            required
+          />
+        </div>
+      );
+    }
+    return <DemoComponent></DemoComponent>
   })
   .add("Dynamic data", () => {
     const DemoComponent = () => {

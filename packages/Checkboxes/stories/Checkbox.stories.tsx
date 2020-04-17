@@ -36,7 +36,7 @@ storiesOf("Checkboxes", module)
       sidebar: CheckboxesReadme
     }
   })
-  .add("Introduction", (): any => {
+  .add("Checkbox List", (): any => {
     const Checkboxes: any = lazy(async (): Promise<{ default: FunctionComponent }> => {
       const { Checkboxes } = await import("../src")
       return { default: Checkboxes }
@@ -61,6 +61,22 @@ storiesOf("Checkboxes", module)
 
             <h3>Single</h3>
             <Checkboxes returnBoolean options={single} onChange={() => ({})} />
+          </section>
+        </div>
+      </Suspense>
+    );
+  }).add("Checkbox Item", (): any => {
+    const Checkbox: any = lazy(async (): Promise<{ default: FunctionComponent }> => {
+      const { Checkbox } = await import("../src")
+      return { default: Checkbox }
+    });
+
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="component-wrapper">
+          <section className="exampleSection">
+            <h3>Multiselect</h3>
+            <Checkbox {...{ ...multiple[0], checked: true }} onChange={() => ({})} />
           </section>
         </div>
       </Suspense>
