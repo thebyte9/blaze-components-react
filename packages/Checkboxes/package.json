@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/checkboxes",
-  "version": "0.4.55",
+  "version": "0.4.56",
   "publishConfig": {
     "access": "public"
   },
