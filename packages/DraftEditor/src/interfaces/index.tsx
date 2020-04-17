@@ -11,7 +11,7 @@ import {
   DraftInlineStyle,
   DraftStyleMap,
   EditorState,
-  SelectionState
+  SelectionState,
 } from "draft-js";
 
 type DraftTextAlignment = "left" | "center" | "right";
@@ -32,6 +32,7 @@ interface IErrorMessage {
 }
 
 interface IDraftEditorProps {
+  showImagePlugin?: boolean;
   unSelectedText: string;
   selectedImages: IImage[];
   editorState?: EditorState;
@@ -195,5 +196,5 @@ export {
   IStyleButtonProps,
   ILinkProps,
   IPreviewIages,
-  IHTMLProps
+  IHTMLProps,
 };

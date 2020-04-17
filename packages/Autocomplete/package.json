@@ -1,13 +1,13 @@
 {
   "name": "@blaze-react/autocomplete",
-  "version": "0.4.42",
+  "version": "0.4.56",
   "publishConfig": {
     "access": "public"
   },
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "../../node_modules/.bin/rimraf ./lib && ../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
+    "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
     "test": "jest",
@@ -18,14 +18,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.4.42",
-    "@blaze-react/input": "^0.4.42",
-    "@blaze-react/utils": "^0.4.37"
+    "@blaze-react/checkboxes": "^0.4.56",
+    "@blaze-react/input": "^0.4.55",
+    "@blaze-react/utils": "^0.4.55"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.42",
+    "@blaze-react/blaze-components-theme": "^0.4.55",
     "@types/uuid": "^3.4.4"
   },
   "peerDependencies": {

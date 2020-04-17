@@ -21,4 +21,3 @@ declare module "draftjs-to-html";
 declare module "html-to-draftjs";
 declare module "@blaze-react/text-area";
 declare module "@blaze-react/select";
-

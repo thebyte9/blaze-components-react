@@ -22,21 +22,20 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             <div
               class="form-field form-field--checkbox"
               data-cy="checkbox-cy-1"
-              data-testid="row-checkbox-1"
-              id="uid-dW5kZWZpbmVk"
+              data-testid="checkbox-1"
+              id="uid-eyJjaGVja2VkIjpmYWxzZX0="
               role="button"
             >
               <input
                 class="form-checkbox"
-                datacy="checkbox-cy-1"
-                id="uid-dW5kZWZpbmVk"
+                data-testid="row-checkbox-1"
+                id="uid-eyJjaGVja2VkIjpmYWxzZX0="
                 readonly=""
-                testid="row-checkbox-1"
                 type="checkbox"
                 value=""
               />
               <label
-                for="uid-dW5kZWZpbmVk"
+                for="uid-eyJjaGVja2VkIjpmYWxzZX0="
               >
                 <span />
               </label>
@@ -81,21 +80,20 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             <div
               class="form-field form-field--checkbox"
               data-cy="checkbox-cy-1"
-              data-testid="row-checkbox-2"
-              id="uid-dW5kZWZpbmVk_3"
+              data-testid="checkbox-1"
+              id="uid-eyJjaGVja2VkIjpmYWxzZX0=_3"
               role="button"
             >
               <input
                 class="form-checkbox"
-                datacy="checkbox-cy-1"
-                id="uid-dW5kZWZpbmVk_3"
+                data-testid="row-checkbox-2"
+                id="uid-eyJjaGVja2VkIjpmYWxzZX0=_3"
                 readonly=""
-                testid="row-checkbox-2"
                 type="checkbox"
                 value=""
               />
               <label
-                for="uid-dW5kZWZpbmVk_3"
+                for="uid-eyJjaGVja2VkIjpmYWxzZX0=_3"
               >
                 <span />
               </label>

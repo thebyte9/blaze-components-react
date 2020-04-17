@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/button",
-  "version": "0.4.42",
+  "version": "0.4.55",
   "publishConfig": {
     "access": "public"
   },
@@ -8,7 +8,7 @@
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "build": "../../node_modules/.bin/rimraf ./lib && ../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
+    "build": "../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
     "test": "jest",
@@ -21,10 +21,10 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.4.42"
+    "@blaze-react/blaze-components-theme": "^0.4.55"
   },
   "dependencies": {
-    "@blaze-react/utils": "^0.4.37"
+    "@blaze-react/utils": "^0.4.55"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
