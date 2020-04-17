@@ -238,6 +238,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
         />
 
         {show && (<MultiSelectList
+          data-cy={attrs['data-cy']}
           onItemsRendered={handleOnItemsRenderer}
           error={error}
           validationMessage={validationMessage}

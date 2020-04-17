@@ -78,7 +78,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               required={required}
               show={show}
               value={value}
-              dataCy={attrs["data-cy"] || `checkbox-cy-${key + 1}`}
+              data-cy={attrs["data-cy"] ? `${attrs["data-cy"]}-checkbox-cy-${key + 1}` : `checkbox-cy-${key + 1}`}
               testId={attrs["test-id"] || `checkbox-${key + 1}`}
             />
           ) : null

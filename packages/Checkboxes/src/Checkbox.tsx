@@ -33,7 +33,7 @@ const Checkbox = ({
   return (
     <div
       data-testid={attrs.testId}
-      data-cy={attrs.dataCy}
+      data-cy={attrs['data-cy']}
       key={id}
       id={defaultId}
       className={checkboxClassName}

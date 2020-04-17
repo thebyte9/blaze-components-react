@@ -18,6 +18,7 @@ const MultiSelectList = ({
   onItemsRendered,
   utils: { ErrorMessage },
   validationMessage,
+  ...attrs
 }: any) => {
   const [list, setList] = useState([])
   const itemSize = 45;
@@ -47,6 +48,7 @@ const MultiSelectList = ({
               (
                 <div style={style} key={index}  >
                   <Checkbox
+                    data-cy={attrs['data-cy']}
                     testId={`checkbox-${index}`}
                     {...list[index]}
                     label={getLabel({ label: list[index][keyValue], isChip: false })}
