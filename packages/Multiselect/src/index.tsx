@@ -300,6 +300,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
               {!matchQuery && <p>{notFoundMessage}</p>}
 
               <Checkboxes
+                data-cy={attrs['data-cy']}
                 options={parseCheckBoxOptions(dataCopy)}
                 onChange={handleCheckBoxChange}
               />
