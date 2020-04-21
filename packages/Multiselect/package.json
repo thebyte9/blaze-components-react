@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/multiselect",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.5.0",
+    "@blaze-react/checkboxes": "^0.5.3",
     "@blaze-react/chips": "^0.5.0",
     "@blaze-react/input": "^0.5.0",
     "@blaze-react/utils": "^0.5.0",
