@@ -1,8 +1,8 @@
 import { Checkbox } from "@blaze-react/checkboxes";
 import withUtils from "@blaze-react/utils";
-import differenceWith from 'lodash.differencewith'
-import isEqual from 'lodash.isequal'
-import React, { useEffect, useState } from 'react'
+import differenceWith from "lodash.differencewith";
+import isEqual from "lodash.isequal";
+import React, { useEffect, useState } from "react";
 import VirtualList from "react-tiny-virtual-list";
 
 const MultiSelectList = ({
@@ -20,15 +20,15 @@ const MultiSelectList = ({
   validationMessage,
   ...attrs
 }: any) => {
-  const [list, setList] = useState([])
+  const [list, setList] = useState([]);
   const itemSize = 45;
 
   useEffect(() => {
     if (differenceWith(dataCopy, list, isEqual)) {
-      const newList = matchQuery.length ? matchQuery : dataCopy
-      setList(newList)
+      const newList = matchQuery.length ? matchQuery : dataCopy;
+      setList(newList);
     }
-  }, [matchQuery, dataCopy])
+  }, [matchQuery, dataCopy]);
 
   return (
     <>
@@ -36,32 +36,38 @@ const MultiSelectList = ({
         {error && <ErrorMessage message={validationMessage} />}
 
         {!matchQuery.length && <p>{notFoundMessage}</p>}
-        {!!list.length && <div>
-          <VirtualList
-            width={"100%"}
-            height={'245px'}
-            itemCount={list.length}
-            itemSize={itemSize}
-            overscanCount={20}
-            onItemsRendered={onItemsRendered}
-            renderItem={({ index, style }) =>
-              (
-                <div style={style} key={index}  >
+        {!!list.length && (
+          <div>
+            <VirtualList
+              width={"100%"}
+              height={"245px"}
+              itemCount={list.length}
+              itemSize={itemSize}
+              overscanCount={20}
+              onItemsRendered={onItemsRendered}
+              renderItem={({ index, style }) => (
+                <div style={style} key={index}>
                   <Checkbox
-                    data-cy={attrs['data-cy']}
+                    data-cy={`${attrs["data-cy"]}-checkbox-cy-${index}`}
                     testId={`checkbox-${index}`}
                     {...list[index]}
-                    label={getLabel({ label: list[index][keyValue], isChip: false })}
-                    onChange={({ value }: { value: any }) => handleCheckBoxChange({ index, value, data: dataCopy })} />
+                    label={getLabel({
+                      label: list[index][keyValue],
+                      isChip: false,
+                    })}
+                    onChange={({ value }: { value: any }) =>
+                      handleCheckBoxChange({ index, value, data: dataCopy })
+                    }
+                  />
                 </div>
-              )
-            }></VirtualList>
-        </div>}
-
+              )}
+            ></VirtualList>
+          </div>
+        )}
       </div>
       {limitReached && <p>{limitReachedMessage}</p>}
     </>
-  )
-}
+  );
+};
 
-export default withUtils(MultiSelectList)
+export default withUtils(MultiSelectList);
