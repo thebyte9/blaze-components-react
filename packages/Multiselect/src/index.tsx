@@ -1,9 +1,8 @@
 import withUtils from "@blaze-react/utils";
 import React, { useEffect, useRef, useState } from "react";
 import { IData, IMultiSelectProps } from "./interface";
-import MultiSelectBar from './MultiSelectBar'
+import MultiSelectBar from "./MultiSelectBar";
 import MultiSelectList from "./MultiSelectList";
-
 
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
@@ -28,14 +27,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [limitReached, setLimitReached] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
-  const [verifiedRanges, setVerifiedRanges] = useState<number[]>([])
+  const [verifiedRanges, setVerifiedRanges] = useState<number[]>([]);
 
   const handleOutsideClick = (event: any) => {
     if (multiRef.current !== null && !multiRef.current.contains(event.target)) {
       setShow(false);
     }
   };
-
 
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
@@ -56,16 +54,23 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   }, [data]);
 
   const handleOnItemsRenderer = async (params: any) => {
-    if (!isDynamic) { return }
+    if (!isDynamic) {
+      return;
+    }
     const { startIndex, stopIndex } = params;
     const rowsLength = dataCopy.length;
     const loadIndex = Math.floor(rowsLength / 2);
-    if (loadIndex > 0 && loadIndex < startIndex && !verifiedRanges.includes(loadIndex) || stopIndex === rowsLength - 1 && startIndex === 0) {
-      const response = await onItemsRendered({ ...params })
+    if (
+      (loadIndex > 0 &&
+        loadIndex < startIndex &&
+        !verifiedRanges.includes(loadIndex)) ||
+      (stopIndex === rowsLength - 1 && startIndex === 0)
+    ) {
+      const response = await onItemsRendered({ ...params });
       setVerifiedRanges([...verifiedRanges, loadIndex]);
       setDataCopy(response.data);
     }
-  }
+  };
 
   const parseDataCopy = (value: string) => {
     return dataCopy.map((copy: any) => ({
@@ -73,14 +78,13 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       show: !!keys.some((key: any) => {
         const copyKey = copy[key].toString().toLowerCase();
         return copyKey.includes(value.toLowerCase());
-      })
+      }),
     }));
-
-  }
+  };
 
   const handleInputChange = ({
     event,
-    value
+    value,
   }: {
     event: any;
     value: string;
@@ -89,7 +93,9 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     if (onChange) {
       onChange({ event, value, name, clearList: () => setDataCopy([]) });
     }
-    if (isDynamic) { return }
+    if (isDynamic) {
+      return;
+    }
     const parsedDataCopy: object[] = parseDataCopy(value);
     updateData(parsedDataCopy);
   };
@@ -106,60 +112,69 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   const getCheckedIds = (newDataCopy: IData[]) => {
-    return newDataCopy.reduce((acc: any, { checked, id }: { checked: boolean, id: string }) => {
-      if (checked) {
-        acc.push(id)
-      }
-      return acc
-    }, []);
-  }
+    return newDataCopy.reduce(
+      (acc: any, { checked, id }: { checked: boolean; id: string }) => {
+        if (checked) {
+          acc.push(id);
+        }
+        return acc;
+      },
+      []
+    );
+  };
 
   const updateData = (newData: IData[]) => {
     const reachedLimit = checkLimit(newData);
     const verifiedData = newData.map((ele: any, index: number): object => ({
       index,
       ...ele,
-      disabled: reachedLimit && !ele.checked
+      disabled: reachedLimit && !ele.checked,
     }));
     setDataCopy(verifiedData);
     setLimitReached(reachedLimit);
-    return verifiedData
+    return verifiedData;
   };
 
   const handleKeyDown = (event: any) => {
-    const { keyCode } = event
+    const { keyCode } = event;
 
-    if (keyCode === 27) { // escape
-      if (!show) { return }
-      setShow(!show)
+    if (keyCode === 27) {
+      // escape
+      if (!show) {
+        return;
+      }
+      setShow(!show);
     }
 
-    if (keyCode === 40) { // arrow down
-      if (show) { return }
-      setShow(!show)
+    if (keyCode === 40) {
+      // arrow down
+      if (show) {
+        return;
+      }
+      setShow(!show);
     }
   };
 
   const handleCheckBoxChange = ({
     index,
     value,
-    data: localData
+    data: localData,
   }: {
     index: number;
     name: string;
     value: any;
     data: any;
   }) => {
-    const updatedData = [...localData]
-    updatedData[index].checked = value.checked
+    const updatedData = [...localData];
+    updatedData[index].checked = value.checked;
     updateData(updatedData);
     getSelected({
       event: {
         target: {
           name,
-          value: getCheckedIds(updatedData)
-        }
-      }
+          value: getCheckedIds(updatedData),
+        },
+      },
     });
   };
 
@@ -175,16 +190,16 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       event: {
         target: {
           name,
-          value: selectedData
-        }
-      }
+          value: selectedData,
+        },
+      },
     });
   };
 
   const handleClearAll = (): void => {
     const formatedElements: object[] = dataCopy.map((item: IData) => ({
       ...item,
-      checked: false
+      checked: false,
     }));
     setShow(false);
     setSearchValue("");
@@ -193,14 +208,21 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       event: {
         target: {
           name,
-          value: []
-        }
-      }
+          value: [],
+        },
+      },
     });
   };
 
-  const labelParser = ({ label: lab }: { label: string[] | string }) => Array.isArray(lab) ? lab.join(', ') : lab
-  const getLabel = ({ label: lab, isChip }: { label: string | [string, string], isChip?: boolean }) => {
+  const labelParser = ({ label: lab }: { label: string[] | string }) =>
+    Array.isArray(lab) ? lab.join(", ") : lab;
+  const getLabel = ({
+    label: lab,
+    isChip,
+  }: {
+    label: string | [string, string];
+    isChip?: boolean;
+  }) => {
     if (Array.isArray(lab)) {
       const [main, sub] = lab;
       const mainLabel = labelParser({ label: main });
@@ -212,7 +234,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   const handleFocus = (): void => setShow(true);
 
-  const matchQuery: any = dataCopy.filter((item: IData) => item.show)
+  const matchQuery: any = dataCopy.filter((item: IData) => item.show);
   const checkedItems = dataCopy.filter((item: IData) => item.checked);
 
   return (
@@ -237,21 +259,23 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           getLabel={getLabel}
         />
 
-        {show && (<MultiSelectList
-          data-cy={attrs['data-cy']}
-          onItemsRendered={handleOnItemsRenderer}
-          error={error}
-          validationMessage={validationMessage}
-          matchQuery={matchQuery}
-          notFoundMessage={notFoundMessage}
-          dataCopy={dataCopy}
-          keyValue={keyValue}
-          limitReached={limitReached}
-          limitReachedMessage={limitReachedMessage}
-          handleCheckBoxChange={handleCheckBoxChange}
-          ErrorMessage={ErrorMessage}
-          getLabel={getLabel}
-        />)}
+        {show && (
+          <MultiSelectList
+            data-cy={attrs["data-cy"]}
+            onItemsRendered={handleOnItemsRenderer}
+            error={error}
+            validationMessage={validationMessage}
+            matchQuery={matchQuery}
+            notFoundMessage={notFoundMessage}
+            dataCopy={dataCopy}
+            keyValue={keyValue}
+            limitReached={limitReached}
+            limitReachedMessage={limitReachedMessage}
+            handleCheckBoxChange={handleCheckBoxChange}
+            ErrorMessage={ErrorMessage}
+            getLabel={getLabel}
+          />
+        )}
       </div>
     </div>
   );

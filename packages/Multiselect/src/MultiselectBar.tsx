@@ -1,7 +1,7 @@
 import Chip from "@blaze-react/chips";
 import Input from "@blaze-react/input";
 import withUtils from "@blaze-react/utils";
-import React from 'react'
+import React from "react";
 
 const MultiSelectBar = ({
   attrs,
@@ -46,10 +46,20 @@ const MultiSelectBar = ({
               <Chip
                 modifiers={[
                   Chip.availableModifiers.parent.deletable,
-                  Chip.availableModifiers.parent.small
+                  Chip.availableModifiers.parent.small,
                 ]}
-                onDelete={() => handleDelete({ id: selectedValue[identification], name: selectedValue[keyValue] })}
-                action={() => handleDelete({ id: selectedValue[identification], name: selectedValue[keyValue] })}
+                onDelete={() =>
+                  handleDelete({
+                    id: selectedValue[identification],
+                    name: selectedValue[keyValue],
+                  })
+                }
+                action={() =>
+                  handleDelete({
+                    id: selectedValue[identification],
+                    name: selectedValue[keyValue],
+                  })
+                }
                 key={uniqueId(selectedValue)}
               >
                 <Chip.Label
@@ -77,7 +87,7 @@ const MultiSelectBar = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default withUtils(MultiSelectBar);
