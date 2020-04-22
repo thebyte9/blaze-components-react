@@ -10,10 +10,12 @@ import { ILinkControlProps } from "../../../interfaces";
 const LinkControl = ({
   editorState,
   onToggle,
-  unSelectedText
+  unSelectedText,
 }: ILinkControlProps): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
+  const [relativeUrl, setRelativeUrl] = useState<string>("");
+
   const [selectedContent, setSelectedContent] = useState<SelectionState>();
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
@@ -74,12 +76,15 @@ const LinkControl = ({
       const contentStateWithEntity: ContentState = contentState.createEntity(
         LINK,
         IMMUTABLE,
-        { url: formatedURL }
+        {
+          relativeUrl,
+          url: formatedURL,
+        }
       );
 
       entityKey = contentStateWithEntity.getLastCreatedEntityKey();
       newEditorState = EditorState.set(editorState, {
-        currentContent: contentStateWithEntity
+        currentContent: contentStateWithEntity,
       });
     }
 
@@ -91,8 +96,8 @@ const LinkControl = ({
     {
       callback: addLink,
       modifiers: ["small", `${selectedContent ? "" : "disabled"}`],
-      textButton: "Save"
-    }
+      textButton: "Save",
+    },
   ];
 
   const openModal = (): void => {
@@ -107,7 +112,8 @@ const LinkControl = ({
     setModalStatus(false);
   };
 
-  const handleChange = ({ value }: { value: string }): void => setUrl(value);
+  const handleChange = ({ value }: { value: string }, type?: string): void =>
+    type ? setRelativeUrl(value) : setUrl(value);
 
   return (
     <>
@@ -115,25 +121,35 @@ const LinkControl = ({
         label={<i className="material-icons">insert_link</i>}
         onToggle={openModal}
         active={modalStatus}
-        data-cy='styleButton-linkControl'
+        data-cy="styleButton-linkControl"
       />
       {modalStatus && (
         <Modal actions={alertActions} onClose={closeModal} isAlert>
           {selectedContent ? (
             <>
               <Input
+                label="Insert URL"
                 placeholder="Insert URL"
                 onChange={handleChange}
                 modifier="full-width"
                 value={url}
               />
+              {url && !url.includes("http") && (
+                <Input
+                  label="Path relative to"
+                  placeholder="Front URL"
+                  onChange={(value: any) => handleChange(value, "rel")}
+                  modifier="full-width"
+                  value={relativeUrl}
+                />
+              )}
               {isEditMode && (
                 <span>Note: keep it empty if you want to remove the link.</span>
               )}
             </>
           ) : (
-              <p>{unSelectedText}</p>
-            )}
+            <p>{unSelectedText}</p>
+          )}
         </Modal>
       )}
     </>
@@ -142,7 +158,7 @@ const LinkControl = ({
 
 LinkControl.defaultProps = {
   error: false,
-  name: "editor"
+  name: "editor",
 };
 
 export default LinkControl;
