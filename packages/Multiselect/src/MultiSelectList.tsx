@@ -56,7 +56,11 @@ const MultiSelectList = ({
                       isChip: false,
                     })}
                     onChange={({ value }: { value: any }) =>
-                      handleCheckBoxChange({ index, value, data: dataCopy })
+                      handleCheckBoxChange({
+                        data: dataCopy,
+                        id: list[index][keyValue],
+                        value,
+                      })
                     }
                   />
                 </div>
