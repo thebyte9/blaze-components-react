@@ -1,7 +1,7 @@
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import Checkbox from "./Checkbox";
-import { ICheckBoxesProps } from './interface'
+import { ICheckBoxesProps } from "./interface";
 
 const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   returnBoolean,
@@ -9,6 +9,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   options,
   error,
   validationMessage,
+  name,
   utils: { ErrorMessage },
   ...attrs
 }): JSX.Element => {
@@ -19,8 +20,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   useEffect(() => setData(formatedOptions), [options]);
 
   const onChange = ({
-    event,
-    value
+    value,
   }: {
     event: React.MouseEvent<HTMLDivElement>;
     value: any;
@@ -47,7 +47,11 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
       currentValues = !!currentValues.length;
     }
 
-    onChangeCheckboxList({ event, value: currentValues, data });
+    onChangeCheckboxList({
+      data,
+      event: { target: { name } },
+      value: currentValues,
+    } as any);
   };
 
   return (
@@ -62,7 +66,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
             name,
             required,
             show = true,
-            value
+            value,
           }: any,
           key: number
         ): JSX.Element | null =>
@@ -78,7 +82,11 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               required={required}
               show={show}
               value={value}
-              data-cy={attrs["data-cy"] ? `${attrs["data-cy"]}-checkbox-cy-${key + 1}` : `checkbox-cy-${key + 1}`}
+              data-cy={
+                attrs["data-cy"]
+                  ? `${attrs["data-cy"]}-checkbox-cy-${key + 1}`
+                  : `checkbox-cy-${key + 1}`
+              }
               testId={attrs["test-id"] || `checkbox-${key + 1}`}
             />
           ) : null
@@ -91,7 +99,7 @@ CheckBoxes.defaultProps = {
   error: false,
   options: [],
   returnBoolean: false,
-  validationMessage: "This field is required"
+  validationMessage: "This field is required",
 };
-const Checkboxes = withUtils(CheckBoxes)
-export { Checkbox, Checkboxes }
+const Checkboxes = withUtils(CheckBoxes);
+export { Checkbox, Checkboxes };

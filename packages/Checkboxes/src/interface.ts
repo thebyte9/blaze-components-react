@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent } from "react";
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -11,13 +11,14 @@ interface ICheckBoxesProps {
   onChange: ({
     event,
     value,
-    data
+    data,
   }: {
     event: React.MouseEvent<HTMLDivElement>;
     value: boolean | object;
     data: object[];
   }) => void;
   error?: boolean;
+  name?: string;
   validationMessage: string | JSX.Element;
   utils: {
     uniqueId: (element: any) => string;
@@ -26,4 +27,4 @@ interface ICheckBoxesProps {
   };
 }
 
-export { IErrorMessage, ICheckBoxesProps }
+export { IErrorMessage, ICheckBoxesProps };
