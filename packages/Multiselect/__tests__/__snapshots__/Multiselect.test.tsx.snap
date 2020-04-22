@@ -184,6 +184,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
+                  data-cy="undefined-checkbox-cy-0"
                   data-testid="checkbox-0"
                   id="uid-IkJsYXplIDEi"
                   role="button"
@@ -191,12 +192,9 @@ exports[`Multiselect component should be defined and renders correctly when is o
                   <input
                     checked=""
                     class="form-checkbox"
-                    description="Lorem ipsum dolor."
                     id="1"
-                    index="0"
                     name="Blaze 1"
                     readonly=""
-                    testid="checkbox-0"
                     type="checkbox"
                     value=""
                   />
@@ -214,6 +212,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
+                  data-cy="undefined-checkbox-cy-1"
                   data-testid="checkbox-1"
                   id="uid-W1siQmxhemUgMiIsIm11bHRpIG1haW4gbGFiZWwiXSxbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiLCJzdWIgbGFiZWwgMyJdXQ=="
                   role="button"
@@ -221,12 +220,9 @@ exports[`Multiselect component should be defined and renders correctly when is o
                   <input
                     checked=""
                     class="form-checkbox"
-                    description="Lorem ipsum dolor."
                     id="2"
-                    index="1"
                     name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
                     readonly=""
-                    testid="checkbox-1"
                     type="checkbox"
                     value=""
                   />
@@ -247,18 +243,16 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
+                  data-cy="undefined-checkbox-cy-2"
                   data-testid="checkbox-2"
                   id="uid-WyJCbGF6ZSAzIixbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiXV0="
                   role="button"
                 >
                   <input
                     class="form-checkbox"
-                    description="Lorem ipsum dolor."
                     id="3"
-                    index="2"
                     name="Blaze 3,Sub label 1,sub label 2"
                     readonly=""
-                    testid="checkbox-2"
                     type="checkbox"
                     value=""
                   />
