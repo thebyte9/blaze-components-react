@@ -29,13 +29,13 @@ const Checkbox = ({
       event,
       value: {
         checked: !isChecked,
-        value,
         disabled,
-        required,
-        label,
-        show,
-        name,
         id,
+        label,
+        name,
+        required,
+        show,
+        value,
       },
     });
     setIsChecked(!isChecked);

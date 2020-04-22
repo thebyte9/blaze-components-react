@@ -52,11 +52,15 @@ const MultiSelectList = ({
                     testId={`checkbox-${index}`}
                     {...list[index]}
                     label={getLabel({
-                      label: list[index][keyValue],
                       isChip: false,
+                      label: list[index][keyValue],
                     })}
                     onChange={({ value }: { value: any }) =>
-                      handleCheckBoxChange({ index, value, data: dataCopy })
+                      handleCheckBoxChange({
+                        data: dataCopy,
+                        id: list[index][keyValue],
+                        value,
+                      })
                     }
                   />
                 </div>

@@ -156,16 +156,21 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   const handleCheckBoxChange = ({
-    index,
+    id,
     value,
     data: localData,
   }: {
-    index: number;
+    id: string;
     name: string;
     value: any;
     data: any;
   }) => {
+    const reachedLimit = checkLimit(localData);
+    if (reachedLimit) {
+      return;
+    }
     const updatedData = [...localData];
+    const index = updatedData.findIndex((e: any) => e[keyValue] === id);
     updatedData[index].checked = value.checked;
     updateData(updatedData);
     getSelected({
