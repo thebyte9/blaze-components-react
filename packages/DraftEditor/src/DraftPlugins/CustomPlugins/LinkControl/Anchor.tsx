@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import { ILinkProps } from "../../../interfaces";
 
 const Anchor: FunctionComponent<ILinkProps> = ({
@@ -6,27 +6,27 @@ const Anchor: FunctionComponent<ILinkProps> = ({
   entityKey,
   children,
 }): JSX.Element => {
+  const [isAbsolute, setIsAbsolute] = useState<boolean>(false);
+  const linkRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (linkRef && linkRef.current.host !== location.host) {
+      setIsAbsolute(true);
+    }
+  }, []);
+
   const {
     url,
-    relativeUrl,
-  }: { url: string; relativeUrl?: string } = contentState
-    .getEntity(entityKey)
-    .getData();
+  }: {
+    url: string;
+    isRelativeUrl: boolean;
+  } = contentState.getEntity(entityKey).getData();
 
   const handleOnClick = () => {
-    if (url.includes("http")) {
-      openUrl(url);
-    } else {
-      const rel =
-        relativeUrl && relativeUrl.slice(-1) === "/"
-          ? relativeUrl
-          : `${relativeUrl}/`;
-
-      openUrl(rel + url);
+    if (isAbsolute) {
+      window.open(url, "_blank");
     }
   };
-
-  const openUrl = (path: string) => window.open(path, "_blank");
 
   return (
     <a
@@ -34,6 +34,7 @@ const Anchor: FunctionComponent<ILinkProps> = ({
       href={url}
       target="_blank"
       onClick={handleOnClick}
+      ref={linkRef}
     >
       {children}
     </a>

@@ -1,7 +1,7 @@
 import Input from "@blaze-react/input";
 import Modal from "@blaze-react/modal";
 import { ContentState, EditorState, SelectionState } from "draft-js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StyleButton from "../StyleButton";
 
 import { IMMUTABLE, LINK } from "../../../constants";
@@ -14,10 +14,23 @@ const LinkControl = ({
 }: ILinkControlProps): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
-  const [relativeUrl, setRelativeUrl] = useState<string>("");
 
   const [selectedContent, setSelectedContent] = useState<SelectionState>();
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
+
+  const handleCommand = (event: any) => {
+    if (event.metaKey && event.key === "k") {
+      openModal();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleCommand);
+
+    return () => {
+      document.removeEventListener("keydown", handleCommand);
+    };
+  }, [editorState]);
 
   const getSelection = (): void => {
     const selection: SelectionState = editorState.getSelection();
@@ -77,7 +90,6 @@ const LinkControl = ({
         LINK,
         IMMUTABLE,
         {
-          relativeUrl,
           url: formatedURL,
         }
       );
@@ -112,8 +124,7 @@ const LinkControl = ({
     setModalStatus(false);
   };
 
-  const handleChange = ({ value }: { value: string }, type?: string): void =>
-    type ? setRelativeUrl(value) : setUrl(value);
+  const handleChange = ({ value }: { value: string }): void => setUrl(value);
 
   return (
     <>
@@ -134,17 +145,14 @@ const LinkControl = ({
                 modifier="full-width"
                 value={url}
               />
-              {url && !url.includes("http") && (
-                <Input
-                  label="Path relative to"
-                  placeholder="Front URL"
-                  onChange={(value: any) => handleChange(value, "rel")}
-                  modifier="full-width"
-                  value={relativeUrl}
-                />
-              )}
               {isEditMode && (
-                <span>Note: keep it empty if you want to remove the link.</span>
+                <>
+                  <span>
+                    Note: keep it empty if you want to remove the link.
+                  </span>
+                  <br />
+                  <br />
+                </>
               )}
             </>
           ) : (
