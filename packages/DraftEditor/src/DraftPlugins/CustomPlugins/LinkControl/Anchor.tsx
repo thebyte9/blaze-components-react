@@ -19,7 +19,6 @@ const Anchor: FunctionComponent<ILinkProps> = ({
     url,
   }: {
     url: string;
-    isRelativeUrl: boolean;
   } = contentState.getEntity(entityKey).getData();
 
   const handleOnClick = () => {

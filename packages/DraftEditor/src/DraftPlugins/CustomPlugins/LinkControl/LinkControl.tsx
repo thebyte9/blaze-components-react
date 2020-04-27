@@ -146,13 +146,7 @@ const LinkControl = ({
                 value={url}
               />
               {isEditMode && (
-                <>
-                  <span>
-                    Note: keep it empty if you want to remove the link.
-                  </span>
-                  <br />
-                  <br />
-                </>
+                <span>Note: keep it empty if you want to remove the link.</span>
               )}
             </>
           ) : (
