@@ -22,9 +22,10 @@ const Anchor: FunctionComponent<ILinkProps> = ({
   } = contentState.getEntity(entityKey).getData();
 
   const handleOnClick = () => {
-    if (isAbsolute) {
-      window.open(url, "_blank");
+    if (!isAbsolute) {
+      return;
     }
+    window.open(url, "_blank");
   };
 
   return (
