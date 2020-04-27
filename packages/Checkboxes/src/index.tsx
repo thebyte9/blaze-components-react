@@ -63,7 +63,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
             disabled,
             id,
             label,
-            name,
+            name: checkboxName,
             required,
             show = true,
             value,
@@ -78,7 +78,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               disabled={disabled}
               id={id}
               label={label}
-              name={name}
+              name={checkboxName}
               required={required}
               show={show}
               value={value}
