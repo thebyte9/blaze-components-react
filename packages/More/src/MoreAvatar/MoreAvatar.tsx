@@ -27,7 +27,6 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
     "icon-button icon-button--round": isMoreMenu,
     [className as string]: Boolean(className),
   });
-
   return (
     <Button onClick={handleToggle} className={buttonClassName} {...props}>
       {isHeader ? (
