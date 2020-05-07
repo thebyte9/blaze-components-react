@@ -1,4 +1,6 @@
+// @ts-nocheck
 import withUtils from "@blaze-react/utils";
+import isSoftNewlineEvent from "draft-js/lib/isSoftNewlineEvent";
 import eventBus from "./eventBus";
 
 import {
@@ -230,6 +232,14 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     );
   };
 
+  const handleReturn = (event: any) => {
+    if (isSoftNewlineEvent(event)) {
+      onEditorChange(RichUtils.insertSoftNewline(editorState));
+      return HANDLED;
+    }
+    return NOT_HANDLED;
+  };
+
   return (
     <div className="custom-DraftEditor-root" ref={globalRef}>
       <CustomDraftPlugins
@@ -258,6 +268,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           onChange={onEditorChange}
           blockRendererFn={blockRenderer}
           plugins={plugins}
+          handleReturn={handleReturn}
           {...attrs}
         />
         <DraftPlugins />

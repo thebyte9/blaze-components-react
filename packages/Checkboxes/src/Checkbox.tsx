@@ -12,6 +12,7 @@ const Checkbox = ({
   name,
   id,
   onChange,
+  full,
   utils: { uniqueId, classNames },
   ...attrs
 }: any) => {
@@ -19,6 +20,7 @@ const Checkbox = ({
   const defaultId = uniqueId(name);
 
   const checkboxClassName = classNames("form-field form-field--checkbox", {
+    "form-field--checkbox-full": full,
     required,
   });
 
@@ -46,7 +48,6 @@ const Checkbox = ({
       data-testid={attrs.testId}
       data-cy={attrs["data-cy"]}
       key={id}
-      id={defaultId}
       className={checkboxClassName}
       onClick={handleCheckboxChange}
       role="button"
@@ -62,7 +63,7 @@ const Checkbox = ({
         id={id || defaultId}
         name={name}
       />
-      <Label defaultId={defaultId} label={label} />
+      <Label defaultId={id || defaultId} label={label} />
     </div>
   );
 };
