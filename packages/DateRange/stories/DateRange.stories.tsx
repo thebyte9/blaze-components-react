@@ -17,7 +17,11 @@ storiesOf("DateRange", module)
       <div className="component-wrapper">
         <h1>DateRange</h1>
 
-        <DateRange onChange={(value: any) => {}} />
+        <DateRange
+          onChange={(value: any) => {
+            console.log(value);
+          }}
+        />
       </div>
     );
   });

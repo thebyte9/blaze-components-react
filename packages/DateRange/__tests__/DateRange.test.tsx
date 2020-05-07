@@ -10,8 +10,8 @@ const LAST_30_DAYS = 30;
 
 const defaultProps = (override: object = {}) => ({
   onChange: () => void 0,
-  selected: "custom",
-  ...override
+  custom: true,
+  ...override,
 });
 
 describe("DateRange component", () => {
@@ -25,15 +25,9 @@ describe("DateRange component", () => {
 
   test("should handle next and previous month", () => {
     const wrapper = mount(<DateRange {...defaultProps()} />);
-    wrapper
-      .find(".calendar-input")
-      .at(0)
-      .simulate("click");
+    wrapper.find(".calendar-input").at(0).simulate("click");
 
-    const currentDate = wrapper
-      .find(".calendar__header__year")
-      .at(0)
-      .text();
+    const currentDate = wrapper.find(".calendar__header__year").at(0).text();
 
     wrapper.find(".calendar__header__next").simulate("click");
     const nextDate = wrapper.find(".calendar__header__year").text();
@@ -49,40 +43,22 @@ describe("DateRange component", () => {
   test("should select a date range", () => {
     const wrapper = mount(<DateRange {...defaultProps()} />);
 
-    wrapper
-      .find(".calendar-input")
-      .at(0)
-      .simulate("click");
+    wrapper.find(".calendar-input").at(0).simulate("click");
 
-    wrapper
-      .find(".day")
-      .at(FIRST_DAY_OF_SECONND_ROW)
-      .simulate("click");
+    wrapper.find(".day").at(FIRST_DAY_OF_SECONND_ROW).simulate("click");
 
     expect(
-      wrapper
-        .find(".day")
-        .at(FIRST_DAY_OF_SECONND_ROW)
-        .hasClass("active")
+      wrapper.find(".day").at(FIRST_DAY_OF_SECONND_ROW).hasClass("active")
     ).toEqual(true);
 
-    wrapper
-      .find(".day")
-      .at(LAST_DAY_OF_SECONND_ROW)
-      .simulate("click");
+    wrapper.find(".day").at(LAST_DAY_OF_SECONND_ROW).simulate("click");
 
     expect(
-      wrapper
-        .find(".day")
-        .at(LAST_DAY_OF_SECONND_ROW)
-        .hasClass("active")
+      wrapper.find(".day").at(LAST_DAY_OF_SECONND_ROW).hasClass("active")
     ).toEqual(true);
 
     expect(
-      wrapper
-        .find(".day")
-        .at(FIRST_DAY_OF_SECONND_ROW)
-        .hasClass("active")
+      wrapper.find(".day").at(FIRST_DAY_OF_SECONND_ROW).hasClass("active")
     ).toEqual(false);
   });
 });
