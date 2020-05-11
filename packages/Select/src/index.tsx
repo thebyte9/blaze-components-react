@@ -12,7 +12,7 @@ interface ISelectProps {
   required?: boolean;
   onChange: ({
     event,
-    value
+    value,
   }: {
     event: React.ChangeEvent<HTMLSelectElement>;
     value: string;
@@ -22,6 +22,7 @@ interface ISelectProps {
   selected?: any;
   id?: string;
   disabled?: any[];
+  defaultTextValue?: string;
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
@@ -37,6 +38,7 @@ const Select: React.SFC<ISelectProps> = ({
   error,
   validationMessage,
   disabled,
+  defaultTextValue,
   utils: { classNames, ErrorMessage },
   ...attrs
 }) => {
@@ -48,14 +50,14 @@ const Select: React.SFC<ISelectProps> = ({
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const {
-      target: { value }
+      target: { value },
     } = event;
     setSelectedOption(value);
     onChange({ event, value });
   };
 
   const requiredClassName: string = classNames({
-    required
+    required,
   });
 
   const setOption = (value: string, text?: string): JSX.Element => {
@@ -71,13 +73,13 @@ const Select: React.SFC<ISelectProps> = ({
     const [first]: any = options;
 
     if (typeof first === "string") {
-      return options.map(option => setOption(option));
+      return options.map((option) => setOption(option));
     }
     if (first instanceof Array) {
       return options.map(([value, text]) => setOption(value, text));
     }
 
-    return options.map(option => {
+    return options.map((option) => {
       const [value, text]: any = keys;
       return setOption(option[value], option[text]);
     });
@@ -96,7 +98,7 @@ const Select: React.SFC<ISelectProps> = ({
         value={selectedOption}
         {...attrs}
       >
-        {!required && <option defaultValue="">Please Choose...</option>}
+        {!required && <option defaultValue="">{defaultTextValue}</option>}
         {renderOptions()}
       </select>
       {error && <ErrorMessage message={validationMessage} />}
@@ -104,6 +106,7 @@ const Select: React.SFC<ISelectProps> = ({
   );
 };
 Select.defaultProps = {
+  defaultTextValue: "Please Choose...",
   disabled: [],
   error: false,
   keys: [],
@@ -114,6 +117,6 @@ Select.defaultProps = {
   options: [],
   required: false,
   selected: "",
-  validationMessage: "This field is required"
+  validationMessage: "This field is required",
 };
 export default withUtils(Select);
