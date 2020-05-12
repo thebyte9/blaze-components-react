@@ -11,6 +11,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   validationMessage,
   name,
   utils: { ErrorMessage },
+  full,
   ...attrs
 }): JSX.Element => {
   const formatedOptions = Array.isArray(options) ? options : [options];
@@ -72,6 +73,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
         ): JSX.Element | null =>
           show ? (
             <Checkbox
+              full={full}
               key={id}
               onChange={onChange}
               checked={checked}
@@ -97,6 +99,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
 };
 CheckBoxes.defaultProps = {
   error: false,
+  full: false,
   options: [],
   returnBoolean: false,
   validationMessage: "This field is required",

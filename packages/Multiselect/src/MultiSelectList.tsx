@@ -48,6 +48,7 @@ const MultiSelectList = ({
               renderItem={({ index, style }) => (
                 <div style={style} key={index}>
                   <Checkbox
+                    full
                     data-cy={`${attrs["data-cy"]}-checkbox-cy-${index}`}
                     testId={`checkbox-${index}`}
                     {...list[index]}

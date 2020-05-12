@@ -6,9 +6,9 @@ import { ANY_DATE, CUSTOM_DATE, DEFAULT_OPTIONS } from "./constants";
 import DateRangeSelectDay from "./DateRangeSelectDay";
 import { DateUtils } from "./utils";
 
-const DateRange: React.SFC<IDateRangeProps> = ({ onChange, selected }) => {
+const DateRange: React.SFC<IDateRangeProps> = ({ onChange, custom }) => {
   const [selectedOption, setSelectedOption] = useState<string | number>(
-    selected
+    custom ? CUSTOM_DATE : ""
   );
   const [selectedDate, setSelectedDate] = useState<object>({});
 
@@ -25,10 +25,10 @@ const DateRange: React.SFC<IDateRangeProps> = ({ onChange, selected }) => {
   const handleSelectedDate = (date: any) => {
     const rangeDate = {
       ...selectedDate,
-      ...date
+      ...date,
     };
     setSelectedDate(rangeDate);
-    onChange(rangeDate);
+    onChange({ selectedDate: { ...rangeDate } });
   };
 
   const isCustom = selectedOption === CUSTOM_DATE;
@@ -52,7 +52,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({ onChange, selected }) => {
 };
 
 DateRange.defaultProps = {
+  custom: false,
   onChange: () => void 0,
-  selected: "any"
 };
 export default DateRange;
