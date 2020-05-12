@@ -180,8 +180,9 @@ select[disabled] + label {
   &--checkbox {
     flex-direction: row;
     align-items: center;
-    max-width: 100%;
+    max-width: 300px;
     margin-bottom: 30px;
+    background-color: yellowgreen;
 
     & + .form-field--checkbox {
       margin-top: -20px;
@@ -197,6 +198,10 @@ select[disabled] + label {
       margin: 0;
       white-space: normal;
     }
+  }
+
+  &--checkbox-full {
+    min-width: 100%;
   }
 
   &--pagination {

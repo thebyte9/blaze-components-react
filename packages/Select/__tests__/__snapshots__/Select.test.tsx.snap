@@ -11,6 +11,7 @@ exports[`Select component should be defined and renders correctly (snapshot) 1`]
   }
 >
   <Select
+    defaultTextValue="Please Choose..."
     disabled={Array []}
     error={false}
     keys={Array []}
@@ -83,6 +84,7 @@ exports[`Select component should render some options disabled 1`] = `
   }
 >
   <Select
+    defaultTextValue="Please Choose..."
     disabled={
       Array [
         "ipsum",
