@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/chips",
-  "version": "0.5.0",
+  "version": "0.5.8",
   "publishConfig": {
     "access": "public"
   },
@@ -18,13 +18,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/avatar": "^0.5.0",
+    "@blaze-react/avatar": "^0.5.8",
     "@blaze-react/utils": "^0.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.5.0"
+    "@blaze-react/blaze-components-theme": "^0.5.8"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
