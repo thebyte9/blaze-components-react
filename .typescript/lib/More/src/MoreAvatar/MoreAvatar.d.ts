@@ -6,6 +6,8 @@ interface IMoreAvatarProps {
     isMoreMenu?: boolean;
     className?: string;
     children?: any;
+    toggled?: boolean;
+    displayBg?: boolean;
 }
 declare const MoreAvatar: React.SFC<IMoreAvatarProps>;
 export default MoreAvatar;

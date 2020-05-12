@@ -19,5 +19,6 @@ interface ICheckBoxesProps {
         classNames: (className: string | object, classNames?: object) => string;
         ErrorMessage: FunctionComponent<IErrorMessage>;
     };
+    full?: boolean;
 }
 export { IErrorMessage, ICheckBoxesProps };
