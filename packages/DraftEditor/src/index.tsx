@@ -68,6 +68,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   selectedImages,
   handleLibraryClick,
   showImagePlugin,
+  showEmbedPlugin,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -250,6 +251,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         onEditorChange={onEditorChange}
         toggleDraftEditor={insertBlock}
         showImagePlugin={showImagePlugin}
+        showEmbedPlugin={showEmbedPlugin}
       />
       {imageAttributesStatus && (
         <AddImageAttributes
@@ -283,6 +285,7 @@ DraftEditor.defaultProps = {
   name: "editor",
   selectedImages: [],
   showImagePlugin: false,
+  showEmbedPlugin: false,
   unSelectedText: "Make sure you have a text selected",
   validationMessage: "This field is required",
 };
