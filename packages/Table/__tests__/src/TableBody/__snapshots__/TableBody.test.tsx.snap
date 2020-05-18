@@ -23,6 +23,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
               class="form-field form-field--checkbox"
               data-cy="checkbox-cy-1"
               data-testid="row-checkbox-1"
+              id="uid-dW5kZWZpbmVk"
               role="button"
             >
               <input
@@ -32,11 +33,15 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
                 type="checkbox"
                 value=""
               />
-              <label
-                for="uid-dW5kZWZpbmVk"
+              <div
+                class=""
               >
-                <span />
-              </label>
+                <label
+                  for="uid-dW5kZWZpbmVk"
+                >
+                  <span />
+                </label>
+              </div>
             </div>
           </div>
           <div
@@ -79,6 +84,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
               class="form-field form-field--checkbox"
               data-cy="checkbox-cy-1"
               data-testid="row-checkbox-2"
+              id="uid-dW5kZWZpbmVk_3"
               role="button"
             >
               <input
@@ -88,11 +94,15 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
                 type="checkbox"
                 value=""
               />
-              <label
-                for="uid-dW5kZWZpbmVk_3"
+              <div
+                class=""
               >
-                <span />
-              </label>
+                <label
+                  for="uid-dW5kZWZpbmVk_3"
+                >
+                  <span />
+                </label>
+              </div>
             </div>
           </div>
           <div

@@ -2,7 +2,7 @@ import React from "react";
 
 const parsedLabel = ({
   defaultId,
-  label
+  label,
 }: {
   defaultId: any;
   label?: string | [string, string];
