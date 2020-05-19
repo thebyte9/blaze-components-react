@@ -47,13 +47,7 @@ const Checkbox = ({
   };
 
   return (
-    <div
-      data-cy={attrs["data-cy"]}
-      key={id}
-      className={checkboxClassName}
-      role="button"
-      id={defaultId}
-    >
+    <div key={id} className={checkboxClassName} role="button" id={defaultId}>
       <input
         data-testid={attrs.testId}
         readOnly
@@ -66,6 +60,7 @@ const Checkbox = ({
         id={id || defaultId}
         name={name}
         onClick={handleCheckboxChange}
+        data-cy={attrs["data-cy"]}
       />
       <div onClick={handleCheckboxChange} className={labelClassName}>
         <Label defaultId={defaultId} label={label} />
