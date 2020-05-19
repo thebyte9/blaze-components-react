@@ -190,7 +190,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                   <input
                     checked=""
                     class="form-checkbox"
-                    data-cy="undefined-checkbox-cy-0"
+                    data-cy="multiselect-checkbox-cy-0"
                     data-testid="checkbox-0"
                     id="1"
                     name="Blaze 1"
@@ -222,7 +222,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                   <input
                     checked=""
                     class="form-checkbox"
-                    data-cy="undefined-checkbox-cy-1"
+                    data-cy="multiselect-checkbox-cy-1"
                     data-testid="checkbox-1"
                     id="2"
                     name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
@@ -256,7 +256,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                 >
                   <input
                     class="form-checkbox"
-                    data-cy="undefined-checkbox-cy-2"
+                    data-cy="multiselect-checkbox-cy-2"
                     data-testid="checkbox-2"
                     id="3"
                     name="Blaze 3,Sub label 1,sub label 2"
