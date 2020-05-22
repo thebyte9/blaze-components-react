@@ -30,7 +30,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
       if (current) {
         const DEFAULT_TOP = 30;
         const elementHeight = current.getBoundingClientRect().height;
-        const top = isOutOfButtomViewport(current)
+        const top = isOutOfBottomViewport(current)
           ? elementHeight * -1
           : DEFAULT_TOP;
         current.style.top = `${top}px`;
@@ -38,7 +38,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
     }
   };
 
-  const isOutOfButtomViewport = (element: HTMLUListElement) => {
+  const isOutOfBottomViewport = (element: HTMLUListElement) => {
     const bounding = element.getBoundingClientRect();
 
     if (!element) {
