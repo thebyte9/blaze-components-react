@@ -15,7 +15,7 @@ const More = ({
   isHeader,
   isMoreMenu,
   displayBg,
-  onClose
+  onClose,
 }: IMoreProps) => {
   const moreMenuRef = useRef<HTMLDivElement>(null);
   const [toggled, setToggle] = useState<boolean>(false);
@@ -43,12 +43,12 @@ const More = ({
   const ulClassName = classnames("dropdown", {
     "dropdown dropdown__list": !isHeader,
     "dropdown__list dropdown__list--header dropdown--header": isHeader,
-    "more-menu__list": isMoreMenu
+    "more-menu__list": isMoreMenu,
   });
   const liClassName = classnames({
     "dropdown__list-item": !isHeader,
     "dropdown__list-item dropdown__list-item--header": isHeader,
-    "more-menu__list-item": isMoreMenu
+    "more-menu__list-item": isMoreMenu,
   });
 
   const handleOutsideClick = (event: any) => {
@@ -68,7 +68,7 @@ const More = ({
             React.cloneElement(child, {
               handleToggle,
               toggled,
-              displayBg
+              displayBg,
             })
           )}
         </li>
@@ -80,7 +80,7 @@ More.defaultProps = {
   isHeader: false,
   isMoreMenu: false,
   displayBg: false,
-  onClose: () => void 0
+  onClose: () => void 0,
 };
 More.Avatar = MoreAvatar;
 More.Content = MoreContent;
