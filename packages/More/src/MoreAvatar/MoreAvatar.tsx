@@ -25,10 +25,10 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   ...props
 }) => {
   const buttonClassName = classnames({
-    dropdown__button: isHeader,
-    "icon-button icon-button--round": isMoreMenu,
     "button--disabled": disabled,
+    "icon-button icon-button--round": isMoreMenu,
     [className as string]: Boolean(className),
+    dropdown__button: isHeader,
   });
 
   return (
