@@ -2,6 +2,7 @@
 
 exports[`More component should be defined and renders correctly (snapshot) 1`] = `
 <More
+  disabled={false}
   displayBg={false}
   isHeader={false}
   isMoreMenu={true}
@@ -18,6 +19,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
       >
         <MoreAvatar
           className=""
+          disabled={false}
           displayBg={false}
           handleToggle={[Function]}
           isHeader={false}
@@ -63,6 +65,7 @@ exports[`More component should be defined and renders correctly (snapshot) 1`] =
           </withUtils()>
         </MoreAvatar>
         <MoreContent
+          disabled={false}
           displayBg={false}
           handleToggle={[Function]}
           isDropdown={false}

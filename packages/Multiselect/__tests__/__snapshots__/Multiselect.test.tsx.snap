@@ -184,31 +184,27 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
+                  data-cy="multiselect-checkbox-cy-0"
+                  data-testid="checkbox-0"
                   id="uid-IkJsYXplIDEi"
                   role="button"
                 >
                   <input
                     checked=""
                     class="form-checkbox"
-                    data-cy="multiselect-checkbox-cy-0"
-                    data-testid="checkbox-0"
                     id="1"
                     name="Blaze 1"
                     readonly=""
                     type="checkbox"
                     value=""
                   />
-                  <div
-                    class="form-field--checkbox-full"
+                  <label
+                    for="uid-IkJsYXplIDEi"
                   >
-                    <label
-                      for="uid-IkJsYXplIDEi"
-                    >
-                      <span>
-                        Blaze 1
-                      </span>
-                    </label>
-                  </div>
+                    <span>
+                      Blaze 1
+                    </span>
+                  </label>
                 </div>
               </div>
               <div
@@ -216,34 +212,30 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
+                  data-cy="multiselect-checkbox-cy-1"
+                  data-testid="checkbox-1"
                   id="uid-W1siQmxhemUgMiIsIm11bHRpIG1haW4gbGFiZWwiXSxbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiLCJzdWIgbGFiZWwgMyJdXQ=="
                   role="button"
                 >
                   <input
                     checked=""
                     class="form-checkbox"
-                    data-cy="multiselect-checkbox-cy-1"
-                    data-testid="checkbox-1"
                     id="2"
                     name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
                     readonly=""
                     type="checkbox"
                     value=""
                   />
-                  <div
-                    class="form-field--checkbox-full"
+                  <label
+                    for="uid-W1siQmxhemUgMiIsIm11bHRpIG1haW4gbGFiZWwiXSxbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiLCJzdWIgbGFiZWwgMyJdXQ=="
                   >
-                    <label
-                      for="uid-W1siQmxhemUgMiIsIm11bHRpIG1haW4gbGFiZWwiXSxbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiLCJzdWIgbGFiZWwgMyJdXQ=="
-                    >
-                      <span>
-                        Blaze 2, multi main label
-                      </span>
-                      <span>
-                        Sub label 1, sub label 2, sub label 3
-                      </span>
-                    </label>
-                  </div>
+                    <span>
+                      Blaze 2, multi main label
+                    </span>
+                    <span>
+                      Sub label 1, sub label 2, sub label 3
+                    </span>
+                  </label>
                 </div>
               </div>
               <div
@@ -251,33 +243,29 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
+                  data-cy="multiselect-checkbox-cy-2"
+                  data-testid="checkbox-2"
                   id="uid-WyJCbGF6ZSAzIixbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiXV0="
                   role="button"
                 >
                   <input
                     class="form-checkbox"
-                    data-cy="multiselect-checkbox-cy-2"
-                    data-testid="checkbox-2"
                     id="3"
                     name="Blaze 3,Sub label 1,sub label 2"
                     readonly=""
                     type="checkbox"
                     value=""
                   />
-                  <div
-                    class="form-field--checkbox-full"
+                  <label
+                    for="uid-WyJCbGF6ZSAzIixbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiXV0="
                   >
-                    <label
-                      for="uid-WyJCbGF6ZSAzIixbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiXV0="
-                    >
-                      <span>
-                        Blaze 3
-                      </span>
-                      <span>
-                        Sub label 1, sub label 2
-                      </span>
-                    </label>
-                  </div>
+                    <span>
+                      Blaze 3
+                    </span>
+                    <span>
+                      Sub label 1, sub label 2
+                    </span>
+                  </label>
                 </div>
               </div>
             </div>

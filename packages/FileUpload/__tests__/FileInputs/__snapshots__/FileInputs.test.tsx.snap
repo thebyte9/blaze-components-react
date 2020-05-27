@@ -203,7 +203,6 @@ exports[`FileInputs component should render without throwing error 1`] = `
     }
   >
     <Select
-      defaultTextValue="Please Choose..."
       disabled={Array []}
       error={false}
       keys={Array []}
