@@ -10,6 +10,7 @@ interface IMoreAvatarProps {
   children?: any;
   toggled?: boolean;
   displayBg?: boolean;
+  disabled?: boolean;
 }
 const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   children,
@@ -20,11 +21,13 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   isMoreMenu,
   toggled,
   displayBg,
+  disabled,
   ...props
 }) => {
   const buttonClassName = classnames({
     dropdown__button: isHeader,
     "icon-button icon-button--round": isMoreMenu,
+    "button--disabled": disabled,
     [className as string]: Boolean(className),
   });
 

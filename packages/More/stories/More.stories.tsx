@@ -5,12 +5,12 @@ import More from "../src";
 storiesOf("More", module)
   .addParameters({
     readme: {
-      sidebar: moreReadme
-    }
+      sidebar: moreReadme,
+    },
   })
   .add("Introduction", () => (
     <div className="component-wrapper">
-      <More isMoreMenu onClose={() => ({})}>
+      <More disabled isMoreMenu onClose={() => ({})}>
         <More.Avatar isMoreMenu handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
         </More.Avatar>
