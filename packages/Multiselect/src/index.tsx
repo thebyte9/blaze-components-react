@@ -47,7 +47,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   useEffect(() => {
     setSearchValue(searchTerm);
     const parsedDataCopy: object[] = parseDataCopy(searchTerm);
-    console.log("parsedDataCopy", parsedDataCopy);
     updateData(parsedDataCopy);
   }, []);
 

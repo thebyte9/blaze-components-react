@@ -119,7 +119,7 @@ storiesOf("Multiselect", module)
             label="Multi Select"
             limit={10}
             getSelected={(selected: any) => {
-              console.log("selected", selected);
+              console.log("selected", selected); //eslint-disable-line
             }}
             required
           />
