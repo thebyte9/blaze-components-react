@@ -8,36 +8,36 @@ const options = [
   {
     id: 1,
     label: "first",
-    value: "lorem ipsum"
+    value: "lorem ipsum",
   },
   {
     id: 2,
     label: "I accept",
     required: true,
-    value: "accepted"
+    value: "accepted",
   },
   {
     id: 3,
     disabled: true,
     label: "Disabled",
-    value: ""
+    value: "",
   },
   {
     id: 4,
     label: "display none",
-    show: false
-  }
+    show: false,
+  },
 ];
 
 const single = {
   label: "Single",
-  value: "lorem ipsum"
+  value: "lorem ipsum",
 };
 
 const defaultProps = (override = {}) => ({
   onChange: () => ({}),
   options,
-  ...override
+  ...override,
 });
 
 describe("Checkboxes component", () => {
@@ -51,31 +51,18 @@ describe("Checkboxes component", () => {
   test("should render and toggle single checkbox", () => {
     const override = {
       options: single,
-      returnBoolean: true
+      returnBoolean: true,
     };
 
     const wrapper = mount(<Checkboxes {...defaultProps(override)} />);
 
     expect(wrapper.find("input").length).toBe(1);
 
-    expect(
-      wrapper
-        .find("input")
-        .at(0)
-        .prop("checked")
-    ).toBe(false);
+    expect(wrapper.find("input").at(0).prop("checked")).toBe(false);
 
-    wrapper
-      .find(".form-field")
-      .at(0)
-      .simulate("click");
+    wrapper.find("input").at(0).simulate("click");
 
-    expect(
-      wrapper
-        .find("input")
-        .at(0)
-        .prop("checked")
-    ).toBe(true);
+    expect(wrapper.find("input").at(0).prop("checked")).toBe(true);
   });
 
   test("should render multiple checkboxes and toggle", () => {
@@ -88,7 +75,7 @@ describe("Checkboxes component", () => {
     };
 
     let override = {
-      onChange
+      onChange,
     };
 
     const { rerender, getByTestId } = render(
@@ -102,8 +89,8 @@ describe("Checkboxes component", () => {
     override = {
       ...override,
       ...{
-        options: single
-      }
+        options: single,
+      },
     };
 
     rerender(<Checkboxes {...defaultProps(override)} />);
@@ -112,16 +99,8 @@ describe("Checkboxes component", () => {
   test("can't interact when checkbox is disabled", () => {
     const wrapper = mount(<Checkboxes {...defaultProps()} />);
 
-    wrapper
-      .find(".form-field")
-      .at(2)
-      .simulate("click");
+    wrapper.find(".form-field").at(2).simulate("click");
 
-    expect(
-      wrapper
-        .find("input")
-        .at(2)
-        .prop("checked")
-    ).toBe(false);
+    expect(wrapper.find("input").at(2).prop("checked")).toBe(false);
   });
 });

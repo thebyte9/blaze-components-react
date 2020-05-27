@@ -144,6 +144,7 @@ const LinkControl = ({
                 onChange={handleChange}
                 modifier="full-width"
                 value={url}
+                autoFocus
               />
               {isEditMode && (
                 <span>Note: keep it empty if you want to remove the link.</span>

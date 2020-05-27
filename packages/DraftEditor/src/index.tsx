@@ -1,4 +1,6 @@
+// @ts-nocheck
 import withUtils from "@blaze-react/utils";
+import isSoftNewlineEvent from "draft-js/lib/isSoftNewlineEvent";
 import eventBus from "./eventBus";
 
 import {
@@ -66,6 +68,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   selectedImages,
   handleLibraryClick,
   showImagePlugin,
+  showEmbedPlugin,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -230,6 +233,14 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     );
   };
 
+  const handleReturn = (event: any) => {
+    if (isSoftNewlineEvent(event)) {
+      onEditorChange(RichUtils.insertSoftNewline(editorState));
+      return HANDLED;
+    }
+    return NOT_HANDLED;
+  };
+
   return (
     <div className="custom-DraftEditor-root" ref={globalRef}>
       <CustomDraftPlugins
@@ -240,6 +251,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         onEditorChange={onEditorChange}
         toggleDraftEditor={insertBlock}
         showImagePlugin={showImagePlugin}
+        showEmbedPlugin={showEmbedPlugin}
       />
       {imageAttributesStatus && (
         <AddImageAttributes
@@ -258,6 +270,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           onChange={onEditorChange}
           blockRendererFn={blockRenderer}
           plugins={plugins}
+          handleReturn={handleReturn}
           {...attrs}
         />
         <DraftPlugins />
@@ -272,6 +285,7 @@ DraftEditor.defaultProps = {
   name: "editor",
   selectedImages: [],
   showImagePlugin: false,
+  showEmbedPlugin: false,
   unSelectedText: "Make sure you have a text selected",
   validationMessage: "This field is required",
 };
