@@ -1,7 +1,7 @@
 import Input from "@blaze-react/input";
 import Modal from "@blaze-react/modal";
 import { ContentState, EditorState, SelectionState } from "draft-js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import StyleButton from "../StyleButton";
 
 import { IMMUTABLE, LINK } from "../../../constants";
@@ -10,12 +10,27 @@ import { ILinkControlProps } from "../../../interfaces";
 const LinkControl = ({
   editorState,
   onToggle,
-  unSelectedText
+  unSelectedText,
 }: ILinkControlProps): JSX.Element => {
   const [modalStatus, setModalStatus] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
+
   const [selectedContent, setSelectedContent] = useState<SelectionState>();
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
+
+  const handleCommand = (event: any) => {
+    if (event.metaKey && event.key === "k") {
+      openModal();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleCommand);
+
+    return () => {
+      document.removeEventListener("keydown", handleCommand);
+    };
+  }, [editorState]);
 
   const getSelection = (): void => {
     const selection: SelectionState = editorState.getSelection();
@@ -74,12 +89,14 @@ const LinkControl = ({
       const contentStateWithEntity: ContentState = contentState.createEntity(
         LINK,
         IMMUTABLE,
-        { url: formatedURL }
+        {
+          url: formatedURL,
+        }
       );
 
       entityKey = contentStateWithEntity.getLastCreatedEntityKey();
       newEditorState = EditorState.set(editorState, {
-        currentContent: contentStateWithEntity
+        currentContent: contentStateWithEntity,
       });
     }
 
@@ -91,8 +108,8 @@ const LinkControl = ({
     {
       callback: addLink,
       modifiers: ["small", `${selectedContent ? "" : "disabled"}`],
-      textButton: "Save"
-    }
+      textButton: "Save",
+    },
   ];
 
   const openModal = (): void => {
@@ -115,25 +132,27 @@ const LinkControl = ({
         label={<i className="material-icons">insert_link</i>}
         onToggle={openModal}
         active={modalStatus}
-        data-cy='styleButton-linkControl'
+        data-cy="styleButton-linkControl"
       />
       {modalStatus && (
         <Modal actions={alertActions} onClose={closeModal} isAlert>
           {selectedContent ? (
             <>
               <Input
+                label="Insert URL"
                 placeholder="Insert URL"
                 onChange={handleChange}
                 modifier="full-width"
                 value={url}
+                autoFocus
               />
               {isEditMode && (
                 <span>Note: keep it empty if you want to remove the link.</span>
               )}
             </>
           ) : (
-              <p>{unSelectedText}</p>
-            )}
+            <p>{unSelectedText}</p>
+          )}
         </Modal>
       )}
     </>
@@ -142,7 +161,7 @@ const LinkControl = ({
 
 LinkControl.defaultProps = {
   error: false,
-  name: "editor"
+  name: "editor",
 };
 
 export default LinkControl;

@@ -33,6 +33,7 @@ interface IErrorMessage {
 
 interface IDraftEditorProps {
   showImagePlugin?: boolean;
+  showEmbedPlugin?: boolean;
   unSelectedText: string;
   selectedImages: IImage[];
   editorState?: EditorState;

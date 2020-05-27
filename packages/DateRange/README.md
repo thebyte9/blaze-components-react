@@ -2,17 +2,23 @@
 
 DateRange component allows you to select a date range among several options.
 
-## Usage
+## custom range
 
 ```js
-<DateRange onChange={({ startDate, endDate }) => {}} selected="custom" />
+<DateRange onChange={({ selectedDate: { from, to } }) => {}} custom />
+```
+
+## select option
+
+```js
+<DateRange onChange={({ selectedDate }) => {}} />
 ```
 
 ## API
 
 ##### DateRange can receive a number of `props` as follow:
 
-| NAME     |       TYPE       |           DEFAULT            |
-| :------- | :--------------: | :--------------------------: |
-| selected | String or Number |            'any'             |
-| onChange |     Function     | ({startDate, endDate}) => {} |
+| NAME     |   TYPE   |        DEFAULT         |
+| :------- | :------: | :--------------------: |
+| custom   | boolean  |         false          |
+| onChange | Function | ({selectedDate}) => {} |

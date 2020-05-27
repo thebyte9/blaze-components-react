@@ -1,46 +1,48 @@
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense, FunctionComponent } from "react";
+import React, { FunctionComponent, lazy, Suspense } from "react";
 import CheckboxesReadme from "../README.md";
 
 const multiple = [
   {
     id: "one",
     label: "First",
-    value: 1
+    value: 1,
   },
   {
     id: "two",
     label: "Second",
-    value: 2
+    value: 2,
   },
   {
     id: "three",
     label: "Third",
-    value: 3
+    value: 3,
   },
   {
     disabled: true,
     id: "fourth",
     label: "Disabled",
-    value: 4
-  }
+    value: 4,
+  },
 ];
 const single = {
   label: "Do you agree?",
-  required: true
+  required: true,
 };
 storiesOf("Checkboxes", module)
   .addParameters({
     readme: {
-      sidebar: CheckboxesReadme
-    }
+      sidebar: CheckboxesReadme,
+    },
   })
   .add("Checkbox List", (): any => {
-    const Checkboxes: any = lazy(async (): Promise<{ default: FunctionComponent }> => {
-      const { Checkboxes } = await import("../src")
-      return { default: Checkboxes }
-    });
+    const Checkboxes: any = lazy(
+      async (): Promise<{ default: FunctionComponent }> => {
+        const { Checkboxes } = await import("../src");
+        return { default: Checkboxes };
+      }
+    );
 
     return (
       <Suspense fallback={<div>Loading...</div>}>
@@ -65,18 +67,24 @@ storiesOf("Checkboxes", module)
         </div>
       </Suspense>
     );
-  }).add("Checkbox Item", (): any => {
-    const Checkbox: any = lazy(async (): Promise<{ default: FunctionComponent }> => {
-      const { Checkbox } = await import("../src")
-      return { default: Checkbox }
-    });
+  })
+  .add("Checkbox Item", (): any => {
+    const Checkbox: any = lazy(
+      async (): Promise<{ default: FunctionComponent }> => {
+        const { Checkbox } = await import("../src");
+        return { default: Checkbox };
+      }
+    );
 
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
           <section className="exampleSection">
             <h3>Multiselect</h3>
-            <Checkbox {...{ ...multiple[0], checked: true }} onChange={() => ({})} />
+            <Checkbox
+              {...{ ...multiple[0], checked: true }}
+              onChange={() => ({})}
+            />
           </section>
         </div>
       </Suspense>

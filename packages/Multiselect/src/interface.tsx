@@ -24,10 +24,16 @@ interface IMultiSelectProps {
   placeholder?: string;
   id?: string;
   notFoundMessage?: string;
+  searchTerm?: any;
   required?: boolean;
   isDynamic?: boolean;
   limitReachedMessage?: string;
-  onChange?: (arg: { event: Event; value: string; name: string, clearList: () => void }) => void;
+  onChange?: (arg: {
+    event: Event;
+    value: string;
+    name: string;
+    clearList: () => void;
+  }) => void;
   error?: boolean;
   name: string;
   validationMessage: string | JSX.Element;

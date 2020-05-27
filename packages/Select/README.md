@@ -20,7 +20,10 @@ const options = ["London", "Paris", "Munich"];
 - Multidimensional Array of options
 
 ```js
-const options = [["08001", "Barcelona"], ["17006", "Madrid"]];
+const options = [
+  ["08001", "Barcelona"],
+  ["17006", "Madrid"],
+];
 
 <Select
   label="Select label"
@@ -37,13 +40,13 @@ const arrayOfObjects = [
   {
     id: 1,
     username: "Oscar",
-    age: 26
+    age: 26,
   },
   {
     id: 2,
     username: "Ismael",
-    age: 23
-  }
+    age: 23,
+  },
 ];
 
 <Select
@@ -74,12 +77,13 @@ const disabled = ["17006"]
 
 ##### Select can receive a number of `props` as follow:
 
-| NAME     |   TYPE   | DEFAULT  |
-| :------- | :------: | :------: |
-| label    |  String  |    ''    |
-| required | Boolean  |  false   |
-| options  |  Array   |    []    |
-| selected |  String  |    ''    |
-| keys     |  Array   |    []    |
-| onChange | Function | () => {} |
-| disabled |  Array   |    []    |
+| NAME             |   TYPE   |     DEFAULT      |
+| :--------------- | :------: | :--------------: |
+| label            |  String  |        ''        |
+| required         | Boolean  |      false       |
+| options          |  Array   |        []        |
+| selected         |  String  |        ''        |
+| keys             |  Array   |        []        |
+| onChange         | Function |     () => {}     |
+| disabled         |  Array   |        []        |
+| defaultTextValue |  String  | Please Choose... |

@@ -21,6 +21,7 @@ const CustomDraftPlugins = ({
   onEditorChange,
   toggleDraftEditor,
   showImagePlugin,
+  showEmbedPlugin,
 }: any) => {
   const toggleBlockType = (blockType: DraftBlockType): void =>
     onEditorChange(RichUtils.toggleBlockType(editorState, blockType));
@@ -71,7 +72,7 @@ const CustomDraftPlugins = ({
             onToggle={toggleLink}
             unSelectedText={unSelectedText}
           />
-          <HTMLEditor onToggle={toggleDraftEditor} />
+          {showEmbedPlugin && <HTMLEditor onToggle={toggleDraftEditor} />}
         </>
       </div>
     </section>

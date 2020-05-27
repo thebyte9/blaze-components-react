@@ -6,12 +6,12 @@ import selectReadme from "../README.md";
 const arrayOfObjects = [
   {
     id: 1,
-    username: "Oscar"
+    username: "Oscar",
   },
   {
     id: 2,
-    username: "Ismael"
-  }
+    username: "Ismael",
+  },
 ];
 const SelectDemo = () => {
   const [selected, setSelected] = useState<string>("Munich");
@@ -37,8 +37,8 @@ const SelectDemo = () => {
 storiesOf("Select", module)
   .addParameters({
     readme: {
-      sidebar: selectReadme
-    }
+      sidebar: selectReadme,
+    },
   })
   .add("Introduction", (): any => {
     const Select: any = lazy((): any => import("../src"));
@@ -68,7 +68,7 @@ storiesOf("Select", module)
                 selected="08001"
                 options={[
                   ["08001", "Barcelona"],
-                  ["17006", "Madrid"]
+                  ["17006", "Madrid"],
                 ]}
                 onChange={() => ({})}
               />
@@ -91,7 +91,7 @@ storiesOf("Select", module)
                 label="Disabled option"
                 options={[
                   ["08001", "Barcelona"],
-                  ["17006", "Madrid"]
+                  ["17006", "Madrid"],
                 ]}
                 onChange={() => ({})}
                 disabled={["17006"]}

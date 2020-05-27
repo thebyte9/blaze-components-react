@@ -180,7 +180,6 @@ select[disabled] + label {
   &--checkbox {
     flex-direction: row;
     align-items: center;
-    max-width: 100%;
     margin-bottom: 30px;
 
     & + .form-field--checkbox {
@@ -196,7 +195,13 @@ select[disabled] + label {
       cursor: pointer;
       margin: 0;
       white-space: normal;
+      width: 100%;
     }
+  }
+
+  &--checkbox-full {
+    width: 100%;
+    text-align: left;
   }
 
   &--pagination {
