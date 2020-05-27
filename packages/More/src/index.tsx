@@ -8,6 +8,7 @@ interface IMoreProps {
   displayBg?: boolean;
   children?: any;
   onClose: () => void;
+  disabled?: boolean;
 }
 
 const More = ({
@@ -15,6 +16,7 @@ const More = ({
   isHeader,
   isMoreMenu,
   displayBg,
+  disabled,
   onClose,
 }: IMoreProps) => {
   const moreMenuRef = useRef<HTMLDivElement>(null);
@@ -33,6 +35,7 @@ const More = ({
   }, []);
 
   const handleToggle = (event: any) => {
+    if (disabled) return;
     event.stopPropagation();
     setToggle(!toggled);
     if (toggled) {
@@ -69,6 +72,7 @@ const More = ({
               handleToggle,
               toggled,
               displayBg,
+              disabled,
             })
           )}
         </li>
@@ -81,6 +85,7 @@ More.defaultProps = {
   isMoreMenu: false,
   displayBg: false,
   onClose: () => void 0,
+  disabled: false,
 };
 More.Avatar = MoreAvatar;
 More.Content = MoreContent;
