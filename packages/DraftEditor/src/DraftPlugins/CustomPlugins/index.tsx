@@ -7,6 +7,7 @@ import {
   SelectionState,
 } from "draft-js";
 import React from "react";
+import { HORIZONTAL_RULE, HR } from "../../constants";
 import BlockControls from "./BlockControls";
 import HTMLEditor from "./HTMLEditor";
 import { ImageControl } from "./ImageControl";
@@ -56,8 +57,8 @@ const CustomDraftPlugins = ({
     <section className="custom-DraftEditor-utils">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
       <StyleButton
-        style="HORIZONTAL_RULE"
-        label="HR"
+        style={HORIZONTAL_RULE}
+        label={HR}
         onToggle={addHorizontalRule}
       />
       <div className="custom-DraftEditor-inlineControls">

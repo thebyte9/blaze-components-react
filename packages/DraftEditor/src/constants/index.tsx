@@ -14,7 +14,7 @@ const STYLE_AUTO = "auto";
 const MARGINS = ["marginTop", "marginLeft", "marginRight", "marginBottom"];
 const BACKSPACE_COMMAND = "backspace";
 const HORIZONTAL_RULE = "HORIZONTAL_RULE";
-
+const HR = "HR";
 export {
   LINK,
   HANDLED,
@@ -32,4 +32,5 @@ export {
   MARGINS,
   BACKSPACE_COMMAND,
   HORIZONTAL_RULE,
+  HR,
 };
