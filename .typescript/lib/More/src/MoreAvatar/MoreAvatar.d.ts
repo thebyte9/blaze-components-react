@@ -8,6 +8,7 @@ interface IMoreAvatarProps {
     children?: any;
     toggled?: boolean;
     displayBg?: boolean;
+    disabled?: boolean;
 }
 declare const MoreAvatar: React.SFC<IMoreAvatarProps>;
 export default MoreAvatar;

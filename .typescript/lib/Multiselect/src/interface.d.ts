@@ -22,6 +22,7 @@ interface IMultiSelectProps {
     placeholder?: string;
     id?: string;
     notFoundMessage?: string;
+    searchTerm?: any;
     required?: boolean;
     isDynamic?: boolean;
     limitReachedMessage?: string;
