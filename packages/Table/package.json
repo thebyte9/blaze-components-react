@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/table",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "publishConfig": {
     "access": "public"
   },
@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.5.12",
-    "@blaze-react/utils": "^0.5.0",
+    "@blaze-react/checkboxes": "^0.5.13",
+    "@blaze-react/utils": "^0.5.13",
     "@types/lodash.orderby": "^4.6.6",
     "lodash.orderby": "^4.6.0",
     "react-tiny-virtual-list": "^2.2.0"
