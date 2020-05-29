@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import "intersection-observer";
 import PropTypes from "prop-types";
 declare global {
     interface Window {
