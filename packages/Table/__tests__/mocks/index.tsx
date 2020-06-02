@@ -6,14 +6,15 @@ const data = {
     {
       age: 52,
       id: 1,
-      name: "Lorem"
+      name: "Lorem",
     },
     {
       age: 43,
       id: 2,
-      name: "Ipsum"
-    }
-  ]
+      name: "Ipsum",
+    },
+  ],
+  labels: { id: "id", name: "Name", age: "age" },
 };
 
 export { data };

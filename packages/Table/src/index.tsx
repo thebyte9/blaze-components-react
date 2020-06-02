@@ -16,6 +16,7 @@ interface ITableProps {
     orderBy: string[];
     rows: object[];
     appliedSort?: any;
+    labels: object;
   };
   value?: string;
   overScanBuffer?: number;
@@ -26,7 +27,7 @@ interface ITableProps {
   scrollToIndex?: number;
 }
 const Table: FunctionComponent<ITableProps> = ({
-  data: { columns, rows, identification, orderBy, appliedSort },
+  data: { columns, rows, identification, orderBy, appliedSort, labels },
   onSelect = () => ({}),
   onSort = () => ({}),
   onClickRow = () => ({}),
@@ -34,7 +35,7 @@ const Table: FunctionComponent<ITableProps> = ({
   placeholder,
   overScanBuffer,
   onRenderItems,
-  scrollToIndex
+  scrollToIndex,
 }) => {
   const [selected, setSelected] = useState<any[]>([]);
   const [allRows, setAllRows] = useState<object[]>(rows);
@@ -92,7 +93,7 @@ const Table: FunctionComponent<ITableProps> = ({
     if (checked && !selected.includes(checked.value)) {
       checkedValue = [...selected, checked.value];
     } else {
-      checkedValue = selected.filter(currentValue => currentValue !== value);
+      checkedValue = selected.filter((currentValue) => currentValue !== value);
     }
 
     if (multiselect) {
@@ -111,6 +112,7 @@ const Table: FunctionComponent<ITableProps> = ({
         headRef={headRef}
         columns={allColumns}
         appliedSort={appliedSort}
+        labels={labels}
       />
       <TableBody
         scrollToIndex={scrollToIndex}
@@ -136,8 +138,9 @@ Table.defaultProps = {
     columns: [],
     identification: "",
     orderBy: [],
-    rows: []
+    rows: [],
+    labels: {},
   },
-  placeholder: "No records available"
+  placeholder: "No records available",
 };
 export default Table;
