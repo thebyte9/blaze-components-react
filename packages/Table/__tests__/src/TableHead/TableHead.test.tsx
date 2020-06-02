@@ -22,6 +22,7 @@ describe("Table head", () => {
         onSort={jest.fn()}
         orderBy={data.orderBy}
         columns={data.columns}
+        labels={data.labels}
       />
     );
 
