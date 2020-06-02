@@ -8,6 +8,7 @@ interface ITableProps {
         orderBy: string[];
         rows: object[];
         appliedSort?: any;
+        labels: object;
     };
     value?: string;
     overScanBuffer?: number;
