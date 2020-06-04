@@ -3,6 +3,7 @@ import AccordionContent from "./AccordionContent";
 import AccordionContentDetails from "./AccordionContent/AccordionContentDetails";
 import AccordionContentFooter from "./AccordionContent/AccordionContentFooter";
 import AccordionHeader from "./AccordionHeader";
+import { DOWN, FLEX, NONE, UP } from "./constants";
 
 interface IAccordionProps {
   children: [JSX.Element, JSX.Element];
@@ -10,22 +11,21 @@ interface IAccordionProps {
 }
 
 const Accordion = ({ children, open }: IAccordionProps): JSX.Element => {
-  const flex = "flex";
-  const none = "none";
-
   const [accordionStatus, setAccordionStatus] = useState<string>(
-    open ? flex : none
+    open ? FLEX : NONE
   );
 
   const [header, content]: [JSX.Element, JSX.Element] = children;
 
   useEffect(() => {
-    setAccordionStatus(open ? flex : none);
+    setAccordionStatus(open ? FLEX : NONE);
   }, [open]);
 
-  const isActive: boolean = accordionStatus === flex;
+  const isActive: boolean = accordionStatus === FLEX;
   const toggleAccordion = (): void =>
-    setAccordionStatus(isActive ? none : flex);
+    setAccordionStatus(isActive ? NONE : FLEX);
+
+  const arrowType = isActive ? UP : DOWN;
 
   return (
     <div className="accordion">
@@ -35,7 +35,7 @@ const Accordion = ({ children, open }: IAccordionProps): JSX.Element => {
           className="icon-button icon-button--accordion"
           onClick={toggleAccordion}
         >
-          <i className="material-icons">keyboard_arrow_down</i>
+          <i className="material-icons">{`keyboard_arrow_${arrowType}`}</i>
         </div>
       </div>
       <div
