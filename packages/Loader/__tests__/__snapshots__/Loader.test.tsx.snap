@@ -14,6 +14,9 @@ exports[`Loader component ProgressBar - should be defined and renders correctly 
     steps={Array []}
     utils={
       Object {
+        "BCREventBus": EventBus {
+          "events": Object {},
+        },
         "ErrorMessage": [Function],
         "classNames": [Function],
         "removeExtraSpaces": [Function],
@@ -54,6 +57,9 @@ exports[`Loader component Spinner - should be defined and renders correctly (sna
     size="small"
     utils={
       Object {
+        "BCREventBus": EventBus {
+          "events": Object {},
+        },
         "ErrorMessage": [Function],
         "classNames": [Function],
         "removeExtraSpaces": [Function],
@@ -132,6 +138,9 @@ exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
     }
     utils={
       Object {
+        "BCREventBus": EventBus {
+          "events": Object {},
+        },
         "ErrorMessage": [Function],
         "classNames": [Function],
         "removeExtraSpaces": [Function],

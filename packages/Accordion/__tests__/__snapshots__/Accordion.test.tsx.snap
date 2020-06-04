@@ -81,6 +81,9 @@ exports[`Accordion component should be defined and renders correctly (snapshot) 
                 type="button"
                 utils={
                   Object {
+                    "BCREventBus": EventBus {
+                      "events": Object {},
+                    },
                     "ErrorMessage": [Function],
                     "classNames": [Function],
                     "removeExtraSpaces": [Function],
@@ -119,6 +122,9 @@ exports[`Accordion component should be defined and renders correctly (snapshot) 
                 type="button"
                 utils={
                   Object {
+                    "BCREventBus": EventBus {
+                      "events": Object {},
+                    },
                     "ErrorMessage": [Function],
                     "classNames": [Function],
                     "removeExtraSpaces": [Function],

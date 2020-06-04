@@ -62,6 +62,9 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
     selected={[Function]}
     utils={
       Object {
+        "BCREventBus": EventBus {
+          "events": Object {},
+        },
         "ErrorMessage": [Function],
         "classNames": [Function],
         "removeExtraSpaces": [Function],
@@ -88,6 +91,9 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
         type="text"
         utils={
           Object {
+            "BCREventBus": EventBus {
+              "events": Object {},
+            },
             "ErrorMessage": [Function],
             "classNames": [Function],
             "removeExtraSpaces": [Function],

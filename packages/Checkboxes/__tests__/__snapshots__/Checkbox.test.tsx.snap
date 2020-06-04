@@ -34,6 +34,9 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
   returnBoolean={false}
   utils={
     Object {
+      "BCREventBus": EventBus {
+        "events": Object {},
+      },
       "ErrorMessage": [Function],
       "classNames": [Function],
       "removeExtraSpaces": [Function],

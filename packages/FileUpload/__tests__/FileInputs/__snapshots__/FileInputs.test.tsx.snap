@@ -53,6 +53,9 @@ exports[`FileInputs component should render without throwing error 1`] = `
       type="text"
       utils={
         Object {
+          "BCREventBus": EventBus {
+            "events": Object {},
+          },
           "ErrorMessage": [Function],
           "classNames": [Function],
           "removeExtraSpaces": [Function],
@@ -104,6 +107,9 @@ exports[`FileInputs component should render without throwing error 1`] = `
       type="text"
       utils={
         Object {
+          "BCREventBus": EventBus {
+            "events": Object {},
+          },
           "ErrorMessage": [Function],
           "classNames": [Function],
           "removeExtraSpaces": [Function],
@@ -155,6 +161,9 @@ exports[`FileInputs component should render without throwing error 1`] = `
       type="text"
       utils={
         Object {
+          "BCREventBus": EventBus {
+            "events": Object {},
+          },
           "ErrorMessage": [Function],
           "classNames": [Function],
           "removeExtraSpaces": [Function],
@@ -225,6 +234,9 @@ exports[`FileInputs component should render without throwing error 1`] = `
       selected=""
       utils={
         Object {
+          "BCREventBus": EventBus {
+            "events": Object {},
+          },
           "ErrorMessage": [Function],
           "classNames": [Function],
           "removeExtraSpaces": [Function],
