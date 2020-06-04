@@ -20,7 +20,6 @@ interface INestableProps {
   childrenProp?: any;
   renderItem?: (...args: any[]) => any;
   onChange?: any;
-  onStart?: (...args: any) => void;
   confirmChange?: any;
   childrenWrapperClassName?: any;
 }
@@ -35,9 +34,6 @@ class Nestable extends Component<INestableProps, INestableState> {
     confirmChange: () => true,
     items: [],
     onChange: () => {
-      return;
-    },
-    onStart: () => {
       return;
     },
     renderItem: ({ item }: { item: any }) => item.toString(),
@@ -156,10 +152,6 @@ class Nestable extends Component<INestableProps, INestableState> {
     this.dragApply();
   };
   public onDragStart = (e: any, item: any) => {
-    const { onStart } = this.props;
-    if (onStart) {
-      onStart(item);
-    }
     e.preventDefault();
     e.stopPropagation();
     this.el = closest(e.target, ".nestable-item-parent");
