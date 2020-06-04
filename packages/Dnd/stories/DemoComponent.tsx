@@ -12,7 +12,7 @@ const fakeData = [
       desktop: true,
       tablet: true,
       mobile: true,
-      gtmClassName: null
+      gtmClassName: null,
     },
 
     items: [
@@ -24,11 +24,11 @@ const fakeData = [
           elementTitle: "video",
           url: "https://youtu.be/ZY3J3Y_OU0w",
           autoplay: false,
-          gtmClassName: null
+          gtmClassName: null,
         },
         id: "video 1",
         name: "video-1",
-        items: null
+        items: null,
       },
       {
         type: "card",
@@ -46,15 +46,15 @@ const fakeData = [
           style: "portrait",
           propsToDisplay: [],
           hasBanner: false,
-          gtmClassName: ""
+          gtmClassName: "",
         },
         id: "244446a0-20c2-11ea-8323-dffe12b3279d",
         name: "card-1",
-        items: null
-      }
+        items: null,
+      },
     ],
-    name: "row 1"
-  }
+    name: "row 1",
+  },
 ];
 
 const DemoComponent = () => {
@@ -74,12 +74,13 @@ const DemoComponent = () => {
               padding: "20px",
               border: "1px solid #F0F0F0",
               backgroundColor: "#FFFFFF",
-              display: "flex"
+              display: "flex",
             }}
           >
             <DragHandler />
             <p>{item.name}</p>
             {children}
+            {item.status !== "hide" && <h1>kkkk</h1>}
           </div>
         )}
       />

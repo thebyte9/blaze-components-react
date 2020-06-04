@@ -13,13 +13,14 @@ import {
   getTransformProps,
   listWithChildren,
   tryDecreaseDepth,
-  tryIncreaseDepth
+  tryIncreaseDepth,
 } from "./utils";
 interface INestableProps {
   items?: any;
   childrenProp?: any;
   renderItem?: (...args: any[]) => any;
   onChange?: any;
+  onStart?: (...args: any) => void;
   confirmChange?: any;
   childrenWrapperClassName?: any;
 }
@@ -36,7 +37,10 @@ class Nestable extends Component<INestableProps, INestableState> {
     onChange: () => {
       return;
     },
-    renderItem: ({ item }: { item: any }) => item.toString()
+    onStart: () => {
+      return;
+    },
+    renderItem: ({ item }: { item: any }) => item.toString(),
   };
   public state: any;
   public el: any;
@@ -47,13 +51,13 @@ class Nestable extends Component<INestableProps, INestableState> {
     this.state = {
       dragItem: null,
       isDirty: false,
-      items: []
+      items: [],
     };
     this.dragLayerRef = createRef();
     this.el = null;
     this.mouse = {
       last: { x: 0 },
-      shift: { x: 0 }
+      shift: { x: 0 },
     };
   }
   public componentDidMount() {
@@ -96,12 +100,12 @@ class Nestable extends Component<INestableProps, INestableState> {
     const pathFrom = getPathById({
       childrenProp,
       id: dragItem.id,
-      items
+      items,
     });
     const pathTo = getPathById({
       childrenProp,
       id: item.id,
-      items
+      items,
     });
     this.moveItem({ dragItem, pathFrom, pathTo });
   };
@@ -111,7 +115,7 @@ class Nestable extends Component<INestableProps, INestableState> {
     const { clientX, clientY } = e;
     const transformProps = getTransformProps(clientX - 30, clientY - 50);
     const dragLayer = this.dragLayerRef.current;
-    Object.keys(transformProps).forEach(key => {
+    Object.keys(transformProps).forEach((key) => {
       if (
         Object.prototype.hasOwnProperty.call(transformProps, key) &&
         dragLayer &&
@@ -134,7 +138,7 @@ class Nestable extends Component<INestableProps, INestableState> {
       const movementData = {
         childrenProp,
         dragItem,
-        items
+        items,
       };
       const availableDrop =
         this.mouse.shift.x > 0
@@ -151,20 +155,25 @@ class Nestable extends Component<INestableProps, INestableState> {
     this.dragApply();
   };
   public onDragStart = (e: any, item: any) => {
+    const { onStart } = this.props;
+    if (onStart) {
+      onStart(item);
+    }
     e.preventDefault();
     e.stopPropagation();
     this.el = closest(e.target, ".nestable-item-parent");
     this.startTrackMouse();
     this.onMouseMove(e);
+    const newItem = { ...item, status: "hide" };
     this.setState({
-      dragItem: item
+      dragItem: newItem,
     });
   };
   public updateProps(newItems: any, childrenProp: any) {
     this.setState({
       dragItem: null,
       isDirty: false,
-      items: listWithChildren(newItems, childrenProp)
+      items: listWithChildren(newItems, childrenProp),
     });
   }
   public moveItem({ dragItem, pathFrom, pathTo }: any) {
@@ -174,32 +183,32 @@ class Nestable extends Component<INestableProps, INestableState> {
       childrenProp,
       items,
       nextPath: pathTo,
-      prevPath: pathFrom
+      prevPath: pathFrom,
     });
     const destinationPath =
       realPathTo.length > pathTo.length ? pathTo : pathTo.slice(0, -1);
     const destinationParent = getItemByPath({
       childrenProp,
       items,
-      path: destinationPath
+      path: destinationPath,
     });
     if (!confirmChange(dragItem, destinationParent)) {
       return;
     }
     const removePath = getSplicePath(pathFrom, {
       childrenProp,
-      numToRemove: 1
+      numToRemove: 1,
     });
     const insertPath = getSplicePath(realPathTo, {
       childrenProp,
       itemsToInsert: [dragItem],
-      numToRemove: 0
+      numToRemove: 0,
     });
     items = update(items, removePath);
     items = update(items, insertPath);
     this.setState({
       isDirty: true,
-      items
+      items,
     });
   }
   public dragApply() {
@@ -207,7 +216,7 @@ class Nestable extends Component<INestableProps, INestableState> {
     const { items, isDirty, dragItem } = this.state;
     this.setState({
       dragItem: null,
-      isDirty: false
+      isDirty: false,
     });
     onChange && isDirty && onChange(items, dragItem);
   }
@@ -215,7 +224,7 @@ class Nestable extends Component<INestableProps, INestableState> {
     const { items, dragItem } = this.state;
     const { renderItem, childrenProp } = this.props;
     const wrapperClassName = classnames("nestable", {
-      "is-dragging": dragItem
+      "is-dragging": dragItem,
     });
     return (
       <div className={wrapperClassName}>
