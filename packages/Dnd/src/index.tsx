@@ -107,7 +107,8 @@ class Nestable extends Component<INestableProps, INestableState> {
       id: item.id,
       items,
     });
-    this.moveItem({ dragItem, pathFrom, pathTo });
+    const newDragItem = { ...dragItem, status: "show" };
+    this.moveItem({ dragItem: newDragItem, pathFrom, pathTo });
   };
   public onMouseMove = (e: any) => {
     const { childrenProp } = this.props;
@@ -211,6 +212,17 @@ class Nestable extends Component<INestableProps, INestableState> {
       items,
     });
   }
+
+  public resetItems(items: any) {
+    return items.map((item: any) => {
+      if (item.items) {
+        item.items = this.resetItems(item.items);
+      }
+      item.status = "show";
+      return item;
+    });
+  }
+
   public dragApply() {
     const { onChange } = this.props;
     const { items, isDirty, dragItem } = this.state;
@@ -218,7 +230,9 @@ class Nestable extends Component<INestableProps, INestableState> {
       dragItem: null,
       isDirty: false,
     });
-    onChange && isDirty && onChange(items, dragItem);
+    const newItems = this.resetItems(items);
+    this.setState({ items: newItems });
+    onChange && isDirty && onChange(newItems, dragItem);
   }
   public render() {
     const { items, dragItem } = this.state;

@@ -25,9 +25,6 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
     onChange={[Function]}
     utils={
       Object {
-        "BCREventBus": EventBus {
-          "events": Object {},
-        },
         "ErrorMessage": [Function],
         "classNames": [Function],
         "removeExtraSpaces": [Function],

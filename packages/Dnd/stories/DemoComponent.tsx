@@ -80,7 +80,7 @@ const DemoComponent = () => {
             <DragHandler />
             <p>{item.name}</p>
             {children}
-            {item.status !== "hide" && <h1>kkkk</h1>}
+            {<h1>kkkk {item.status}</h1>}
           </div>
         )}
       />

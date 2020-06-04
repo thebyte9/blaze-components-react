@@ -7,9 +7,6 @@ exports[`Alert component should be defined and renders correctly (snapshot) 1`] 
   type=""
   utils={
     Object {
-      "BCREventBus": EventBus {
-        "events": Object {},
-      },
       "ErrorMessage": [Function],
       "classNames": [Function],
       "removeExtraSpaces": [Function],

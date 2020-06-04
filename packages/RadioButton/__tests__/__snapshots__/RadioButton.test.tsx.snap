@@ -53,9 +53,6 @@ exports[`RadioButton component should be defined and renders correctly (snapshot
     required={true}
     utils={
       Object {
-        "BCREventBus": EventBus {
-          "events": Object {},
-        },
         "ErrorMessage": [Function],
         "classNames": [Function],
         "removeExtraSpaces": [Function],

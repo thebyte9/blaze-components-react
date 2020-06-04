@@ -19,9 +19,6 @@ exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] =
         id={1}
         utils={
           Object {
-            "BCREventBus": EventBus {
-              "events": Object {},
-            },
             "ErrorMessage": [Function],
             "classNames": [Function],
             "removeExtraSpaces": [Function],
@@ -63,9 +60,6 @@ exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] =
         id={2}
         utils={
           Object {
-            "BCREventBus": EventBus {
-              "events": Object {},
-            },
             "ErrorMessage": [Function],
             "classNames": [Function],
             "removeExtraSpaces": [Function],
