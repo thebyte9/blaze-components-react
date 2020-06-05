@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/tab",
-  "version": "0.5.13",
+  "version": "0.5.15",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.5.13"
+    "@blaze-react/button": "^0.5.15"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
