@@ -38,6 +38,7 @@ declare class Nestable extends Component<INestableProps, INestableState> {
     onDragStart: (e: any, item: any) => void;
     updateProps(newItems: any, childrenProp: any): void;
     moveItem({ dragItem, pathFrom, pathTo }: any): void;
+    resetItems(items: any): any;
     dragApply(): void;
     render(): JSX.Element;
 }

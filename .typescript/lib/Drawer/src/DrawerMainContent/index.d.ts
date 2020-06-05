@@ -1,2 +1,2 @@
-import AccordionContent from "./DrawerMainContent";
-export default AccordionContent;
+import DrawerMainContent from "./DrawerMainContent";
+export default DrawerMainContent;
