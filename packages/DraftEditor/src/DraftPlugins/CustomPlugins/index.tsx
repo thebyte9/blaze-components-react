@@ -56,11 +56,7 @@ const CustomDraftPlugins = ({
   return (
     <section className="custom-DraftEditor-utils">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
-      <StyleButton
-        style={HORIZONTAL_RULE}
-        label={HR}
-        onToggle={addHorizontalRule}
-      />
+
       <div className="custom-DraftEditor-inlineControls">
         <InlineControls
           editorState={editorState}
@@ -75,6 +71,11 @@ const CustomDraftPlugins = ({
               handleLibraryClick={handleLibraryClick}
             />
           )}
+          <StyleButton
+            style={HORIZONTAL_RULE}
+            label={HR}
+            onToggle={addHorizontalRule}
+          />
           <LinkControl
             editorState={editorState}
             onToggle={toggleLink}
