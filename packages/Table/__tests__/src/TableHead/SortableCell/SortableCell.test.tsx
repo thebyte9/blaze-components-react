@@ -19,6 +19,7 @@ describe("Sortable cell", () => {
         orderBy={data.orderBy}
         column={data.columns[0]}
         columns={data.columns}
+        labels={data.labels}
       />
     );
 
@@ -35,6 +36,7 @@ describe("Sortable cell", () => {
         orderBy={data.orderBy}
         column={data.columns[1]}
         columns={data.columns}
+        labels={data.labels}
       />
     );
 

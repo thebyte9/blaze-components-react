@@ -5,7 +5,11 @@ interface IAccordionHeaderProps {
 }
 
 const AccordionHeader = ({
-  children
-}: IAccordionHeaderProps): JSX.Element => <div className="accordion__header-text">{children}</div>;
+  children,
+}: IAccordionHeaderProps): JSX.Element | null => {
+  return children ? (
+    <div className="accordion__header-text">{children}</div>
+  ) : null;
+};
 
 export default AccordionHeader;
