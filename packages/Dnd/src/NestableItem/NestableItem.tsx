@@ -21,7 +21,7 @@ const NestableItem: React.SFC<INestableItemProps> = ({
   onDragStart,
   dragItem,
   renderItem: RenderItem,
-  childrenProp
+  childrenProp,
 }) => {
   const isDragging = !isCopy && dragItem && dragItem.id === item.id;
   const hasChildrenProperty = item[childrenProp];
@@ -30,7 +30,7 @@ const NestableItem: React.SFC<INestableItemProps> = ({
     `nestable-item${isCopy ? "-copy" : ""}`,
     {
       "is-dragging": isDragging,
-      "nestable-item-parent": hasChildrenProperty
+      "nestable-item-parent": hasChildrenProperty,
     }
   );
 
@@ -38,13 +38,13 @@ const NestableItem: React.SFC<INestableItemProps> = ({
     <li className={listItemClassName} id={item.id}>
       <div
         className="nestable-item-name"
-        onMouseEnter={e => onMouseEnter(e, item)}
+        onMouseEnter={(e) => onMouseEnter(e, item)}
       >
         <RenderItem
           item={item}
           index={index}
           DragHandler={() => (
-            <DragHandler onDragStart={e => onDragStart(e, item)} />
+            <DragHandler onDragStart={(e) => onDragStart(e, item)} />
           )}
         >
           {hasChildrenProperty && hasChildren ? (
@@ -72,7 +72,7 @@ const NestableItem: React.SFC<INestableItemProps> = ({
 
 NestableItem.defaultProps = {
   dragItem: null,
-  isCopy: false
+  isCopy: false,
 };
 
 export default NestableItem;
