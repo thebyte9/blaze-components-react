@@ -10,7 +10,6 @@ import {
   convertToRaw,
   DraftEditorCommand,
   DraftHandleValue,
-  EditorBlock,
   EditorState,
   RichUtils,
 } from "draft-js";
@@ -21,6 +20,8 @@ import {
   BACKSPACE_COMMAND,
   BLOCKQUOTE,
   HANDLED,
+  HORIZONTAL_RULE,
+  IMMUTABLE,
   NOT_HANDLED,
   UNSTYLED,
 } from "./constants";
@@ -28,27 +29,6 @@ import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
 import decorator from "./DraftPlugins/CustomPlugins/decorator";
 import { IDraftEditorProps } from "./interfaces";
-
-const blockRenderer = (contentBlock: any) => {
-  const type = contentBlock.getType();
-
-  if (type === ATOMIC) {
-    return {
-      component: Component,
-      editable: true,
-      props: {},
-    };
-  }
-  return "";
-};
-
-const Component = (props: any) => (
-  <pre>
-    <code>
-      <EditorBlock {...props} />
-    </code>
-  </pre>
-);
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -156,12 +136,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   const insertBlock = () => {
-    const ccontentState = editorState.getCurrentContent();
-
-    const contentStateWithEntity = ccontentState.createEntity(
-      "CODE",
-      "MUTABLE"
-    );
+    const contentStateWithEntity = contentState.createEntity("CODE", "MUTABLE");
 
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
     const newEditorState = EditorState.set(editorState, {
@@ -181,6 +156,45 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return NOT_HANDLED;
   };
 
+  const addHorizontalRule = () => {
+    const contentStateWithEntity = contentState.createEntity(
+      HORIZONTAL_RULE,
+      IMMUTABLE,
+      {}
+    );
+    const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+    onEditorChange(
+      AtomicBlockUtils.insertAtomicBlock(editorState, entityKey, " ")
+    );
+  };
+
+  const blockRenderer = (contentBlock: any) => {
+    const type = contentBlock.getType();
+
+    if (type !== ATOMIC) {
+      return null;
+    }
+
+    const entityKey = contentBlock.getEntityAt(0);
+
+    if (!entityKey) {
+      return {
+        editable: false,
+      };
+    }
+
+    const entity = contentState.getEntity(entityKey);
+
+    if (entity && entity.type === HORIZONTAL_RULE) {
+      return {
+        component: () => <hr />,
+        editable: false,
+      };
+    }
+
+    return "";
+  };
+
   return (
     <div className="custom-DraftEditor-root" ref={globalRef}>
       <CustomDraftPlugins
@@ -192,6 +206,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         toggleDraftEditor={insertBlock}
         showImagePlugin={showImagePlugin}
         showEmbedPlugin={showEmbedPlugin}
+        addHorizontalRule={addHorizontalRule}
       />
 
       <div className={editorClassName}>
