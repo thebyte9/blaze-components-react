@@ -12,7 +12,7 @@ interface IBlockControlsProps {
 }
 const BlockControls: FunctionComponent<IBlockControlsProps> = ({
   editorState,
-  onToggle
+  onToggle,
 }): JSX.Element => {
   const selection: SelectionState = editorState.getSelection();
   const blockType: DraftBlockType = editorState
@@ -30,7 +30,7 @@ const BlockControls: FunctionComponent<IBlockControlsProps> = ({
     { label: "H3", style: "header-three" },
     { label: "H4", style: "header-four" },
     { label: "H5", style: "header-five" },
-    { label: "H6", style: "header-six" }
+    { label: "H6", style: "header-six" },
   ];
 
   return (

@@ -11,13 +11,14 @@ const withUtils = (Component: any) => {
       ErrorMessage,
       classNames,
       removeExtraSpaces,
-      uniqueId
+      uniqueId,
     };
     return <Component utils={utils} {...props} />;
   };
 
-  InnerComponent.displayName = `withUtils(${Component.displayName ||
-    Component.name})`;
+  InnerComponent.displayName = `withUtils(${
+    Component.displayName || Component.name
+  })`;
   InnerComponent.WrappedComponent = Component;
 
   return hoistStatics(InnerComponent, Component);

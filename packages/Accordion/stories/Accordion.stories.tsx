@@ -7,8 +7,8 @@ import Accordion from "../src";
 storiesOf("Accordion", module)
   .addParameters({
     readme: {
-      sidebar: AccordionReadme
-    }
+      sidebar: AccordionReadme,
+    },
   })
   .add("Introduction", () => (
     <div className="component-wrapper">

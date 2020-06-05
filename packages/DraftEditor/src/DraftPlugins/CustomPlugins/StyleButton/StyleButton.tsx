@@ -10,7 +10,7 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
   active,
   label,
   utils: { classNames },
-  "data-cy": datacy
+  "data-cy": datacy,
 }): JSX.Element => {
   const handelToggle = (event: MouseEvent): void => {
     event.preventDefault();
@@ -20,7 +20,7 @@ const StyleButton: FunctionComponent<IStyleButtonProps> = ({
   };
 
   const styleButtonClassName = classNames("custom-DraftEditor-styleButton", {
-    "custom-DraftEditor-activeButton": active
+    "custom-DraftEditor-activeButton": active,
   });
 
   return (
