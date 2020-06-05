@@ -7,19 +7,19 @@ import { DOWN, FLEX, NONE, UP } from "./constants";
 
 interface IAccordionProps {
   children: [JSX.Element, JSX.Element];
-  open?: boolean;
+  isOpen?: boolean;
 }
 
-const Accordion = ({ children, open }: IAccordionProps): JSX.Element => {
+const Accordion = ({ children, isOpen }: IAccordionProps): JSX.Element => {
   const [accordionStatus, setAccordionStatus] = useState<string>(
-    open ? FLEX : NONE
+    isOpen ? FLEX : NONE
   );
 
   const [header, content]: [JSX.Element, JSX.Element] = children;
 
   useEffect(() => {
-    setAccordionStatus(open ? FLEX : NONE);
-  }, [open]);
+    setAccordionStatus(isOpen ? FLEX : NONE);
+  }, [isOpen]);
 
   const isActive: boolean = accordionStatus === FLEX;
   const toggleAccordion = (): void =>

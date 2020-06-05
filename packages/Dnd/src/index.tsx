@@ -2,6 +2,7 @@ import classnames from "classnames";
 import update from "immutability-helper";
 import React, { Component, createRef } from "react";
 import shallowCompare from "react-addons-shallow-compare";
+import { HIDE, SHOW } from "./constants";
 import DragLayer from "./DragLayer/index";
 import NestableItem from "./NestableItem";
 import {
@@ -103,7 +104,7 @@ class Nestable extends Component<INestableProps, INestableState> {
       id: item.id,
       items,
     });
-    const newDragItem = { ...dragItem, status: "show" };
+    const newDragItem = { ...dragItem, status: SHOW };
     this.moveItem({ dragItem: newDragItem, pathFrom, pathTo });
   };
   public onMouseMove = (e: any) => {
@@ -157,7 +158,7 @@ class Nestable extends Component<INestableProps, INestableState> {
     this.el = closest(e.target, ".nestable-item-parent");
     this.startTrackMouse();
     this.onMouseMove(e);
-    const newItem = { ...item, status: "hide" };
+    const newItem = { ...item, status: HIDE };
     this.setState({
       dragItem: newItem,
     });
@@ -210,7 +211,7 @@ class Nestable extends Component<INestableProps, INestableState> {
       if (item.items) {
         item.items = this.resetItems(item.items);
       }
-      item.status = "show";
+      item.status = SHOW;
       return item;
     });
   }

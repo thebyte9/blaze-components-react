@@ -80,7 +80,6 @@ const DemoComponent = () => {
             <DragHandler />
             <p>{item.name}</p>
             {children}
-            {<h1>kkkk {item.status}</h1>}
           </div>
         )}
       />
