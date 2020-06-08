@@ -57,7 +57,7 @@ function ReactHtmlParser(html: string, LinkWrapper?: TComponent) {
   return parseHTML(html, options);
 }
 
-function converEntityToHTML(
+function convertEntityToHTML(
   content: RawDraftContentState,
   LinkWrapper?: TComponent
 ) {
@@ -75,11 +75,7 @@ function converEntityToHTML(
 function parseTextBlock(editor: any, LinkWrapper?: TComponent) {
   const content = isValidJSON(editor);
 
-  if (!content) {
-    return [];
-  }
-
-  return converEntityToHTML(content, LinkWrapper);
+  return !content ? [] : convertEntityToHTML(content, LinkWrapper);
 }
 
 export default parseTextBlock;
