@@ -17,6 +17,7 @@ import {
 type DraftTextAlignment = "left" | "center" | "right";
 type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
 type SyntheticEvent = React.SyntheticEvent<object>;
+type TComponent = (...arg: any) => JSX.Element;
 
 interface IImage {
   base64: string;
@@ -183,6 +184,12 @@ interface IPreviewIages {
   previewImages: IImage[];
 }
 
+interface IReactHtmlParserArgs {
+  attribs: any;
+  children: JSX.Element | any;
+  name: string;
+}
+
 export {
   IErrorMessage,
   DraftTextAlignment,
@@ -198,4 +205,6 @@ export {
   ILinkProps,
   IPreviewIages,
   IHTMLProps,
+  TComponent,
+  IReactHtmlParserArgs,
 };
