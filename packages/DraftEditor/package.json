@@ -25,10 +25,8 @@
     "@blaze-react/text-area": "^0.5.15",
     "@blaze-react/utils": "^0.5.15",
     "@types/draft-js": "0.10.34",
-    "draft-js": "^0.11.0",
     "draft-js-alignment-plugin": "^2.0.6",
     "draft-js-drag-n-drop-plugin": "2.0.4",
-    "draft-js-export-html": "^1.4.1",
     "draft-js-focus-plugin": "3.0.1",
     "draft-js-image-plugin": "2.0.7",
     "draft-js-inline-toolbar-plugin": "^3.0.1",
@@ -38,7 +36,10 @@
     "draft-js-utils": "^1.4.0",
     "draftjs-to-html": "^0.8.4",
     "entities": "^2.0.0",
-    "html-to-draftjs": "^1.4.0"
+    "html-to-draftjs": "^1.4.0",
+    "draft-js": "^0.11.0",
+    "draft-js-export-html": "^1.4.1",
+    "html-react-parser": "^0.10.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

@@ -3,6 +3,7 @@ import { ContentBlock, ContentState, DraftBlockRenderMap, DraftBlockType, DraftD
 declare type DraftTextAlignment = "left" | "center" | "right";
 declare type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
 declare type SyntheticEvent = React.SyntheticEvent<object>;
+declare type TComponent = (...arg: any) => JSX.Element;
 interface IImage {
     base64: string;
     src: string;
@@ -120,4 +121,9 @@ interface ILinkProps {
 interface IPreviewIages {
     previewImages: IImage[];
 }
-export { IErrorMessage, DraftTextAlignment, SyntheticKeyboardEvent, SyntheticEvent, IImage, IDraftEditorProps, IInlineImageControlsProps, ILinkControlProps, IInlineTypes, IInlineControlsProps, IStyleButtonProps, ILinkProps, IPreviewIages, IHTMLProps, };
+interface IReactHtmlParserArgs {
+    attribs: any;
+    children: JSX.Element | any;
+    name: string;
+}
+export { IErrorMessage, DraftTextAlignment, SyntheticKeyboardEvent, SyntheticEvent, IImage, IDraftEditorProps, IInlineImageControlsProps, ILinkControlProps, IInlineTypes, IInlineControlsProps, IStyleButtonProps, ILinkProps, IPreviewIages, IHTMLProps, TComponent, IReactHtmlParserArgs, };
