@@ -25,6 +25,7 @@ const EMPTY_TAG = "empty";
 const CODE_BLOCK = "code-block";
 const SUBMIT = "submit";
 const HR_TAG = "<hr />";
+const TARGET_BLANK = "_blank";
 
 export {
   LINK,
@@ -54,4 +55,5 @@ export {
   CODE_BLOCK,
   SUBMIT,
   HR_TAG,
+  TARGET_BLANK,
 };
