@@ -11,14 +11,15 @@ import {
   INPUT_TAG,
   P_TAG,
   SUBMIT,
+  TARGET_BLANK,
 } from "../constants";
-import { IReactHtmlParserArgs, TComponent } from "../interfaces";
+import { IParseTextBlock, IReactHtmlParserArgs } from "../interfaces";
 import isValidJSON from "./is-valid-json";
 
 // tslint:disable-next-line: no-var-requires
 const entities = require("entities");
 
-function ReactHtmlParser(html: string, LinkWrapper?: TComponent) {
+function ReactHtmlParser(html: string, config: IParseTextBlock) {
   const options = {
     replace: ({ attribs, children, name: tagName }: IReactHtmlParserArgs) => {
       if (tagName === FIGURE_TAG) {
@@ -34,12 +35,18 @@ function ReactHtmlParser(html: string, LinkWrapper?: TComponent) {
         }
       }
       if (tagName === ANCHOR_TAG) {
+        const { LinkWrapper, useTargetBlank } = config;
+
+        const target = useTargetBlank ? TARGET_BLANK : attribs.target;
+
         return LinkWrapper ? (
-          <LinkWrapper {...attribs}>
+          <LinkWrapper {...attribs} target={target}>
             {domToReact(children, options)}
           </LinkWrapper>
         ) : (
-          <a {...attribs}>{domToReact(children, options)}</a>
+          <a {...attribs} target={target}>
+            {domToReact(children, options)}
+          </a>
         );
       }
       if (
@@ -59,7 +66,7 @@ function ReactHtmlParser(html: string, LinkWrapper?: TComponent) {
 
 function convertEntityToHTML(
   content: RawDraftContentState,
-  LinkWrapper?: TComponent
+  config: IParseTextBlock
 ) {
   let HTML = entities.decodeHTML(
     stateToHTML(
@@ -69,13 +76,14 @@ function convertEntityToHTML(
 
   HTML = HTML.replace(new RegExp(HORIZONTAL_RULE, "g"), HR_TAG);
 
-  return ReactHtmlParser(HTML, LinkWrapper);
+  return ReactHtmlParser(HTML, config);
 }
 
-function parseTextBlock(editor: any, LinkWrapper?: TComponent) {
+function parseTextBlock(config: IParseTextBlock) {
+  const { editor } = config;
   const content = isValidJSON(editor);
 
-  return !content ? [] : convertEntityToHTML(content, LinkWrapper);
+  return !content ? [] : convertEntityToHTML(content, config);
 }
 
 export default parseTextBlock;

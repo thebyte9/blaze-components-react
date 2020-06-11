@@ -19,6 +19,12 @@ type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
 type SyntheticEvent = React.SyntheticEvent<object>;
 type TComponent = (...arg: any) => JSX.Element;
 
+interface IParseTextBlock {
+  editor: any;
+  LinkWrapper?: TComponent;
+  useTargetBlank?: boolean;
+}
+
 interface IImage {
   base64: string;
   src: string;
@@ -207,4 +213,5 @@ export {
   IHTMLProps,
   TComponent,
   IReactHtmlParserArgs,
+  IParseTextBlock,
 };

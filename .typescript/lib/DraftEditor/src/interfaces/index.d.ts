@@ -4,6 +4,11 @@ declare type DraftTextAlignment = "left" | "center" | "right";
 declare type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
 declare type SyntheticEvent = React.SyntheticEvent<object>;
 declare type TComponent = (...arg: any) => JSX.Element;
+interface IParseTextBlock {
+    editor: any;
+    LinkWrapper?: TComponent;
+    useTargetBlank?: boolean;
+}
 interface IImage {
     base64: string;
     src: string;
@@ -126,4 +131,4 @@ interface IReactHtmlParserArgs {
     children: JSX.Element | any;
     name: string;
 }
-export { IErrorMessage, DraftTextAlignment, SyntheticKeyboardEvent, SyntheticEvent, IImage, IDraftEditorProps, IInlineImageControlsProps, ILinkControlProps, IInlineTypes, IInlineControlsProps, IStyleButtonProps, ILinkProps, IPreviewIages, IHTMLProps, TComponent, IReactHtmlParserArgs, };
+export { IErrorMessage, DraftTextAlignment, SyntheticKeyboardEvent, SyntheticEvent, IImage, IDraftEditorProps, IInlineImageControlsProps, ILinkControlProps, IInlineTypes, IInlineControlsProps, IStyleButtonProps, ILinkProps, IPreviewIages, IHTMLProps, TComponent, IReactHtmlParserArgs, IParseTextBlock, };

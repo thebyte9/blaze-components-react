@@ -27,7 +27,7 @@ storiesOf("DraftEditor", module)
       };
 
       const preview = () => {
-        return parseTextBlock(draftContent);
+        return parseTextBlock({ editor: draftContent });
       };
 
       const DraftEditor: any = lazy(() => import("../src"));
