@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.5.16",
+  "version": "0.5.17",
   "publishConfig": {
     "access": "public"
   },
@@ -18,13 +18,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/button": "^0.5.0",
-    "@blaze-react/file-upload": "^0.5.0",
-    "@blaze-react/input": "^0.5.0",
-    "@blaze-react/modal": "^0.5.0",
-    "@blaze-react/text-area": "^0.5.0",
+    "@blaze-react/button": "^0.5.17",
+    "@blaze-react/file-upload": "^0.5.17",
+    "@blaze-react/input": "^0.5.17",
+    "@blaze-react/modal": "^0.5.17",
+    "@blaze-react/text-area": "^0.5.17",
     "@blaze-react/utils": "^0.5.0",
     "@types/draft-js": "0.10.34",
+    "draft-js": "^0.11.0",
+    "draft-js-export-html": "^1.4.1",
     "draft-js-inline-toolbar-plugin": "^3.0.1",
     "draft-js-linkify-plugin": "^2.0.2",
     "draft-js-plugins-editor": "^3.0.0",
@@ -32,15 +34,13 @@
     "draft-js-utils": "^1.4.0",
     "draftjs-to-html": "^0.8.4",
     "entities": "^2.0.0",
-    "html-to-draftjs": "^1.4.0",
-    "draft-js": "^0.11.0",
-    "draft-js-export-html": "^1.4.1",
-    "html-react-parser": "^0.10.0"
+    "html-react-parser": "^0.10.0",
+    "html-to-draftjs": "^1.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.5.12"
+    "@blaze-react/blaze-components-theme": "^0.5.17"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",

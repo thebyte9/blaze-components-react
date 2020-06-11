@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/button",
-  "version": "0.5.15",
+  "version": "0.5.17",
   "publishConfig": {
     "access": "public"
   },
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.5.12"
+    "@blaze-react/blaze-components-theme": "^0.5.17"
   },
   "dependencies": {
     "@blaze-react/utils": "^0.5.15"
