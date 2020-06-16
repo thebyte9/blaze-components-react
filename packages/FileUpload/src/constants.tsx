@@ -19,4 +19,4 @@ const NAME = "name";
 
 const VIDEO = 'video'
 
-export { DATA_ATTRIBUTS, INPUT_TYPES, DOC, IMAGE, NAME, VIDEO };
+export { DATA_ATTRIBUTS, DOC, IMAGE, INPUT_TYPES, NAME, VIDEO };
