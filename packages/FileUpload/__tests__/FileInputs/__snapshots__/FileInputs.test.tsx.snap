@@ -186,6 +186,55 @@ exports[`FileInputs component should render without throwing error 1`] = `
       </div>
     </Input>
   </withUtils(Input)>
+  <withUtils(Input)
+    id="0-hrefUrl-test-image-name"
+    label="Url"
+    name="hrefUrl-0-test-image-name"
+    onChange={[MockFunction]}
+  >
+    <Input
+      disabled={false}
+      error={false}
+      hideTypeToggle={false}
+      id="0-hrefUrl-test-image-name"
+      label="Url"
+      modifier=""
+      name="hrefUrl-0-test-image-name"
+      onChange={[MockFunction]}
+      required={false}
+      type="text"
+      utils={
+        Object {
+          "ErrorMessage": [Function],
+          "classNames": [Function],
+          "removeExtraSpaces": [Function],
+          "uniqueId": [Function],
+        }
+      }
+      validationMessage="This field is required"
+    >
+      <div
+        className="form-field form-field--input  "
+      >
+        <label
+          className=""
+          htmlFor="0-hrefUrl-test-image-name"
+        >
+          Url
+        </label>
+        <input
+          data-testid="input"
+          disabled={false}
+          id="0-hrefUrl-test-image-name"
+          name="hrefUrl-0-test-image-name"
+          onChange={[Function]}
+          required={false}
+          type="text"
+          value=""
+        />
+      </div>
+    </Input>
+  </withUtils(Input)>
   <withUtils(Select)
     label="Store type"
     onChange={[Function]}
@@ -203,7 +252,6 @@ exports[`FileInputs component should render without throwing error 1`] = `
     }
   >
     <Select
-      defaultTextValue="Please Choose..."
       disabled={Array []}
       error={false}
       keys={Array []}

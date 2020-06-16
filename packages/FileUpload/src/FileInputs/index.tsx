@@ -1,10 +1,10 @@
 import Input from "@blaze-react/input";
 import Select from "@blaze-react/select";
 import React from "react";
-import { DATA_ATTRIBUTES, IMAGE, NAME } from "../constants";
+import { INPUT_TYPES, IMAGE, NAME } from "../constants";
 import { getInputLabel, sanitizedFilename } from '../utils'
 
-const { ALT_TEXT, CAPTION, TITLE } = DATA_ATTRIBUTES;
+const { ALT_TEXT, CAPTION, TITLE, HREF_URL } = INPUT_TYPES;
 
 const FileInputs = ({
   data,
@@ -46,6 +46,13 @@ const FileInputs = ({
             value={data.altText}
             id={`${index}-altText-${sanitizedFilename(file)}`}
             name={`${ALT_TEXT}-${index}-${sanitizedFilename(file)}`}
+          />
+          <Input
+            label="Url"
+            onChange={handleInputChange}
+            value={data.urlRedirect}
+            id={`${index}-hrefUrl-${sanitizedFilename(file)}`}
+            name={`${HREF_URL}-${index}-${sanitizedFilename(file)}`}
           />
           <Select
             label="Store type"
