@@ -7,12 +7,22 @@ import uniqueId from "./uniqueId";
 
 const withUtils = (Component: any) => {
   const InnerComponent = (props: object): JSX.Element => {
-    const utils = {
-      ErrorMessage,
-      classNames,
-      removeExtraSpaces,
-      uniqueId,
-    };
+    const utils = new Proxy(
+      {
+        ErrorMessage,
+        classNames,
+        removeExtraSpaces,
+        uniqueId,
+      },
+      {
+        get(target, property) {
+          if (property in target) {
+            return target[property];
+          }
+        },
+      }
+    );
+
     return <Component utils={utils} {...props} />;
   };
 
