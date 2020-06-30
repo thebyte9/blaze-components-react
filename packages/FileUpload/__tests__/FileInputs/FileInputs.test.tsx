@@ -32,11 +32,11 @@ describe("FileInputs component", () => {
     expect(component).toMatchSnapshot();
   });
 
-  it("should render childs based on type (3 inputs & 1 select if image)", () => {
+  it("should render childs based on type (4 inputs & 1 select if image)", () => {
     const { length: inputsNumber } = component.find('input');
     const { length: selectsNumber } = component.find('select')
 
-    expect(inputsNumber).toBe(3);
+    expect(inputsNumber).toBe(4);
     expect(selectsNumber).toBe(1)
   });
 

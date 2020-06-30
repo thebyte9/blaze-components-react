@@ -23,11 +23,11 @@ const Button = withUtils(
     ...attrs
   }: IButtonProps): JSX.Element => {
     const formatedModifiers: string = modifiers
-      .map(modifier => `button--${modifier}`)
+      .map((modifier) => `button--${modifier}`)
       .join(" ");
 
     const buttonClassNames: string = classNames("button", {
-      [formatedModifiers]: !!modifiers
+      [formatedModifiers]: !!modifiers,
     });
     return (
       <button
@@ -45,7 +45,7 @@ const Button = withUtils(
 Button.defaultProps = {
   children: "",
   disabled: false,
-  type: "button"
+  type: "button",
 };
 
 export default Button;

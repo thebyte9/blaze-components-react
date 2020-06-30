@@ -31,7 +31,7 @@ interface ISwitchesProps {
   onChange: ({
     event,
     value,
-    data
+    data,
   }: {
     event: React.ChangeEvent<HTMLInputElement>;
     value: IOptions[] | boolean;
@@ -57,7 +57,7 @@ const Switches = withUtils(
   }: ISwitchesProps): JSX.Element => {
     const {
       wrap,
-      formatedOptions
+      formatedOptions,
     }: {
       wrap: (child: JSX.Element[]) => JSX.Element;
       formatedOptions: IOptions[];
@@ -66,11 +66,11 @@ const Switches = withUtils(
           formatedOptions: options,
           wrap: (child: JSX.Element[]): JSX.Element => (
             <div className="form-group form-group--switch">{child}</div>
-          )
+          ),
         }
       : {
           formatedOptions: [options],
-          wrap: (child: JSX.Element[]): JSX.Element => <>{child}</>
+          wrap: (child: JSX.Element[]): JSX.Element => <>{child}</>,
         };
 
     const [data, setData] = useState<IOptions[]>(formatedOptions);
@@ -78,7 +78,7 @@ const Switches = withUtils(
     const toggle = ({
       event,
       item,
-      key
+      key,
     }: {
       event: React.ChangeEvent<HTMLInputElement>;
       item: IOptions;
@@ -105,7 +105,7 @@ const Switches = withUtils(
 
     const switchClassNames: string = classNames("switch", {
       [`switch--${modifier}`]: !!modifier,
-      [`switch--label--${labelPosition}`]: !!labelPosition
+      [`switch--label--${labelPosition}`]: !!labelPosition,
     });
 
     return (
@@ -119,7 +119,7 @@ const Switches = withUtils(
                 disabled,
                 required,
                 label,
-                id = uniqueId(item)
+                id = uniqueId(item),
               } = item;
 
               return (
@@ -157,14 +157,14 @@ const availableModifiers: object = {
   disabled: "disabled",
   primary: "primary",
   secondary: "secondary",
-  unchecked: "unchecked"
+  unchecked: "unchecked",
 };
 
 const availablePositions: object = {
   base: "base",
   left: "left",
   right: "right",
-  top: "top"
+  top: "top",
 };
 
 Switches.availableModifiers = availableModifiers;
@@ -175,6 +175,6 @@ Switches.defaultProps = {
   labelPosition: "right",
   modifier: "",
   returnBoolean: false,
-  validationMessage: "This field is required"
+  validationMessage: "This field is required",
 };
 export default Switches;

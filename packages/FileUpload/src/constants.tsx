@@ -1,12 +1,14 @@
 const DATA_ATTRIBUTS = {
   altText: "",
-  caption: ""
+  caption: "",
+  hrefUrl: ""
 };
 
-const DATA_ATTRIBUTES = {
+const INPUT_TYPES = {
   ALT_TEXT: "altText",
   CAPTION: "caption",
-  TITLE: 'title'
+  TITLE: 'title',
+  HREF_URL: 'hrefUrl'
 };
 
 const IMAGE = "image";
@@ -17,5 +19,4 @@ const NAME = "name";
 
 const VIDEO = 'video'
 
-
-export { DATA_ATTRIBUTS, DATA_ATTRIBUTES, DOC, IMAGE, NAME, VIDEO };
+export { DATA_ATTRIBUTS, DOC, IMAGE, INPUT_TYPES, NAME, VIDEO };
