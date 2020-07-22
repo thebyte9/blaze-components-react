@@ -20,9 +20,9 @@ function getLeftStyle({ ratio, parent, handler, isRight }) {
   const factor = isRight ? SEPARATION_BETWEEN_HANDLERS : 0;
   return `${Math.ceil(
     ratio *
-      (parent.offsetWidth -
-        (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
-      factor
+    (parent.offsetWidth -
+      (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
+    factor
   )}px`;
 }
 
@@ -121,7 +121,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   function onStart(event: any) {
     event.preventDefault();
-    let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
+    const eventTouch = event.touches ? event.touches[0] : event;
 
     xAxis = this === touchLeft ? touchLeft.offsetLeft : touchRight.offsetLeft;
 
@@ -176,7 +176,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   };
 
   const onMove = (event: any) => {
-    let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
+    const eventTouch = event.touches ? event.touches[0] : event;
 
     xAxis = eventTouch.pageX - startX;
 
