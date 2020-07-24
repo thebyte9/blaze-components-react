@@ -120,7 +120,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   setMaxValue(defaultMaxValue);
 
   function onStart(event: any) {
-    event.preventDefault();
+    event.defaultPrevented && event.preventDefault();
     const eventTouch = event.touches ? event.touches[0] : event;
 
     xAxis = this === touchLeft ? touchLeft.offsetLeft : touchRight.offsetLeft;
@@ -130,7 +130,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
     $(selector).addEventListener("mousemove", onMove);
     $(selector).addEventListener("mouseup", onStop);
-    $(selector).addEventListener("touchmove", onMove);
+    $(selector).addEventListener("touchmove", onMove, { passive: true });
     $(selector).addEventListener("touchend", onStop);
     document.addEventListener("click", onStop);
   }
@@ -223,8 +223,8 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   touchLeft.addEventListener("mousedown", onStart);
   touchRight.addEventListener("mousedown", onStart);
-  touchLeft.addEventListener("touchstart", onStart);
-  touchRight.addEventListener("touchstart", onStart);
+  touchLeft.addEventListener("touchstart", onStart, { passive: true });
+  touchRight.addEventListener("touchstart", onStart, { passive: true });
 };
 
 export default RangeFilter;
