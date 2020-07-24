@@ -120,7 +120,9 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   setMaxValue(defaultMaxValue);
 
   function onStart(event: any) {
-    event.defaultPrevented && event.preventDefault();
+    if (event.defaultPrevented) {
+      event.preventDefault()
+    };
     const eventTouch = event.touches ? event.touches[0] : event;
 
     xAxis = this === touchLeft ? touchLeft.offsetLeft : touchRight.offsetLeft;
