@@ -30,6 +30,21 @@ function $(selector: string) {
   return document.querySelector(`.${selector}`);
 }
 
+const checkPassiveCompatibility = () => {
+  try {
+    const opts = Object.defineProperty({}, 'passive', {
+      get: () => {
+        return false
+      }
+    });
+    window.addEventListener("checkPassive", null, opts);
+    window.removeEventListener("checkPassive", null, opts);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 const RangeFilter = (selector: string, getMinMax: any) => {
   let startX = 0;
   let xAxis = 0;
@@ -37,6 +52,8 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   if (!$(selector)) {
     return;
   }
+
+  const isPassiveSupported = checkPassiveCompatibility();
 
   const { touchLeft, touchRight, lineSpan } = getElements($(selector));
 
@@ -119,20 +136,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   setMinValue(defaultMinValue);
   setMaxValue(defaultMaxValue);
 
-  const checkPassiveCompatibility = () => {
-    try {
-      const opts = Object.defineProperty({}, 'passive', {
-        get: () => {
-          return false
-        }
-      });
-      window.addEventListener("checkPassive", null, opts);
-      window.removeEventListener("checkPassive", null, opts);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
+
 
   function onStart(event: any) {
     if (event.defaultPrevented) {
@@ -147,7 +151,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
     $(selector).addEventListener("mousemove", onMove);
     $(selector).addEventListener("mouseup", onStop);
-    $(selector).addEventListener("touchmove", onMove, checkPassiveCompatibility() ? { passive: true } : false)
+    $(selector).addEventListener("touchmove", onMove, isPassiveSupported ? { passive: true } : false)
     $(selector).addEventListener("touchend", onStop);
     document.addEventListener("click", onStop);
   }
@@ -238,7 +242,6 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     getMinMax(minValue, maxValue);
   };
 
-  const isPassiveSupported = checkPassiveCompatibility();
   touchLeft.addEventListener("mousedown", onStart);
   touchRight.addEventListener("mousedown", onStart);
   touchLeft.addEventListener("touchstart", onStart, isPassiveSupported ? { passive: true } : false)
