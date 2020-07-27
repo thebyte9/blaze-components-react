@@ -118,23 +118,17 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   setMinValue(defaultMinValue);
   setMaxValue(defaultMaxValue);
-  
+
   const checkPassiveCompatibility = () => {
-    let passiveSupported = false;
-
     try {
-      const options = {
-        get passive() {
-          passiveSupported = true;
-          return false;
-        }
-      };
-
-      window.addEventListener("checkOptions", null, options);
-      window.removeEventListener("checkOptions", null, options);
-      return passiveSupported;
-    } catch (err) {
-      passiveSupported = false;
+      const opts = Object.defineProperty({}, 'passive', {
+        get: function () { }
+      });
+      window.addEventListener("checkPassive", null, opts);
+      window.removeEventListener("checkPassive", null, opts);
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 
@@ -149,9 +143,10 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     startX = eventTouch.pageX - xAxis;
     selectedTouch = this;
 
+    const isPassiveSupported = checkPassiveCompatibility();
     $(selector).addEventListener("mousemove", onMove);
     $(selector).addEventListener("mouseup", onStop);
-    $(selector).addEventListener("touchmove", onMove, checkPassiveCompatibility ? { passive: true } : false)
+    $(selector).addEventListener("touchmove", onMove, isPassiveSupported ? { passive: true } : false)
     $(selector).addEventListener("touchend", onStop);
     document.addEventListener("click", onStop);
   }
@@ -242,10 +237,11 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     getMinMax(minValue, maxValue);
   };
 
+  const isPassiveSupported = checkPassiveCompatibility();
   touchLeft.addEventListener("mousedown", onStart);
   touchRight.addEventListener("mousedown", onStart);
-  touchLeft.addEventListener("touchstart", onStart, checkPassiveCompatibility ? { passive: true } : false)
-  touchRight.addEventListener("touchstart", onStart, checkPassiveCompatibility ? { passive: true } : false)
+  touchLeft.addEventListener("touchstart", onStart, isPassiveSupported ? { passive: true } : false)
+  touchRight.addEventListener("touchstart", onStart, isPassiveSupported ? { passive: true } : false)
 };
 
 export default RangeFilter;
