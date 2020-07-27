@@ -118,6 +118,25 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   setMinValue(defaultMinValue);
   setMaxValue(defaultMaxValue);
+  
+  const checkPassiveCompatibility = () => {
+    let passiveSupported = false;
+
+    try {
+      const options = {
+        get passive() {
+          passiveSupported = true;
+          return false;
+        }
+      };
+
+      window.addEventListener("checkOptions", null, options);
+      window.removeEventListener("checkOptions", null, options);
+      return passiveSupported;
+    } catch (err) {
+      passiveSupported = false;
+    }
+  }
 
   function onStart(event: any) {
     if (event.defaultPrevented) {
@@ -132,7 +151,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
     $(selector).addEventListener("mousemove", onMove);
     $(selector).addEventListener("mouseup", onStop);
-    $(selector).addEventListener("touchmove", onMove, { passive: true });
+    $(selector).addEventListener("touchmove", onMove, checkPassiveCompatibility ? { passive: true } : false)
     $(selector).addEventListener("touchend", onStop);
     document.addEventListener("click", onStop);
   }
@@ -225,8 +244,8 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   touchLeft.addEventListener("mousedown", onStart);
   touchRight.addEventListener("mousedown", onStart);
-  touchLeft.addEventListener("touchstart", onStart, { passive: true });
-  touchRight.addEventListener("touchstart", onStart, { passive: true });
+  touchLeft.addEventListener("touchstart", onStart, checkPassiveCompatibility ? { passive: true } : false)
+  touchRight.addEventListener("touchstart", onStart, checkPassiveCompatibility ? { passive: true } : false)
 };
 
 export default RangeFilter;
