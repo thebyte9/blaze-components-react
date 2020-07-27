@@ -122,7 +122,9 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   const checkPassiveCompatibility = () => {
     try {
       const opts = Object.defineProperty({}, 'passive', {
-        get: function () { }
+        get: () => {
+          return false
+        }
       });
       window.addEventListener("checkPassive", null, opts);
       window.removeEventListener("checkPassive", null, opts);
@@ -143,10 +145,9 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     startX = eventTouch.pageX - xAxis;
     selectedTouch = this;
 
-    const isPassiveSupported = checkPassiveCompatibility();
     $(selector).addEventListener("mousemove", onMove);
     $(selector).addEventListener("mouseup", onStop);
-    $(selector).addEventListener("touchmove", onMove, isPassiveSupported ? { passive: true } : false)
+    $(selector).addEventListener("touchmove", onMove, checkPassiveCompatibility() ? { passive: true } : false)
     $(selector).addEventListener("touchend", onStop);
     document.addEventListener("click", onStop);
   }
