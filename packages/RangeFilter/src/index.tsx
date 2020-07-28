@@ -59,15 +59,6 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     isContentLoaded(init, reInit);
   }, []);
 
-  useEffect(() => {
-    if (value) {
-      if (value.max !== inputs.max && value.min !== inputs.min) {
-        setInputs(value);
-        reInit();
-      }
-    }
-  }, [value]);
-
   const getMinMax = (minvalue: any, maxvalue: any) => {
     const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
     onChange({ value: newValue });
