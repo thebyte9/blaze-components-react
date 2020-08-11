@@ -6,6 +6,7 @@ interface IBadgeProps {
   link?: boolean;
   icon?: boolean;
   color?: string;
+  modifiers?: string;
   children?: any;
   utils: {
     removeExtraSpaces: (...args: any) => string;
@@ -18,11 +19,12 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   icon,
   link,
   utils: { removeExtraSpaces },
+  modifiers,
   ...attrs
 }) => {
   const withIcon = icon ? "badge--icon-text" : "";
   const classes = removeExtraSpaces(
-    `badge ${type ? `badge--${type}` : ""} ${withIcon} ${color}`
+    `badge ${type ? `badge--${type}` : ""} ${withIcon} ${color} ${modifiers}`
   );
   return link ? (
     <Fragment>{children}</Fragment>
@@ -36,6 +38,7 @@ Badge.defaultProps = {
   children: "No content",
   color: "",
   icon: false,
-  link: false
+  link: false,
+  modifiers: "",
 };
 export default withUtils(Badge);
