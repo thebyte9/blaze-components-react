@@ -1,5 +1,5 @@
-import withUtils from "@blaze-react/utils";
-import React, { Fragment, FunctionComponent } from "react";
+import withUtils from '@blaze-react/utils';
+import React, { Fragment, FunctionComponent } from 'react';
 
 interface IBadgeProps {
   type?: string;
@@ -9,7 +9,7 @@ interface IBadgeProps {
   modifiers?: string;
   children?: any;
   utils: {
-    removeExtraSpaces: (...args: any) => string;
+    classNames: (className: string | object, classNames?: object) => string;
   };
 }
 const Badge: FunctionComponent<IBadgeProps> = ({
@@ -18,14 +18,18 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   color,
   icon,
   link,
-  utils: { removeExtraSpaces },
+  utils: { classNames },
   modifiers,
   ...attrs
 }) => {
-  const withIcon = icon ? "badge--icon-text" : "";
-  const classes = removeExtraSpaces(
-    `badge ${type ? `badge--${type}` : ""} ${withIcon} ${color} ${modifiers}`
-  );
+  const withIcon = icon ? 'badge--icon-text' : '';
+  const classes: string = classNames('badge', {
+    [`badge--${type}`]: !!type,
+    [`${withIcon}`]: !!withIcon,
+    [`${color}`]: !!color,
+    [`${modifiers}`]: !!modifiers,
+  });
+
   return link ? (
     <Fragment>{children}</Fragment>
   ) : (
@@ -35,10 +39,10 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   );
 };
 Badge.defaultProps = {
-  children: "No content",
-  color: "",
+  children: 'No content',
+  color: '',
   icon: false,
   link: false,
-  modifiers: "",
+  modifiers: '',
 };
 export default withUtils(Badge);
