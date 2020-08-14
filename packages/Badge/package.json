@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/badge",
-  "version": "0.5.19",
+  "version": "0.5.24",
   "publishConfig": {
     "access": "public"
   },
