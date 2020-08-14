@@ -7,23 +7,23 @@ Badges are small components typically used to communicate a numerical 
 - Simple
 
 ```js
-<Badge type="primary">Badge</Badge>
+<Badge type='primary'>Badge</Badge>
 ```
 
 - Link
 
 ```js
-<Badge type="info" link>
-    <a href="https://www.thebyte9.com/">Go to byte9</a>
+<Badge type='info' link>
+    <a href='https://www.thebyte9.com/'>Go to byte9</a>
 </Badge>
 ```
 
 - Icon
 
 ```js
-<Badge type="pagebuilder" icon colour="deep-orange">
+<Badge type='pagebuilder' icon colour='deep-orange'>
     Social follow            
-  <i className="fas fa-share" />
+  <i className='fas fa-share' />
 </Badge>
 ```
 
@@ -31,10 +31,11 @@ Badges are small components typically used to communicate a numerical 
 
 ##### Badges can receive a number of `props` as follow:
 
-| NAME     |           TYPE           |  DEFAULT   | Options                                                                                  |
-| :------- | :----------------------: | :--------: | ---------------------------------------------------------------------------------------- |
-| type     |          String          |   empty    | default, primary, secondary, success, alert, info, light, dark, link, pagebuilder        |
-| link     |         Boolean          |   false    |
-| icon     |         Boolean          |   false    |
-| color    |          String          |   empty    | blue, light-blue, deep-orange, orange, purple, deep-purple, pink, red, cyan, teal, green |
-| children | Single or array of nodes | No content |
+| NAME      |           TYPE           |  DEFAULT   | Options                                                                                  |
+| :-------- | :----------------------: | :--------: | ---------------------------------------------------------------------------------------- |
+| type      |          String          |   empty    | default, primary, secondary, success, alert, info, light, dark, link, pagebuilder        |
+| link      |         Boolean          |   false    |
+| icon      |         Boolean          |   false    |
+| color     |          String          |   empty    | blue, light-blue, deep-orange, orange, purple, deep-purple, pink, red, cyan, teal, green |
+| modifiers |          String          |   empty    |
+| children  | Single or array of nodes | No content |
