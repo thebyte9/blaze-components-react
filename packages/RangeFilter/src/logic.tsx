@@ -173,8 +173,12 @@ const RangeFilter = (selector: string, getMinMax: any) => {
       maxValue = step * multi;
     }
 
-    $(selector).setAttribute("min-value", minValue);
-    $(selector).setAttribute("max-value", maxValue);
+    if (!(minValue > maxValue)) {
+      $(selector).setAttribute("min-value", minValue);
+    }
+    if (!(maxValue < minValue)) {
+      $(selector).setAttribute("max-value", maxValue);
+    }
   };
 
   const setxAxisLeftPosition = () => {
