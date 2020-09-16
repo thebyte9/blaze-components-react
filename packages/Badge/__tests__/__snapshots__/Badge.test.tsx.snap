@@ -5,6 +5,7 @@ exports[`Badge component should render children without throwing error 1`] = `
   color="blue"
   icon={true}
   link={false}
+  modifiers=""
   type="pagebuilder"
   utils={
     Object {
@@ -27,6 +28,7 @@ exports[`Badge component should render properly when pass link prop without thr
   color=""
   icon={false}
   link={true}
+  modifiers=""
   type="pagebuilder"
   utils={
     Object {

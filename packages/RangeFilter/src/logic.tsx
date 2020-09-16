@@ -20,14 +20,29 @@ function getLeftStyle({ ratio, parent, handler, isRight }) {
   const factor = isRight ? SEPARATION_BETWEEN_HANDLERS : 0;
   return `${Math.ceil(
     ratio *
-      (parent.offsetWidth -
-        (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
-      factor
+    (parent.offsetWidth -
+      (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) +
+    factor
   )}px`;
 }
 
 function $(selector: string) {
   return document.querySelector(`.${selector}`);
+}
+
+const checkPassiveCompatibility = () => {
+  try {
+    const opts = Object.defineProperty({}, 'passive', {
+      get: () => {
+        return false
+      }
+    });
+    window.addEventListener("checkPassive", null, opts);
+    window.removeEventListener("checkPassive", null, opts);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 const RangeFilter = (selector: string, getMinMax: any) => {
@@ -37,6 +52,8 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   if (!$(selector)) {
     return;
   }
+
+  const isPassiveSupported = checkPassiveCompatibility();
 
   const { touchLeft, touchRight, lineSpan } = getElements($(selector));
 
@@ -119,9 +136,13 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   setMinValue(defaultMinValue);
   setMaxValue(defaultMaxValue);
 
+
+
   function onStart(event: any) {
-    event.preventDefault();
-    let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
+    if (event.defaultPrevented) {
+      event.preventDefault()
+    };
+    const eventTouch = event.touches ? event.touches[0] : event;
 
     xAxis = this === touchLeft ? touchLeft.offsetLeft : touchRight.offsetLeft;
 
@@ -130,7 +151,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
     $(selector).addEventListener("mousemove", onMove);
     $(selector).addEventListener("mouseup", onStop);
-    $(selector).addEventListener("touchmove", onMove);
+    $(selector).addEventListener("touchmove", onMove, isPassiveSupported ? { passive: true } : false)
     $(selector).addEventListener("touchend", onStop);
     document.addEventListener("click", onStop);
   }
@@ -152,8 +173,12 @@ const RangeFilter = (selector: string, getMinMax: any) => {
       maxValue = step * multi;
     }
 
-    $(selector).setAttribute("min-value", minValue);
-    $(selector).setAttribute("max-value", maxValue);
+    if (!(minValue > maxValue)) {
+      $(selector).setAttribute("min-value", minValue);
+    }
+    if (!(maxValue < minValue)) {
+      $(selector).setAttribute("max-value", maxValue);
+    }
   };
 
   const setxAxisLeftPosition = () => {
@@ -176,7 +201,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   };
 
   const onMove = (event: any) => {
-    let eventTouch = event.touches ? ([eventTouch] = event.touches) : event;
+    const eventTouch = event.touches ? event.touches[0] : event;
 
     xAxis = eventTouch.pageX - startX;
 
@@ -223,8 +248,8 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   touchLeft.addEventListener("mousedown", onStart);
   touchRight.addEventListener("mousedown", onStart);
-  touchLeft.addEventListener("touchstart", onStart);
-  touchRight.addEventListener("touchstart", onStart);
+  touchLeft.addEventListener("touchstart", onStart, isPassiveSupported ? { passive: true } : false)
+  touchRight.addEventListener("touchstart", onStart, isPassiveSupported ? { passive: true } : false)
 };
 
 export default RangeFilter;
