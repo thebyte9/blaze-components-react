@@ -7,11 +7,13 @@ import {
   SelectionState,
 } from "draft-js";
 import React from "react";
+import { HORIZONTAL_RULE, HR } from "../../constants";
 import BlockControls from "./BlockControls";
 import HTMLEditor from "./HTMLEditor";
 import { ImageControl } from "./ImageControl";
 import InlineControls from "./InlineControls";
 import { Anchor, LinkControl } from "./LinkControl";
+import StyleButton from "./StyleButton";
 
 const CustomDraftPlugins = ({
   editorState,
@@ -21,6 +23,8 @@ const CustomDraftPlugins = ({
   onEditorChange,
   toggleDraftEditor,
   showImagePlugin,
+  showEmbedPlugin,
+  addHorizontalRule,
 }: any) => {
   const toggleBlockType = (blockType: DraftBlockType): void =>
     onEditorChange(RichUtils.toggleBlockType(editorState, blockType));
@@ -52,6 +56,7 @@ const CustomDraftPlugins = ({
   return (
     <section className="custom-DraftEditor-utils">
       <BlockControls editorState={editorState} onToggle={toggleBlockType} />
+
       <div className="custom-DraftEditor-inlineControls">
         <InlineControls
           editorState={editorState}
@@ -66,12 +71,17 @@ const CustomDraftPlugins = ({
               handleLibraryClick={handleLibraryClick}
             />
           )}
+          <StyleButton
+            style={HORIZONTAL_RULE}
+            label={HR}
+            onToggle={addHorizontalRule}
+          />
           <LinkControl
             editorState={editorState}
             onToggle={toggleLink}
             unSelectedText={unSelectedText}
           />
-          <HTMLEditor onToggle={toggleDraftEditor} />
+          {showEmbedPlugin && <HTMLEditor onToggle={toggleDraftEditor} />}
         </>
       </div>
     </section>

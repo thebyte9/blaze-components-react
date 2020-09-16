@@ -8,6 +8,9 @@ interface IMoreAvatarProps {
   isMoreMenu?: boolean;
   className?: string;
   children?: any;
+  toggled?: boolean;
+  displayBg?: boolean;
+  disabled?: boolean;
 }
 const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   children,
@@ -16,12 +19,16 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   isHeader,
   className,
   isMoreMenu,
+  toggled,
+  displayBg,
+  disabled,
   ...props
 }) => {
   const buttonClassName = classnames({
+    "button--disabled": disabled,
     dropdown__button: isHeader,
     "icon-button icon-button--round": isMoreMenu,
-    [className as string]: Boolean(className)
+    [className as string]: Boolean(className),
   });
 
   return (
@@ -46,6 +53,6 @@ MoreAvatar.defaultProps = {
   className: "",
   isHeader: false,
   isMoreMenu: false,
-  label: ""
+  label: "",
 };
 export default MoreAvatar;

@@ -14,7 +14,7 @@ storiesOf("Multiselect", module)
   .add("Static data", () => {
     const DemoComponent = () => {
       const state = {
-        data: [...new Array(200)].map((e, index) => ({
+        data: [...new Array(10)].map((e, index) => ({
           checked: false,
           description: faker.random.word(),
           id: faker.random.uuid(),
@@ -43,6 +43,7 @@ storiesOf("Multiselect", module)
             selectors, etc.
           </p>
           <Multiselect
+            searchTerm="al"
             name="multiselect"
             data={state}
             label="Multi Select"
@@ -118,7 +119,7 @@ storiesOf("Multiselect", module)
             label="Multi Select"
             limit={10}
             getSelected={(selected: any) => {
-              console.log("selected", selected);
+              console.log("selected", selected); //eslint-disable-line
             }}
             required
           />

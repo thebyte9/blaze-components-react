@@ -13,7 +13,7 @@ interface IInputProps {
   modifier?: string;
   onChange: ({
     event,
-    value
+    value,
   }: {
     event: React.ChangeEvent<HTMLInputElement>;
     value: string;
@@ -56,7 +56,7 @@ const Input: FunctionComponent<IInputProps> = ({
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const {
-      target: { value: targetValue }
+      target: { value: targetValue },
     } = event;
     setNewValue(targetValue);
     onChange({ event, value: targetValue });
@@ -73,11 +73,11 @@ const Input: FunctionComponent<IInputProps> = ({
   const requiredClassName: string = classNames({ required });
 
   const passwordClassName: string = classNames({
-    "form-field--password": isPassword
+    "form-field--password": isPassword,
   });
 
   const modifierClassName: string = classNames({
-    [`form-field--${modifier}`]: !!modifier
+    [`form-field--${modifier}`]: !!modifier,
   });
 
   return (
@@ -111,6 +111,6 @@ Input.defaultProps = {
   modifier: "",
   required: false,
   type: "text",
-  validationMessage: "This field is required"
+  validationMessage: "This field is required",
 };
 export default withUtils(Input);

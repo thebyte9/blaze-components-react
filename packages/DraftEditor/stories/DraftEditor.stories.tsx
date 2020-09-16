@@ -1,11 +1,8 @@
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
-import { convertFromRaw, EditorState } from "draft-js";
-import { stateToHTML } from "draft-js-export-html";
 import React, { lazy, Suspense, useState } from "react";
 import DraftEditorReadme from "../README.md";
-
-const entities = require("entities");
+import { parseTextBlock } from "../src";
 
 storiesOf("DraftEditor", module)
   .addParameters({
@@ -21,7 +18,7 @@ storiesOf("DraftEditor", module)
 
       const onChange = ({
         event: {
-          target: { name, value },
+          target: { value },
         },
       }: {
         event: { target: { name: string; value: string } };
@@ -30,28 +27,11 @@ storiesOf("DraftEditor", module)
       };
 
       const preview = () => {
-        let convertStateToHTML: any = entities.decodeHTML(
-          stateToHTML(
-            EditorState.createWithContent(
-              convertFromRaw(JSON.parse(draftContent))
-            ).getCurrentContent()
-          )
-        );
-
-        const code =
-          convertStateToHTML.match(/<pre><code>(?:.*?)<\/code><\/pre>/g) || [];
-
-        code.forEach((htmlCode: string) => {
-          convertStateToHTML = convertStateToHTML.replace(
-            htmlCode,
-            entities.encode(htmlCode)
-          );
-        });
-
-        return convertStateToHTML;
+        return parseTextBlock({ editor: draftContent });
       };
 
       const DraftEditor: any = lazy(() => import("../src"));
+
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <div className="component-wrapper">
@@ -67,7 +47,7 @@ storiesOf("DraftEditor", module)
               onChange={onChange}
             />
 
-            <div dangerouslySetInnerHTML={{ __html: preview() }} />
+            <div>{preview()}</div>
           </div>
         </Suspense>
       );

@@ -11,7 +11,8 @@ const DemoComponent = () => {
     columns: ["name", "email", "city", "zipCode"],
     identification: "id",
     orderBy: ["email", "name", "city", "zipCode"],
-    rows: []
+    rows: [],
+    labels: { name: "Name", email: "email", city: "City", zipCode: "Zip code" },
   });
 
   const generateFakeData = () => {
@@ -22,7 +23,7 @@ const DemoComponent = () => {
         email: faker.internet.email(),
         id: uuid(),
         name: faker.internet.userName(),
-        zipCode: faker.address.zipCode()
+        zipCode: faker.address.zipCode(),
       });
     }
     return rows;
@@ -45,8 +46,8 @@ const DemoComponent = () => {
 storiesOf("Table", module)
   .addParameters({
     readme: {
-      sidebar: TableReadme
-    }
+      sidebar: TableReadme,
+    },
   })
   .add("Introduction", () => {
     return (

@@ -11,6 +11,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   validationMessage,
   notFoundMessage,
   limitReachedMessage,
+  searchTerm,
   getSelected,
   label,
   limit,
@@ -41,6 +42,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
+  }, []);
+
+  useEffect(() => {
+    setSearchValue(searchTerm);
+    const parsedDataCopy: object[] = parseDataCopy(searchTerm);
+    updateData(parsedDataCopy);
   }, []);
 
   useEffect(() => {

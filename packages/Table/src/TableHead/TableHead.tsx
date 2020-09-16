@@ -11,6 +11,7 @@ interface ITableHead {
   };
   orderBy: any;
   appliedSort: any;
+  labels: object;
 }
 
 const TableHead = ({
@@ -19,7 +20,8 @@ const TableHead = ({
   columns,
   utils: { uniqueId },
   headRef,
-  appliedSort
+  appliedSort,
+  labels,
 }: ITableHead): JSX.Element => (
   <div className="table-head" ref={headRef}>
     <div className="table-cell--checkbox"></div>
@@ -32,6 +34,7 @@ const TableHead = ({
             orderBy={orderBy}
             column={column}
             columns={columns}
+            labels={labels}
           />
         </div>
       )

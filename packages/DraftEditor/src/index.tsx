@@ -1,5 +1,6 @@
+// @ts-nocheck
 import withUtils from "@blaze-react/utils";
-import eventBus from "./eventBus";
+import isSoftNewlineEvent from "draft-js/lib/isSoftNewlineEvent";
 
 import {
   AtomicBlockUtils,
@@ -9,7 +10,6 @@ import {
   convertToRaw,
   DraftEditorCommand,
   DraftHandleValue,
-  EditorBlock,
   EditorState,
   RichUtils,
 } from "draft-js";
@@ -20,40 +20,16 @@ import {
   BACKSPACE_COMMAND,
   BLOCKQUOTE,
   HANDLED,
+  HORIZONTAL_RULE,
+  IMMUTABLE,
   NOT_HANDLED,
   UNSTYLED,
 } from "./constants";
 import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
 import decorator from "./DraftPlugins/CustomPlugins/decorator";
-import { AddImageAttributes } from "./DraftPlugins/CustomPlugins/ImageControl";
 import { IDraftEditorProps } from "./interfaces";
-import {
-  addButtonToAlignmentToolContainer,
-  findImageAndUpdateStyles,
-  getEditorHeight,
-} from "./utils";
-
-const blockRenderer = (contentBlock: any) => {
-  const type = contentBlock.getType();
-
-  if (type === ATOMIC) {
-    return {
-      component: Component,
-      editable: true,
-      props: {},
-    };
-  }
-  return "";
-};
-
-const Component = (props: any) => (
-  <pre>
-    <code>
-      <EditorBlock {...props} />
-    </code>
-  </pre>
-);
+import parseTextBlock from "./text-block-parser";
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -66,6 +42,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   selectedImages,
   handleLibraryClick,
   showImagePlugin,
+  showEmbedPlugin,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -77,31 +54,16 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       decorator
     )
   );
-  const [editorHeight, setEditorHeight] = useState<any>({});
-  const [imageAttributesStatus, setImageAttributesStatus] = useState<boolean>(
-    false
-  );
-  const [imageAttributesData, setImageAttributesData] = useState<any>({
-    focusedImageURL: null,
-    images: [],
-  });
+
   const inputEl = useRef<any>(null);
   const globalRef = useRef<any>(null);
 
   useEffect((): void => {
     let initialEditorState = EditorState.createEmpty().getCurrentContent();
-    let images: any = [];
 
     if (value) {
       const parsedValue = JSON.parse(value);
-      images =
-        parsedValue.imageAttributes instanceof Array
-          ? parsedValue.imageAttributes
-          : [];
-      setImageAttributesData({
-        focusedImageURL: null,
-        images,
-      });
+
       initialEditorState = convertFromRaw(parsedValue);
     }
 
@@ -110,46 +72,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       decorator
     );
     setEditorState(state);
-    onEditorChange(state, images);
-    calculateEditorHeight(500);
-    addButtonToAlignmentToolContainer(globalRef.current);
-    handleEditImageEvent(images);
+    onEditorChange(state);
   }, []);
 
-  const closeImageAttributesModal = () => setImageAttributesStatus(false);
-
-  const saveImageAttributes = (imageAttributes: any) => {
-    findImageAndUpdateStyles(globalRef.current, imageAttributes);
-    setImageAttributesData(imageAttributes);
-    onEditorChange(editorState, imageAttributes.images);
-    handleEditImageEvent(imageAttributes.images);
-  };
-
-  useEffect((): void => {
-    calculateEditorHeight();
-  }, [editorState]);
-
-  const handleEditImageEvent = (images: any) => {
-    eventBus.$on("editImageAttributes", (focusedImageURL) => {
-      setImageAttributesStatus(true);
-      setImageAttributesData({
-        focusedImageURL,
-        images,
-      });
-    });
-  };
-
-  const calculateEditorHeight = (time = 0) => {
-    setTimeout(() => {
-      setEditorHeight(getEditorHeight(inputEl.current));
-      findImageAndUpdateStyles(inputEl.current, imageAttributesData.images);
-    }, time);
-  };
-
-  const onEditorChange = (
-    newEditorState: EditorState,
-    imagesAttr?: any[]
-  ): void => {
+  const onEditorChange = (newEditorState: EditorState): void => {
     const currentContent = newEditorState.getCurrentContent();
     const rawValue = convertToRaw(currentContent);
 
@@ -164,8 +90,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
     const rawValueString = JSON.stringify({
       ...rawValue,
-      imageAttributes:
-        imagesAttr instanceof Array ? imagesAttr : imageAttributesData.images,
     });
 
     const eventFormat = {
@@ -213,12 +137,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   const insertBlock = () => {
-    const ccontentState = editorState.getCurrentContent();
-
-    const contentStateWithEntity = ccontentState.createEntity(
-      "CODE",
-      "MUTABLE"
-    );
+    const contentStateWithEntity = contentState.createEntity("CODE", "MUTABLE");
 
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
     const newEditorState = EditorState.set(editorState, {
@@ -228,6 +147,57 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     setEditorState(
       AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, " ")
     );
+  };
+
+  const handleReturn = (event: any) => {
+    if (isSoftNewlineEvent(event)) {
+      onEditorChange(RichUtils.insertSoftNewline(editorState));
+      return HANDLED;
+    }
+    return NOT_HANDLED;
+  };
+
+  const addHorizontalRule = () => {
+    const contentStateWithEntity = contentState.createEntity(
+      HORIZONTAL_RULE,
+      IMMUTABLE,
+      {}
+    );
+    const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+    onEditorChange(
+      AtomicBlockUtils.insertAtomicBlock(
+        editorState,
+        entityKey,
+        HORIZONTAL_RULE
+      )
+    );
+  };
+
+  const blockRenderer = (contentBlock: any) => {
+    const type = contentBlock.getType();
+
+    if (type !== ATOMIC) {
+      return null;
+    }
+
+    const entityKey = contentBlock.getEntityAt(0);
+
+    if (!entityKey) {
+      return {
+        editable: false,
+      };
+    }
+
+    const entity = contentState.getEntity(entityKey);
+
+    if (entity && entity.type === HORIZONTAL_RULE) {
+      return {
+        component: () => <hr />,
+        editable: false,
+      };
+    }
+
+    return "";
   };
 
   return (
@@ -240,16 +210,11 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         onEditorChange={onEditorChange}
         toggleDraftEditor={insertBlock}
         showImagePlugin={showImagePlugin}
+        showEmbedPlugin={showEmbedPlugin}
+        addHorizontalRule={addHorizontalRule}
       />
-      {imageAttributesStatus && (
-        <AddImageAttributes
-          imageAttributesData={imageAttributesData}
-          saveImageAttributes={saveImageAttributes}
-          closeImageAttributesModal={closeImageAttributesModal}
-        />
-      )}
 
-      <div className={editorClassName} style={editorHeight}>
+      <div className={editorClassName}>
         <Editor
           ref={inputEl}
           handleKeyCommand={handleKeyCommand}
@@ -258,6 +223,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           onChange={onEditorChange}
           blockRendererFn={blockRenderer}
           plugins={plugins}
+          handleReturn={handleReturn}
           {...attrs}
         />
         <DraftPlugins />
@@ -271,9 +237,11 @@ DraftEditor.defaultProps = {
   error: false,
   name: "editor",
   selectedImages: [],
+  showEmbedPlugin: false,
   showImagePlugin: false,
   unSelectedText: "Make sure you have a text selected",
   validationMessage: "This field is required",
 };
 
 export default withUtils(DraftEditor);
+export { parseTextBlock };

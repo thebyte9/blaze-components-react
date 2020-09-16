@@ -1,23 +1,30 @@
-import classNames from "classnames";
 import hoistStatics from "hoist-non-react-statics";
 import React from "react";
-import ErrorMessage from "./ErrorMessage";
-import removeExtraSpaces from "./removeExtraSpaces";
-import uniqueId from "./uniqueId";
 
 const withUtils = (Component: any) => {
   const InnerComponent = (props: object): JSX.Element => {
-    const utils = {
-      ErrorMessage,
-      classNames,
-      removeExtraSpaces,
-      uniqueId
-    };
+    const utils = new Proxy(
+      {
+        ErrorMessage: () => require("./ErrorMessage").default,
+        classNames: () => require("classnames"),
+        removeExtraSpaces: () => require("./removeExtraSpaces").default,
+        uniqueId: () => require("./uniqueId").default,
+      },
+      {
+        get(target, property) {
+          if (property in target) {
+            return target[property]();
+          }
+        },
+      }
+    );
+
     return <Component utils={utils} {...props} />;
   };
 
-  InnerComponent.displayName = `withUtils(${Component.displayName ||
-    Component.name})`;
+  InnerComponent.displayName = `withUtils(${
+    Component.displayName || Component.name
+  })`;
   InnerComponent.WrappedComponent = Component;
 
   return hoistStatics(InnerComponent, Component);

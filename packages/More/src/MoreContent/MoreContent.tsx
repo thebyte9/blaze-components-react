@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 interface IMoreContentProps {
   toggled?: boolean;
@@ -15,9 +15,41 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
   isHeader,
   isMoreMenu,
   isDropdown,
-  displayBg
+  displayBg,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const listMenuRef = useRef<HTMLUListElement | null>(null);
+
+  useEffect(() => {
+    changeElementPosition();
+  }, [toggled]);
+
+  const changeElementPosition = () => {
+    if (listMenuRef) {
+      const { current } = listMenuRef;
+      if (current) {
+        const DEFAULT_TOP = 30;
+        const elementHeight = current.getBoundingClientRect().height;
+        const top = isOutOfBottomViewport(current)
+          ? elementHeight * -1
+          : DEFAULT_TOP;
+        current.style.top = `${top}px`;
+      }
+    }
+  };
+
+  const isOutOfBottomViewport = (element: HTMLUListElement) => {
+    const bounding = element.getBoundingClientRect();
+
+    if (!element) {
+      return false;
+    }
+
+    return (
+      bounding.bottom >
+      (window.innerHeight || document.documentElement.clientHeight)
+    );
+  };
 
   const getContainer = () => {
     const id = "moreBackground";
@@ -36,16 +68,16 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
     "dropdown__submenu--displayed dropdown__list-item--displayed":
       toggled && isHeader,
     "more-menu more-menu__list": isMoreMenu,
-    "more-menu--open": toggled && isMoreMenu
+    "more-menu--open": toggled && isMoreMenu,
   });
   const liClassName = classnames({
     "dropdown__list-item dropdown__list-item--submenu": isDropdown,
     "dropdown__list-item--header": isHeader,
-    "more-menu__list-item": isMoreMenu
+    "more-menu__list-item": isMoreMenu,
   });
   const childClassname = classnames({
     "dropdown__list-item-link--header": isHeader,
-    "more-menu__link": isMoreMenu
+    "more-menu__link": isMoreMenu,
   });
 
   return (
@@ -56,7 +88,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
           <div className="more-menu__background" ref={wrapperRef} />,
           getContainer()
         )}
-      <ul className={ulClassName}>
+      <ul className={ulClassName} ref={listMenuRef}>
         {React.Children.map(
           children,
           (child: any) =>
@@ -65,7 +97,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
                 {React.cloneElement(child, {
                   className: `${
                     child.props.className ? child.props.className : ""
-                  } ${childClassname}`
+                  } ${childClassname}`,
                 })}
               </li>
             )
@@ -79,6 +111,6 @@ MoreContent.defaultProps = {
   isDropdown: false,
   isHeader: false,
   isMoreMenu: false,
-  toggled: false
+  toggled: false,
 };
 export default MoreContent;

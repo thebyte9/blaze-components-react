@@ -5,13 +5,15 @@ const SortableCell = ({
   orderBy,
   column,
   columns,
-  appliedSort
+  appliedSort,
+  labels,
 }: {
   onSort: any;
   orderBy: any;
   column: any;
   columns: any;
   appliedSort: any;
+  labels: object;
 }) => {
   const formatColumns = columns.reduce((acc: any, item: any): any => {
     return { ...acc, [item]: null };
@@ -47,11 +49,11 @@ const SortableCell = ({
 
     setTableColumns({
       ...resetTableColumns,
-      [column]: sortDirection
+      [column]: sortDirection,
     });
 
     onSort({
-      [column]: sortDirection
+      [column]: sortDirection,
     });
   };
 
@@ -61,7 +63,7 @@ const SortableCell = ({
       if (tableColumns[col] !== direction) {
         const merged = {
           ...tableColumns,
-          [col]: direction
+          [col]: direction,
         };
 
         setTableColumns(merged);
@@ -76,7 +78,7 @@ const SortableCell = ({
         onClick={() => sort(column)}
         role="button"
       >
-        {column}
+        {labels[column]}
       </span>
 
       {tableColumns[column] !== hide && (
