@@ -8,7 +8,7 @@ const defaultProps = (override: object = {}) => ({
   error: true,
   onChange: () => void 0,
   placeholder: "Placeholder text",
-  ...override
+  ...override,
 });
 
 describe("Input component", () => {
@@ -21,13 +21,15 @@ describe("Input component", () => {
 
   test("visibility should be off", () => {
     const override = {
-      type: "password"
+      type: "password",
     };
 
     const { getByTestId } = render(<Input {...defaultProps(override)} />);
 
     expect(getByTestId("toggle-input-type")).toHaveClass("active");
-    expect(getByTestId("toggle-input-type")).toHaveTextContent("visibility_off");
+    expect(getByTestId("toggle-input-type")).toHaveTextContent(
+      "visibility_off"
+    );
   });
 
   test("should renders input with label", () => {
@@ -37,7 +39,7 @@ describe("Input component", () => {
     const override = {
       id: 1,
       label,
-      value
+      value,
     };
 
     const { getByLabelText } = render(<Input {...defaultProps(override)} />);
@@ -49,7 +51,7 @@ describe("Input component", () => {
 
   test("should show or hide password on toggle", () => {
     const override = {
-      type: "password"
+      type: "password",
     };
 
     const { getByTestId } = render(<Input {...defaultProps(override)} />);
@@ -62,7 +64,9 @@ describe("Input component", () => {
     fireEvent.click(getByTestId("toggle-input-type"));
 
     expect(getByTestId("toggle-input-type")).toHaveClass("active");
-    expect(getByTestId("toggle-input-type")).toHaveTextContent("visibility_off");
+    expect(getByTestId("toggle-input-type")).toHaveTextContent(
+      "visibility_off"
+    );
   });
 
   test("should display validation message", () => {
@@ -70,23 +74,29 @@ describe("Input component", () => {
       error: true,
       modifier: "full-width",
       placeholder: "Enter email",
-      required: true
+      required: true,
     };
 
-    const { getByTestId, rerender } = render(<Input {...defaultProps(override)} />);
+    const { getByTestId, rerender } = render(
+      <Input {...defaultProps(override)} />
+    );
 
-    expect(getByTestId("validation-message")).toHaveTextContent("This field is required");
+    expect(getByTestId("validation-message")).toHaveTextContent(
+      "This field is required"
+    );
 
     const validationMessage = "Email address is required";
 
     override = {
       ...override,
-      ...{ validationMessage }
+      ...{ validationMessage },
     };
 
     rerender(<Input {...defaultProps(override)} />);
 
-    expect(getByTestId("validation-message")).toHaveTextContent(validationMessage);
+    expect(getByTestId("validation-message")).toHaveTextContent(
+      validationMessage
+    );
   });
 
   test("should change input", () => {
@@ -103,7 +113,7 @@ describe("Input component", () => {
     };
 
     const override = {
-      onChange
+      onChange,
     };
 
     const { getByTestId } = render(<Input {...defaultProps(override)} />);
@@ -112,8 +122,8 @@ describe("Input component", () => {
 
     fireEvent.change(getByTestId("input"), {
       target: {
-        value: inputValue
-      }
+        value: inputValue,
+      },
     });
 
     expect(getByTestId("input")).toHaveValue(inputValue);

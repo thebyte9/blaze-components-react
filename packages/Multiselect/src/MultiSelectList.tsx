@@ -20,7 +20,7 @@ const MultiSelectList = ({
   validationMessage,
   ...attrs
 }: any) => {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<any>([]);
   const itemSize = 45;
 
   useEffect(() => {
@@ -46,7 +46,10 @@ const MultiSelectList = ({
               overscanCount={20}
               onItemsRendered={onItemsRendered}
               renderItem={({ index, style }) => (
-                <div style={style} key={index}>
+                <div
+                  style={style}
+                  key={list[index].id || list[index][keyValue] || index}
+                >
                   <Checkbox
                     full
                     data-cy={`${
