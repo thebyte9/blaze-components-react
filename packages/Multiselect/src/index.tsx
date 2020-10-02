@@ -28,7 +28,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [limitReached, setLimitReached] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
-  const [verifiedRanges, setVerifiedRanges] = useState<number[]>([]);
 
   const handleOutsideClick = (event: any) => {
     if (multiRef.current !== null && !multiRef.current.contains(event.target)) {
@@ -61,22 +60,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   }, [data]);
 
   const handleOnItemsRenderer = async (params: any) => {
-    if (!isDynamic) {
+    if (!isDynamic && !onItemsRendered) {
       return;
     }
-    const { startIndex, stopIndex } = params;
-    const rowsLength = dataCopy.length;
-    const loadIndex = Math.floor(rowsLength / 2);
-    if (
-      (loadIndex > 0 &&
-        loadIndex < startIndex &&
-        !verifiedRanges.includes(loadIndex)) ||
-      (stopIndex === rowsLength - 1 && startIndex === 0)
-    ) {
-      const response = await onItemsRendered({ ...params });
-      setVerifiedRanges([...verifiedRanges, loadIndex]);
-      setDataCopy(response.data);
-    }
+    return onItemsRendered(params);
   };
 
   const parseDataCopy = (value: string) => {
