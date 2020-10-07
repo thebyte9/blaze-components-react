@@ -243,18 +243,21 @@ select[disabled] + label {
 
   &--range {
     padding: 0 10px;
+
     .values {
       display: flex;
       width: 100%;
       justify-content: space-between;
       padding-left: 5px;
     }
+
     .range__filter {
       display: block;
       position: relative;
       height: 36px;
       width: 100%;
       user-select: none;
+
       &--left,
       &--right {
         box-sizing: border-box;
@@ -265,6 +268,7 @@ select[disabled] + label {
         z-index: 2;
         cursor: pointer;
       }
+
       &--left,
       &--right {
         span {
@@ -275,6 +279,7 @@ select[disabled] + label {
           border-radius: 50%;
         }
       }
+
       &--line {
         box-sizing: border-box;
         position: absolute;
@@ -292,6 +297,11 @@ select[disabled] + label {
           width: 0%;
           background: $grey-light;
         }
+      }
+
+      &-mobile {
+        width: 80%;
+        align-self: center;
       }
     }
   }

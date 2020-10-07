@@ -3,6 +3,8 @@ import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import isContentLoaded from "./isContentLoaded";
 import initRangeFilter from "./logic";
+import { BREAKPOINTS_DEVICES } from "./constants";
+
 interface IErrorMessage {
   message: string | JSX.Element;
   icon?: string;
@@ -81,6 +83,13 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
 
   const { min = 0, max = 0, step = 1, minValue = 0, maxValue = 0 } = inputs;
 
+  const isDesktop = typeof window !== "undefined" && window.innerWidth >= BREAKPOINTS_DEVICES.DESKTOP
+
+  const rangeDivClass: string = classNames({
+    [`range__filter ${id}`]: isDesktop,
+    [`range__filter range__filter-mobile ${id}`]: !isDesktop
+  });
+
   return (
     <div className={`form-field form-field--range ${modifierClassName}`}>
       {label && (
@@ -99,7 +108,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         min-value={minValue}
         max-value={maxValue}
         id={`${name}Range`}
-        className={`range__filter ${id}`}
+        className={rangeDivClass}
       >
         <div className="range__filter--left">
           <span></span>
