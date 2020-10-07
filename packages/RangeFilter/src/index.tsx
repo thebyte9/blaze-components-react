@@ -1,9 +1,9 @@
 // @ts-nocheck
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useState } from "react";
+import { BREAKPOINTS_DEVICES } from "./constants";
 import isContentLoaded from "./isContentLoaded";
 import initRangeFilter from "./logic";
-import { BREAKPOINTS_DEVICES } from "./constants";
 
 interface IErrorMessage {
   message: string | JSX.Element;
