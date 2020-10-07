@@ -60,10 +60,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   }, [data]);
 
   const handleOnItemsRenderer = async (params: any) => {
-    if (!isDynamic && !onItemsRendered) {
-      return;
+    if (isDynamic && onItemsRendered) {
+      return onItemsRendered(params);
     }
-    return onItemsRendered(params);
+    return;
   };
 
   const parseDataCopy = (value: string) => {
