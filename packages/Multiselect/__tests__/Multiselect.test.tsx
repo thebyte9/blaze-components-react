@@ -169,5 +169,28 @@ describe("Multiselect component", () => {
         },
       },
     })
-  })
+  });
+
+  it("should use onItemsRendered hook", async () => {
+    const onItemsRendered = jest.fn();
+    const length = 100;
+    const data = Array.from({ length }).map((_, index) => ({ id: index, name: `Name ${index}`, show: true }));
+    const override = {
+      data: {
+        data,
+        filterBy: ["name"],
+        identification: "id",
+        keyValue: "name",
+      },
+      isDynamic: true,
+      onItemsRendered
+    }
+
+    const { getByTestId, container } = render(<Multiselect name="test" {...override} />);
+    const input = getByTestId('input');
+    fireEvent.focus(input);
+    const [element] = container.querySelectorAll('.multiselect__dropdown')
+    fireEvent.scroll(element);
+    expect(onItemsRendered).toHaveBeenCalledWith({ startIndex: 0, stopIndex: 20 });
+  });
 });

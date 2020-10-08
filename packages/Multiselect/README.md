@@ -38,15 +38,25 @@ const data = {
 <Multiselect data={data} />;
 ```
 
+### onItemsRendered
+
+When the select options are scrolled if the onItemsRendered prop and isDynamic is false is set then this component will call it passing in the current start and stop indexes of the option items on display e.g.
+```js
+const onItemsRendered = ({ startIndex: 0, stopIndex: 20 }) => ...;
+```
+
 ## API
 
 ##### Multiselect can receive a number of `props` as follow:
 
-| NAME         |         TYPE          | DEFAULT  |
-| :----------- | :-------------------: | :------: |
-| data         |        Object         |    {}    |
-| limit        |        Number         |    0     |
-| placeholder  |        String         | 'Search' |
-| toggleButton |        String         |  empty   |
-| selected     |       Function        | () => {} |
-| children     | single/array of nodes |  empty   |
+| NAME              |         TYPE          | DEFAULT  |
+| :---------------: | :-------------------: | :------: |
+| data              |        Object         |    {}    |
+| limit             |        Number         |    0     |
+| placeholder       |        String         | 'Search' |
+| toggleButton      |        String         |  empty   |
+| selected          |       Function        | () => {} |
+| getSelected       |       Function        | () => {} |
+| onItemsRendered   |       Function        | () => {} |
+| isDynamic         |       Boolean         |  true    |
+| children          | single/array of nodes |  empty   |
