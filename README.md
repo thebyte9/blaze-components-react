@@ -10,14 +10,20 @@ View Documentation: https://blaze-components-react.thisisblaze.com
 
 ## Getting Started
 
- - npm start -- component=ComponentName **Creates folder structure for new component.**
-        
-        npm start -- component=Footer
+- npm start -- component=ComponentName **Creates folder structure for new component.**
 
-        Will create a folder structure on './src/Footer/'.
+  npm start -- component=Footer
 
- - npm run dev **Runs storybook dev server for development.**
+       Will create a folder structure on './src/Footer/'.
 
- - npm run lint **Runs eslint on js files.**
+- npm run dev **Runs storybook dev server for development.**
 
- - npm run build **Runs webpack to build dist.**
+- npm run lint **Runs eslint on js files.**
+
+- npm run build **Runs webpack to build dist.**
+
+## Publish
+
+- npm run pre-publish && npm run build-storybook
+- commit changes
+- lerna publish
