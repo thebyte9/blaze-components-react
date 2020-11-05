@@ -21,6 +21,7 @@ exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] =
           Object {
             "ErrorMessage": [Function],
             "classNames": [Function],
+            "parseTextBlock": [Function],
             "removeExtraSpaces": [Function],
             "uniqueId": [Function],
           }
@@ -62,6 +63,7 @@ exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] =
           Object {
             "ErrorMessage": [Function],
             "classNames": [Function],
+            "parseTextBlock": [Function],
             "removeExtraSpaces": [Function],
             "uniqueId": [Function],
           }

@@ -7,6 +7,7 @@ const withUtils = (Component: any) => {
       {
         ErrorMessage: () => require("./ErrorMessage").default,
         classNames: () => require("classnames"),
+        parseTextBlock: () => require("./text-block-parser").default,
         removeExtraSpaces: () => require("./removeExtraSpaces").default,
         uniqueId: () => require("./uniqueId").default,
       },

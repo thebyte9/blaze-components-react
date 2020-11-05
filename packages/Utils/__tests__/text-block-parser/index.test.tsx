@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import parseTextBlock from "../src/text-block-parser";
+import parseTextBlock from "../../src/text-block-parser";
 
 describe("DraftEditor component", () => {
   test("should be defined and parse text block value", () => {

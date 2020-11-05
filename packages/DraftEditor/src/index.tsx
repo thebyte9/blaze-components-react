@@ -29,7 +29,6 @@ import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
 import decorator from "./DraftPlugins/CustomPlugins/decorator";
 import { IDraftEditorProps } from "./interfaces";
-import parseTextBlock from "./text-block-parser";
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -244,4 +243,3 @@ DraftEditor.defaultProps = {
 };
 
 export default withUtils(DraftEditor);
-export { parseTextBlock };
