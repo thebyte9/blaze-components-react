@@ -20,7 +20,6 @@ exports[`RangeSlider component should be defined and renders correctly (snapshot
       Object {
         "ErrorMessage": [Function],
         "classNames": [Function],
-        "parseTextBlock": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }

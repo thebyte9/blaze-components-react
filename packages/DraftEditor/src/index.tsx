@@ -243,3 +243,4 @@ DraftEditor.defaultProps = {
 };
 
 export default withUtils(DraftEditor);
+export { convertFromRaw, EditorState };

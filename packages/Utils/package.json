@@ -20,9 +20,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "hoist-non-react-statics": "^3.3.0",
-    "intersection-observer": "^0.7.0",
-    "draft-js-export-html": "^1.4.1",
-    "html-react-parser": "^0.10.0"
+    "intersection-observer": "^0.7.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

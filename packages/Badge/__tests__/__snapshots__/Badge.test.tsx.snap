@@ -11,7 +11,6 @@ exports[`Badge component should render children without throwing error 1`] = `
     Object {
       "ErrorMessage": [Function],
       "classNames": [Function],
-      "parseTextBlock": [Function],
       "removeExtraSpaces": [Function],
       "uniqueId": [Function],
     }
@@ -35,7 +34,6 @@ exports[`Badge component should render properly when pass link prop without thr
     Object {
       "ErrorMessage": [Function],
       "classNames": [Function],
-      "parseTextBlock": [Function],
       "removeExtraSpaces": [Function],
       "uniqueId": [Function],
     }
