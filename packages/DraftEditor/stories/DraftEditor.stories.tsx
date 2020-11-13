@@ -25,9 +25,9 @@ storiesOf("DraftEditor", module)
         setDraftContent(value);
       };
 
-      const preview = () => {
-        return parseTextBlock({ editor: draftContent });
-      };
+      // const preview = () => {
+      //   return parseTextBlock({ editor: draftContent });
+      // };
 
       const DraftEditor: any = lazy(() => import("../src"));
 
@@ -46,7 +46,7 @@ storiesOf("DraftEditor", module)
               onChange={onChange}
             />
 
-            <div>{preview()}</div>
+            {/* <div>{preview()}</div> */}
           </div>
         </Suspense>
       );

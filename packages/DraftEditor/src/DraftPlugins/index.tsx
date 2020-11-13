@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import {
   BlockquoteButton,
   BoldButton,
@@ -19,7 +21,7 @@ const inlineToolbarPlugin = createInlineToolbarPlugin();
 
 const { InlineToolbar } = inlineToolbarPlugin;
 
-const plugins = [inlineToolbarPlugin, linkifyPlugin];
+const plugins = [];
 
 const HeadlinesButton = NewPicker(
   { HeadlineOneButton, HeadlineTwoButton, HeadlineThreeButton },
