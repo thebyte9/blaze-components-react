@@ -17,7 +17,6 @@ import {
   Modifier,
   RichUtils,
 } from "draft-js";
-// import Editor from "draft-js-plugins-editor";
 import React, {
   FunctionComponent,
   useEffect,
@@ -36,9 +35,7 @@ import {
   UNSTYLED,
 } from "./constants";
 import DecoratedLink from "./DecoratedLink";
-import { DraftPlugins, plugins } from "./DraftPlugins";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
-import decorator from "./DraftPlugins/CustomPlugins/decorator";
 import EditorViewLinkModal from "./EditorViewLinkModal";
 import InlineToolbar from "./InlineToolbar";
 import { IDraftEditorProps } from "./interfaces";
@@ -56,7 +53,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   handleLibraryClick,
   showImagePlugin,
   showEmbedPlugin,
-  // component,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -103,40 +99,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return EditorState.createEmpty(linkDecorator);
   });
 
-  // const [editorState, setEditorState] = useState<EditorState>(
-  //   EditorState.createWithContent(
-  //     EditorState.createEmpty().getCurrentContent(),
-  //     decorator
-  //   )
-  // );
-
-  // useEffect((): void => {
-  //   let initialEditorState = EditorState.createEmpty().getCurrentContent();
-
-  //   if (value) {
-  //     const parsedValue = JSON.parse(value);
-
-  //     initialEditorState = convertFromRaw(parsedValue);
-  //   }
-
-  //   const linkDecorator = new CompositeDecorator([
-  //     {
-  //       strategy: linkStrategy,
-  //       component: DecoratedLink,
-  //       props: {
-  //         editLinkFn: handleOnEditLink,
-  //       },
-  //     },
-  //   ]);
-
-  //   const state: EditorState = EditorState.createWithContent(
-  //     initialEditorState,
-  //     decorator
-  //   );
-  //   setEditorState(state);
-  //   onEditorChange(state);
-  // }, []);
-
   const focusEditor = React.useCallback(() => {
     if (inputEl.current) {
       inputEl.current.focus();
@@ -172,10 +134,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       action === "add-link" ||
       action === "update-link"
     ) {
-      // eslint-disable-next-line no-param-reassign
-      // component.settings.editor = JSON.stringify(convertToRaw(newContent));
-      // setSelectedComponents(selectedComponents);
-      // onCreateComponent(selectedComponents);
       setLinkContentState(null);
       showInlineToolbar(false);
     }
@@ -248,8 +206,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   const handleOnAddLink = (url, linkState) => {
-    console.log("handleOnAddLink", "<=======================", url, linkState);
-
     if (url === "") {
       if (linkState) {
         const newEditorState = removeEntity();
@@ -402,7 +358,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           editorState={editorState}
           onChange={onEditorChange}
           blockRendererFn={blockRenderer}
-          // plugins={plugins}
           handleReturn={handleReturn}
           {...attrs}
         />
