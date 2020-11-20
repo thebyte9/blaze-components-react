@@ -1,3 +1,4 @@
+/// <reference types="react" />
 declare const PREVIOUS = "<";
 declare const NEXT = ">";
 declare const DEFAULT_FORMAT = "DD-MM-YYYY";
@@ -5,7 +6,7 @@ declare const DAYS: string[];
 declare const MONTHS: string[];
 declare const WEEKDAYS = 7;
 declare const DAYS_PER_LIST = 42;
-declare const DEFAULT_OPTIONS: (string | (string | number)[])[][];
+declare const DEFAULT_OPTIONS: (string | import("react").ReactText[])[][];
 declare const SEPARATOR = "/";
 declare const CUSTOM_DATE = "custom";
 declare const ANY_DATE = "any";
