@@ -1,3 +1,4 @@
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const path = require("path");
 const SRC_PATH = path.join(__dirname, '../packages');
 module.exports = ({config}) => {
@@ -23,5 +24,8 @@ module.exports = ({config}) => {
   }
   );
   config.resolve.extensions.push('.ts', '.tsx');
+  config.plugins.push(new MonacoWebpackPlugin({
+    languages: ['javascript', 'typescript', 'json']
+  }))
   return config;
 };
