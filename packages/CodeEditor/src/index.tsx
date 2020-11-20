@@ -23,7 +23,7 @@ const CodeEditor = ({
   />
 );
 CodeEditor.defaultProps = {
-  height: "200px",
+  height: "600px",
   language: "javascript",
   value: "",
 };
