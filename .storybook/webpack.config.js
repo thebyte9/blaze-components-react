@@ -26,7 +26,7 @@ module.exports = ({config}) => {
   config.resolve.extensions.push('.ts', '.tsx');
   config.resolve.alias = {
     "monaco-editor": "monaco-editor/esm/vs/editor/editor.api.js"
-  };
+  },
   config.plugins.push(new MonacoWebpackPlugin({
     languages: ['json']
   }))
