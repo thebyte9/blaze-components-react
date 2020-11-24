@@ -22,3 +22,4 @@ declare module "html-to-draftjs";
 declare module "@blaze-react/text-area";
 declare module "@blaze-react/select";
 declare module "@draft-js/lib/isSoftNewlineEvent";
+

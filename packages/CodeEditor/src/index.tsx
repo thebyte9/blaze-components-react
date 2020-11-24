@@ -1,6 +1,5 @@
+import { ControlledEditor } from "@monaco-editor/react";
 import React from "react";
-import MonacoEditor from "react-monaco-editor";
-
 interface ICodeEditorProps {
   onChange: (...args: any[]) => void;
   value: string;
@@ -14,7 +13,7 @@ const CodeEditor = ({
   height,
   ...attrs
 }: ICodeEditorProps) => (
-  <MonacoEditor
+  <ControlledEditor
     height={height}
     language={language}
     value={value}

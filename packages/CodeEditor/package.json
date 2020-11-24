@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react-monaco-editor": "^0.40.0"
+    "@monaco-editor/react": "^3.6.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
