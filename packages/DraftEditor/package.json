@@ -23,7 +23,10 @@
     "@blaze-react/modal": "^0.5.19",
     "@blaze-react/utils": "^0.5.19",
     "@types/draft-js": "0.10.34",
-    "draft-js": "^0.11.0"
+    "draft-js": "^0.11.0",
+    "draft-js-export-html": "^1.4.1",
+    "html-react-parser": "^0.10.0",
+    "entities": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

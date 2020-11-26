@@ -40,6 +40,7 @@ import EditorViewLinkModal from "./EditorViewLinkModal";
 import InlineToolbar from "./InlineToolbar";
 import { IDraftEditorProps } from "./interfaces";
 import linkStrategy from "./link-strategy";
+import parseTextBlock from "./text-block-parser";
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -394,4 +395,4 @@ DraftEditor.defaultProps = {
 };
 
 export default withUtils(DraftEditor);
-export { convertFromRaw, EditorState };
+export { parseTextBlock };
