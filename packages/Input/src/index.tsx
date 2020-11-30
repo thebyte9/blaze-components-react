@@ -16,7 +16,7 @@ interface IInputProps {
     value,
   }: {
     event: React.ChangeEvent<HTMLInputElement>;
-    value: string;
+    value: string | Date;
   }) => void;
   required?: boolean;
   error?: boolean;
@@ -44,7 +44,8 @@ const Input: FunctionComponent<IInputProps> = ({
   ...attrs
 }): JSX.Element => {
   const initialValue = value ? value : "";
-  const [newValue, setNewValue] = useState<string | undefined>(initialValue);
+
+  const [newValue, setNewValue] = useState<string | Date | undefined>(initialValue);
   const [newType, setType] = useState<string | undefined>(type);
   const [newError, setError] = useState<boolean | undefined>(error);
 
@@ -57,16 +58,55 @@ const Input: FunctionComponent<IInputProps> = ({
     setNewValue(newValue)
   }, [value]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>, type: string | undefined): void => {
     const {
       target: { value: targetValue },
     } = event;
-    setNewValue(targetValue);
-    onChange({ event, value: targetValue });
+    const unformattedValue = unformatValue(targetValue, type);
+    setNewValue(unformattedValue);
+    onChange({ event, value: unformattedValue });
   };
 
   const handleToggleType = (inputType: string): void => {
     setType(inputType);
+  };
+
+  const unformatValue = (value: string, type: string | undefined): string | Date => {
+    if (type !== 'datetime-local') {
+      return value;
+    }
+
+    return new Date(value);
+  };
+
+  const formatNumberInTwoCharacters = (number: number): string => {
+    if (number > 9) {
+      return number + '';
+    }
+
+    return `0${number}`;
+  };
+
+  const formatDatetimeValue = (value: Date): string => {
+    const year: string = value.getFullYear() + '';
+    const month: string = formatNumberInTwoCharacters(value.getMonth() + 1);
+    const day: string = formatNumberInTwoCharacters(value.getDate());
+    const hour: string = formatNumberInTwoCharacters(value.getHours());
+    const minute: string = formatNumberInTwoCharacters(value.getMinutes());
+
+    return `${year}-${month}-${day}T${hour}:${minute}`;
+  };
+
+  const formatValue = (value: any | undefined, type: string | undefined): string | undefined => {
+    if (typeof value === 'undefined') {
+      return value;
+    }
+
+    if (type !== 'datetime-local') {
+      return value as string;
+    }
+
+    return formatDatetimeValue(typeof value === 'string' ? new Date(value) : value);
   };
 
   const password: string = "password";
@@ -92,8 +132,8 @@ const Input: FunctionComponent<IInputProps> = ({
       </label>
       <input
         data-testid="input"
-        onChange={handleChange}
-        value={newValue}
+        onChange={(event) => { handleChange(event, newType) }}
+        value={formatValue(newValue, newType)}
         disabled={disabled}
         type={newType}
         required={required}
