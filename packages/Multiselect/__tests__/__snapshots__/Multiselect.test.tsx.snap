@@ -184,7 +184,6 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
-                  id="1-wrapper"
                   role="button"
                 >
                   <input
@@ -216,7 +215,6 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
-                  id="2-wrapper"
                   role="button"
                 >
                   <input
@@ -251,7 +249,6 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
-                  id="3-wrapper"
                   role="button"
                 >
                   <input

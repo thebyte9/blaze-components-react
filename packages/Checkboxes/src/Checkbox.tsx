@@ -45,17 +45,12 @@ const Checkbox = ({
     "form-field--checkbox-full": full,
   });
 
-  const defaultId = id || uniqueId(name);
+  const defaultId = id || uniqueId(name || value);
   const inputId = `${defaultId}-checkbox`;
   const wrapperId = `${defaultId}-wrapper`;
 
   return (
-    <div
-      key={wrapperId}
-      className={checkboxClassName}
-      role="button"
-      id={wrapperId}
-    >
+    <div key={wrapperId} className={checkboxClassName} role="button">
       <input
         data-testid={attrs.testId}
         readOnly
