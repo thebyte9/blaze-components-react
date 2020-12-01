@@ -184,7 +184,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
-                  id="uid-IkJsYXplIDEi"
+                  id="1-wrapper"
                   role="button"
                 >
                   <input
@@ -192,7 +192,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     class="form-checkbox"
                     data-cy="multiselect-checkbox-cy-0"
                     data-testid="checkbox-0"
-                    id="1"
+                    id="1-checkbox"
                     name="Blaze 1"
                     readonly=""
                     type="checkbox"
@@ -202,7 +202,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     class="form-field--checkbox-full"
                   >
                     <label
-                      for="uid-IkJsYXplIDEi"
+                      for="1-checkbox"
                     >
                       <span>
                         Blaze 1
@@ -216,7 +216,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
-                  id="uid-W1siQmxhemUgMiIsIm11bHRpIG1haW4gbGFiZWwiXSxbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiLCJzdWIgbGFiZWwgMyJdXQ=="
+                  id="2-wrapper"
                   role="button"
                 >
                   <input
@@ -224,7 +224,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     class="form-checkbox"
                     data-cy="multiselect-checkbox-cy-1"
                     data-testid="checkbox-1"
-                    id="2"
+                    id="2-checkbox"
                     name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
                     readonly=""
                     type="checkbox"
@@ -234,7 +234,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     class="form-field--checkbox-full"
                   >
                     <label
-                      for="uid-W1siQmxhemUgMiIsIm11bHRpIG1haW4gbGFiZWwiXSxbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiLCJzdWIgbGFiZWwgMyJdXQ=="
+                      for="2-checkbox"
                     >
                       <span>
                         Blaze 2, multi main label
@@ -251,14 +251,14 @@ exports[`Multiselect component should be defined and renders correctly when is o
               >
                 <div
                   class="form-field form-field--checkbox"
-                  id="uid-WyJCbGF6ZSAzIixbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiXV0="
+                  id="3-wrapper"
                   role="button"
                 >
                   <input
                     class="form-checkbox"
                     data-cy="multiselect-checkbox-cy-2"
                     data-testid="checkbox-2"
-                    id="3"
+                    id="3-checkbox"
                     name="Blaze 3,Sub label 1,sub label 2"
                     readonly=""
                     type="checkbox"
@@ -268,7 +268,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     class="form-field--checkbox-full"
                   >
                     <label
-                      for="uid-WyJCbGF6ZSAzIixbIlN1YiBsYWJlbCAxIiwic3ViIGxhYmVsIDIiXV0="
+                      for="3-checkbox"
                     >
                       <span>
                         Blaze 3

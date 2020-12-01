@@ -12,8 +12,8 @@ const ModalDemo = () => {
     {
       callback: () => ({}),
       modifiers: ["small"],
-      textButton: "delete"
-    }
+      textButton: "delete",
+    },
   ];
 
   const Modal: any = lazy((): any => import("../src"));
@@ -21,7 +21,12 @@ const ModalDemo = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <Fragment>
         {modalStatus && (
-          <Modal title="Simple Modal" actions={alertActions} onClose={onClose}>
+          <Modal
+            title="Simple Modal"
+            actions={alertActions}
+            onClose={onClose}
+            overlay={false}
+          >
             <p>lorem ipsum dolor...</p>
           </Modal>
         )}
@@ -33,8 +38,8 @@ const ModalDemo = () => {
 storiesOf("Modal", module)
   .addParameters({
     readme: {
-      sidebar: ModalReadme
-    }
+      sidebar: ModalReadme,
+    },
   })
   .add("Introduction", () => (
     <div className="component-wrapper">
