@@ -12,8 +12,8 @@ const ModalDemo = () => {
     {
       callback: () => ({}),
       modifiers: ["small"],
-      textButton: "delete"
-    }
+      textButton: "delete",
+    },
   ];
 
   const Modal: any = lazy((): any => import("../src"));
@@ -33,8 +33,8 @@ const ModalDemo = () => {
 storiesOf("Modal", module)
   .addParameters({
     readme: {
-      sidebar: ModalReadme
-    }
+      sidebar: ModalReadme,
+    },
   })
   .add("Introduction", () => (
     <div className="component-wrapper">
