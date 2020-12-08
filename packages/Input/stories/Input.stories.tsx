@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense } from "react";
 import inputReadme from "../README.md";
 
-storiesOf("Inputs", module)
+storiesOf("Text Inputs", module)
   .addParameters({
     readme: {
       sidebar: inputReadme
@@ -71,28 +71,6 @@ storiesOf("Inputs", module)
               return;
             }}
             type="date"
-          />
-
-          <h4>Date Time (passing date object)</h4>
-          <Input
-            label="Date Picker"
-            placeholder="******"
-            onChange={(): void => {
-              return;
-            }}
-            value={new Date('2020-01-01T10:00')}
-            type="datetime-local"
-          />
-
-          <h4>Date Time (passing date string)</h4>
-          <Input
-            label="Date Picker"
-            placeholder="******"
-            onChange={(): void => {
-              return;
-            }}
-            value="2020-01-01T10:00"
-            type="datetime-local"
           />
         </div>
       </Suspense>
