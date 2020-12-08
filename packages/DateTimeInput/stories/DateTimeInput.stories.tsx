@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense } from "react";
 import dateTimeInputReadme from "../README.md";
 
-storiesOf("Text Inputs", module)
+storiesOf("DateTime Input", module)
   .addParameters({
     readme: {
       sidebar: dateTimeInputReadme
@@ -26,7 +26,6 @@ storiesOf("Text Inputs", module)
               return;
             }}
             type="dateTime"
-            required
           />
 
           <h4>Only date</h4>
@@ -36,7 +35,6 @@ storiesOf("Text Inputs", module)
               return;
             }}
             type="date"
-            required
           />
 
           <h4>Only time</h4>
@@ -46,7 +44,6 @@ storiesOf("Text Inputs", module)
               return;
             }}
             type="time"
-            required
           />
         </div>
       </Suspense>

@@ -2,4 +2,10 @@ const TYPE_DATE = "date";
 const TYPE_DATE_TIME = "dateTime";
 const TYPE_TIME = "time";
 
-export { TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME };
+const DATE_FORMAT_MAP = {
+  [TYPE_DATE]: "MMMM d, yyyy",
+  [TYPE_DATE_TIME]: "MMMM d, yyyy h:mm aa",
+  [TYPE_TIME]: "h:mm aa",
+};
+
+export { TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME, DATE_FORMAT_MAP };

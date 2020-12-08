@@ -1,9 +1,9 @@
-
 import withUtils from "@blaze-react/utils";
-import PropTypes from "prop-types";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
-import { TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
+import { TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME, DATE_FORMAT_MAP } from './constants';
+
+import "react-datepicker/dist/react-datepicker.css";
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -16,8 +16,10 @@ interface IDateTimeInputProps {
   label?: string;
   modifier?: string;
   onChange: ({
+    event,
     value,
   }: {
+    event: React.ChangeEvent<HTMLInputElement>;
     value: Date;
   }) => void;
   required?: boolean;
@@ -47,6 +49,11 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   const [newValue, setNewValue] = useState<Date | undefined>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
 
+  let whitelistedType: string = type as string;
+  if (type !== TYPE_TIME && type !== TYPE_DATE) {
+    whitelistedType = TYPE_DATE_TIME;
+  }
+
   useEffect(() => {
     setError(error);
   }, [error]);
@@ -54,6 +61,11 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   useEffect(() => {
     setNewValue(value)
   }, [value]);
+
+  const handleChange = (date: Date, event: React.ChangeEvent<HTMLInputElement>): void => {
+    setNewValue(date);
+    onChange({ event, value: date });
+  };
 
   const requiredClassName: string = classNames({ required });
 
@@ -71,13 +83,11 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
       <DatePicker
         data-testid="date-time-input"
         id={id}
-        onChange={(date: Date) => {
-          onChange({ value: date });
-          setNewValue(date);
-        }}
+        onChange={handleChange}
         todayButton="Today"
         showTimeSelect={type === TYPE_DATE_TIME || type === TYPE_TIME}
         showTimeSelectOnly={type === TYPE_TIME}
+        dateFormat={DATE_FORMAT_MAP[whitelistedType]}
         selected={newValue}
         disabled={disabled}
         required={required}
@@ -96,10 +106,6 @@ DateTimeInput.defaultProps = {
   required: false,
   type: TYPE_DATE,
   validationMessage: "This field is required",
-};
-
-DateTimeInput.propTypes = {
-  type: PropTypes.oneOf([TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME]),
 };
 
 export default withUtils(DateTimeInput);
