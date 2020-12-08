@@ -1,7 +1,8 @@
-import DatePicker from "react-datepicker";
-import React, { FunctionComponent, useEffect, useState } from "react";
+
 import withUtils from "@blaze-react/utils";
 import PropTypes from "prop-types";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
 import { TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
 
 interface IErrorMessage {

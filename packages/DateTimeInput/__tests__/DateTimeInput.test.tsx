@@ -1,9 +1,8 @@
-import { fireEvent, render } from "@testing-library/react";
 import { mount } from "enzyme";
 import "jest-dom/extend-expect";
 import React from "react";
 import DateTimeInput from "../src";
-import TYPE_DATE_TIME from "../src/constants";
+import { TYPE_DATE_TIME } from "../src/constants";
 
 const defaultProps = (override: object = {}) => ({
   error: true,

@@ -1,21 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateTimeInput component should be defined and renders correctly (snapshot) 1`] = `
-<withUtils(Input)
+<withUtils(DateTimeInput)
   error={true}
   onChange={[Function]}
-  placeholder="Placeholder text"
+  type="dateTime"
 >
-  <Input
+  <DateTimeInput
     disabled={false}
     error={true}
-    hideTypeToggle={false}
     label=""
     modifier=""
     onChange={[Function]}
-    placeholder="Placeholder text"
     required={false}
-    type="text"
+    type="dateTime"
     utils={
       Object {
         "ErrorMessage": [Function],
@@ -27,20 +25,132 @@ exports[`DateTimeInput component should be defined and renders correctly (snapsh
     validationMessage="This field is required"
   >
     <div
-      className="form-field form-field--input  "
+      className="form-field form-field--date-time-input "
     >
       <label
         className=""
       />
-      <input
-        data-testid="input"
+      <a
+        allowSameDay={false}
+        customTimeInput={null}
+        data-testid="date-time-input"
+        dateFormat="MM/dd/yyyy"
+        dateFormatCalendar="LLLL yyyy"
         disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        enableTabLoop={true}
+        excludeScrollbar={true}
+        focusSelectedMonth={false}
+        monthsShown={1}
+        nextMonthButtonLabel="Next Month"
+        nextYearButtonLabel="Next Year"
+        onBlur={[Function]}
+        onCalendarClose={[Function]}
+        onCalendarOpen={[Function]}
         onChange={[Function]}
-        placeholder="Placeholder text"
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        previousYearButtonLabel="Previous Year"
+        readOnly={false}
+        renderDayContents={[Function]}
         required={false}
-        type="text"
-        value=""
-      />
+        shouldCloseOnSelect={true}
+        showFullMonthYearPicker={false}
+        showMonthYearPicker={false}
+        showPopperArrow={true}
+        showPreviousMonths={false}
+        showQuarterYearPicker={false}
+        showTimeInput={false}
+        showTimeSelect={true}
+        showTimeSelectOnly={false}
+        showTwoColumnMonthYearPicker={false}
+        showYearPicker={false}
+        strictParsing={false}
+        timeCaption="Time"
+        timeInputLabel="Time"
+        timeIntervals={30}
+        todayButton="Today"
+        withPortal={false}
+        yearItemNumber={12}
+      >
+        <o
+          enableTabLoop={true}
+          hidePopper={true}
+          popperComponent={null}
+          popperModifiers={
+            Object {
+              "preventOverflow": Object {
+                "boundariesElement": "viewport",
+                "enabled": true,
+                "escapeWithReference": true,
+              },
+            }
+          }
+          popperOnKeyDown={[Function]}
+          popperPlacement="bottom-start"
+          popperProps={Object {}}
+          targetComponent={
+            <div
+              className="react-datepicker__input-container"
+            >
+              <input
+                className=""
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
+                required={false}
+                type="text"
+                value=""
+              />
+            </div>
+          }
+        >
+          <Manager
+            className="react-datepicker-manager"
+          >
+            <Reference>
+              <InnerReference
+                setReferenceNode={[Function]}
+              >
+                <div
+                  className="react-datepicker-wrapper"
+                >
+                  <div
+                    className="react-datepicker__input-container"
+                  >
+                    <input
+                      className=""
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      readOnly={false}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </InnerReference>
+            </Reference>
+          </Manager>
+        </o>
+      </a>
       <ErrorMessage
         icon="warning"
         message="This field is required"
@@ -58,6 +168,6 @@ exports[`DateTimeInput component should be defined and renders correctly (snapsh
         </div>
       </ErrorMessage>
     </div>
-  </Input>
-</withUtils(Input)>
+  </DateTimeInput>
+</withUtils(DateTimeInput)>
 `;
