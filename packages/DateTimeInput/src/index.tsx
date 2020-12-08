@@ -1,7 +1,7 @@
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
-import { TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME, DATE_FORMAT_MAP } from './constants';
+import { DATE_FORMAT_MAP, TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -85,8 +85,8 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         id={id}
         onChange={handleChange}
         todayButton="Today"
-        showTimeSelect={type === TYPE_DATE_TIME || type === TYPE_TIME}
-        showTimeSelectOnly={type === TYPE_TIME}
+        showTimeSelect={whitelistedType === TYPE_DATE_TIME || whitelistedType === TYPE_TIME}
+        showTimeSelectOnly={whitelistedType === TYPE_TIME}
         dateFormat={DATE_FORMAT_MAP[whitelistedType]}
         selected={newValue}
         disabled={disabled}
@@ -104,7 +104,7 @@ DateTimeInput.defaultProps = {
   label: "",
   modifier: "",
   required: false,
-  type: TYPE_DATE,
+  type: TYPE_DATE_TIME,
   validationMessage: "This field is required",
 };
 
