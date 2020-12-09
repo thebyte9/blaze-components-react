@@ -20,7 +20,7 @@ interface IDateTimeInputProps {
     event,
     value,
   }: {
-    event: React.ChangeEvent<HTMLInputElement>;
+    event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement, MouseEvent>;
     value: Date;
   }) => void;
   required?: boolean;
@@ -63,7 +63,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
     setNewValue(value)
   }, [value]);
 
-  const handleChange = (date: Date, event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (date: Date, event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     setNewValue(date);
     // FIXME the native event is not always returned by react-datepicker
     // See https://byte-9.atlassian.net/browse/BZ2-2130
@@ -88,14 +88,18 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         data-testid="date-time-input"
         id={id}
         onChange={handleChange}
-        todayButton="Today"
-        showTimeSelect={whitelistedType === TYPE_DATE_TIME || whitelistedType === TYPE_TIME}
+        showTimeInput={whitelistedType === TYPE_DATE_TIME}
         showTimeSelectOnly={whitelistedType === TYPE_TIME}
         dateFormat={DATE_FORMAT_MAP[whitelistedType]}
         selected={newValue}
         disabled={disabled}
         required={required}
-      />
+      >
+        {whitelistedType === TYPE_DATE_TIME && <div
+          className="react-datepicker__today-button"
+          onClick={e => handleChange(new Date(), e)}
+        >Today</div>}
+      </DatePicker>
 
       {newError && <ErrorMessage message={validationMessage} />}
     </div>
