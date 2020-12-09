@@ -49,6 +49,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
 }): JSX.Element => {
   const [newValue, setNewValue] = useState<Date | undefined>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
+  const [newOpen, setOpen] = useState<boolean>(false);
 
   let whitelistedType: string = type as string;
   if (type !== TYPE_TIME && type !== TYPE_DATE) {
@@ -65,6 +66,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
 
   const handleChange = (date: Date, event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     setNewValue(date);
+    setOpen(false);
     // FIXME the native event is not always returned by react-datepicker
     // See https://byte-9.atlassian.net/browse/BZ2-2130
     onChange({ event, value: date });
@@ -88,14 +90,18 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         data-testid="date-time-input"
         id={id}
         onChange={handleChange}
+        onFocus={() => setOpen(true)}
         showTimeInput={whitelistedType === TYPE_DATE_TIME}
+        showTimeSelect={whitelistedType === TYPE_TIME}
         showTimeSelectOnly={whitelistedType === TYPE_TIME}
         dateFormat={DATE_FORMAT_MAP[whitelistedType]}
+        open={newOpen}
+        isClearable={true}
         selected={newValue}
         disabled={disabled}
         required={required}
       >
-        {whitelistedType === TYPE_DATE_TIME && <div
+        {(whitelistedType === TYPE_DATE_TIME || whitelistedType === TYPE_DATE) && <div
           className="react-datepicker__today-button"
           onClick={e => handleChange(new Date(), e)}
         >Today</div>}
