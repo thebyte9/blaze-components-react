@@ -64,6 +64,8 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
 
   const handleChange = (date: Date, event: React.ChangeEvent<HTMLInputElement>): void => {
     setNewValue(date);
+    // FIXME the native event is not always returned by react-datepicker
+    // See https://byte-9.atlassian.net/browse/BZ2-2130
     onChange({ event, value: date });
   };
 
