@@ -3,7 +3,8 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { DATE_FORMAT_MAP, TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
 
-import "react-datepicker/dist/react-datepicker.css";
+// TODO We are not sure about whether this import will work in any context
+// import "react-datepicker/dist/react-datepicker.css";
 
 interface IErrorMessage {
   message: string | JSX.Element;

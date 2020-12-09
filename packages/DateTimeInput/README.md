@@ -1,6 +1,16 @@
 ## Description
 
-Datepicker tools.
+Datepicker tools that wraps [react-datepicker](https://www.npmjs.com/package/react-datepicker).
+
+
+## Note about importing
+
+This component requires its consumers to manually import the third-party library's CSS
+
+```typescript
+import "react-datepicker/dist/react-datepicker.css";
+```
+
 
 ## Usage
 

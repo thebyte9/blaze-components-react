@@ -3,6 +3,8 @@ import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense } from "react";
 import dateTimeInputReadme from "../README.md";
 
+import "react-datepicker/dist/react-datepicker.css";
+
 storiesOf("DateTime Input", module)
   .addParameters({
     readme: {
