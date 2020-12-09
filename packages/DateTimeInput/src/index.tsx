@@ -72,12 +72,13 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
 
   const requiredClassName: string = classNames({ required });
 
-  const modifierClassName: string = classNames({
+  const rootClasses: string = classNames('form-field form-field--date-time-input', {
     [`form-field--${modifier}`]: !!modifier,
   });
+
   return (
     <div
-      className={`form-field form-field--date-time-input ${modifierClassName}`}
+      className={rootClasses}
     >
       <label htmlFor={id} className={requiredClassName}>
         {label}
