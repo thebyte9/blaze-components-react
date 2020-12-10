@@ -95,8 +95,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         id={id}
         onChange={handleChange}
         onFocus={() => setOpen(true)}
-        showTimeInput={whitelistedType === TYPE_DATE_TIME}
-        showTimeSelect={whitelistedType === TYPE_TIME}
+        showTimeInput={[TYPE_TIME, TYPE_DATE_TIME].includes(whitelistedType)}
         showTimeSelectOnly={whitelistedType === TYPE_TIME}
         onClickOutside={() => setOpen(false)}
         dateFormat={DATE_FORMAT_MAP[whitelistedType]}

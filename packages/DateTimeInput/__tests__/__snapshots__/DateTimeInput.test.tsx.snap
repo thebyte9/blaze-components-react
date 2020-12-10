@@ -1,178 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTimeInput component should be defined and renders correctly type=dateTime (snapshot) 1`] = `
-<withUtils(DateTimeInput)
-  error={true}
-  onChange={[Function]}
-  type="dateTime"
->
-  <DateTimeInput
-    disabled={false}
-    error={true}
-    label=""
-    modifier=""
-    onChange={[Function]}
-    required={false}
-    type="dateTime"
-    utils={
-      Object {
-        "ErrorMessage": [Function],
-        "classNames": [Function],
-        "removeExtraSpaces": [Function],
-        "uniqueId": [Function],
-      }
-    }
-    validationMessage="This field is required"
-  >
-    <div
-      className="form-field form-field--date-time-input"
-    >
-      <label
-        className=""
-      />
-      <a
-        allowSameDay={false}
-        customTimeInput={null}
-        data-testid="date-time-input"
-        dateFormat="MMMM d, yyyy h:mm aa"
-        dateFormatCalendar="LLLL yyyy"
-        disabled={false}
-        disabledKeyboardNavigation={false}
-        dropdownMode="scroll"
-        enableTabLoop={true}
-        excludeScrollbar={true}
-        focusSelectedMonth={false}
-        isClearable={true}
-        monthsShown={1}
-        nextMonthButtonLabel="Next Month"
-        nextYearButtonLabel="Next Year"
-        onBlur={[Function]}
-        onCalendarClose={[Function]}
-        onCalendarOpen={[Function]}
-        onChange={[Function]}
-        onClickOutside={[Function]}
-        onFocus={[Function]}
-        onInputClick={[Function]}
-        onInputError={[Function]}
-        onKeyDown={[Function]}
-        onMonthChange={[Function]}
-        onSelect={[Function]}
-        onYearChange={[Function]}
-        open={false}
-        preventOpenOnFocus={false}
-        previousMonthButtonLabel="Previous Month"
-        previousYearButtonLabel="Previous Year"
-        readOnly={false}
-        renderDayContents={[Function]}
-        required={false}
-        shouldCloseOnSelect={true}
-        showFullMonthYearPicker={false}
-        showMonthYearPicker={false}
-        showPopperArrow={true}
-        showPreviousMonths={false}
-        showQuarterYearPicker={false}
-        showTimeInput={true}
-        showTimeSelect={false}
-        showTimeSelectOnly={false}
-        showTwoColumnMonthYearPicker={false}
-        showYearPicker={false}
-        strictParsing={false}
-        timeCaption="Time"
-        timeInputLabel="Time"
-        timeIntervals={30}
-        withPortal={false}
-        yearItemNumber={12}
-      >
-        <o
-          enableTabLoop={true}
-          hidePopper={true}
-          popperComponent={null}
-          popperModifiers={
-            Object {
-              "preventOverflow": Object {
-                "boundariesElement": "viewport",
-                "enabled": true,
-                "escapeWithReference": true,
-              },
-            }
-          }
-          popperOnKeyDown={[Function]}
-          popperPlacement="bottom-start"
-          popperProps={Object {}}
-          targetComponent={
-            <div
-              className="react-datepicker__input-container"
-            >
-              <input
-                className=""
-                disabled={false}
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                readOnly={false}
-                required={false}
-                type="text"
-                value=""
-              />
-            </div>
-          }
-        >
-          <Manager
-            className="react-datepicker-manager"
-          >
-            <Reference>
-              <InnerReference
-                setReferenceNode={[Function]}
-              >
-                <div
-                  className="react-datepicker-wrapper"
-                >
-                  <div
-                    className="react-datepicker__input-container"
-                  >
-                    <input
-                      className=""
-                      disabled={false}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      readOnly={false}
-                      required={false}
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </InnerReference>
-            </Reference>
-          </Manager>
-        </o>
-      </a>
-      <ErrorMessage
-        icon="warning"
-        message="This field is required"
-      >
-        <div
-          className="validation"
-          data-testid="validation-message"
-        >
-          <i
-            className="material-icons"
-          >
-            warning
-          </i>
-          This field is required
-        </div>
-      </ErrorMessage>
-    </div>
-  </DateTimeInput>
-</withUtils(DateTimeInput)>
-`;
-
 exports[`DateTimeInput component should be defined and renders correctly type=date (snapshot) 1`] = `
 <withUtils(DateTimeInput)
   error={true}
@@ -346,11 +173,11 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
 </withUtils(DateTimeInput)>
 `;
 
-exports[`DateTimeInput component should be defined and renders correctly type=time (snapshot) 1`] = `
+exports[`DateTimeInput component should be defined and renders correctly type=dateTime (snapshot) 1`] = `
 <withUtils(DateTimeInput)
   error={true}
   onChange={[Function]}
-  type="time"
+  type="dateTime"
 >
   <DateTimeInput
     disabled={false}
@@ -359,7 +186,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
     modifier=""
     onChange={[Function]}
     required={false}
-    type="time"
+    type="dateTime"
     utils={
       Object {
         "ErrorMessage": [Function],
@@ -380,7 +207,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
-        dateFormat="h:mm aa"
+        dateFormat="MMMM d, yyyy hh:mm"
         dateFormatCalendar="LLLL yyyy"
         disabled={false}
         disabledKeyboardNavigation={false}
@@ -417,8 +244,181 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
         showPopperArrow={true}
         showPreviousMonths={false}
         showQuarterYearPicker={false}
-        showTimeInput={false}
-        showTimeSelect={true}
+        showTimeInput={true}
+        showTimeSelect={false}
+        showTimeSelectOnly={false}
+        showTwoColumnMonthYearPicker={false}
+        showYearPicker={false}
+        strictParsing={false}
+        timeCaption="Time"
+        timeInputLabel="Time"
+        timeIntervals={30}
+        withPortal={false}
+        yearItemNumber={12}
+      >
+        <o
+          enableTabLoop={true}
+          hidePopper={true}
+          popperComponent={null}
+          popperModifiers={
+            Object {
+              "preventOverflow": Object {
+                "boundariesElement": "viewport",
+                "enabled": true,
+                "escapeWithReference": true,
+              },
+            }
+          }
+          popperOnKeyDown={[Function]}
+          popperPlacement="bottom-start"
+          popperProps={Object {}}
+          targetComponent={
+            <div
+              className="react-datepicker__input-container"
+            >
+              <input
+                className=""
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
+                required={false}
+                type="text"
+                value=""
+              />
+            </div>
+          }
+        >
+          <Manager
+            className="react-datepicker-manager"
+          >
+            <Reference>
+              <InnerReference
+                setReferenceNode={[Function]}
+              >
+                <div
+                  className="react-datepicker-wrapper"
+                >
+                  <div
+                    className="react-datepicker__input-container"
+                  >
+                    <input
+                      className=""
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      readOnly={false}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </InnerReference>
+            </Reference>
+          </Manager>
+        </o>
+      </a>
+      <ErrorMessage
+        icon="warning"
+        message="This field is required"
+      >
+        <div
+          className="validation"
+          data-testid="validation-message"
+        >
+          <i
+            className="material-icons"
+          >
+            warning
+          </i>
+          This field is required
+        </div>
+      </ErrorMessage>
+    </div>
+  </DateTimeInput>
+</withUtils(DateTimeInput)>
+`;
+
+exports[`DateTimeInput component should be defined and renders correctly type=time (snapshot) 1`] = `
+<withUtils(DateTimeInput)
+  error={true}
+  onChange={[Function]}
+  type="time"
+>
+  <DateTimeInput
+    disabled={false}
+    error={true}
+    label=""
+    modifier=""
+    onChange={[Function]}
+    required={false}
+    type="time"
+    utils={
+      Object {
+        "ErrorMessage": [Function],
+        "classNames": [Function],
+        "removeExtraSpaces": [Function],
+        "uniqueId": [Function],
+      }
+    }
+    validationMessage="This field is required"
+  >
+    <div
+      className="form-field form-field--date-time-input"
+    >
+      <label
+        className=""
+      />
+      <a
+        allowSameDay={false}
+        customTimeInput={null}
+        data-testid="date-time-input"
+        dateFormat="hh:mm"
+        dateFormatCalendar="LLLL yyyy"
+        disabled={false}
+        disabledKeyboardNavigation={false}
+        dropdownMode="scroll"
+        enableTabLoop={true}
+        excludeScrollbar={true}
+        focusSelectedMonth={false}
+        isClearable={true}
+        monthsShown={1}
+        nextMonthButtonLabel="Next Month"
+        nextYearButtonLabel="Next Year"
+        onBlur={[Function]}
+        onCalendarClose={[Function]}
+        onCalendarOpen={[Function]}
+        onChange={[Function]}
+        onClickOutside={[Function]}
+        onFocus={[Function]}
+        onInputClick={[Function]}
+        onInputError={[Function]}
+        onKeyDown={[Function]}
+        onMonthChange={[Function]}
+        onSelect={[Function]}
+        onYearChange={[Function]}
+        open={false}
+        preventOpenOnFocus={false}
+        previousMonthButtonLabel="Previous Month"
+        previousYearButtonLabel="Previous Year"
+        readOnly={false}
+        renderDayContents={[Function]}
+        required={false}
+        shouldCloseOnSelect={true}
+        showFullMonthYearPicker={false}
+        showMonthYearPicker={false}
+        showPopperArrow={true}
+        showPreviousMonths={false}
+        showQuarterYearPicker={false}
+        showTimeInput={true}
+        showTimeSelect={false}
         showTimeSelectOnly={true}
         showTwoColumnMonthYearPicker={false}
         showYearPicker={false}
@@ -552,7 +552,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
-        dateFormat="MMMM d, yyyy h:mm aa"
+        dateFormat="MMMM d, yyyy hh:mm"
         dateFormatCalendar="LLLL yyyy"
         disabled={false}
         disabledKeyboardNavigation={false}
