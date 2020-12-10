@@ -45,7 +45,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   type,
   validationMessage,
   value,
-  utils: { classNames, ErrorMessage },
+  utils: { classNames, ErrorMessage }
 }): JSX.Element => {
   const [newValue, setNewValue] = useState<Date | undefined>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
@@ -66,14 +66,20 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
 
   const handleChange = (
     date: Date,
-    event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement, MouseEvent>,
+    event: any,
     forceClose: boolean = false
   ): void => {
     setNewValue(date);
     setOpen(!forceClose);
+
+    // make event consistent
+    const { target = {} } = event || {};
+    target.name = id;
+    target.value = date;
+
     // FIXME the native event is not always returned by react-datepicker
     // See https://byte-9.atlassian.net/browse/BZ2-2130
-    onChange({ event, value: date });
+    onChange({ event: { ...event, target }, value: date });
   };
 
   const requiredClassName: string = classNames({ required });
@@ -93,17 +99,24 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
       <DatePicker
         data-testid="date-time-input"
         id={id}
+        name={id}
         onChange={handleChange}
         onFocus={() => setOpen(true)}
         showTimeInput={[TYPE_TIME, TYPE_DATE_TIME].includes(whitelistedType)}
         showTimeSelectOnly={whitelistedType === TYPE_TIME}
         onClickOutside={() => setOpen(false)}
+        popperModifiers={{
+          flip: {
+            enabled: false
+          }
+        }}
         dateFormat={DATE_FORMAT_MAP[whitelistedType]}
         open={newOpen}
         isClearable={true}
         selected={newValue}
         disabled={disabled}
         required={required}
+
       >
         {(whitelistedType === TYPE_DATE_TIME || whitelistedType === TYPE_DATE) && <div
           className="react-datepicker__today-button"
@@ -111,8 +124,8 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         >Today</div>}
       </DatePicker>
 
-      {newError && <ErrorMessage message={validationMessage} />}
-    </div>
+      { newError && <ErrorMessage message={validationMessage} />}
+    </div >
   );
 };
 
@@ -123,7 +136,7 @@ DateTimeInput.defaultProps = {
   modifier: "",
   required: false,
   type: TYPE_DATE_TIME,
-  validationMessage: "This field is required",
+  validationMessage: "This field is required"
 };
 
 export default withUtils(DateTimeInput);
