@@ -78,3 +78,10 @@ import "react-datepicker/dist/react-datepicker.css";
 | required          |           Boolean             |         false          |
 | error             |           Boolean             |         false          |
 | onChange          |           Function            |        () => {}        |
+
+
+## onChange events
+
+The raw onChange events are inconsistent from the underlying component and when using the today button so the component makes sure to set the the following props on an `event.target`
+- name: uses the component id prop
+- value: the date from the event
