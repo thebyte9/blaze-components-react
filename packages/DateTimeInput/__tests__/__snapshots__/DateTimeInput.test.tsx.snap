@@ -59,6 +59,13 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
         onSelect={[Function]}
         onYearChange={[Function]}
         open={false}
+        popperModifiers={
+          Object {
+            "flip": Object {
+              "enabled": false,
+            },
+          }
+        }
         preventOpenOnFocus={false}
         previousMonthButtonLabel="Previous Month"
         previousYearButtonLabel="Previous Year"
@@ -89,10 +96,8 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
           popperComponent={null}
           popperModifiers={
             Object {
-              "preventOverflow": Object {
-                "boundariesElement": "viewport",
-                "enabled": true,
-                "escapeWithReference": true,
+              "flip": Object {
+                "enabled": false,
               },
             }
           }
@@ -207,7 +212,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
-        dateFormat="MMMM d, yyyy hh:mm"
+        dateFormat="MMMM d, yyyy HH:mm"
         dateFormatCalendar="LLLL yyyy"
         disabled={false}
         disabledKeyboardNavigation={false}
@@ -232,6 +237,13 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
         onSelect={[Function]}
         onYearChange={[Function]}
         open={false}
+        popperModifiers={
+          Object {
+            "flip": Object {
+              "enabled": false,
+            },
+          }
+        }
         preventOpenOnFocus={false}
         previousMonthButtonLabel="Previous Month"
         previousYearButtonLabel="Previous Year"
@@ -262,10 +274,8 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
           popperComponent={null}
           popperModifiers={
             Object {
-              "preventOverflow": Object {
-                "boundariesElement": "viewport",
-                "enabled": true,
-                "escapeWithReference": true,
+              "flip": Object {
+                "enabled": false,
               },
             }
           }
@@ -380,7 +390,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
-        dateFormat="hh:mm"
+        dateFormat="HH:mm"
         dateFormatCalendar="LLLL yyyy"
         disabled={false}
         disabledKeyboardNavigation={false}
@@ -405,6 +415,13 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
         onSelect={[Function]}
         onYearChange={[Function]}
         open={false}
+        popperModifiers={
+          Object {
+            "flip": Object {
+              "enabled": false,
+            },
+          }
+        }
         preventOpenOnFocus={false}
         previousMonthButtonLabel="Previous Month"
         previousYearButtonLabel="Previous Year"
@@ -435,10 +452,8 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
           popperComponent={null}
           popperModifiers={
             Object {
-              "preventOverflow": Object {
-                "boundariesElement": "viewport",
-                "enabled": true,
-                "escapeWithReference": true,
+              "flip": Object {
+                "enabled": false,
               },
             }
           }
@@ -552,7 +567,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
-        dateFormat="MMMM d, yyyy hh:mm"
+        dateFormat="MMMM d, yyyy HH:mm"
         dateFormatCalendar="LLLL yyyy"
         disabled={false}
         disabledKeyboardNavigation={false}
@@ -577,6 +592,13 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
         onSelect={[Function]}
         onYearChange={[Function]}
         open={false}
+        popperModifiers={
+          Object {
+            "flip": Object {
+              "enabled": false,
+            },
+          }
+        }
         preventOpenOnFocus={false}
         previousMonthButtonLabel="Previous Month"
         previousYearButtonLabel="Previous Year"
@@ -607,10 +629,8 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
           popperComponent={null}
           popperModifiers={
             Object {
-              "preventOverflow": Object {
-                "boundariesElement": "viewport",
-                "enabled": true,
-                "escapeWithReference": true,
+              "flip": Object {
+                "enabled": false,
               },
             }
           }
