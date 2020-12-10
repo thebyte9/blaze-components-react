@@ -64,9 +64,13 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
     setNewValue(value)
   }, [value]);
 
-  const handleChange = (date: Date, event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+  const handleChange = (
+    date: Date,
+    event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement, MouseEvent>,
+    forceClose: boolean = false
+  ): void => {
     setNewValue(date);
-    setOpen(false);
+    setOpen(!forceClose);
     // FIXME the native event is not always returned by react-datepicker
     // See https://byte-9.atlassian.net/browse/BZ2-2130
     onChange({ event, value: date });
@@ -103,7 +107,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
       >
         {(whitelistedType === TYPE_DATE_TIME || whitelistedType === TYPE_DATE) && <div
           className="react-datepicker__today-button"
-          onClick={e => handleChange(new Date(), e)}
+          onClick={e => handleChange(new Date(), e, true)}
         >Today</div>}
       </DatePicker>
 
