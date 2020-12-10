@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/autocomplete",
-  "version": "0.5.26",
+  "version": "0.5.31",
   "publishConfig": {
     "access": "public"
   },
@@ -18,14 +18,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/checkboxes": "^0.5.19",
-    "@blaze-react/input": "^0.5.26",
-    "@blaze-react/utils": "^0.5.19"
+    "@blaze-react/checkboxes": "^0.5.31",
+    "@blaze-react/input": "^0.5.30",
+    "@blaze-react/utils": "^0.5.28"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.5.17",
+    "@blaze-react/blaze-components-theme": "^0.5.28",
     "@types/uuid": "^3.4.4"
   },
   "peerDependencies": {
