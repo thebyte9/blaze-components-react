@@ -3,11 +3,22 @@ import { AtomicBlockUtils, RichUtils } from "draft-js";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
+import {
+  generateToolbar,
+  getCurrentBlockTypeLabel,
+  getInlineToolbarLeftPosition,
+  getInlineToolbarTopPosition,
+  ACTION_TYPE,
+  ENTITY,
+  generateActions,
+} from "./inline-toolbar-utils";
+
 const InlineToolbar = ({
   editorState,
   setEditorState,
   selectionRect,
   showAddLinkModal,
+  onChange = () => {},
 }) => {
   const [isAlignmentDropdownOpen, setAlignmentDropdownOpen] = useState(false);
   const [isFormatDropdownOpen, setFormatDropdownOpen] = useState(false);
@@ -19,86 +30,16 @@ const InlineToolbar = ({
   const format = isFormatDropdownOpen ? openClassName : closedClassName;
   const more = isMoreDropdownOpen ? openClassName : closedClassName;
 
+  // const { rect } = useReadFromCache({ query: GET_EDITOR_VIEW_RECT });
   const rect = { x: 0 };
 
-  const ACTION_TYPE = {
-    INLINE: "inline",
-    BLOCK: "block",
-    ATOMIC: "atomic",
-    MODAL: "modal",
-  };
+  const actions = generateActions(
+    alignment,
+    isAlignmentDropdownOpen,
+    setAlignmentDropdownOpen
+  );
 
-  const INLINE_ACTIONS = [
-    {
-      label: "Bold",
-      style: "BOLD",
-      icon: "fas fa-bold",
-      type: ACTION_TYPE.INLINE,
-    },
-    {
-      label: "Italic",
-      style: "ITALIC",
-      icon: "fas fa-italic",
-      type: ACTION_TYPE.INLINE,
-    },
-    { label: "Link", icon: "fas fa-link", type: ACTION_TYPE.MODAL },
-    {
-      label: "Blockquote",
-      style: "blockquote",
-      icon: "fas fa-quote-right",
-      type: ACTION_TYPE.BLOCK,
-    },
-    {
-      label: "Unordered list",
-      style: "unordered-list-item",
-      icon: "fas fa-list-ul",
-      type: ACTION_TYPE.BLOCK,
-    },
-    {
-      label: "Ordered list",
-      style: "ordered-list-item",
-      icon: "fas fa-list-ol",
-      type: ACTION_TYPE.BLOCK,
-    },
-    {
-      label: "Align left",
-      icon: "fas fa-align-left",
-      style: "left",
-      cssClass: alignment,
-      stateVariable: isAlignmentDropdownOpen,
-      stateFn: setAlignmentDropdownOpen,
-      type: ACTION_TYPE.BLOCK,
-
-      actions: [
-        {
-          label: "Align center",
-          style: "center",
-          icon: "fas fa-align-center",
-          type: ACTION_TYPE.BLOCK,
-        },
-        {
-          label: "Align right",
-          style: "right",
-          icon: "fas fa-align-right",
-          type: ACTION_TYPE.BLOCK,
-        },
-      ],
-    },
-  ];
-
-  const ENTITY = {
-    HORIZONTAL_RULE: {
-      type: "HORIZONTAL_RULE",
-      mutability: "IMMUTABLE",
-      data: {},
-    },
-  };
-
-  const handleAction = ({ event, action }) => {
-    if (!action) {
-      return;
-    }
-
+  const handleAction = ({ action }) => {
     if (action.type === ACTION_TYPE.MODAL) {
       showAddLinkModal(true);
     } else {
@@ -128,106 +69,30 @@ const InlineToolbar = ({
     if (action.type === ACTION_TYPE.INLINE) {
       const newState = RichUtils.toggleInlineStyle(editorState, action.style);
       setEditorState(newState);
+      onChange(newState);
     }
 
     if (action.type === ACTION_TYPE.BLOCK) {
       const newState = RichUtils.toggleBlockType(editorState, action.style);
       setEditorState(newState);
+      onChange(newState);
     }
-  };
-
-  const generateToolbarActions = (root) =>
-    root.actions.map((action) => (
-      <div
-        className="editor-view__inlinetoolbar--submenu__actions--item"
-        role="button"
-        alt={action.label}
-        aria-label={action.label}
-        onMouseDown={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          handleAction({ e, action });
-        }}
-      >
-        <i className={action.icon} />
-      </div>
-    ));
-
-  const generateToolbar = () =>
-    INLINE_ACTIONS.map((action) => {
-      if (action.actions) {
-        return (
-          <div
-            className={action.cssClass}
-            onMouseDown={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              action.stateFn(!action.stateVariable);
-            }}
-            role="button"
-          >
-            <div className="editor-view__inlinetoolbar--more">
-              <span>
-                <i className={action.icon} />
-              </span>
-            </div>
-            {action.stateVariable && (
-              <div className="editor-view__inlinetoolbar--submenu__actions">
-                {generateToolbarActions(action)}
-              </div>
-            )}
-          </div>
-        );
-      }
-
-      return (
-        <div
-          className="editor-view__inlinetoolbar--item"
-          role="button"
-          alt={action.label}
-          aria-label={action.label}
-          onMouseDown={(e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            handleAction({ action });
-          }}
-        >
-          <i className={action.icon} />
-        </div>
-      );
-    });
-
-  const getLeftPosition = () => {
-    const toolbarSize = 500;
-
-    const { right, left } = selectionRect;
-
-    if (left === rect.x) {
-      return left - 30;
-    }
-
-    if (left <= rect.x) {
-      return rect.x;
-    }
-
-    if (right - toolbarSize <= rect.x) {
-      return rect.x - 30;
-    }
-
-    return right - toolbarSize;
   };
 
   return (
     <div
       className="editor-view__inlinetoolbar"
       style={{
-        position: "absolute",
-        top: selectionRect.top + 20,
-        left: getLeftPosition(),
+        position: "sticky",
+        display: "inline-block",
+        top: getInlineToolbarTopPosition(selectionRect),
+        left: getInlineToolbarLeftPosition(rect, selectionRect),
       }}
     >
       <div className="editor-view__inlinetoolbar--items">
-        <div className="row">{generateToolbar()}</div>
+        <div className="row">
+          {generateToolbar(actions, editorState, handleAction)}
+        </div>
         <div
           className={format}
           onMouseDown={(e) => {
@@ -237,7 +102,7 @@ const InlineToolbar = ({
           }}
           role="button"
         >
-          <span>Paragraph</span>
+          <span>{getCurrentBlockTypeLabel(editorState)}</span>
           {isFormatDropdownOpen && (
             <div className="editor-view__inlinetoolbar--submenu">
               <div
@@ -422,6 +287,7 @@ InlineToolbar.propTypes = {
   selectionRect: PropTypes.object.isRequired,
   setEditorState: PropTypes.func.isRequired,
   showAddLinkModal: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default InlineToolbar;
