@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/dnd",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "publishConfig": {
     "access": "public"
   },
@@ -25,7 +25,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@blaze-react/blaze-components-theme": "^0.6.0",
+    "@blaze-react/blaze-components-theme": "^0.6.2",
     "@types/uuid": "^3.4.4"
   },
   "peerDependencies": {
