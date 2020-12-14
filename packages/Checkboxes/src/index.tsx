@@ -10,7 +10,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   error,
   validationMessage,
   name,
-  utils: { ErrorMessage },
+  utils: { ErrorMessage, uniqueId },
   full,
   ...attrs
 }): JSX.Element => {
@@ -74,7 +74,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
           show ? (
             <Checkbox
               full={full}
-              key={id}
+              key={id || uniqueId(name)}
               onChange={onChange}
               checked={checked}
               disabled={disabled}

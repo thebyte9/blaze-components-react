@@ -39,6 +39,8 @@
     "html-to-draftjs": "^1.4.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.orderby": "^4.6.0",
+    "monaco-editor": "^0.21.2",
+    "monaco-editor-webpack-plugin": "^2.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"

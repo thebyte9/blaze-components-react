@@ -38,7 +38,7 @@ const Modal: React.SFC<IModalProps> = ({
   utils: { classNames },
   className,
   showFooter,
-  onClose = () => ({})
+  onClose = () => ({}),
 }): JSX.Element => {
   const sections: string[] = ["header", "content", "footer"];
 
@@ -54,30 +54,35 @@ const Modal: React.SFC<IModalProps> = ({
     keyCode === ESCAPE_KEY_CODE && closeModal();
 
   const closeModal = (): void => onClose();
+  const handleOverlay = (): void => {
+    if (overlay) {
+      closeModal();
+    }
+  };
 
   const modalClassNames: string = classNames(`${className} modal modal--show`, {
     "modal--alert": isAlert,
     "modal--full-screen": isFullScreen,
     "modal--simple": isSimple,
-    "modal--upload": isUpload
+    "modal--upload": isUpload,
   });
 
   const [
     modalHeaderClassNames,
     modalContentClassNames,
-    modalFooterClassNames
+    modalFooterClassNames,
   ]: string[] = sections.map((alertType: string): string =>
     classNames(`modal__${alertType}`, {
       [`modal__${alertType}--alert`]: isAlert,
       [`modal__${alertType}--simple`]: isSimple,
       [`modal__${alertType}--upload`]: isUpload,
-      [`modal__${alertType}--full-screen`]: isUpload
+      [`modal__${alertType}--full-screen`]: isUpload,
     })
   );
 
   return (
     <>
-      {overlay && <div className="overlay" onClick={closeModal} />}
+      <div className="overlay" onClick={handleOverlay} />
       <div className={modalClassNames}>
         <div className={modalHeaderClassNames}>
           {!isAlert && <ModalHeader title={title} closeModal={closeModal} />}
@@ -107,6 +112,6 @@ Modal.defaultProps = {
   isUpload: false,
   overlay: true,
   showFooter: true,
-  title: ""
+  title: "",
 };
 export default withUtils(Modal);

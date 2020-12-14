@@ -17,6 +17,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     "\\.(css|less|sass|scss)$": "<rootDir>/packages/__mocks__/styles.mock.js",
+    "monaco-editor": "<rootDir>/node_modules/react-monaco-editor"
   },
   setupFiles: ["./.typescript/setupTests.js"],
   snapshotSerializers: ["enzyme-to-json/serializer"],

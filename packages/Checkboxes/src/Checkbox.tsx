@@ -17,15 +17,6 @@ const Checkbox = ({
   ...attrs
 }: any) => {
   const [isChecked, setIsChecked] = useState(checked);
-  const defaultId = uniqueId(name);
-
-  const checkboxClassName = classNames("form-field form-field--checkbox", {
-    required,
-  });
-
-  const labelClassName = classNames({
-    "form-field--checkbox-full": full,
-  });
 
   const handleCheckboxChange = (
     event: React.MouseEvent<HTMLDivElement>
@@ -46,8 +37,20 @@ const Checkbox = ({
     setIsChecked(!isChecked);
   };
 
+  const checkboxClassName = classNames("form-field form-field--checkbox", {
+    required,
+  });
+
+  const labelClassName = classNames({
+    "form-field--checkbox-full": full,
+  });
+
+  const defaultId = id || uniqueId(name || value);
+  const inputId = `${defaultId}-checkbox`;
+  const wrapperId = `${defaultId}-wrapper`;
+
   return (
-    <div key={id} className={checkboxClassName} role="button" id={defaultId}>
+    <div key={wrapperId} className={checkboxClassName} role="button">
       <input
         data-testid={attrs.testId}
         readOnly
@@ -57,13 +60,13 @@ const Checkbox = ({
         disabled={disabled}
         checked={checked}
         required={required}
-        id={id || defaultId}
+        id={inputId}
         name={name}
         onClick={handleCheckboxChange}
         data-cy={attrs["data-cy"]}
       />
       <div onClick={handleCheckboxChange} className={labelClassName}>
-        <Label defaultId={defaultId} label={label} />
+        <Label defaultId={inputId} label={label} />
       </div>
     </div>
   );
