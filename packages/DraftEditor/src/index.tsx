@@ -358,7 +358,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       <div
         className="custom-DraftEditor-root editor-view__textblock--editor"
         ref={handleSetRect}
-        onClick={focusEditor}
+        onClick={(e: any) => {
+          e.stopPropagation();
+          focusEditor;
+        }}
       >
         <CustomDraftPlugins
           editorState={editorState}
