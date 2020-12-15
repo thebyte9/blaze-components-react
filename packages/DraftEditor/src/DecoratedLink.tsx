@@ -15,7 +15,7 @@ const DecoratedLink = (props) => {
 };
 
 DecoratedLink.propTypes = {
-  entityKey: PropTypes.object.isRequired,
+  entityKey: PropTypes.string.isRequired,
   contentState: PropTypes.object.isRequired,
   editLinkFn: PropTypes.func.isRequired,
   children: PropTypes.array,

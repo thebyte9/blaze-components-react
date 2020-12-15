@@ -33,6 +33,10 @@ import {
   IMMUTABLE,
   NOT_HANDLED,
   UNSTYLED,
+  LINK,
+  MUTABLE,
+  ADD_LINK,
+  CODE,
 } from "./constants";
 import DecoratedLink from "./DecoratedLink";
 import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
@@ -61,9 +65,9 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const [inlineToolbar, showInlineToolbar] = useState(false);
   const [addLinkModal, showAddLinkModal] = useState(false);
   const [linkContentState, setLinkContentState] = useState(null);
+  const [rect, setRect] = useState(null);
 
   const inputEl = useRef<any>(null);
-  const globalRef = useRef<any>(null);
 
   const handleOnEditLink = (_contentState, entityKey, children) => {
     setLinkContentState({
@@ -99,6 +103,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
     return EditorState.createEmpty(linkDecorator);
   });
+
+  const handleOnChange = (state) => {
+    save(state);
+  };
 
   const focusEditor = React.useCallback(() => {
     if (inputEl.current) {
@@ -143,6 +151,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     }
 
     setEditorState(state);
+    showInlineToolbar(true);
   };
 
   const onEditorChange = (newEditorState: EditorState): void => {
@@ -206,12 +215,12 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return draftNotHandledValue;
   };
 
-  const handleOnAddLink = (url, linkState) => {
+  const handleAddLink = (url, linkState) => {
     if (url === "") {
       if (linkState) {
-        const newEditorState = removeEntity();
+        const newEditorState = removeEntity(editorState);
         setEditorState(newEditorState);
-        save(newEditorState, "add-link");
+        save(newEditorState, ADD_LINK);
       } else {
         const selection = editorState.getSelection();
         if (!selection.isCollapsed()) {
@@ -221,7 +230,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
             null
           );
           setEditorState(newEditorState);
-          save(newEditorState, "add-link");
+          save(newEditorState, ADD_LINK);
         }
       }
     } else {
@@ -235,11 +244,12 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         const newEditorState = EditorState.set(editorState, {
           currentContent: contentStateWithLink,
         });
-        save(newEditorState, "add-link");
+
+        save(newEditorState, ADD_LINK);
       } else {
         const contentStateWithEntity = contentState.createEntity(
-          "LINK",
-          "MUTABLE",
+          LINK,
+          MUTABLE,
           {
             url,
           }
@@ -256,7 +266,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
         const newEditorState = EditorState.set(editorState, {
           currentContent: contentStateWithLink,
         });
-        save(newEditorState, "add-link");
+
+        save(newEditorState, ADD_LINK);
       }
     }
 
@@ -264,7 +275,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   const insertBlock = () => {
-    const contentStateWithEntity = contentState.createEntity("CODE", "MUTABLE");
+    const contentStateWithEntity = contentState.createEntity(CODE, MUTABLE);
 
     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
     const newEditorState = EditorState.set(editorState, {
@@ -337,30 +348,28 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return currentContentBlock.getText().slice(start, end);
   };
 
-  return (
-    <div className="custom-DraftEditor-root" ref={globalRef}>
-      <CustomDraftPlugins
-        editorState={editorState}
-        selectedImages={selectedImages}
-        handleLibraryClick={handleLibraryClick}
-        unSelectedText={unSelectedText}
-        onEditorChange={onEditorChange}
-        toggleDraftEditor={insertBlock}
-        showImagePlugin={showImagePlugin}
-        showEmbedPlugin={showEmbedPlugin}
-        addHorizontalRule={addHorizontalRule}
-      />
+  const handleSetRect = (el) => {
+    if (!el || !!rect) return;
+    setRect(el.getBoundingClientRect());
+  };
 
-      <div className={editorClassName} onWheel={() => showInlineToolbar(false)}>
-        <Editor
-          ref={inputEl}
-          handleKeyCommand={handleKeyCommand}
-          blockStyleFn={getBlockStyle}
+  return (
+    <>
+      <div
+        className="custom-DraftEditor-root editor-view__textblock--editor"
+        ref={handleSetRect}
+        onClick={focusEditor}
+      >
+        <CustomDraftPlugins
           editorState={editorState}
-          onChange={onEditorChange}
-          blockRendererFn={blockRenderer}
-          handleReturn={handleReturn}
-          {...attrs}
+          selectedImages={selectedImages}
+          handleLibraryClick={handleLibraryClick}
+          unSelectedText={unSelectedText}
+          onEditorChange={onEditorChange}
+          toggleDraftEditor={insertBlock}
+          showImagePlugin={showImagePlugin}
+          showEmbedPlugin={showEmbedPlugin}
+          addHorizontalRule={addHorizontalRule}
         />
         {inlineToolbar && getSelectedText() !== "" && (
           <InlineToolbar
@@ -368,19 +377,37 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
             setEditorState={setEditorState}
             selectionRect={selectionRect}
             showAddLinkModal={showAddLinkModal}
+            onChange={(state) => handleOnChange(state)}
+            rect={rect}
           />
         )}
-        {addLinkModal && (
-          <EditorViewLinkModal
+
+        <div
+          className={editorClassName}
+          onWheel={() => showInlineToolbar(false)}
+        >
+          <Editor
+            ref={inputEl}
+            handleKeyCommand={handleKeyCommand}
+            blockStyleFn={getBlockStyle}
             editorState={editorState}
-            onClose={() => showAddLinkModal(false)}
-            onSave={handleOnAddLink}
-            linkContentState={linkContentState}
+            onChange={onEditorChange}
+            blockRendererFn={blockRenderer}
+            handleReturn={handleReturn}
+            {...attrs}
           />
-        )}
+        </div>
       </div>
+      {addLinkModal && (
+        <EditorViewLinkModal
+          editorState={editorState}
+          onClose={() => showAddLinkModal(false)}
+          onSave={(url, linkState) => handleAddLink(url, linkState)}
+          linkContentState={linkContentState}
+        />
+      )}
       {error && <ErrorMessage message={validationMessage} />}
-    </div>
+    </>
   );
 };
 

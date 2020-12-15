@@ -15,7 +15,6 @@ const MARGINS = ["marginTop", "marginLeft", "marginRight", "marginBottom"];
 const BACKSPACE_COMMAND = "backspace";
 const HORIZONTAL_RULE = "HORIZONTAL_RULE";
 const HR = "HR";
-const CAMERA_CHAR_CODE = "d83d";
 const P_TAG = "p";
 const BR_TAG = "br";
 const ANCHOR_TAG = "a";
@@ -26,6 +25,9 @@ const CODE_BLOCK = "code-block";
 const SUBMIT = "submit";
 const HR_TAG = "<hr />";
 const TARGET_BLANK = "_blank";
+const ADD_LINK = "add-link";
+const MUTABLE = "MUTABLE";
+const CODE = "CODE";
 
 export {
   LINK,
@@ -45,7 +47,6 @@ export {
   BACKSPACE_COMMAND,
   HORIZONTAL_RULE,
   HR,
-  CAMERA_CHAR_CODE,
   P_TAG,
   BR_TAG,
   ANCHOR_TAG,
@@ -56,4 +57,7 @@ export {
   SUBMIT,
   HR_TAG,
   TARGET_BLANK,
+  ADD_LINK,
+  MUTABLE,
+  CODE,
 };

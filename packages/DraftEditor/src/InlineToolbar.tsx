@@ -18,7 +18,8 @@ const InlineToolbar = ({
   setEditorState,
   selectionRect,
   showAddLinkModal,
-  onChange = () => {},
+  onChange,
+  rect,
 }) => {
   const [isAlignmentDropdownOpen, setAlignmentDropdownOpen] = useState(false);
   const [isFormatDropdownOpen, setFormatDropdownOpen] = useState(false);
@@ -29,9 +30,6 @@ const InlineToolbar = ({
   const alignment = isAlignmentDropdownOpen ? openClassName : closedClassName;
   const format = isFormatDropdownOpen ? openClassName : closedClassName;
   const more = isMoreDropdownOpen ? openClassName : closedClassName;
-
-  // const { rect } = useReadFromCache({ query: GET_EDITOR_VIEW_RECT });
-  const rect = { x: 0 };
 
   const actions = generateActions(
     alignment,
@@ -288,6 +286,7 @@ InlineToolbar.propTypes = {
   setEditorState: PropTypes.func.isRequired,
   showAddLinkModal: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  rect: PropTypes.object.isRequired,
 };
 
 export default InlineToolbar;
