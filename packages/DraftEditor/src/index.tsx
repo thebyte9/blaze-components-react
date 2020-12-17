@@ -19,7 +19,6 @@ import {
 } from "draft-js";
 import React, {
   FunctionComponent,
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -45,6 +44,7 @@ import InlineToolbar from "./InlineToolbar";
 import { IDraftEditorProps } from "./interfaces";
 import linkStrategy from "./link-strategy";
 import parseTextBlock from "./text-block-parser";
+import { Rect } from "./inline-toolbar-utils";
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   utils: { classNames, ErrorMessage },
@@ -65,7 +65,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   const [inlineToolbar, showInlineToolbar] = useState(false);
   const [addLinkModal, showAddLinkModal] = useState(false);
   const [linkContentState, setLinkContentState] = useState(null);
-  const [rect, setRect] = useState(null);
 
   const inputEl = useRef<any>(null);
 
@@ -128,7 +127,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     height: 0,
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (getVisibleSelectionRect(window) !== null) {
       setSelectionRect(getVisibleSelectionRect(window));
     }
@@ -348,16 +347,10 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     return currentContentBlock.getText().slice(start, end);
   };
 
-  const handleSetRect = (el) => {
-    if (!el || !!rect) return;
-    setRect(el.getBoundingClientRect());
-  };
-
   return (
     <>
       <div
-        className="custom-DraftEditor-root editor-view__textblock--editor"
-        ref={handleSetRect}
+        className="custom-DraftEditor-root editor-view__textblock"
         onClick={(e: any) => {
           e.stopPropagation();
           focusEditor;
@@ -374,21 +367,23 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           showEmbedPlugin={showEmbedPlugin}
           addHorizontalRule={addHorizontalRule}
         />
-        {inlineToolbar && getSelectedText() !== "" && (
-          <InlineToolbar
-            editorState={editorState}
-            setEditorState={setEditorState}
-            selectionRect={selectionRect}
-            showAddLinkModal={showAddLinkModal}
-            onChange={(state) => handleOnChange(state)}
-            rect={rect}
-          />
-        )}
 
         <div
-          className={editorClassName}
-          onWheel={() => showInlineToolbar(false)}
+          className="editor-view__textblock--editor"
+          ref={(el) => {
+            if (!el) return;
+            Rect.rect = el.getBoundingClientRect();
+          }}
         >
+          {inlineToolbar && getSelectedText() !== "" && (
+            <InlineToolbar
+              editorState={editorState}
+              setEditorState={setEditorState}
+              selectionRect={selectionRect}
+              showAddLinkModal={showAddLinkModal}
+              onChange={(state) => handleOnChange(state)}
+            />
+          )}
           <Editor
             ref={inputEl}
             handleKeyCommand={handleKeyCommand}

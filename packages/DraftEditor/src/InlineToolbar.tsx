@@ -11,6 +11,7 @@ import {
   ACTION_TYPE,
   ENTITY,
   generateActions,
+  Rect,
 } from "./inline-toolbar-utils";
 
 const InlineToolbar = ({
@@ -19,8 +20,8 @@ const InlineToolbar = ({
   selectionRect,
   showAddLinkModal,
   onChange,
-  rect,
 }) => {
+  const rect = Rect.rect;
   const [isAlignmentDropdownOpen, setAlignmentDropdownOpen] = useState(false);
   const [isFormatDropdownOpen, setFormatDropdownOpen] = useState(false);
   const [isMoreDropdownOpen, setMoreDropdownOpen] = useState(false);
@@ -286,7 +287,6 @@ InlineToolbar.propTypes = {
   setEditorState: PropTypes.func.isRequired,
   showAddLinkModal: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  rect: PropTypes.object.isRequired,
 };
 
 export default InlineToolbar;
