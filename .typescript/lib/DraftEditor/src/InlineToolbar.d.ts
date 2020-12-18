@@ -6,7 +6,7 @@ declare const InlineToolbar: {
         setEditorState: any;
         selectionRect: any;
         showAddLinkModal: any;
-        onChange?: (() => void) | undefined;
+        onChange: any;
     }): JSX.Element;
     propTypes: {
         editorState: PropTypes.Validator<object>;

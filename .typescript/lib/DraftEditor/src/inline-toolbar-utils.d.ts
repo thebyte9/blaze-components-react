@@ -51,4 +51,5 @@ declare const getCurrentBlockAction: (action: any, currentBlockStyle: any) => an
 declare const getCurrentBlockTypeLabel: (editorState: any) => "Paragraph" | "Heading 1" | "Heading 2" | "Heading 3" | "Heading 4" | "Heading 5" | "Heading 6";
 declare const getInlineToolbarLeftPosition: (rect: any, selectionRect: any) => number;
 declare const getInlineToolbarTopPosition: (selectionRect: any) => number;
-export { generateActions, getInlineToolbarLeftPosition, getInlineToolbarTopPosition, getClassnames, generateToolbar, generateToolbarActions, getCurrentBlockAction, getCurrentBlockTypeLabel, ACTION_TYPE, ENTITY, };
+declare const Rect: any;
+export { generateActions, getInlineToolbarLeftPosition, getInlineToolbarTopPosition, getClassnames, generateToolbar, generateToolbarActions, getCurrentBlockAction, getCurrentBlockTypeLabel, ACTION_TYPE, ENTITY, Rect, };

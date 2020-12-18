@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 declare const DecoratedLink: {
     (props: any): JSX.Element;
     propTypes: {
-        entityKey: PropTypes.Validator<object>;
+        entityKey: PropTypes.Validator<string>;
         contentState: PropTypes.Validator<object>;
         editLinkFn: PropTypes.Validator<(...args: any[]) => any>;
         children: PropTypes.Requireable<any[]>;
