@@ -248,10 +248,16 @@ const getInlineToolbarLeftPosition = (rect, selectionRect) => {
 };
 
 const getInlineToolbarTopPosition = (selectionRect) => {
-  const inlineToolbarHeight = 100;
+  const inlineToolbarHeight = 322;
 
   return selectionRect.top - inlineToolbarHeight;
 };
+
+function RectObject() {
+  this.rect = { x: 0, y: 0 };
+}
+
+const Rect = new RectObject();
 
 export {
   generateActions,
@@ -264,4 +270,5 @@ export {
   getCurrentBlockTypeLabel,
   ACTION_TYPE,
   ENTITY,
+  Rect,
 };

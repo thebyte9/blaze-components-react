@@ -74,6 +74,7 @@ const EditorViewLinkModal = ({
         placeholder="Insert URL"
         modifier="full-width"
         onChange={handleOnChange}
+        onClick={(e: any) => e.stopPropagation()}
         value={url}
         autoFocus
       />
