@@ -47,7 +47,6 @@ interface IDraftEditorProps {
   customStyleMap?: DraftStyleMap;
   textAlignment?: DraftTextAlignment;
   blockRenderMap?: DraftBlockRenderMap;
-  showTopBar?: boolean;
 
   tabIndex?: number;
   name: string;

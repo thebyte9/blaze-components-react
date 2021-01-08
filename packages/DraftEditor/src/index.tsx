@@ -3,7 +3,6 @@ import withUtils from "@blaze-react/utils";
 import isSoftNewlineEvent from "draft-js/lib/isSoftNewlineEvent";
 
 import {
-  AtomicBlockUtils,
   CompositeDecorator,
   ContentBlock,
   ContentState,
@@ -29,16 +28,12 @@ import {
   BLOCKQUOTE,
   HANDLED,
   HORIZONTAL_RULE,
-  IMMUTABLE,
   NOT_HANDLED,
-  UNSTYLED,
   LINK,
   MUTABLE,
   ADD_LINK,
-  CODE,
 } from "./constants";
 import DecoratedLink from "./DecoratedLink";
-import { CustomDraftPlugins } from "./DraftPlugins/CustomPlugins";
 import EditorViewLinkModal from "./EditorViewLinkModal";
 import InlineToolbar from "./InlineToolbar";
 import { IDraftEditorProps } from "./interfaces";
@@ -54,10 +49,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   error,
   validationMessage,
   unSelectedText,
-  selectedImages,
   handleLibraryClick,
-  showImagePlugin,
-  showEmbedPlugin,
   showTopBar,
   ...attrs
 }): JSX.Element => {
@@ -187,15 +179,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
   const contentState: ContentState = editorState.getCurrentContent();
 
-  const isUnstyled: boolean =
-    contentState.getBlockMap().first().getType() !== UNSTYLED;
-
-  const hasTextAndUnstyled: boolean = !contentState.hasText() && isUnstyled;
-
-  const editorClassName: string = classNames("custom-DraftEditor-editor", {
-    "custom-DraftEditor-hidePlaceholder": hasTextAndUnstyled,
-  });
-
   const getBlockStyle = (block: ContentBlock): string => {
     const isBlockquote: boolean = block.getType() === BLOCKQUOTE;
     return classNames({
@@ -274,41 +257,12 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     showAddLinkModal(false);
   };
 
-  const insertBlock = () => {
-    const contentStateWithEntity = contentState.createEntity(CODE, MUTABLE);
-
-    const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-    const newEditorState = EditorState.set(editorState, {
-      currentContent: contentStateWithEntity,
-    });
-
-    setEditorState(
-      AtomicBlockUtils.insertAtomicBlock(newEditorState, entityKey, " ")
-    );
-  };
-
   const handleReturn = (event: any) => {
     if (isSoftNewlineEvent(event)) {
       onEditorChange(RichUtils.insertSoftNewline(editorState));
       return HANDLED;
     }
     return NOT_HANDLED;
-  };
-
-  const addHorizontalRule = () => {
-    const contentStateWithEntity = contentState.createEntity(
-      HORIZONTAL_RULE,
-      IMMUTABLE,
-      {}
-    );
-    const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-    onEditorChange(
-      AtomicBlockUtils.insertAtomicBlock(
-        editorState,
-        entityKey,
-        HORIZONTAL_RULE
-      )
-    );
   };
 
   const blockRenderer = (contentBlock: any) => {
@@ -357,19 +311,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           focusEditor;
         }}
       >
-        {showTopBar && (
-          <CustomDraftPlugins
-            editorState={editorState}
-            selectedImages={selectedImages}
-            handleLibraryClick={handleLibraryClick}
-            unSelectedText={unSelectedText}
-            onEditorChange={onEditorChange}
-            toggleDraftEditor={insertBlock}
-            showImagePlugin={showImagePlugin}
-            showEmbedPlugin={showEmbedPlugin}
-            addHorizontalRule={addHorizontalRule}
-          />
-        )}
         <div
           className="editor-view__textblock--editor"
           ref={(el) => {
@@ -377,15 +318,14 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
             Rect.rect = el.getBoundingClientRect();
           }}
         >
-          {inlineToolbar && getSelectedText() !== "" && (
-            <InlineToolbar
-              editorState={editorState}
-              setEditorState={setEditorState}
-              selectionRect={selectionRect}
-              showAddLinkModal={showAddLinkModal}
-              onChange={(state) => handleOnChange(state)}
-            />
-          )}
+          <InlineToolbar
+            editorState={editorState}
+            setEditorState={setEditorState}
+            selectionRect={selectionRect}
+            showAddLinkModal={showAddLinkModal}
+            onChange={(state) => handleOnChange(state)}
+            visible={inlineToolbar && getSelectedText(editorState) !== ""}
+          />
           <Editor
             ref={inputEl}
             handleKeyCommand={handleKeyCommand}
@@ -414,12 +354,8 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 DraftEditor.defaultProps = {
   error: false,
   name: "editor",
-  selectedImages: [],
-  showEmbedPlugin: false,
-  showImagePlugin: false,
   unSelectedText: "Make sure you have a text selected",
   validationMessage: "This field is required",
-  showTopBar: false,
 };
 
 export default withUtils(DraftEditor);

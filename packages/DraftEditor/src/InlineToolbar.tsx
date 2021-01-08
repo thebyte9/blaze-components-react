@@ -19,6 +19,7 @@ const InlineToolbar = ({
   setEditorState,
   selectionRect,
   showAddLinkModal,
+  visible,
   onChange,
 }) => {
   const rect = Rect.rect;
@@ -80,7 +81,11 @@ const InlineToolbar = ({
 
   return (
     <div
-      className="editor-view__inlinetoolbar"
+      cclassName={
+        visible
+          ? "editor-view__inlinetoolbar"
+          : "editor-view__inlinetoolbar editor-view__hidden"
+      }
       style={{
         position: "sticky",
         display: "inline-block",

@@ -254,7 +254,11 @@ const getInlineToolbarTopPosition = (selectionRect) => {
 };
 
 function RectObject() {
-  this.rect = { x: 0, y: 0 };
+  this.rect = {
+    x: 0,
+    y: 0,
+    width: 0,
+  };
 }
 
 const Rect = new RectObject();
