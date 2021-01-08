@@ -58,6 +58,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   handleLibraryClick,
   showImagePlugin,
   showEmbedPlugin,
+  showTopBar,
   ...attrs
 }): JSX.Element => {
   const draftHandledValue: DraftHandleValue = HANDLED;
@@ -356,18 +357,19 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
           focusEditor;
         }}
       >
-        <CustomDraftPlugins
-          editorState={editorState}
-          selectedImages={selectedImages}
-          handleLibraryClick={handleLibraryClick}
-          unSelectedText={unSelectedText}
-          onEditorChange={onEditorChange}
-          toggleDraftEditor={insertBlock}
-          showImagePlugin={showImagePlugin}
-          showEmbedPlugin={showEmbedPlugin}
-          addHorizontalRule={addHorizontalRule}
-        />
-
+        {showTopBar && (
+          <CustomDraftPlugins
+            editorState={editorState}
+            selectedImages={selectedImages}
+            handleLibraryClick={handleLibraryClick}
+            unSelectedText={unSelectedText}
+            onEditorChange={onEditorChange}
+            toggleDraftEditor={insertBlock}
+            showImagePlugin={showImagePlugin}
+            showEmbedPlugin={showEmbedPlugin}
+            addHorizontalRule={addHorizontalRule}
+          />
+        )}
         <div
           className="editor-view__textblock--editor"
           ref={(el) => {
@@ -417,6 +419,7 @@ DraftEditor.defaultProps = {
   showImagePlugin: false,
   unSelectedText: "Make sure you have a text selected",
   validationMessage: "This field is required",
+  showTopBar: false,
 };
 
 export default withUtils(DraftEditor);
