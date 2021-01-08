@@ -324,7 +324,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
             selectionRect={selectionRect}
             showAddLinkModal={showAddLinkModal}
             onChange={(state) => handleOnChange(state)}
-            visible={inlineToolbar && getSelectedText(editorState) !== ""}
+            visible={inlineToolbar && getSelectedText() !== ""}
           />
           <Editor
             ref={inputEl}

@@ -81,7 +81,7 @@ const InlineToolbar = ({
 
   return (
     <div
-      cclassName={
+      className={
         visible
           ? "editor-view__inlinetoolbar"
           : "editor-view__inlinetoolbar editor-view__hidden"
@@ -292,6 +292,7 @@ InlineToolbar.propTypes = {
   setEditorState: PropTypes.func.isRequired,
   showAddLinkModal: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  visible: PropTypes.bool.isRequired,
 };
 
 export default InlineToolbar;
