@@ -1,11 +1,12 @@
 /// <reference types="react" />
 import PropTypes from "prop-types";
 declare const InlineToolbar: {
-    ({ editorState, setEditorState, selectionRect, showAddLinkModal, onChange, }: {
+    ({ editorState, setEditorState, selectionRect, showAddLinkModal, visible, onChange, }: {
         editorState: any;
         setEditorState: any;
         selectionRect: any;
         showAddLinkModal: any;
+        visible: any;
         onChange: any;
     }): JSX.Element;
     propTypes: {
@@ -14,6 +15,7 @@ declare const InlineToolbar: {
         setEditorState: PropTypes.Validator<(...args: any[]) => any>;
         showAddLinkModal: PropTypes.Validator<(...args: any[]) => any>;
         onChange: PropTypes.Validator<(...args: any[]) => any>;
+        visible: PropTypes.Validator<boolean>;
     };
 };
 export default InlineToolbar;

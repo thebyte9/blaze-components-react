@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { ContentBlock, ContentState, DraftBlockRenderMap, DraftBlockType, DraftDragType, DraftEditorCommand, DraftHandleValue, DraftInlineStyle, DraftStyleMap, EditorState, SelectionState } from "draft-js";
+import { ContentBlock, DraftBlockRenderMap, DraftDragType, DraftEditorCommand, DraftHandleValue, DraftInlineStyle, DraftStyleMap, EditorState, SelectionState } from "draft-js";
 declare type DraftTextAlignment = "left" | "center" | "right";
 declare type SyntheticKeyboardEvent = React.KeyboardEvent<object>;
 declare type SyntheticEvent = React.SyntheticEvent<object>;
@@ -9,13 +9,6 @@ interface IParseTextBlock {
     LinkWrapper?: TComponent;
     useTargetBlank?: boolean;
 }
-interface IImage {
-    base64: string;
-    src: string;
-    url: string;
-    name: string;
-    id: string;
-}
 interface IErrorMessage {
     message: string | JSX.Element;
     icon?: string;
@@ -24,7 +17,6 @@ interface IDraftEditorProps {
     showImagePlugin?: boolean;
     showEmbedPlugin?: boolean;
     unSelectedText: string;
-    selectedImages: IImage[];
     editorState?: EditorState;
     customStyleMap?: DraftStyleMap;
     textAlignment?: DraftTextAlignment;
@@ -85,50 +77,9 @@ interface IDraftEditorProps {
     handlePastedFiles?(files: Blob[]): DraftHandleValue;
     keyBindingFn?(e: SyntheticKeyboardEvent): DraftEditorCommand | null;
 }
-interface IInlineImageControlsProps {
-    editorState: EditorState;
-    selectedImages: IImage[];
-    onToggle: (newEditorState: EditorState, entityKey: string) => EditorState;
-    handleLibraryClick: () => void;
-}
-interface ILinkControlProps {
-    editorState: EditorState;
-    unSelectedText: string;
-    onToggle: (newEditorState: EditorState, selection: SelectionState, entityKey: string | null) => void;
-}
-interface IInlineTypes {
-    label: string;
-    style: string;
-}
-interface IInlineControlsProps {
-    editorState: EditorState;
-    onToggle: (blockType: DraftBlockType) => void;
-}
-interface IStyleButtonProps {
-    onToggle: (style: string) => void;
-    style: string;
-    active: boolean;
-    label: any;
-    utils: {
-        uniqueId: (element: any) => string;
-        classNames: (className: string | object, classNames?: object) => string;
-    };
-    "data-cy"?: string;
-}
-interface IHTMLProps {
-    onToggle: () => void;
-}
-interface ILinkProps {
-    contentState: ContentState;
-    children: JSX.Element | JSX.Element[];
-    entityKey: string;
-}
-interface IPreviewIages {
-    previewImages: IImage[];
-}
 interface IReactHtmlParserArgs {
     attribs: any;
     children: JSX.Element | any;
     name: string;
 }
-export { IErrorMessage, DraftTextAlignment, SyntheticKeyboardEvent, SyntheticEvent, IImage, IDraftEditorProps, IInlineImageControlsProps, ILinkControlProps, IInlineTypes, IInlineControlsProps, IStyleButtonProps, ILinkProps, IPreviewIages, IHTMLProps, TComponent, IReactHtmlParserArgs, IParseTextBlock, };
+export { IErrorMessage, DraftTextAlignment, SyntheticKeyboardEvent, SyntheticEvent, IDraftEditorProps, TComponent, IReactHtmlParserArgs, IParseTextBlock, };

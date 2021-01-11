@@ -30,7 +30,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
       <label
         className=""
       />
-      <a
+      <r
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
@@ -90,7 +90,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
         withPortal={false}
         yearItemNumber={12}
       >
-        <o
+        <r
           enableTabLoop={true}
           hidePopper={true}
           popperComponent={null}
@@ -103,7 +103,6 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
           }
           popperOnKeyDown={[Function]}
           popperPlacement="bottom-start"
-          popperProps={Object {}}
           targetComponent={
             <div
               className="react-datepicker__input-container"
@@ -124,39 +123,33 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
             </div>
           }
         >
-          <Manager
-            className="react-datepicker-manager"
-          >
+          <Manager>
             <Reference>
-              <InnerReference
-                setReferenceNode={[Function]}
+              <div
+                className="react-datepicker-wrapper"
               >
                 <div
-                  className="react-datepicker-wrapper"
+                  className="react-datepicker__input-container"
                 >
-                  <div
-                    className="react-datepicker__input-container"
-                  >
-                    <input
-                      className=""
-                      disabled={false}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      readOnly={false}
-                      required={false}
-                      type="text"
-                      value=""
-                    />
-                  </div>
+                  <input
+                    className=""
+                    disabled={false}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    readOnly={false}
+                    required={false}
+                    type="text"
+                    value=""
+                  />
                 </div>
-              </InnerReference>
+              </div>
             </Reference>
           </Manager>
-        </o>
-      </a>
+        </r>
+      </r>
       <ErrorMessage
         icon="warning"
         message="This field is required"
@@ -208,7 +201,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
       <label
         className=""
       />
-      <a
+      <r
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
@@ -268,7 +261,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
         withPortal={false}
         yearItemNumber={12}
       >
-        <o
+        <r
           enableTabLoop={true}
           hidePopper={true}
           popperComponent={null}
@@ -281,7 +274,6 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
           }
           popperOnKeyDown={[Function]}
           popperPlacement="bottom-start"
-          popperProps={Object {}}
           targetComponent={
             <div
               className="react-datepicker__input-container"
@@ -302,39 +294,33 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
             </div>
           }
         >
-          <Manager
-            className="react-datepicker-manager"
-          >
+          <Manager>
             <Reference>
-              <InnerReference
-                setReferenceNode={[Function]}
+              <div
+                className="react-datepicker-wrapper"
               >
                 <div
-                  className="react-datepicker-wrapper"
+                  className="react-datepicker__input-container"
                 >
-                  <div
-                    className="react-datepicker__input-container"
-                  >
-                    <input
-                      className=""
-                      disabled={false}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      readOnly={false}
-                      required={false}
-                      type="text"
-                      value=""
-                    />
-                  </div>
+                  <input
+                    className=""
+                    disabled={false}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    readOnly={false}
+                    required={false}
+                    type="text"
+                    value=""
+                  />
                 </div>
-              </InnerReference>
+              </div>
             </Reference>
           </Manager>
-        </o>
-      </a>
+        </r>
+      </r>
       <ErrorMessage
         icon="warning"
         message="This field is required"
@@ -386,7 +372,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
       <label
         className=""
       />
-      <a
+      <r
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
@@ -446,7 +432,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
         withPortal={false}
         yearItemNumber={12}
       >
-        <o
+        <r
           enableTabLoop={true}
           hidePopper={true}
           popperComponent={null}
@@ -459,7 +445,6 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
           }
           popperOnKeyDown={[Function]}
           popperPlacement="bottom-start"
-          popperProps={Object {}}
           targetComponent={
             <div
               className="react-datepicker__input-container"
@@ -480,39 +465,33 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
             </div>
           }
         >
-          <Manager
-            className="react-datepicker-manager"
-          >
+          <Manager>
             <Reference>
-              <InnerReference
-                setReferenceNode={[Function]}
+              <div
+                className="react-datepicker-wrapper"
               >
                 <div
-                  className="react-datepicker-wrapper"
+                  className="react-datepicker__input-container"
                 >
-                  <div
-                    className="react-datepicker__input-container"
-                  >
-                    <input
-                      className=""
-                      disabled={false}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      readOnly={false}
-                      required={false}
-                      type="text"
-                      value=""
-                    />
-                  </div>
+                  <input
+                    className=""
+                    disabled={false}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    readOnly={false}
+                    required={false}
+                    type="text"
+                    value=""
+                  />
                 </div>
-              </InnerReference>
+              </div>
             </Reference>
           </Manager>
-        </o>
-      </a>
+        </r>
+      </r>
       <ErrorMessage
         icon="warning"
         message="This field is required"
@@ -563,7 +542,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
       <label
         className=""
       />
-      <a
+      <r
         allowSameDay={false}
         customTimeInput={null}
         data-testid="date-time-input"
@@ -623,7 +602,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
         withPortal={false}
         yearItemNumber={12}
       >
-        <o
+        <r
           enableTabLoop={true}
           hidePopper={true}
           popperComponent={null}
@@ -636,7 +615,6 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
           }
           popperOnKeyDown={[Function]}
           popperPlacement="bottom-start"
-          popperProps={Object {}}
           targetComponent={
             <div
               className="react-datepicker__input-container"
@@ -657,39 +635,33 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
             </div>
           }
         >
-          <Manager
-            className="react-datepicker-manager"
-          >
+          <Manager>
             <Reference>
-              <InnerReference
-                setReferenceNode={[Function]}
+              <div
+                className="react-datepicker-wrapper"
               >
                 <div
-                  className="react-datepicker-wrapper"
+                  className="react-datepicker__input-container"
                 >
-                  <div
-                    className="react-datepicker__input-container"
-                  >
-                    <input
-                      className=""
-                      disabled={false}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onKeyDown={[Function]}
-                      readOnly={false}
-                      required={false}
-                      type="text"
-                      value=""
-                    />
-                  </div>
+                  <input
+                    className=""
+                    disabled={false}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    readOnly={false}
+                    required={false}
+                    type="text"
+                    value=""
+                  />
                 </div>
-              </InnerReference>
+              </div>
             </Reference>
           </Manager>
-        </o>
-      </a>
+        </r>
+      </r>
       <ErrorMessage
         icon="warning"
         message="This field is required"
