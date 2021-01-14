@@ -263,76 +263,38 @@
   overflow: hidden;
   opacity: 0;
 }
-
 .editor-view {
-  margin-bottom: 20px;
-  display: grid;
-
   &__hidden {
     opacity: 0;
   }
 
-  &__wrapper {
-    position: relative;
-    border: 2px dashed rgba(114, 186, 94, 0.35);
-    background: rgba(114, 186, 94, 0.05);
-    grid-template-rows: auto;
-    z-index: 400;
-  }
-
-  &__tooltip {
-    &--text {
-      font-size: 0.7rem;
-      visibility: visible;
-      width: 57px;
-      background-color: $blue-grey-50;
-      color: $nearly-black;
-      text-align: center;
-      border-radius: 3px;
-      padding: 5px 0;
-      position: absolute;
-      z-index: 1;
-      bottom: 120%;
-      left: -10%;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 47%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: $blue-grey-50 transparent transparent transparent;
-      }
-    }
-  }
-
   &__input {
     background: transparent !important;
-    border: 1px transparent !important;
-    width: min-content !important;
+    border: none !important;
   }
+
+  margin-bottom: 20px;
+  display: grid;
 
   &__toggle-visibility {
     margin-right: 10px;
   }
 
   &__button {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 40px;
+
     position: relative;
 
     & > button {
-      margin-bottom: 10px;
+      margin-bottom: 40px;
     }
 
     &__wrapper {
       position: relative;
 
       &--overlay {
-        top: -53px;
-        left: 20px;
+        top: -50px;
+        left: 15px;
         position: absolute;
       }
     }
@@ -345,107 +307,84 @@
   }
 
   &__columns {
-    @include base-component;
+    margin-top: 40px;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: minmax(1fr, fit-content(300px));
     grid-auto-flow: column;
     background: $grey-50;
-    padding: 25px 10px 0 10px;
-  }
-
-  &__column {
-    border: 1px dashed $light-green;
-    background: white;
-    padding: 25px 21px 50px 21px;
-    margin-bottom: 20px;
-    min-width: 47%;
-
-    &--tooltip-visible {
-      @include tooltip;
-      top: -45px;
-      left: -22px;
-    }
-
-    &--tooltip-hidden {
-      @include tooltip;
-      opacity: 0;
-    }
-
-    &__wrapper {
-      position: relative;
-
-      &--overlay {
-        top: -80px;
-        left: 40%;
-        position: absolute;
-      }
-    }
-
-    &__toolbar--instructions {
-      bottom: -40px;
-    }
+    max-height: 100vh;
+    padding: 10px 10px 0 10px;
   }
 
   &__row {
-    @include base-component;
-    grid-template-columns: minmax(1fr, fit-content(300px));
-    padding: 20px;
+    border: 1px dashed $light-green;
+    grid-template-rows: auto;
+    padding: 21px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 
     &--tooltip-hidden {
-      @include tooltip;
+      max-width: 350px;
+      background: azure;
+      position: relative;
       opacity: 0;
-    }
-
-    &--tooltip-visible {
-      @include tooltip;
       top: -42px;
       left: -22px;
     }
 
+    &--tooltip-visible {
+      max-width: 350px;
+      background: azure;
+      position: relative;
+      opacity: 1;
+      top: -42px;
+      left: -22px;
+      padding-left: 5px;
+    }
+
     &__wrapper {
       position: relative;
 
       &--overlay {
-        top: -75px;
-        left: 39%;
+        top: -70px;
+        left: 50%;
         position: absolute;
-        transition: $animate-default;
       }
     }
   }
 
   &__image {
-    max-width: 600px;
+    margin-top: 10px;
     position: relative;
     grid-template-rows: auto;
+    margin-bottom: 40px;
 
     &--tooltip-hidden {
-      @include tooltip;
-      position: relative;
-      top: -1px;
       opacity: 0;
     }
 
     &--tooltip-visible {
-      @include tooltip;
-      top: -1px;
-      left: 0px;
+      width: 200px;
+      background: azure;
+      position: relative;
+      opacity: 1;
+      top: 0;
     }
 
     &__wrapper {
       position: relative;
 
       &--overlay {
-        top: -40px;
-        left: 40%;
+        top: 20px;
+        left: 30%;
         position: absolute;
       }
     }
 
     &--placeholder {
       text-align: center;
-      max-width: 600px;
+      max-width: 300px;
       background: $blue-grey-50;
 
       &__icon {
@@ -462,7 +401,6 @@
     margin-bottom: 40px;
 
     &--tooltip-hidden {
-      @include tooltip;
       opacity: 0;
     }
 
@@ -478,7 +416,7 @@
       position: relative;
 
       &--overlay {
-        top: 0px;
+        top: 20px;
         left: 23%;
         position: absolute;
       }
@@ -486,7 +424,7 @@
 
     &--placeholder {
       text-align: center;
-      max-width: 600px;
+      max-width: 300px;
       background: $blue-grey-50;
 
       &__icon {
@@ -497,58 +435,16 @@
   }
 
   &__code {
-    margin: 25px 0 10px 0;
-    border: 1px solid $blue-grey-100;
     grid-template-rows: auto;
 
     &--tooltip-hidden {
-      @include tooltip;
       opacity: 0;
     }
 
     &--tooltip-visible {
-      @include tooltip;
-      top: -23px;
-      left: -1px;
-    }
-
-    &__wrapper {
+      width: 200px;
+      background: azure;
       position: relative;
-
-      &--overlay {
-        top: -60px;
-        z-index: 400;
-        left: 47%;
-        position: absolute;
-      }
-    }
-
-    @include mq($from: mobile) {
-      max-width: 350px;
-    }
-
-    @include mq($from: tablet) {
-      max-width: 600px;
-    }
-
-    @include mq($from: desktop) {
-      max-width: 100%;
-    }
-  }
-
-  &__video {
-    margin: 10px 0;
-    max-width: 600px;
-    grid-template-rows: auto;
-
-    &--tooltip-hidden {
-      @include tooltip;
-      top: 0;
-      opacity: 0;
-    }
-
-    &--tooltip-visible {
-      @include tooltip;
       opacity: 1;
       top: 0;
     }
@@ -557,16 +453,46 @@
       position: relative;
 
       &--overlay {
-        top: -40px;
-        z-index: 400;
-        left: 47%;
+        top: 20px;
+        z-index: 500;
+        left: 45%;
+        position: absolute;
+      }
+    }
+  }
+
+  &__video {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    grid-template-rows: auto;
+
+    &--tooltip-hidden {
+      opacity: 0;
+    }
+
+    &--tooltip-visible {
+      width: 200px;
+      background: azure;
+      position: relative;
+      opacity: 1;
+      padding-left: 5px;
+      top: 0;
+    }
+
+    &__wrapper {
+      position: relative;
+
+      &--overlay {
+        top: 5px;
+        z-index: 500;
+        left: 25%;
         position: absolute;
       }
     }
 
     &--placeholder {
       text-align: center;
-      max-width: 600px;
+      max-width: 300px;
       background: $blue-grey-50;
 
       &__icon {
@@ -578,33 +504,35 @@
 
   &__carousel {
     grid-template-rows: auto;
+    margin-bottom: 40px;
 
     &--tooltip-hidden {
-      @include tooltip;
-      top: 41px;
-      left: -1px;
       opacity: 0;
     }
 
     &--tooltip-visible {
-      @include tooltip;
-      top: 41px;
-      left: 0px;
+      width: 200px;
+      background: azure;
+      position: relative;
+      opacity: 1;
+      padding-left: 5px;
+      top: 0;
     }
 
     &__wrapper {
       position: relative;
 
       &--overlay {
-        top: 0;
+        top: 0px;
         left: 47%;
-        z-index: 400;
+        z-index: 500;
         position: absolute;
       }
     }
 
     &--list {
       overflow-y: hidden;
+
       position: relative;
       display: flex;
       /* allow for scrolling */
@@ -626,13 +554,12 @@
       align-items: center;
       color: #ffffff;
       background-color: #ffffff;
-      border-radius: 47%;
+      border-radius: 50%;
       padding: 15px;
-      width: 41px;
+      width: 45px;
 
       &:hover {
         background-color: rgba($white, 0.5);
-        transition: $animate-default;
       }
 
       @include mq($from: tablet) {
@@ -661,13 +588,12 @@
       align-items: center;
       color: #ffffff;
       background-color: #ffffff;
-      border-radius: 47%;
+      border-radius: 50%;
       padding: 15px;
-      width: 41px;
+      width: 45px;
 
       &:hover {
         background-color: rgba($white, 0.5);
-        transition: $animate-default;
       }
 
       @include mq($from: tablet) {
@@ -686,9 +612,42 @@
     }
   }
 
+  &__wrapper {
+    grid-template-rows: auto;
+  }
+
+  &__column {
+    border: 1px dashed $light-green;
+    padding: 50px 21px 21px;
+    margin-bottom: 20px;
+
+    &--tooltip-visible {
+      width: 200px;
+      background: azure;
+      position: relative;
+      opacity: 1;
+      top: -70px;
+      left: -22px;
+      padding-left: 5px;
+    }
+
+    &--tooltip-hidden {
+      opacity: 0;
+    }
+
+    &__wrapper {
+      position: relative;
+
+      &--overlay {
+        top: -70px;
+        left: 30%;
+        position: absolute;
+      }
+    }
+  }
+
   &__textblock {
-    font-size: 14px;
-    line-height: 1.5em;
+    margin-bottom: 20px;
 
     &--alignment {
       &__left {
@@ -719,13 +678,15 @@
     }
 
     &--tooltip-visible {
-      @include tooltip;
-      top: 40px;
-      left: -1px;
+      width: 200px;
+      background: azure;
+      position: relative;
+      opacity: 1;
+      top: 0;
+      left: 10px;
     }
 
     &--tooltip-hidden {
-      @include tooltip;
       opacity: 0;
     }
 
@@ -733,15 +694,18 @@
       position: relative;
 
       &--overlay {
-        top: 0px;
-        left: 47%;
+        top: -40px;
+        left: 50%;
         position: absolute;
       }
     }
 
     &--editor {
       position: relative;
+      margin-left: 10px;
       height: max-content;
+      max-height: 600px;
+      overflow-y: auto;
 
       &:global(.public-DraftEditor-content) {
         position: relative;
@@ -762,6 +726,8 @@
 
   &__toolbar {
     position: relative;
+    bottom: -10px;
+    margin: 5px 5px 20px 5px;
     display: grid;
     grid-template-columns: repeat(48px, auto);
     grid-auto-flow: column;
@@ -769,55 +735,15 @@
     justify-items: center;
     place-self: center;
     height: 48px;
-    animation: fadein 1s;
-    bottom: -10px;
-
-    &--tooltip {
-      margin-left: -8px;
-
-      &__text {
-        font-size: 0.7rem;
-        visibility: visible;
-        width: 57px;
-        background-color: $blue-grey-50;
-        color: $nearly-black;
-        text-align: center;
-        border-radius: 3px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 1;
-        bottom: 120%;
-
-        &::after {
-          content: "";
-          position: absolute;
-          top: 100%;
-          left: 47%;
-          margin-left: -5px;
-          border-width: 5px;
-          border-style: solid;
-          border-color: $blue-grey-50 transparent transparent transparent;
-        }
-      }
-    }
 
     &--items {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      animation: fadein 2s;
-      z-index: 500;
-
-      background: $blue-grey-400;
-      padding: 1px;
-      border: 1px solid $blue-grey-400;
-      border-radius: 3px;
+      animation: fadein 1s;
     }
 
     &--instructions {
-      flex-grow: 1;
-      margin-top: auto;
-      margin-bottom: auto;
       overflow: hidden;
       margin-left: 5px;
       font-size: $size-x-small;
@@ -853,8 +779,6 @@
 
       &:hover {
         background: $blue-grey-700;
-        transition: $animate-default;
-        border-radius: 3px;
       }
     }
 
@@ -867,7 +791,6 @@
 
       &:hover {
         background: $blue-grey-700;
-        transition: $animate-default;
       }
     }
 
@@ -880,7 +803,6 @@
 
       &:hover {
         background: $blue-grey-700;
-        transition: $animate-default;
 
         .editor-view__toolbar--item-dropdown {
           background: $blue-grey-700;
@@ -905,7 +827,6 @@
 
       &:hover {
         background: $blue-grey-700;
-        transition: $animate-default;
 
         .editor-view__toolbar--item-dropdown {
           background: $blue-grey-700;
@@ -930,7 +851,6 @@
 
       &:hover {
         background: $blue-grey-700;
-        transition: $animate-default;
       }
     }
 
@@ -947,6 +867,7 @@
   }
 
   &__inlinetoolbar {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(48px, auto);
     grid-auto-flow: column;
@@ -954,14 +875,13 @@
     justify-items: center;
     place-self: center;
     height: 48px;
-    min-width: 525px;
-    z-index: 599;
+    z-index: 500;
 
     &--items {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: $animate-default;
+      animation: fadein 0s;
       border: 1px solid $blue-grey-100;
     }
 
@@ -999,15 +919,8 @@
         color: $blue-grey-400;
       }
 
-      &__active {
-        border-radius: 3px;
-        background: $grey-100;
-      }
-
       &:hover {
         background: $grey-50;
-        border-radius: 3px;
-        transition: $animate-default;
       }
     }
 
@@ -1024,7 +937,6 @@
 
       &:hover {
         background: $blue-grey-700;
-        transition: $animate-default;
       }
     }
 
@@ -1032,7 +944,7 @@
       padding: 12px;
       color: $blue-grey-400;
       min-width: 60px;
-      max-width: 150px;
+      max-width: 120px;
       height: 48px;
       background: $white;
 
@@ -1108,20 +1020,17 @@
       width: 100px;
       position: relative;
       top: 10px;
-      z-index: 400;
+      z-index: 500;
 
       &--item {
         cursor: pointer;
-
         &:hover {
           background: $grey-50;
-          transition: $animate-default;
         }
       }
 
       &--text {
-        max-width: 150px;
-        padding: 5px;
+        padding: 5px 5px 5px 10px;
         cursor: pointer;
       }
 
@@ -1167,7 +1076,6 @@
       cursor: pointer;
       &:hover {
         background: $blue-grey-700;
-        transition: $animate-default;
       }
     }
 

@@ -260,8 +260,32 @@ function RectObject() {
     width: 0,
   };
 }
+const getSelectedText = (editorState) => {
+  const selectionState = editorState.getSelection();
+  const anchorKey = selectionState.getAnchorKey();
+  const currentContent = editorState.getCurrentContent();
+  const currentContentBlock = currentContent.getBlockForKey(anchorKey);
+  const start = selectionState.getStartOffset();
+  const end = selectionState.getEndOffset();
+  return currentContentBlock.getText().slice(start, end);
+};
 
 const Rect = new RectObject();
+
+const getDropdownClassnames = (
+  isAlignmentDropdownOpen,
+  isFormatDropdownOpen,
+  isMoreDropdownOpen
+) => {
+  const openClassName = "editor-view__inlinetoolbar--columns--open";
+  const closedClassName = "editor-view__inlinetoolbar--columns--closed";
+
+  const alignment = isAlignmentDropdownOpen ? openClassName : closedClassName;
+  const format = isFormatDropdownOpen ? openClassName : closedClassName;
+  const more = isMoreDropdownOpen ? openClassName : closedClassName;
+
+  return { alignment, format, more };
+};
 
 export {
   generateActions,
@@ -275,4 +299,6 @@ export {
   ACTION_TYPE,
   ENTITY,
   Rect,
+  getSelectedText,
+  getDropdownClassnames,
 };

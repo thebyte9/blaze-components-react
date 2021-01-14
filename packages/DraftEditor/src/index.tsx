@@ -32,6 +32,8 @@ import {
   LINK,
   MUTABLE,
   ADD_LINK,
+  EMPTY_STRING,
+  UPDATE_LINK,
 } from "./constants";
 import DecoratedLink from "./DecoratedLink";
 import EditorViewLinkModal from "./EditorViewLinkModal";
@@ -39,31 +41,26 @@ import InlineToolbar from "./InlineToolbar";
 import { IDraftEditorProps } from "./interfaces";
 import linkStrategy from "./link-strategy";
 import parseTextBlock from "./text-block-parser";
-import { Rect } from "./inline-toolbar-utils";
+import { Rect, getSelectedText } from "./inline-toolbar-utils";
 
-const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
-  utils: { classNames, ErrorMessage },
-  onChange,
-  name,
-  value,
-  error,
-  validationMessage,
-  unSelectedText,
-  handleLibraryClick,
-  showTopBar,
-  ...attrs
-}): JSX.Element => {
-  const draftHandledValue: DraftHandleValue = HANDLED;
-  const draftNotHandledValue: DraftHandleValue = NOT_HANDLED;
+const DraftEditor = ({
+  component,
+  onCreateComponent,
+  onDeleteComponent,
+  setSelectedComponents,
+  selectedComponents,
+  allowedChildChanges,
+  buttonEnabledState,
+  textBlockRef,
+}) => {
   const [inlineToolbar, showInlineToolbar] = useState(false);
   const [addLinkModal, showAddLinkModal] = useState(false);
   const [linkContentState, setLinkContentState] = useState(null);
+  const editor = useRef();
 
-  const inputEl = useRef<any>(null);
-
-  const handleOnEditLink = (_contentState, entityKey, children) => {
+  const handleOnEditLink = (contentState, entityKey, children) => {
     setLinkContentState({
-      contentState: _contentState,
+      contentState,
       entityKey,
     });
 
@@ -81,35 +78,69 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       },
     ]);
 
-    if (value) {
-      const newEditorState = EditorState.createWithContent(
-        convertFromRaw(JSON.parse(value))
-      );
+    // if (component.settings.editor && component.settings.editor.length > 0) {
+    //   const newEditorState = EditorState.createWithContent(
+    //     convertFromRaw(JSON.parse(component.settings.editor))
+    //   );
 
-      const newEditorStateWithDecorators = EditorState.set(newEditorState, {
-        decorator: linkDecorator,
-      });
-
-      return newEditorStateWithDecorators;
-    }
+    //   return EditorState.set(newEditorState, {
+    //     decorator: linkDecorator,
+    //   });
+    // }
 
     return EditorState.createEmpty(linkDecorator);
   });
+
+  const [hover, setHover] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const wrapper = useRef(null);
+  // const client = useApolloClient();
+
+  const save = (state, action) => {
+    const currentContent = editorState.getCurrentContent();
+    const newContent = state.getCurrentContent();
+
+    // if (
+    //   currentContent !== newContent ||
+    //   action === ADD_LINK ||
+    //   action === UPDATE_LINK
+    // ) {
+    //   // eslint-disable-next-line no-param-reassign
+    //   component.settings.editor = JSON.stringify(convertToRaw(newContent));
+    //   setSelectedComponents(selectedComponents);
+    //   onCreateComponent(selectedComponents);
+    //   setLinkContentState(null);
+    // }
+
+    setEditorState(state);
+  };
 
   const handleOnChange = (state) => {
     save(state);
   };
 
   const focusEditor = React.useCallback(() => {
-    if (inputEl.current) {
-      inputEl.current.focus();
+    if (editor.current && !isModalOpen) {
+      editor.current.focus();
+    }
+    if (editor.current) {
       showInlineToolbar(true);
     }
-  }, []);
+  }, [isModalOpen]);
 
   useLayoutEffect(() => {
     focusEditor();
   }, [focusEditor]);
+
+  const handleOnBlur = (e) => {
+    save(editorState);
+    showInlineToolbar(false);
+  };
+
+  const handleOnFocus = (e) => {
+    e.preventDefault();
+    setHover(true);
+  };
 
   const [selectionRect, setSelectionRect] = useState({
     left: 0,
@@ -126,196 +157,51 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
     }
   }, [editorState, setSelectionRect]);
 
-  const save = (state, action) => {
-    const currentContent = editorState.getCurrentContent();
-    const newContent = state.getCurrentContent();
-
-    if (
-      currentContent !== newContent ||
-      action === "add-link" ||
-      action === "update-link"
-    ) {
-      setLinkContentState(null);
-      showInlineToolbar(false);
-    }
-    if (inlineToolbar) {
-      showInlineToolbar(false);
-    }
-
-    setEditorState(state);
-    showInlineToolbar(true);
-  };
-
-  const onEditorChange = (newEditorState: EditorState): void => {
-    const currentContent = newEditorState.getCurrentContent();
-    const rawValue = convertToRaw(currentContent);
-
-    const blocks = rawValue.blocks.map((block) => {
-      if (block.type === "atomic" && !!block.text.trim()) {
-        block.text = block.text.replace(/\s+/g, " ");
-      }
-      return block;
-    });
-
-    rawValue.blocks = blocks;
-
-    const rawValueString = JSON.stringify({
-      ...rawValue,
-    });
-
-    const eventFormat = {
-      event: {
-        target: {
-          name,
-          value: rawValueString,
-        },
-      },
-    };
-    if (onChange) {
-      setEditorState(newEditorState);
-      onChange(eventFormat);
-    }
-  };
-
-  const contentState: ContentState = editorState.getCurrentContent();
-
-  const getBlockStyle = (block: ContentBlock): string => {
-    const isBlockquote: boolean = block.getType() === BLOCKQUOTE;
-    return classNames({
-      "custom-DraftEditor-blockquote": isBlockquote,
-    });
-  };
-
-  const handleKeyCommand = (command: DraftEditorCommand): DraftHandleValue => {
-    const newState: EditorState = RichUtils.handleKeyCommand(
-      editorState,
-      command
-    );
-    if (newState && command !== BACKSPACE_COMMAND) {
-      onEditorChange(newState);
-      return draftHandledValue;
-    }
-    return draftNotHandledValue;
-  };
-
-  const handleAddLink = (url, linkState) => {
-    if (url === "") {
-      if (linkState) {
-        const newEditorState = removeEntity(editorState);
-        setEditorState(newEditorState);
-        save(newEditorState, ADD_LINK);
-      } else {
-        const selection = editorState.getSelection();
-        if (!selection.isCollapsed()) {
-          const newEditorState = RichUtils.toggleLink(
-            editorState,
-            selection,
-            null
-          );
-          setEditorState(newEditorState);
-          save(newEditorState, ADD_LINK);
-        }
-      }
-    } else {
-      const contentState = editorState.getCurrentContent();
-
-      if (linkState) {
-        const { entityKey } = linkState;
-        const contentStateWithLink = contentState.replaceEntityData(entityKey, {
-          url,
-        });
-        const newEditorState = EditorState.set(editorState, {
-          currentContent: contentStateWithLink,
-        });
-
-        save(newEditorState, ADD_LINK);
-      } else {
-        const contentStateWithEntity = contentState.createEntity(
-          LINK,
-          MUTABLE,
-          {
-            url,
-          }
-        );
-
-        const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-
-        const contentStateWithLink = Modifier.applyEntity(
-          contentStateWithEntity,
-          editorState.getSelection(),
-          entityKey
-        );
-
-        const newEditorState = EditorState.set(editorState, {
-          currentContent: contentStateWithLink,
-        });
-
-        save(newEditorState, ADD_LINK);
-      }
-    }
-
-    showAddLinkModal(false);
-  };
-
-  const handleReturn = (event: any) => {
-    if (isSoftNewlineEvent(event)) {
-      onEditorChange(RichUtils.insertSoftNewline(editorState));
-      return HANDLED;
-    }
-    return NOT_HANDLED;
-  };
-
-  const blockRenderer = (contentBlock: any) => {
-    const type = contentBlock.getType();
-
-    if (type !== ATOMIC) {
-      return null;
-    }
-
-    const entityKey = contentBlock.getEntityAt(0);
-
-    if (!entityKey) {
-      return {
-        editable: false,
-      };
-    }
-
-    const entity = contentState.getEntity(entityKey);
-
-    if (entity && entity.type === HORIZONTAL_RULE) {
-      return {
-        component: () => <hr />,
-        editable: false,
-      };
-    }
-
-    return "";
-  };
-
-  const getSelectedText = () => {
-    const selectionState = editorState.getSelection();
-    const anchorKey = selectionState.getAnchorKey();
-    const currentContent = editorState.getCurrentContent();
-    const currentContentBlock = currentContent.getBlockForKey(anchorKey);
-    const start = selectionState.getStartOffset();
-    const end = selectionState.getEndOffset();
-    return currentContentBlock.getText().slice(start, end);
-  };
+  // useImperativeHandle(textBlockRef, () => ({
+  //   editor: editor.current,
+  // }));
 
   return (
     <>
       <div
-        className="custom-DraftEditor-root editor-view__textblock"
-        onClick={(e: any) => {
-          e.stopPropagation();
-          focusEditor;
+        className="editor-view__textblock"
+        onMouseLeave={(e) => {
+          if (!isModalOpen) {
+            setHover(false);
+          }
         }}
+        onMouseEnter={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setHover(true);
+        }}
+        onClick={focusEditor}
+        role="button"
+        ref={wrapper}
       >
+        {/* {hover && (
+          <EditorViewOverlayToolbar
+            component={component}
+            onCreateComponent={onCreateComponent}
+            onDeleteComponent={onDeleteComponent}
+            setSelectedComponents={setSelectedComponents}
+            selectedComponents={selectedComponents}
+            allowedChildChanges={allowedChildChanges}
+            buttonEnabledState={buttonEnabledState}
+            setHover={setHover}
+            setIsModalOpen={setIsModalOpen}
+          />
+        )} */}
+
+        {/* <EditorViewTooltip component={component} isHovered={hover} /> */}
+
         <div
+          role="button"
           className="editor-view__textblock--editor"
           ref={(el) => {
             if (!el) return;
-            Rect.rect = el.getBoundingClientRect();
+
+            Rect.rect = { rect: el.getBoundingClientRect() };
           }}
         >
           <InlineToolbar
@@ -324,29 +210,51 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
             selectionRect={selectionRect}
             showAddLinkModal={showAddLinkModal}
             onChange={(state) => handleOnChange(state)}
-            visible={inlineToolbar && getSelectedText() !== ""}
+            visible={
+              inlineToolbar && getSelectedText(editorState) !== EMPTY_STRING
+            }
           />
           <Editor
-            ref={inputEl}
-            handleKeyCommand={handleKeyCommand}
-            blockStyleFn={getBlockStyle}
+            ref={editor}
             editorState={editorState}
-            onChange={onEditorChange}
-            blockRendererFn={blockRenderer}
-            handleReturn={handleReturn}
-            {...attrs}
+            onChange={(state) => handleOnChange(state)}
+            handleKeyCommand={(command) =>
+              handleKeyCommand(
+                command,
+                editorState,
+                save,
+                setEditorState,
+                showAddLinkModal,
+                showInlineToolbar
+              )
+            }
+            // customStyleMap={styleMap}
+            // keyBindingFn={myKeyBindingFn}
+            // blockStyleFn={customBlockStyle}
+            // blockRendererFn={customBlockRenderer}
+            onBlur={(e) => handleOnBlur(e)}
+            onFocus={(e) => handleOnFocus(e)}
           />
         </div>
       </div>
+
       {addLinkModal && (
         <EditorViewLinkModal
           editorState={editorState}
           onClose={() => showAddLinkModal(false)}
-          onSave={(url, linkState) => handleAddLink(url, linkState)}
+          onSave={(url, linkState) =>
+            handleAddLink(
+              url,
+              linkState,
+              editorState,
+              setEditorState,
+              save,
+              showAddLinkModal
+            )
+          }
           linkContentState={linkContentState}
         />
       )}
-      {error && <ErrorMessage message={validationMessage} />}
     </>
   );
 };

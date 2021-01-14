@@ -12,6 +12,7 @@ import {
   ENTITY,
   generateActions,
   Rect,
+  getDropdownClassnames,
 } from "./inline-toolbar-utils";
 
 const InlineToolbar = ({
@@ -19,19 +20,30 @@ const InlineToolbar = ({
   setEditorState,
   selectionRect,
   showAddLinkModal,
-  visible,
   onChange,
+  visible,
 }) => {
-  const rect = Rect.rect;
   const [isAlignmentDropdownOpen, setAlignmentDropdownOpen] = useState(false);
   const [isFormatDropdownOpen, setFormatDropdownOpen] = useState(false);
   const [isMoreDropdownOpen, setMoreDropdownOpen] = useState(false);
 
-  const openClassName = "editor-view__inlinetoolbar--columns--open";
-  const closedClassName = "editor-view__inlinetoolbar--columns--closed";
-  const alignment = isAlignmentDropdownOpen ? openClassName : closedClassName;
-  const format = isFormatDropdownOpen ? openClassName : closedClassName;
-  const more = isMoreDropdownOpen ? openClassName : closedClassName;
+  const { alignment, format, more } = getDropdownClassnames(
+    isAlignmentDropdownOpen,
+    isFormatDropdownOpen,
+    isMoreDropdownOpen
+  );
+
+  // console.log(Rect.rect, 8888);
+
+  const rect = Rect.rect || {
+    rect: {
+      x: 0,
+      y: 0,
+      width: 0,
+    },
+  };
+
+  console.log(Rect.rect, 8888);
 
   const actions = generateActions(
     alignment,

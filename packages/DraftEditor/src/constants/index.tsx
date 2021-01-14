@@ -28,6 +28,8 @@ const TARGET_BLANK = "_blank";
 const ADD_LINK = "add-link";
 const MUTABLE = "MUTABLE";
 const CODE = "CODE";
+const UPDATE_LINK = "update-link";
+const EMPTY_STRING = "";
 
 export {
   LINK,
@@ -60,4 +62,6 @@ export {
   ADD_LINK,
   MUTABLE,
   CODE,
+  UPDATE_LINK,
+  EMPTY_STRING,
 };
