@@ -30,8 +30,26 @@ const MUTABLE = "MUTABLE";
 const CODE = "CODE";
 const UPDATE_LINK = "update-link";
 const EMPTY_STRING = "";
+const KEY_BINDING_SAVE_ACTION = "myeditor-save";
+const KEY_BINDING_TOOLBAR_ACTION = "myeditor-toolbar";
+const KEY_BINDING_ADD_LINK = "myeditor-link";
+const KEY_BINDING_HANDLED = "handled";
+const KEY_BINDING_NOT_HANDLED = "not-handled";
+const APPLY_ENTITY = "apply-entity";
+const CENTER = "center";
+const LINE_THROUGH = "line-through";
+const BACKSPACE = "backspace";
 
 export {
+  KEY_BINDING_SAVE_ACTION,
+  KEY_BINDING_TOOLBAR_ACTION,
+  KEY_BINDING_ADD_LINK,
+  KEY_BINDING_HANDLED,
+  KEY_BINDING_NOT_HANDLED,
+  APPLY_ENTITY,
+  CENTER,
+  LINE_THROUGH,
+  BACKSPACE,
   LINK,
   HANDLED,
   NOT_HANDLED,

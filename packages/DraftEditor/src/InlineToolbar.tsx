@@ -33,17 +33,11 @@ const InlineToolbar = ({
     isMoreDropdownOpen
   );
 
-  // console.log(Rect.rect, 8888);
-
   const rect = Rect.rect || {
-    rect: {
-      x: 0,
-      y: 0,
-      width: 0,
-    },
+    x: 0,
+    y: 0,
+    width: 0,
   };
-
-  console.log(Rect.rect, 8888);
 
   const actions = generateActions(
     alignment,

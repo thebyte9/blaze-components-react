@@ -41,7 +41,16 @@ import InlineToolbar from "./InlineToolbar";
 import { IDraftEditorProps } from "./interfaces";
 import linkStrategy from "./link-strategy";
 import parseTextBlock from "./text-block-parser";
-import { Rect, getSelectedText } from "./inline-toolbar-utils";
+import { Rect } from "./inline-toolbar-utils";
+import {
+  getSelectedText,
+  myKeyBindingFn,
+  styleMap,
+  customBlockStyle,
+  customBlockRenderer,
+  handleKeyCommand,
+  handleAddLink,
+} from "./text-utils";
 
 const DraftEditor = ({
   component,
@@ -52,6 +61,9 @@ const DraftEditor = ({
   allowedChildChanges,
   buttonEnabledState,
   textBlockRef,
+  onChange,
+  name,
+  value,
 }) => {
   const [inlineToolbar, showInlineToolbar] = useState(false);
   const [addLinkModal, showAddLinkModal] = useState(false);
@@ -78,15 +90,17 @@ const DraftEditor = ({
       },
     ]);
 
-    // if (component.settings.editor && component.settings.editor.length > 0) {
-    //   const newEditorState = EditorState.createWithContent(
-    //     convertFromRaw(JSON.parse(component.settings.editor))
-    //   );
+    if (value) {
+      const newEditorState = EditorState.createWithContent(
+        convertFromRaw(JSON.parse(value))
+      );
 
-    //   return EditorState.set(newEditorState, {
-    //     decorator: linkDecorator,
-    //   });
-    // }
+      const newEditorStateWithDecorators = EditorState.set(newEditorState, {
+        decorator: linkDecorator,
+      });
+
+      return newEditorStateWithDecorators;
+    }
 
     return EditorState.createEmpty(linkDecorator);
   });
@@ -94,29 +108,56 @@ const DraftEditor = ({
   const [hover, setHover] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const wrapper = useRef(null);
-  // const client = useApolloClient();
 
   const save = (state, action) => {
     const currentContent = editorState.getCurrentContent();
     const newContent = state.getCurrentContent();
 
-    // if (
-    //   currentContent !== newContent ||
-    //   action === ADD_LINK ||
-    //   action === UPDATE_LINK
-    // ) {
-    //   // eslint-disable-next-line no-param-reassign
-    //   component.settings.editor = JSON.stringify(convertToRaw(newContent));
-    //   setSelectedComponents(selectedComponents);
-    //   onCreateComponent(selectedComponents);
-    //   setLinkContentState(null);
-    // }
+    if (
+      currentContent !== newContent ||
+      action === "add-link" ||
+      action === "update-link"
+    ) {
+      setLinkContentState(null);
+      showInlineToolbar(false);
+    }
+    if (inlineToolbar) {
+      showInlineToolbar(false);
+    }
 
     setEditorState(state);
+    showInlineToolbar(true);
   };
 
   const handleOnChange = (state) => {
     save(state);
+    const currentContent = state.getCurrentContent();
+    const rawValue = convertToRaw(currentContent);
+
+    const blocks = rawValue.blocks.map((block) => {
+      if (block.type === "atomic" && !!block.text.trim()) {
+        block.text = block.text.replace(/\s+/g, " ");
+      }
+      return block;
+    });
+
+    rawValue.blocks = blocks;
+
+    const rawValueString = JSON.stringify({
+      ...rawValue,
+    });
+
+    const eventFormat = {
+      event: {
+        target: {
+          name,
+          value: rawValueString,
+        },
+      },
+    };
+    if (onChange) {
+      onChange(eventFormat);
+    }
   };
 
   const focusEditor = React.useCallback(() => {
@@ -157,10 +198,6 @@ const DraftEditor = ({
     }
   }, [editorState, setSelectionRect]);
 
-  // useImperativeHandle(textBlockRef, () => ({
-  //   editor: editor.current,
-  // }));
-
   return (
     <>
       <div
@@ -179,29 +216,13 @@ const DraftEditor = ({
         role="button"
         ref={wrapper}
       >
-        {/* {hover && (
-          <EditorViewOverlayToolbar
-            component={component}
-            onCreateComponent={onCreateComponent}
-            onDeleteComponent={onDeleteComponent}
-            setSelectedComponents={setSelectedComponents}
-            selectedComponents={selectedComponents}
-            allowedChildChanges={allowedChildChanges}
-            buttonEnabledState={buttonEnabledState}
-            setHover={setHover}
-            setIsModalOpen={setIsModalOpen}
-          />
-        )} */}
-
-        {/* <EditorViewTooltip component={component} isHovered={hover} /> */}
-
         <div
           role="button"
           className="editor-view__textblock--editor"
           ref={(el) => {
             if (!el) return;
 
-            Rect.rect = { rect: el.getBoundingClientRect() };
+            Rect.rect = el.getBoundingClientRect();
           }}
         >
           <InlineToolbar
@@ -228,10 +249,10 @@ const DraftEditor = ({
                 showInlineToolbar
               )
             }
-            // customStyleMap={styleMap}
-            // keyBindingFn={myKeyBindingFn}
-            // blockStyleFn={customBlockStyle}
-            // blockRendererFn={customBlockRenderer}
+            customStyleMap={styleMap}
+            keyBindingFn={myKeyBindingFn}
+            blockStyleFn={customBlockStyle}
+            blockRendererFn={customBlockRenderer}
             onBlur={(e) => handleOnBlur(e)}
             onFocus={(e) => handleOnFocus(e)}
           />
