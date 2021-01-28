@@ -86,14 +86,6 @@ storiesOf("Multiselect", module)
         setList(multiselectData);
       }, []);
 
-      const onItemsRendered = async () => {
-        setList({
-          ...list,
-          data: [...list.data, ...random(20)],
-        });
-        return list;
-      };
-
       const handleChange = (change: any) => {
         change.clearList();
         setList({
@@ -113,7 +105,6 @@ storiesOf("Multiselect", module)
           <Multiselect
             onChange={handleChange}
             isDynamic
-            onItemsRendered={onItemsRendered}
             name="multiselect"
             data={list}
             label="Multi Select"
