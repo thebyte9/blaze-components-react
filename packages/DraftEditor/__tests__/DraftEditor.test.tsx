@@ -13,12 +13,11 @@ describe("DraftEditor component", () => {
   };
 
   test("should be defined and renders correctly (snapshot)", () => {
-    const { container, rerender } = render(<DraftEditor />);
 
     const testValueJSON =
       '{"blocks":[{"key":"ai4n8","text":"testing","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}';
 
-    rerender(<DraftEditor value={testValueJSON} />);
+    const {container} = render(<DraftEditor value={testValueJSON} />);
     expect(container).toBeDefined();
   });
 });
