@@ -167,6 +167,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     const index = updatedData.findIndex((e: any) => e[keyValue] === id);
     updatedData[index].checked = value.checked;
     updateData(updatedData);
+    setSearchValue('');
     getSelected({
       event: {
         target: {
