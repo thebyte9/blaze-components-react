@@ -9,7 +9,7 @@
     "build": "lerna run build",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage -u",
     "dev": "start-storybook",
     "start": "start-storybook",
     "pre-publish": "npm run build && npm run lint && npm run test"

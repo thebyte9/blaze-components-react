@@ -16,14 +16,14 @@ const ChipIcon = ({
   modifier,
   handleRemoveChip,
   utils: { classNames },
-  'data-testid': dataCy
+  'data-testid': testId
 }: IChipIconProps): JSX.Element => {
   const iconClassName = classNames("chip__icon", {
     [`chip__icon--${modifier}`]: !!modifier
   });
 
   return (
-    <div className={iconClassName} onClick={handleRemoveChip} data-testid={dataCy}>
+    <div className={iconClassName} onClick={handleRemoveChip} data-testid={testId}>
       {children}
     </div>
   );
