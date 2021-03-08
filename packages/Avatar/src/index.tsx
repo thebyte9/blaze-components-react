@@ -47,7 +47,7 @@ const Avatar = withUtils(
     }
 
     return (
-      <div className={avatarClassName}>
+      <div className={avatarClassName} data-testid='avatar'>
         {validUrl ? (
           <img src={avatarUrl} alt="avatar" {...attr} />
         ) : (

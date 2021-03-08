@@ -6,8 +6,10 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
 >
   <div
     className="more-menu__wrapper"
+    data-testid="button-select"
   >
     <withUtils()
+      data-testid="button-select-toggle"
       disabled={false}
       modifiers={
         Array [
@@ -18,6 +20,7 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
       type="button"
     >
       <Component
+        data-testid="button-select-toggle"
         disabled={false}
         modifiers={
           Array [
@@ -37,6 +40,7 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
       >
         <button
           className="button button--full-width"
+          data-testid="button-select-toggle"
           disabled={false}
           onClick={[Function]}
           type="button"

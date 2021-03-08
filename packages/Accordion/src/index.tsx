@@ -28,11 +28,12 @@ const Accordion = ({ children, isOpen }: IAccordionProps): JSX.Element => {
   const arrowType = isActive ? UP : DOWN;
 
   return (
-    <div className="accordion">
-      <div className="accordion__header">
+    <div className="accordion" data-testid="accordion">
+      <div className="accordion__header" data-testid="accordion-header">
         {header}
         <div
           className="icon-button icon-button--accordion"
+          data-testid="accordion-icon-button"
           onClick={toggleAccordion}
         >
           <i className="material-icons">{`keyboard_arrow_${arrowType}`}</i>

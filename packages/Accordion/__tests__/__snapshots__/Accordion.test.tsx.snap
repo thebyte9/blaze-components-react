@@ -4,9 +4,11 @@ exports[`Accordion component should be defined and renders correctly (snapshot) 
 <Accordion>
   <div
     className="accordion"
+    data-testid="accordion"
   >
     <div
       className="accordion__header"
+      data-testid="accordion-header"
     >
       <AccordionHeader>
         <div
@@ -22,6 +24,7 @@ exports[`Accordion component should be defined and renders correctly (snapshot) 
       </AccordionHeader>
       <div
         className="icon-button icon-button--accordion"
+        data-testid="accordion-icon-button"
         onClick={[Function]}
       >
         <i

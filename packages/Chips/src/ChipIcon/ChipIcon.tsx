@@ -9,21 +9,21 @@ interface IChipIconProps {
   utils: {
     classNames: (className: string | object, classNames?: object) => string;
   };
-  'data-cy'?: string;
+  'data-testid'?: string;
 }
 const ChipIcon = ({
   children,
   modifier,
   handleRemoveChip,
   utils: { classNames },
-  'data-cy': dataCy
+  'data-testid': dataCy
 }: IChipIconProps): JSX.Element => {
   const iconClassName = classNames("chip__icon", {
     [`chip__icon--${modifier}`]: !!modifier
   });
 
   return (
-    <div className={iconClassName} onClick={handleRemoveChip} data-cy={dataCy}>
+    <div className={iconClassName} onClick={handleRemoveChip} data-testid={dataCy}>
       {children}
     </div>
   );

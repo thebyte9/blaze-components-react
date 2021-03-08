@@ -31,7 +31,7 @@ const MultiSelectBar = ({
         </label>
         {!!checkedItems.length && (
           <span
-            data-cy={`multiSelect-${label}-clearAll-button`}
+            data-testid={`multiSelect-${label}-clearAll-button`}
             className="chip__wrapper__clear"
             onClick={handleClearAll}
           >
@@ -63,12 +63,12 @@ const MultiSelectBar = ({
                 key={uniqueId(selectedValue)}
               >
                 <Chip.Label
-                  data-cy={`multiSelect-${label}-chip${index + 1}-label`}
+                  data-testid={`multiSelect-${label}-chip${index + 1}-label`}
                 >
                   {getLabel({ label: selectedValue[keyValue], isChip: true })}
                 </Chip.Label>
                 <Chip.Icon
-                  data-cy={`multiSelect-${label}-chip${index + 1}-icon`}
+                  data-testid={`multiSelect-${label}-chip${index + 1}-icon`}
                   modifier={Chip.availableModifiers.icon.delete}
                 >
                   <i className="material-icons">clear</i>

@@ -16,8 +16,9 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({
 }) => {
   const [toggled, setToggled] = useState(false);
   return (
-    <div className="more-menu__wrapper">
+    <div className="more-menu__wrapper" data-testid="button-select">
       <Button
+        data-testid="button-select-toggle"
         modifiers={["full-width"]}
         onClick={(): void => setToggled(!toggled)}
         {...Attr}
@@ -29,7 +30,7 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({
       </Button>
 
       {toggled && (
-        <div className="more-menu--open" style={menuStyles}>
+        <div className="more-menu--open" style={menuStyles} data-testid="button-select-open">
           {children}
         </div>
       )}

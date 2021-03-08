@@ -63,7 +63,6 @@ const Checkbox = ({
         id={inputId}
         name={name}
         onClick={handleCheckboxChange}
-        data-cy={attrs["data-cy"]}
       />
       <div onClick={handleCheckboxChange} className={labelClassName}>
         <Label defaultId={inputId} label={label} />

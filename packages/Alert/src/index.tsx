@@ -28,12 +28,13 @@ const Alert: FunctionComponent<IAlertProps> = ({
   });
 
   const renderAlert = (
-    <div className={alertClassName} {...attrs}>
+    <div className={alertClassName} {...attrs} data-testid="alert">
       {icon && <i className="material-icons">{icon}</i>}
       {children}
       {close && (
         <Button
           onClick={() => setModalOff(true)}
+          data-testid="alert-icon-button"
           className="icon-button icon-button--close"
         >
           <i className="material-icons">close</i>

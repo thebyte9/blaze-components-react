@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 const Breadcrumb: FunctionComponent<any> = ({ children }) => (
-  <ul className="breadcrumb">
+  <ul className="breadcrumb" data-testid="breadcrumb">
     {React.Children.map(
       children,
       (child: any): JSX.Element =>

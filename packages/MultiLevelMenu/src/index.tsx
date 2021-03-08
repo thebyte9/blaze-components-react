@@ -47,7 +47,7 @@ const MultiLevelMenu = ({
           className="multilevelmenu__backlink"
           onClick={handleBack}
           role="button"
-          data-cy="multiLevelMenu-back-button"
+          data-testid="multiLevelMenu-back-button"
         >
           <span>{`< Back`}</span>
         </div>

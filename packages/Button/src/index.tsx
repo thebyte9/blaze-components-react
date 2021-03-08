@@ -31,6 +31,7 @@ const Button = withUtils(
     });
     return (
       <button
+        data-testid="button"
         disabled={disabled}
         className={buttonClassNames}
         type={type}

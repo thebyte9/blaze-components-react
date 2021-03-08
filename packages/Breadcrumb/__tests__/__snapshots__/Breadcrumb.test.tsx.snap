@@ -3,6 +3,7 @@
 exports[`Breadcrumb component should be defined and renders correctly (snapshot) 1`] = `
 <ul
   className="breadcrumb"
+  data-testid="breadcrumb"
 >
   <li
     className="breadcrumb__item"
@@ -40,6 +41,7 @@ exports[`Breadcrumb component should be defined and renders correctly (snapshot)
 exports[`Breadcrumb component should renders correctly with one children 1`] = `
 <ul
   className="breadcrumb"
+  data-testid="breadcrumb"
 >
   <li
     className="breadcrumb__item"

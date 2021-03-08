@@ -70,6 +70,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
     }
   >
     <withUtils(Input)
+      data-testid="autocomplete"
       disabled={false}
       label=""
       onChange={[Function]}
@@ -77,6 +78,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
       value=""
     >
       <Input
+        data-testid="autocomplete"
         disabled={false}
         error={false}
         hideTypeToggle={false}
@@ -104,7 +106,7 @@ exports[`Autocomplete component should be defined and renders correctly (snapsho
             className=""
           />
           <input
-            data-testid="input"
+            data-testid="autocomplete"
             disabled={false}
             onChange={[Function]}
             placeholder="Search"

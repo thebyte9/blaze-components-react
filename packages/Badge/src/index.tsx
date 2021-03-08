@@ -31,9 +31,9 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   });
 
   return link ? (
-    <Fragment>{children}</Fragment>
+    <Fragment data-testid="badge">{children}</Fragment>
   ) : (
-    <span className={classes} {...attrs}>
+    <span className={classes} {...attrs} data-testid="badge">
       {children}
     </span>
   );

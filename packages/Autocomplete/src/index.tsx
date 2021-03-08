@@ -58,6 +58,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
         onChange={handleChange}
         value={inputValue}
         disabled={disabled}
+        data-testid="autocomplete"
       />
 
       {showSelect &&

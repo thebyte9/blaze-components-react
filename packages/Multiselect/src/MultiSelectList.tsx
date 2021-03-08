@@ -52,8 +52,8 @@ const MultiSelectList = ({
                 >
                   <Checkbox
                     full
-                    data-cy={`${
-                      attrs["data-cy"] || "multiselect"
+                    data-testid={`${
+                      attrs["data-testid"] || "multiselect"
                     }-checkbox-cy-${index}`}
                     testId={`checkbox-${index}`}
                     {...list[index]}

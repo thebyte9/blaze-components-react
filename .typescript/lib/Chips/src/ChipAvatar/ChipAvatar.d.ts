@@ -1,7 +1,7 @@
 /// <reference types="react" />
 interface IChipAvatarProps {
     children: JSX.Element | JSX.Element[];
-    'data-cy'?: string;
+    'data-testid'?: string;
 }
-declare const ChipAvatar: ({ children, "data-cy": dataCy }: IChipAvatarProps) => JSX.Element;
+declare const ChipAvatar: ({ children, "data-testid": dataCy }: IChipAvatarProps) => JSX.Element;
 export default ChipAvatar;
