@@ -1,5 +1,5 @@
 import buildClassNames from './buildClassNames';
-import { useDebounce, useInView, useTheme } from './customHooks';
+import { useDebounce, useInView } from './customHooks';
 import withUtils from './HOC/withUtils'
 
 
