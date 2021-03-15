@@ -29,7 +29,20 @@ const ADD_LINK = "add-link";
 const MUTABLE = "MUTABLE";
 const CODE = "CODE";
 
+const KEY_BINDING_HANDLED = "handled";
+const KEY_BINDING_NOT_HANDLED = "not-handled";
+const KEY_BINDING_SAVE_ACTION = "myeditor-save";
+const KEY_BINDING_TOOLBAR_ACTION = "myeditor-toolbar";
+const KEY_BINDING_ADD_LINK = "myeditor-link";
+const KEY_BINDING_UNDO = "myeditor-undo";
+
 export {
+  KEY_BINDING_HANDLED,
+  KEY_BINDING_NOT_HANDLED,
+  KEY_BINDING_SAVE_ACTION,
+  KEY_BINDING_TOOLBAR_ACTION,
+  KEY_BINDING_ADD_LINK,
+  KEY_BINDING_UNDO,
   LINK,
   HANDLED,
   NOT_HANDLED,
