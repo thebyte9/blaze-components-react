@@ -6,16 +6,16 @@ interface IThemeStructure {
 }
 
 interface IThemeContext {
-  dark:  IThemeStructure;
+  dark:  object;
   default:  IThemeStructure;
-  light:  IThemeStructure;
-  selectedTheme:string;
+  light:  object;
+  selectedTheme: string;
 }
 
 const useTheme = (componentName: string):string => {
    const themeOptions = useContext<IThemeContext>(ThemeContext);
    const {selectedTheme} = themeOptions;
-   const componentThemeClasses = themeOptions[selectedTheme][componentName];
+   const componentThemeClasses = themeOptions[selectedTheme][componentName] || '';
 
   return componentThemeClasses;
 }
