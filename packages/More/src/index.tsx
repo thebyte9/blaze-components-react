@@ -1,4 +1,4 @@
-import classnames from "classnames";
+import { buildClassNames } from "@blaze-react/utils";
 import React, { useEffect, useRef, useState } from "react";
 import MoreAvatar from "./MoreAvatar";
 import MoreContent from "./MoreContent";
@@ -35,7 +35,7 @@ const More = ({
   }, []);
 
   const handleToggle = (event: any) => {
-    if (disabled) return;
+    if (disabled) { return; }
     event.stopPropagation();
     setToggle(!toggled);
     if (toggled) {
@@ -43,12 +43,12 @@ const More = ({
     }
   };
 
-  const ulClassName = classnames("dropdown", {
+  const ulClassName = buildClassNames("dropdown", {
     "dropdown dropdown__list": !isHeader,
     "dropdown__list dropdown__list--header dropdown--header": isHeader,
     "more-menu__list": isMoreMenu,
   });
-  const liClassName = classnames({
+  const liClassName = buildClassNames({
     "dropdown__list-item": !isHeader,
     "dropdown__list-item dropdown__list-item--header": isHeader,
     "more-menu__list-item": isMoreMenu,

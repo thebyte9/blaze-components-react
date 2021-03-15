@@ -2,7 +2,7 @@ import withUtils from "@blaze-react/utils";
 import React from "react";
 interface ISpinnerProps {
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
   lockContent?: boolean;
   size?: "bigg" | "med" | "small" | "x-small";
@@ -13,14 +13,14 @@ const Spinner = withUtils(
   ({
     size,
     lockContent,
-    utils: { classNames },
+    utils: { buildClassNames },
     animation
   }: ISpinnerProps): JSX.Element => {
-    const spinnerClassName: string = classNames({
+    const spinnerClassName: string = buildClassNames({
       "loader__lock loader__lock--spinner": lockContent
     });
 
-    const spinnerAnimationClassName: string = classNames("loader__spinner", {
+    const spinnerAnimationClassName: string = buildClassNames("loader__spinner", {
       [`loader__spinner--${animation}`]: !!animation,
       [`loader__spinner--${size}`]: !!size
     });

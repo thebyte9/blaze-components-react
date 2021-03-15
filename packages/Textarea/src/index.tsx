@@ -19,7 +19,7 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   validationMessage: string | JSX.Element;
   placeholder?: string;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
@@ -32,7 +32,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   validationMessage,
   required,
   id,
-  utils: { classNames, ErrorMessage },
+  utils: { buildClassNames, ErrorMessage },
   ...attrs
 }) => {
   const [content, setContent] = useState<string>("");
@@ -54,7 +54,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
     onChange({ event, value: newContent });
   };
 
-  const requiredClassName: string = classNames({ required });
+  const requiredClassName: string = buildClassNames({ required });
 
   const total: number = !limit ? 0 : limit - content.length;
 

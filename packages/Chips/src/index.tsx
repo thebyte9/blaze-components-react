@@ -11,7 +11,7 @@ interface IChipsProps {
   action: () => void;
   onDelete: () => void;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
 }
 const Chips = withUtils(
@@ -20,7 +20,7 @@ const Chips = withUtils(
     modifiers,
     action,
     onDelete,
-    utils: { classNames }
+    utils: { buildClassNames }
   }: IChipsProps): JSX.Element => {
     const [showChip, setChip] = useState<boolean>(true);
 
@@ -37,7 +37,7 @@ const Chips = withUtils(
       setChip(false);
     };
 
-    const chipClassNames: string = classNames("chip", {
+    const chipClassNames: string = buildClassNames("chip", {
       [formatedModifiers]: !!modifiers
     });
 

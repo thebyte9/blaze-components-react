@@ -15,7 +15,7 @@ exports[`Loader component ProgressBar - should be defined and renders correctly 
     utils={
       Object {
         "ErrorMessage": [Function],
-        "classNames": [Function],
+        "buildClassNames": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }
@@ -55,7 +55,7 @@ exports[`Loader component Spinner - should be defined and renders correctly (sna
     utils={
       Object {
         "ErrorMessage": [Function],
-        "classNames": [Function],
+        "buildClassNames": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }
@@ -133,7 +133,7 @@ exports[`Loader component should render Cutom ProgressBar with steps 1`] = `
     utils={
       Object {
         "ErrorMessage": [Function],
-        "classNames": [Function],
+        "buildClassNames": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }

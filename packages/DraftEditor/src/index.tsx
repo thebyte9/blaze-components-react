@@ -42,7 +42,7 @@ import parseTextBlock from "./text-block-parser";
 import { Rect } from "./inline-toolbar-utils";
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
-  utils: { classNames, ErrorMessage },
+  utils: { buildClassNames, ErrorMessage },
   onChange,
   name,
   value,
@@ -181,7 +181,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
   const getBlockStyle = (block: ContentBlock): string => {
     const isBlockquote: boolean = block.getType() === BLOCKQUOTE;
-    return classNames({
+    return buildClassNames({
       "custom-DraftEditor-blockquote": isBlockquote,
     });
   };

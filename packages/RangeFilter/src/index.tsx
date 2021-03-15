@@ -30,7 +30,7 @@ interface IRangeFilterProps {
   validationMessage: string | JSX.Element;
   value: IRangeValue | any;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
@@ -45,7 +45,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   value,
   name,
   id,
-  utils: { classNames, ErrorMessage },
+  utils: { buildClassNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
   const [inputs, setInputs] = useState<any>(value || {});
@@ -73,11 +73,11 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     setTimeout(init, time);
   };
 
-  const modifierClassName: string = classNames({
+  const modifierClassName: string = buildClassNames({
     [`form-field--${modifier}`]: !!modifier
   });
 
-  const requiredClassName: string = classNames({ required });
+  const requiredClassName: string = buildClassNames({ required });
 
   const { min = 0, max = 0, step = 1, minValue = 0, maxValue = 0 } = inputs;
 
