@@ -4,6 +4,10 @@
         "tslint:recommended",
         "tslint-config-prettier"
     ],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true
+  },
+  "editor.tabSize": 2,
     "jsRules": {},
     "rules": {},
     "rulesDirectory": []
