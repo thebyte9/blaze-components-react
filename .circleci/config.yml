@@ -17,7 +17,8 @@ install_aws_cli: &install_aws_cli
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
-      - image: circleci/node:10.15.0 # ...with this image as the primary container; this is where all `steps` will run
+      - image: cimg/node:12:20
+ # ...with this image as the primary container; this is where all `steps` will run
     environment:
       SONAR_QUBE_VERSION: 3.3.0.1492-linux
     steps: # a collection of executable commands
