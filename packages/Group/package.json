@@ -18,7 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blaze-react/utils": "^0.6.0"
+    "@blaze-react/utils": "^0.6.0",
+    "@blaze-react/core": "^0.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

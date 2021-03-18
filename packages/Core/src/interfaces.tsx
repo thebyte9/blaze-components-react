@@ -1,12 +1,10 @@
 interface IThemeStructure {
-button: string;
+  group: string;
 }
 
 interface IThemeContext {
-dark:  object;
-default:  IThemeStructure;
-light:  object;
-selectedTheme: string;
+  default:  IThemeStructure;
+  selectedTheme: string;
 }
 
 export { IThemeStructure, IThemeContext }

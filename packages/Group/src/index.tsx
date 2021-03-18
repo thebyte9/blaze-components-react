@@ -1,3 +1,4 @@
+import { useTheme } from "@blaze-react/core"
 import { buildClassNames } from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useState } from "react";
 
@@ -13,27 +14,20 @@ interface IInputProps {
 const Group: FunctionComponent<IInputProps> = ({
   label,
   modifier,
-  required,
+  children,
   ...attrs
 }): JSX.Element => {
-  const requiredClassName: string = buildClassNames({ required });
-
-  const modifierClassName: string = buildClassNames({
-    [`form-field--${modifier}`]: !!modifier,
-  });
+  const themeClasses = useTheme("group");
+  const requiredClassName: string = buildClassNames(themeClasses);
 
   return (
     <div
-      className={`form-field form-field--input ${modifierClassName}`}
+      className={requiredClassName}
     >
       <label htmlFor={attrs.id} className={requiredClassName}>
         {label}
       </label>
-      <input
-        data-testid="input"
-        required={required}
-        {...attrs}
-      />
+      {children}
     </div>
   );
 };
@@ -41,7 +35,6 @@ const Group: FunctionComponent<IInputProps> = ({
 Group.defaultProps = {
   label: "",
   modifier: "",
-  required: false,
   type: "text",
 };
 
