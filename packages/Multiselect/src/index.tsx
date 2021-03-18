@@ -7,7 +7,7 @@ import MultiSelectList from "./MultiSelectList";
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
   onItemsRendered,
-  utils: { ErrorMessage, uniqueId, classNames },
+  utils: { ErrorMessage, uniqueId, buildClassNames },
   validationMessage,
   notFoundMessage,
   limitReachedMessage,
@@ -255,7 +255,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           handleInputChange={handleInputChange}
           handleKeyDown={handleKeyDown}
           handleFocus={handleFocus}
-          classNames={classNames}
+          buildClassNames={buildClassNames}
           getLabel={getLabel}
         />
 

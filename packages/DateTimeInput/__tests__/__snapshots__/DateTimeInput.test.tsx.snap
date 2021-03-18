@@ -17,7 +17,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
     utils={
       Object {
         "ErrorMessage": [Function],
-        "classNames": [Function],
+        "buildClassNames": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }
@@ -73,6 +73,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
         renderDayContents={[Function]}
         required={false}
         shouldCloseOnSelect={true}
+        showFourColumnMonthYearPicker={false}
         showFullMonthYearPicker={false}
         showMonthYearPicker={false}
         showPopperArrow={true}
@@ -103,6 +104,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
           }
           popperOnKeyDown={[Function]}
           popperPlacement="bottom-start"
+          popperProps={Object {}}
           targetComponent={
             <div
               className="react-datepicker__input-container"
@@ -123,29 +125,35 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
             </div>
           }
         >
-          <Manager>
+          <Manager
+            className="react-datepicker-manager"
+          >
             <Reference>
-              <div
-                className="react-datepicker-wrapper"
+              <InnerReference
+                setReferenceNode={[Function]}
               >
                 <div
-                  className="react-datepicker__input-container"
+                  className="react-datepicker-wrapper"
                 >
-                  <input
-                    className=""
-                    disabled={false}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    readOnly={false}
-                    required={false}
-                    type="text"
-                    value=""
-                  />
+                  <div
+                    className="react-datepicker__input-container"
+                  >
+                    <input
+                      className=""
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      readOnly={false}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
                 </div>
-              </div>
+              </InnerReference>
             </Reference>
           </Manager>
         </r>
@@ -188,7 +196,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
     utils={
       Object {
         "ErrorMessage": [Function],
-        "classNames": [Function],
+        "buildClassNames": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }
@@ -244,6 +252,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
         renderDayContents={[Function]}
         required={false}
         shouldCloseOnSelect={true}
+        showFourColumnMonthYearPicker={false}
         showFullMonthYearPicker={false}
         showMonthYearPicker={false}
         showPopperArrow={true}
@@ -274,6 +283,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
           }
           popperOnKeyDown={[Function]}
           popperPlacement="bottom-start"
+          popperProps={Object {}}
           targetComponent={
             <div
               className="react-datepicker__input-container"
@@ -294,29 +304,35 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
             </div>
           }
         >
-          <Manager>
+          <Manager
+            className="react-datepicker-manager"
+          >
             <Reference>
-              <div
-                className="react-datepicker-wrapper"
+              <InnerReference
+                setReferenceNode={[Function]}
               >
                 <div
-                  className="react-datepicker__input-container"
+                  className="react-datepicker-wrapper"
                 >
-                  <input
-                    className=""
-                    disabled={false}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    readOnly={false}
-                    required={false}
-                    type="text"
-                    value=""
-                  />
+                  <div
+                    className="react-datepicker__input-container"
+                  >
+                    <input
+                      className=""
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      readOnly={false}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
                 </div>
-              </div>
+              </InnerReference>
             </Reference>
           </Manager>
         </r>
@@ -359,7 +375,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
     utils={
       Object {
         "ErrorMessage": [Function],
-        "classNames": [Function],
+        "buildClassNames": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }
@@ -415,6 +431,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
         renderDayContents={[Function]}
         required={false}
         shouldCloseOnSelect={true}
+        showFourColumnMonthYearPicker={false}
         showFullMonthYearPicker={false}
         showMonthYearPicker={false}
         showPopperArrow={true}
@@ -445,6 +462,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
           }
           popperOnKeyDown={[Function]}
           popperPlacement="bottom-start"
+          popperProps={Object {}}
           targetComponent={
             <div
               className="react-datepicker__input-container"
@@ -465,29 +483,35 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
             </div>
           }
         >
-          <Manager>
+          <Manager
+            className="react-datepicker-manager"
+          >
             <Reference>
-              <div
-                className="react-datepicker-wrapper"
+              <InnerReference
+                setReferenceNode={[Function]}
               >
                 <div
-                  className="react-datepicker__input-container"
+                  className="react-datepicker-wrapper"
                 >
-                  <input
-                    className=""
-                    disabled={false}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    readOnly={false}
-                    required={false}
-                    type="text"
-                    value=""
-                  />
+                  <div
+                    className="react-datepicker__input-container"
+                  >
+                    <input
+                      className=""
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      readOnly={false}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
                 </div>
-              </div>
+              </InnerReference>
             </Reference>
           </Manager>
         </r>
@@ -529,7 +553,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
     utils={
       Object {
         "ErrorMessage": [Function],
-        "classNames": [Function],
+        "buildClassNames": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }
@@ -585,6 +609,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
         renderDayContents={[Function]}
         required={false}
         shouldCloseOnSelect={true}
+        showFourColumnMonthYearPicker={false}
         showFullMonthYearPicker={false}
         showMonthYearPicker={false}
         showPopperArrow={true}
@@ -615,6 +640,7 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
           }
           popperOnKeyDown={[Function]}
           popperPlacement="bottom-start"
+          popperProps={Object {}}
           targetComponent={
             <div
               className="react-datepicker__input-container"
@@ -635,29 +661,35 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
             </div>
           }
         >
-          <Manager>
+          <Manager
+            className="react-datepicker-manager"
+          >
             <Reference>
-              <div
-                className="react-datepicker-wrapper"
+              <InnerReference
+                setReferenceNode={[Function]}
               >
                 <div
-                  className="react-datepicker__input-container"
+                  className="react-datepicker-wrapper"
                 >
-                  <input
-                    className=""
-                    disabled={false}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    readOnly={false}
-                    required={false}
-                    type="text"
-                    value=""
-                  />
+                  <div
+                    className="react-datepicker__input-container"
+                  >
+                    <input
+                      className=""
+                      disabled={false}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      readOnly={false}
+                      required={false}
+                      type="text"
+                      value=""
+                    />
+                  </div>
                 </div>
-              </div>
+              </InnerReference>
             </Reference>
           </Manager>
         </r>

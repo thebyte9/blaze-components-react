@@ -29,7 +29,7 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
         utils={
           Object {
             "ErrorMessage": [Function],
-            "classNames": [Function],
+            "buildClassNames": [Function],
             "removeExtraSpaces": [Function],
             "uniqueId": [Function],
           }

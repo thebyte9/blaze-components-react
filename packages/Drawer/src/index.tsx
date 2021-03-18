@@ -13,7 +13,7 @@ interface IDrawerProps {
   isPermanent: boolean;
   title?: string;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
 }
 const Drawer = withUtils(
@@ -23,7 +23,7 @@ const Drawer = withUtils(
     isResponsive,
     isPermanent,
     title,
-    utils: { classNames }
+    utils: { buildClassNames }
   }: IDrawerProps): JSX.Element => {
     const [menuStatus, setMenuStatus] = useState<boolean>(isPermanent);
 
@@ -32,22 +32,22 @@ const Drawer = withUtils(
       JSX.Element
     ] = children;
 
-    const drawerWrapperClassNames: string = classNames("drawer__wrapper", {
+    const drawerWrapperClassNames: string = buildClassNames("drawer__wrapper", {
       [`drawer__wrapper--drawer-${modifier}`]: !!modifier
     });
 
-    const drawerTypeClassNames: string = classNames("drawer", {
+    const drawerTypeClassNames: string = buildClassNames("drawer", {
       "drawer--responsive": !!isResponsive,
       open: menuStatus,
       [`drawer--${modifier}`]: !!modifier
     });
 
-    const drawerHeaderClassNames: string = classNames("drawer__header", {
+    const drawerHeaderClassNames: string = buildClassNames("drawer__header", {
       "drawer__header--responsive": !!isResponsive,
       [`drawer__header--${modifier}`]: !!modifier
     });
 
-    const drawerPageHeaderClassNames: string = classNames(
+    const drawerPageHeaderClassNames: string = buildClassNames(
       "page__header page__header--drawer",
       {
         "page__header--responsive": !!isResponsive,

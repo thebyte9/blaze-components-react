@@ -29,7 +29,7 @@ interface IDateTimeInputProps {
   validationMessage: string | JSX.Element;
   value?: Date;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
@@ -45,7 +45,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   type,
   validationMessage,
   value,
-  utils: { classNames, ErrorMessage }
+  utils: { buildClassNames, ErrorMessage }
 }): JSX.Element => {
   const [newValue, setNewValue] = useState<Date | undefined>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
@@ -82,9 +82,9 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
     onChange({ event: { ...event, target }, value: date });
   };
 
-  const requiredClassName: string = classNames({ required });
+  const requiredClassName: string = buildClassNames({ required });
 
-  const rootClasses: string = classNames('form-field form-field--date-time-input', {
+  const rootClasses: string = buildClassNames('form-field form-field--date-time-input', {
     [`form-field--${modifier}`]: !!modifier,
   });
 
