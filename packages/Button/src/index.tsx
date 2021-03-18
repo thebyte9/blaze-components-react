@@ -1,5 +1,4 @@
 import withUtils from "@blaze-react/utils";
-// import  { useTheme } from "@blaze-react/utils/src/customHooks";
 import React, { ButtonHTMLAttributes } from "react";
 
 type TType = "button" | "submit" | "reset";
@@ -11,7 +10,6 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   modifiers?: string[];
   utils: {
     buildClassNames: (className: string | object, optionalClassNames?: object) => string;
-    useTheme: (componentName: string) => string
   };
 }
 

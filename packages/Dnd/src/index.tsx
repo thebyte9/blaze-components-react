@@ -230,7 +230,6 @@ class Nestable extends Component<INestableProps, INestableState> {
   public render() {
     const { items, dragItem } = this.state;
     const { renderItem, childrenProp } = this.props;
-    console.log(buildClassNames)
     const wrapperClassName = buildClassNames("nestable", {
       "is-dragging": dragItem,
     });
