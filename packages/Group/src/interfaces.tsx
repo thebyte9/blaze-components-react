@@ -1,5 +1,0 @@
-// interface IGroupProps {
-
-// }
-
-// export { IGroupProps };
