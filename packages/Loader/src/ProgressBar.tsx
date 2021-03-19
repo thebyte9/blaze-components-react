@@ -15,7 +15,7 @@ interface IMessage {
 interface ILoaderProps {
   steps: IStep[];
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
   progress: number;
   lockContent: boolean;
@@ -28,31 +28,31 @@ const ProgressBar = withUtils(
     lockContent,
     progress,
     message: { incomplete, status, position },
-    utils: { classNames }
+    utils: { buildClassNames }
   }: ILoaderProps): JSX.Element => {
     const { backgroundColor, icon }: IStep =
       steps.find(
         ({ start, final }: IStep | any) => progress > start && progress <= final
       ) || {};
 
-    const loaderTypeClassName: string = classNames("loader", {
+    const loaderTypeClassName: string = buildClassNames("loader", {
       [`loader__bar--lock`]: lockContent
     });
 
-    const labelClassName: string = classNames("loader__status", {
+    const labelClassName: string = buildClassNames("loader__status", {
       [`loader__status--${position}`]: !!position
     });
 
     const progressMessage: string = progress === 0 ? incomplete : status;
 
-    const loaderClassName: string = classNames(
+    const loaderClassName: string = buildClassNames(
       "loader__progress loader__progress--icon",
       {
         [`loader__progress--${backgroundColor}`]: !!backgroundColor
       }
     );
 
-    const stepClassName: string = classNames("loader__step--default", {
+    const stepClassName: string = buildClassNames("loader__step--default", {
       [`loader__progress--${backgroundColor}`]: !!backgroundColor
     });
 

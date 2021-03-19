@@ -22,7 +22,7 @@ interface ICheckBoxesProps {
   validationMessage: string | JSX.Element;
   utils: {
     uniqueId: (element: any) => string;
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
   full?: boolean;

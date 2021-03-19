@@ -1,4 +1,4 @@
-import classnames from "classnames";
+import { buildClassNames } from "@blaze-react/utils";
 import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 interface IMoreContentProps {
@@ -62,7 +62,7 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
     return containerElementRef;
   };
 
-  const ulClassName = classnames({
+  const ulClassName = buildClassNames({
     dropdown__submenu: isDropdown,
     "dropdown__submenu dropdown__submenu--header": isHeader,
     "dropdown__submenu--displayed dropdown__list-item--displayed":
@@ -70,12 +70,12 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
     "more-menu more-menu__list": isMoreMenu,
     "more-menu--open": toggled && isMoreMenu,
   });
-  const liClassName = classnames({
+  const liClassName = buildClassNames({
     "dropdown__list-item dropdown__list-item--submenu": isDropdown,
     "dropdown__list-item--header": isHeader,
     "more-menu__list-item": isMoreMenu,
   });
-  const childClassname = classnames({
+  const childClassname = buildClassNames({
     "dropdown__list-item-link--header": isHeader,
     "more-menu__link": isMoreMenu,
   });

@@ -19,9 +19,9 @@ const MultiSelectBar = ({
   required,
   searchValue,
   uniqueId,
-  utils: { classNames },
+  utils: { buildClassNames },
 }: any) => {
-  const requiredClassName: string = classNames({ required });
+  const requiredClassName: string = buildClassNames({ required });
 
   return (
     <>

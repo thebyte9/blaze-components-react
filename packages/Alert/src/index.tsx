@@ -6,7 +6,7 @@ interface IAlertProps {
   type?: string;
   close?: boolean;
   utils: {
-    classNames: (...args: any) => string;
+    buildClassNames: (...args: any) => string;
   };
   children?: JSX.Element | string;
 }
@@ -16,12 +16,12 @@ const Alert: FunctionComponent<IAlertProps> = ({
   close,
   icon,
   type,
-  utils: { classNames },
+  utils: { buildClassNames },
   ...attrs
 }): JSX.Element => {
   const [offModal, setModalOff] = useState<boolean>(false);
 
-  const alertClassName: string = classNames("alert", {
+  const alertClassName: string = buildClassNames("alert", {
     "alert--dismissable": close,
     "alert--icon": !!icon,
     [`alert--${type}`]: !!type

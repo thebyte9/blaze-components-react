@@ -13,7 +13,7 @@ const Checkbox = ({
   id,
   onChange,
   full,
-  utils: { uniqueId, classNames },
+  utils: { uniqueId, buildClassNames },
   ...attrs
 }: any) => {
   const [isChecked, setIsChecked] = useState(checked);
@@ -37,11 +37,11 @@ const Checkbox = ({
     setIsChecked(!isChecked);
   };
 
-  const checkboxClassName = classNames("form-field form-field--checkbox", {
+  const checkboxClassName = buildClassNames("form-field form-field--checkbox", {
     required,
   });
 
-  const labelClassName = classNames({
+  const labelClassName = buildClassNames({
     "form-field--checkbox-full": full,
   });
 

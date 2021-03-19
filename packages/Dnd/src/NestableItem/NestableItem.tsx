@@ -1,4 +1,4 @@
-import classnames from "classnames";
+import { buildClassNames } from "@blaze-react/utils";
 import React from "react";
 import DragHandler from "../DragHandler";
 interface INestableItemProps {
@@ -26,7 +26,7 @@ const NestableItem: React.SFC<INestableItemProps> = ({
   const isDragging = !isCopy && dragItem && dragItem.id === item.id;
   const hasChildrenProperty = item[childrenProp];
   const hasChildren = item[childrenProp] && item[childrenProp].length;
-  const listItemClassName = classnames(
+  const listItemClassName = buildClassNames(
     `nestable-item${isCopy ? "-copy" : ""}`,
     {
       "is-dragging": isDragging,

@@ -1,4 +1,4 @@
-import classnames from "classnames";
+import { buildClassNames } from "@blaze-react/utils";
 import update from "immutability-helper";
 import React, { Component, createRef } from "react";
 import shallowCompare from "react-addons-shallow-compare";
@@ -230,7 +230,7 @@ class Nestable extends Component<INestableProps, INestableState> {
   public render() {
     const { items, dragItem } = this.state;
     const { renderItem, childrenProp } = this.props;
-    const wrapperClassName = classnames("nestable", {
+    const wrapperClassName = buildClassNames("nestable", {
       "is-dragging": dragItem,
     });
     return (

@@ -26,7 +26,7 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
     utils={
       Object {
         "ErrorMessage": [Function],
-        "classNames": [Function],
+        "buildClassNames": [Function],
         "removeExtraSpaces": [Function],
         "uniqueId": [Function],
       }

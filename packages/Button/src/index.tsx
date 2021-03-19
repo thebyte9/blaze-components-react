@@ -9,7 +9,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: TType;
   modifiers?: string[];
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
 }
 
@@ -19,16 +19,16 @@ const Button = withUtils(
     type,
     children,
     modifiers = [],
-    utils: { classNames },
+    utils: { buildClassNames },
     ...attrs
   }: IButtonProps): JSX.Element => {
     const formatedModifiers: string = modifiers
       .map((modifier) => `button--${modifier}`)
       .join(" ");
-
-    const buttonClassNames: string = classNames("button", {
+    const buttonClassNames: string = buildClassNames("button", {
       [formatedModifiers]: !!modifiers,
     });
+
     return (
       <button
         disabled={disabled}

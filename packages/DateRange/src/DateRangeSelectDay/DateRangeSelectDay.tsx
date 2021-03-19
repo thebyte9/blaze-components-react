@@ -10,7 +10,7 @@ import { DateUtils } from "../utils";
 const DateRange: React.SFC<IDateRangeProps> = ({
   onChange,
   type,
-  utils: { classNames }
+  utils: { buildClassNames }
 }) => {
   const [year, setYear] = useState<string | number>(new Date().getFullYear());
   const [month, setMonth] = useState<string | number>(new Date().getMonth());
@@ -75,7 +75,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
       dateToCheck.getFullYear()
     );
 
-    return classNames({
+    return buildClassNames({
       active: pickedDate === date,
       current: DateUtils.isToday(dateToCheck) && pickedDate !== date,
       disabled: dateToCheck.getMonth() !== month

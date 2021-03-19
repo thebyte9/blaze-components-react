@@ -20,7 +20,7 @@ exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] =
         utils={
           Object {
             "ErrorMessage": [Function],
-            "classNames": [Function],
+            "buildClassNames": [Function],
             "removeExtraSpaces": [Function],
             "uniqueId": [Function],
           }
@@ -61,7 +61,7 @@ exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] =
         utils={
           Object {
             "ErrorMessage": [Function],
-            "classNames": [Function],
+            "buildClassNames": [Function],
             "removeExtraSpaces": [Function],
             "uniqueId": [Function],
           }

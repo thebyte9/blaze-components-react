@@ -24,7 +24,7 @@ interface ISelectProps {
   disabled?: any[];
   defaultTextValue?: string;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
@@ -39,7 +39,7 @@ const Select: React.SFC<ISelectProps> = ({
   validationMessage,
   disabled,
   defaultTextValue,
-  utils: { classNames, ErrorMessage },
+  utils: { buildClassNames, ErrorMessage },
   ...attrs
 }) => {
   const [selectedOption, setSelectedOption] = useState<string>(selected);
@@ -56,7 +56,7 @@ const Select: React.SFC<ISelectProps> = ({
     onChange({ event, value });
   };
 
-  const requiredClassName: string = classNames({
+  const requiredClassName: string = buildClassNames({
     required,
   });
 

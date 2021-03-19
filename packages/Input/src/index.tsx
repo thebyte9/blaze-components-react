@@ -24,7 +24,7 @@ interface IInputProps {
   validationMessage: string | JSX.Element;
   value?: string;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
@@ -40,7 +40,7 @@ const Input: FunctionComponent<IInputProps> = ({
   error,
   validationMessage,
   value,
-  utils: { classNames, ErrorMessage },
+  utils: { buildClassNames, ErrorMessage },
   ...attrs
 }): JSX.Element => {
   const initialValue = value ? value : "";
@@ -73,13 +73,13 @@ const Input: FunctionComponent<IInputProps> = ({
 
   const isPassword = type === password;
 
-  const requiredClassName: string = classNames({ required });
+  const requiredClassName: string = buildClassNames({ required });
 
-  const passwordClassName: string = classNames({
+  const passwordClassName: string = buildClassNames({
     "form-field--password": isPassword,
   });
 
-  const modifierClassName: string = classNames({
+  const modifierClassName: string = buildClassNames({
     [`form-field--${modifier}`]: !!modifier,
   });
 
