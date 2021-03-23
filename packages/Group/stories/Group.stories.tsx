@@ -1,11 +1,10 @@
 import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense } from "react";
-import groupReadme from "../README.md";
 
 storiesOf("Group", module)
   .addParameters({
     readme: {
-      sidebar: groupReadme
+      sidebar: ''
     }
   })
   .add("Introduction", () => {

@@ -1,17 +1,15 @@
 import { useTheme } from "@blaze-react/core"
 import { buildClassNames } from "@blaze-react/utils";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent} from "react";
 
-interface IInputProps {
+interface IGroupProps {
   id?: string;
   label?: string;
   modifier?: string;
-  required?: boolean;
-  type?: string;
   children?: JSX.Element | string;
 }
 
-const Group: FunctionComponent<IInputProps> = ({
+const Group: FunctionComponent<IGroupProps> = ({
   label,
   modifier,
   children,
@@ -35,7 +33,6 @@ const Group: FunctionComponent<IInputProps> = ({
 Group.defaultProps = {
   label: "",
   modifier: "",
-  type: "text",
 };
 
 export default Group;

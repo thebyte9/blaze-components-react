@@ -21,6 +21,9 @@ module.exports = {
     '@babel/plugin-transform-react-jsx',
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-transform-object-assign',
-    '@babel/plugin-proposal-class-properties'
+    ['@babel/plugin-proposal-class-properties', { "loose": false }],
+    ['@babel/plugin-proposal-private-property-in-object', { "loose": false }],
+    ['@babel/plugin-proposal-private-methods', { "loose": false }]
+
   ]
 };
