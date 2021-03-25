@@ -1,5 +1,5 @@
 import Button from "@blaze-react/button";
-import classnames from "classnames";
+import { buildClassNames } from "@blaze-react/utils";
 import React, { Fragment } from "react";
 interface IMoreAvatarProps {
   handleToggle: (...args: any[]) => any;
@@ -24,7 +24,7 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   disabled,
   ...props
 }) => {
-  const buttonClassName = classnames({
+  const buttonClassName = buildClassNames({
     "button--disabled": disabled,
     dropdown__button: isHeader,
     "icon-button icon-button--round": isMoreMenu,

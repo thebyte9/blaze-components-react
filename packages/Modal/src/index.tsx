@@ -22,7 +22,7 @@ interface IModalProps {
   onClose?: () => void;
   showFooter?: boolean;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
   className: string;
 }
@@ -35,7 +35,7 @@ const Modal: React.SFC<IModalProps> = ({
   isUpload,
   actions,
   overlay,
-  utils: { classNames },
+  utils: { buildClassNames },
   className,
   showFooter,
   onClose = () => ({}),
@@ -60,7 +60,7 @@ const Modal: React.SFC<IModalProps> = ({
     }
   };
 
-  const modalClassNames: string = classNames(`${className} modal modal--show`, {
+  const modalClassNames: string = buildClassNames(`${className} modal modal--show`, {
     "modal--alert": isAlert,
     "modal--full-screen": isFullScreen,
     "modal--simple": isSimple,
@@ -72,7 +72,7 @@ const Modal: React.SFC<IModalProps> = ({
     modalContentClassNames,
     modalFooterClassNames,
   ]: string[] = sections.map((alertType: string): string =>
-    classNames(`modal__${alertType}`, {
+    buildClassNames(`modal__${alertType}`, {
       [`modal__${alertType}--alert`]: isAlert,
       [`modal__${alertType}--simple`]: isSimple,
       [`modal__${alertType}--upload`]: isUpload,

@@ -54,7 +54,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
       utils={
         Object {
           "ErrorMessage": [Function],
-          "classNames": [Function],
+          "buildClassNames": [Function],
           "removeExtraSpaces": [Function],
           "uniqueId": [Function],
         }
@@ -105,7 +105,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
       utils={
         Object {
           "ErrorMessage": [Function],
-          "classNames": [Function],
+          "buildClassNames": [Function],
           "removeExtraSpaces": [Function],
           "uniqueId": [Function],
         }
@@ -156,7 +156,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
       utils={
         Object {
           "ErrorMessage": [Function],
-          "classNames": [Function],
+          "buildClassNames": [Function],
           "removeExtraSpaces": [Function],
           "uniqueId": [Function],
         }
@@ -206,7 +206,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
       utils={
         Object {
           "ErrorMessage": [Function],
-          "classNames": [Function],
+          "buildClassNames": [Function],
           "removeExtraSpaces": [Function],
           "uniqueId": [Function],
         }
@@ -275,7 +275,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
       utils={
         Object {
           "ErrorMessage": [Function],
-          "classNames": [Function],
+          "buildClassNames": [Function],
           "removeExtraSpaces": [Function],
           "uniqueId": [Function],
         }

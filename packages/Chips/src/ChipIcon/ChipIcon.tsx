@@ -7,7 +7,7 @@ interface IChipIconProps {
   modifier: TModifiers;
   handleRemoveChip: () => void;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
   'data-cy'?: string;
 }
@@ -15,10 +15,10 @@ const ChipIcon = ({
   children,
   modifier,
   handleRemoveChip,
-  utils: { classNames },
+  utils: { buildClassNames },
   'data-cy': dataCy
 }: IChipIconProps): JSX.Element => {
-  const iconClassName = classNames("chip__icon", {
+  const iconClassName = buildClassNames("chip__icon", {
     [`chip__icon--${modifier}`]: !!modifier
   });
 

@@ -18,7 +18,7 @@ interface ISnackbarProps {
   iconName?: string;
   duration?: number;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
   onClose: () => {};
   children: JSX.Element | JSX.Element[] | string;
@@ -27,7 +27,7 @@ interface ISnackbarProps {
 const Snackbar = WithUtils(
   ({
     position,
-    utils: { classNames },
+    utils: { buildClassNames },
     isActive,
     onClose,
     modifier,
@@ -44,7 +44,7 @@ const Snackbar = WithUtils(
       }
     }, [isActive, duration]);
 
-    const snackbarClassNames: string = classNames("snackbar", {
+    const snackbarClassNames: string = buildClassNames("snackbar", {
       [`snackbar--${position}`]: !!position,
       [`snackbar--${modifier}`]: !!modifier,
       active

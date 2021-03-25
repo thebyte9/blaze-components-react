@@ -7,7 +7,7 @@ interface IMultiLevelMenuListProps {
   active: number;
   handleClickMenu?: (to: number | undefined) => {};
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
 }
 
@@ -16,7 +16,7 @@ const MultiLevelMenuList = ({
   id,
   active,
   handleClickMenu,
-  utils: { classNames }
+  utils: { buildClassNames }
 }: IMultiLevelMenuListProps): JSX.Element => {
   const [activeMenu, setActiveMenu] = useState<number>(active);
 
@@ -24,7 +24,7 @@ const MultiLevelMenuList = ({
     setActiveMenu(active);
   }, [active]);
 
-  const sideMenuModifier: string = classNames({
+  const sideMenuModifier: string = buildClassNames({
     "multilevelmenu__sidemenu--hide": activeMenu !== id,
     "multilevelmenu__sidemenu--show": activeMenu === id
   });

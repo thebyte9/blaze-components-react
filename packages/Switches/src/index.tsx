@@ -39,7 +39,7 @@ interface ISwitchesProps {
   }) => void;
   utils: {
     uniqueId: (element: any) => string;
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
@@ -52,7 +52,7 @@ const Switches = withUtils(
     returnBoolean,
     error,
     validationMessage,
-    utils: { uniqueId, classNames, ErrorMessage },
+    utils: { uniqueId, buildClassNames, ErrorMessage },
     ...attrs
   }: ISwitchesProps): JSX.Element => {
     const {
@@ -103,7 +103,7 @@ const Switches = withUtils(
       onChange({ event, value: checked, data });
     };
 
-    const switchClassNames: string = classNames("switch", {
+    const switchClassNames: string = buildClassNames("switch", {
       [`switch--${modifier}`]: !!modifier,
       [`switch--label--${labelPosition}`]: !!labelPosition,
     });

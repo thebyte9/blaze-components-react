@@ -38,7 +38,7 @@ interface IMultiSelectProps {
   name: string;
   validationMessage: string | JSX.Element;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
     uniqueId: (element: any) => string;
   };

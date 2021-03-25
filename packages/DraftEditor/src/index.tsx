@@ -8,13 +8,13 @@ import {
   ContentState,
   convertFromRaw,
   convertToRaw,
-  DraftEditorCommand,
-  DraftHandleValue,
   Editor,
   EditorState,
   getVisibleSelectionRect,
   Modifier,
   RichUtils,
+  KeyBindingUtil,
+  getDefaultKeyBinding,
 } from "draft-js";
 import React, {
   FunctionComponent,
@@ -24,7 +24,12 @@ import React, {
 } from "react";
 import {
   ATOMIC,
-  BACKSPACE_COMMAND,
+  KEY_BINDING_SAVE_ACTION,
+  KEY_BINDING_TOOLBAR_ACTION,
+  KEY_BINDING_ADD_LINK,
+  KEY_BINDING_HANDLED,
+  KEY_BINDING_NOT_HANDLED,
+  KEY_BINDING_UNDO,
   BLOCKQUOTE,
   HANDLED,
   HORIZONTAL_RULE,
@@ -32,6 +37,7 @@ import {
   LINK,
   MUTABLE,
   ADD_LINK,
+  BACKSPACE_COMMAND,
 } from "./constants";
 import DecoratedLink from "./DecoratedLink";
 import EditorViewLinkModal from "./EditorViewLinkModal";
@@ -42,7 +48,7 @@ import parseTextBlock from "./text-block-parser";
 import { Rect } from "./inline-toolbar-utils";
 
 const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
-  utils: { classNames, ErrorMessage },
+  utils: { buildClassNames, ErrorMessage },
   onChange,
   name,
   value,
@@ -53,8 +59,6 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   showTopBar,
   ...attrs
 }): JSX.Element => {
-  const draftHandledValue: DraftHandleValue = HANDLED;
-  const draftNotHandledValue: DraftHandleValue = NOT_HANDLED;
   const [inlineToolbar, showInlineToolbar] = useState(false);
   const [addLinkModal, showAddLinkModal] = useState(false);
   const [linkContentState, setLinkContentState] = useState(null);
@@ -181,21 +185,53 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
 
   const getBlockStyle = (block: ContentBlock): string => {
     const isBlockquote: boolean = block.getType() === BLOCKQUOTE;
-    return classNames({
+    return buildClassNames({
       "custom-DraftEditor-blockquote": isBlockquote,
     });
   };
 
-  const handleKeyCommand = (command: DraftEditorCommand): DraftHandleValue => {
-    const newState: EditorState = RichUtils.handleKeyCommand(
-      editorState,
-      command
-    );
-    if (newState && command !== BACKSPACE_COMMAND) {
-      onEditorChange(newState);
-      return draftHandledValue;
+  const handleKeyCommand = (command) => {
+    if (command === KEY_BINDING_UNDO) {
+      const undoState = EditorState.undo(editorState);
+      save(undoState, UNDO);
+      return KEY_BINDING_NOT_HANDLED;
     }
-    return draftNotHandledValue;
+
+    if (command === KEY_BINDING_ADD_LINK) {
+      showAddLinkModal(true);
+      return KEY_BINDING_HANDLED;
+    }
+
+    if (command === KEY_BINDING_SAVE_ACTION) {
+      save(editorState);
+      return KEY_BINDING_HANDLED;
+    }
+
+    if (command === KEY_BINDING_TOOLBAR_ACTION) {
+      showInlineToolbar(true);
+
+      const currentContent = editorState.getCurrentContent();
+
+      const selection = editorState.getSelection().merge({
+        anchorKey: currentContent.getFirstBlock().getKey(),
+        anchorOffset: 0,
+        focusOffset: currentContent.getLastBlock().getText().length,
+        focusKey: currentContent.getLastBlock().getKey(),
+      });
+
+      setEditorState(EditorState.forceSelection(editorState, selection));
+    }
+
+    const newState = RichUtils.handleKeyCommand(editorState, command);
+
+    if (newState && command !== BACKSPACE_COMMAND) {
+      setEditorState(newState);
+      save(newState, FORMAT);
+
+      return KEY_BINDING_HANDLED;
+    }
+
+    return KEY_BINDING_NOT_HANDLED;
   };
 
   const handleAddLink = (url, linkState) => {
@@ -263,6 +299,26 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       return HANDLED;
     }
     return NOT_HANDLED;
+  };
+
+  const myKeyBindingFn = (e) => {
+    if (e.keyCode === 90 && KeyBindingUtil.hasCommandModifier(e)) {
+      return KEY_BINDING_UNDO;
+    }
+
+    if (e.keyCode === 83 && KeyBindingUtil.hasCommandModifier(e)) {
+      return KEY_BINDING_SAVE_ACTION;
+    }
+
+    if (e.keyCode === 65 && KeyBindingUtil.hasCommandModifier(e)) {
+      return KEY_BINDING_TOOLBAR_ACTION;
+    }
+
+    if (e.keyCode === 75 && KeyBindingUtil.hasCommandModifier(e)) {
+      return KEY_BINDING_ADD_LINK;
+    }
+
+    return getDefaultKeyBinding(e);
   };
 
   const blockRenderer = (contentBlock: any) => {
@@ -334,6 +390,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
             onChange={onEditorChange}
             blockRendererFn={blockRenderer}
             handleReturn={handleReturn}
+            keyBindingFn={myKeyBindingFn}
             {...attrs}
           />
         </div>
@@ -341,8 +398,14 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
       {addLinkModal && (
         <EditorViewLinkModal
           editorState={editorState}
-          onClose={() => showAddLinkModal(false)}
-          onSave={(url, linkState) => handleAddLink(url, linkState)}
+          onClose={() => {
+            showAddLinkModal(false);
+            setLinkContentState(undefined);
+          }}
+          onSave={(url, linkState) => {
+            handleAddLink(url, linkState);
+            setLinkContentState(undefined);
+          }}
           linkContentState={linkContentState}
         />
       )}

@@ -9,7 +9,7 @@ interface IBadgeProps {
   modifiers?: string;
   children?: any;
   utils: {
-    classNames: (className: string | object, classNames?: object) => string;
+    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
   };
 }
 const Badge: FunctionComponent<IBadgeProps> = ({
@@ -18,12 +18,12 @@ const Badge: FunctionComponent<IBadgeProps> = ({
   color,
   icon,
   link,
-  utils: { classNames },
+  utils: { buildClassNames },
   modifiers,
   ...attrs
 }) => {
   const withIcon = icon ? "badge--icon-text" : "";
-  const classes: string = classNames("badge", {
+  const classes: string = buildClassNames("badge", {
     [`badge--${type}`]: !!type,
     [`${withIcon}`]: !!withIcon,
     [`${color}`]: !!color,

@@ -6,7 +6,7 @@ interface IAvatarProps {
   url?: string;
   username?: string;
   utils: {
-    classNames: (...args: any) => string;
+    buildClassNames: (...args: any) => string;
   };
   attrs?: any;
 }
@@ -15,13 +15,13 @@ const Avatar = withUtils(
     modifier,
     url,
     username,
-    utils: { classNames },
+    utils: { buildClassNames },
     ...attr
   }: IAvatarProps): JSX.Element => {
     const [avatarUrl, setAvatar] = useState<string | undefined>(url);
     const [validUrl, setValidUrl] = useState<boolean>(false);
 
-    const avatarClassName: string = classNames("avatar", {
+    const avatarClassName: string = buildClassNames("avatar", {
       [`avatar--${modifier}`]: !!modifier
     });
 

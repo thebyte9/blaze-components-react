@@ -46,7 +46,7 @@ interface IDraftEditorProps {
     utils: {
         uniqueId: (element: any) => string;
         ErrorMessage: FunctionComponent<IErrorMessage>;
-        classNames: (className: string | object, classNames?: object) => string;
+        buildClassNames: (className: string | object, optionalClassNames?: object) => string;
     };
     onChange?: (event: {
         event: {
