@@ -1,4 +1,4 @@
-import "@blaze-react/blaze-components-theme";
+// import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense } from "react";
 import ButtonReadme from "../README.md";
@@ -7,13 +7,13 @@ const showCaseDivStyles: React.CSSProperties = {
   display: "flex",
   justifyContent: "space-around",
   flexWrap: "wrap",
-  minHeight: "10em"
+  minHeight: "10em",
 };
 storiesOf("Button", module)
   .addParameters({
     readme: {
-      sidebar: ButtonReadme
-    }
+      sidebar: ButtonReadme,
+    },
   })
   .add("Introduction", (): any => {
     const Button = lazy(() => import("../src"));
