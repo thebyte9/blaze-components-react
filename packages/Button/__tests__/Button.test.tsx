@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import Button from "../src";
+import Button from "../src/Button";
 
 const testProps = {
   modifiers: ["outline", "rounded"]

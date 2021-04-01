@@ -12,7 +12,7 @@ storiesOf("DateTime Input", module)
     }
   })
   .add("Introduction", () => {
-    const DateTimeInput: any = lazy(() => import("../src"));
+    const DateTimeInput: any = lazy(() => import("../src/DateTimeInput"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import "jest-dom/extend-expect";
 import React from "react";
-import DateTimeInput from "../src";
+import DateTimeInput from "../src/DateTimeInput";
 import { TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from '../src/constants';
 
 const defaultProps = (override: object = {}) => ({

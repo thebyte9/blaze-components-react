@@ -19,7 +19,7 @@ const SelectDemo = () => {
   useEffect((): void => {
     setTimeout((): void => setSelected("Paris"), 3000);
   }, []);
-  const Select: any = lazy((): any => import("../src"));
+  const Select: any = lazy((): any => import("../src/Select"));
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -41,7 +41,7 @@ storiesOf("Select", module)
     },
   })
   .add("Introduction", (): any => {
-    const Select: any = lazy((): any => import("../src"));
+    const Select: any = lazy((): any => import("../src/Select"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

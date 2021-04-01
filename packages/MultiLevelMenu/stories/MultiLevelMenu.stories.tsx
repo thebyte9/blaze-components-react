@@ -2,7 +2,7 @@ import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import inputReadme from "../README.md";
-import MultiLevelMenu from "../src";
+import MultiLevelMenu from "../src/MultiLevelMenu";
 
 storiesOf("MultiLevelMenu", module)
   .addParameters({

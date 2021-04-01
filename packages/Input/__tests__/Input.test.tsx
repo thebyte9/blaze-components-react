@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/react";
 import { mount } from "enzyme";
 import "jest-dom/extend-expect";
 import React from "react";
-import Input from "../src";
+import Input from "../src/Input";
 
 const defaultProps = (override: object = {}) => ({
   error: true,
@@ -105,7 +105,7 @@ describe("Input component", () => {
       event: React.ChangeEvent<HTMLInputElement>;
     }
 
-    let stateValue: string = "";
+    let stateValue = "";
 
     const onChange = (args: IOnChangeArgs): void => {
       const { value } = args;

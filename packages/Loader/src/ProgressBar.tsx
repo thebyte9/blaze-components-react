@@ -1,4 +1,4 @@
-import withUtils from "@blaze-react/utils";
+import buildClassNames from '../../Utils/src/buildClassNames';
 import React from "react";
 interface IStep {
   start?: number;
@@ -14,21 +14,17 @@ interface IMessage {
 }
 interface ILoaderProps {
   steps: IStep[];
-  utils: {
-    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
-  };
   progress: number;
   lockContent: boolean;
   message: IMessage;
 }
 
-const ProgressBar = withUtils(
+const ProgressBar =
   ({
     steps,
     lockContent,
     progress,
     message: { incomplete, status, position },
-    utils: { buildClassNames }
   }: ILoaderProps): JSX.Element => {
     const { backgroundColor, icon }: IStep =
       steps.find(
@@ -70,15 +66,14 @@ const ProgressBar = withUtils(
         </div>
       </div>
     );
-  }
-);
+  };
 
-const availablePosition: object = {
+const availablePosition: Record<string, unknown> = {
   left: "left",
   right: "right"
 };
 
-const availableColors: object = {
+const availableColors: Record<string, unknown> = {
   green: "green",
   orange: "orange",
   red: "red"

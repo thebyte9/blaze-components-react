@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
 import expect from "expect";
 import React from "react";
-import Snackbar from "../src";
+import Snackbar from "../src/Snackbar";
 
 const defaultProps = (override: object = {}) => ({
   duration: 3000,

@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import Avatar from "../src";
+import Avatar from "../src/Avatar";
 
 declare let window: any;
 

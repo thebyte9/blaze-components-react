@@ -2,7 +2,7 @@ import { render, act, fireEvent } from "@testing-library/react";
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import Multiselect from "../src";
+import Multiselect from "../src/MultiSelect";
 import { props } from './mocks'
 
 const defaultProps = (override: object = {}) => ({

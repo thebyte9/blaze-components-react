@@ -1,7 +1,16 @@
-// @ts-nocheck
-
 const MARGIN = 10;
 const SEPARATION_BETWEEN_HANDLERS = 26;
+
+interface ILeftStyle {
+  ratio: any;
+  parent: any;
+  handler: any;
+  isRight: any;
+}
+
+interface ICustomElement extends Element {
+  offsetWidth: any
+}
 
 function getElements(parent: any) {
   const touchLeft: any = parent.querySelector(".range__filter--left");
@@ -16,7 +25,7 @@ function getAttributes(parent: any, attributes: string[]) {
   );
 }
 
-function getLeftStyle({ ratio, parent, handler, isRight }) {
+function getLeftStyle({ ratio, parent, handler, isRight }: ILeftStyle) {
   const factor = isRight ? SEPARATION_BETWEEN_HANDLERS : 0;
   return `${Math.ceil(
     ratio *
@@ -37,8 +46,8 @@ const checkPassiveCompatibility = () => {
         return false
       }
     });
-    window.addEventListener("checkPassive", null, opts);
-    window.removeEventListener("checkPassive", null, opts);
+    window.addEventListener("checkPassive", opts);
+    window.removeEventListener("checkPassive", opts);
     return true;
   } catch (e) {
     return false;
@@ -92,13 +101,22 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     startX = 0;
     touchLeft.style.left = "0px";
     lineSpan.style.marginLeft = "0px";
-    lineSpan.style.width = `${$(selector).offsetWidth -
+
+    lineSpan.style.width = `${document.querySelector<HTMLElement>(selector)?.offsetWidth || 0
+      -
       touchLeft.offsetWidth}px`;
-    touchRight.style.left = `${$(selector).offsetWidth -
+    touchRight.style.left = `${document.querySelector<HTMLElement>(selector)?.offsetWidth || 0 -
       touchLeft.offsetWidth}px`;
   };
 
-  const setValue = ({ typeValue, attribute, isRight }) => {
+
+  interface IValue {
+    typeValue: any;
+    attribute: any;
+    isRight: any;
+  }
+
+  const setValue = ({ typeValue, attribute, isRight }: IValue) => {
     const ratio = (typeValue - min) / (max - min);
     const handleDirection = isRight ? touchRight : touchLeft;
     handleDirection.style.left = getLeftStyle({
@@ -109,13 +127,14 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     });
     lineSpan.style.marginLeft = `${touchLeft.offsetLeft}px`;
     lineSpan.style.width = `${touchRight.offsetLeft - touchLeft.offsetLeft}px`;
-    $(selector).setAttribute(attribute, typeValue);
+    $(selector)!.setAttribute(attribute, typeValue);
   };
 
   const setMinValue = (minValue: any) => {
     setValue({
       attribute: "min-value",
-      typeValue: minValue
+      typeValue: minValue,
+      isRight: false
     });
   };
 
@@ -129,8 +148,8 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   reset();
 
-  const maxX = $(selector).offsetWidth - touchRight.offsetWidth;
-  let selectedTouch = null;
+  const maxX = document.querySelector<HTMLElement>(selector)!.offsetWidth - touchRight.offsetWidth;
+  let selectedTouch: { offsetWidth: number; style: { left: string; }; } | null = null;
   const initialValue = lineSpan.offsetWidth - SEPARATION_BETWEEN_HANDLERS;
 
   setMinValue(defaultMinValue);
@@ -138,10 +157,11 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
 
 
-  function onStart(event: any) {
+  function onStart(this: any, event: any) {
     if (event.defaultPrevented) {
       event.preventDefault()
-    };
+    }
+
     const eventTouch = event.touches ? event.touches[0] : event;
 
     xAxis = this === touchLeft ? touchLeft.offsetLeft : touchRight.offsetLeft;
@@ -149,10 +169,10 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     startX = eventTouch.pageX - xAxis;
     selectedTouch = this;
 
-    $(selector).addEventListener("mousemove", onMove);
-    $(selector).addEventListener("mouseup", onStop);
-    $(selector).addEventListener("touchmove", onMove, isPassiveSupported ? { passive: true } : false)
-    $(selector).addEventListener("touchend", onStop);
+    $(selector)!.addEventListener("mousemove", onMove);
+    $(selector)!.addEventListener("mouseup", onStop);
+    $(selector)!.addEventListener("touchmove", onMove, isPassiveSupported ? { passive: true } : false)
+    $(selector)!.addEventListener("touchend", onStop);
     document.addEventListener("click", onStop);
   }
 
@@ -174,16 +194,16 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     }
 
     if (!(minValue > maxValue)) {
-      $(selector).setAttribute("min-value", minValue);
+      $(selector)!.setAttribute("min-value", minValue.toString());
     }
     if (!(maxValue < minValue)) {
-      $(selector).setAttribute("max-value", maxValue);
+      $(selector)!.setAttribute("max-value", maxValue.toString());
     }
   };
 
   const setxAxisLeftPosition = () => {
-    if (xAxis > touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN) {
-      xAxis = touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN;
+    if (xAxis > touchRight.offsetLeft - selectedTouch!.offsetWidth + MARGIN) {
+      xAxis = touchRight.offsetLeft - selectedTouch!.offsetWidth + MARGIN;
     }
 
     if (xAxis < 0) {
@@ -213,7 +233,7 @@ const RangeFilter = (selector: string, getMinMax: any) => {
       setxAxisRightPosition();
     }
 
-    selectedTouch.style.left = `${xAxis}px`;
+    selectedTouch!.style.left = `${xAxis}px`;
     lineSpan.style.marginLeft = `${touchLeft.offsetLeft}px`;
     lineSpan.style.width = `${touchRight.offsetLeft - touchLeft.offsetLeft}px`;
 
@@ -229,10 +249,10 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   const onStop = () => {
     document.removeEventListener("click", onStop);
-    $(selector).removeEventListener("mousemove", onMove);
-    $(selector).removeEventListener("mouseup", onStop);
-    $(selector).removeEventListener("touchmove", onMove);
-    $(selector).removeEventListener("touchend", onStop);
+    $(selector)!.removeEventListener("mousemove", onMove);
+    $(selector)!.removeEventListener("mouseup", onStop);
+    $(selector)!.removeEventListener("touchmove", onMove);
+    $(selector)!.removeEventListener("touchend", onStop);
 
     selectedTouch = null;
 

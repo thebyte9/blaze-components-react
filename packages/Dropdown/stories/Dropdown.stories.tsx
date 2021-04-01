@@ -10,7 +10,7 @@ storiesOf("Dropdown", module)
     }
   })
   .add("Introduction", () => {
-    const Dropdown: any = lazy(() => import("../src"));
+    const Dropdown: any = lazy(() => import("../src/Dropdown"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

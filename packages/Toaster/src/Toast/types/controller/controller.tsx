@@ -4,7 +4,6 @@ import { IToastProps } from "../common";
 type IProps = IToastProps & {
   component: ComponentType<IToastProps>;
 };
-
 interface IState {
   isRunning: boolean;
 }

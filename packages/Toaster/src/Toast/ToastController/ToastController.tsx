@@ -68,17 +68,17 @@ class ToastController extends Component<IProps, IState> {
     } = this.props;
     const { isRunning } = this.state;
 
-    const handleMouseEnter = autoDismiss ? this.onMouseEnter : null;
-    const handleMouseLeave = autoDismiss ? this.onMouseLeave : null;
+    const handleMouseEnter = autoDismiss ? this.onMouseEnter : undefined;
+    const handleMouseLeave = autoDismiss ? this.onMouseLeave : undefined;
 
     return (
       <Toast
         autoDismiss={autoDismiss}
         autoDismissTimeout={autoDismissTimeout}
+        {...props}
         isRunning={isRunning}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        {...props}
       />
     );
   }

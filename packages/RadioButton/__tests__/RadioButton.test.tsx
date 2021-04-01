@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import RadioButton from "../src";
+import RadioButton from "../src/RadioButton";
 
 const options = [
   {

@@ -1,7 +1,7 @@
 import { mount, shallow } from "enzyme";
 import expect from "expect";
 import React from "react";
-import Textarea from "../src";
+import Textarea from "../src/TextArea";
 
 interface ITextareaProps {
   label: string;

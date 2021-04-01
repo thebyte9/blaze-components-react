@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import DrawerReadme from "../README.md";
-import Drawer from "../src";
+import Drawer from "../src/Drawer";
 
 storiesOf("Drawer", module)
   .addParameters({

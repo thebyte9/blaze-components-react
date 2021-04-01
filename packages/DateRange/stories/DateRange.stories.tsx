@@ -1,10 +1,8 @@
-// @ts-nocheck
-
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import DateRangeReadme from "../README.md";
-import DateRange from "../src/";
+import DateRange from "../src/DateRange";
 
 storiesOf("DateRange", module)
   .addParameters({
@@ -17,7 +15,7 @@ storiesOf("DateRange", module)
       <div className="component-wrapper">
         <h1>DateRange</h1>
 
-        <DateRange onChange={(value: any) => {}} />
+        <DateRange onChange={(value: any) => {}} selected="custom" />
       </div>
     );
   });

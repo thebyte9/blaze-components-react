@@ -1,4 +1,4 @@
-import Button from "@blaze-react/button";
+import Button from '../../../Button/src';
 import React from "react";
 
 interface IActions {
@@ -9,7 +9,7 @@ interface IActions {
 
 interface IModalFooterProps {
   footerClassNames: string;
-  isAlert: boolean;
+  isAlert?: boolean;
   actions: IActions[];
   closeModal: () => void;
 }

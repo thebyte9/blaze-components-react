@@ -1,6 +1,7 @@
-import withUtils from "@blaze-react/utils";
+import buildClassNames from '../../Utils/src/buildClassNames';
 import React, { useState } from "react";
 import Label from "./Label";
+import { v4 as uuidv4 } from 'uuid';
 
 const Checkbox = ({
   checked,
@@ -13,7 +14,6 @@ const Checkbox = ({
   id,
   onChange,
   full,
-  utils: { uniqueId, buildClassNames },
   ...attrs
 }: any) => {
   const [isChecked, setIsChecked] = useState(checked);
@@ -41,11 +41,9 @@ const Checkbox = ({
     required,
   });
 
-  const labelClassName = buildClassNames({
-    "form-field--checkbox-full": full,
-  });
+  const labelClassName = buildClassNames({ "form-field--checkbox-full": full }, {});
 
-  const defaultId = id || uniqueId(name || value);
+  const defaultId = id || uuidv4();
   const inputId = `${defaultId}-checkbox`;
   const wrapperId = `${defaultId}-wrapper`;
 
@@ -72,4 +70,4 @@ const Checkbox = ({
   );
 };
 
-export default withUtils(Checkbox);
+export default Checkbox;

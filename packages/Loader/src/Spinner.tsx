@@ -1,19 +1,15 @@
-import withUtils from "@blaze-react/utils";
+import buildClassNames from '../../Utils/src/buildClassNames';
 import React from "react";
 interface ISpinnerProps {
-  utils: {
-    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
-  };
   lockContent?: boolean;
   size?: "bigg" | "med" | "small" | "x-small";
   animation: "ease" | "linear";
 }
 
-const Spinner = withUtils(
+const Spinner = 
   ({
     size,
     lockContent,
-    utils: { buildClassNames },
     animation
   }: ISpinnerProps): JSX.Element => {
     const spinnerClassName: string = buildClassNames({
@@ -32,15 +28,14 @@ const Spinner = withUtils(
         </div>
       </div>
     );
-  }
-);
+  };
 
-const animationType: object = {
+const animationType: Record<string, unknown> = {
   ease: "ease",
   linear: "linear"
 };
 
-const spinnerSize: object = {
+const spinnerSize: Record<string, unknown> = {
   big: "big",
   med: "med",
   small: "small",

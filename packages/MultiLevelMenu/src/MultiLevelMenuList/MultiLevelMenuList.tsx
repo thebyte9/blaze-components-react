@@ -1,14 +1,11 @@
-import withUtils from "@blaze-react/utils";
+import buildClassNames from '../../../Utils/src/buildClassNames';
 import React, { useEffect, useState } from "react";
 
 interface IMultiLevelMenuListProps {
   children: JSX.Element | JSX.Element[];
   id: number;
   active: number;
-  handleClickMenu?: (to: number | undefined) => {};
-  utils: {
-    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
-  };
+  handleClickMenu?: (to: number | undefined) => Record<string, unknown>;
 }
 
 const MultiLevelMenuList = ({
@@ -16,7 +13,6 @@ const MultiLevelMenuList = ({
   id,
   active,
   handleClickMenu,
-  utils: { buildClassNames }
 }: IMultiLevelMenuListProps): JSX.Element => {
   const [activeMenu, setActiveMenu] = useState<number>(active);
 
@@ -40,4 +36,4 @@ const MultiLevelMenuList = ({
   );
 };
 
-export default withUtils(MultiLevelMenuList);
+export default MultiLevelMenuList;

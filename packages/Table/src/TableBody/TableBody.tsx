@@ -1,14 +1,17 @@
 import { Checkboxes } from "@blaze-react/checkboxes";
-import withUtils from "@blaze-react/utils";
 import React from "react";
 import VirtualList from "react-tiny-virtual-list";
+import { v4 as uuidv4 } from 'uuid';
+import { ITableRow } from "../interfaces";
+
 interface ICheckbox {
   checked: boolean;
   id: string | number;
   value: any;
 }
+
 interface ITableBody {
-  allRows: object[];
+  allRows: ITableRow[];
   checkboxes?: boolean;
   identification: string;
   selected: any[];
@@ -19,9 +22,6 @@ interface ITableBody {
   ) => void;
   columns: string[];
   placeholder: string | JSX.Element;
-  utils: {
-    uniqueId: (element: any) => string;
-  };
   bodyRef: any;
   scrollToIndex: number;
   overScanBuffer: number;
@@ -37,7 +37,6 @@ const TableBody = ({
   handleSelected,
   columns,
   placeholder,
-  utils: { uniqueId },
   bodyRef,
   overScanBuffer = 20,
   onRenderItems,
@@ -59,7 +58,7 @@ const TableBody = ({
             <div
               onClick={() => onClickRow({ ...allRows[index], index })}
               className="table-row"
-              key={uniqueId(allRows[index])}
+              key={uuidv4()}
               data-testid={`tablerow-${index + 1}`}
               style={style}
             >
@@ -74,7 +73,7 @@ const TableBody = ({
                       id: allRows[index][identification],
                       value: allRows[index][identification]
                     }}
-                    onChange={({ value }: { value: ICheckbox[] }): void =>
+                    onChange={({ event, value, data }): void =>
                       handleSelected(value, allRows[index][identification])
                     }
                   />
@@ -103,4 +102,4 @@ const TableBody = ({
   );
 };
 
-export default withUtils(TableBody);
+export default TableBody;

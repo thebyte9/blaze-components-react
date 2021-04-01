@@ -18,7 +18,7 @@ storiesOf("Range Filter", module)
     }
   })
   .add("Introduction", () => {
-    const RangeFilter: any = lazy(() => import("../src"));
+    const RangeFilter: any = lazy(() => import("../src/RangeFilter"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

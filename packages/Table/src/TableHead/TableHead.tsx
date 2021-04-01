@@ -1,24 +1,20 @@
-import withUtils from "@blaze-react/utils";
 import React from "react";
 import SortableCell from "./SortableCell";
+import { v4 as uuidv4 } from 'uuid';
 
 interface ITableHead {
   columns: any;
   headRef: any;
   onSort: any;
-  utils: {
-    uniqueId: (element: any) => string;
-  };
   orderBy: any;
   appliedSort: any;
-  labels: object;
+  labels: Record<string, unknown>;
 }
 
 const TableHead = ({
   onSort,
   orderBy,
   columns,
-  utils: { uniqueId },
   headRef,
   appliedSort,
   labels,
@@ -27,7 +23,7 @@ const TableHead = ({
     <div className="table-cell--checkbox"></div>
     {columns.map(
       (column: string): JSX.Element => (
-        <div key={uniqueId(column)} className="table-cell">
+        <div key={uuidv4()} className="table-cell">
           <SortableCell
             appliedSort={appliedSort}
             onSort={onSort}
@@ -42,4 +38,4 @@ const TableHead = ({
   </div>
 );
 
-export default withUtils(TableHead);
+export default TableHead;

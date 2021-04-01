@@ -1,13 +1,15 @@
 import React from 'react';
-
-
 const ThemeContext = React.createContext({
-  dark: {
-  },
-  default: {
-    button: ''
-  },
-  light: {
+  themes: {
+    dark: {
+      button: ''
+    },
+    default: {
+      button: ''
+    },
+    light: {
+      button: ''
+    }
   },
   selectedTheme: 'default',
 });

@@ -16,7 +16,7 @@ storiesOf("Button", module)
     }
   })
   .add("Introduction", (): any => {
-    const Button = lazy(() => import("../src"));
+    const Button = lazy(() => import("../src/Button"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

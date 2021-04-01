@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import More from "../src";
+import More from "../src/More";
 import MoreAvatar from "../src/MoreAvatar";
 import MoreContent from "../src/MoreContent";
 

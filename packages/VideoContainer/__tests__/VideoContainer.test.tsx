@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import VideoContainer from '../src';
+import VideoContainer from '../src/VideoContainer';
 
 describe('VideoContainer component', () => {
   test('should be defined and renders correctly (snapshot)', () => {

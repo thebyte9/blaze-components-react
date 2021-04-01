@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import SocialFollow from '../src';
+import SocialFollow from '../src/SocialFollow';
 
 const media = {
   facebook: 'https://www.thebyte9.com',

@@ -1,3 +1,7 @@
+interface IPlacements {
+  [index: string]: Record<string, unknown>;
+}
+
 const PLACEMENTS = {
   "bottom-center": { bottom: 0, left: "50%", transform: "translateX(-50%)" },
   "bottom-left": { bottom: 0, left: 0 },

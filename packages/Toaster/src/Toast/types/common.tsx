@@ -38,8 +38,8 @@ interface IToastProps {
   children: any;
   isRunning: boolean;
   onDismiss: typeof NOOP;
-  onMouseEnter: HoverFn;
-  onMouseLeave: HoverFn;
+  onMouseEnter: HoverFn | undefined;
+  onMouseLeave: HoverFn | undefined;
   placement: Placement;
   transitionDuration: number;
   transitionState: TransitionState;

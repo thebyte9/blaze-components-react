@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import DateRange from "../src";
+import DateRange from "../src/DateRange";
 
 const FIRST_DAY_OF_SECONND_ROW = 7;
 const LAST_DAY_OF_SECONND_ROW = 13;

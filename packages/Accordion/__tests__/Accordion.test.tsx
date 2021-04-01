@@ -1,8 +1,8 @@
-import Button from "@blaze-react/button";
+import Button from "../../Button/src/Button";
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import Accordion from "../src";
+import Accordion from "../src/Accordion";
 
 const AccordionComponent = (
   <Accordion>

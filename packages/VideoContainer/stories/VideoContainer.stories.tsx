@@ -10,7 +10,7 @@ storiesOf("Video Container", module)
     }
   })
   .add("Introduction", (): any => {
-    const VideoContainer: any = lazy((): any => import("../src"));
+    const VideoContainer: any = lazy((): any => import("../src/VideoContainer"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

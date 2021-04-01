@@ -1,3 +1,3 @@
-import DateUtils from "./DateUtils";
+import { DateUtils, DateUtilsSingleton } from "./DateUtils";
 
-export { DateUtils };
+export { DateUtils, DateUtilsSingleton };

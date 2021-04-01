@@ -10,7 +10,7 @@ storiesOf("Range Slider", module)
     }
   })
   .add("Introduction", () => {
-    const RangeSlider: any = lazy((): any => import("../src"));
+    const RangeSlider: any = lazy((): any => import("../src/RangeSlider"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <form>

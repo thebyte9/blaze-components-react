@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import expect from "expect";
 import React from "react";
-import DraftEditor from "../src";
+import DraftEditor from "../src/DraftEditor";
 
 declare let window: any;
 

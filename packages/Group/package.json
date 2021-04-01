@@ -1,0 +1,29 @@
+{
+  "name": "@blaze-react/group",
+  "version": "0.6.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
+    "build-storybook": "build-storybook -c .storybook -o docs-build",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "pre-publish": "yarn build && yarn lint && yarn test"
+  },
+  "keywords": [],
+  "author": "byte9",
+  "license": "MIT",
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/jit": "^0.1.18",
+    "postcss": "^8.2.9",
+    "tailwindcss": "^2.1.1",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { mount } from 'enzyme';
-import Dropdown from '../src';
+import Dropdown from '../src/Dropdown';
 
 const component = (
   <Dropdown label="Dropdown">

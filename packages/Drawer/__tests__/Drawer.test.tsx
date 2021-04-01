@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import Drawer from "../src";
+import Drawer from "../src/Drawer";
 
 const DrawerComponent = (
   <Drawer modifier="right" title="Drawer Component">

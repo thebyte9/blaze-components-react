@@ -16,7 +16,7 @@ const ModalDemo = () => {
     },
   ];
 
-  const Modal: any = lazy((): any => import("../src"));
+  const Modal: any = lazy((): any => import("../src/Modal"));
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Fragment>

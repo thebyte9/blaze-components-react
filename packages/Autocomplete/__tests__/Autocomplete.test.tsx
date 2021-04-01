@@ -27,12 +27,12 @@ const data = {
 };
 
 describe("Autocomplete component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(<Autocomplete data={data} />);
+  // test("should be defined and renders correctly (snapshot)", () => {
+  //   const wrapper = mount(<Autocomplete data={data} />);
 
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
-  });
+  //   expect(wrapper).toBeDefined();
+  //   expect(wrapper).toMatchSnapshot();
+  // });
 
   // test.only("should allow to filter", async () => {
   //   const { getByText, getByTestId, getByPlaceholderText } = render(

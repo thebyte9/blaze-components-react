@@ -1,5 +1,5 @@
 import React from "react";
-import Nestable from "../src";
+import Nestable from "../src/Nestable";
 
 const fakeData = [
   {

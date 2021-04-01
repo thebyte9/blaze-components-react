@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import RangeSlider from "../src";
+import RangeSlider from "../src/RangeSlider";
 
 const defaultProps = (override: object = {}) => ({
   minValue: 0,

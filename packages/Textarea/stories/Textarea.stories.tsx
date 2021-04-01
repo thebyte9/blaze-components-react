@@ -10,7 +10,7 @@ storiesOf("Textareas", module)
     }
   })
   .add("Introduction", () => {
-    const Textarea: any = lazy((): any => import("../src"));
+    const Textarea: any = lazy((): any => import("../src/TextArea"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

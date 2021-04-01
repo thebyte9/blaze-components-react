@@ -1,4 +1,4 @@
-import Multiselect from '../src'
+import Multiselect from '../src/MultiSelect'
 import { render, act } from '@testing-library/react'
 import { props } from './mocks'
 import React from 'react'

@@ -2,7 +2,7 @@ import { mount, shallow } from "enzyme";
 import expect from "expect";
 import React from "react";
 import { act } from 'react-dom/test-utils';
-import Modal from "../src";
+import Modal from "../src/Modal";
 
 const props = {
   actions: [],

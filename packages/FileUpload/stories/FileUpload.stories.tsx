@@ -18,7 +18,7 @@ storiesOf("FileUpload", module)
         console.log("currentfiles -->", currentFiles);
       };
 
-      const FileUpload: any = lazy(() => import("../src"));
+      const FileUpload: any = lazy(() => import("../src/FileUpload"));
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <Modal

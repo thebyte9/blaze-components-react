@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { mount } from "enzyme";
 import "jest-dom/extend-expect";
 import React from "react";
-import RangeFilter from "../src";
+import RangeFilter from "../src/RangeFilter";
 
 declare global {
   interface Window {

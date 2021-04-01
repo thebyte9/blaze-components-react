@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import faker from "faker";
 import React, { useEffect, useState } from "react";
 import MultiSelectReadme from "../README.md";
-import Multiselect from "../src";
+import Multiselect from "../src/MultiSelect";
 
 storiesOf("Multiselect", module)
   .addParameters({

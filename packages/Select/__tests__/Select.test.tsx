@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import expect from "expect";
 import React from "react";
-import Select from "../src";
+import Select from "../src/Select";
 
 const defaultProps = (override: object = {}) => ({
   onChange: () => void 0,

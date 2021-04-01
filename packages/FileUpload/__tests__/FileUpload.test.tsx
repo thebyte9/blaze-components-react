@@ -1,7 +1,7 @@
 import { mount, shallow } from "enzyme";
 import expect from "expect";
 import React from "react";
-import FileUpload from "../src";
+import FileUpload from "../src/FileUpload";
 
 declare global {
   interface Window {

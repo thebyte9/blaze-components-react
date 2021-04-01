@@ -1,18 +1,24 @@
-import { buildClassNames } from "@blaze-react/utils";
+import buildClassNames from '../../../Utils/src/buildClassNames';
 import React from "react";
 import DragHandler from "../DragHandler";
-interface INestableItemProps {
+
+interface IItem {
+  [index: string]: any;
   item: {
     id?: any;
-  };
+  }
+}
+interface INestableItemProps {
+  item: IItem;
   isCopy?: boolean;
   index?: number;
-  onMouseEnter: (...args: any[]) => any;
-  onDragStart: (...args: any[]) => any;
+  onMouseEnter: (...args: any[]) => void;
+  onDragStart: (...args: any[]) => void;
   dragItem?: any;
   renderItem: any;
   childrenProp: string;
 }
+
 const NestableItem: React.SFC<INestableItemProps> = ({
   item,
   isCopy,

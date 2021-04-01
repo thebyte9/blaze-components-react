@@ -1,7 +1,7 @@
 import { mount, shallow } from "enzyme";
 import expect from "expect";
 import React from "react";
-import Switches from "../src";
+import Switches from "../src/Switches";
 
 const options = [
   {

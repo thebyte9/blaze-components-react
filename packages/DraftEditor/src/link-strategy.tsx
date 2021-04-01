@@ -1,17 +1,12 @@
-// @ts-nocheck
+import { ContentBlock, ContentState } from "draft-js";
 
-const matchesEntityType = (type) => type === "LINK";
+const matchesEntityType = (type: string) => type === 'LINK';
 
-const linkStrategy = (contentBlock, cb, contentState, onClick) => {
-  if (!contentState) {
-    return;
-  }
-  contentBlock.findEntityRanges((character) => {
+const linkStrategy = (contentBlock: ContentBlock, cb: any, contentState: ContentState) => {
+  if (!contentState) return;
+  contentBlock.findEntityRanges(character => {
     const entityKey = character.getEntity();
-    return (
-      entityKey !== null &&
-      matchesEntityType(contentState.getEntity(entityKey).getType())
-    );
+    return entityKey !== null && matchesEntityType(contentState.getEntity(entityKey).getType());
   }, cb);
 };
 

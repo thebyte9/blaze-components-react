@@ -1,7 +1,12 @@
-import Chip from "@blaze-react/chips";
-import Input from "@blaze-react/input";
-import withUtils from "@blaze-react/utils";
+import Chip from "../../Chips/src";
+import Input from "../../Input/src";
+import buildClassNames from '../../Utils/src/buildClassNames';
 import React from "react";
+import { v4 as uuidv4 } from 'uuid';
+
+interface ISelectedValue {
+  [index: string]: string;
+}
 
 const MultiSelectBar = ({
   attrs,
@@ -19,7 +24,6 @@ const MultiSelectBar = ({
   required,
   searchValue,
   uniqueId,
-  utils: { buildClassNames },
 }: any) => {
   const requiredClassName: string = buildClassNames({ required });
 
@@ -31,7 +35,6 @@ const MultiSelectBar = ({
         </label>
         {!!checkedItems.length && (
           <span
-            data-cy={`multiSelect-${label}-clearAll-button`}
             className="chip__wrapper__clear"
             onClick={handleClearAll}
           >
@@ -42,7 +45,7 @@ const MultiSelectBar = ({
       <div className="multiselect__input__container">
         <div className="multiselect__input__container__chips">
           {checkedItems.map(
-            (selectedValue: object, index: number): JSX.Element => (
+            (selectedValue: ISelectedValue, index: number): JSX.Element => (
               <Chip
                 modifiers={[
                   Chip.availableModifiers.parent.deletable,
@@ -60,7 +63,7 @@ const MultiSelectBar = ({
                     name: selectedValue[keyValue],
                   })
                 }
-                key={uniqueId(selectedValue)}
+                key={uuidv4()}
               >
                 <Chip.Label
                   data-cy={`multiSelect-${label}-chip${index + 1}-label`}
@@ -68,7 +71,6 @@ const MultiSelectBar = ({
                   {getLabel({ label: selectedValue[keyValue], isChip: true })}
                 </Chip.Label>
                 <Chip.Icon
-                  data-cy={`multiSelect-${label}-chip${index + 1}-icon`}
                   modifier={Chip.availableModifiers.icon.delete}
                 >
                   <i className="material-icons">clear</i>
@@ -90,4 +92,4 @@ const MultiSelectBar = ({
   );
 };
 
-export default withUtils(MultiSelectBar);
+export default MultiSelectBar;

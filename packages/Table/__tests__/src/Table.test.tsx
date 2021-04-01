@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import "jest-dom/extend-expect";
 import React from "react";
-import Table from "../../src";
+import Table from "../../src/Table";
 import { data } from "../mocks";
 
 jest.mock("../../src/TableBody", () => jest.fn(() => <div>Table.body</div>));

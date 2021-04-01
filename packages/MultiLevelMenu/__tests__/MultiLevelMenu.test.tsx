@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import "jest-dom/extend-expect";
 import React from "react";
-import MultiLevelMenu from "../src";
+import MultiLevelMenu from "../src/MultiLevelMenu";
 
 const MultiLevelMenuComponent = (
   <MultiLevelMenu main={1}>
