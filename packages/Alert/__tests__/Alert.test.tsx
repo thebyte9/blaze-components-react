@@ -1,6 +1,4 @@
 import { fireEvent, render } from "@testing-library/react";
-import { shallow } from "enzyme";
-import expect from "expect";
 import React from "react";
 import Alert from "../src/Alert";
 

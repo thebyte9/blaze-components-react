@@ -1,8 +1,7 @@
 import Button from "../../Button/src/Button";
-import { mount } from "enzyme";
-import expect from "expect";
 import React from "react";
 import Accordion from "../src/Accordion";
+import { render, fireEvent } from '@testing-library/react'
 
 const AccordionComponent = (
   <Accordion>
@@ -28,29 +27,14 @@ const AccordionComponent = (
 );
 
 describe("Accordion component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(AccordionComponent);
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+  it('should match snapshot', () => {
+    const { asFragment } = render(AccordionComponent);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  test("should toggle on click", () => {
-    const wrapper = mount(AccordionComponent);
-
-    wrapper
-      .find(".icon-button--accordion")
-      .at(0)
-      .simulate("click");
-    expect(
-      wrapper
-        .find(".accordion__content-wrapper")
-        .at(0)
-        .text()
-    ).toContain("Content here.");
-
-    wrapper
-      .find(".icon-button--accordion")
-      .at(0)
-      .simulate("click");
-  });
+  it('should toggle on click', () => {
+    const wrapper = render(AccordionComponent);
+    const toggleAccordion = wrapper.getByTestId('toggle-accordion')
+    fireEvent.click(toggleAccordion);
+  })
 });
