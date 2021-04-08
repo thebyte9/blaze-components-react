@@ -1,26 +1,13 @@
+import React, { useState } from 'react';
+
+import Label from './Label';
 import buildClassNames from '../../Utils/src/buildClassNames';
-import React, { useState } from "react";
-import Label from "./Label";
 import { v4 as uuidv4 } from 'uuid';
 
-const Checkbox = ({
-  checked,
-  value,
-  disabled,
-  required,
-  label,
-  show,
-  name,
-  id,
-  onChange,
-  full,
-  ...attrs
-}: any) => {
+const Checkbox = ({ checked, value, disabled, required, label, show, name, id, onChange, full, ...attrs }: any) => {
   const [isChecked, setIsChecked] = useState(checked);
 
-  const handleCheckboxChange = (
-    event: React.MouseEvent<HTMLDivElement>
-  ): void => {
+  const handleCheckboxChange = (event: React.MouseEvent<HTMLDivElement>): void => {
     onChange({
       event,
       value: {
@@ -37,11 +24,11 @@ const Checkbox = ({
     setIsChecked(!isChecked);
   };
 
-  const checkboxClassName = buildClassNames("form-field form-field--checkbox", {
+  const checkboxClassName = buildClassNames('form-field form-field--checkbox', {
     required,
   });
 
-  const labelClassName = buildClassNames({ "form-field--checkbox-full": full }, {});
+  const labelClassName = buildClassNames({ 'form-field--checkbox-full': full }, {});
 
   const defaultId = id || uuidv4();
   const inputId = `${defaultId}-checkbox`;
@@ -50,7 +37,6 @@ const Checkbox = ({
   return (
     <div key={wrapperId} className={checkboxClassName} role="button">
       <input
-        data-testid={attrs.testId}
         readOnly
         type="checkbox"
         className="form-checkbox"
@@ -59,9 +45,9 @@ const Checkbox = ({
         checked={checked}
         required={required}
         id={inputId}
+        data-testid={inputId}
         name={name}
         onClick={handleCheckboxChange}
-        data-cy={attrs["data-cy"]}
       />
       <div onClick={handleCheckboxChange} className={labelClassName}>
         <Label defaultId={inputId} label={label} />

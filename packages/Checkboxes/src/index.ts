@@ -1,3 +1,5 @@
-import Checkboxes from './Checkboxes';
-import Checkbox from "./Checkbox";
-export { Checkbox, Checkboxes };
+import Checkboxes, { ICheckboxItem } from './Checkboxes';
+
+import Checkbox from './Checkbox';
+
+export { Checkbox, Checkboxes, ICheckboxItem };

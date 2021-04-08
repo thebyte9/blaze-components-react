@@ -1,6 +1,7 @@
+import React, { FunctionComponent, useEffect, useState } from 'react';
+
+import Checkbox from './Checkbox';
 import ErrorMessage from '../../Utils/src/ErrorMessage';
-import React, { FunctionComponent, useEffect, useState } from "react";
-import Checkbox from "./Checkbox";
 import { v4 as uuidv4 } from 'uuid';
 
 interface IErrorMessage {
@@ -50,19 +51,12 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
 
   useEffect(() => setData(formatedOptions), [options]);
 
-  const onChange = ({
-    value,
-  }: {
-    event: React.MouseEvent<HTMLDivElement>;
-    value: any;
-  }): void => {
+  const onChange = ({ value }: { event: React.MouseEvent<HTMLDivElement>; value: any }): void => {
     if (value.disabled) {
       return;
     }
 
-    const currentIndex = data.findIndex(
-      ({ id }: { id: string }) => id === value.id
-    );
+    const currentIndex = data.findIndex(({ id }: { id: string }) => id === value.id);
     if (currentIndex < 0) {
       return;
     }
@@ -70,9 +64,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
     data[currentIndex].checked = value.checked;
     setData([...data]);
 
-    let currentValues = data.filter(
-      ({ checked }: { checked: boolean }): boolean => checked
-    );
+    let currentValues = data.filter(({ checked }: { checked: boolean }): boolean => checked);
 
     if (returnBoolean) {
       currentValues = !!currentValues.length;
@@ -89,17 +81,8 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
     <>
       {data.map(
         (
-          {
-            checked = false,
-            disabled,
-            id,
-            label,
-            name: checkboxName,
-            required,
-            show = true,
-            value,
-          }: any,
-          key: number
+          { checked = false, disabled, id, label, name: checkboxName, required, show = true, value }: any,
+          key: number,
         ): JSX.Element | null =>
           show ? (
             <Checkbox
@@ -109,13 +92,14 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               checked={checked}
               disabled={disabled}
               id={id}
+              data-testid={id}
               label={label}
               name={checkboxName}
               required={required}
               show={show}
               value={value}
             />
-          ) : null
+          ) : null,
       )}
       {error && <ErrorMessage message={validationMessage} />}
     </>
@@ -127,7 +111,7 @@ CheckBoxes.defaultProps = {
   full: false,
   options: [],
   returnBoolean: false,
-  validationMessage: "This field is required",
+  validationMessage: 'This field is required',
 };
 
 export default CheckBoxes;

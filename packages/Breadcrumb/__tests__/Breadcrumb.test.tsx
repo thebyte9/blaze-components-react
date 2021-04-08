@@ -1,32 +1,27 @@
-import { shallow } from 'enzyme';
-import expect from 'expect';
-import React from 'react';
+import '@testing-library/jest-dom';
+
 import Breadcrumb from '../src';
+import React from 'react';
+import { render } from '@testing-library/react';
 
 const defaultProps = (override = {}) => ({
   children: [
     <a href="#first">First</a>,
     <a href="#Second">Second</a>,
-    <a href="#Third">Third - long text will be truncated for a better user experience</a>
+    <a href="#Third">Third - long text will be truncated for a better user experience</a>,
   ],
-  ...override
+  ...override,
 });
 
-const wrapper = (props: any) => shallow(<Breadcrumb {...props} />);
-
 describe('Breadcrumb component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
-    const _wrapper = wrapper(defaultProps());
-
-    expect(_wrapper).toBeDefined();
-    expect(_wrapper).toMatchSnapshot();
+  it('should be defined and renders correctly (snapshot)', () => {
+    const { container } = render(<Breadcrumb {...defaultProps()} />);
+    expect(container).toMatchSnapshot();
   });
 
-  test('should renders correctly with one children', () => {
+  it('should renders correctly with one children', () => {
     const children = <a href="#first">First</a>;
-    const _wrapper = wrapper(defaultProps({ children }));
-
-    expect(_wrapper).toBeDefined();
-    expect(_wrapper).toMatchSnapshot();
+    const { container } = render(<Breadcrumb {...defaultProps({ children })} />);
+    expect(container).toMatchSnapshot();
   });
 });

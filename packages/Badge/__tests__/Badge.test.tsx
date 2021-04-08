@@ -1,26 +1,25 @@
-import { shallow } from "enzyme";
-import expect from "expect";
-import React from "react";
-import Badge from "../src";
+import '@testing-library/jest-dom';
 
-describe("Badge component", () => {
-  it("should render properly when pass link prop without throwing error", () => {
-    const wrapper = shallow(
+import Badge from '../src';
+import React from 'react';
+import { render } from '@testing-library/react';
+
+describe('Badge component', () => {
+  it('should render properly when pass link prop without throwing error', () => {
+    const wrapper = render(
       <Badge type="pagebuilder" link>
         <a href="#"></a>
       </Badge>,
-      {}
     );
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should render children without throwing error", () => {
-    const wrapper = shallow(
+  it('should render children without throwing error', () => {
+    const wrapper = render(
       <Badge type="pagebuilder" color="blue" icon>
         BadgeText         
-        <i className="fas fa image" />
+        <i className="fas fa image" />
       </Badge>,
-      {}
     );
 
     expect(wrapper).toMatchSnapshot();

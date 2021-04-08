@@ -1,26 +1,31 @@
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import Button from "../src/Button";
+import '@testing-library/jest-dom';
+
+import { render, screen } from '@testing-library/react';
+
+import Button from '../src/Button';
+import React from 'react';
 
 const testProps = {
-  modifiers: ["outline", "rounded"]
+  modifiers: ['outline', 'rounded'],
 };
 
-describe("Button component", () => {
-  const wrapper = mount(<Button {...testProps} />);
+const ButtonComponent = <Button {...testProps} />;
 
-  test("should be defined and renders correctly (snapshot)", () => {
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find(".button").length).toBe(1);
+describe('Button component', () => {
+  it('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(ButtonComponent);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  test("should be type button by default", () => {
-    expect(wrapper.find(".button").props().type).toBe("button");
+  it('should be type button by default', () => {
+    render(ButtonComponent);
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('type', 'button');
   });
 
-  test("should be type submit when passing isSubmit prop", () => {
-    expect(mount(<Button type="submit" />).props().type).toBe("submit");
+  it('should be type submit when passing isSubmit prop', () => {
+    render(<Button type="submit" />);
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('type', 'submit');
   });
 });

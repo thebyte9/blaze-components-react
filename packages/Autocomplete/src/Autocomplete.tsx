@@ -1,17 +1,19 @@
-import Input from "../../Input/src";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from 'react';
+
+import Input from '../../Input/src';
 import { v4 as uuidv4 } from 'uuid';
+
 interface IAutocompleteProps {
   data: {
     keyValue: string;
     filterBy: string[];
     data: Record<string, unknown>[];
   };
-  selected: (...args: any[]) => any;
+  selected?: (...args: any[]) => any;
   label?: string;
   placeholder?: string;
   disabled?: boolean;
-  inputProps: any;
+  inputProps?: any;
 }
 
 const Autocomplete: React.SFC<IAutocompleteProps> = ({
@@ -20,9 +22,9 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   label,
   placeholder,
   selected,
-  inputProps
+  inputProps,
 }) => {
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>('');
   const [showSelect, setShowSelect] = useState<boolean>(false);
 
   const handleChange = ({ value }: { value: string }): void => {
@@ -31,19 +33,13 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     filterByValue(value);
   };
 
-
   const filterByValue = (value: string): any[] =>
-    data.filter(
-      (copy: any) =>
-        !!keys.some(key =>
-          copy[key].toLowerCase().includes(value.toLowerCase())
-        )
-    );
+    data.filter((copy: any) => !!keys.some((key) => copy[key].toLowerCase().includes(value.toLowerCase())));
 
   const handleClick = (copiedData: any): void => {
     setInputValue(copiedData[keyValue]);
     setShowSelect(false);
-    selected(copiedData);
+    selected && selected(copiedData);
   };
 
   return (
@@ -69,7 +65,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
             >
               {copiedData[keyValue]}
             </div>
-          )
+          ),
         )}
     </Fragment>
   );
@@ -77,11 +73,11 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
 
 Autocomplete.defaultProps = {
   disabled: false,
-  label: "",
-  placeholder: "Search",
+  label: '',
+  placeholder: 'Search',
   selected: (): void => {
     return;
-  }
+  },
 };
 
 export default Autocomplete;

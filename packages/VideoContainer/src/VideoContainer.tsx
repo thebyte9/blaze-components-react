@@ -1,21 +1,19 @@
-import React, { FunctionComponent, IframeHTMLAttributes } from "react";
+import React, { FunctionComponent, IframeHTMLAttributes } from 'react';
 
 interface IVideoContainerProps extends IframeHTMLAttributes<HTMLIFrameElement> {
   src?: string;
   title?: string;
-  frameborder?: string;
+  frameBorder?: string;
 }
-const VideoContainer: FunctionComponent<IVideoContainerProps> = ({
-  src,
-  title,
-  ...attrs
-}) => (
+const VideoContainer: FunctionComponent<IVideoContainerProps> = ({ src, title, ...attrs }) => (
   <div className="media-container media-container--video">
     <iframe src={src} title={title} {...attrs} />
   </div>
 );
+
 VideoContainer.defaultProps = {
-  src: "",
-  title: ""
+  src: '',
+  title: '',
 };
+
 export default VideoContainer;

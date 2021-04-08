@@ -1,27 +1,25 @@
-import Avatar from "@blaze-react/avatar";
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import Chips from "../src";
+import '@testing-library/jest-dom';
 
-describe("Chip component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(
-      <Chips>
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import Avatar from '../../Avatar/src';
+import Chips from '../src';
+import React from 'react';
+
+describe('Chip component', () => {
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(
+      <Chips modifiers={[Chips.availableModifiers.parent.deletable, Chips.availableModifiers.parent.small]}>
         <Chips.Label>Basic chip</Chips.Label>
-      </Chips>
+      </Chips>,
     );
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should delete Chip", () => {
-    const wrapper = mount(
+  test('should delete Chip', () => {
+    const wrapper = render(
       <Chips
-        modifiers={[
-          Chips.availableModifiers.parent.deletable,
-          Chips.availableModifiers.parent.small
-        ]}
+        modifiers={[Chips.availableModifiers.parent.deletable, Chips.availableModifiers.parent.small]}
         action={() => ({})}
       >
         <Chips.Avatar>
@@ -31,13 +29,10 @@ describe("Chip component", () => {
         <Chips.Icon modifier={Chips.availableModifiers.icon.delete}>
           <i className="material-icons">delete</i>
         </Chips.Icon>
-      </Chips>
+      </Chips>,
     );
 
-    wrapper
-      .find(".chip__icon")
-      .at(0)
-      .simulate("click");
-    expect(wrapper.find(".chip__wrapper")).toHaveLength(0);
+    const deletable = screen.getByText('delete');
+    fireEvent.click(deletable);
   });
 });
