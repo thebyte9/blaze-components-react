@@ -6,9 +6,15 @@ import { render } from '@testing-library/react';
 
 const defaultProps = (override = {}) => ({
   children: [
-    <a href="#first">First</a>,
-    <a href="#Second">Second</a>,
-    <a href="#Third">Third - long text will be truncated for a better user experience</a>,
+    <a href="#first" key="first">
+      First
+    </a>,
+    <a href="#Second" key="second">
+      Second
+    </a>,
+    <a href="#Third" key="third">
+      Third - long text will be truncated for a better user experience
+    </a>,
   ],
   ...override,
 });

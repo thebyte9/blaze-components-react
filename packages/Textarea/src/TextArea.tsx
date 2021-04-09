@@ -18,7 +18,7 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   onChange: (...args: any[]) => void;
   value?: string;
   error?: boolean;
-  validationMessage: string | JSX.Element;
+  validationMessage?: string | JSX.Element;
   placeholder?: string;
 }
 

@@ -1,11 +1,11 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import ErrorMessage from '../../Utils/src/ErrorMessage';
-import { v4 as uuidv4 } from 'uuid';
+import { IData, IMultiSelectProps } from './interface';
+import React, { useEffect, useRef, useState } from 'react';
 
-import React, { useEffect, useRef, useState } from "react";
-import { IData, IMultiSelectProps } from "./interface";
-import MultiSelectBar from "./MultiSelectBar";
-import MultiSelectList from "./MultiSelectList";
+import ErrorMessage from '../../Utils/src/ErrorMessage';
+import MultiSelectBar from './MultiSelectBar';
+import MultiSelectList from './MultiSelectList';
+import buildClassNames from '../../Utils/src/buildClassNames';
+import { v4 as uuidv4 } from 'uuid';
 
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
@@ -29,7 +29,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   const [dataCopy, setDataCopy] = useState<any>([]);
   const [limitReached, setLimitReached] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const handleOutsideClick = (event: any) => {
     if (multiRef.current !== null && !multiRef.current.contains(event.target)) {
@@ -38,10 +38,10 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
 
@@ -54,9 +54,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   useEffect(() => {
     if (data) {
       const reachedLimit = checkLimit(data);
-      const verifiedData = reachedLimit
-        ? data.map((option: any) => ({ ...option, disabled: !option.checked }))
-        : data;
+      const verifiedData = reachedLimit ? data.map((option: any) => ({ ...option, disabled: !option.checked })) : data;
       updateData(verifiedData);
     }
   }, [data]);
@@ -78,13 +76,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     }));
   };
 
-  const handleInputChange = ({
-    event,
-    value,
-  }: {
-    event: any;
-    value: string;
-  }) => {
+  const handleInputChange = ({ event, value }: { event: any; value: string }) => {
     setSearchValue(value);
     if (onChange) {
       onChange({ event, value, name, clearList: () => setDataCopy([]) });
@@ -98,9 +90,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
 
   const checkLimit = (dataToCheck: any) => {
     if (limit) {
-      const selectedOptions = dataToCheck.filter(
-        ({ checked }: { checked: boolean }) => checked
-      );
+      const selectedOptions = dataToCheck.filter(({ checked }: { checked: boolean }) => checked);
       const reachedLimit = selectedOptions.length >= limit;
       return reachedLimit;
     }
@@ -108,24 +98,23 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   const getCheckedIds = (newDataCopy: IData[]) => {
-    return newDataCopy.reduce(
-      (acc: any, { checked, id }) => {
-        if (checked) {
-          acc.push(id);
-        }
-        return acc;
-      },
-      []
-    );
+    return newDataCopy.reduce((acc: any, { checked, id }) => {
+      if (checked) {
+        acc.push(id);
+      }
+      return acc;
+    }, []);
   };
 
   const updateData = (newData: IData[]) => {
     const reachedLimit = checkLimit(newData);
-    const verifiedData = newData.map((ele: any, index: number): Record<string, unknown> => ({
-      index,
-      ...ele,
-      disabled: reachedLimit && !ele.checked,
-    }));
+    const verifiedData = newData.map(
+      (ele: any, index: number): Record<string, unknown> => ({
+        index,
+        ...ele,
+        disabled: reachedLimit && !ele.checked,
+      }),
+    );
     setDataCopy(verifiedData);
     setLimitReached(reachedLimit);
     return verifiedData;
@@ -181,9 +170,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   };
 
   const handleDelete = ({ id }: { id: string | number }): void => {
-    const elementToDelete: number = dataCopy.findIndex(
-      ({ id: itemId }: { id: string | number }) => itemId === id
-    );
+    const elementToDelete: number = dataCopy.findIndex(({ id: itemId }: { id: string | number }) => itemId === id);
     const updatedData = [...dataCopy];
     updatedData[elementToDelete].checked = false;
     const selectedData = getCheckedIds(updatedData);
@@ -204,7 +191,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       checked: false,
     }));
     setShow(false);
-    setSearchValue("");
+    setSearchValue('');
     updateData(formatedElements);
     getSelected({
       event: {
@@ -216,15 +203,8 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
     });
   };
 
-  const labelParser = ({ label: lab }: { label: string[] | string }) =>
-    Array.isArray(lab) ? lab.join(", ") : lab;
-  const getLabel = ({
-    label: lab,
-    isChip,
-  }: {
-    label: string | [string, string];
-    isChip?: boolean;
-  }) => {
+  const labelParser = ({ label: lab }: { label: string[] | string }) => (Array.isArray(lab) ? lab.join(', ') : lab);
+  const getLabel = ({ label: lab, isChip }: { label: string | [string, string]; isChip?: boolean }) => {
     if (Array.isArray(lab)) {
       const [main, sub] = lab;
       const mainLabel = labelParser({ label: main });
@@ -250,7 +230,6 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           handleClearAll={handleClearAll}
           handleDelete={handleDelete}
           identification={identification}
-          uniqueId={uuidv4()}
           keyValue={keyValue}
           searchValue={searchValue}
           placeholder={placeholder}
@@ -286,16 +265,16 @@ MultiSelect.defaultProps = {
   error: false,
   getSelected: () => void 0,
   isDynamic: false,
-  label: "",
+  label: '',
   limit: 0,
-  limitReachedMessage: "Select item limit reached",
-  notFoundMessage: "No records available",
+  limitReachedMessage: 'Select item limit reached',
+  notFoundMessage: 'No records available',
   onChange: (arg: { event: Event; value: string }) => {
     return arg;
   },
-  placeholder: "Choose...",
+  placeholder: 'Choose...',
   required: false,
-  validationMessage: "This field is required",
+  validationMessage: 'This field is required',
 };
 
 export default MultiSelect;

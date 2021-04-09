@@ -58,10 +58,10 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
           (copiedData: any, key: number): JSX.Element => (
             <div
               className="panel"
-              key={uuidv4()}
+              key={`panel-${key}`}
               onClick={() => handleClick(copiedData)}
               role="button"
-              data-testid={`option-${key + 1}`}
+              data-testid={`option-${key}`}
             >
               {copiedData[keyValue]}
             </div>

@@ -1,0 +1,9 @@
+/**/dist/
+
+/node_modules/
+
+/**/node_modules/
+
+*.test.tsx
+
+*.js

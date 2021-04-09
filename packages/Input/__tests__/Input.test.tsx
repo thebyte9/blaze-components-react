@@ -1,40 +1,37 @@
-import { fireEvent, render } from "@testing-library/react";
-import { mount } from "enzyme";
-import "jest-dom/extend-expect";
-import React from "react";
-import Input from "../src/Input";
+import '@testing-library/jest-dom';
+
+import { fireEvent, render } from '@testing-library/react';
+
+import Input from '../src/Input';
+import React from 'react';
 
 const defaultProps = (override: object = {}) => ({
   error: true,
   onChange: () => void 0,
-  placeholder: "Placeholder text",
+  placeholder: 'Placeholder text',
   ...override,
 });
 
-describe("Input component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(<Input {...defaultProps()} />);
-
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+describe('Input component', () => {
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(<Input {...defaultProps()} />);
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("visibility should be off", () => {
+  test('visibility should be off', () => {
     const override = {
-      type: "password",
+      type: 'password',
     };
 
     const { getByTestId } = render(<Input {...defaultProps(override)} />);
 
-    expect(getByTestId("toggle-input-type")).toHaveClass("active");
-    expect(getByTestId("toggle-input-type")).toHaveTextContent(
-      "visibility_off"
-    );
+    expect(getByTestId('toggle-input-type')).toHaveClass('active');
+    expect(getByTestId('toggle-input-type')).toHaveTextContent('visibility_off');
   });
 
-  test("should renders input with label", () => {
-    const label = "Text input label";
-    const value = "lorem ipsum";
+  test('should renders input with label', () => {
+    const label = 'Text input label';
+    const value = 'lorem ipsum';
 
     const override = {
       id: 1,
@@ -49,43 +46,37 @@ describe("Input component", () => {
     expect(input).toHaveValue(value);
   });
 
-  test("should show or hide password on toggle", () => {
+  test('should show or hide password on toggle', () => {
     const override = {
-      type: "password",
+      type: 'password',
     };
 
     const { getByTestId } = render(<Input {...defaultProps(override)} />);
 
-    fireEvent.click(getByTestId("toggle-input-type"));
+    fireEvent.click(getByTestId('toggle-input-type'));
 
-    expect(getByTestId("toggle-input-type")).toHaveClass("hide");
-    expect(getByTestId("toggle-input-type")).toHaveTextContent("visibility");
+    expect(getByTestId('toggle-input-type')).toHaveClass('hide');
+    expect(getByTestId('toggle-input-type')).toHaveTextContent('visibility');
 
-    fireEvent.click(getByTestId("toggle-input-type"));
+    fireEvent.click(getByTestId('toggle-input-type'));
 
-    expect(getByTestId("toggle-input-type")).toHaveClass("active");
-    expect(getByTestId("toggle-input-type")).toHaveTextContent(
-      "visibility_off"
-    );
+    expect(getByTestId('toggle-input-type')).toHaveClass('active');
+    expect(getByTestId('toggle-input-type')).toHaveTextContent('visibility_off');
   });
 
-  test("should display validation message", () => {
+  test('should display validation message', () => {
     let override = {
       error: true,
-      modifier: "full-width",
-      placeholder: "Enter email",
+      modifier: 'full-width',
+      placeholder: 'Enter email',
       required: true,
     };
 
-    const { getByTestId, rerender } = render(
-      <Input {...defaultProps(override)} />
-    );
+    const { getByTestId, rerender } = render(<Input {...defaultProps(override)} />);
 
-    expect(getByTestId("validation-message")).toHaveTextContent(
-      "This field is required"
-    );
+    expect(getByTestId('validation-message')).toHaveTextContent('This field is required');
 
-    const validationMessage = "Email address is required";
+    const validationMessage = 'Email address is required';
 
     override = {
       ...override,
@@ -94,18 +85,16 @@ describe("Input component", () => {
 
     rerender(<Input {...defaultProps(override)} />);
 
-    expect(getByTestId("validation-message")).toHaveTextContent(
-      validationMessage
-    );
+    expect(getByTestId('validation-message')).toHaveTextContent(validationMessage);
   });
 
-  test("should change input", () => {
+  test('should change input', () => {
     interface IOnChangeArgs {
       value: string;
       event: React.ChangeEvent<HTMLInputElement>;
     }
 
-    let stateValue = "";
+    let stateValue = '';
 
     const onChange = (args: IOnChangeArgs): void => {
       const { value } = args;
@@ -118,15 +107,15 @@ describe("Input component", () => {
 
     const { getByTestId } = render(<Input {...defaultProps(override)} />);
 
-    const inputValue = "lorem ipsum";
+    const inputValue = 'lorem ipsum';
 
-    fireEvent.change(getByTestId("input"), {
+    fireEvent.change(getByTestId('input'), {
       target: {
         value: inputValue,
       },
     });
 
-    expect(getByTestId("input")).toHaveValue(inputValue);
+    expect(getByTestId('input')).toHaveValue(inputValue);
     expect(stateValue).toEqual(inputValue);
   });
 });

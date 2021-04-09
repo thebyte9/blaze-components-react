@@ -1,7 +1,7 @@
-import Chip from "../../Chips/src";
-import Input from "../../Input/src";
+import Chip from '../../Chips/src';
+import Input from '../../Input/src';
+import React from 'react';
 import buildClassNames from '../../Utils/src/buildClassNames';
-import React from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 interface ISelectedValue {
@@ -23,7 +23,6 @@ const MultiSelectBar = ({
   placeholder,
   required,
   searchValue,
-  uniqueId,
 }: any) => {
   const requiredClassName: string = buildClassNames({ required });
 
@@ -34,10 +33,7 @@ const MultiSelectBar = ({
           {label}
         </label>
         {!!checkedItems.length && (
-          <span
-            className="chip__wrapper__clear"
-            onClick={handleClearAll}
-          >
+          <span className="chip__wrapper__clear" onClick={handleClearAll}>
             Clear all
           </span>
         )}
@@ -47,10 +43,7 @@ const MultiSelectBar = ({
           {checkedItems.map(
             (selectedValue: ISelectedValue, index: number): JSX.Element => (
               <Chip
-                modifiers={[
-                  Chip.availableModifiers.parent.deletable,
-                  Chip.availableModifiers.parent.small,
-                ]}
+                modifiers={[Chip.availableModifiers.parent.deletable, Chip.availableModifiers.parent.small]}
                 onDelete={() =>
                   handleDelete({
                     id: selectedValue[identification],
@@ -63,20 +56,16 @@ const MultiSelectBar = ({
                     name: selectedValue[keyValue],
                   })
                 }
-                key={uuidv4()}
+                key={`checked-${index}`}
               >
-                <Chip.Label
-                  data-cy={`multiSelect-${label}-chip${index + 1}-label`}
-                >
+                <Chip.Label data-cy={`multiSelect-${label}-chip${index + 1}-label`}>
                   {getLabel({ label: selectedValue[keyValue], isChip: true })}
                 </Chip.Label>
-                <Chip.Icon
-                  modifier={Chip.availableModifiers.icon.delete}
-                >
+                <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
                   <i className="material-icons">clear</i>
                 </Chip.Icon>
               </Chip>
-            )
+            ),
           )}
           <Input
             value={searchValue}

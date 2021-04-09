@@ -74,7 +74,7 @@ describe('Checkboxes component', () => {
       selectedBoxLabel = label;
     };
 
-    let override = {
+    const override = {
       onChange,
     };
 

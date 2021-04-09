@@ -1,12 +1,12 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
-import TableBody from "./TableBody";
-import TableHead from "./TableHead";
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import TableBody from './TableBody';
+import TableHead from './TableHead';
 import { ITableRow, ICheckboxItem } from './interfaces';
 
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
-  data: {
+  data?: {
     identification: string;
     columns: string[];
     orderBy: string[];
@@ -23,14 +23,13 @@ interface ITableProps {
   scrollToIndex?: number;
 }
 
-
 const Table: FunctionComponent<ITableProps> = ({
   data: { columns, rows, identification, orderBy, appliedSort, labels },
   onSelect = () => ({}),
   onSort = () => ({}),
   onClickRow = () => ({}),
   checkboxes,
-  placeholder = '', 
+  placeholder = '',
   overScanBuffer = 0,
   onRenderItems,
   scrollToIndex = 0,
@@ -47,32 +46,20 @@ const Table: FunctionComponent<ITableProps> = ({
   }, [rows, rows && rows.length, columns, columns && columns.length]);
 
   useEffect(() => {
-    if (
-      bodyRef &&
-      bodyRef.current &&
-      bodyRef.current.firstElementChild &&
-      allRows.length
-    ) {
-      bodyRef.current.firstElementChild.addEventListener(
-        "scroll",
-        (event: any) => syncScroll(headRef.current, event)
-      );
+    if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild && allRows.length) {
+      bodyRef.current.firstElementChild.addEventListener('scroll', (event: any) => syncScroll(headRef.current, event));
     }
 
     if (headRef && headRef.current && headRef.current.firstElementChild) {
-      headRef.current.addEventListener("scroll", (event: any) =>
-        syncScroll(bodyRef.current.firstElementChild, event)
-      );
+      headRef.current.addEventListener('scroll', (event: any) => syncScroll(bodyRef.current.firstElementChild, event));
     }
+
     return () => {
       if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild) {
-        bodyRef.current.firstElementChild.removeEventListener(
-          "scroll",
-          syncScroll
-        );
+        bodyRef.current.firstElementChild.removeEventListener('scroll', syncScroll);
       }
       if (headRef.current) {
-        headRef.current.removeEventListener("scroll", syncScroll);
+        headRef.current.removeEventListener('scroll', syncScroll);
       }
     };
   }, [bodyRef.current, headRef.current, allRows]);
@@ -81,11 +68,7 @@ const Table: FunctionComponent<ITableProps> = ({
     ref.scrollLeft = event.target.scrollLeft;
   };
 
-  const handleSelected = (
-    [checked]: ICheckboxItem[],
-    value: string | ICheckboxItem[],
-    multiselect = false
-  ): void => {
+  const handleSelected = ([checked]: ICheckboxItem[], value: string | ICheckboxItem[], multiselect = false): void => {
     let checkedValue = [];
 
     if (checked && !selected.includes(checked.value)) {
@@ -134,11 +117,12 @@ Table.defaultProps = {
   checkboxes: false,
   data: {
     columns: [],
-    identification: "",
+    identification: '',
     orderBy: [],
     rows: [],
     labels: {},
   },
-  placeholder: "No records available",
+  placeholder: 'No records available',
 };
+
 export default Table;

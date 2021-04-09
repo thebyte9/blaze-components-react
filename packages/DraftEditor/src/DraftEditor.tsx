@@ -1,11 +1,12 @@
-import React from 'react';
 import { Editor, EditorState } from 'draft-js';
-import PropTypes from 'prop-types';
-import InlineToolbar from './InlineToolbar';
-import { getSelectedText } from './helpers';
+
 import { EMPTY_STRING } from './constants';
-import { usePersistedState } from './hooks/usePersistedState';
 import { ISelectionRect } from './helpers/inline-toolbar';
+import InlineToolbar from './InlineToolbar';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { getSelectedText } from './helpers';
+import { usePersistedState } from './hooks/usePersistedState';
 
 interface IEditor {
   editorState: EditorState;
@@ -43,46 +44,48 @@ const DraftEditor = ({
   customBlockRenderer,
   handleOnBlur,
   handleOnFocus,
-}: IEditor) => { 
+}: IEditor) => {
   const [rect, setRect] = usePersistedState('rect', {
     rect: {
       x: 0,
       y: 0,
-      width: 0
-    }
-  });   
-  
+      width: 0,
+    },
+  });
+
   return (
-  <div
-    className="editor-view__textblock--editor"
-    ref={el => {
-      if (!el) return;
-      setRect({ rect: el.getBoundingClientRect() })
-    }}>
-    <InlineToolbar
-      editorState={editorState}
-      dispatch={dispatch}
-      selectionRect={selectionRect}
-      showAddLinkModal={showAddLinkModal}
-      onChange={state => handleChange(state)}
-      visible={inlineToolbar && getSelectedText(editorState) !== EMPTY_STRING}
-    />
-    <Editor
-      ref={editor}
-      editorState={editorState}
-      onChange={state => handleChange(state)}
-      handleKeyCommand={command =>
-        handleKeyCommand(command, editorState, save, dispatch, showAddLinkModal, showInlineToolbar)
-      }
-      customStyleMap={styleMap}
-      keyBindingFn={myKeyBindingFn}
-      blockStyleFn={customBlockStyle}
-      blockRendererFn={customBlockRenderer}
-      onBlur={e => handleOnBlur(e)}
-      onFocus={e => handleOnFocus(e)}
-    />
-  </div>
-)};
+    <div
+      className="editor-view__textblock--editor"
+      ref={(el) => {
+        if (!el) return;
+        setRect({ rect: el.getBoundingClientRect() });
+      }}
+    >
+      <InlineToolbar
+        editorState={editorState}
+        dispatch={dispatch}
+        selectionRect={selectionRect}
+        showAddLinkModal={showAddLinkModal}
+        onChange={(state) => handleChange(state)}
+        visible={inlineToolbar && getSelectedText(editorState) !== EMPTY_STRING}
+      />
+      <Editor
+        ref={editor}
+        editorState={editorState}
+        onChange={(state) => handleChange(state)}
+        handleKeyCommand={(command) =>
+          handleKeyCommand(command, editorState, save, dispatch, showAddLinkModal, showInlineToolbar)
+        }
+        customStyleMap={styleMap}
+        keyBindingFn={myKeyBindingFn}
+        blockStyleFn={customBlockStyle}
+        blockRendererFn={customBlockRenderer}
+        onBlur={(e) => handleOnBlur(e)}
+        onFocus={(e) => handleOnFocus(e)}
+      />
+    </div>
+  );
+};
 
 DraftEditor.propTypes = {
   editorState: PropTypes.object.isRequired,

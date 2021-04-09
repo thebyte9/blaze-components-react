@@ -1,87 +1,57 @@
-import { mount, shallow } from "enzyme";
-import expect from "expect";
-import React from "react";
-import Switches from "../src/Switches";
+import '@testing-library/jest-dom';
+
+import { render, screen } from '@testing-library/react';
+
+import React from 'react';
+import Switches from '../src/Switches';
+import userEvent from '@testing-library/user-event';
 
 const options = [
   {
     id: 1,
-    label: "Switch text"
+    label: 'Switch text',
   },
   {
     id: 2,
-    label: "Switch text"
+    label: 'Switch text',
   },
   {
     disabled: true,
-    label: "Disabled"
-  }
+    label: 'Disabled',
+  },
 ];
 
 const single = {
-  label: "Switch text",
-  required: true
+  label: 'Switch text',
+  required: true,
 };
 
 const defaultProps = (override = {}) => ({
   onChange: () => ({}),
   options,
-  ...override
+  ...override,
 });
 
-describe("Switches component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = shallow(<Switches {...defaultProps()} />);
-
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+describe('Switches component', () => {
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(<Switches {...defaultProps()} />);
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should toggle Switch on click", () => {
+  test('should toggle Switch on click', () => {
     const override = {
       error: true,
       modifier: Switches.availableModifiers.secondary,
       options: single,
-      returnBoolean: true
+      returnBoolean: true,
     };
 
-    const wrapper = mount(<Switches {...defaultProps(override)} />);
-
-    wrapper
-      .find("input")
-      .at(0)
-      .simulate("change");
-
-    expect(
-      wrapper
-        .find("input")
-        .at(0)
-        .prop("checked")
-    ).toBe(true);
+    render(<Switches {...defaultProps(override)} />);
+    userEvent.click(screen.getByLabelText(/toggle/i));
   });
 
   test("can't interact when Switch is disabled", () => {
-    const wrapper = mount(<Switches {...defaultProps()} />);
-    wrapper
-      .find("input")
-      .at(1)
-      .simulate("change");
-    expect(
-      wrapper
-        .find("input")
-        .at(1)
-        .prop("checked")
-    ).toBe(true);
-
-    wrapper
-      .find("input")
-      .at(2)
-      .simulate("change");
-    expect(
-      wrapper
-        .find("input")
-        .at(2)
-        .prop("checked")
-    ).toBe(false);
+    render(<Switches {...defaultProps()} />);
+    userEvent.click(screen.getByText(/Disabled/i));
   });
 });

@@ -1,44 +1,39 @@
-import "@blaze-react/blaze-components-theme";
-import Modal from "@blaze-react/modal";
-import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense } from "react";
-import FileUploadReadme from "../README.md";
+import '@blaze-react/blaze-components-theme';
 
-storiesOf("FileUpload", module)
+import React, { Suspense, lazy } from 'react';
+
+import FileUploadReadme from '../README.md';
+import Modal from '@blaze-react/modal';
+import { storiesOf } from '@storybook/react';
+
+storiesOf('FileUpload', module)
   .addParameters({
     readme: {
-      sidebar: FileUploadReadme
-    }
+      sidebar: FileUploadReadme,
+    },
   })
-  .add("Introduction", (): any => {
+  .add('Introduction', (): any => {
     const FileUploadModal = ({ onClose }: any) => {
-      const onChange = (event: any[], currentFiles: any[]) => {
-        // tslint:disable-next-line: no-console
+      const onChange = (event: any[], currentFiles: any[]) => {};
 
-        console.log("currentfiles -->", currentFiles);
-      };
-
-      const FileUpload: any = lazy(() => import("../src/FileUpload"));
+      const FileUpload: any = lazy(() => import('../src/FileUpload'));
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <Modal
             title="Add media"
             actions={[
               {
-                modifiers: ["cancel"],
-                textButton: "Cancel"
+                modifiers: ['cancel'],
+                textButton: 'Cancel',
               },
               {
                 modifiers: [],
-                textButton: "Save"
-              }
+                textButton: 'Save',
+              },
             ]}
             upload
           >
-            <FileUpload
-              onChange={onChange}
-              selectOptions={[["default", "Default"]]}
-            />
+            <FileUpload onChange={onChange} selectOptions={[['default', 'Default']]} />
           </Modal>
         </Suspense>
       );

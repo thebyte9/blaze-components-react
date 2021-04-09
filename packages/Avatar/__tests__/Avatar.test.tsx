@@ -17,7 +17,7 @@ window.Image = jest.fn(() => dummyImage);
 
 const url = 'http://lorempixel.com/400/400/people/';
 
-const defaultProps = (override: object = {}) => ({
+const defaultProps = (override: Record<string, unknown> = {}) => ({
   url,
   ...override,
 });

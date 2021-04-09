@@ -1,6 +1,8 @@
+import '@testing-library/jest-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+
 import React from 'react';
-import expect from 'expect';
-import { shallow, mount } from 'enzyme';
 import SocialFollow from '../src/SocialFollow';
 
 const media = {
@@ -9,17 +11,17 @@ const media = {
   pinterest: 'https://www.thebyte9.com',
   linkedIn: 'https://www.thebyte9.com',
   youtube: 'https://www.thebyte9.com',
-  instagram: 'https://www.thebyte9.com'
+  instagram: 'https://www.thebyte9.com',
 };
 
 describe('SocialFollow component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = mount(<SocialFollow media={media} type="follow" title="Follow" vertical />);
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+  it('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(<SocialFollow media={media} type="follow" title="Follow" vertical />);
+    expect(asFragment).toMatchSnapshot();
   });
-  test('SocialFollow should be share by default', () => {
-    const wrapper = shallow(<SocialFollow media={media} />);
-    expect(wrapper.find('.social--share').length).toEqual(1);
+
+  it('SocialFollow should be share by default', () => {
+    const { asFragment } = render(<SocialFollow media={media} />);
+    expect(asFragment).toMatchSnapshot();
   });
 });

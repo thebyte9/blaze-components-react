@@ -15,7 +15,7 @@ interface IMultiSelectProps {
     identification: string;
     keyValue: string;
     filterBy: any[];
-    data: object[];
+    data: Record<string, unknown>[];
   };
   getSelected: (...args: any[]) => any;
   onItemsRendered: (...args: any[]) => Promise<any>;
@@ -38,7 +38,7 @@ interface IMultiSelectProps {
   name: string;
   validationMessage: string | JSX.Element;
   utils: {
-    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
+    buildClassNames: (className: string | Record<string, unknown>, optionalClassNames?: Record<string, unknown>) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
     uniqueId: (element: any) => string;
   };

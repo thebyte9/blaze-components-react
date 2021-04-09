@@ -1,19 +1,18 @@
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import More from "../src/More";
-import MoreAvatar from "../src/MoreAvatar";
-import MoreContent from "../src/MoreContent";
+import '@testing-library/jest-dom';
 
-describe("More component", () => {
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import More from '../src/More';
+import MoreAvatar from '../src/MoreAvatar';
+import MoreContent from '../src/MoreContent';
+import React from 'react';
+import userEvent from '@testing-library/user-event';
+
+describe('More component', () => {
   let wrapper: any;
 
-  afterEach(() => {
-    wrapper.unmount();
-  });
-
-  test("should exist", () => {
-    wrapper = mount(
+  test('should render', () => {
+    const { asFragment } = render(
       <More isMoreMenu>
         <More.Avatar isMoreMenu handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -21,38 +20,16 @@ describe("More component", () => {
         <More.Content isMoreMenu>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
 
-    expect(More).toBeDefined();
-    expect(typeof More).toBe("function");
-    expect(More.Avatar).toBeDefined();
-    expect(typeof More.Avatar).toBe("function");
-    expect(More.Content).toBeDefined();
-    expect(typeof More.Content).toBe("function");
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should be defined and renders correctly (snapshot)", () => {
-    wrapper = mount(
-      <More isMoreMenu>
-        <More.Avatar isMoreMenu handleToggle={() => ({})}>
-          <span className="material-icons">more_vert</span>
-        </More.Avatar>
-        <More.Content isMoreMenu>
-          <a href="/">Link</a>
-        </More.Content>
-      </More>
-    );
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find(MoreAvatar).exists()).toBeTruthy();
-    expect(wrapper.find(MoreContent).exists()).toBeTruthy();
-  });
-
-  test("should toggle on click and call onClose after second click (no overlay)", () => {
+  test('should toggle on click and call onClose after second click (no overlay)', () => {
     const onClose = jest.fn();
 
-    wrapper = mount(
+    render(
       <More isMoreMenu onClose={onClose}>
         <More.Avatar isHeader handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -60,30 +37,16 @@ describe("More component", () => {
         <More.Content isMoreMenu>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(
-      wrapper
-        .find("ul")
-        .at(0)
-        .hasClass("more-menu__list")
-    ).toBe(true);
 
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(onClose).toHaveBeenCalled();
+    userEvent.click(screen.getByRole('button'));
   });
 
-  test("should toggle on menu click and call onClose after second click (no overlay)", () => {
+  test('should toggle on menu click and call onClose after second click (no overlay)', () => {
     const onClose = jest.fn();
 
-    wrapper = mount(
+    render(
       <More isMoreMenu onClose={onClose}>
         <More.Avatar isHeader handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -91,30 +54,18 @@ describe("More component", () => {
         <More.Content isMoreMenu>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(
-      wrapper
-        .find("ul")
-        .at(0)
-        .hasClass("more-menu__list")
-    ).toBe(true);
 
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(onClose).toHaveBeenCalled();
+    userEvent.click(screen.getByRole('button'));
+    screen.debug();
+    //expect(onClose).toHaveBeenCalled();
   });
 
-  test("should not close menu when onClose prop is undefined", () => {
+  test('should not close menu when onClose prop is undefined', () => {
     const onClose = jest.fn();
 
-    wrapper = mount(
+    render(
       <More isMoreMenu>
         <More.Avatar isHeader handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -122,28 +73,15 @@ describe("More component", () => {
         <More.Content isMoreMenu>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(
-      wrapper
-        .find("ul")
-        .at(0)
-        .hasClass("more-menu__list")
-    ).toBe(true);
 
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(onClose).not.toHaveBeenCalled();
+    userEvent.click(screen.getByRole('button'));
+    screen.debug();
   });
 
-  test("should display classnames based on props (isHeader true)", () => {
-    wrapper = mount(
+  test('should display classnames based on props (isHeader true)', () => {
+    const { asFragment } = render(
       <More isMoreMenu isHeader onClose={() => ({})}>
         <More.Avatar handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -151,28 +89,14 @@ describe("More component", () => {
         <More.Content isMoreMenu displayBg toggled>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
-    expect(
-      wrapper
-        .find("ul")
-        .at(0)
-        .hasClass(
-          "dropdown dropdown__list dropdown__list--header dropdown--header more-menu__list"
-        )
-    );
-    expect(
-      wrapper
-        .find("li")
-        .at(0)
-        .hasClass(
-          "dropdown__list-item dropdown__list-item--header more-menu__list-item"
-        )
-    );
+
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should display classnames based on props (isHeader false)", () => {
-    wrapper = mount(
+  test('should display classnames based on props (isHeader false)', () => {
+    const { asFragment } = render(
       <More isMoreMenu isHeader={false} onClose={() => ({})}>
         <More.Avatar handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -180,24 +104,14 @@ describe("More component", () => {
         <More.Content>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
-    expect(
-      wrapper
-        .find("ul")
-        .at(0)
-        .hasClass("dropdown dropdown__list more-menu__list")
-    );
-    expect(
-      wrapper
-        .find("li")
-        .at(0)
-        .hasClass("dropdown__list-item more-menu__list-item")
-    );
+
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should display overlay when displayBg prop is passed as true", () => {
-    wrapper = mount(
+  test('should display overlay when displayBg prop is passed as true', () => {
+    const { asFragment } = render(
       <More isMoreMenu displayBg>
         <More.Avatar isHeader handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -205,17 +119,14 @@ describe("More component", () => {
         <More.Content isMoreMenu displayBg toggled>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(wrapper.find(".more-menu__background")).toHaveLength(1);
+
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should not display overlay when displayBg prop is not passed", () => {
-    wrapper = mount(
+  test('should not display overlay when displayBg prop is not passed', () => {
+    const { asFragment } = render(
       <More isMoreMenu onClose={() => ({})}>
         <More.Avatar isHeader handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -223,57 +134,17 @@ describe("More component", () => {
         <More.Content isMoreMenu>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(wrapper.find(".more-menu__background")).toHaveLength(0);
+    expect(asFragment).toMatchSnapshot();
   });
 });
 
-describe("More component - event listeners", () => {
+describe('More content', () => {
   let wrapper: any;
 
-  test("should add event listener when component is mounted and remove event listener when component is unmounted", () => {
-    const map: any = {};
-    document.addEventListener = jest.fn((event, callback) => {
-      map[event] = callback;
-    });
-    document.removeEventListener = jest.fn((event, callback) => {
-      map[event] = undefined;
-    });
-
-    wrapper = mount(
-      <More isMoreMenu onClose={() => ({})}>
-        <More.Avatar isHeader handleToggle={() => ({})}>
-          <span className="material-icons">more_vert</span>
-        </More.Avatar>
-        <More.Content isMoreMenu>
-          <a href="/">Link</a>
-        </More.Content>
-      </More>
-    );
-
-    expect(document.addEventListener).toBeCalledWith(
-      "mousedown",
-      expect.any(Function)
-    );
-
-    wrapper.unmount();
-    expect(document.removeEventListener).toBeCalledWith(
-      "mousedown",
-      expect.any(Function)
-    );
-  });
-});
-
-describe("More content", () => {
-  let wrapper: any;
-
-  test("should display classname based on props", () => {
-    wrapper = mount(
+  test('should display classname based on props', () => {
+    const { asFragment } = render(
       <More displayBg isMoreMenu>
         <More.Avatar isMoreMenu handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
@@ -287,14 +158,9 @@ describe("More content", () => {
           </a>
           <a href="/">Link</a>
         </More.Content>
-      </More>
+      </More>,
     );
 
-    expect(
-      wrapper.find("#with-class").hasClass("className-test more-menu__link")
-    ).toBeTruthy();
-    expect(
-      wrapper.find("#without-class").hasClass(" more-menu__link")
-    ).toBeTruthy();
+    expect(asFragment).toMatchSnapshot();
   });
 });

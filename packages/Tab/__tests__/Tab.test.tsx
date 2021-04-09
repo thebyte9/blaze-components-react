@@ -1,35 +1,30 @@
-import React from 'react';
-import expect from 'expect';
-import { shallow, mount } from 'enzyme';
-import { Tab, TabItem } from '../src/index';
+import '@testing-library/jest-dom';
 
-const tabComponent = (
+import { Tab, TabItem } from '../src/index';
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import React from 'react';
+
+const TabComponent = (
   <Tab selected={1}>
     <TabItem>Basic content here</TabItem>
-    <TabItem title="Advanced" >
-      Advanced content here
-    </TabItem>
+    <TabItem title="Advanced">Advanced content here</TabItem>
     <TabItem title="Other">Other content here</TabItem>
   </Tab>
 );
 
 describe('Tab component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = shallow(tabComponent);
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(TabComponent);
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should navigate between tabs', () => {
-    const wrapper = mount(tabComponent);
+    render(TabComponent);
 
-    expect(wrapper.find('.tabs__content').text()).toContain('Advanced content here');
+    const button = screen.getByText('Advanced');
+    fireEvent.click(button);
 
-    wrapper
-      .find('button')
-      .at(0)
-      .simulate('click');
-
-    expect(wrapper.find('.tabs__content').text()).toContain('Basic content here');
+    screen.getByText('Advanced');
   });
 });

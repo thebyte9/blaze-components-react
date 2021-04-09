@@ -1,13 +1,13 @@
-import React from "react";
-import Nestable from "../src/Nestable";
+import Nestable from '../src/Nestable';
+import React from 'react';
 
 const fakeData = [
   {
-    type: "row",
+    type: 'row',
     settings: {
-      name: "row-1",
+      name: 'row-1',
       modifier: null,
-      width: "full-width",
+      width: 'full-width',
       backgroundImage: null,
       desktop: true,
       tablet: true,
@@ -17,50 +17,48 @@ const fakeData = [
 
     items: [
       {
-        type: "video",
+        type: 'video',
         settings: {
-          name: "video 1",
+          name: 'video 1',
           modifier: null,
-          elementTitle: "video",
-          url: "https://youtu.be/ZY3J3Y_OU0w",
+          elementTitle: 'video',
+          url: 'https://youtu.be/ZY3J3Y_OU0w',
           autoplay: false,
           gtmClassName: null,
         },
-        id: "video 1",
-        name: "video-1",
+        id: 'video 1',
+        name: 'video-1',
         items: null,
       },
       {
-        type: "card",
+        type: 'card',
         settings: {
-          name: "card-1",
-          modifier: "",
-          elementTitle: "Card",
-          entity: "page",
+          name: 'card-1',
+          modifier: '',
+          elementTitle: 'Card',
+          entity: 'page',
           limit: 1,
           itemsPerRow: 1,
-          sortby: "name",
-          sort: "ASC",
-          filterByProperty: "",
+          sortby: 'name',
+          sort: 'ASC',
+          filterByProperty: '',
           filterByFeatured: false,
-          style: "portrait",
+          style: 'portrait',
           propsToDisplay: [],
           hasBanner: false,
-          gtmClassName: "",
+          gtmClassName: '',
         },
-        id: "244446a0-20c2-11ea-8323-dffe12b3279d",
-        name: "card-1",
+        id: '244446a0-20c2-11ea-8323-dffe12b3279d',
+        name: 'card-1',
         items: null,
       },
     ],
-    name: "row 1",
+    name: 'row 1',
   },
 ];
 
 const DemoComponent = () => {
-  const handleOrder = (params: any) => {
-    console.log("new order", params);
-  };
+  const handleOrder = (params: any) => {};
   return (
     <div className="component-wrapper">
       <h1>Dnd</h1>
@@ -71,10 +69,10 @@ const DemoComponent = () => {
         renderItem={({ item, DragHandler, children }) => (
           <div
             style={{
-              padding: "20px",
-              border: "1px solid #F0F0F0",
-              backgroundColor: "#FFFFFF",
-              display: "flex",
+              padding: '20px',
+              border: '1px solid #F0F0F0',
+              backgroundColor: '#FFFFFF',
+              display: 'flex',
             }}
           >
             <DragHandler />

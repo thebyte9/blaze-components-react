@@ -5,10 +5,8 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "react-hooks"],
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
+  "ignorePatterns": ["/dist/", "/__test__/", "/stories/"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
     "react-hooks/rules-of-hooks": "error",

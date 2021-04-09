@@ -9,7 +9,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --quiet --fix",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "pre-publish": "yarn build && yarn lint && yarn test"

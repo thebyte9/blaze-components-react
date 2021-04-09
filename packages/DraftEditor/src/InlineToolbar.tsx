@@ -1,20 +1,20 @@
-/* eslint-disable no-undef */
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { RichUtils, AtomicBlockUtils, EditorState } from 'draft-js';
-import { usePersistedState } from './hooks/usePersistedState';
 import {
-  generateToolbar,
-  getCurrentBlockTypeLabel,
-  getInlineToolbarLeftPosition,
-  getInlineToolbarTopPosition,
   ACTION_TYPE,
   ENTITY,
   generateActions,
-  getDropdownClassnames
+  generateToolbar,
+  getCurrentBlockTypeLabel,
+  getDropdownClassnames,
+  getInlineToolbarLeftPosition,
+  getInlineToolbarTopPosition,
 } from './helpers';
+import { AtomicBlockUtils, EditorState, RichUtils } from 'draft-js';
 import { IInlineToolbarAction, ISelectionRect } from './helpers/inline-toolbar';
+/* eslint-disable no-undef */
+import React, { useState } from 'react';
 
+import PropTypes from 'prop-types';
+import { usePersistedState } from './hooks/usePersistedState';
 
 interface IInlineToolbarProps {
   editorState: EditorState;
@@ -33,20 +33,20 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
   const { alignment, format, more } = getDropdownClassnames({
     isAlignmentDropdownOpen,
     isFormatDropdownOpen,
-    isMoreDropdownOpen
+    isMoreDropdownOpen,
   });
 
   const [rect, setRect] = usePersistedState('rect', {
     rect: {
       x: 0,
       y: 0,
-      width: 0
-    }
-  }); 
+      width: 0,
+    },
+  });
 
   if (!editorState) return null;
 
-  const actions = generateActions({alignment, isAlignmentDropdownOpen, setAlignmentDropdownOpen});
+  const actions = generateActions({ alignment, isAlignmentDropdownOpen, setAlignmentDropdownOpen });
 
   const handleAction = (action: IInlineToolbarAction) => {
     if (action.type === ACTION_TYPE.MODAL) {
@@ -58,11 +58,7 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
     if (action.type === ACTION_TYPE.ATOMIC) {
       const contentState = editorState.getCurrentContent();
 
-      const contentStateWithEntity = contentState.createEntity(
-        ENTITY.HORIZONTAL_RULE.type,
-        'IMMUTABLE',
-        {}
-      );
+      const contentStateWithEntity = contentState.createEntity(ENTITY.HORIZONTAL_RULE.type, 'IMMUTABLE', {});
 
       const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
 
@@ -94,25 +90,25 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
 
   return (
     <div
-      className={
-        visible ? 'editor-view__inlinetoolbar' : 'editor-view__inlinetoolbar editor-view__hidden'
-      }
+      className={visible ? 'editor-view__inlinetoolbar' : 'editor-view__inlinetoolbar editor-view__hidden'}
       style={{
         position: 'sticky',
         display: 'inline-block',
-        top: getInlineToolbarTopPosition(selectionRect),
-        left: getInlineToolbarLeftPosition(rect, selectionRect)
-      }}>
+        top: getInlineToolbarTopPosition(selectionRect) || 0,
+        left: getInlineToolbarLeftPosition(rect, selectionRect) || 0,
+      }}
+    >
       <div className="editor-view__inlinetoolbar--items">
-        <div className="row">{generateToolbar({actions, editorState, handleAction})}</div>
+        <div className="row">{generateToolbar({ actions, editorState, handleAction })}</div>
         <div
           className={format}
-          onMouseDown={e => {
+          onMouseDown={(e) => {
             e.stopPropagation();
             e.preventDefault();
             setFormatDropdownOpen(!isFormatDropdownOpen);
           }}
-          role="button">
+          role="button"
+        >
           <span>{currentBlockTypeLabel}</span>
           {isFormatDropdownOpen && (
             <div className="editor-view__inlinetoolbar--submenu">
@@ -122,9 +118,10 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
                   role="button"
                   onMouseDown={() =>
                     handleAction({
-                      action: { type: ACTION_TYPE.BLOCK, style: 'unstyled' }
+                      action: { type: ACTION_TYPE.BLOCK, style: 'unstyled' },
                     })
-                  }>
+                  }
+                >
                   Paragraph
                 </div>
               </div>
@@ -132,50 +129,44 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
                 <div
                   className="editor-view__inlinetoolbar--submenu--text"
                   role="button"
-                  onMouseDown={() =>
-                    handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-one' }})
-                  }>
+                  onMouseDown={() => handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-one' } })}
+                >
                   Heading 1
                 </div>
               </div>
               <div
                 className="editor-view__inlinetoolbar--submenu--item"
                 role="button"
-                onMouseDown={() =>
-                  handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-two' } })
-                }>
+                onMouseDown={() => handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-two' } })}
+              >
                 <div className="editor-view__inlinetoolbar--submenu--text">Heading 2</div>
               </div>
               <div
                 className="editor-view__inlinetoolbar--submenu--item"
                 role="button"
-                onMouseDown={() =>
-                  handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-three' } })
-                }>
+                onMouseDown={() => handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-three' } })}
+              >
                 <div className="editor-view__inlinetoolbar--submenu--text">Heading 3</div>
               </div>
               <div
                 className="editor-view__inlinetoolbar--submenu--item"
                 role="button"
-                onMouseDown={() =>
-                  handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-four' } })
-                }>
+                onMouseDown={() => handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-four' } })}
+              >
                 <div className="editor-view__inlinetoolbar--submenu--text">Heading 4</div>
               </div>
               <div
                 className="editor-view__inlinetoolbar--submenu--item"
                 role="button"
-                onMouseDown={() =>
-                  handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-five' } })
-                }>
+                onMouseDown={() => handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-five' } })}
+              >
                 <div className="editor-view__inlinetoolbar--submenu--text">Heading 5</div>
               </div>
               <div
                 className="editor-view__inlinetoolbar--submenu--item"
                 role="button"
-                onMouseDown={() =>
-                  handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-six' } })
-                }>
+                onMouseDown={() => handleAction({ action: { type: ACTION_TYPE.BLOCK, style: 'header-six' } })}
+              >
                 <div className="editor-view__inlinetoolbar--submenu--text">Heading 6</div>
               </div>
             </div>
@@ -184,12 +175,13 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
 
         <div
           className={more}
-          onMouseDown={e => {
+          onMouseDown={(e) => {
             e.preventDefault();
             e.stopPropagation();
             setMoreDropdownOpen(!isMoreDropdownOpen);
           }}
-          role="button">
+          role="button"
+        >
           <div className="editor-view__inlinetoolbar--more">
             <span>
               <i className="fas fa-ellipsis-h" />
@@ -200,9 +192,8 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
               <div
                 className="editor-view__inlinetoolbar--submenu--item"
                 role="button"
-                onMouseDown={() =>
-                  handleAction({ action: { type: ACTION_TYPE.INLINE, style: 'CODE' } })
-                }>
+                onMouseDown={() => handleAction({ action: { type: ACTION_TYPE.INLINE, style: 'CODE' } })}
+              >
                 <div className="editor-view__inlinetoolbar--submenu--text">Monospace</div>
               </div>
               <div
@@ -210,17 +201,17 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
                 role="button"
                 onMouseDown={() =>
                   handleAction({
-                    action: { type: ACTION_TYPE.INLINE, style: 'STRIKETHROUGH' }
+                    action: { type: ACTION_TYPE.INLINE, style: 'STRIKETHROUGH' },
                   })
-                }>
+                }
+              >
                 <div className="editor-view__inlinetoolbar--submenu--text">Strikethrough</div>
               </div>
               <div
                 className="editor-view__inlinetoolbar--submenu--item"
                 role="button"
-                onMouseDown={() =>
-                  handleAction({ action: { type: ACTION_TYPE.ATOMIC, style: 'HR' } })
-                }>
+                onMouseDown={() => handleAction({ action: { type: ACTION_TYPE.ATOMIC, style: 'HR' } })}
+              >
                 <div className="editor-view__inlinetoolbar--submenu--text">HR</div>
               </div>
             </div>
@@ -236,8 +227,7 @@ InlineToolbar.propTypes = {
   selectionRect: PropTypes.object.isRequired,
   showAddLinkModal: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  visible: PropTypes.bool.isRequired
+  visible: PropTypes.bool.isRequired,
 };
 
 export default InlineToolbar;
-

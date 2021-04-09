@@ -1,15 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorMessage function should match snapshot 1`] = `
-<div
-  className="validation"
-  data-testid="validation-message"
->
-  <i
-    className="material-icons"
-  >
-    testIcon
-  </i>
-  testMessage
-</div>
-`;
+exports[`ErrorMessage function should match snapshot 1`] = `[Function]`;
