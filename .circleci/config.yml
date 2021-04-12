@@ -26,6 +26,9 @@ jobs: # a collection of steps
       - run:
           name: Install yarn berry
           command: 'sudo curl -o- -L https://yarnpkg.com/install.sh | bash'
+      - run:
+          name: Set yarn version
+          command: 'yarn set version 2.4.0'
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:

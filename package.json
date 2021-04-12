@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "description": "React Component Framework for Blaze-CMS",
   "scripts": {
-    "clean": "lerna clean && yarn cache clean && yarn install",
-    "lint": "lerna run lint",
-    "build": "lerna run build",
+    "clean": "lerna clean && yarn cache clean",
+    "lint": "yarn workspaces foreach run lint",
+    "build": "yarn workspaces foreach run build",
     "build-storybook": "NODE_ENV=production build-storybook",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "yarn workspaces foreach run test",
+    "test:coverage": "yarn workspaces foreach run test --coverage",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "pre-publish": "yarn build && yarn lint && yarn test"
   },
