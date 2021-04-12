@@ -24,11 +24,27 @@ jobs: # a collection of steps
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
       - run:
-          name: Install Yarn 2
+          name: Install yarn
           command: 'sudo curl -o- -L https://yarnpkg.com/install.sh | bash'
       - run:
+          name: Set version
+          command: 'yarn set version 2.4.0'
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
           name: Install Dependencies
-          command: yarn
+          command: yarn install
+      - run:
+          name: Check for duplicates
+          command: yarn dedupe
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
       - run:
           name: Run lint
           command: yarn lint
