@@ -7,8 +7,8 @@
     "lint": "yarn workspaces foreach run lint",
     "build": "yarn workspaces foreach run build",
     "build-storybook": "NODE_ENV=production build-storybook",
-    "test": "yarn workspaces foreach run test",
-    "test:coverage": "yarn workspaces foreach run test --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "pre-publish": "yarn build && yarn lint && yarn test"
   },
@@ -179,7 +179,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "eslint --fix"
+      "yarn lint"
     ]
   },
   "keywords": [
