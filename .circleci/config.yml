@@ -55,7 +55,7 @@ jobs: # a collection of steps
           command: npx build-storybook -c .storybook -o docs-build
       - run:
           name: Run tests with coverage
-          command: jest --coverage --runInBand && codecov
+          command: node ./node_modules/jest/bin/jest.js --coverage --runInBand && codecov
       - restore_cache:
           key: sonar-scanner-{{ .Environment.SONAR_QUBE_VERSION }}
       - run:
