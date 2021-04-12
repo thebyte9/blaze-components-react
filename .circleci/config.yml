@@ -26,21 +26,9 @@ jobs: # a collection of steps
       - run:
           name: Install Yarn 2
           command: 'sudo curl -o- -L https://yarnpkg.com/install.sh | bash'
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: yarn install --immutable
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-      - run:
-          name: Check for duplicates
-          command: yarn dedupe
+          command: yarn
       - run:
           name: Run lint
           command: yarn lint
