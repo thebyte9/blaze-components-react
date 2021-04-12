@@ -1,0 +1,146 @@
+name: CI
+on:
+  push:
+    branches:
+      - dev
+      - release
+      - master
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - LICENSE
+  pull_request:
+    types: [edited, opened, synchronize, reopened]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - LICENSE
+
+jobs:
+  test_lint:
+    name: Test & lint
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+        node-version: [12.20.x]
+    if: github.head_ref != 'master'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Yarn v2
+        run: yarn set version berry
+
+      - name: Install packages
+        run: yarn install
+
+      - name: Add bin to PATH
+        run: echo "./node_modules/.bin" >> $GITHUB_PATH
+
+      - name: Run lint
+        run: yarn run lint
+
+      - name: Run tests with coverage
+        run: yarn run test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/*
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+
+  pull_request_format:
+    name: Pull request format
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+        node-version: [12.20.x]
+    if: |
+      github.event_name == 'pull_request' &&
+      github.head_ref != 'master' &&
+      github.base_ref != 'master' &&
+      startsWith(github.head_ref, 'dependabot/') != true
+
+    steps:
+      # PR title needs to follow format:
+      # [keyword](optional scope): [title] [JIRAID]
+      # e.g. fix(payment): Corrected logging BZ2-1234
+      - name: Validate pull request title
+        run: |
+          [[ '${{ github.event.pull_request.title }}' =~ ^(build|chore|ci|docs|feat|fix|improvement|perf|refactor|revert|style|test)(\(.+\))?\!?:\ .{10,}$ ]]
+          echo 0
+
+  publish_storybook:
+    name: Publish Storybook
+    needs: test_lint
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+        node-version: [12.20.x]
+    if: github.ref == 'refs/heads/dev'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Yarn v2
+        run: |
+          yarn set version berry
+
+      - name: Yarn workspace
+        run: |
+          cd examples/blaze-example-admin/ &&
+          yarn workspaces focus --production
+
+      #todo check whether we need this step, without it break admin build (next/dynamic missing dependencies)
+      - name: Install packages
+        run: yarn install
+
+      - name: Create .env file
+        env:
+          BLAZE_ADMIN_URI: ${{ secrets.BLAZE_ADMIN_URI }}
+          BLAZE_GRAPHQL_URI: ${{ secrets.BLAZE_GRAPHQL_URI }}
+        run: |
+          cd examples/blaze-example-admin/ &&
+          env > .env
+
+      - name: Build storybook
+        run: |
+          yarn run build-storybook
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: Sync files to AWS S3
+        run: aws s3 sync docs-build/* s3://blaze-components-react.thisisblaze.com --delete --acl public-read

@@ -2,7 +2,7 @@ version: 2 # use CircleCI 2.0
 
 deploy_config: &deploy_config
   docker:
-    - image: circleci/python:2.7-jessie
+    - image: cimg/node:12.20
   working_directory: ~/app
 
 attach_to_workspace: &attach_to_workspace
@@ -38,6 +38,9 @@ jobs: # a collection of steps
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+      - run:
+          name: Check for duplicates
+          command: yarn dedupe
       - run:
           name: Run lint
           command: yarn lint
