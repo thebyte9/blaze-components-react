@@ -2,7 +2,7 @@ version: 2 # use CircleCI 2.0
 
 deploy_config: &deploy_config
   docker:
-    - image: cimg/node:12.20
+    - image: circleci/python:2.7-jessie
   working_directory: ~/app
 
 attach_to_workspace: &attach_to_workspace
@@ -24,14 +24,17 @@ jobs: # a collection of steps
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
       - run:
-          name: Install yarn
-          command: 'sudo curl -o- -L https://yarnpkg.com/install.sh | bash'
+          name: Update npm to latest
+          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: Install Yarn
+          command: 'npm install -g yarn'
+      - run:
+          name: install-codecov # install codecov package
+          command: 'sudo npm install -g codecov'
       - run:
           name: Set version
           command: 'yarn set version 2.4.0'
-      - run:
-          name: Clean cache
-          command: 'yarn cache clean'
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:

@@ -1,6 +1,10 @@
 const MARGIN = 10;
 const SEPARATION_BETWEEN_HANDLERS = 26;
 
+interface ICustomElement extends Element {
+  offsetWidth: any;
+}
+
 function getElements(parent: any) {
   const touchLeft: any = parent.querySelector('.range__filter--left');
   const touchRight: any = parent.querySelector('.range__filter--right');
@@ -17,7 +21,7 @@ function getLeftStyle({ ratio, parent, handler, isRight }) {
   return `${Math.ceil(ratio * (parent.offsetWidth - (handler.offsetWidth + SEPARATION_BETWEEN_HANDLERS)) + factor)}px`;
 }
 
-function $(selector: string) {
+function $(selector: string): ICustomElement {
   return document.querySelector(`.${selector}`);
 }
 
@@ -77,7 +81,13 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     touchRight.style.left = `${$(selector).offsetWidth - touchLeft.offsetWidth}px`;
   };
 
-  const setValue = ({ typeValue, attribute, isRight }) => {
+  interface IValueProps {
+    typeValue: any;
+    attribute: any;
+    isRight?: any;
+  }
+
+  const setValue = ({ typeValue, attribute, isRight }: IValueProps) => {
     const ratio = (typeValue - min) / (max - min);
     const handleDirection = isRight ? touchRight : touchLeft;
     handleDirection.style.left = getLeftStyle({
