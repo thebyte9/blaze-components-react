@@ -41,7 +41,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Yarn v2
-        run: yarn set version 2.4.0
+        run: yarn set version berry
 
       - name: Install packages
         run: yarn install
