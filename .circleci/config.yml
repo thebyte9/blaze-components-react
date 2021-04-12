@@ -27,9 +27,6 @@ jobs: # a collection of steps
           name: Update npm to latest
           command: 'sudo npm install -g npm@latest'
       - run:
-          name: Install Yarn
-          command: 'npm install -g yarn'
-      - run:
           name: install-codecov # install codecov package
           command: 'sudo npm install -g codecov'
       - run:
