@@ -1,4 +1,4 @@
-name: CI
+name: GitHub Actions
 on:
   push:
     branches:
@@ -41,7 +41,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Yarn v2
-        run: yarn set version 2.4.0
+        run: yarn set version berry
 
       - name: Install packages
         run: yarn install
@@ -76,7 +76,6 @@ jobs:
       github.head_ref != 'master' &&
       github.base_ref != 'master' &&
       startsWith(github.head_ref, 'dependabot/') != true
-
     steps:
       # PR title needs to follow format:
       # [keyword](optional scope): [title] [JIRAID]
