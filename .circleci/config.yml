@@ -1,0 +1,115 @@
+version: 2 # use CircleCI 2.0
+
+deploy_config: &deploy_config
+  docker:
+    - image: circleci/python:2.7-jessie
+  working_directory: ~/app
+
+attach_to_workspace: &attach_to_workspace
+  attach_workspace:
+    at: ~/app/docs-build
+
+install_aws_cli: &install_aws_cli
+  run:
+    name: Install awscli
+    command: sudo pip install awscli
+
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    docker: # run the steps with Docker
+      - image: cimg/node:12.20
+    # ...with this image as the primary container; this is where all `steps` will run
+    environment:
+      SONAR_QUBE_VERSION: 4.6.0.2311-linux
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
+      - run:
+          name: Install yarn berry
+          command: 'sudo curl -o- -L https://yarnpkg.com/install.sh | bash'
+      - run:
+          name: install-codecov # install codecov package
+          command: 'sudo yarn global add codecov'
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --immutable
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Run lint
+          command: yarn lint
+      - run:
+          name: Run build
+          command: yarn build
+      - run:
+          name: Run build docs
+          command: npx build-storybook -c .storybook -o docs-build
+      - run:
+          name: Run tests with coverage
+          command: npm run test:coverage -- --runInBand && codecov
+      - restore_cache:
+          key: sonar-scanner-{{ .Environment.SONAR_QUBE_VERSION }}
+      - run:
+          name: Install sonar scanner
+          command: |
+            if [ ! -d ~/sonar-scanner-${SONAR_QUBE_VERSION}/  ]; then
+                wget --quiet https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_QUBE_VERSION}.zip -O ~/sonar-scanner.zip
+                unzip ~/sonar-scanner.zip -d ~/
+            fi
+      - run:
+          name: Run Sonar Qube analysis
+          command: ~/sonar-scanner-${SONAR_QUBE_VERSION}/bin/sonar-scanner -Dsonar.login=${SONAR_QUBE_LOGIN_KEY} -Dsonar.branch.name=${CIRCLE_BRANCH}
+      - save_cache:
+          key: sonar-scanner-{{ .Environment.SONAR_QUBE_VERSION }}
+          paths:
+            - ~/sonar-scanner-${SONAR_QUBE_VERSION}/
+            - ~/.sonar/cache/
+            - ./.scannerwork/
+      - persist_to_workspace:
+          root: /home/circleci/project/
+          paths:
+            - docs-build/
+
+  deploy_prod:
+    <<: *deploy_config
+    steps:
+      - *attach_to_workspace
+      - *install_aws_cli
+      - run:
+          name: Deploy to S3
+          command: aws s3 sync docs-build/* s3://blaze-components-react.thisisblaze.com --delete --acl public-read
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/
+      - deploy_approve:
+          type: approval
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+            branches:
+              ignore: /.*/
+      - deploy_prod:
+          requires:
+            - build
+            - deploy_approve
+          filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+            branches:
+              ignore: /.*/
