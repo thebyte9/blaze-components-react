@@ -29,10 +29,13 @@ jobs: # a collection of steps
       - run:
           name: Set version
           command: 'yarn set version 2.4.0'
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Clean cache
+          command: 'yarn cache clean'
+      # - restore_cache:
+      #     name: Restore Yarn Package Cache
+      #     keys:
+      #       - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: yarn install
@@ -44,7 +47,6 @@ jobs: # a collection of steps
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-
       - run:
           name: Run lint
           command: yarn lint
