@@ -51,9 +51,6 @@ jobs: # a collection of steps
           name: Run lint
           command: yarn lint
       - run:
-          name: Run build
-          command: yarn build
-      - run:
           name: Run build docs
           command: npx build-storybook -c .storybook -o docs-build
       - run:
