@@ -58,8 +58,6 @@ describe('More component', () => {
     );
 
     userEvent.click(screen.getByRole('button'));
-    screen.debug();
-    //expect(onClose).toHaveBeenCalled();
   });
 
   test('should not close menu when onClose prop is undefined', () => {
@@ -77,7 +75,6 @@ describe('More component', () => {
     );
 
     userEvent.click(screen.getByRole('button'));
-    screen.debug();
   });
 
   test('should display classnames based on props (isHeader true)', () => {

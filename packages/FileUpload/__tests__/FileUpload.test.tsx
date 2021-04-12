@@ -26,7 +26,6 @@ describe('FileUpload component', () => {
 
   test('should drop files', () => {
     render(FileUploadComponent);
-    screen.debug();
     const image = new Blob(['file contents'], { type: 'image/png' });
 
     fireEvent.drop(screen.getByText('Drag & drop file to upload'), {
