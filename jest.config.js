@@ -6,5 +6,6 @@ module.exports = {
       isolatedModules: true,
     },
   },
+  collectCoverage: true,
   testPathIgnorePatterns: ['/node_modules/', '/mocks/'],
 };
