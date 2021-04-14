@@ -1,4 +1,3 @@
-const LINK = "LINK";
 const IMAGE = "IMAGE";
 const HANDLED = "handled";
 const NOT_HANDLED = "not-handled";
@@ -24,10 +23,19 @@ const EMPTY_TAG = "empty";
 const CODE_BLOCK = "code-block";
 const SUBMIT = "submit";
 const HR_TAG = "<hr />";
-const TARGET_BLANK = "_blank";
-const ADD_LINK = "add-link";
-const MUTABLE = "MUTABLE";
+
 const CODE = "CODE";
+const LINK = "LINK";
+const MUTABLE = "MUTABLE";
+const ADD_LINK = "add-link";
+const TARGET_BLANK = "_blank";
+
+const UPDATE_LINK = "update-link";
+const UPDATE_STATE = "update-state";
+const UPDATE_CONTENT = "update-content";
+const UPDATED_IN_MODAL = "update-in-modal";
+const CURRENT_STATE = "current-state";
+const CLONE_STATE = "clone-state";
 
 const KEY_BINDING_HANDLED = "handled";
 const KEY_BINDING_NOT_HANDLED = "not-handled";
@@ -36,7 +44,38 @@ const KEY_BINDING_TOOLBAR_ACTION = "myeditor-toolbar";
 const KEY_BINDING_ADD_LINK = "myeditor-link";
 const KEY_BINDING_UNDO = "myeditor-undo";
 
+const BACKSPACE = "backspace";
+const FORMAT = "format";
+const UNDO = "undo";
+
+const APPLY_ENTITY = "apply-entity";
+const CENTER = "center";
+const EMPTY_STRING = "";
+const LINE_THROUGH = "line-through";
+const NEW_LINE = "\n";
+
+const INLINE = "inline";
+const SAVE = "save";
+const DELETE = "delete";
+
 export {
+  UPDATE_LINK,
+  UPDATE_STATE,
+  UPDATE_CONTENT,
+  UPDATED_IN_MODAL,
+  CURRENT_STATE,
+  CLONE_STATE,
+  DELETE,
+  SAVE,
+  INLINE,
+  NEW_LINE,
+  LINE_THROUGH,
+  EMPTY_STRING,
+  CENTER,
+  APPLY_ENTITY,
+  UNDO,
+  FORMAT,
+  BACKSPACE,
   KEY_BINDING_HANDLED,
   KEY_BINDING_NOT_HANDLED,
   KEY_BINDING_SAVE_ACTION,

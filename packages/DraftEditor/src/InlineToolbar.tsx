@@ -16,7 +16,7 @@ import {
 
 const InlineToolbar = ({
   editorState,
-  setEditorState,
+  // setEditorState,
   selectionRect,
   showAddLinkModal,
   visible,
@@ -63,21 +63,61 @@ const InlineToolbar = ({
         " "
       );
 
-      setEditorState(newState);
+      onChange(newState);
     }
 
     if (action.type === ACTION_TYPE.INLINE) {
       const newState = RichUtils.toggleInlineStyle(editorState, action.style);
-      setEditorState(newState);
+
       onChange(newState);
     }
 
     if (action.type === ACTION_TYPE.BLOCK) {
       const newState = RichUtils.toggleBlockType(editorState, action.style);
-      setEditorState(newState);
+
       onChange(newState);
     }
   };
+
+  // const handleAction = ({ action }) => {
+  //   if (action.type === ACTION_TYPE.MODAL) {
+  //     showAddLinkModal(true);
+  //   } else {
+  //     showAddLinkModal(false);
+  //   }
+
+  //   if (action.type === ACTION_TYPE.ATOMIC) {
+  //     const contentState = editorState.getCurrentContent();
+
+  //     const contentStateWithEntity = contentState.createEntity(
+  //       ENTITY.HORIZONTAL_RULE.type,
+  //       ENTITY.HORIZONTAL_RULE.mutability,
+  //       {}
+  //     );
+
+  //     const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
+
+  //     const newState = AtomicBlockUtils.insertAtomicBlock(
+  //       editorState,
+  //       entityKey,
+  //       " "
+  //     );
+
+  //     setEditorState(newState);
+  //   }
+
+  //   if (action.type === ACTION_TYPE.INLINE) {
+  //     const newState = RichUtils.toggleInlineStyle(editorState, action.style);
+  //     setEditorState(newState);
+  //     onChange(newState);
+  //   }
+
+  //   if (action.type === ACTION_TYPE.BLOCK) {
+  //     const newState = RichUtils.toggleBlockType(editorState, action.style);
+  //     setEditorState(newState);
+  //     onChange(newState);
+  //   }
+  // };
 
   return (
     <div
@@ -289,7 +329,7 @@ const InlineToolbar = ({
 InlineToolbar.propTypes = {
   editorState: PropTypes.object.isRequired,
   selectionRect: PropTypes.object.isRequired,
-  setEditorState: PropTypes.func.isRequired,
+  // setEditorState: PropTypes.func.isRequired,
   showAddLinkModal: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   visible: PropTypes.bool.isRequired,
