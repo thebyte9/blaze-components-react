@@ -18,35 +18,44 @@ jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
       - image: cimg/node:12.20
- # ...with this image as the primary container; this is where all `steps` will run
+    # ...with this image as the primary container; this is where all `steps` will run
     environment:
       SONAR_QUBE_VERSION: 4.6.0.2311-linux
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
       - run:
           name: Update npm to latest
-          command: "sudo npm install -g npm@latest"
+          command: 'sudo npm install -g npm@latest'
       - run:
           name: install-codecov # install codecov package
-          command: "sudo npm install -g codecov"
+          command: 'sudo npm install -g codecov'
       - run:
-          name: Install npm packages
-          command: npm install
+          name: Set version
+          command: 'yarn set version 2.4.1'
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
-          name: Run lerna bootstrap
-          command: "npx lerna bootstrap --hoist --no-ci --loglevel debug"
+          name: Install Dependencies
+          command: yarn install
+      - run:
+          name: Check for duplicates
+          command: yarn dedupe
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - run:
           name: Run lint
-          command: npm run lint
-      - run:
-          name: Run build
-          command: npm run build -- --concurrency=2
+          command: yarn lint
       - run:
           name: Run build docs
           command: npx build-storybook -c .storybook -o docs-build
       - run:
           name: Run tests with coverage
-          command: npm run test:coverage -- --runInBand && codecov
+          command: node ./node_modules/jest/bin/jest.js --coverage --runInBand && codecov
       - restore_cache:
           key: sonar-scanner-{{ .Environment.SONAR_QUBE_VERSION }}
       - run:

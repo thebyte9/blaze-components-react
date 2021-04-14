@@ -16,14 +16,14 @@ View Documentation: https://blaze-components-react.thisisblaze.com
 
        Will create a folder structure on './src/Footer/'.
 
-- npm run dev **Runs storybook dev server for development.**
+- yarn dev **Runs storybook dev server for development.**
 
-- npm run lint **Runs eslint on js files.**
+- yarn lint **Runs eslint on js files.**
 
-- npm run build **Runs webpack to build dist.**
+- yarn build **Runs webpack to build dist.**
 
 ## Publish
 
-- npm run pre-publish && npm run build-storybook
+- yarn pre-publish && yarn build-storybook
 - commit changes
 - lerna publish

@@ -1,24 +1,26 @@
-import "@blaze-react/blaze-components-theme";
-import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense } from "react";
-import inputReadme from "../README.md";
+import '@blaze-react/blaze-components-theme';
+
+import React, { Suspense, lazy } from 'react';
+
+import inputReadme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 const value = {
   max: 20000000,
   min: 10000000,
   step: 1,
   minValue: 10000000,
-  maxValue: 20000000
+  maxValue: 20000000,
 };
 
-storiesOf("Range Filter", module)
+storiesOf('Range Filter', module)
   .addParameters({
     readme: {
-      sidebar: inputReadme
-    }
+      sidebar: inputReadme,
+    },
   })
-  .add("Introduction", () => {
-    const RangeFilter: any = lazy(() => import("../src"));
+  .add('Introduction', () => {
+    const RangeFilter: any = lazy(() => import('../src/RangeFilter'));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
@@ -29,9 +31,7 @@ storiesOf("Range Filter", module)
           <RangeFilter
             label="Choose a range"
             value={value}
-            onChange={(val: any): void => {
-              // console.log(val);
-            }}
+            onChange={(val: any): void => {}}
             required
             error
             name="price"

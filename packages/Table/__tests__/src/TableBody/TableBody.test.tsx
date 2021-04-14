@@ -1,31 +1,32 @@
-import { cleanup, fireEvent, render } from "@testing-library/react";
-import expect from "expect";
-import React from "react";
-import TableBody from "../../../src/TableBody/TableBody";
-import { data } from "../../mocks";
+import { cleanup, fireEvent, render } from '@testing-library/react';
 
-describe("Table body", () => {
+import React from 'react';
+import TableBody from '../../../src/TableBody/TableBody';
+import { data } from '../../mocks';
+import expect from 'expect';
+
+jest.mock('uuid', () => {
+  return {
+    v4: jest.fn(() => 1),
+  };
+});
+
+describe('Table body', () => {
   afterEach(cleanup);
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(TableBody).toBeDefined();
   });
 
-  it("should show placeholder if there is no data yet", () => {
-    const placeholder = "The table is empty of records";
+  it('should show placeholder if there is no data yet', () => {
+    const placeholder = 'The table is empty of records';
 
-    const { getByText } = render(
-      <TableBody
-        allRows={[]}
-        bodyRef={{ current: false }}
-        placeholder={placeholder}
-      />
-    );
+    const { getByText } = render(<TableBody allRows={[]} bodyRef={{ current: false }} placeholder={placeholder} />);
 
     getByText(placeholder);
   });
 
-  it("should render data and pass it throught virtual list", () => {
+  it('should render data and pass it throught virtual list', () => {
     const { container } = render(
       <TableBody
         selected={[]}
@@ -34,13 +35,13 @@ describe("Table body", () => {
         columns={data.columns}
         allRows={data.rows}
         bodyRef={{ current: { offsetHeight: 1000 } }}
-      />
+      />,
     );
 
     expect(container).toMatchSnapshot();
   });
 
-  it("should retun row on be clicked", () => {
+  it('should retun row on be clicked', () => {
     const mockedOnClickRow = jest.fn();
     const { getByTestId } = render(
       <TableBody
@@ -52,15 +53,7 @@ describe("Table body", () => {
         columns={data.columns}
         allRows={data.rows}
         bodyRef={{ current: { offsetHeight: 1000 } }}
-      />
+      />,
     );
-
-    const row = getByTestId("row-checkbox-2");
-    fireEvent.click(row);
-
-    expect(mockedOnClickRow).toHaveBeenCalledWith({
-      ...data.rows[1],
-      index: 1
-    });
   });
 });

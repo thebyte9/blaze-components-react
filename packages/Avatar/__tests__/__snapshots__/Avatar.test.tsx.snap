@@ -1,32 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar component should be defined and renders correctly (snapshot) 1`] = `
-<withUtils()
-  modifier="med"
-  url="http://lorempixel.com/400/400/people/"
-  username=""
->
-  <Component
-    modifier="med"
-    url="http://lorempixel.com/400/400/people/"
-    username=""
-    utils={
-      Object {
-        "ErrorMessage": [Function],
-        "buildClassNames": [Function],
-        "removeExtraSpaces": [Function],
-        "uniqueId": [Function],
-      }
-    }
+exports[`Avatar component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="avatar"
   >
-    <div
-      className="avatar avatar--med"
-    >
-      <img
-        alt="avatar"
-        src="http://lorempixel.com/400/400/people/"
-      />
-    </div>
-  </Component>
-</withUtils()>
+    <img
+      alt="avatar"
+      src="http://lorempixel.com/400/400/people/"
+    />
+  </div>
+</DocumentFragment>
 `;

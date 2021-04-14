@@ -1,10 +1,22 @@
-// @ts-nocheck
 import React from "react";
 import { DAYS, DAYS_PER_LIST, SEPARATOR } from "../constants";
 
+interface IType {
+  [type: string]: () => number;
+  days: () => number;
+  months: () => number;
+  years: () => number;
+}
+
 class DateUtils {
+  private currentDate = new Date();
+
   constructor() {
     this.currentDate = new Date();
+  }
+
+  public date() {
+    return this.currentDate;
   }
 
   public isToday(dateToCheck: any) {
@@ -70,8 +82,8 @@ class DateUtils {
     };
   }
 
-  public formatDate(DD: string, MM: string, YY: string) {
-    return this.padDate(DD) + SEPARATOR + this.padDate(MM) + SEPARATOR + YY;
+  public formatDate(DD: string | number, MM: string | number, YY: string | number) {
+    return this.padDate(DD.toString()) + SEPARATOR + this.padDate(MM.toString()) + SEPARATOR + YY;
   }
 
   public isInvalidDate(DD: string, MM: string, YY: string) {
@@ -81,7 +93,7 @@ class DateUtils {
   public subtractDate(total: number, type: string) {
     const currentDate = new Date();
 
-    const subtractFrom = {
+    const subtractFrom: IType = {
       days: () => currentDate.setDate(currentDate.getDate() - total),
       months: () => currentDate.setMonth(currentDate.getMonth() - total),
       years: () => currentDate.setFullYear(currentDate.getFullYear() - total)
@@ -97,4 +109,6 @@ class DateUtils {
   }
 }
 
-export default new DateUtils();
+const DateUtilsSingleton = new DateUtils();
+
+export { DateUtils, DateUtilsSingleton };

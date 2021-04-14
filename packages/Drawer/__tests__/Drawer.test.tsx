@@ -1,7 +1,9 @@
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import Drawer from "../src";
+import '@testing-library/jest-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import Drawer from '../src/Drawer';
+import React from 'react';
 
 const DrawerComponent = (
   <Drawer modifier="right" title="Drawer Component">
@@ -14,26 +16,9 @@ const DrawerComponent = (
   </Drawer>
 );
 
-describe("Drawer component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(DrawerComponent);
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  test("should toggle on click", () => {
-    const wrapper = mount(DrawerComponent);
-
-    wrapper
-      .find(".icon-button")
-      .at(1)
-      .simulate("click");
-    expect(wrapper.find(".open").length).toEqual(1);
-
-    wrapper
-      .find(".icon-button")
-      .at(1)
-      .simulate("click");
-    expect(wrapper.find(".open").length).toEqual(0);
+describe('Drawer component', () => {
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(DrawerComponent);
+    expect(asFragment).toMatchSnapshot();
   });
 });

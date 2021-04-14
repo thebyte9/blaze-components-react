@@ -11,7 +11,7 @@ storiesOf("Progress", module)
     }
   })
   .add("Introduction", () => {
-    const Progress: any = lazy((): any => import("../src"));
+    const Progress: any = lazy((): any => import("../src/Progress"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

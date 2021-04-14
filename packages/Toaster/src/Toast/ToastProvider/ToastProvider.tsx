@@ -55,7 +55,7 @@ class ToastProvider extends Component<IProps, IState> {
       return;
     }
 
-    this.setState((state: any): object => {
+    this.setState((state: any): any => {
       const newToast = { content, id, ...options };
       const toasts = [...state.toasts, newToast];
 

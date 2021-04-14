@@ -1,4 +1,4 @@
-import Button from "@blaze-react/button";
+import Button from "../../../Button/src";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 

@@ -1,27 +1,23 @@
-import { Checkboxes } from "@blaze-react/checkboxes";
-import withUtils from "@blaze-react/utils";
-import React from "react";
-import VirtualList from "react-tiny-virtual-list";
+import { Checkboxes } from '@blaze-react/checkboxes';
+import { ITableRow } from '../interfaces';
+import React from 'react';
+import VirtualList from 'react-tiny-virtual-list';
+import { v4 as uuidv4 } from 'uuid';
+
 interface ICheckbox {
   checked: boolean;
   id: string | number;
   value: any;
 }
+
 interface ITableBody {
-  allRows: object[];
+  allRows: ITableRow[];
   checkboxes?: boolean;
   identification: string;
   selected: any[];
-  handleSelected: (
-    checked: ICheckbox[],
-    value: string | ICheckbox[],
-    isMultiselect?: boolean
-  ) => void;
+  handleSelected: (checked: ICheckbox[], value: string | ICheckbox[], isMultiselect?: boolean) => void;
   columns: string[];
   placeholder: string | JSX.Element;
-  utils: {
-    uniqueId: (element: any) => string;
-  };
   bodyRef: any;
   scrollToIndex: number;
   overScanBuffer: number;
@@ -37,18 +33,17 @@ const TableBody = ({
   handleSelected,
   columns,
   placeholder,
-  utils: { uniqueId },
   bodyRef,
   overScanBuffer = 20,
   onRenderItems,
   scrollToIndex = 0,
-  onClickRow
+  onClickRow,
 }: ITableBody): JSX.Element => {
   return (
     <div ref={bodyRef} className="table-body">
       {bodyRef.current && allRows.length && (
         <VirtualList
-          width={"100%"}
+          width={'100%'}
           height={bodyRef.current.offsetHeight}
           itemCount={allRows.length}
           itemSize={62}
@@ -59,35 +54,29 @@ const TableBody = ({
             <div
               onClick={() => onClickRow({ ...allRows[index], index })}
               className="table-row"
-              key={uniqueId(allRows[index])}
-              data-testid={`tablerow-${index + 1}`}
+              key={`tablerow-${index}`}
+              data-testid={`tablerow-${index}`}
               style={style}
             >
               {checkboxes && (
                 <div className="table-cell--checkbox">
                   <Checkboxes
-                    test-id={`row-checkbox-${index + 1}`}
+                    test-id={`row-checkbox-${index}`}
                     options={{
-                      checked: selected.includes(
-                        allRows[index][identification]
-                      ),
+                      checked: selected.includes(allRows[index][identification]),
                       id: allRows[index][identification],
-                      value: allRows[index][identification]
+                      value: allRows[index][identification],
                     }}
-                    onChange={({ value }: { value: ICheckbox[] }): void =>
-                      handleSelected(value, allRows[index][identification])
-                    }
+                    onChange={({ event, value, data }): void => handleSelected(value, allRows[index][identification])}
                   />
                 </div>
               )}
               {columns.map(
                 (column: string): JSX.Element => (
                   <div className="table-cell" key={column}>
-                    <div className="table-cell--content">
-                      {allRows[index][column]}
-                    </div>
+                    <div className="table-cell--content">{allRows[index][column]}</div>
                   </div>
-                )
+                ),
               )}
             </div>
           )}
@@ -103,4 +92,4 @@ const TableBody = ({
   );
 };
 
-export default withUtils(TableBody);
+export default TableBody;

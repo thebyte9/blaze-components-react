@@ -1,28 +1,45 @@
-// @ts-nocheck
-import Input from "@blaze-react/input";
-import withUtils from "@blaze-react/utils";
-import React, { useEffect, useRef, useState } from "react";
-import { MONTHS, NEXT, PREVIOUS, SEPARATOR } from "../constants";
-import { IDateRangeProps } from "../interfaces";
 
-import { DateUtils } from "../utils";
+import Input from "../../../Input/src/Input";
+import buildClassNames from '../../../Utils/src/buildClassNames';
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MONTHS, NEXT, PREVIOUS, SEPARATOR } from "../constants";
+import { DateUtilsSingleton } from "../utils";
+
+interface IDateRangeProps {
+  children?: any;
+  onChange: (args: IOnChangeArguments) => void;
+  selected?: 1 | 2 | 3 | 7 | 30 | 12 | "custom" | "any";
+  type?: string;
+}
+
+interface ISubtract {
+  value: number | string;
+  type: string;
+}
+
+interface IOnChangeArguments {
+  end?: string;
+  start?: string;
+  selectedDate?: string;
+}
+
 
 const DateRange: React.SFC<IDateRangeProps> = ({
   onChange,
-  type,
-  utils: { buildClassNames }
+  type = '',
 }) => {
   const [year, setYear] = useState<string | number>(new Date().getFullYear());
   const [month, setMonth] = useState<string | number>(new Date().getMonth());
-  const [date, setDate] = useState<string | null>(new Date().getDate());
+  const [date, setDate] = useState<string | number>(new Date().getDate());
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [calendarStatus, setCalendarStatus] = useState<boolean>(false);
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
 
-  const changeValue = (DD: string, MM: string, YY: string) => {
-    const pickedDate = DateUtils.formatDate(DD, MM, YY);
+  const changeValue = (DD: string | number, MM: string | number, YY: string | number) => {
+    const pickedDate = DateUtilsSingleton.formatDate(DD, MM, YY);
 
     setSelectedDate(pickedDate);
+    
     onChange({ [type.toLowerCase()]: pickedDate });
   };
 
@@ -43,33 +60,33 @@ const DateRange: React.SFC<IDateRangeProps> = ({
   }, [wrapperRef]);
 
   const changeDate = (event: any) => {
-    const { target: { dataset: { currentdate } = {} } = {} } = event;
+    const { target: { dataset: { currentdate } } } = event;
     const [newDate, newMonth, newYear] = currentdate.split(SEPARATOR);
 
-    const { DD, MM, YY } = DateUtils.dateToNumber(newDate, newMonth, newYear);
+    const { DD, MM, YY } = DateUtilsSingleton.dateToNumber(newDate, newMonth, newYear);
     changeValue(DD, MM + 1, YY);
 
     setYear(YY);
     setMonth(MM);
-    setDate(DateUtils.formatDate(DD, MM, YY));
+    setDate(DateUtilsSingleton.formatDate(DD, MM, YY));
   };
 
   const handlePreviousMonth = () => {
-    const { prevYear, prevMonth } = DateUtils.getPrevMonth(month, year);
+    const { prevYear, prevMonth } = DateUtilsSingleton.getPrevMonth(Number(month), Number(year));
 
     setYear(prevYear);
     setMonth(prevMonth);
   };
 
   const handleNextMonth = () => {
-    const { nextYear, nextMonth } = DateUtils.getNextMonth(month, year);
+    const { nextYear, nextMonth } = DateUtilsSingleton.getNextMonth(Number(month), Number(year));
 
     setYear(nextYear);
     setMonth(nextMonth);
   };
 
   const getDayClassName = (dateToCheck: any): string => {
-    const pickedDate = DateUtils.formatDate(
+    const pickedDate = DateUtilsSingleton.formatDate(
       dateToCheck.getDate(),
       dateToCheck.getMonth(),
       dateToCheck.getFullYear()
@@ -77,15 +94,15 @@ const DateRange: React.SFC<IDateRangeProps> = ({
 
     return buildClassNames({
       active: pickedDate === date,
-      current: DateUtils.isToday(dateToCheck) && pickedDate !== date,
+      current: DateUtilsSingleton.isToday(dateToCheck) && pickedDate !== date,
       disabled: dateToCheck.getMonth() !== month
     });
   };
 
   const resetDate = () => {
-    const newYear = DateUtils.currentDate.getFullYear();
-    const newMonth = DateUtils.currentDate.getMonth();
-    const newDate = DateUtils.currentDate.getDate();
+    const newYear = DateUtilsSingleton.date().getFullYear();
+    const newMonth = DateUtilsSingleton.date().getMonth();
+    const newDate = DateUtilsSingleton.date().getDate();
 
     changeValue(newDate, newMonth + 1, newYear);
 
@@ -94,19 +111,25 @@ const DateRange: React.SFC<IDateRangeProps> = ({
     setDate(newDate);
   };
 
-  const handleInputChange = ({ value }) => {
+  const handleInputChange = ({
+    event,
+    value,
+  }: {
+    event: React.ChangeEvent<HTMLInputElement>;
+    value: string;
+  }) => {
     const [newDate, newMonth, newYear] = value.split(SEPARATOR);
 
-    if (DateUtils.isInvalidDate(newDate, newMonth, newYear)) {
+    if (DateUtilsSingleton.isInvalidDate(newDate, newMonth, newYear)) {
       return;
     }
 
-    const { DD, MM, YY } = DateUtils.dateToNumber(newDate, newMonth, newYear);
+    const { DD, MM, YY } = DateUtilsSingleton.dateToNumber(newDate, newMonth, newYear);
 
     changeValue(DD, MM, YY);
     setYear(YY);
     setMonth(MM - 1);
-    setDate(DateUtils.formatDate(DD, MM - 1, YY));
+    setDate(DateUtilsSingleton.formatDate(DD, MM - 1, YY));
   };
 
   const handleOnClick = () => setCalendarStatus(true);
@@ -133,7 +156,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
             </span>
             <div className="calendar__header__year">
               <span onClick={resetDate}>
-                {MONTHS[month]} {year}
+                {MONTHS[Number(month)]} {year}
               </span>
             </div>
             <span className="calendar__header__next" onClick={handleNextMonth}>
@@ -142,10 +165,10 @@ const DateRange: React.SFC<IDateRangeProps> = ({
           </div>
           <div className="calendar__content">
             <ul className="calendar__content__list">
-              {DateUtils.getNameOfDays()}
+              {DateUtilsSingleton.getNameOfDays()}
             </ul>
             <ul className="calendar__content__days">
-              {DateUtils.getListOfDays(year, month).map(
+              {DateUtilsSingleton.getListOfDays(Number(year), Number(month)).map(
                 ({
                   currentYearToString,
                   currentMonthToString,
@@ -157,7 +180,7 @@ const DateRange: React.SFC<IDateRangeProps> = ({
                     className={`calendar__content__days__item day ${getDayClassName(
                       currentDate
                     )}`}
-                    data-currentdate={DateUtils.formatDate(
+                    data-currentdate={DateUtilsSingleton.formatDate(
                       currentDateToString,
                       currentMonthToString,
                       currentYearToString
@@ -180,4 +203,5 @@ DateRange.defaultProps = {
   onChange: () => void 0,
   type: "selectedDate"
 };
-export default withUtils(DateRange);
+
+export default DateRange;

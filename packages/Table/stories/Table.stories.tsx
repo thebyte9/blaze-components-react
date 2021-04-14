@@ -35,7 +35,7 @@ const DemoComponent = () => {
       setData(updatedData);
     }
   }, []);
-  const Table: any = lazy((): any => import("../src"));
+  const Table: any = lazy((): any => import("../src/Table"));
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Table checkboxes data={data} onSelect={() => ({})} />

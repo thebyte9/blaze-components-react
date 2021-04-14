@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 
+interface IMap {
+  [index: string]: any;
+}
+
 const SortableCell = ({
   onSort,
   orderBy,
@@ -13,7 +17,7 @@ const SortableCell = ({
   column: any;
   columns: any;
   appliedSort: any;
-  labels: object;
+  labels: IMap;
 }) => {
   const formatColumns = columns.reduce((acc: any, item: any): any => {
     return { ...acc, [item]: null };
@@ -59,7 +63,7 @@ const SortableCell = ({
 
   useEffect(() => {
     if (appliedSort) {
-      const [[col, direction]] = appliedSort && Object.entries(appliedSort);
+      const [[col, direction]] = Object.entries(appliedSort);
       if (tableColumns[col] !== direction) {
         const merged = {
           ...tableColumns,

@@ -1,5 +1,5 @@
 import { Checkbox } from "@blaze-react/checkboxes";
-import withUtils from "@blaze-react/utils";
+import ErrorMessage from '../../Utils/src/ErrorMessage';
 import differenceWith from "lodash.differencewith";
 import isEqual from "lodash.isequal";
 import React, { useEffect, useState } from "react";
@@ -16,7 +16,6 @@ const MultiSelectList = ({
   matchQuery,
   notFoundMessage,
   onItemsRendered,
-  utils: { ErrorMessage },
   validationMessage,
   ...attrs
 }: any) => {
@@ -80,4 +79,4 @@ const MultiSelectList = ({
   );
 };
 
-export default withUtils(MultiSelectList);
+export default MultiSelectList;

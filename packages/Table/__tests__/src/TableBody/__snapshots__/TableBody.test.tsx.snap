@@ -13,7 +13,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
       >
         <div
           class="table-row"
-          data-testid="tablerow-1"
+          data-testid="tablerow-0"
           style="position: absolute; top: 0px; left: 0px; width: 100%; height: 62px;"
         >
           <div
@@ -25,9 +25,8 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             >
               <input
                 class="form-checkbox"
-                data-cy="checkbox-cy-1"
-                data-testid="row-checkbox-1"
-                id="uid-dW5kZWZpbmVk_3-checkbox"
+                data-testid="1-checkbox"
+                id="1-checkbox"
                 readonly=""
                 type="checkbox"
                 value=""
@@ -36,7 +35,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
                 class=""
               >
                 <label
-                  for="uid-dW5kZWZpbmVk_3-checkbox"
+                  for="1-checkbox"
                 >
                   <span />
                 </label>
@@ -73,7 +72,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
         </div>
         <div
           class="table-row"
-          data-testid="tablerow-2"
+          data-testid="tablerow-1"
           style="position: absolute; top: 62px; left: 0px; width: 100%; height: 62px;"
         >
           <div
@@ -85,9 +84,8 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             >
               <input
                 class="form-checkbox"
-                data-cy="checkbox-cy-1"
-                data-testid="row-checkbox-2"
-                id="uid-dW5kZWZpbmVk_5-checkbox"
+                data-testid="1-checkbox"
+                id="1-checkbox"
                 readonly=""
                 type="checkbox"
                 value=""
@@ -96,7 +94,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
                 class=""
               >
                 <label
-                  for="uid-dW5kZWZpbmVk_5-checkbox"
+                  for="1-checkbox"
                 >
                   <span />
                 </label>

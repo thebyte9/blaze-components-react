@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 interface ITabItemProps {
-  action: () => {};
+  action: () => Record<string, unknown>;
   children?: any;
   title?: string;
 }

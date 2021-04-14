@@ -1,55 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Breadcrumb component should be defined and renders correctly (snapshot) 1`] = `
-<ul
-  className="breadcrumb"
->
-  <li
-    className="breadcrumb__item"
-    key=".0"
+<div>
+  <ul
+    class="breadcrumb"
   >
-    <a
-      href="#first"
+    <li
+      class="breadcrumb__item"
     >
-      First
-    </a>
-  </li>
-  <li
-    className="breadcrumb__item"
-    key=".1"
-  >
-    <a
-      href="#Second"
+      <a
+        href="#first"
+      >
+        First
+      </a>
+    </li>
+    <li
+      class="breadcrumb__item"
     >
-      Second
-    </a>
-  </li>
-  <li
-    className="breadcrumb__item"
-    key=".2"
-  >
-    <a
-      href="#Third"
+      <a
+        href="#Second"
+      >
+        Second
+      </a>
+    </li>
+    <li
+      class="breadcrumb__item"
     >
-      Third - long text will be truncated for a better user experience
-    </a>
-  </li>
-</ul>
+      <a
+        href="#Third"
+      >
+        Third - long text will be truncated for a better user experience
+      </a>
+    </li>
+  </ul>
+</div>
 `;
 
 exports[`Breadcrumb component should renders correctly with one children 1`] = `
-<ul
-  className="breadcrumb"
->
-  <li
-    className="breadcrumb__item"
-    key=".0"
+<div>
+  <ul
+    class="breadcrumb"
   >
-    <a
-      href="#first"
+    <li
+      class="breadcrumb__item"
     >
-      First
-    </a>
-  </li>
-</ul>
+      <a
+        href="#first"
+      >
+        First
+      </a>
+    </li>
+  </ul>
+</div>
 `;

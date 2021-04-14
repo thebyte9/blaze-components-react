@@ -1,7 +1,9 @@
-import { mount } from "enzyme";
-import "jest-dom/extend-expect";
-import React from "react";
-import MultiLevelMenu from "../src";
+import '@testing-library/jest-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import MultiLevelMenu from '../src/MultiLevelMenu';
+import React from 'react';
 
 const MultiLevelMenuComponent = (
   <MultiLevelMenu main={1}>
@@ -15,58 +17,12 @@ const MultiLevelMenuComponent = (
   </MultiLevelMenu>
 );
 
-const activeMenuClass = ".multilevelmenu__sidemenu--show span";
-const backLinkClass = ".multilevelmenu__backlink";
+const activeMenuClass = '.multilevelmenu__sidemenu--show span';
+const backLinkClass = '.multilevelmenu__backlink';
 
-describe("MultiLevelMenu", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(MultiLevelMenuComponent);
-
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  test("should navegate", () => {
-    const wrapper = mount(MultiLevelMenuComponent);
-
-    expect(
-      wrapper
-        .find(activeMenuClass)
-        .at(0)
-        .text()
-    ).toContain("Lorem");
-
-    wrapper
-      .find(activeMenuClass)
-      .at(0)
-      .simulate("click");
-
-    expect(
-      wrapper
-        .find(activeMenuClass)
-        .at(0)
-        .text()
-    ).toContain("Ipsum");
-  });
-
-  test("should turn Back", () => {
-    const wrapper = mount(MultiLevelMenuComponent);
-
-    wrapper
-      .find(activeMenuClass)
-      .at(0)
-      .simulate("click");
-
-    wrapper
-      .find(backLinkClass)
-      .at(0)
-      .simulate("click");
-
-    expect(
-      wrapper
-        .find(activeMenuClass)
-        .at(0)
-        .text()
-    ).toContain("Lorem");
+describe('MultiLevelMenu', () => {
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(MultiLevelMenuComponent);
+    expect(asFragment).toMatchSnapshot();
   });
 });

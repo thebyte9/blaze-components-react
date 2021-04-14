@@ -1,17 +1,19 @@
-import "@blaze-react/blaze-components-theme";
-import { storiesOf } from "@storybook/react";
-import faker from "faker";
-import React, { useEffect, useState } from "react";
-import MultiSelectReadme from "../README.md";
-import Multiselect from "../src";
+import '@blaze-react/blaze-components-theme';
 
-storiesOf("Multiselect", module)
+import React, { useEffect, useState } from 'react';
+
+import MultiSelectReadme from '../README.md';
+import Multiselect from '../src/MultiSelect';
+import faker from 'faker';
+import { storiesOf } from '@storybook/react';
+
+storiesOf('Multiselect', module)
   .addParameters({
     readme: {
       sidebar: MultiSelectReadme,
     },
   })
-  .add("Static data", () => {
+  .add('Static data', () => {
     const DemoComponent = () => {
       const state = {
         data: [...new Array(10)].map((e, index) => ({
@@ -20,27 +22,21 @@ storiesOf("Multiselect", module)
           id: faker.random.uuid(),
           name: [
             faker.name.findName(),
-            [
-              faker.name.findName(),
-              faker.name.findName(),
-              faker.name.findName(),
-              faker.name.findName(),
-            ],
+            [faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName()],
           ],
           show: true,
         })),
-        filterBy: ["name", "description"],
-        identification: "id",
-        keyValue: "name",
+        filterBy: ['name', 'description'],
+        identification: 'id',
+        keyValue: 'name',
       };
 
       return (
         <div className="component-wrapper">
           <h1>Multiselect</h1>
           <p>
-            MultiSelect is a component that allows you to select multiple items
-            with check boxes. It is useful for labeling, contact lists, country
-            selectors, etc.
+            MultiSelect is a component that allows you to select multiple items with check boxes. It is useful for
+            labeling, contact lists, country selectors, etc.
           </p>
           <Multiselect
             searchTerm="al"
@@ -58,12 +54,12 @@ storiesOf("Multiselect", module)
     };
     return <DemoComponent></DemoComponent>;
   })
-  .add("Dynamic data", () => {
+  .add('Dynamic data', () => {
     const DemoComponent = () => {
       const [list, setList] = useState<any>({
         filterBy: [],
-        identification: "",
-        keyValue: "",
+        identification: '',
+        keyValue: '',
         data: [],
       });
       const random = (quantity: number) =>
@@ -77,9 +73,9 @@ storiesOf("Multiselect", module)
 
       useEffect(() => {
         const multiselectData = {
-          filterBy: ["name", "description"],
-          identification: "id",
-          keyValue: "name",
+          filterBy: ['name', 'description'],
+          identification: 'id',
+          keyValue: 'name',
           data: random(20),
         };
 
@@ -98,9 +94,8 @@ storiesOf("Multiselect", module)
         <div className="component-wrapper">
           <h1>Multiselect</h1>
           <p>
-            MultiSelect is a component that allows you to select multiple items
-            with check boxes. It is useful for labeling, contact lists, country
-            selectors, etc.
+            MultiSelect is a component that allows you to select multiple items with check boxes. It is useful for
+            labeling, contact lists, country selectors, etc.
           </p>
           <Multiselect
             onChange={handleChange}
@@ -109,9 +104,7 @@ storiesOf("Multiselect", module)
             data={list}
             label="Multi Select"
             limit={10}
-            getSelected={(selected: any) => {
-              console.log("selected", selected); //eslint-disable-line
-            }}
+            getSelected={(selected: any) => {}}
             required
           />
         </div>

@@ -2,7 +2,11 @@
 packages/**/lib
 packages/**/.DS_Store
 packages/.DS_Store
+packages/**/dist
 .DS_Store
 node_modules
 coverage
 .out
+.yarn/cache
+.typescript
+storybook-static/

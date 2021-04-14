@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import moreReadme from "../README.md";
-import More from "../src";
+import More from "../src/More";
 storiesOf("More", module)
   .addParameters({
     readme: {

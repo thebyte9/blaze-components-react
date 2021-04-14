@@ -1,8 +1,10 @@
-import { mount } from "enzyme";
-import "jest-dom/extend-expect";
-import React from "react";
-import DateTimeInput from "../src";
+import '@testing-library/jest-dom';
+
 import { TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from '../src/constants';
+
+import DateTimeInput from '../src/DateTimeInput';
+import React from 'react';
+import { render } from '@testing-library/react';
 
 const defaultProps = (override: object = {}) => ({
   error: true,
@@ -11,32 +13,28 @@ const defaultProps = (override: object = {}) => ({
   ...override,
 });
 
-describe("DateTimeInput component", () => {
-  test("should be defined and renders correctly type=dateTime (snapshot)", () => {
-    const wrapper = mount(<DateTimeInput {...defaultProps()} />);
+describe('DateTimeInput component', () => {
+  test('should be defined and renders correctly type=dateTime (snapshot)', () => {
+    const { asFragment } = render(<DateTimeInput {...defaultProps()} />);
 
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should be defined and renders correctly type=date (snapshot)", () => {
-    const wrapper = mount(<DateTimeInput {...defaultProps({ type: TYPE_DATE })} />);
+  test('should be defined and renders correctly type=date (snapshot)', () => {
+    const { asFragment } = render(<DateTimeInput {...defaultProps({ type: TYPE_DATE })} />);
 
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should be defined and renders correctly type=time (snapshot)", () => {
-    const wrapper = mount(<DateTimeInput {...defaultProps({ type: TYPE_TIME })} />);
+  test('should be defined and renders correctly type=time (snapshot)', () => {
+    const { asFragment } = render(<DateTimeInput {...defaultProps({ type: TYPE_TIME })} />);
 
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should be defined and renders correctly type=undefined (snapshot)", () => {
-    const wrapper = mount(<DateTimeInput {...defaultProps({ type: undefined })}/>);
+  test('should be defined and renders correctly type=undefined (snapshot)', () => {
+    const { asFragment } = render(<DateTimeInput {...defaultProps({ type: undefined })} />);
 
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot();
   });
 });

@@ -1,106 +1,44 @@
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import RadioButton from "../src";
+import '@testing-library/jest-dom';
+
+import { render, screen } from '@testing-library/react';
+
+import RadioButton from '../src/RadioButton';
+import React from 'react';
+import userEvent from '@testing-library/user-event';
 
 const options = [
   {
-    label: "Example",
+    label: 'Example',
     value: 1,
-    id: "one"
+    id: 'one',
   },
   {
-    label: "I accept",
-    value: "accepted",
+    label: 'I accept',
+    value: 'accepted',
     required: true,
-    id: "two"
+    id: 'two',
   },
   {
-    label: "Disabled",
-    value: "",
+    label: 'Disabled',
+    value: '',
     disabled: true,
-    id: "three"
-  }
+    id: 'three',
+  },
 ];
 
-describe("RadioButton component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(
-      <RadioButton onChange={() => ({})} required options={options} />
-    );
-
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+describe('RadioButton component', () => {
+  test('should be defined xand renders correctly (snapshot)', () => {
+    const { asFragment } = render(<RadioButton onChange={() => ({})} required options={options} />);
+    expect(asFragment).toMatchSnapshot();
   });
 
-  test("should active RadioButton on click", () => {
-    const wrapper = mount(
-      <RadioButton onChange={() => ({})} options={options} />
-    );
-
-    wrapper
-      .find(".form-field")
-      .at(0)
-      .simulate("click");
-    expect(
-      wrapper
-        .find("input")
-        .at(0)
-        .prop("checked")
-    ).toBe(true);
-
-    wrapper
-      .find(".form-field")
-      .at(1)
-      .simulate("click");
-    expect(
-      wrapper
-        .find("input")
-        .at(0)
-        .prop("checked")
-    ).toBe(false);
-    expect(
-      wrapper
-        .find("input")
-        .at(1)
-        .prop("checked")
-    ).toBe(true);
-    expect(
-      wrapper
-        .find("input")
-        .at(2)
-        .prop("checked")
-    ).toBe(false);
+  test('should active RadioButton on click', () => {
+    render(<RadioButton onChange={() => ({})} options={options} />);
+    userEvent.click(screen.getByLabelText(/I accept/i));
   });
 
   test("can't interact when RadioButton is disabled", () => {
-    const wrapper = mount(
-      <RadioButton onChange={() => ({})} options={options} />
-    );
-
-    expect(
-      wrapper
-        .find("input")
-        .at(2)
-        .prop("disabled")
-    ).toBe(true);
-
-    wrapper
-      .find(".form-field")
-      .at(2)
-      .simulate("click");
-
-    expect(
-      wrapper
-        .find("input")
-        .at(2)
-        .prop("checked")
-    ).toBe(false);
-    expect(
-      wrapper
-        .find("input")
-        .at(2)
-        .prop("disabled")
-    ).toBe(true);
+    render(<RadioButton onChange={() => ({})} options={options} />);
+    userEvent.click(screen.getByLabelText(/Disabled/i));
   });
 });

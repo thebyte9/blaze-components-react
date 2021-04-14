@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import SwitchesReadme from "../README.md";
-import Switches from "../src";
+import Switches from "../src/Switches";
 const multiple = [
   {
     id: 1,

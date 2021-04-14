@@ -10,7 +10,7 @@ storiesOf("Tooltip", module)
     }
   })
   .add("Introduction", () => {
-    const Tooltip: any = lazy((): any => import("../src"));
+    const Tooltip: any = lazy((): any => import("../src/Tooltip"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

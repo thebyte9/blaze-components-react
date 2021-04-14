@@ -106,4 +106,10 @@ Array [
 ]
 `;
 
-exports[`Toast provider should render without throwing error 1`] = `<div />`;
+exports[`Toast provider should render without throwing error 1`] = `
+<div>
+  <div>
+    children toastprovider component
+  </div>
+</div>
+`;
