@@ -161,7 +161,6 @@ const myKeyBindingFn = (e) => {
 const handleKeyCommand = (
   command,
   editorState,
-  save,
   dispatch,
   showAddLinkModal,
   showInlineToolbar
@@ -172,7 +171,6 @@ const handleKeyCommand = (
   }
 
   if (command === KEY_BINDING_SAVE_ACTION) {
-    save(editorState);
     return KEY_BINDING_HANDLED;
   }
 
@@ -205,8 +203,6 @@ const handleKeyCommand = (
         editorState: newState,
       },
     });
-
-    save(newState);
 
     return KEY_BINDING_HANDLED;
   }

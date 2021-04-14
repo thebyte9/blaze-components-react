@@ -329,7 +329,6 @@ const InlineToolbar = ({
 InlineToolbar.propTypes = {
   editorState: PropTypes.object.isRequired,
   selectionRect: PropTypes.object.isRequired,
-  // setEditorState: PropTypes.func.isRequired,
   showAddLinkModal: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   visible: PropTypes.bool.isRequired,
