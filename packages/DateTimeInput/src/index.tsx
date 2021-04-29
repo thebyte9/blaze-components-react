@@ -1,7 +1,13 @@
+// @ts-nocheck
 import withUtils from "@blaze-react/utils";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useState, useRef } from "react";
 import DatePicker from "react-datepicker";
-import { DATE_FORMAT_MAP, TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
+import {
+  DATE_FORMAT_MAP,
+  TYPE_DATE,
+  TYPE_DATE_TIME,
+  TYPE_TIME,
+} from "./constants";
 
 // TODO We are not sure about whether this import will work in any context
 // import "react-datepicker/dist/react-datepicker.css";
@@ -20,7 +26,9 @@ interface IDateTimeInputProps {
     event,
     value,
   }: {
-    event: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement, MouseEvent>;
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.MouseEvent<HTMLDivElement, MouseEvent>;
     value: Date;
   }) => void;
   required?: boolean;
@@ -29,7 +37,10 @@ interface IDateTimeInputProps {
   validationMessage: string | JSX.Element;
   value?: Date;
   utils: {
-    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
+    buildClassNames: (
+      className: string | object,
+      optionalClassNames?: object
+    ) => string;
     ErrorMessage: FunctionComponent<IErrorMessage>;
   };
 }
@@ -45,11 +56,12 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   type,
   validationMessage,
   value,
-  utils: { buildClassNames, ErrorMessage }
+  utils: { buildClassNames, ErrorMessage },
 }): JSX.Element => {
   const [newValue, setNewValue] = useState<Date | undefined>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
   const [newOpen, setOpen] = useState<boolean>(false);
+  const containerRef = useRef(null);
 
   let whitelistedType: string = type as string;
   if (type !== TYPE_TIME && type !== TYPE_DATE) {
@@ -57,11 +69,20 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   }
 
   useEffect(() => {
+    if (newOpen && containerRef && containerRef.current) {
+      const input = containerRef.current.querySelector("input");
+      const c = containerRef.current.querySelector(
+        ".react-datepicker__day--selected"
+      );
+    }
+  }, [newOpen, containerRef]);
+
+  useEffect(() => {
     setError(error);
   }, [error]);
 
   useEffect(() => {
-    setNewValue(value)
+    setNewValue(value);
   }, [value]);
 
   const handleChange = (
@@ -84,14 +105,15 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
 
   const requiredClassName: string = buildClassNames({ required });
 
-  const rootClasses: string = buildClassNames('form-field form-field--date-time-input', {
-    [`form-field--${modifier}`]: !!modifier,
-  });
+  const rootClasses: string = buildClassNames(
+    "form-field form-field--date-time-input",
+    {
+      [`form-field--${modifier}`]: !!modifier,
+    }
+  );
 
   return (
-    <div
-      className={rootClasses}
-    >
+    <div className={rootClasses} ref={containerRef}>
       <label htmlFor={id} className={requiredClassName}>
         {label}
       </label>
@@ -107,8 +129,8 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         onClickOutside={() => setOpen(false)}
         popperModifiers={{
           flip: {
-            enabled: false
-          }
+            enabled: false,
+          },
         }}
         dateFormat={DATE_FORMAT_MAP[whitelistedType]}
         open={newOpen}
@@ -116,16 +138,20 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         selected={newValue}
         disabled={disabled}
         required={required}
-
       >
-        {(whitelistedType === TYPE_DATE_TIME || whitelistedType === TYPE_DATE) && <div
-          className="react-datepicker__today-button"
-          onClick={e => handleChange(new Date(), e, true)}
-        >Today</div>}
+        {(whitelistedType === TYPE_DATE_TIME ||
+          whitelistedType === TYPE_DATE) && (
+          <div
+            className="react-datepicker__today-button"
+            onClick={(e) => handleChange(new Date(), e, true)}
+          >
+            Today
+          </div>
+        )}
       </DatePicker>
 
-      { newError && <ErrorMessage message={validationMessage} />}
-    </div >
+      {newError && <ErrorMessage message={validationMessage} />}
+    </div>
   );
 };
 
@@ -136,7 +162,7 @@ DateTimeInput.defaultProps = {
   modifier: "",
   required: false,
   type: TYPE_DATE_TIME,
-  validationMessage: "This field is required"
+  validationMessage: "This field is required",
 };
 
 export default withUtils(DateTimeInput);
