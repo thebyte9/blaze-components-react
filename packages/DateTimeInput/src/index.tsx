@@ -1,4 +1,3 @@
-// @ts-nocheck
 import withUtils from "@blaze-react/utils";
 import React, { FunctionComponent, useEffect, useState, useRef } from "react";
 import DatePicker from "react-datepicker";
@@ -61,7 +60,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   const [newValue, setNewValue] = useState<Date | undefined>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
   const [newOpen, setOpen] = useState<boolean>(false);
-  const containerRef = useRef(null);
+  const containerRef = useRef<any>(null);
 
   let whitelistedType: string = type as string;
   if (type !== TYPE_TIME && type !== TYPE_DATE) {
@@ -70,10 +69,12 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
 
   useEffect(() => {
     if (newOpen && containerRef && containerRef.current) {
-      const input = containerRef.current.querySelector("input");
-      const c = containerRef.current.querySelector(
+      const selectedDay = containerRef.current.querySelector(
         ".react-datepicker__day--selected"
       );
+      if (selectedDay) {
+        selectedDay.focus();
+      }
     }
   }, [newOpen, containerRef]);
 
