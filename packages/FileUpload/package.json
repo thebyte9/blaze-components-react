@@ -23,7 +23,7 @@
     "@blaze-react/input": "^0.6.0",
     "@blaze-react/modal": "^0.6.0",
     "@blaze-react/select": "^0.6.0",
-    "uuid": "^3.3.3"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
