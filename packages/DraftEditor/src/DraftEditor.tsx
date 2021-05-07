@@ -5,9 +5,7 @@ import { ISelectionRect } from './helpers/inline-toolbar';
 import InlineToolbar from './InlineToolbar';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { getSelectedText } from './helpers';
-import { usePersistedState } from './hooks/usePersistedState';
-
+import { getSelectedText, Rect } from './helpers';
 interface IEditor {
   editorState: EditorState;
   dispatch: any;
@@ -45,20 +43,12 @@ const DraftEditor = ({
   handleOnBlur,
   handleOnFocus,
 }: IEditor) => {
-  const [rect, setRect] = usePersistedState('rect', {
-    rect: {
-      x: 0,
-      y: 0,
-      width: 0,
-    },
-  });
-
   return (
     <div
       className="editor-view__textblock--editor"
       ref={(el) => {
         if (!el) return;
-        setRect({ rect: el.getBoundingClientRect() });
+        Rect.rect = el.getBoundingClientRect();
       }}
     >
       <InlineToolbar

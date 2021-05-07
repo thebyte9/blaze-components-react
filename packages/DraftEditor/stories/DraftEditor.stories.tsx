@@ -23,7 +23,8 @@ Empty.args = {
   component: {
     id: "textblock-1",
     items: null,
-    name: "textblock-1"
+    name: "textblock-1",
+    onChange: () => ({})
   }
 };
 

@@ -7,6 +7,7 @@ import {
   getDropdownClassnames,
   getInlineToolbarLeftPosition,
   getInlineToolbarTopPosition,
+  Rect
 } from './helpers';
 import { AtomicBlockUtils, EditorState, RichUtils } from 'draft-js';
 import { IInlineToolbarAction, ISelectionRect } from './helpers/inline-toolbar';
@@ -14,8 +15,6 @@ import { IInlineToolbarAction, ISelectionRect } from './helpers/inline-toolbar';
 import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import { usePersistedState } from './hooks/usePersistedState';
-
 interface IInlineToolbarProps {
   editorState: EditorState;
   selectionRect: ISelectionRect;
@@ -36,13 +35,7 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
     isMoreDropdownOpen,
   });
 
-  const [rect, setRect] = usePersistedState('rect', {
-    rect: {
-      x: 0,
-      y: 0,
-      width: 0,
-    },
-  });
+  const rect = Rect.rect;
 
   if (!editorState) return null;
 

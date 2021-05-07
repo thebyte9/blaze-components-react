@@ -270,6 +270,16 @@ const handleAddLink = ({ url, linkState, editorState, handleChange, showAddLinkM
   showAddLinkModal(false);
 };
 
+function RectObject() {
+  this.rect = {
+    x: 0,
+    y: 0,
+    width: 0,
+  };
+}
+
+const Rect = new RectObject();
+
 export {
   getSelectedText,
   myKeyBindingFn,
@@ -279,5 +289,6 @@ export {
   removeEntity,
   handleKeyCommand,
   handleAddLink,
-  clearEditor
+  clearEditor,
+  Rect
 };

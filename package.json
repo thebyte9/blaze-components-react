@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "React Component Framework for Blaze-CMS",
   "scripts": {
+    "dev": "start-storybook",
     "clean": "lerna clean && yarn cache clean",
     "lint": "yarn workspaces foreach run lint",
     "build": "lerna run build",

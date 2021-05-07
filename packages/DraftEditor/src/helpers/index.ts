@@ -24,7 +24,8 @@ import {
   removeEntity,
   handleKeyCommand,
   handleAddLink,
-  clearEditor
+  clearEditor,
+  Rect
 } from './text';
 
 import { handleCreate, generateRibbon } from './toolbar';
@@ -53,5 +54,6 @@ export {
   clearEditor,
   handleCreate,
   generateRibbon,
-  composeKey
+  composeKey,
+  Rect
 };

@@ -15,7 +15,7 @@ const LinkModal = ({ editorState, onClose, onSave, linkContentState }: LinkModal
   const [url, setUrl] = useState('');
   const [componentState, setComponentState] = useState(linkContentState);
 
-  const handleOnChange = (value: any) => setUrl(value);
+  const handleOnChange = ({value}: any) => setUrl(value);
 
   useEffect(
     () => {

@@ -29,7 +29,7 @@ import BaseComponent from './BaseComponent';
 
 interface IEditorWrapper {
   component: any;
-  onCreateComponent: any;
+  // onCreateComponent: any;
   onDeleteComponent: any;
   selectedComponents: any;
   allowedChildChanges: any;
@@ -44,7 +44,8 @@ interface ILinkContentState {
 
 const DraftEditorWrapper = ({
   component,
-  onCreateComponent,
+  // value,
+  // onCreateComponent,
   onDeleteComponent,
   selectedComponents,
   allowedChildChanges,
@@ -89,9 +90,10 @@ const DraftEditorWrapper = ({
 
   const compositeState = () => {
     try {
-      if (component.settings.editor && component.settings.editor.length > 0) {
+      if (component.value && component.value > 0) {
+        // console.log(component.settings.editor, 8888)
         return EditorState.set(
-          EditorState.createWithContent(convertFromRaw(JSON.parse(component.settings.editor))),
+          EditorState.createWithContent(convertFromRaw(JSON.parse(component.value))),
           {
             decorator: linkDecorator
           }
@@ -104,7 +106,7 @@ const DraftEditorWrapper = ({
   };
 
   const [state, dispatch] = useReducer(editorReducer, {
-    content: component.settings.editor,
+    content: component.value,
     editorState: compositeState()
   });
 
@@ -115,11 +117,21 @@ const DraftEditorWrapper = ({
   const save = (updatedState: EditorState) => {
     const newContent = updatedState.getCurrentContent();
     const currentContent = state.editorState.getCurrentContent();
+    const rawValue = convertToRaw(newContent);
 
+    const { name, onChange } = component;
     if (newContent !== currentContent) {
-      // eslint-disable-next-line no-param-reassign
-      component.settings.editor = JSON.stringify(convertToRaw(newContent));
-      onCreateComponent(selectedComponents);
+      const eventFormat = {
+        event: {
+          target: {
+            name,
+            value: JSON.stringify({ ...rawValue }),
+          },
+        },
+      };
+      if (onChange) {
+        onChange(eventFormat);
+      }
     }
   };
 
@@ -182,7 +194,7 @@ const DraftEditorWrapper = ({
   // props
   const componentProps = {
     component,
-    onCreateComponent,
+    // onCreateComponent,
     onDeleteComponent: handleDelete,
     selectedComponents,
     allowedChildChanges,
