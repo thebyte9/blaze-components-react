@@ -1,9 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DateTimeInput component should be defined and renders correctly type=date (snapshot) 1`] = `[Function]`;
+exports[`DateTimeInput component should be defined and renders correctly type=date (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--date-time-input"
+  >
+    <label
+      class=""
+    />
+    <div
+      class="react-datepicker-wrapper"
+    >
+      <div
+        class="react-datepicker__input-container"
+      >
+        <input
+          class=""
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="validation"
+      data-testid="validation-message"
+    >
+      <i
+        class="material-icons"
+      >
+        warning
+      </i>
+      This field is required
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`DateTimeInput component should be defined and renders correctly type=dateTime (snapshot) 1`] = `[Function]`;
+exports[`DateTimeInput component should be defined and renders correctly type=dateTime (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--date-time-input"
+  >
+    <label
+      class=""
+    />
+    <div
+      class="react-datepicker-wrapper"
+    >
+      <div
+        class="react-datepicker__input-container"
+      >
+        <input
+          class=""
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="validation"
+      data-testid="validation-message"
+    >
+      <i
+        class="material-icons"
+      >
+        warning
+      </i>
+      This field is required
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`DateTimeInput component should be defined and renders correctly type=time (snapshot) 1`] = `[Function]`;
+exports[`DateTimeInput component should be defined and renders correctly type=time (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--date-time-input"
+  >
+    <label
+      class=""
+    />
+    <div
+      class="react-datepicker-wrapper"
+    >
+      <div
+        class="react-datepicker__input-container"
+      >
+        <input
+          class=""
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="validation"
+      data-testid="validation-message"
+    >
+      <i
+        class="material-icons"
+      >
+        warning
+      </i>
+      This field is required
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`DateTimeInput component should be defined and renders correctly type=undefined (snapshot) 1`] = `[Function]`;
+exports[`DateTimeInput component should be defined and renders correctly type=undefined (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--date-time-input"
+  >
+    <label
+      class=""
+    />
+    <div
+      class="react-datepicker-wrapper"
+    >
+      <div
+        class="react-datepicker__input-container"
+      >
+        <input
+          class=""
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="validation"
+      data-testid="validation-message"
+    >
+      <i
+        class="material-icons"
+      >
+        warning
+      </i>
+      This field is required
+    </div>
+  </div>
+</DocumentFragment>
+`;

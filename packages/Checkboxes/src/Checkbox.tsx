@@ -48,6 +48,7 @@ const Checkbox = ({ checked, value, disabled, required, label, show, name, id, o
         data-testid={inputId}
         name={name}
         onClick={handleCheckboxChange}
+        {...attrs}
       />
       <div onClick={handleCheckboxChange} className={labelClassName}>
         <Label defaultId={inputId} label={label} />

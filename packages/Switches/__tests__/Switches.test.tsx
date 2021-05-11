@@ -35,7 +35,7 @@ const defaultProps = (override = {}) => ({
 describe('Switches component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<Switches {...defaultProps()} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should toggle Switch on click', () => {

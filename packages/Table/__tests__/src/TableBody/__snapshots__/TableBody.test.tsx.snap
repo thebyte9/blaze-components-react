@@ -25,9 +25,9 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             >
               <input
                 class="form-checkbox"
-                data-testid="1-checkbox"
                 id="1-checkbox"
                 readonly=""
+                test-id="row-checkbox-0"
                 type="checkbox"
                 value=""
               />
@@ -84,9 +84,9 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             >
               <input
                 class="form-checkbox"
-                data-testid="1-checkbox"
                 id="1-checkbox"
                 readonly=""
+                test-id="row-checkbox-1"
                 type="checkbox"
                 value=""
               />

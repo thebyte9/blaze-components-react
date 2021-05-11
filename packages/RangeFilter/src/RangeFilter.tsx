@@ -1,9 +1,9 @@
 import buildClassNames from '../../Utils/src/buildClassNames';
 import ErrorMessage from '../../Utils/src/ErrorMessage';
 
-import React, { FunctionComponent, useEffect, useState } from "react";
-import isContentLoaded from "./isContentLoaded";
-import initRangeFilter from "./logic";
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import isContentLoaded from './isContentLoaded';
+import initRangeFilter from './logic';
 
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
@@ -12,11 +12,6 @@ declare module 'react' {
     max?: string;
     step?: string;
   }
-}
-
-interface IErrorMessage {
-  message: string | JSX.Element;
-  icon?: string;
 }
 
 interface IRangeValue {
@@ -31,13 +26,7 @@ interface IRangeFilterProps {
   modifier?: string;
   name: string;
   id: string;
-  onChange: ({
-    event,
-    value
-  }: {
-    event?: React.ChangeEvent<HTMLInputElement>;
-    value: IRangeValue;
-  }) => void;
+  onChange: ({ event, value }: { event?: React.ChangeEvent<HTMLInputElement>; value: IRangeValue }) => void;
   required?: boolean;
   error?: boolean;
   validationMessage: string | JSX.Element;
@@ -82,7 +71,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   };
 
   const modifierClassName: string = buildClassNames({
-    [`form-field--${modifier}`]: !!modifier
+    [`form-field--${modifier}`]: !!modifier,
   });
 
   const requiredClassName: string = buildClassNames({ required });
@@ -102,6 +91,7 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
       </div>
 
       <div
+        {...attrs}
         min={min}
         max={max}
         step={step}
@@ -127,10 +117,10 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
 
 RangeFilter.defaultProps = {
   error: false,
-  label: "",
-  modifier: "",
-  name: "",
-  validationMessage: "This field is required"
+  label: '',
+  modifier: '',
+  name: '',
+  validationMessage: 'This field is required',
 };
 
 export default RangeFilter;

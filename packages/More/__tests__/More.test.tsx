@@ -23,7 +23,7 @@ describe('More component', () => {
       </More>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should toggle on click and call onClose after second click (no overlay)', () => {
@@ -89,7 +89,7 @@ describe('More component', () => {
       </More>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should display classnames based on props (isHeader false)', () => {
@@ -104,7 +104,7 @@ describe('More component', () => {
       </More>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should display overlay when displayBg prop is passed as true', () => {
@@ -119,7 +119,7 @@ describe('More component', () => {
       </More>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should not display overlay when displayBg prop is not passed', () => {
@@ -133,7 +133,7 @@ describe('More component', () => {
         </More.Content>
       </More>,
     );
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });
 
@@ -158,6 +158,6 @@ describe('More content', () => {
       </More>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -1,11 +1,9 @@
-import { Editor, EditorState } from 'draft-js';
-
-import { EMPTY_STRING } from './constants';
-import { ISelectionRect } from './helpers/inline-toolbar';
-import InlineToolbar from './InlineToolbar';
-import PropTypes from 'prop-types';
 import React from 'react';
-import { getSelectedText, Rect } from './helpers';
+import { Editor, EditorState } from 'draft-js';
+import PropTypes from 'prop-types';
+import InlineToolbar from './InlineToolbar';
+import { getSelectedText } from './helpers';
+import { EMPTY_STRING } from './constants';
 interface IEditor {
   editorState: EditorState;
   dispatch: any;
@@ -42,15 +40,9 @@ const DraftEditor = ({
   customBlockRenderer,
   handleOnBlur,
   handleOnFocus,
-}: IEditor) => {
+}: IEditor): JSX.Element => {
   return (
-    <div
-      className="editor-view__textblock--editor"
-      ref={(el) => {
-        if (!el) return;
-        Rect.rect = el.getBoundingClientRect();
-      }}
-    >
+    <div className="editor-view__textblock--editor">
       <InlineToolbar
         editorState={editorState}
         dispatch={dispatch}

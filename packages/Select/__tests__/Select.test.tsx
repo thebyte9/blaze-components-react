@@ -14,7 +14,7 @@ const defaultProps = (override: object = {}) => ({
 describe('Select component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<Select {...defaultProps()} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should be disabled when none options', () => {
@@ -24,7 +24,7 @@ describe('Select component', () => {
       required: true,
     };
     const { asFragment } = render(<Select {...defaultProps(override)} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should select a different value', () => {

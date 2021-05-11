@@ -1,5 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select component should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`Select component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--select"
+  >
+    <select>
+      <option>
+        Please Choose...
+      </option>
+      <option
+        value="lorem"
+      >
+        lorem
+      </option>
+      <option
+        value="ipsum"
+      >
+        ipsum
+      </option>
+    </select>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`Select component should be disabled when none options 1`] = `[Function]`;
+exports[`Select component should be disabled when none options 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--select"
+  >
+    <label
+      class="required"
+    >
+      Select label
+    </label>
+    <select
+      disabled=""
+    />
+  </div>
+</DocumentFragment>
+`;

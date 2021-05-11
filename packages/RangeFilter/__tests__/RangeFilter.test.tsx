@@ -29,7 +29,7 @@ const defaultProps = (override: object = {}) => ({
 describe('RangeFilter component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<RangeFilter {...defaultProps()} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   // test('should display validation message', () => {

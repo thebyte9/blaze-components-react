@@ -5,7 +5,6 @@ import ErrorMessage from '../../Utils/src/ErrorMessage';
 import MultiSelectBar from './MultiSelectBar';
 import MultiSelectList from './MultiSelectList';
 import buildClassNames from '../../Utils/src/buildClassNames';
-import { v4 as uuidv4 } from 'uuid';
 
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },

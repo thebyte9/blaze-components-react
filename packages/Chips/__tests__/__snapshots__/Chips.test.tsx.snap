@@ -1,3 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Chip component should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`Chip component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="chip chip--deletable chip--small"
+  >
+    <div
+      class="chip__label"
+    >
+      Basic chip
+    </div>
+  </div>
+</DocumentFragment>
+`;

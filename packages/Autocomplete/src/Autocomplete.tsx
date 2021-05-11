@@ -1,8 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
 import Input from '../../Input/src';
-import { v4 as uuidv4 } from 'uuid';
-
 interface IAutocompleteProps {
   data: {
     keyValue: string;

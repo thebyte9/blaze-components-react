@@ -1,3 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`MultiLevelMenu should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="multilevelmenu"
+  >
+    <div
+      class="multilevelmenu__sidemenu multilevelmenu__sidemenu--show"
+    >
+      <ul>
+        <li>
+          <span
+            data-cy="multiLevelMenuList-item"
+          >
+            Lorem
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="multilevelmenu__sidemenu multilevelmenu__sidemenu--hide"
+    >
+      <ul>
+        <li>
+          <span
+            data-cy="multiLevelMenuList-item"
+          >
+            Ipsum
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;

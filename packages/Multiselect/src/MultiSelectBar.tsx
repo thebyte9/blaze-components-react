@@ -2,7 +2,6 @@ import Chip from '../../Chips/src';
 import Input from '../../Input/src';
 import React from 'react';
 import buildClassNames from '../../Utils/src/buildClassNames';
-import { v4 as uuidv4 } from 'uuid';
 
 interface ISelectedValue {
   [index: string]: string;

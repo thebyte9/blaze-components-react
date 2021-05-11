@@ -12,7 +12,7 @@ import {
   getCurrentBlockTypeLabel,
   getDropdownClassnames,
   ACTION_TYPE,
-  ENTITY
+  ENTITY,
 } from './inline-toolbar';
 
 import {
@@ -25,10 +25,10 @@ import {
   handleKeyCommand,
   handleAddLink,
   clearEditor,
-  Rect
 } from './text';
 
 import { handleCreate, generateRibbon } from './toolbar';
+import isValidJSON from './is-valid-json';
 
 export {
   generateActions,
@@ -55,5 +55,5 @@ export {
   handleCreate,
   generateRibbon,
   composeKey,
-  Rect
+  isValidJSON,
 };

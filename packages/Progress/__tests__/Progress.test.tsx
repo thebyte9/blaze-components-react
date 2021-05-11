@@ -9,7 +9,7 @@ const steps = ['Cart', 'Billing', 'Delivery', 'Review & pay'];
 describe('Alert component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<Progress progress={2} onChange={() => {}} steps={steps} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should be type count and change progress', () => {
@@ -17,6 +17,6 @@ describe('Alert component', () => {
 
     const { asFragment } = render(<Progress progress={1} type="count" onChange={handleChange} steps={steps} />);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

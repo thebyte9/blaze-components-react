@@ -1,6 +1,6 @@
-import Button from "../../../Button/src";
+import Button from '../../../Button/src';
 import buildClassNames from '../../../Utils/src/buildClassNames';
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 interface IMoreAvatarProps {
   handleToggle: (...args: any[]) => any;
   label?: string;
@@ -19,15 +19,13 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   isHeader,
   className,
   isMoreMenu,
-  toggled,
-  displayBg,
   disabled,
   ...props
 }) => {
   const buttonClassName = buildClassNames({
-    "button--disabled": disabled,
+    'button--disabled': disabled,
     dropdown__button: isHeader,
-    "icon-button icon-button--round": isMoreMenu,
+    'icon-button icon-button--round': isMoreMenu,
     [className as string]: Boolean(className),
   });
 
@@ -39,20 +37,16 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
           {children}
         </Fragment>
       ) : (
-        <Fragment>
-          {React.Children.map(children, (child: any) =>
-            React.cloneElement(child)
-          )}
-        </Fragment>
+        <Fragment>{React.Children.map(children, (child: any) => React.cloneElement(child))}</Fragment>
       )}
     </Button>
   );
 };
 MoreAvatar.defaultProps = {
   children: null,
-  className: "",
+  className: '',
   isHeader: false,
   isMoreMenu: false,
-  label: "",
+  label: '',
 };
 export default MoreAvatar;

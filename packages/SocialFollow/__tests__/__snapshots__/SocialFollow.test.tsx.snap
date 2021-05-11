@@ -1,5 +1,220 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SocialFollow component SocialFollow should be share by default 1`] = `[Function]`;
+exports[`SocialFollow component SocialFollow should be share by default 1`] = `
+<DocumentFragment>
+  <div
+    class="social social--share "
+  >
+    <ul
+      class="social__list social__list--share "
+    >
+      <li
+        class="social__list-item social__list-item--share"
+      >
+        <a
+          class="facebook"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-facebook-f"
+          />
+          <span
+            class="hidden"
+          >
+            Facebook
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--share"
+      >
+        <a
+          class="twitter"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-twitter"
+          />
+          <span
+            class="hidden"
+          >
+            Twitter
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--share"
+      >
+        <a
+          class="pinterest"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-pinterest-p"
+          />
+          <span
+            class="hidden"
+          >
+            Pinterest
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--share"
+      >
+        <a
+          class="linkedin"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-linkedin-in"
+          />
+          <span
+            class="hidden"
+          >
+            Linkedin
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`SocialFollow component should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`SocialFollow component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="social social--follow social--vertical"
+  >
+    <p>
+      Follow
+    </p>
+    <ul
+      class="social__list social__list--follow social__list--vertical"
+    >
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="facebook"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-facebook-f"
+          />
+          <span
+            class="hidden"
+          >
+            Facebook
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="twitter"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-twitter"
+          />
+          <span
+            class="hidden"
+          >
+            Twitter
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="pinterest"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-pinterest-p"
+          />
+          <span
+            class="hidden"
+          >
+            Pinterest
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="linkedin"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-linkedin-in"
+          />
+          <span
+            class="hidden"
+          >
+            Linkedin
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="youtube"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-youtube"
+          />
+          <span
+            class="hidden"
+          >
+            Youtube
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="instagram"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-instagram"
+          />
+          <span
+            class="hidden"
+          >
+            Instagram
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

@@ -1,7 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal component should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`Modal component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="overlay"
+  />
+  <div
+    class=" modal modal--show modal--simple"
+  >
+    <div
+      class="modal__header modal__header--simple"
+    >
+      <div
+        class="modal__title"
+      />
+      <div
+        class="modal__close"
+        role="button"
+      >
+        <i
+          class="material-icons"
+        >
+          close
+        </i>
+      </div>
+    </div>
+    <div
+      class="modal__content modal__content--simple"
+    >
+      No content
+    </div>
+    <div
+      class="modal__footer modal__footer--simple"
+    >
+      <div
+        class="modal__button"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`Modal component should close modal on overlay clicked 1`] = `[Function]`;
+exports[`Modal component should close modal on overlay clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="overlay"
+  />
+  <div
+    class=" modal modal--show modal--simple"
+  >
+    <div
+      class="modal__header modal__header--simple"
+    >
+      <div
+        class="modal__title"
+      />
+      <div
+        class="modal__close"
+        role="button"
+      >
+        <i
+          class="material-icons"
+        >
+          close
+        </i>
+      </div>
+    </div>
+    <div
+      class="modal__content modal__content--simple"
+    >
+      No content
+    </div>
+    <div
+      class="modal__footer modal__footer--simple"
+    >
+      <div
+        class="modal__button"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`Modal component should render and close alert modal 1`] = `[Function]`;
+exports[`Modal component should render and close alert modal 1`] = `
+<DocumentFragment>
+  <div
+    class="overlay"
+  />
+  <div
+    class=" modal modal--show modal--alert modal--simple"
+  >
+    <div
+      class="modal__header modal__header--alert modal__header--simple"
+    />
+    <div
+      class="modal__content modal__content--alert modal__content--simple"
+    >
+      No content
+    </div>
+    <div
+      class="modal__footer modal__footer--alert modal__footer--simple"
+    >
+      <div
+        class="modal__button"
+      >
+        <button
+          class="button button--cancel"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          class="button button--alert button--small"
+          type="button"
+        >
+          delete
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

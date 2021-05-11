@@ -80,10 +80,16 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   return (
     <>
       {data.map(
-        (
-          { checked = false, disabled, id, label, name: checkboxName, required, show = true, value }: any,
-          key: number,
-        ): JSX.Element | null =>
+        ({
+          checked = false,
+          disabled,
+          id,
+          label,
+          name: checkboxName,
+          required,
+          show = true,
+          value,
+        }: any): JSX.Element | null =>
           show ? (
             <Checkbox
               full={full}
@@ -98,6 +104,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               required={required}
               show={show}
               value={value}
+              {...attrs}
             />
           ) : null,
       )}

@@ -29,7 +29,7 @@ const options = [
 describe('RadioButton component', () => {
   test('should be defined xand renders correctly (snapshot)', () => {
     const { asFragment } = render(<RadioButton onChange={() => ({})} required options={options} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should active RadioButton on click', () => {

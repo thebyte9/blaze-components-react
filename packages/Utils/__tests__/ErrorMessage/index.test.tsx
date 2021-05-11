@@ -13,6 +13,6 @@ describe('ErrorMessage function', () => {
 
   it('should match snapshot', () => {
     const { asFragment } = render(<ErrorMessage message={<p>Text</p>} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

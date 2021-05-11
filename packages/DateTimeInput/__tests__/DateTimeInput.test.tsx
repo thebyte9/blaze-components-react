@@ -17,24 +17,24 @@ describe('DateTimeInput component', () => {
   test('should be defined and renders correctly type=dateTime (snapshot)', () => {
     const { asFragment } = render(<DateTimeInput {...defaultProps()} />);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should be defined and renders correctly type=date (snapshot)', () => {
     const { asFragment } = render(<DateTimeInput {...defaultProps({ type: TYPE_DATE })} />);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should be defined and renders correctly type=time (snapshot)', () => {
     const { asFragment } = render(<DateTimeInput {...defaultProps({ type: TYPE_TIME })} />);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should be defined and renders correctly type=undefined (snapshot)', () => {
     const { asFragment } = render(<DateTimeInput {...defaultProps({ type: undefined })} />);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

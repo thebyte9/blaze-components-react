@@ -1,12 +1,7 @@
 import buildClassNames from '../../Utils/src/buildClassNames';
 import ErrorMessage from '../../Utils/src/ErrorMessage';
-import React, { FunctionComponent, useEffect, useState } from "react";
-import ToggleInputType from "./ToggleInputType";
-
-interface IErrorMessage {
-  message: string | JSX.Element;
-  icon?: string;
-}
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import ToggleInputType from './ToggleInputType';
 
 interface IInputProps {
   disabled?: boolean;
@@ -14,13 +9,7 @@ interface IInputProps {
   id?: string;
   label?: string;
   modifier?: string;
-  onChange: ({
-    event,
-    value,
-  }: {
-    event: React.ChangeEvent<HTMLInputElement>;
-    value: string;
-  }) => void;
+  onChange: ({ event, value }: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
   onClick?: (e: any) => void;
   required?: boolean;
   error?: boolean;
@@ -47,7 +36,7 @@ const Input: FunctionComponent<IInputProps> = ({
   value,
   ...attrs
 }): JSX.Element => {
-  const initialValue = value ? value : "";
+  const initialValue = value ? value : '';
   const [newValue, setNewValue] = useState<string | undefined>(initialValue);
   const [newType, setType] = useState<string | undefined>(type);
   const [newError, setError] = useState<boolean | undefined>(error);
@@ -57,8 +46,8 @@ const Input: FunctionComponent<IInputProps> = ({
   }, [error]);
 
   useEffect(() => {
-    const updatedValue = value === undefined || value === null ? "" : value
-    setNewValue(updatedValue)
+    const updatedValue = value === undefined || value === null ? '' : value;
+    setNewValue(updatedValue);
   }, [value]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -73,14 +62,14 @@ const Input: FunctionComponent<IInputProps> = ({
     setType(inputType);
   };
 
-  const password = "password";
+  const password = 'password';
 
   const isPassword = type === password;
 
   const requiredClassName: string = buildClassNames({ required });
 
   const passwordClassName: string = buildClassNames({
-    "form-field--password": isPassword,
+    'form-field--password': isPassword,
   });
 
   const modifierClassName: string = buildClassNames({
@@ -88,9 +77,7 @@ const Input: FunctionComponent<IInputProps> = ({
   });
 
   return (
-    <div
-      className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}
-    >
+    <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
       <label htmlFor={attrs.id} className={requiredClassName}>
         {label}
       </label>
@@ -104,9 +91,7 @@ const Input: FunctionComponent<IInputProps> = ({
         {...attrs}
       />
       {newError && <ErrorMessage message={validationMessage} />}
-      {!hideTypeToggle && isPassword && (
-        <ToggleInputType toggleType={handleToggleType} type={newType} />
-      )}
+      {!hideTypeToggle && isPassword && <ToggleInputType toggleType={handleToggleType} type={newType} />}
     </div>
   );
 };
@@ -115,11 +100,11 @@ Input.defaultProps = {
   disabled: false,
   error: false,
   hideTypeToggle: false,
-  label: "",
-  modifier: "",
+  label: '',
+  modifier: '',
   required: false,
-  type: "text",
-  validationMessage: "This field is required",
+  type: 'text',
+  validationMessage: 'This field is required',
 };
 
 export default Input;

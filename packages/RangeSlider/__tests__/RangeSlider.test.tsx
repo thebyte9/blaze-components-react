@@ -16,7 +16,7 @@ const defaultProps = (override: object = {}) => ({
 describe('RangeSlider component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<RangeSlider {...defaultProps()} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should be disabled', () => {
@@ -24,7 +24,7 @@ describe('RangeSlider component', () => {
   });
 
   test('should set min, max and value correctly', () => {
-   render(<RangeSlider {...defaultProps()} />);
+    render(<RangeSlider {...defaultProps()} />);
   });
 
   test('should have custom step ', () => {
@@ -60,6 +60,6 @@ describe('RangeSlider component', () => {
 
   it('should display the current value as a label', () => {
     const { asFragment } = render(<RangeSlider {...defaultProps({ value: { min: 2, max: 10 } })} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

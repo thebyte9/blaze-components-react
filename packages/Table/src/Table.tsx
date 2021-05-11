@@ -6,7 +6,7 @@ import { ITableRow, ICheckboxItem } from './interfaces';
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
-  data?: {
+  data: {
     identification: string;
     columns: string[];
     orderBy: string[];

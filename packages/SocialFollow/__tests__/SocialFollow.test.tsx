@@ -17,11 +17,11 @@ const media = {
 describe('SocialFollow component', () => {
   it('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<SocialFollow media={media} type="follow" title="Follow" vertical />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('SocialFollow should be share by default', () => {
     const { asFragment } = render(<SocialFollow media={media} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

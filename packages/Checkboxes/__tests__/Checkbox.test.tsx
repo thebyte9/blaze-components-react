@@ -8,24 +8,24 @@ import userEvent from '@testing-library/user-event';
 
 const options = [
   {
-    id: 1,
+    id: '1-checkbox',
     label: 'first',
     value: 'lorem ipsum',
   },
   {
-    id: 2,
+    id: '2-checkbox',
     label: 'I accept',
     required: true,
     value: 'accepted',
   },
   {
-    id: 3,
+    id: '3-checkbox',
     disabled: true,
     label: 'Disabled',
     value: '',
   },
   {
-    id: 4,
+    id: '4-checkbox',
     label: 'display none',
     show: false,
   },
@@ -45,7 +45,7 @@ const defaultProps = (override = {}) => ({
 describe('Checkboxes component', () => {
   it('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<Checkboxes {...defaultProps()} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render and toggle single checkbox', () => {

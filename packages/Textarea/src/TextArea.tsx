@@ -1,16 +1,8 @@
 import buildClassNames from '../../Utils/src/buildClassNames';
 import ErrorMessage from '../../Utils/src/ErrorMessage';
 
-import React, {
-  FunctionComponent,
-  TextareaHTMLAttributes,
-  useEffect,
-  useState
-} from "react";
-interface IErrorMessage {
-  message: string | JSX.Element;
-  icon?: string;
-}
+import React, { FunctionComponent, TextareaHTMLAttributes, useEffect, useState } from 'react';
+
 interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   required?: boolean;
@@ -33,15 +25,13 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   id,
   ...attrs
 }) => {
-  const [content, setContent] = useState<string>("");
+  const [content, setContent] = useState<string>('');
 
-  useEffect(() => setContent(value || ""), [value]);
+  useEffect(() => setContent(value || ''), [value]);
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ): void => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     let {
-      target: { value: newContent }
+      target: { value: newContent },
     } = event;
 
     if (limit && newContent.length > limit) {
@@ -79,12 +69,12 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
 
 Textarea.defaultProps = {
   error: false,
-  label: "",
+  label: '',
   limit: 0,
-  placeholder: "",
+  placeholder: '',
   required: false,
-  validationMessage: "This field is required",
-  value: ""
+  validationMessage: 'This field is required',
+  value: '',
 };
 
 export default Textarea;

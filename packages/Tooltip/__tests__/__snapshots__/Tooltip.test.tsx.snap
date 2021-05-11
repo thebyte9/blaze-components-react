@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip component should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`Tooltip component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="tooltip-here"
+  >
+    No content
+    <span
+      class="tooltip tooltip--top"
+    >
+      Byte9
+    </span>
+  </div>
+</DocumentFragment>
+`;

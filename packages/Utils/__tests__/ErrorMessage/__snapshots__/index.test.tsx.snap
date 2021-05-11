@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorMessage function should match snapshot 1`] = `[Function]`;
+exports[`ErrorMessage function should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="validation"
+    data-testid="validation-message"
+  >
+    <i
+      class="material-icons"
+    >
+      warning
+    </i>
+    <p>
+      Text
+    </p>
+  </div>
+</DocumentFragment>
+`;

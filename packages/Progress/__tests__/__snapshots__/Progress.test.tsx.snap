@@ -1,5 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert component should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`Alert component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <nav
+    class="progress-bar"
+  >
+    <ol
+      class="progress-bar__list"
+    >
+      <li
+        class="progress-bar__list-item progress-bar__list-item--dots  visited"
+      >
+        <span
+          role="button"
+        >
+          Cart
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--dots  current"
+      >
+        <span
+          role="button"
+        >
+          Billing
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--dots  "
+      >
+        <span
+          role="button"
+        >
+          Delivery
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--dots  final"
+      >
+        <span
+          role="button"
+        >
+          Review & pay
+        </span>
+      </li>
+    </ol>
+  </nav>
+</DocumentFragment>
+`;
 
-exports[`Alert component should be type count and change progress 1`] = `[Function]`;
+exports[`Alert component should be type count and change progress 1`] = `
+<DocumentFragment>
+  <nav
+    class="progress-bar"
+  >
+    <ol
+      class="progress-bar__list"
+    >
+      <li
+        class="progress-bar__list-item progress-bar__list-item--count progress-bar__list-item--dots current"
+      >
+        <span
+          role="button"
+        >
+          Cart
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--count progress-bar__list-item--dots "
+      >
+        <span
+          role="button"
+        >
+          Billing
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--count progress-bar__list-item--dots "
+      >
+        <span
+          role="button"
+        >
+          Delivery
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--count progress-bar__list-item--dots final"
+      >
+        <span
+          role="button"
+        >
+          Review & pay
+        </span>
+      </li>
+    </ol>
+  </nav>
+</DocumentFragment>
+`;

@@ -19,7 +19,7 @@ const defaultProps = (override = {}): ITextareaProps => ({
 describe('Textarea component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<Textarea {...defaultProps()} />);
-    expect(asFragment).toBeDefined();
+    expect(asFragment()).toBeDefined();
   });
 
   test('should change textarea content', () => {

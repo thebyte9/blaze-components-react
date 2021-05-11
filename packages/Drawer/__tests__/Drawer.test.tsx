@@ -19,6 +19,6 @@ const DrawerComponent = (
 describe('Drawer component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(DrawerComponent);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

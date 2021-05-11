@@ -23,6 +23,6 @@ const backLinkClass = '.multilevelmenu__backlink';
 describe('MultiLevelMenu', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(MultiLevelMenuComponent);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

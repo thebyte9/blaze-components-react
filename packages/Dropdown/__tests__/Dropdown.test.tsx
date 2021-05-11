@@ -16,6 +16,6 @@ describe('Dropdown component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(component);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

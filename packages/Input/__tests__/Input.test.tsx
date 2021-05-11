@@ -15,7 +15,7 @@ const defaultProps = (override: object = {}) => ({
 describe('Input component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<Input {...defaultProps()} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('visibility should be off', () => {

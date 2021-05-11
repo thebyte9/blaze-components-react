@@ -1,13 +1,281 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`More component should display classnames based on props (isHeader false) 1`] = `[Function]`;
+exports[`More component should display classnames based on props (isHeader false) 1`] = `
+<DocumentFragment>
+  <div
+    class="more-menu__wrapper"
+  >
+    <ul
+      class="dropdown dropdown dropdown__list more-menu__list"
+    >
+      <li
+        class="dropdown__list-item more-menu__list-item"
+      >
+        <button
+          class=""
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+        <ul
+          class=""
+          style="top: 30px;"
+        >
+          <li
+            class=""
+          >
+            <a
+              class=" "
+              href="/"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`More component should display classnames based on props (isHeader true) 1`] = `[Function]`;
+exports[`More component should display classnames based on props (isHeader true) 1`] = `
+<DocumentFragment>
+  <div
+    class="more-menu__wrapper"
+  >
+    <ul
+      class="dropdown dropdown__list dropdown__list--header dropdown--header more-menu__list"
+    >
+      <li
+        class="dropdown__list-item dropdown__list-item--header more-menu__list-item"
+      >
+        <button
+          class=""
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+        <ul
+          class="more-menu more-menu__list"
+          style="top: 30px;"
+        >
+          <li
+            class="more-menu__list-item"
+          >
+            <a
+              class=" more-menu__link"
+              href="/"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`More component should display overlay when displayBg prop is passed as true 1`] = `[Function]`;
+exports[`More component should display overlay when displayBg prop is passed as true 1`] = `
+<DocumentFragment>
+  <div
+    class="more-menu__wrapper"
+  >
+    <ul
+      class="dropdown dropdown dropdown__list more-menu__list"
+    >
+      <li
+        class="dropdown__list-item more-menu__list-item"
+      >
+        <button
+          class="dropdown__button"
+          type="button"
+        >
+          <span
+            class="dropdown__name"
+          />
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+        <ul
+          class="more-menu more-menu__list"
+          style="top: 30px;"
+        >
+          <li
+            class="more-menu__list-item"
+          >
+            <a
+              class=" more-menu__link"
+              href="/"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`More component should not display overlay when displayBg prop is not passed 1`] = `[Function]`;
+exports[`More component should not display overlay when displayBg prop is not passed 1`] = `
+<DocumentFragment>
+  <div
+    class="more-menu__wrapper"
+  >
+    <ul
+      class="dropdown dropdown dropdown__list more-menu__list"
+    >
+      <li
+        class="dropdown__list-item more-menu__list-item"
+      >
+        <button
+          class="dropdown__button"
+          type="button"
+        >
+          <span
+            class="dropdown__name"
+          />
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+        <ul
+          class="more-menu more-menu__list"
+          style="top: 30px;"
+        >
+          <li
+            class="more-menu__list-item"
+          >
+            <a
+              class=" more-menu__link"
+              href="/"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`More component should render 1`] = `[Function]`;
+exports[`More component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="more-menu__wrapper"
+  >
+    <ul
+      class="dropdown dropdown dropdown__list more-menu__list"
+    >
+      <li
+        class="dropdown__list-item more-menu__list-item"
+      >
+        <button
+          class="icon-button icon-button--round"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+        <ul
+          class="more-menu more-menu__list"
+          style="top: 30px;"
+        >
+          <li
+            class="more-menu__list-item"
+          >
+            <a
+              class=" more-menu__link"
+              href="/"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`More content should display classname based on props 1`] = `[Function]`;
+exports[`More content should display classname based on props 1`] = `
+<DocumentFragment>
+  <div
+    class="more-menu__wrapper"
+  >
+    <ul
+      class="dropdown dropdown dropdown__list more-menu__list"
+    >
+      <li
+        class="dropdown__list-item more-menu__list-item"
+      >
+        <button
+          class="icon-button icon-button--round"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+        <ul
+          class="more-menu more-menu__list"
+          style="top: 30px;"
+        >
+          <li
+            class="more-menu__list-item"
+          >
+            <a
+              class="className-test more-menu__link"
+              href="/"
+              id="with-class"
+            >
+              Link
+            </a>
+          </li>
+          <li
+            class="more-menu__list-item"
+          >
+            <a
+              class=" more-menu__link"
+              href="/"
+              id="without-class"
+            >
+              Link
+            </a>
+          </li>
+          <li
+            class="more-menu__list-item"
+          >
+            <a
+              class=" more-menu__link"
+              href="/"
+            >
+              Link
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

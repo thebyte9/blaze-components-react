@@ -13,7 +13,7 @@ describe('Chip component', () => {
         <Chips.Label>Basic chip</Chips.Label>
       </Chips>,
     );
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should delete Chip', () => {

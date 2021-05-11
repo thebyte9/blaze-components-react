@@ -23,12 +23,12 @@ describe('Modal component', () => {
 
   it('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<Modal {...defaultProps()} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should close modal on overlay clicked', () => {
     const { asFragment } = render(<Modal {...defaultProps()} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render and close alert modal', () => {
@@ -44,7 +44,7 @@ describe('Modal component', () => {
       isAlert: true,
     };
     const { asFragment } = render(<Modal {...defaultProps(override)} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render and close alert modal on press escape key', () => {

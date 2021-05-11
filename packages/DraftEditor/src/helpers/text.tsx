@@ -17,7 +17,8 @@ import {
   LINK,
   MUTABLE,
   EMPTY_STRING,
-  UPDATE_STATE
+  UPDATE_STATE,
+  UPDATE_LINK,
 } from '../constants';
 
 const removeSelectedBlocksStyle = (editorState: EditorState) => {
@@ -28,28 +29,21 @@ const removeSelectedBlocksStyle = (editorState: EditorState) => {
   return editorState;
 };
 
-const clearEditor = (editorState: EditorState)  => {
-  const blocks = editorState
-    .getCurrentContent()
-    .getBlockMap()
-    .toList();
+const clearEditor = (editorState: EditorState) => {
+  const blocks = editorState.getCurrentContent().getBlockMap().toList();
   const updatedSelection = editorState.getSelection().merge({
     anchorKey: blocks.first().get('key'),
     anchorOffset: 0,
     focusKey: blocks.last().get('key'),
-    focusOffset: blocks.last().getLength()
+    focusOffset: blocks.last().getLength(),
   });
-  const newContentState = Modifier.removeRange(
-    editorState.getCurrentContent(),
-    updatedSelection,
-    'forward'
-  );
+  const newContentState = Modifier.removeRange(editorState.getCurrentContent(), updatedSelection, 'forward');
 
   const newState = EditorState.push(editorState, newContentState, 'remove-range');
   return removeSelectedBlocksStyle(newState);
 };
 
-const getSelectedText = (editorState: EditorState)  => {
+const getSelectedText = (editorState: EditorState) => {
   const selectionState = editorState.getSelection();
   const anchorKey = selectionState.getAnchorKey();
   const currentContent = editorState.getCurrentContent();
@@ -62,7 +56,7 @@ const getSelectedText = (editorState: EditorState)  => {
   return currentContentBlock.getText().slice(start, end);
 };
 
-const removeEntity = (editorState: EditorState)  => {
+const removeEntity = (editorState: EditorState) => {
   const contentState = editorState.getCurrentContent();
   const selectionState = editorState.getSelection();
   const startKey = selectionState.getStartKey();
@@ -77,13 +71,13 @@ const removeEntity = (editorState: EditorState)  => {
   let entitySelection = editorState.getSelection();
 
   contentBlock.findEntityRanges(
-    character => character.getEntity() === entity,
+    (character) => character.getEntity() === entity,
     (start, end) => {
       entitySelection = selectionState.merge({
         anchorOffset: start,
-        focusOffset: end
+        focusOffset: end,
       });
-    }
+    },
   );
 
   const newContentState = Modifier.applyEntity(contentState, entitySelection, null);
@@ -95,7 +89,7 @@ const customBlockRenderer = (contentBlock: ContentBlock) => {
   if (contentBlock.getType() === ATOMIC) {
     return {
       component: CustomBlock,
-      editable: false
+      editable: false,
     };
   }
 
@@ -125,8 +119,8 @@ const customBlockStyle = (contentBlock: ContentBlock) => {
 
 const styleMap = {
   STRIKETHROUGH: {
-    textDecoration: LINE_THROUGH
-  }
+    textDecoration: LINE_THROUGH,
+  },
 };
 
 const myKeyBindingFn = (e: React.KeyboardEvent<Record<string, unknown>>) => {
@@ -149,10 +143,7 @@ interface IKeyCommand {
   command: string;
   editorState: EditorState;
   save: (editorState: EditorState) => void;
-  dispatch: ({
-    type,
-    payload
-  }: {type: string, payload: any}) => void;
+  dispatch: ({ type, payload }: { type: string; payload: any }) => void;
   showAddLinkModal: (value: boolean) => void;
   showInlineToolbar: (value: boolean) => void;
 }
@@ -163,7 +154,7 @@ const handleKeyCommand = ({
   save,
   dispatch,
   showAddLinkModal,
-  showInlineToolbar
+  showInlineToolbar,
 }: IKeyCommand) => {
   if (command === KEY_BINDING_ADD_LINK) {
     showAddLinkModal(true);
@@ -184,14 +175,14 @@ const handleKeyCommand = ({
       anchorKey: currentContent.getFirstBlock().getKey(),
       anchorOffset: 0,
       focusOffset: currentContent.getLastBlock().getText().length,
-      focusKey: currentContent.getLastBlock().getKey()
+      focusKey: currentContent.getLastBlock().getKey(),
     });
 
     dispatch({
       type: UPDATE_STATE,
       payload: {
-        editorState: EditorState.forceSelection(editorState, selection)
-      }
+        editorState: EditorState.forceSelection(editorState, selection),
+      },
     });
   }
 
@@ -201,8 +192,8 @@ const handleKeyCommand = ({
     dispatch({
       type: UPDATE_STATE,
       payload: {
-        editorState: newState
-      }
+        editorState: newState,
+      },
     });
 
     save(newState);
@@ -217,11 +208,11 @@ interface IAddLink {
   url: string;
   linkState: any;
   editorState: EditorState;
-  handleChange: (editorState: EditorState) => void;
+  handleChange: (editorState: EditorState, source?: string) => void;
   showAddLinkModal: (value: boolean) => void;
 }
 
-const handleAddLink = ({ url, linkState, editorState, handleChange, showAddLinkModal } : any) => {
+const handleAddLink = ({ url, linkState, editorState, handleChange, showAddLinkModal }: IAddLink): void => {
   if (url === EMPTY_STRING) {
     if (linkState) {
       const newEditorState = removeEntity(editorState);
@@ -242,43 +233,29 @@ const handleAddLink = ({ url, linkState, editorState, handleChange, showAddLinkM
       const { entityKey } = linkState;
       const contentStateWithLink = contentState.replaceEntityData(entityKey, { url });
       const newEditorState = EditorState.set(editorState, {
-        currentContent: contentStateWithLink
+        currentContent: contentStateWithLink,
       });
 
-      handleChange(newEditorState);
+      handleChange(newEditorState, UPDATE_LINK);
     } else {
       const contentStateWithEntity = contentState.createEntity(LINK, MUTABLE, {
-        url
+        url,
       });
 
       const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
 
-      const contentStateWithLink = Modifier.applyEntity(
-        contentStateWithEntity,
-        editorState.getSelection(),
-        entityKey
-      );
+      const contentStateWithLink = Modifier.applyEntity(contentStateWithEntity, editorState.getSelection(), entityKey);
 
       const newEditorState = EditorState.set(editorState, {
-        currentContent: contentStateWithLink
+        currentContent: contentStateWithLink,
       });
 
-      handleChange(newEditorState);
+      handleChange(newEditorState, LINK);
     }
   }
 
   showAddLinkModal(false);
 };
-
-function RectObject() {
-  this.rect = {
-    x: 0,
-    y: 0,
-    width: 0,
-  };
-}
-
-const Rect = new RectObject();
 
 export {
   getSelectedText,
@@ -290,5 +267,5 @@ export {
   handleKeyCommand,
   handleAddLink,
   clearEditor,
-  Rect
+  IAddLink,
 };

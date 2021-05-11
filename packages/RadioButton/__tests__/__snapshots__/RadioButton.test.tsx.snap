@@ -1,3 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioButton component should be defined xand renders correctly (snapshot) 1`] = `[Function]`;
+exports[`RadioButton component should be defined xand renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <span
+    class="required"
+  />
+  <div
+    class="form-field form-field--radio"
+    role="button"
+  >
+    <input
+      class="form-radio"
+      id="one"
+      readonly=""
+      type="radio"
+      value="1"
+    />
+    <label
+      for="one"
+    >
+      Example
+    </label>
+  </div>
+  <div
+    class="form-field form-field--radio"
+    role="button"
+  >
+    <input
+      class="form-radio"
+      id="two"
+      readonly=""
+      type="radio"
+      value="accepted"
+    />
+    <label
+      for="two"
+    >
+      I accept
+    </label>
+  </div>
+  <div
+    class="form-field form-field--radio"
+    role="button"
+  >
+    <input
+      class="form-radio"
+      disabled=""
+      id="three"
+      readonly=""
+      type="radio"
+      value=""
+    />
+    <label
+      for="three"
+    >
+      Disabled
+    </label>
+  </div>
+</DocumentFragment>
+`;

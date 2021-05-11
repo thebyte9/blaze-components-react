@@ -11,7 +11,9 @@ interface BaseComponentProps {
 }
 
 const BaseComponent = ({ className, props, children }: BaseComponentProps) => {
-  const { component, setHover, hover, isModalOpen } = props;
+  //const { component, setHover, hover, isModalOpen } = props;
+
+  const { component, setHover, isModalOpen } = props;
 
   return (
     <div
@@ -20,7 +22,8 @@ const BaseComponent = ({ className, props, children }: BaseComponentProps) => {
       onMouseLeave={() => {
         toggleHoverOff(isModalOpen, setHover);
       }}
-      data-testid={component.name}>
+      data-testid={component.name}
+    >
       {/* <EditorViewTooltip component={component} isHovered={hover} /> */}
       {/* {hover && <EditorViewOverlayToolbar {...props} />} */}
       <div key={[component.id, component.name, component.type].join('-')}>{children}</div>

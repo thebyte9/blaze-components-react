@@ -1,3 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FileUpload component should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`FileUpload component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="upload"
+  >
+    <div
+      class="upload__drag-drop"
+    >
+      <div
+        class="upload__icon"
+      >
+        <i
+          class="material-icons"
+        >
+          arrow_upward
+        </i>
+      </div>
+      <p>
+        Drag & drop file to upload
+      </p>
+    </div>
+    <div
+      class="upload__browse"
+    >
+      <div
+        class="upload__text"
+      >
+        or
+      </div>
+      <button
+        class="button"
+        type="button"
+      >
+        Browse
+      </button>
+      <input
+        style="display: none;"
+        type="file"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

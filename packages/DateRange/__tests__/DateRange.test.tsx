@@ -18,7 +18,7 @@ const defaultProps = (override: object = {}) => ({
 describe('DateRange component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<DateRange {...defaultProps({ selected: LAST_30_DAYS })} />);
-    expect(asFragment).toBeDefined();
+    expect(asFragment()).toBeDefined();
   });
 
   test('should select a value', () => {

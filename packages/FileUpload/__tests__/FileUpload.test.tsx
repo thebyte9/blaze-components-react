@@ -21,7 +21,7 @@ const FileUploadComponent = (
 describe('FileUpload component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(FileUploadComponent);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should drop files', () => {

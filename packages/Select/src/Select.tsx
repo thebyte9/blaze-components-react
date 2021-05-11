@@ -1,23 +1,13 @@
 import buildClassNames from '../../Utils/src/buildClassNames';
 import ErrorMessage from '../../Utils/src/ErrorMessage';
-import React, { FunctionComponent, useEffect, useState } from "react";
-interface IErrorMessage {
-  message: string | JSX.Element;
-  icon?: string;
-}
+import React, { useEffect, useState, FunctionComponent } from 'react';
 
 interface ISelectProps {
   label?: string;
   keys?: string[];
   options: any[];
   required?: boolean;
-  onChange: ({
-    event,
-    value
-  }: {
-    event: React.ChangeEvent<HTMLSelectElement>;
-    value: string;
-  }) => void;
+  onChange: ({ event, value }: { event: React.ChangeEvent<HTMLSelectElement>; value: string }) => void;
   error?: boolean;
   validationMessage?: string | JSX.Element | undefined;
   selected?: any;
@@ -26,7 +16,7 @@ interface ISelectProps {
   defaultTextValue?: string;
 }
 
-const Select: React.SFC<ISelectProps> = ({
+const Select: FunctionComponent<ISelectProps> = ({
   label,
   required,
   onChange,
@@ -69,7 +59,7 @@ const Select: React.SFC<ISelectProps> = ({
   const renderOptions = () => {
     const [first]: any = options;
 
-    if (typeof first === "string") {
+    if (typeof first === 'string') {
       return options.map((option) => setOption(option));
     }
     if (first instanceof Array) {
@@ -89,12 +79,7 @@ const Select: React.SFC<ISelectProps> = ({
           {label}
         </label>
       )}
-      <select
-        onChange={handleChange}
-        disabled={!options.length}
-        value={selectedOption}
-        {...attrs}
-      >
+      <select onChange={handleChange} disabled={!options.length} value={selectedOption} {...attrs}>
         {!required && <option defaultValue="">{defaultTextValue}</option>}
         {renderOptions()}
       </select>
@@ -104,18 +89,18 @@ const Select: React.SFC<ISelectProps> = ({
 };
 
 Select.defaultProps = {
-  defaultTextValue: "Please Choose...",
+  defaultTextValue: 'Please Choose...',
   disabled: [],
   error: false,
   keys: [],
-  label: "",
+  label: '',
   onChange: (): void => {
     return;
   },
   options: [],
   required: false,
-  selected: "",
-  validationMessage: "This field is required",
+  selected: '',
+  validationMessage: 'This field is required',
 };
 
 export default Select;

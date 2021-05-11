@@ -1,7 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loader component ProgressBar - should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`Loader component ProgressBar - should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+  >
+    <span
+      class="loader__status"
+    />
+    <div
+      class="loader__bar"
+    >
+      <div
+        class="loader__progress loader__progress--icon"
+        style="width: 0%;"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`Loader component Spinner - should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`Loader component Spinner - should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+  >
+    <div
+      class=""
+    >
+      <div
+        class="loader__spinner loader__spinner--linear loader__spinner--small"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
 
-exports[`Loader component should render Custom ProgressBar with steps 1`] = `[Function]`;
+exports[`Loader component should render Custom ProgressBar with steps 1`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+  >
+    <span
+      class="loader__status loader__status--left"
+    >
+      10%
+    </span>
+    <div
+      class="loader__bar"
+    >
+      <div
+        class="loader__progress loader__progress--icon loader__progress--orange"
+        style="width: 10%;"
+      >
+        <div
+          class="loader__step--default loader__progress--orange"
+        >
+          <i
+            class="material-icons icon"
+          >
+            priority_high
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

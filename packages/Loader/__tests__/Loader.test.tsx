@@ -30,12 +30,12 @@ const steps: IStep[] = [
 describe('Loader component', () => {
   test('ProgressBar - should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<ProgressBar progress={0} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('Spinner - should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<Spinner size={Spinner.size.small} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test('should render Custom ProgressBar with steps', () => {
@@ -50,6 +50,6 @@ describe('Loader component', () => {
         }}
       />,
     );
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

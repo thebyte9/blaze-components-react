@@ -26,7 +26,7 @@ const mockedProps = {
 describe('FileInputs component', () => {
   it('should render without throwing error', () => {
     const { asFragment } = render(<FileInputs {...mockedProps} />);
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should call mocked function handleInputChange & change the input value', () => {

@@ -1,3 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Drawer component should be defined and renders correctly (snapshot) 1`] = `[Function]`;
+exports[`Drawer component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="drawer__wrapper drawer__wrapper--drawer-right"
+  >
+    <div
+      class="drawer drawer--right"
+    >
+      <div
+        class="drawer__content-wrapper"
+      >
+        <div
+          class="drawer__header drawer__header--right"
+        >
+          <button
+            class="icon-button"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              keyboard_arrow_right
+            </i>
+          </button>
+        </div>
+        <div
+          class="drawer__content"
+        >
+          <div
+            class="drawer__content"
+          >
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="page page--drawer"
+    >
+      <div
+        class="page__header page__header--drawer page__header--opens-right"
+      >
+        <button
+          class="icon-button"
+          type="button"
+        >
+          <i
+            class="material-icons"
+          >
+            menu
+          </i>
+        </button>
+        Drawer Component
+      </div>
+      <div
+        class="page__content page__content--drawer"
+      >
+        <div
+          class="page__content page__content--drawer"
+        >
+          <p>
+            Cum assumenda ullam explicabo nostrum nam natus.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

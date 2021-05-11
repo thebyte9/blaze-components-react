@@ -1,3 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FileInputs component should render without throwing error 1`] = `[Function]`;
+exports[`FileInputs component should render without throwing error 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--input  "
+  >
+    <label
+      class=""
+      for="0-title-test-image-name"
+    >
+      image title
+    </label>
+    <input
+      data-testid="input"
+      id="0-title-test-image-name"
+      name="name"
+      type="text"
+      value="test"
+    />
+  </div>
+  <div
+    class="form-field form-field--input  "
+  >
+    <label
+      class=""
+      for="0-caption-test-image-name"
+    >
+      image caption
+    </label>
+    <input
+      data-testid="input"
+      id="0-caption-test-image-name"
+      name="caption-0-test-image-name"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="form-field form-field--input  "
+  >
+    <label
+      class=""
+      for="0-altText-test-image-name"
+    >
+      Alternative text
+    </label>
+    <input
+      data-testid="input"
+      id="0-altText-test-image-name"
+      name="altText-0-test-image-name"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="form-field form-field--input  "
+  >
+    <label
+      class=""
+      for="0-hrefUrl-test-image-name"
+    >
+      Url
+    </label>
+    <input
+      data-testid="input"
+      id="0-hrefUrl-test-image-name"
+      name="hrefUrl-0-test-image-name"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="form-field form-field--select"
+  >
+    <label
+      class=""
+    >
+      Store type
+    </label>
+    <select>
+      <option>
+        Please Choose...
+      </option>
+      <option
+        value="default"
+      >
+        Default
+      </option>
+      <option
+        value="test"
+      >
+        Test
+      </option>
+    </select>
+  </div>
+</DocumentFragment>
+`;

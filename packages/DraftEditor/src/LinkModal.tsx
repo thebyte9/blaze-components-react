@@ -5,53 +5,50 @@ import Input from '../../Input/src';
 import { EditorState } from 'draft-js';
 
 interface LinkModalProps {
-  editorState: EditorState; 
+  editorState: EditorState;
   onClose: any;
-  onSave: any; 
-  linkContentState: any; 
+  onSave: any;
+  linkContentState: any;
 }
 
 const LinkModal = ({ editorState, onClose, onSave, linkContentState }: LinkModalProps) => {
   const [url, setUrl] = useState('');
   const [componentState, setComponentState] = useState(linkContentState);
 
-  const handleOnChange = ({value}: any) => setUrl(value);
+  const handleOnChange = (value: any) => setUrl(value);
 
-  useEffect(
-    () => {
-      const selection = editorState.getSelection();
-      const anchorKey = selection.getAnchorKey();
-      const currentContent = editorState.getCurrentContent();
-      const currentContentBlock = currentContent.getBlockForKey(anchorKey);
-      const start = selection.getStartOffset();
-      const end = selection.getEndOffset();
-      const selectedText = currentContentBlock.getText().slice(start, end);
+  useEffect(() => {
+    const selection = editorState.getSelection();
+    const anchorKey = selection.getAnchorKey();
+    const currentContent = editorState.getCurrentContent();
+    const currentContentBlock = currentContent.getBlockForKey(anchorKey);
+    const start = selection.getStartOffset();
+    const end = selection.getEndOffset();
+    const selectedText = currentContentBlock.getText().slice(start, end);
 
-      if (!selection.isCollapsed() && selectedText !== '') {
-        if (start !== end) {
-          const blockWithLinkAtBeginning = currentContent.getBlockForKey(selection.getStartKey());
+    if (!selection.isCollapsed() && selectedText !== '') {
+      if (start !== end) {
+        const blockWithLinkAtBeginning = currentContent.getBlockForKey(selection.getStartKey());
 
-          const linkKey = blockWithLinkAtBeginning.getEntityAt(selection.getStartOffset());
+        const linkKey = blockWithLinkAtBeginning.getEntityAt(selection.getStartOffset());
 
-          if (linkKey) {
-            const linkInstance = currentContent.getEntity(linkKey);
-            const { url: currentUrl } = linkInstance.getData();
+        if (linkKey) {
+          const linkInstance = currentContent.getEntity(linkKey);
+          const { url: currentUrl } = linkInstance.getData();
 
-            setUrl(currentUrl);
-          }
+          setUrl(currentUrl);
         }
       }
+    }
 
-      if (linkContentState) {
-        const { contentState, entityKey } = linkContentState;
-        const linkInstance = contentState.getEntity(entityKey);
-        const { url: currentUrl } = linkInstance.getData();
-        setUrl(currentUrl);
-        setComponentState(linkContentState);
-      }
-    },
-    [editorState, linkContentState]
-  );
+    if (linkContentState) {
+      const { contentState, entityKey } = linkContentState;
+      const linkInstance = contentState.getEntity(entityKey);
+      const { url: currentUrl } = linkInstance.getData();
+      setUrl(currentUrl);
+      setComponentState(linkContentState);
+    }
+  }, [editorState, linkContentState]);
 
   return (
     <Modal
@@ -65,9 +62,10 @@ const LinkModal = ({ editorState, onClose, onSave, linkContentState }: LinkModal
           callback: () => {
             onSave(url, componentState);
           },
-          modifiers: ['small']
-        }
-      ]}>
+          modifiers: ['small'],
+        },
+      ]}
+    >
       <Input
         label="Insert URL"
         placeholder="Insert URL"
@@ -85,11 +83,11 @@ LinkModal.propTypes = {
   editorState: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
-  linkContentState: PropTypes.object
+  linkContentState: PropTypes.object,
 };
 
 LinkModal.defaultProps = {
-  linkContentState: null
+  linkContentState: null,
 };
 
 export default LinkModal;

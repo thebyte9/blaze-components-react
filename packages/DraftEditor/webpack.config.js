@@ -1,26 +1,38 @@
-const path = require("path");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-  mode: "production",
-  entry: "./src/index.ts",
+  mode: 'production',
+  devtool: 'cheap-module-source-map',
+  entry: {
+    index: {
+      import: './src/index.ts',
+      dependOn: 'shared',
+    },
+    parser: {
+      import: './src/parser/index.tsx',
+      dependOn: 'shared',
+    },
+    shared: 'draft-js',
+  },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
-    clean: true
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    clean: true,
   },
   optimization: {
     minimize: true,
     minimizer: [`...`, new CssMinimizerPlugin()],
     usedExports: true,
     removeAvailableModules: true,
-    concatenateModules: true
+    concatenateModules: true,
+    runtimeChunk: 'single',
   },
   resolve: {
-    extensions: [".js", ".json", ".ts", ".tsx"],
+    extensions: ['.js', '.json', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -28,13 +40,9 @@ module.exports = {
         test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
-            ],
+            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
           },
         },
       },
@@ -42,36 +50,34 @@ module.exports = {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
+          'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [
-                  ["postcss-preset-env"],
-                ],
+                plugins: [['postcss-preset-env']],
               },
             },
           },
-          "sass-loader"
+          'sass-loader',
         ],
-      }],
+      },
+    ],
   },
   externals: {
     react: 'react',
     'react-dom': 'react-dom',
-    'prop-types': 'prop-types'
+    'prop-types': 'prop-types',
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       async: false,
     }),
     new ESLintPlugin({
-      extensions: ["js", "jsx", "ts", "tsx"],
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: '[name].[contenthash].css',
     }),
   ],
 };
-

@@ -1,16 +1,11 @@
 import buildClassNames from '../../Utils/src/buildClassNames';
 import ErrorMessage from '../../Utils/src/ErrorMessage';
-import React, { FunctionComponent, useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
 import { DATE_FORMAT_MAP, TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
 
 // TODO We are not sure about whether this import will work in any context
 // import "react-datepicker/dist/react-datepicker.css";
-
-interface IErrorMessage {
-  message: string | JSX.Element;
-  icon?: string;
-}
 
 interface IDateTimeInputProps {
   disabled?: boolean;
@@ -48,7 +43,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   const [newOpen, setOpen] = useState<boolean>(false);
 
   let whitelistedType = '';
-  
+
   if (type !== TYPE_TIME && type !== TYPE_DATE) {
     whitelistedType = TYPE_DATE_TIME;
   }
@@ -58,14 +53,10 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   }, [error]);
 
   useEffect(() => {
-    setNewValue(value)
+    setNewValue(value);
   }, [value]);
 
-  const handleChange = (
-    date: Date,
-    event: any,
-    forceClose = false
-  ): void => {
+  const handleChange = (date: Date, event: any, forceClose = false): void => {
     setNewValue(date);
     setOpen(!forceClose);
 
@@ -86,9 +77,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   });
 
   return (
-    <div
-      className={rootClasses}
-    >
+    <div className={rootClasses}>
       <label htmlFor={id} className={requiredClassName}>
         {label}
       </label>
@@ -104,8 +93,8 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         onClickOutside={() => setOpen(false)}
         popperModifiers={{
           flip: {
-            enabled: false
-          }
+            enabled: false,
+          },
         }}
         dateFormat={DATE_FORMAT_MAP[whitelistedType]}
         open={newOpen}
@@ -113,27 +102,27 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
         selected={newValue}
         disabled={disabled}
         required={required}
-
       >
-        {(whitelistedType === TYPE_DATE_TIME || whitelistedType === TYPE_DATE) && <div
-          className="react-datepicker__today-button"
-          onClick={e => handleChange(new Date(), e, true)}
-        >Today</div>}
+        {(whitelistedType === TYPE_DATE_TIME || whitelistedType === TYPE_DATE) && (
+          <div className="react-datepicker__today-button" onClick={(e) => handleChange(new Date(), e, true)}>
+            Today
+          </div>
+        )}
       </DatePicker>
 
-      { newError && <ErrorMessage message={validationMessage} />}
-    </div >
+      {newError && <ErrorMessage message={validationMessage} />}
+    </div>
   );
 };
 
 DateTimeInput.defaultProps = {
   disabled: false,
   error: false,
-  label: "",
-  modifier: "",
+  label: '',
+  modifier: '',
   required: false,
   type: TYPE_DATE_TIME,
-  validationMessage: "This field is required"
+  validationMessage: 'This field is required',
 };
 
 export default DateTimeInput;

@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react';
 
 import ErrorMessage from '../../Utils/src/ErrorMessage';
 import buildClassNames from '../../Utils/src/buildClassNames';
-import { v4 as uuidv4 } from 'uuid';
 
 interface IOptions {
   checked: boolean;
@@ -11,11 +10,6 @@ interface IOptions {
   required: boolean;
   label: string;
   id?: string;
-}
-
-interface IErrorMessage {
-  message: string | JSX.Element;
-  icon?: string;
 }
 
 type TlabelPosition = 'right' | 'left' | 'base' | 'top';
@@ -159,4 +153,5 @@ Switches.defaultProps = {
   returnBoolean: false,
   validationMessage: 'This field is required',
 };
+
 export default Switches;
