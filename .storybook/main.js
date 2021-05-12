@@ -1,13 +1,19 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  "stories": [
-    "../packages/**/stories/**/*.stories.mdx",
-    "../packages/**/stories/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
+  stories: ['../packages/**/stories/**/*.stories.mdx', '../packages/**/stories/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -17,8 +23,8 @@ module.exports = {
       },
     },
   ],
-  "core": {
-    "builder": "webpack5"
+  core: {
+    builder: 'webpack5',
   },
   webpackFinal: (config) => {
     config.module.rules.push({
@@ -26,7 +32,6 @@ module.exports = {
       use: ['style-loader', 'css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../'),
     });
-
 
     return {
       ...config,
@@ -38,6 +43,5 @@ module.exports = {
         },
       },
     };
-
-  }
-}
+  },
+};

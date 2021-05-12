@@ -25,8 +25,8 @@ import {
   handleKeyCommand,
   handleAddLink,
 } from './helpers';
-import BaseComponent from './BaseComponent';
 
+import BaseComponent from './BaseComponent';
 interface IEditorWrapper {
   component: any;
   onCreateComponent: any;

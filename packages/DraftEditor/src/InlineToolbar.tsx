@@ -48,33 +48,43 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
 
   const actions = generateActions({ alignment, isAlignmentDropdownOpen, setAlignmentDropdownOpen });
 
+  const destructAction = (action: IInlineToolbarAction) => {
+    if (!action) return { type: null, style: null };
+
+    if (action.action) {
+      const { type, style } = action.action;
+      return { type: type, style: style };
+    }
+
+    return { type: action.type, style: action.style };
+  };
+
   const handleAction = (action: IInlineToolbarAction) => {
-    if (action.type === ACTION_TYPE.MODAL) {
+    const { type, style } = destructAction(action);
+
+    if (type === ACTION_TYPE.MODAL) {
       showAddLinkModal(true);
     } else {
       showAddLinkModal(false);
     }
 
-    if (action.type === ACTION_TYPE.ATOMIC) {
+    if (type === ACTION_TYPE.ATOMIC) {
       const contentState = editorState.getCurrentContent();
-
       const contentStateWithEntity = contentState.createEntity(ENTITY.HORIZONTAL_RULE.type, 'IMMUTABLE', {});
-
       const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-
       const newState = AtomicBlockUtils.insertAtomicBlock(editorState, entityKey, ' ');
 
       onChange(newState);
     }
 
-    if (action.type === ACTION_TYPE.INLINE) {
-      const newState = RichUtils.toggleInlineStyle(editorState, action.style!);
+    if (type === ACTION_TYPE.INLINE && style) {
+      const newState = RichUtils.toggleInlineStyle(editorState, style);
 
       onChange(newState);
     }
 
-    if (action.type === ACTION_TYPE.BLOCK) {
-      const newState = RichUtils.toggleBlockType(editorState, action.style!);
+    if (type === ACTION_TYPE.BLOCK && style) {
+      const newState = RichUtils.toggleBlockType(editorState, style);
 
       onChange(newState);
     }

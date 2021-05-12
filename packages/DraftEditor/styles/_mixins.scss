@@ -1,0 +1,37 @@
+/*MIXINS use ''@include mixin' in css above all other styles in the class*/
+/* text ellipsis */
+@mixin text-ellipsis($width) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin tooltip {
+  font-size: 11px;
+  width: max-content;
+  padding: 3px 5px;
+  background: $primary-color-light;
+  position: relative;
+  opacity: 1;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+@mixin base-component {
+  border: 1px dashed $light-green;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@mixin base-component-text-block {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+@mixin overlay {
+  position: absolute;
+  transition: $animate-default;
+}

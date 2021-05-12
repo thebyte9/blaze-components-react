@@ -24,5 +24,9 @@ describe('Use toast', () => {
     const { result } = renderHook(() => useToasts(), {
       wrapper,
     });
+
+    Object.keys(result.current).forEach((key) => {
+      expect(result.current[key]).toBeDefined();
+    });
   });
 });

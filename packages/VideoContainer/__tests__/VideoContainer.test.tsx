@@ -6,9 +6,9 @@ import { render } from '@testing-library/react';
 
 describe('VideoContainer component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = render(
+    const { asFragment } = render(
       <VideoContainer src="https://www.youtube.com/embed/sSJiZLkfsnw'" frameBorder="0" title="lorem ipsum" />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

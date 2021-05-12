@@ -2,6 +2,7 @@ import React from 'react';
 import { Editor, EditorState } from 'draft-js';
 import PropTypes from 'prop-types';
 import InlineToolbar from './InlineToolbar';
+import { ISelectionRect } from './helpers/inline-toolbar';
 import { getSelectedText } from './helpers';
 import { EMPTY_STRING } from './constants';
 interface IEditor {

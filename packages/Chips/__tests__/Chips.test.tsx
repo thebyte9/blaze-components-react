@@ -17,7 +17,7 @@ describe('Chip component', () => {
   });
 
   test('should delete Chip', () => {
-    const wrapper = render(
+    const { asFragment } = render(
       <Chips
         modifiers={[Chips.availableModifiers.parent.deletable, Chips.availableModifiers.parent.small]}
         action={() => ({})}
@@ -34,5 +34,7 @@ describe('Chip component', () => {
 
     const deletable = screen.getByText('delete');
     fireEvent.click(deletable);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

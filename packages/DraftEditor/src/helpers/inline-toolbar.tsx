@@ -25,14 +25,18 @@ export interface IInlineToolbarGenerateOptions {
   setMoreDropdownOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
-const generateActions = ({alignment, isAlignmentDropdownOpen, setAlignmentDropdownOpen}: IInlineToolbarGenerateOptions): IInlineToolbarAction[] => [
+const generateActions = ({
+  alignment,
+  isAlignmentDropdownOpen,
+  setAlignmentDropdownOpen,
+}: IInlineToolbarGenerateOptions): IInlineToolbarAction[] => [
   { label: 'Bold', style: 'BOLD', icon: 'fas fa-bold', type: ACTION_TYPE.INLINE, testId: 'bold' },
   {
     label: 'Italic',
     style: 'ITALIC',
     icon: 'fas fa-italic',
     type: ACTION_TYPE.INLINE,
-    testId: 'italic'
+    testId: 'italic',
   },
   { label: 'Link', icon: 'fas fa-link', type: ACTION_TYPE.MODAL, testId: 'link' },
   {
@@ -40,21 +44,21 @@ const generateActions = ({alignment, isAlignmentDropdownOpen, setAlignmentDropdo
     style: 'blockquote',
     icon: 'fas fa-quote-right',
     type: ACTION_TYPE.BLOCK,
-    testId: 'blockquote'
+    testId: 'blockquote',
   },
   {
     label: 'Unordered list',
     style: 'unordered-list-item',
     icon: 'fas fa-list-ul',
     type: ACTION_TYPE.BLOCK,
-    testId: 'unordered-list'
+    testId: 'unordered-list',
   },
   {
     label: 'Ordered list',
     style: 'ordered-list-item',
     icon: 'fas fa-list-ol',
     type: ACTION_TYPE.BLOCK,
-    testId: 'ordered-list'
+    testId: 'ordered-list',
   },
   {
     label: 'Align left',
@@ -71,24 +75,24 @@ const generateActions = ({alignment, isAlignmentDropdownOpen, setAlignmentDropdo
         style: 'left',
         icon: 'fas fa-align-left',
         type: ACTION_TYPE.BLOCK,
-        testId: 'align-left'
+        testId: 'align-left',
       },
       {
         label: 'Align center',
         style: 'center',
         icon: 'fas fa-align-center',
         type: ACTION_TYPE.BLOCK,
-        testId: 'align-center'
+        testId: 'align-center',
       },
       {
         label: 'Align right',
         style: 'right',
         icon: 'fas fa-align-right',
         type: ACTION_TYPE.BLOCK,
-        testId: 'align-right'
-      }
-    ]
-  }
+        testId: 'align-right',
+      },
+    ],
+  },
 ];
 
 export interface IInlineToolbarAction {
@@ -104,14 +108,14 @@ export interface IInlineToolbarAction {
   stateFn?: (stateVariable: boolean) => void;
 }
 
-const getClassnames = (action: IInlineToolbarAction, editorState: EditorState) => {
+const getClassnames = (action: IInlineToolbarAction, editorState: EditorState): string | null => {
   if (!editorState) return null;
 
   try {
     const currentInlineStyle = editorState.getCurrentInlineStyle();
 
     // inline style
-    if (currentInlineStyle.size > 0 && currentInlineStyle.has(action.style!)) {
+    if (currentInlineStyle.size > 0 && action.style && currentInlineStyle.has(action.style)) {
       return 'editor-view__inlinetoolbar--item editor-view__inlinetoolbar--item__active';
     }
 
@@ -128,12 +132,12 @@ const getClassnames = (action: IInlineToolbarAction, editorState: EditorState) =
 };
 
 interface IGenerateToolbarOptions {
-  actions: IInlineToolbarAction[]; 
+  actions: IInlineToolbarAction[];
   editorState: EditorState;
-  handleAction: ( action: IInlineToolbarAction, e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  handleAction: (action: IInlineToolbarAction, e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-const generateToolbar = ({ actions, editorState, handleAction }: IGenerateToolbarOptions) => {
+const generateToolbar = ({ actions, editorState, handleAction }: IGenerateToolbarOptions): JSX.Element[] | null => {
   if (!editorState) return null;
 
   try {
@@ -147,22 +151,23 @@ const generateToolbar = ({ actions, editorState, handleAction }: IGenerateToolba
             key={[action, index].join('-')}
             className={action.cssClass}
             data-testid={action.testId}
-            onMouseDown={e => {
+            onMouseDown={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              action.stateFn!(!action.stateVariable);
+              if (action.stateFn) {
+                action.stateFn(!action.stateVariable);
+              }
             }}
-            role="button">
-            <div
-              className="editor-view__inlinetoolbar--more"
-              key={[action, index, currentBlockAction].join('-')}>
+            role="button"
+          >
+            <div className="editor-view__inlinetoolbar--more" key={[action, index, currentBlockAction].join('-')}>
               <span>
                 <i className={currentBlockAction?.icon} />
               </span>
             </div>
             {action.stateVariable && (
               <div className="editor-view__inlinetoolbar--submenu__actions">
-                {generateToolbarActions({action, handleAction, editorState})}
+                {generateToolbarActions({ action, handleAction, editorState })}
               </div>
             )}
           </div>
@@ -178,11 +183,12 @@ const generateToolbar = ({ actions, editorState, handleAction }: IGenerateToolba
           role="button"
           aria-label={action.label}
           data-testid={action.testId}
-          onMouseDown={e => {
+          onMouseDown={(e) => {
             e.stopPropagation();
             e.preventDefault();
             handleAction(action);
-          }}>
+          }}
+        >
           <i className={action.icon} />
         </div>
       );
@@ -194,11 +200,11 @@ const generateToolbar = ({ actions, editorState, handleAction }: IGenerateToolba
 
 interface IGenerateToolbarActions {
   action: any;
-  handleAction: ( action: IInlineToolbarAction, e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  handleAction: (action: IInlineToolbarAction, e?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   editorState: EditorState;
 }
 
-const generateToolbarActions = ({action, handleAction, editorState}: IGenerateToolbarActions) =>
+const generateToolbarActions = ({ action, handleAction, editorState }: IGenerateToolbarActions): JSX.Element =>
   action.actions.map((a: IInlineToolbarAction, index: number) => {
     const className = getClassnames(a, editorState) || undefined;
 
@@ -209,11 +215,12 @@ const generateToolbarActions = ({action, handleAction, editorState}: IGenerateTo
         role="button"
         aria-label={a.label}
         data-testid={a.testId}
-        onMouseDown={e => {
+        onMouseDown={(e) => {
           e.preventDefault();
           e.stopPropagation();
           handleAction(a, e);
-        }}>
+        }}
+      >
         <i className={a.icon} />
       </div>
     );
@@ -223,18 +230,21 @@ const ACTION_TYPE = {
   INLINE: 'inline',
   BLOCK: 'block',
   ATOMIC: 'atomic',
-  MODAL: 'modal'
+  MODAL: 'modal',
 };
 
 const ENTITY = {
   HORIZONTAL_RULE: {
     type: 'HORIZONTAL_RULE',
     mutability: 'IMMUTABLE',
-    data: {}
-  }
+    data: {},
+  },
 };
 
-const getCurrentBlockAction = (action: IInlineToolbarAction, currentBlockStyle: string) => {
+const getCurrentBlockAction = (
+  action: IInlineToolbarAction,
+  currentBlockStyle: string,
+): IInlineToolbarAction | undefined => {
   if (
     currentBlockStyle === 'unstyled' ||
     currentBlockStyle.includes('header') ||
@@ -242,13 +252,18 @@ const getCurrentBlockAction = (action: IInlineToolbarAction, currentBlockStyle: 
     currentBlockStyle.includes('unordered-list-item') ||
     currentBlockStyle.includes('ordered-list-item')
   ) {
-    return action.actions![0];
+    if (action && action.actions && action.actions[0]) {
+      return action.actions[0];
+    }
   }
-  const result = action.actions!.filter(item => item.style === currentBlockStyle);
-  return result[0];
+
+  if (action && action.actions) {
+    const result = action.actions.filter((item) => item.style === currentBlockStyle);
+    return result[0];
+  }
 };
 
-const getCurrentBlockTypeLabel = (editorState: EditorState) => {
+const getCurrentBlockTypeLabel = (editorState: EditorState): string => {
   const currentBlockType = RichUtils.getCurrentBlockType(editorState);
 
   switch (currentBlockType) {
@@ -271,7 +286,7 @@ const getCurrentBlockTypeLabel = (editorState: EditorState) => {
   }
 };
 
-const getInlineToolbarLeftPosition = (rect: IRect, selectionRect: ISelectionRect) => {
+const getInlineToolbarLeftPosition = (rect: IRect, selectionRect: ISelectionRect): number => {
   const toolbarSize = 500;
   const padding = 60;
 
@@ -298,7 +313,7 @@ const getInlineToolbarLeftPosition = (rect: IRect, selectionRect: ISelectionRect
   return left - toolbarSize;
 };
 
-const getInlineToolbarTopPosition = (selectionRect: ISelectionRect) => {
+const getInlineToolbarTopPosition = (selectionRect: ISelectionRect): number => {
   const inlineToolbarHeight = 100;
 
   return selectionRect.top - inlineToolbarHeight;
@@ -307,8 +322,8 @@ const getInlineToolbarTopPosition = (selectionRect: ISelectionRect) => {
 const getDropdownClassnames = ({
   isAlignmentDropdownOpen,
   isFormatDropdownOpen,
-  isMoreDropdownOpen
-}: IInlineToolbarGenerateOptions) => {
+  isMoreDropdownOpen,
+}: IInlineToolbarGenerateOptions): any => {
   const openClassName = 'editor-view__inlinetoolbar--columns--open';
   const closedClassName = 'editor-view__inlinetoolbar--columns--closed';
 
@@ -330,5 +345,5 @@ export {
   getCurrentBlockTypeLabel,
   getDropdownClassnames,
   ACTION_TYPE,
-  ENTITY
+  ENTITY,
 };

@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import DraftEditorReadme from '../README.md';
 import { DraftEditorWrapper } from '../src';
+import './index.css';
+import '../styles/main.scss';
 
 storiesOf('DraftEditor', module).addParameters({
   readme: {
@@ -13,12 +15,21 @@ storiesOf('DraftEditor', module).addParameters({
 export default {
   title: 'DraftEditor',
   component: DraftEditorWrapper,
+  argTypes: {
+    onChange: { action: 'onChange' },
+    onCreateComponent: { action: 'onCreateComponent' },
+    onDeleteComponent: { action: 'onDeleteComponent' },
+  },
 };
 
-const Template = (args) => <DraftEditorWrapper {...args}></DraftEditorWrapper>;
+const Template = (args) => (
+  <div className="story-wrapper">
+    <DraftEditorWrapper {...args}></DraftEditorWrapper>
+  </div>
+);
 
-export const Empty = Template.bind({});
-Empty.args = {
+export const Sample = Template.bind({});
+Sample.args = {
   component: {
     id: 'textblock-1',
     items: null,
@@ -30,6 +41,12 @@ Empty.args = {
       showInEditorView: true,
     },
     name: 'textblock-1',
-    onChange: () => ({}),
+    onChange: { action: 'onChange' },
+    onCreateComponent: { action: 'onCreateComponent' },
+    dispatch: { action: 'dispatch' },
+    handleChange: { action: 'handleChange' },
+    handleOnBlur: { action: 'handleOnBlur' },
+    handleOnFocus: { action: 'handleOnFocus' },
+    handleKeyCommand: { action: 'handleKeyCommand' },
   },
 };
