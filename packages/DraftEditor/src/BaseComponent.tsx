@@ -1,6 +1,4 @@
 import React from 'react';
-// import EditorViewOverlayToolbar from '../OverlayToolbar';
-// import EditorViewTooltip from '../Tooltip';
 import { toggleHoverOff } from './helpers';
 
 interface BaseComponentProps {
@@ -10,9 +8,7 @@ interface BaseComponentProps {
   onClick: any;
 }
 
-const BaseComponent = ({ className, props, children }: BaseComponentProps) => {
-  //const { component, setHover, hover, isModalOpen } = props;
-
+const BaseComponent = ({ className, props, children }: BaseComponentProps): JSX.Element => {
   const { component, setHover, isModalOpen } = props;
 
   return (
@@ -24,8 +20,6 @@ const BaseComponent = ({ className, props, children }: BaseComponentProps) => {
       }}
       data-testid={component.name}
     >
-      {/* <EditorViewTooltip component={component} isHovered={hover} /> */}
-      {/* {hover && <EditorViewOverlayToolbar {...props} />} */}
       <div key={[component.id, component.name, component.type].join('-')}>{children}</div>
     </div>
   );

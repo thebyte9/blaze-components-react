@@ -15,7 +15,11 @@ const LinkModal = ({ editorState, onClose, onSave, linkContentState }: LinkModal
   const [url, setUrl] = useState('');
   const [componentState, setComponentState] = useState(linkContentState);
 
-  const handleOnChange = (value: any) => setUrl(value);
+  const handleOnChange = (event: any, value: any) => {
+    event.preventDefault();
+    console.log(value);
+    setUrl(value);
+  };
 
   useEffect(() => {
     const selection = editorState.getSelection();
@@ -70,7 +74,7 @@ const LinkModal = ({ editorState, onClose, onSave, linkContentState }: LinkModal
         label="Insert URL"
         placeholder="Insert URL"
         modifier="full-width"
-        onChange={handleOnChange}
+        onChange={({ event, value }) => handleOnChange(event, value)}
         value={url}
         autoFocus
         data-testid="link-input"

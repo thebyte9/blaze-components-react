@@ -19,6 +19,8 @@ export default {
     onChange: { action: 'onChange' },
     onCreateComponent: { action: 'onCreateComponent' },
     onDeleteComponent: { action: 'onDeleteComponent' },
+    onClose: { action: 'onClose' },
+    onSave: { action: 'onSave' },
   },
 };
 
@@ -43,6 +45,8 @@ Sample.args = {
     name: 'textblock-1',
     onChange: { action: 'onChange' },
     onCreateComponent: { action: 'onCreateComponent' },
+    onClose: { action: 'onClose' },
+    onSave: { action: 'onSave' },
     dispatch: { action: 'dispatch' },
     handleChange: { action: 'handleChange' },
     handleOnBlur: { action: 'handleOnBlur' },
