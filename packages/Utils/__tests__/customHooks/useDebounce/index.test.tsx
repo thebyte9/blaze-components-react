@@ -1,8 +1,5 @@
 import '@testing-library/jest-dom';
-
 import { act, renderHook } from '@testing-library/react-hooks';
-
-import React from 'react';
 import useDebounce from '../../../src/customHooks/useDebounce';
 
 jest.useFakeTimers();

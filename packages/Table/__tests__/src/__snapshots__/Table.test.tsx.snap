@@ -1,16 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table component should be defined and renders correctly (snapshot) 1`] = `
-<div>
+<DocumentFragment>
   <div
     class="table-wrapper"
   >
-    <div>
-      Table.head
+    <div
+      class="table-head"
+    >
+      <div
+        class="table-cell--checkbox"
+      />
+      <div
+        class="table-cell"
+      >
+        <div
+          class="sortable"
+        >
+          <span
+            data-testid="sortby-id"
+            role="button"
+          >
+            id
+          </span>
+        </div>
+      </div>
+      <div
+        class="table-cell"
+      >
+        <div
+          class="sortable"
+        >
+          <span
+            data-testid="sortby-name"
+            role="button"
+          >
+            Name
+          </span>
+        </div>
+      </div>
+      <div
+        class="table-cell"
+      >
+        <div
+          class="sortable"
+        >
+          <span
+            data-testid="sortby-age"
+            role="button"
+          >
+            age
+          </span>
+        </div>
+      </div>
     </div>
-    <div>
-      Table.body
-    </div>
+    <div
+      class="table-body"
+    />
   </div>
-</div>
+</DocumentFragment>
 `;

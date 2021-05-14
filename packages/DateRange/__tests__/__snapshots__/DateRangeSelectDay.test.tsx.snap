@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateRange component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="calendar-container"
+  >
+    <div
+      class="calendar-input"
+    >
+      <span
+        class="calendar-input__label"
+      >
+        selectedDate
+      </span>
+      <div
+        class="form-field form-field--input  "
+      >
+        <label
+          class=""
+        />
+        <input
+          class="range-date"
+          data-testid="input"
+          placeholder="dd/mm/yy"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

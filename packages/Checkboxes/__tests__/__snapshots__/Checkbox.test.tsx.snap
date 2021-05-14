@@ -62,7 +62,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
       id="3-checkbox-checkbox"
       readonly=""
       type="checkbox"
-      value=""
+      value="disabled"
     />
     <div
       class=""

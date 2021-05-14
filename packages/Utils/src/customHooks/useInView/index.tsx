@@ -1,6 +1,6 @@
-import "intersection-observer";
-import PropTypes from "prop-types";
-import { useEffect, useRef, useState } from "react";
+import 'intersection-observer';
+import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from 'react';
 declare global {
   interface Window {
     IntersectionObserver: any;
@@ -13,15 +13,12 @@ interface IUseInView {
   offset?: string;
 }
 
-function useInView({ ref, once = true, offset = "0px" }: IUseInView) {
+function useInView({ ref, once = true, offset = '0px' }: IUseInView) {
   const [isIntersecting, setIntersecting] = useState(false);
   const outerRef = useRef();
 
   useEffect(() => {
     (async () => {
-      if (typeof window === "undefined") {
-        return;
-      }
       const usableRef = ref || outerRef;
       const { current }: any = usableRef || {};
       if (!current) {
@@ -38,7 +35,7 @@ function useInView({ ref, once = true, offset = "0px" }: IUseInView) {
         },
         {
           rootMargin: offset,
-        }
+        },
       );
 
       current && newObserver.observe(current);
@@ -52,7 +49,7 @@ function useInView({ ref, once = true, offset = "0px" }: IUseInView) {
   return [isIntersecting, outerRef];
 }
 
-useInView.displayName = "useInView";
+useInView.displayName = 'useInView';
 useInView.propTypes = {
   ref: PropTypes.element,
   rootMargin: PropTypes.string,

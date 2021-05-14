@@ -1,14 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toast Element should render without throwing error 1`] = `
-<div>
+<DocumentFragment>
   <div
+    data-testid="toast"
     style="height: 8px; transition: height 120ms 100ms;"
   >
     <div
       class="react-toast-notifications__toast react-toast-notifications__toast--success"
       style="transition: transform 220ms cubic-bezier(0.2, 0, 0, 1), opacity 220ms; transform: translate3d(0,0,0);"
-    />
+    >
+      <div>
+        children
+      </div>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

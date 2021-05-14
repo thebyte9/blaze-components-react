@@ -22,7 +22,7 @@ interface IOnChangeArguments {
   selectedDate?: string;
 }
 
-const DateRange: React.SFC<IDateRangeProps> = ({ onChange, type = '' }) => {
+const DateRangeSelectDay: React.SFC<IDateRangeProps> = ({ onChange, type = '' }) => {
   const [year, setYear] = useState<string | number>(new Date().getFullYear());
   const [month, setMonth] = useState<string | number>(new Date().getMonth());
   const [date, setDate] = useState<string | number>(new Date().getDate());
@@ -175,9 +175,4 @@ const DateRange: React.SFC<IDateRangeProps> = ({ onChange, type = '' }) => {
   );
 };
 
-DateRange.defaultProps = {
-  onChange: () => void 0,
-  type: 'selectedDate',
-};
-
-export default DateRange;
+export default DateRangeSelectDay;

@@ -1,8 +1,7 @@
 import { ICheckboxItem } from '../../../Checkboxes/src';
 
 interface ITableRow {
-  [index: string]: string | ICheckboxItem[];
+  [index: string]: any;
 }
 
-export { ITableRow, ICheckboxItem }
-
+export { ITableRow, ICheckboxItem };

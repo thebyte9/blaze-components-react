@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import DateRange from '../src/DateRange';
+import DateRange from '../src/DateRangeSelectDay';
 import React from 'react';
 
 const FIRST_DAY_OF_SECONND_ROW = 7;
@@ -16,7 +16,7 @@ const defaultProps = (override: object = {}) => ({
 });
 
 describe('DateRange component', () => {
-  test('should be defined and renders correctly (snapshot)', () => {
+  test.only('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(<DateRange {...defaultProps({ selected: LAST_30_DAYS })} />);
     expect(asFragment()).toMatchSnapshot();
   });

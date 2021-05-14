@@ -22,7 +22,7 @@ const options = [
     id: '3-checkbox',
     disabled: true,
     label: 'Disabled',
-    value: '',
+    value: 'disabled',
   },
   {
     id: '4-checkbox',
@@ -56,13 +56,15 @@ describe('Checkboxes component', () => {
 
     render(<Checkboxes {...defaultProps(override)} />);
 
-    // expect(wrapper.find('input').length).toBe(1);
+    const checkboxArray = screen.getAllByRole('checkbox');
 
-    // expect(wrapper.find('input').at(0).prop('checked')).toBe(false);
+    expect(checkboxArray.length).toBe(1);
+  });
 
-    // wrapper.find('input').at(0).simulate('click');
+  it('should render a disabled checkbox', () => {
+    render(<Checkboxes {...defaultProps()} />);
 
-    // expect(wrapper.find('input').at(0).prop('checked')).toBe(true);
+    screen.debug();
   });
 
   it('should render multiple checkboxes and toggle', () => {
@@ -78,7 +80,7 @@ describe('Checkboxes component', () => {
       onChange,
     };
 
-    const { rerender } = render(<Checkboxes {...defaultProps(override)} />);
+    render(<Checkboxes {...defaultProps(override)} />);
     fireEvent.click(screen.getByTestId('1-checkbox'));
 
     expect(selectedBoxLabel).toEqual('first');

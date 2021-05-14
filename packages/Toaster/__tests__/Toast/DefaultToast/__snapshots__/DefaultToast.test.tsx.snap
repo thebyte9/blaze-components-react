@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Default toast should render without throwing error 1`] = `
-<div>
+<DocumentFragment>
   <div
+    data-testid="toast"
     style="height: 8px; transition: height 120ms 100ms;"
   >
     <div
@@ -35,11 +36,12 @@ exports[`Default toast should render without throwing error 1`] = `
         class="react-toast-notifications__toast__content"
       >
         <p>
-          "The current toasters is of type:warning"
+          The current toasters is of type:warning
         </p>
       </div>
       <div
         class="react-toast-notifications__toast__dismiss-button"
+        data-testid="toast-dismiss-button"
         role="button"
       >
         <svg
@@ -62,5 +64,5 @@ exports[`Default toast should render without throwing error 1`] = `
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
