@@ -1,5 +1,4 @@
 import 'intersection-observer';
-import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 declare global {
   interface Window {
@@ -50,9 +49,5 @@ function useInView({ ref, once = true, offset = '0px' }: IUseInView) {
 }
 
 useInView.displayName = 'useInView';
-useInView.propTypes = {
-  ref: PropTypes.element,
-  rootMargin: PropTypes.string,
-};
 
 export default useInView;

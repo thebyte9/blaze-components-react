@@ -62,9 +62,8 @@ describe('Checkboxes component', () => {
   });
 
   it('should render a disabled checkbox', () => {
-    render(<Checkboxes {...defaultProps()} />);
-
-    screen.debug();
+    const { asFragment } = render(<Checkboxes {...defaultProps()} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render multiple checkboxes and toggle', () => {

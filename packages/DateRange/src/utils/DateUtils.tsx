@@ -1,5 +1,5 @@
-import React from "react";
-import { DAYS, DAYS_PER_LIST, SEPARATOR } from "../constants";
+import React from 'react';
+import { DAYS, DAYS_PER_LIST, SEPARATOR } from '../constants';
 
 interface IType {
   [type: string]: () => number;
@@ -51,11 +51,7 @@ class DateUtils {
 
   public getListOfDays(year: number, month: number) {
     return [...new Array(DAYS_PER_LIST)].map((day, i) => {
-      const currentDate = new Date(
-        year,
-        month,
-        i + 2 - this.getFirstDay(year, month)
-      );
+      const currentDate = new Date(year, month, i + 2 - this.getFirstDay(year, month));
 
       const currentYearToString = currentDate.getFullYear().toString();
       const currentMonthToString = currentDate.getMonth().toString();
@@ -65,20 +61,20 @@ class DateUtils {
         currentDate,
         currentDateToString,
         currentMonthToString,
-        currentYearToString
+        currentYearToString,
       };
     });
   }
 
   public padDate(date: string) {
-    return date.toString().padStart(2, "0");
+    return date.toString().padStart(2, '0');
   }
 
   public dateToNumber(DD: string, MM: string, YY: string) {
     return {
       DD: Number(DD),
       MM: Number(MM),
-      YY: Number(YY)
+      YY: Number(YY),
     };
   }
 
@@ -96,7 +92,7 @@ class DateUtils {
     const subtractFrom: IType = {
       days: () => currentDate.setDate(currentDate.getDate() - total),
       months: () => currentDate.setMonth(currentDate.getMonth() - total),
-      years: () => currentDate.setFullYear(currentDate.getFullYear() - total)
+      years: () => currentDate.setFullYear(currentDate.getFullYear() - total),
     };
 
     subtractFrom[type]();

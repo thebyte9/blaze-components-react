@@ -55,7 +55,6 @@ describe('Default toast', () => {
     userEvent.click(dismissButton);
 
     expect(onDismiss).toHaveBeenCalledTimes(1);
-    screen.debug();
   });
 
   it('should render dismiss button if onDismiss callback is passed as prop', async () => {

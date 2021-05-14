@@ -1,9 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toast controller should render withour throwing error 1`] = `
-<div>
+<DocumentFragment>
   <div>
     component
   </div>
-</div>
+</DocumentFragment>
+`;
+
+exports[`Toast controller should render withour throwing error 2`] = `
+<DocumentFragment>
+  <div>
+    component
+  </div>
+</DocumentFragment>
 `;

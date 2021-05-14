@@ -44,6 +44,8 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   let startX = 0;
   let xAxis = 0;
 
+  console.log(selector);
+
   if (!$(selector)) {
     return;
   }
@@ -137,10 +139,10 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     startX = eventTouch.pageX - xAxis;
     selectedTouch = this;
 
-    $(selector)?.addEventListener('mousemove', onMove);
-    $(selector)?.addEventListener('mouseup', onStop);
-    $(selector)?.addEventListener('touchmove', onMove, isPassiveSupported ? { passive: true } : false);
-    $(selector)?.addEventListener('touchend', onStop);
+    $(selector).addEventListener('mousemove', onMove);
+    $(selector).addEventListener('mouseup', onStop);
+    $(selector).addEventListener('touchmove', onMove, isPassiveSupported ? { passive: true } : false);
+    $(selector).addEventListener('touchend', onStop);
     document.addEventListener('click', onStop);
   }
 
@@ -161,16 +163,16 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     }
 
     if (!(minValue > maxValue)) {
-      $(selector)?.setAttribute('min-value', minValue.toString());
+      $(selector).setAttribute('min-value', minValue.toString());
     }
     if (!(maxValue < minValue)) {
-      $(selector)?.setAttribute('max-value', maxValue.toString());
+      $(selector).setAttribute('max-value', maxValue.toString());
     }
   };
 
   const setxAxisLeftPosition = () => {
-    if (xAxis > touchRight.offsetLeft - selectedTouch?.offsetWidth + MARGIN) {
-      xAxis = touchRight.offsetLeft - selectedTouch?.offsetWidth + MARGIN;
+    if (xAxis > touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN) {
+      xAxis = touchRight.offsetLeft - selectedTouch.offsetWidth + MARGIN;
     }
 
     if (xAxis < 0) {
@@ -216,10 +218,10 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   const onStop = () => {
     document.removeEventListener('click', onStop);
-    $(selector)?.removeEventListener('mousemove', onMove);
-    $(selector)?.removeEventListener('mouseup', onStop);
-    $(selector)?.removeEventListener('touchmove', onMove);
-    $(selector)?.removeEventListener('touchend', onStop);
+    $(selector).removeEventListener('mousemove', onMove);
+    $(selector).removeEventListener('mouseup', onStop);
+    $(selector).removeEventListener('touchmove', onMove);
+    $(selector).removeEventListener('touchend', onStop);
 
     selectedTouch = null;
 

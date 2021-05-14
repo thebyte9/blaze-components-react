@@ -78,3 +78,82 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
   </div>
 </DocumentFragment>
 `;
+
+exports[`Checkboxes component should render a disabled checkbox 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--checkbox"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="1-checkbox"
+      id="1-checkbox-checkbox"
+      readonly=""
+      type="checkbox"
+      value="lorem ipsum"
+    />
+    <div
+      class=""
+    >
+      <label
+        for="1-checkbox-checkbox"
+      >
+        <span>
+          first
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="form-field form-field--checkbox required"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="2-checkbox"
+      id="2-checkbox-checkbox"
+      readonly=""
+      required=""
+      type="checkbox"
+      value="accepted"
+    />
+    <div
+      class=""
+    >
+      <label
+        for="2-checkbox-checkbox"
+      >
+        <span>
+          I accept
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="form-field form-field--checkbox"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="3-checkbox"
+      disabled=""
+      id="3-checkbox-checkbox"
+      readonly=""
+      type="checkbox"
+      value="disabled"
+    />
+    <div
+      class=""
+    >
+      <label
+        for="3-checkbox-checkbox"
+      >
+        <span>
+          Disabled
+        </span>
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;

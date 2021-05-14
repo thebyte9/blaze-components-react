@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import RangeFilter from '../src/RangeFilter';
 import React from 'react';
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 
 declare global {
   interface Window {
@@ -32,27 +32,32 @@ describe('RangeFilter component', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  // test('should display validation message', () => {
-  //   let override = {
-  //     error: true,
-  //     modifier: 'full-width',
-  //     placeholder: 'Select a range',
-  //     required: true,
-  //   };
+  test('should display validation message', () => {
+    let override = {
+      error: true,
+      modifier: 'full-width',
+      placeholder: 'Select a range',
+      required: true,
+    };
 
-  //   const { getByTestId, rerender } = render(<RangeFilter {...defaultProps(override)} />);
+    const { getByTestId, rerender } = render(<RangeFilter {...defaultProps(override)} />);
 
-  //   expect(getByTestId('validation-message')).toHaveTextContent('This field is required');
+    expect(getByTestId('validation-message')).toHaveTextContent('This field is required');
 
-  //   const validationMessage = 'Range field is required';
+    const validationMessage = 'Range field is required';
 
-  //   override = {
-  //     ...override,
-  //     ...{ validationMessage },
-  //   };
+    override = {
+      ...override,
+      ...{ validationMessage },
+    };
 
-  //   rerender(<RangeFilter {...defaultProps(override)} />);
+    rerender(<RangeFilter {...defaultProps(override)} />);
 
-  //   expect(getByTestId('validation-message')).toHaveTextContent(validationMessage);
-  // });
+    expect(getByTestId('validation-message')).toHaveTextContent(validationMessage);
+  });
+
+  test('when selector is null', () => {
+    render(<RangeFilter {...defaultProps()} />);
+    screen.debug();
+  });
 });

@@ -4,10 +4,10 @@ import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { MONTHS, NEXT, PREVIOUS, SEPARATOR } from '../constants';
 import { DateUtilsSingleton } from '../utils';
 
-interface IDateRangeProps {
+export interface IDateRangeProps {
   children?: any;
   onChange: (args: IOnChangeArguments) => void;
-  selected?: 1 | 2 | 3 | 7 | 30 | 12 | 'custom' | 'any';
+  selected?: any;
   type?: string;
 }
 
@@ -110,7 +110,7 @@ const DateRangeSelectDay: React.SFC<IDateRangeProps> = ({ onChange, type = '' })
     setDate(newDate);
   };
 
-  const handleInputChange = ({ value }: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => {
+  const handleInputChange = ({ value }) => {
     const [newDate, newMonth, newYear] = value.split(SEPARATOR);
 
     if (DateUtilsSingleton.isInvalidDate(newDate, newMonth, newYear)) {

@@ -1,33 +1,33 @@
 import '@testing-library/jest-dom';
-
-import { fireEvent, render, screen } from '@testing-library/react';
-
-import DateRange from '../src/DateRangeSelectDay';
+import userEvent from '@testing-library/user-event';
+import { render, screen, fireEvent } from '@testing-library/react';
+import DateRangeSelectDay from '../src/DateRangeSelectDay';
 import React from 'react';
+import { IDateRangeProps } from '../src/DateRangeSelectDay/DateRangeSelectDay';
 
-const FIRST_DAY_OF_SECONND_ROW = 7;
-const LAST_DAY_OF_SECONND_ROW = 13;
-const LAST_30_DAYS = 30;
-
-const defaultProps = (override: object = {}) => ({
-  onChange: () => void 0,
-  custom: true,
+const defaultProps = (override?: IDateRangeProps) => ({
+  onChange: jest.fn(),
+  selected: 'custom',
   ...override,
 });
 
 describe('DateRange component', () => {
-  test.only('should be defined and renders correctly (snapshot)', () => {
-    const { asFragment } = render(<DateRange {...defaultProps({ selected: LAST_30_DAYS })} />);
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(<DateRangeSelectDay {...defaultProps()} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   test('should select a value', () => {
-    render(<DateRange {...defaultProps()} />);
-    fireEvent.change(screen.getByText('Please Choose...'), { target: { value: 'days, 30' } });
+    render(<DateRangeSelectDay {...defaultProps()} />);
+    const input = screen.getByTestId('input');
+    fireEvent.click(input);
+    screen.debug();
+
+    fireEvent.change(input, { target: { value: '11/12/2021' } });
   });
 
-  test('should select a value', () => {
-    render(<DateRange {...defaultProps()} />);
-    fireEvent.change(screen.getByText('Please Choose...'), { target: { value: 'days, 30' } });
-  });
+  // test('should select a value', () => {
+  //   render(<DateRange {...defaultProps()} />);
+  //   userEvent.change(screen.getByText('Please Choose...'), { target: { value: 'days, 30' } });
+  // });
 });

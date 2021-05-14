@@ -5,6 +5,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import FileInputs from '../../src/FileInputs';
 import React from 'react';
 
+const handleSelectChange = jest.fn();
+const handleInputChange = jest.fn();
 const mockedProps = {
   data: { altText: '', caption: '' },
   file: {
@@ -13,8 +15,8 @@ const mockedProps = {
     name: 'test-image-name',
     type: 'image',
   },
-  handleInputChange: jest.fn(),
-  handleSelectChange: jest.fn(),
+  handleInputChange: handleInputChange,
+  handleSelectChange: handleSelectChange,
   index: 0,
   name: 'test',
   selectOptions: [
@@ -34,6 +36,8 @@ describe('FileInputs component', () => {
     const mockedValue = 'typing first input';
 
     fireEvent.change(screen.getByLabelText('Url'), { target: { value: mockedValue } });
+
+    expect(handleInputChange).toHaveBeenCalled();
   });
 
   it('should call mocked function handleSelectChange & change the select value', () => {

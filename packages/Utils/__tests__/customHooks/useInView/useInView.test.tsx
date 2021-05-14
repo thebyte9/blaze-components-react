@@ -2,7 +2,7 @@ import { act, render } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 import expect from 'expect';
 import React from 'react';
-import useInView from '../../../src/customHooks/useInView';
+import useInView from '../../../src/customHooks/useInView/useInView';
 
 describe('Use in view', () => {
   it('should be defined', () => {
@@ -19,12 +19,6 @@ describe('Use in view', () => {
     const [isIntersecting, { current: outerRef }]: any = result.current;
     expect(isIntersecting).toBe(false);
     expect(outerRef).toBe(undefined);
-  });
-
-  it('should return unobserve', () => {
-    const { result } = renderHook(() => useInView({ once: false }));
-
-    console.log(result.current);
   });
 
   it('should renturn isIntersecting to true when is present in viewport', async () => {
@@ -61,15 +55,18 @@ describe('Use in view', () => {
     (global as any).window.IntersectionObserver = MockedIntersectionObserver;
 
     const MockedComponent: any = jest.fn(() => <div>Lazy.Loaded.Component</div>);
+
     const Component = () => {
       const [isIntersecting, outerRef]: any = useInView({ once: true });
       return <div ref={outerRef}>{isIntersecting && <MockedComponent />}</div>;
     };
 
-    await render(<Component />);
+    const { unmount } = await render(<Component />);
 
     act(() => MockedIntersectionObserver.getInstance().triggerIsIntersecting());
 
     expect(MockedComponent).toBeCalled();
+
+    unmount();
   });
 });
