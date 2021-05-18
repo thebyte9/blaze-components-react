@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import expect from 'expect';
 import React from 'react';
 import ToastController from '../../../src/Toast/ToastController';
@@ -34,7 +34,7 @@ describe('Toast controller', () => {
 
   it('should render withour throwing error', () => {
     const Controller: any = ToastController;
-    
+
     const { asFragment } = render(
       <Controller
         appearance="success"

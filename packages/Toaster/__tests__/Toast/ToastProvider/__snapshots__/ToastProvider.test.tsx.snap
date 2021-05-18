@@ -109,9 +109,9 @@ Array [
 `;
 
 exports[`Toast provider should render without throwing error 1`] = `
-<div>
+<DocumentFragment>
   <div>
     children toastprovider component
   </div>
-</div>
+</DocumentFragment>
 `;
