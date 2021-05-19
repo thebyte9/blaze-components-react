@@ -20,13 +20,13 @@ describe('Toast provider', () => {
   });
 
   it('should render without throwing error', () => {
-    const { container } = render(
+    const { asFragment } = render(
       <ToastProvider>
         <div>children toastprovider component</div>
       </ToastProvider>,
     );
 
-    expect(container).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should add a new toaster', () => {

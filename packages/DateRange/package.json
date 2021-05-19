@@ -2,7 +2,7 @@
   "name": "@blaze-react/date-range",
   "version": "0.6.0",
   "description": "DateRange component allows you to select a date range among several options",
-  "main": "./src/index.ts",
+  "main": "./dist/main.js",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
