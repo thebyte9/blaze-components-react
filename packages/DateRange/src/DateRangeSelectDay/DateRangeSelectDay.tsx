@@ -110,7 +110,7 @@ const DateRangeSelectDay: React.SFC<IDateRangeProps> = ({ onChange, type = '' })
     setDate(newDate);
   };
 
-  const handleInputChange = ({ value }) => {
+  const handleInputChange = ({ value }: any) => {
     const [newDate, newMonth, newYear] = value.split(SEPARATOR);
 
     if (DateUtilsSingleton.isInvalidDate(newDate, newMonth, newYear)) {

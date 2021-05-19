@@ -2,7 +2,7 @@
   "name": "@blaze-react/core",
   "version": "0.6.0",
   "description": "Core Package for Blaze Components",
-  "main": "./src/index.ts",
+  "main": "./dist/main.js",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --quiet --fix",

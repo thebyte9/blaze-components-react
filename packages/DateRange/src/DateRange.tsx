@@ -10,12 +10,6 @@ interface IDateRangeProps {
   selected: 1 | 2 | 3 | 7 | 30 | 12 | 'custom' | 'any';
   custom?: false;
 }
-
-// interface ISubtract {
-//   value: number | string;
-//   type: string;
-// }
-
 interface IOnChangeArguments {
   end?: string;
   start?: string;
