@@ -104,11 +104,6 @@ interface IDraftEditorProps {
   handlePastedFiles?(files: Blob[]): DraftHandleValue;
   keyBindingFn?(e: SyntheticKeyboardEvent): DraftEditorCommand | null;
 }
-interface IReactHtmlParserArgs {
-  attribs: any;
-  children: JSX.Element | any;
-  name: string;
-}
 
 export {
   IErrorMessage,
@@ -117,6 +112,5 @@ export {
   SyntheticEvent,
   IDraftEditorProps,
   TComponent,
-  IReactHtmlParserArgs,
   IParseTextBlock,
 };

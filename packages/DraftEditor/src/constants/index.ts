@@ -71,11 +71,6 @@ const INLINE = 'inline';
 const SAVE = 'save';
 const DELETE = 'delete';
 
-const P_TAG = 'p';
-const BR_TAG = 'br';
-const ANCHOR_TAG = 'a';
-const INPUT_TAG = 'input';
-const FIGURE_TAG = 'figure';
 const HR_TAG = '<hr />';
 const SUBMIT = 'submit';
 const HORIZONTAL_RULE = 'HORIZONTAL_RULE';
@@ -123,13 +118,8 @@ export {
   INCREMENT_KEY,
   CURRENT_STATE,
   CLONE_STATE,
-  ANCHOR_TAG,
-  BR_TAG,
-  FIGURE_TAG,
   HORIZONTAL_RULE,
   HR_TAG,
-  INPUT_TAG,
-  P_TAG,
   SUBMIT,
   TARGET_BLANK,
 };

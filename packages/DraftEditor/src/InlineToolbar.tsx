@@ -72,7 +72,7 @@ const InlineToolbar = ({ editorState, selectionRect, showAddLinkModal, onChange,
       const contentState = editorState.getCurrentContent();
       const contentStateWithEntity = contentState.createEntity(ENTITY.HORIZONTAL_RULE.type, 'IMMUTABLE', {});
       const entityKey = contentStateWithEntity.getLastCreatedEntityKey();
-      const newState = AtomicBlockUtils.insertAtomicBlock(editorState, entityKey, ' ');
+      const newState = AtomicBlockUtils.insertAtomicBlock(editorState, entityKey, ENTITY.HORIZONTAL_RULE.type);
 
       onChange(newState);
     }

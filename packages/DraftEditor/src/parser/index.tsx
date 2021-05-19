@@ -22,6 +22,7 @@ function ReactHtmlParser(html: string, config: IParseTextBlock) {
   const options = {
     replace: ({ attribs, children, name: tagName }: IReactHtmlParserArgs) => {
       if (tagName === FIGURE_TAG) {
+        console.log(children)
         return <>{domToReact(children, options)}</>;
       }
       if (tagName === P_TAG) {
