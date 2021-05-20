@@ -22,7 +22,7 @@
     "@blaze-react/input":"^0.6.0",
     "@blaze-react/modal": "^0.6.0",
     "@blaze-react/utils": "^0.6.0",
-    "@types/draft-js": "0.10.34",
+    "@types/draft-js": "0.11.3",
     "draft-js": "^0.11.0",
     "draft-js-export-html": "^1.4.1",
     "html-react-parser": "^0.10.0",
