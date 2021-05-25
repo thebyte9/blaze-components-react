@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 
-import ErrorMessage from '../../Utils/src/ErrorMessage';
-import buildClassNames from '../../Utils/src/buildClassNames';
+import { ErrorMessage } from '@blaze-react/utils';
+import { buildClassNames } from '@blaze-react/utils';
 
 interface IOptions {
   checked: boolean;
@@ -96,31 +96,29 @@ const Switches = ({
   return (
     <Fragment>
       {wrap(
-        data.map(
-          (item: IOptions, key: number): JSX.Element => {
-            const { checked = false, value, disabled, required, label, id = `switch-${key}` } = item;
+        data.map((item: IOptions, key: number): JSX.Element => {
+          const { checked = false, value, disabled, required, label, id = `switch-${key}` } = item;
 
-            return (
-              <div className={switchClassNames} key={id}>
-                <div className="switch__text">{label}</div>
-                <div className="switch__item">
-                  <input
-                    readOnly
-                    type="checkbox"
-                    value={value}
-                    disabled={disabled}
-                    checked={checked}
-                    required={required}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>): void => toggle({ event, item, key })}
-                    id={id}
-                    {...attrs}
-                  />
-                  <label htmlFor={id}>toggle</label>
-                </div>
+          return (
+            <div className={switchClassNames} key={id}>
+              <div className="switch__text">{label}</div>
+              <div className="switch__item">
+                <input
+                  readOnly
+                  type="checkbox"
+                  value={value}
+                  disabled={disabled}
+                  checked={checked}
+                  required={required}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>): void => toggle({ event, item, key })}
+                  id={id}
+                  {...attrs}
+                />
+                <label htmlFor={id}>toggle</label>
               </div>
-            );
-          },
-        ),
+            </div>
+          );
+        }),
       )}
       {error && <ErrorMessage message={validationMessage} />}
     </Fragment>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Label from './Label';
-import buildClassNames from '../../Utils/src/buildClassNames';
+import { buildClassNames } from '@blaze-react/utils';
 import { v4 as uuidv4 } from 'uuid';
 
 const Checkbox = ({ checked, value, disabled, required, label, show, name, id, onChange, full, ...attrs }: any) => {

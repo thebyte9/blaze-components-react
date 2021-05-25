@@ -1,5 +1,5 @@
-import Button from '../../../Button/src';
-import buildClassNames from '../../../Utils/src/buildClassNames';
+import Button from '@blaze-react/button';
+import { buildClassNames } from '@blaze-react/utils';
 import React, { Fragment } from 'react';
 interface IMoreAvatarProps {
   handleToggle: (...args: any[]) => any;

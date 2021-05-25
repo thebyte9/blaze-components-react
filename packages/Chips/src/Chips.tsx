@@ -1,10 +1,10 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import React, { Fragment, ReactElement, useState } from "react";
-import ChipAvatar from "./ChipAvatar";
-import ChipIcon from "./ChipIcon";
-import ChipLabel from "./ChipLabel";
+import { buildClassNames } from '@blaze-react/utils';
+import React, { Fragment, ReactElement, useState } from 'react';
+import ChipAvatar from './ChipAvatar';
+import ChipIcon from './ChipIcon';
+import ChipLabel from './ChipLabel';
 
-type TModifiers = "deletable" | "outlined" | "primary" | "secondary" | "small" | string;
+type TModifiers = 'deletable' | 'outlined' | 'primary' | 'secondary' | 'small' | string;
 
 interface IChipsProps {
   children: JSX.Element | JSX.Element[];
@@ -13,63 +13,55 @@ interface IChipsProps {
   onDelete: () => void;
 }
 
-const Chips =
-  ({
-    children,
-    modifiers,
-    action,
-    onDelete,
-  }: IChipsProps): JSX.Element => {
-    const [showChip, setChip] = useState<boolean>(true);
+const Chips = ({ children, modifiers, action, onDelete }: IChipsProps): JSX.Element => {
+  const [showChip, setChip] = useState<boolean>(true);
 
-    const deletable: TModifiers = "deletable";
+  const deletable: TModifiers = 'deletable';
 
-    const isRemovable: boolean = modifiers && modifiers.includes(deletable);
+  const isRemovable: boolean = modifiers && modifiers.includes(deletable);
 
-    const formatedModifiers: string = modifiers
-      ? modifiers.map(modifier => `chip--${modifier}`).join(" ")
-      : "";
+  const formatedModifiers: string = modifiers ? modifiers.map((modifier) => `chip--${modifier}`).join(' ') : '';
 
-    const handleRemoveChip = (): void => {
-      onDelete();
-      setChip(false);
-    };
+  const handleRemoveChip = (): void => {
+    onDelete();
+    setChip(false);
+  };
 
-    const chipClassNames: string = buildClassNames("chip", {
-      [formatedModifiers]: !!modifiers
-    });
+  const chipClassNames: string = buildClassNames('chip', {
+    [formatedModifiers]: !!modifiers,
+  });
 
-    return (
-      <Fragment>
-        {showChip && (
-          <div className={chipClassNames} onClick={action}>
-            {isRemovable
-              ? React.Children.map(
+  return (
+    <Fragment>
+      {showChip && (
+        <div className={chipClassNames} onClick={action}>
+          {isRemovable
+            ? React.Children.map(
                 children,
                 (child: ReactElement): ReactElement =>
                   React.cloneElement(child, {
-                    handleRemoveChip
-                  })
+                    handleRemoveChip,
+                  }),
               )
-              : children}
-          </div>
-        )}
-      </Fragment>
-    );
-  };
+            : children}
+        </div>
+      )}
+    </Fragment>
+  );
+};
 
 const availableModifiers = {
   icon: {
-    custom: "custom",
-    delete: "delete"
+    custom: 'custom',
+    delete: 'delete',
   },
   parent: {
-    deletable: "deletable",
-    outlined: "outlined",
-    primary: "primary",
-    secondary: "secondary",
-    small: "small"
-  }
+    deletable: 'deletable',
+    outlined: 'outlined',
+    primary: 'primary',
+    secondary: 'secondary',
+    small: 'small',
+  },
 };
 
 Chips.Avatar = ChipAvatar;
@@ -80,7 +72,7 @@ Chips.availableModifiers = availableModifiers;
 
 Chips.defaultProps = {
   action: () => void 0,
-  onDelete: () => void 0
+  onDelete: () => void 0,
 };
 
 export default Chips;

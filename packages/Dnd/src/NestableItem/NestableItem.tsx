@@ -1,12 +1,12 @@
-import buildClassNames from '../../../Utils/src/buildClassNames';
-import React from "react";
-import DragHandler from "../DragHandler";
+import { buildClassNames } from '@blaze-react/utils';
+import React from 'react';
+import DragHandler from '../DragHandler';
 
 interface IItem {
   [index: string]: any;
   item: {
     id?: any;
-  }
+  };
 }
 interface INestableItemProps {
   item: IItem;
@@ -32,26 +32,18 @@ const NestableItem: React.SFC<INestableItemProps> = ({
   const isDragging = !isCopy && dragItem && dragItem.id === item.id;
   const hasChildrenProperty = item[childrenProp];
   const hasChildren = item[childrenProp] && item[childrenProp].length;
-  const listItemClassName = buildClassNames(
-    `nestable-item${isCopy ? "-copy" : ""}`,
-    {
-      "is-dragging": isDragging,
-      "nestable-item-parent": hasChildrenProperty,
-    }
-  );
+  const listItemClassName = buildClassNames(`nestable-item${isCopy ? '-copy' : ''}`, {
+    'is-dragging': isDragging,
+    'nestable-item-parent': hasChildrenProperty,
+  });
 
   return (
     <li className={listItemClassName} id={item.id}>
-      <div
-        className="nestable-item-name"
-        onMouseEnter={(e) => onMouseEnter(e, item)}
-      >
+      <div className="nestable-item-name" onMouseEnter={(e) => onMouseEnter(e, item)}>
         <RenderItem
           item={item}
           index={index}
-          DragHandler={() => (
-            <DragHandler onDragStart={(e) => onDragStart(e, item)} />
-          )}
+          DragHandler={() => <DragHandler onDragStart={(e) => onDragStart(e, item)} />}
         >
           {hasChildrenProperty && hasChildren ? (
             <ol className="nestable-list">

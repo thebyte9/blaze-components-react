@@ -1,9 +1,9 @@
-import Button from "../../Button/src";
-import React, { FunctionComponent, useState } from "react";
+import Button from '@blaze-react/button';
+import React, { FunctionComponent, useState } from 'react';
 
 const menuStyles = {
-  top: "100%",
-  width: "100%"
+  top: '100%',
+  width: '100%',
 };
 
 interface IButtonSelectProps {
@@ -12,24 +12,14 @@ interface IButtonSelectProps {
   Attr?: any;
 }
 
-const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({
-  text,
-  children,
-  ...Attr
-}) => {
+const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({ text, children, ...Attr }) => {
   const [toggled, setToggled] = useState(false);
   return (
     <div className="more-menu__wrapper">
-      <Button
-        modifiers={["full-width"]}
-        onClick={(): void => setToggled(!toggled)}
-        {...Attr}
-      >
+      <Button modifiers={['full-width']} onClick={(): void => setToggled(!toggled)} {...Attr}>
         <>
-        <i className="material-icons">{`keyboard_arrow_${
-          toggled ? "up" : "down"
-        }`}</i>
-        {text}
+          <i className="material-icons">{`keyboard_arrow_${toggled ? 'up' : 'down'}`}</i>
+          {text}
         </>
       </Button>
 
@@ -43,8 +33,8 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({
 };
 
 ButtonSelect.defaultProps = {
-  children: "No content",
-  text: "Actions"
+  children: 'No content',
+  text: 'Actions',
 };
 
 export default ButtonSelect;

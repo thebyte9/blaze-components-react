@@ -55,9 +55,4 @@ describe('RangeFilter component', () => {
 
     expect(getByTestId('validation-message')).toHaveTextContent(validationMessage);
   });
-
-  test('when selector is null', () => {
-    render(<RangeFilter {...defaultProps()} />);
-    screen.debug();
-  });
 });

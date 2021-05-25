@@ -16,16 +16,12 @@
   "license": "MIT",
   "dependencies": {
     "intersection-observer": "^0.12.0",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
-  },
-  "devDependencies": {
-    "@types/classnames": "^2.2.11"
-  },
-  "peerDependencies": {
-    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "gitHead": "c7cc1d26b4046b800c727feb1dd283dbd833328c"
+  "devDependencies": {
+    "@types/classnames": "^2.3.1",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  }
 }

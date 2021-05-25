@@ -1,8 +1,8 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import React, { useEffect } from "react";
-import { ESCAPE_KEY_CODE } from "./constants";
-import ModalFooter from "./ModalFooter";
-import ModalHeader from "./ModalHeader";
+import { buildClassNames } from '@blaze-react/utils';
+import React, { useEffect } from 'react';
+import { ESCAPE_KEY_CODE } from './constants';
+import ModalFooter from './ModalFooter';
+import ModalHeader from './ModalHeader';
 
 interface IActions {
   textButton: string;
@@ -37,18 +37,17 @@ const Modal: React.SFC<IModalProps> = ({
   showFooter,
   onClose = () => ({}),
 }): JSX.Element => {
-  const sections: string[] = ["header", "content", "footer"];
+  const sections: string[] = ['header', 'content', 'footer'];
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKey, false);
+    document.addEventListener('keydown', handleKey, false);
 
     return () => {
-      document.removeEventListener("keydown", handleKey, false);
+      document.removeEventListener('keydown', handleKey, false);
     };
   }, []);
 
-  const handleKey = ({ keyCode }: any) =>
-    keyCode === ESCAPE_KEY_CODE && closeModal();
+  const handleKey = ({ keyCode }: any) => keyCode === ESCAPE_KEY_CODE && closeModal();
 
   const closeModal = (): void => onClose();
   const handleOverlay = (): void => {
@@ -58,32 +57,27 @@ const Modal: React.SFC<IModalProps> = ({
   };
 
   const modalClassNames: string = buildClassNames(`${className} modal modal--show`, {
-    "modal--alert": isAlert,
-    "modal--full-screen": isFullScreen,
-    "modal--simple": isSimple,
-    "modal--upload": isUpload,
+    'modal--alert': isAlert,
+    'modal--full-screen': isFullScreen,
+    'modal--simple': isSimple,
+    'modal--upload': isUpload,
   });
 
-  const [
-    modalHeaderClassNames,
-    modalContentClassNames,
-    modalFooterClassNames,
-  ]: string[] = sections.map((alertType: string): string =>
-    buildClassNames(`modal__${alertType}`, {
-      [`modal__${alertType}--alert`]: isAlert,
-      [`modal__${alertType}--simple`]: isSimple,
-      [`modal__${alertType}--upload`]: isUpload,
-      [`modal__${alertType}--full-screen`]: isUpload,
-    })
+  const [modalHeaderClassNames, modalContentClassNames, modalFooterClassNames]: string[] = sections.map(
+    (alertType: string): string =>
+      buildClassNames(`modal__${alertType}`, {
+        [`modal__${alertType}--alert`]: isAlert,
+        [`modal__${alertType}--simple`]: isSimple,
+        [`modal__${alertType}--upload`]: isUpload,
+        [`modal__${alertType}--full-screen`]: isUpload,
+      }),
   );
 
   return (
     <>
       <div className="overlay" onClick={handleOverlay} />
       <div className={modalClassNames}>
-        <div className={modalHeaderClassNames}>
-          {!isAlert && <ModalHeader title={title} closeModal={closeModal} />}
-        </div>
+        <div className={modalHeaderClassNames}>{!isAlert && <ModalHeader title={title} closeModal={closeModal} />}</div>
 
         <div className={modalContentClassNames}>{children}</div>
 
@@ -102,15 +96,15 @@ const Modal: React.SFC<IModalProps> = ({
 
 Modal.defaultProps = {
   actions: [],
-  children: "No content",
-  className: "",
+  children: 'No content',
+  className: '',
   isAlert: false,
   isFullScreen: false,
   isSimple: false,
   isUpload: false,
   overlay: true,
   showFooter: true,
-  title: "",
+  title: '',
 };
 
 export default Modal;

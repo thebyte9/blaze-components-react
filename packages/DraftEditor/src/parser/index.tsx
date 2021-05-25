@@ -13,14 +13,14 @@ import {
   SUBMIT,
   TARGET_BLANK,
 } from '../constants';
-import { IParseTextBlock, IReactHtmlParserArgs } from './interfaces';
+import { IParseTextBlock } from './interfaces';
 import { isValidJSON } from '../helpers';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const entities = require('entities');
 
 function ReactHtmlParser(html: string, config: IParseTextBlock) {
   const options = {
-    replace: ({ attribs, children, name: tagName }: IReactHtmlParserArgs) => {
+    replace: ({ attribs, children, name: tagName }: any) => {
       if (tagName === FIGURE_TAG) {
         console.log(children)
         return <>{domToReact(children, options)}</>;
@@ -70,7 +70,7 @@ function convertEntityToHTML(content: RawDraftContentState, config: IParseTextBl
   return ReactHtmlParser(HTML, config);
 }
 
-function parseTextBlock(config: IParseTextBlock): JSX.Element | JSX.Element[] {
+function parseTextBlock(config: IParseTextBlock): string | JSX.Element | JSX.Element[] {
   const { editor } = config;
   const content = isValidJSON(editor);
 

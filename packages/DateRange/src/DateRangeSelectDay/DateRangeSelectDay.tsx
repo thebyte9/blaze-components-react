@@ -1,5 +1,5 @@
-import Input from '../../../Input/src/Input';
-import buildClassNames from '../../../Utils/src/buildClassNames';
+import Input from '@blaze-react/input';
+import { buildClassNames } from '@blaze-react/utils';
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { MONTHS, NEXT, PREVIOUS, SEPARATOR } from '../constants';
 import { DateUtilsSingleton } from '../utils';
@@ -10,11 +10,6 @@ export interface IDateRangeProps {
   selected?: any;
   type?: string;
 }
-
-// interface ISubtract {
-//   value: number | string;
-//   type: string;
-// }
 
 interface IOnChangeArguments {
   end?: string;

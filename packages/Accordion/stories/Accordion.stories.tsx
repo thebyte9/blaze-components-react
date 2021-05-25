@@ -1,4 +1,4 @@
-import Button from '../../Button/src/Button';
+import Button from '@blaze-react/button';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import AccordionReadme from '../README.md';
@@ -7,8 +7,8 @@ import Accordion from '../src/Accordion';
 storiesOf('Accordion', module)
   .addParameters({
     readme: {
-      sidebar: AccordionReadme
-    }
+      sidebar: AccordionReadme,
+    },
   })
   .add('Introduction', () => (
     <div className="component-wrapper">

@@ -2,6 +2,7 @@ import { Checkboxes } from '@blaze-react/checkboxes';
 import { ITableRow } from '../interfaces';
 import React from 'react';
 import VirtualList from 'react-tiny-virtual-list';
+import { v4 as uuidv4 } from 'uuid';
 
 interface ICheckbox {
   checked: boolean;
@@ -53,7 +54,7 @@ const TableBody = ({
             <div
               onClick={() => onClickRow({ ...allRows[index], index })}
               className="table-row"
-              key={`tablerow-${index}`}
+              key={`tablerow-${uuidv4()}`}
               data-testid={`tablerow-${index}`}
               style={style}
             >
@@ -66,7 +67,7 @@ const TableBody = ({
                       id: allRows[index][identification],
                       value: allRows[index][identification],
                     }}
-                    onChange={({ value }): void => handleSelected(value, allRows[index][identification])}
+                    onChange={({ value }: any): void => handleSelected(value, allRows[index][identification])}
                   />
                 </div>
               )}

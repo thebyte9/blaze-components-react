@@ -1,7 +1,7 @@
-import Chip from '../../Chips/src';
-import Input from '../../Input/src';
+import Chip from '@blaze-react/chips';
+import Input from '@blaze-react/input';
 import React from 'react';
-import buildClassNames from '../../Utils/src/buildClassNames';
+import { buildClassNames } from '@blaze-react/utils';
 
 interface ISelectedValue {
   [index: string]: string;

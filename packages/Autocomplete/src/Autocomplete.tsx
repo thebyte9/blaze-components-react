@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
-import Input from '../../Input/src';
+import Input from '@blaze-react/input';
 interface IAutocompleteProps {
   data: {
     keyValue: string;

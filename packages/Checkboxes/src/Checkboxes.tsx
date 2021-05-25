@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 
 import Checkbox from './Checkbox';
-import ErrorMessage from '../../Utils/src/ErrorMessage';
+import { ErrorMessage } from '@blaze-react/utils';
 import { v4 as uuidv4 } from 'uuid';
 
 interface IErrorMessage {

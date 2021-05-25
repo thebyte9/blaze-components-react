@@ -1,7 +1,7 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import React, { useEffect, useRef, useState } from "react";
-import MoreAvatar from "./MoreAvatar";
-import MoreContent from "./MoreContent";
+import { buildClassNames } from '@blaze-react/utils';
+import React, { useEffect, useRef, useState } from 'react';
+import MoreAvatar from './MoreAvatar';
+import MoreContent from './MoreContent';
 interface IMoreProps {
   isHeader?: boolean;
   isMoreMenu?: boolean;
@@ -11,31 +11,26 @@ interface IMoreProps {
   disabled?: boolean;
 }
 
-const More = ({
-  children,
-  isHeader,
-  isMoreMenu,
-  displayBg,
-  disabled,
-  onClose,
-}: IMoreProps) => {
+const More = ({ children, isHeader, isMoreMenu, displayBg, disabled, onClose }: IMoreProps) => {
   const moreMenuRef = useRef<HTMLDivElement>(null);
   const [toggled, setToggle] = useState<boolean>(false);
 
   useEffect(() => {
-    document.addEventListener("mousedown", (event): any => {
+    document.addEventListener('mousedown', (event): any => {
       return handleOutsideClick(event);
     });
 
     return function cleanup() {
-      document.removeEventListener("mousedown", (event): any => {
+      document.removeEventListener('mousedown', (event): any => {
         return handleOutsideClick(event);
       });
     };
   }, []);
 
   const handleToggle = (event: any) => {
-    if (disabled) { return; }
+    if (disabled) {
+      return;
+    }
     event.stopPropagation();
     setToggle(!toggled);
     if (toggled) {
@@ -43,22 +38,19 @@ const More = ({
     }
   };
 
-  const ulClassName = buildClassNames("dropdown", {
-    "dropdown dropdown__list": !isHeader,
-    "dropdown__list dropdown__list--header dropdown--header": isHeader,
-    "more-menu__list": isMoreMenu,
+  const ulClassName = buildClassNames('dropdown', {
+    'dropdown dropdown__list': !isHeader,
+    'dropdown__list dropdown__list--header dropdown--header': isHeader,
+    'more-menu__list': isMoreMenu,
   });
   const liClassName = buildClassNames({
-    "dropdown__list-item": !isHeader,
-    "dropdown__list-item dropdown__list-item--header": isHeader,
-    "more-menu__list-item": isMoreMenu,
+    'dropdown__list-item': !isHeader,
+    'dropdown__list-item dropdown__list-item--header': isHeader,
+    'more-menu__list-item': isMoreMenu,
   });
 
   const handleOutsideClick = (event: any) => {
-    if (
-      moreMenuRef.current !== null &&
-      !moreMenuRef.current.contains(event.target)
-    ) {
+    if (moreMenuRef.current !== null && !moreMenuRef.current.contains(event.target)) {
       setToggle(false);
     }
   };
@@ -73,7 +65,7 @@ const More = ({
               toggled,
               displayBg,
               disabled,
-            })
+            }),
           )}
         </li>
       </ul>

@@ -1,4 +1,4 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
+import { buildClassNames } from '@blaze-react/utils';
 import React, { Fragment, useEffect, useState } from 'react';
 
 export type TPosition = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';

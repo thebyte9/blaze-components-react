@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import Button from '../../Button/src';
+import Button from '@blaze-react/button';
 import ButtonSelect from '../src';
 import React from 'react';
 

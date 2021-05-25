@@ -1,5 +1,5 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import ErrorMessage from '../../Utils/src/ErrorMessage';
+import { buildClassNames } from '@blaze-react/utils';
+import { ErrorMessage } from '@blaze-react/utils';
 
 import React, { FunctionComponent, TextareaHTMLAttributes, useEffect, useState } from 'react';
 

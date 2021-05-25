@@ -30,7 +30,16 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-typescript',
+              [
+                '@babel/preset-react',
+                {
+                  runtime: 'automatic',
+                },
+              ],
+            ],
           },
         },
       },
@@ -51,12 +60,6 @@ module.exports = {
         ],
       },
     ],
-  },
-  externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-    classnames: 'classnames',
-    'prop-types': 'prop-types',
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({

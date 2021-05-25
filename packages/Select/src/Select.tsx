@@ -1,5 +1,5 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import ErrorMessage from '../../Utils/src/ErrorMessage';
+import { buildClassNames } from '@blaze-react/utils';
+import { ErrorMessage } from '@blaze-react/utils';
 import React, { useEffect, useState, FunctionComponent } from 'react';
 
 interface ISelectProps {
