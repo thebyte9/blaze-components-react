@@ -1,5 +1,4 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import expect from 'expect';
 import React from 'react';
 import DefaultToast from '../../../src/Toast/DefaultToast';
 import userEvent from '@testing-library/user-event';

@@ -1,7 +1,7 @@
-import React, { ButtonHTMLAttributes } from "react";
-import buildClassNames from '../../Utils/src/buildClassNames';
+import React, { ButtonHTMLAttributes } from 'react';
+import { buildClassNames } from '@blaze-react/utils';
 
-type TType = "button" | "submit" | "reset";
+type TType = 'button' | 'submit' | 'reset';
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
@@ -10,37 +10,23 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   modifiers?: string[];
 }
 
-const Button = 
-  ({
-    disabled,
-    type,
-    children,
-    modifiers = [],
-    ...attrs
-  }: IButtonProps): JSX.Element => {
-    const formatedModifiers: string = modifiers
-      .map((modifier) => `button--${modifier}`)
-      .join(" ");
-    const buttonClassNames: string = buildClassNames("button", {
-      [formatedModifiers]: !!modifiers,
-    });
+const Button = ({ disabled, type, children, modifiers = [], ...attrs }: IButtonProps): JSX.Element => {
+  const formatedModifiers: string = modifiers.map((modifier) => `button--${modifier}`).join(' ');
+  const buttonClassNames: string = buildClassNames('button', {
+    [formatedModifiers]: !!modifiers,
+  });
 
-    return (
-      <button
-        disabled={disabled}
-        className={buttonClassNames}
-        type={type}
-        {...attrs}
-      >
-        {children}
-      </button>
-    );
-  };
+  return (
+    <button disabled={disabled} className={buttonClassNames} type={type} {...attrs}>
+      {children}
+    </button>
+  );
+};
 
 Button.defaultProps = {
-  children: "",
+  children: '',
   disabled: false,
-  type: "button",
+  type: 'button',
 };
 
 export default Button;

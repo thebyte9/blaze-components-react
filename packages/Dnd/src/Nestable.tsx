@@ -1,10 +1,10 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import update from "immutability-helper";
-import React, { Component, createRef } from "react";
-import shallowCompare from "react-addons-shallow-compare";
-import { HIDE, SHOW } from "./constants";
-import DragLayer from "./DragLayer/index";
-import NestableItem from "./NestableItem";
+import { buildClassNames } from '@blaze-react/utils';
+import update from 'immutability-helper';
+import React, { Component, createRef } from 'react';
+import shallowCompare from 'react-addons-shallow-compare';
+import { HIDE, SHOW } from './constants';
+import DragLayer from './DragLayer/index';
+import NestableItem from './NestableItem';
 import {
   closest,
   getItemByPath,
@@ -15,7 +15,7 @@ import {
   listWithChildren,
   tryDecreaseDepth,
   tryIncreaseDepth,
-} from "./utils";
+} from './utils';
 
 interface INestableProps {
   items?: any;
@@ -34,7 +34,7 @@ interface INestableState {
 
 class Nestable extends Component<INestableProps, INestableState> {
   public static defaultProps = {
-    childrenProp: "children",
+    childrenProp: 'children',
     confirmChange: () => true,
     items: [],
     onChange: () => {
@@ -71,11 +71,7 @@ class Nestable extends Component<INestableProps, INestableState> {
 
   public componentDidUpdate(prevProps: any) {
     const { items: newItems, childrenProp } = this.props;
-    const isPropsUpdated = shallowCompare(
-      { props: this.props, state: {} } as any,
-      prevProps,
-      {}
-    );
+    const isPropsUpdated = shallowCompare({ props: this.props, state: {} } as any, prevProps, {});
     if (isPropsUpdated) {
       this.stopTrackMouse();
       this.updateProps(newItems, childrenProp);
@@ -87,15 +83,15 @@ class Nestable extends Component<INestableProps, INestableState> {
   }
 
   public startTrackMouse = () => {
-    document.addEventListener("mousemove", this.onMouseMove);
-    document.addEventListener("mouseup", this.onDragEnd);
+    document.addEventListener('mousemove', this.onMouseMove);
+    document.addEventListener('mouseup', this.onDragEnd);
   };
-  
+
   public stopTrackMouse = () => {
-    document.removeEventListener("mousemove", this.onMouseMove);
-    document.removeEventListener("mouseup", this.onDragEnd);
+    document.removeEventListener('mousemove', this.onMouseMove);
+    document.removeEventListener('mouseup', this.onDragEnd);
   };
-  
+
   public onMouseEnter = (e: any, item: any) => {
     e.preventDefault();
     e.stopPropagation();
@@ -117,7 +113,7 @@ class Nestable extends Component<INestableProps, INestableState> {
     const newDragItem = { ...dragItem, status: SHOW };
     this.moveItem({ dragItem: newDragItem, pathFrom, pathTo });
   };
-  
+
   public onMouseMove = (e: any) => {
     const { childrenProp } = this.props;
     const { dragItem, items } = this.state;
@@ -126,37 +122,27 @@ class Nestable extends Component<INestableProps, INestableState> {
     const dragLayer = this.dragLayerRef.current;
 
     Object.keys(transformProps).forEach((key) => {
-      if (
-        Object.prototype.hasOwnProperty.call(transformProps, key) &&
-        dragLayer &&
-        dragLayer.style
-      ) {
+      if (Object.prototype.hasOwnProperty.call(transformProps, key) && dragLayer && dragLayer.style) {
         dragLayer.style[key] = transformProps[key];
       }
     });
 
     const diffX = clientX - this.mouse.last.x;
-    if (
-      (diffX >= 0 && this.mouse.shift.x >= 0) ||
-      (diffX <= 0 && this.mouse.shift.x <= 0)
-    ) {
+    if ((diffX >= 0 && this.mouse.shift.x >= 0) || (diffX <= 0 && this.mouse.shift.x <= 0)) {
       this.mouse.shift.x += diffX;
     } else {
       this.mouse.shift.x = 0;
     }
 
     this.mouse.last.x = clientX;
-    
+
     if (dragItem && Math.abs(this.mouse.shift.x)) {
       const movementData = {
         childrenProp,
         dragItem,
         items,
       };
-      const availableDrop =
-        this.mouse.shift.x > 0
-          ? tryIncreaseDepth(movementData)
-          : tryDecreaseDepth(movementData);
+      const availableDrop = this.mouse.shift.x > 0 ? tryIncreaseDepth(movementData) : tryDecreaseDepth(movementData);
       availableDrop && this.moveItem(availableDrop);
       this.mouse.shift.x = 0;
     }
@@ -172,7 +158,7 @@ class Nestable extends Component<INestableProps, INestableState> {
   public onDragStart = (e: any, item: any) => {
     e.preventDefault();
     e.stopPropagation();
-    this.el = closest(e.target, ".nestable-item-parent");
+    this.el = closest(e.target, '.nestable-item-parent');
     this.startTrackMouse();
     this.onMouseMove(e);
     const newItem = { ...item, status: HIDE };
@@ -199,35 +185,34 @@ class Nestable extends Component<INestableProps, INestableState> {
       nextPath: pathTo,
       prevPath: pathFrom,
     });
-    
-    const destinationPath =
-      realPathTo.length > pathTo.length ? pathTo : pathTo.slice(0, -1);
-    
-      const destinationParent = getItemByPath({
+
+    const destinationPath = realPathTo.length > pathTo.length ? pathTo : pathTo.slice(0, -1);
+
+    const destinationParent = getItemByPath({
       childrenProp,
       items,
       path: destinationPath,
     });
-    
+
     if (!confirmChange(dragItem, destinationParent)) {
       return;
     }
-    
+
     const removePath = getSplicePath(pathFrom, {
       childrenProp,
       numToRemove: 1,
     });
-    
+
     const insertPath = getSplicePath(realPathTo, {
       childrenProp,
       itemsToInsert: [dragItem],
       numToRemove: 0,
     });
-    
+
     items = update(items, removePath);
-    
+
     items = update(items, insertPath);
-    
+
     this.setState({
       isDirty: true,
       items,
@@ -259,8 +244,8 @@ class Nestable extends Component<INestableProps, INestableState> {
   public render() {
     const { items, dragItem } = this.state;
     const { renderItem, childrenProp } = this.props;
-    const wrapperClassName = buildClassNames("nestable", {
-      "is-dragging": dragItem,
+    const wrapperClassName = buildClassNames('nestable', {
+      'is-dragging': dragItem,
     });
     return (
       <div className={wrapperClassName}>

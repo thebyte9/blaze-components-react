@@ -1,5 +1,5 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import ErrorMessage from '../../Utils/src/ErrorMessage';
+import { buildClassNames } from '@blaze-react/utils';
+import { ErrorMessage } from '@blaze-react/utils';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { DATE_FORMAT_MAP, TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';

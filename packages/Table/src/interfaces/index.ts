@@ -1,7 +1,9 @@
-import { ICheckboxItem } from '../../../Checkboxes/src';
-
-interface ITableRow {
+export interface ITableRow {
   [index: string]: any;
 }
 
-export { ITableRow, ICheckboxItem };
+export interface ICheckboxItem {
+  checked: boolean;
+  id: string | number;
+  value: any;
+}

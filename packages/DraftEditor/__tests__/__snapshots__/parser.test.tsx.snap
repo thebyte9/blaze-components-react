@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseTextBlock it should match snapshot 1`] = `
+<DocumentFragment>
+  <p>
+    Lorem ipsum.
+  </p>
+  
+
+  <p>
+    Swap order so first Credits then second Caption.
+  </p>
+  
+
+  <p>
+    To match what we now have 
+    <a
+      href="link"
+    >
+      as labels on video
+    </a>
+     
+  </p>
+  
+
+  <br />
+  
+
+  <hr />
+  
+
+  <br />
+</DocumentFragment>
+`;

@@ -1,5 +1,5 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import React, { Fragment, FunctionComponent } from "react";
+import { buildClassNames } from '@blaze-react/utils';
+import React, { Fragment, FunctionComponent } from 'react';
 
 interface IBadgeProps {
   type?: string;
@@ -10,18 +10,10 @@ interface IBadgeProps {
   children?: React.ReactNode;
 }
 
-const Badge: FunctionComponent<IBadgeProps> = ({
-  children,
-  type,
-  color,
-  icon,
-  link,
-  modifiers,
-  ...attrs
-}) => {
-  const withIcon = icon ? "badge--icon-text" : "";
+const Badge: FunctionComponent<IBadgeProps> = ({ children, type, color, icon, link, modifiers, ...attrs }) => {
+  const withIcon = icon ? 'badge--icon-text' : '';
 
-  const classes: string = buildClassNames("badge", {
+  const classes: string = buildClassNames('badge', {
     [`badge--${type}`]: !!type,
     [`${withIcon}`]: !!withIcon,
     [`${color}`]: !!color,
@@ -38,11 +30,11 @@ const Badge: FunctionComponent<IBadgeProps> = ({
 };
 
 Badge.defaultProps = {
-  children: "No content",
-  color: "",
+  children: 'No content',
+  color: '',
   icon: false,
   link: false,
-  modifiers: "",
+  modifiers: '',
 };
 
 export default Badge;

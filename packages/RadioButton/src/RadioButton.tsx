@@ -1,5 +1,5 @@
-import ErrorMessage from '../../Utils/src/ErrorMessage';
-import React, { Fragment, FunctionComponent, useState } from "react";
+import { ErrorMessage } from '@blaze-react/utils';
+import React, { Fragment, FunctionComponent, useState } from 'react';
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -11,7 +11,7 @@ interface IRadioButtonProps {
   required?: boolean;
   onChange: ({
     event,
-    selected
+    selected,
   }: {
     event: React.ChangeEvent<HTMLInputElement>;
     selected: string | Record<string, unknown> | [];
@@ -32,7 +32,7 @@ const RadioButton: React.SFC<IRadioButtonProps> = ({
   ...attrs
 }) => {
   const [selected, setSelected] = useState<{ value: string | any }>({
-    value: null
+    value: null,
   });
   const handleSelect = ({ event, item }: { event: any; item: any }) => {
     if (item.disabled) {
@@ -44,13 +44,13 @@ const RadioButton: React.SFC<IRadioButtonProps> = ({
   return (
     <Fragment>
       {required && <span className="required" />}
-      {options.map(item => {
+      {options.map((item) => {
         const { value, disabled, label, id } = item;
         return (
           <div
             key={label}
             className="form-field form-field--radio"
-            onClick={event => handleSelect({ event, item })}
+            onClick={(event) => handleSelect({ event, item })}
             role="button"
           >
             <input
@@ -79,7 +79,7 @@ RadioButton.defaultProps = {
   },
   options: [],
   required: false,
-  validationMessage: "This field is required"
+  validationMessage: 'This field is required',
 };
 
 export default RadioButton;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import buildClassNames from '../../../Utils/src/buildClassNames';
+import { buildClassNames } from '@blaze-react/utils';
 import { createPortal } from 'react-dom';
 
 interface IMoreContentProps {

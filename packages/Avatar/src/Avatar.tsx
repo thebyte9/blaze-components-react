@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import buildClassNames from '../../Utils/src/buildClassNames';
+import { buildClassNames } from '@blaze-react/utils';
 
 type TModifier = 'med' | 'small' | 'x-small';
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Modal from '../../Modal/src';
+import Modal from '@blaze-react/modal';
 import PropTypes from 'prop-types';
-import Input from '../../Input/src';
+import Input from '@blaze-react/input';
 import { EditorState } from 'draft-js';
 
 interface LinkModalProps {
@@ -17,7 +17,6 @@ const LinkModal = ({ editorState, onClose, onSave, linkContentState }: LinkModal
 
   const handleOnChange = (event: any, value: any) => {
     event.preventDefault();
-    console.log(value);
     setUrl(value);
   };
 
@@ -74,7 +73,7 @@ const LinkModal = ({ editorState, onClose, onSave, linkContentState }: LinkModal
         label="Insert URL"
         placeholder="Insert URL"
         modifier="full-width"
-        onChange={({ event, value }) => handleOnChange(event, value)}
+        onChange={({ event, value }: any) => handleOnChange(event, value)}
         value={url}
         autoFocus
         data-testid="link-input"

@@ -1,5 +1,4 @@
-import buildClassNames from '../../Utils/src/buildClassNames';
-import ErrorMessage from '../../Utils/src/ErrorMessage';
+import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import ToggleInputType from './ToggleInputType';
 

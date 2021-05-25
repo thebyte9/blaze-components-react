@@ -1,7 +1,7 @@
-import Button from "../../Button/src/Button";
-import React from "react";
-import Accordion from "../src/Accordion";
-import { render, fireEvent } from '@testing-library/react'
+import Button from '@blaze-react/button';
+import React from 'react';
+import Accordion from '../src/Accordion';
+import { render, fireEvent } from '@testing-library/react';
 
 const AccordionComponent = (
   <Accordion>
@@ -15,10 +15,10 @@ const AccordionComponent = (
         <p>Footer can be added below if needed</p>
       </Accordion.ContentDetails>
       <Accordion.ContentFooter>
-        <Button name="button" modifiers={["outline", "light", "rounded"]}>
+        <Button name="button" modifiers={['outline', 'light', 'rounded']}>
           Cancel
         </Button>
-        <Button name="button" modifiers={["rounded"]}>
+        <Button name="button" modifiers={['rounded']}>
           Save
         </Button>
       </Accordion.ContentFooter>
@@ -26,7 +26,7 @@ const AccordionComponent = (
   </Accordion>
 );
 
-describe("Accordion component", () => {
+describe('Accordion component', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(AccordionComponent);
     expect(asFragment()).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe("Accordion component", () => {
 
   it('should toggle on click', () => {
     const wrapper = render(AccordionComponent);
-    const toggleAccordion = wrapper.getByTestId('toggle-accordion')
+    const toggleAccordion = wrapper.getByTestId('toggle-accordion');
     fireEvent.click(toggleAccordion);
-  })
+  });
 });

@@ -6,7 +6,6 @@ export function usePersistedState(key: string, defaultValue: any): any {
       const result = JSON.parse(localStorage.getItem(key) || defaultValue);
       return result;
     } catch (err) {
-      console.log(err);
       return defaultValue;
     }
   });

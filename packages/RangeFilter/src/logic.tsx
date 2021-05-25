@@ -44,8 +44,6 @@ const RangeFilter = (selector: string, getMinMax: any) => {
   let startX = 0;
   let xAxis = 0;
 
-  console.log(selector);
-
   if (!$(selector)) {
     return;
   }
