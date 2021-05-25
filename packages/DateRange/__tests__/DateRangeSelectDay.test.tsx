@@ -21,13 +21,7 @@ describe('DateRange component', () => {
     render(<DateRangeSelectDay {...defaultProps()} />);
     const input = screen.getByTestId('input');
     fireEvent.click(input);
-    screen.debug();
 
     fireEvent.change(input, { target: { value: '11/12/2021' } });
   });
-
-  // test('should select a value', () => {
-  //   render(<DateRange {...defaultProps()} />);
-  //   userEvent.change(screen.getByText('Please Choose...'), { target: { value: 'days, 30' } });
-  // });
 });
