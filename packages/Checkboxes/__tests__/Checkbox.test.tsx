@@ -48,7 +48,7 @@ describe('Checkboxes component', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should render and toggle single checkbox', () => {
+  it('should render single checkbox', () => {
     const override = {
       options: single,
       returnBoolean: true,
