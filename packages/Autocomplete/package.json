@@ -1,9 +1,6 @@
 {
   "name": "@blaze-react/autocomplete",
   "version": "0.6.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "Autocomplete component allows users to quickly find and select one from suggested options.",
   "main": "./dist/main.js",
   "scripts": {

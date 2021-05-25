@@ -1,9 +1,6 @@
 {
   "name": "@blaze-react/dnd",
   "version": "0.6.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "Recursive drag and drop",
   "main": "./dist/main.js",
   "scripts": {

@@ -1,9 +1,6 @@
 {
   "name": "@blaze-react/avatar",
   "version": "0.6.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
