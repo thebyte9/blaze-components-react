@@ -31,7 +31,7 @@ jobs: # a collection of steps
           command: 'sudo npm install -g codecov'
       - run:
           name: Set version
-          command: 'yarn set version 2.4.1'
+          command: 'yarn set version berry'
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
