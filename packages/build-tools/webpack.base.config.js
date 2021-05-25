@@ -5,6 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+  },
   mode: 'production',
   entry: './src/index.ts',
   output: {
@@ -21,6 +25,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.json', '.ts', '.tsx'],
+    fallback: {
+      path: false,
+      fs: false,
+    },
   },
   module: {
     rules: [
