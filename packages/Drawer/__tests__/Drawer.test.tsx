@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
-
-import { fireEvent, render, screen } from '@testing-library/react';
-
+import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import Drawer from '../src/Drawer';
 import React from 'react';
 
@@ -20,5 +19,16 @@ describe('Drawer component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
     const { asFragment } = render(DrawerComponent);
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('should toggle the drawer', () => {
+    render(DrawerComponent);
+    userEvent.click(screen.getByTestId('icon-button-arrow'));
+
+    const drawer = screen.getByTestId('drawer-wrapper');
+    expect(drawer.classList.contains('open')).toBeTruthy();
+
+    userEvent.click(screen.getByTestId('icon-button-arrow'));
+    expect(drawer.classList.contains('open')).toBeFalsy();
   });
 });

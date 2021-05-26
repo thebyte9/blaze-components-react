@@ -7,6 +7,7 @@ exports[`Drawer component should be defined and renders correctly (snapshot) 1`]
   >
     <div
       class="drawer drawer--right"
+      data-testid="drawer-wrapper"
     >
       <div
         class="drawer__content-wrapper"
@@ -16,6 +17,7 @@ exports[`Drawer component should be defined and renders correctly (snapshot) 1`]
         >
           <button
             class="icon-button"
+            data-testid="icon-button-arrow"
             type="button"
           >
             <i
@@ -46,6 +48,7 @@ exports[`Drawer component should be defined and renders correctly (snapshot) 1`]
       >
         <button
           class="icon-button"
+          data-testid="icon-button-menu"
           type="button"
         >
           <i

@@ -42,11 +42,11 @@ const Drawer = ({ children, modifier, isResponsive, isPermanent, title }: IDrawe
 
   return (
     <div className={drawerWrapperClassNames}>
-      <div className={drawerTypeClassNames}>
+      <div className={drawerTypeClassNames} data-testid="drawer-wrapper">
         <div className="drawer__content-wrapper">
           <div className={drawerHeaderClassNames}>
             {!isPermanent && (
-              <Button className="icon-button" onClick={handleToggleMenuStatus}>
+              <Button className="icon-button" onClick={handleToggleMenuStatus} data-testid="icon-button-arrow">
                 <i className="material-icons">{`keyboard_arrow_${modifier}`}</i>
               </Button>
             )}
@@ -57,7 +57,7 @@ const Drawer = ({ children, modifier, isResponsive, isPermanent, title }: IDrawe
       <div className="page page--drawer">
         <div className={drawerPageHeaderClassNames}>
           {!isPermanent && (
-            <Button className="icon-button" onClick={handleToggleMenuStatus}>
+            <Button className="icon-button" onClick={handleToggleMenuStatus} data-testid="icon-button-menu">
               <i className="material-icons">menu</i>
             </Button>
           )}
