@@ -6,7 +6,7 @@
     "dev": "start-storybook",
     "clean": "lerna clean && yarn cache clean",
     "lint": "yarn workspaces foreach run lint",
-    "build": "lerna run build",
+    "build": "yarn workspaces foreach run build",
     "build-storybook": "NODE_ENV=production build-storybook",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -25,7 +25,7 @@
     "packages/*"
   ],
   "author": "byte9",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/thebyte9/blaze-components-react/issues"
   },
@@ -175,19 +175,19 @@
     "webpack-merge": "^5.7.3",
     "webpack-virtual-modules": "^0.4.2"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "yarn lint"
+    ]
+  },
   "keywords": [
     "React",
     "components",
     "library"
-  ],
-  "resolutions": {
-    "webpack": "5.28.0",
-    "css-loader": "^5.0.1",
-    "dotenv-webpack": "^7.0.2",
-    "html-webpack-plugin": "^5.0.0",
-    "style-loader": "^2.0.0",
-    "terser-webpack-plugin": "^5.1.1",
-    "webpack-dev-middleware": "^4.1.0",
-    "webpack-virtual-modules": "^0.4.2"
-  }
+  ]
 }

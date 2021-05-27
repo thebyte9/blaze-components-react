@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "byte9",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": {
     "intersection-observer": "^0.12.0",
     "react": "^17.0.2",

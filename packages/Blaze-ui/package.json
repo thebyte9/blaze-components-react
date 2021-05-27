@@ -14,6 +14,5 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "cpx": "^1.5.0"
-  },
-  "gitHead": "c7cc1d26b4046b800c727feb1dd283dbd833328c"
+  }
 }

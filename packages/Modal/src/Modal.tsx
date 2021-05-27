@@ -24,7 +24,7 @@ interface IModalProps {
   className?: string;
 }
 
-const Modal: React.SFC<IModalProps> = ({
+const Modal: FunctionComponent<IModalProps> = ({
   children,
   isSimple,
   isAlert,

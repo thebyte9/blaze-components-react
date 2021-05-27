@@ -13,6 +13,7 @@ exports[`More component should display classnames based on props (isHeader false
       >
         <button
           class=""
+          data-testid="dropdown-button"
           type="button"
         >
           <span
@@ -55,6 +56,7 @@ exports[`More component should display classnames based on props (isHeader true)
       >
         <button
           class=""
+          data-testid="dropdown-button"
           type="button"
         >
           <span
@@ -97,6 +99,7 @@ exports[`More component should display overlay when displayBg prop is passed as 
       >
         <button
           class="dropdown__button"
+          data-testid="dropdown-button"
           type="button"
         >
           <span
@@ -142,6 +145,7 @@ exports[`More component should not display overlay when displayBg prop is not pa
       >
         <button
           class="dropdown__button"
+          data-testid="dropdown-button"
           type="button"
         >
           <span
@@ -187,6 +191,7 @@ exports[`More component should render 1`] = `
       >
         <button
           class="icon-button icon-button--round"
+          data-testid="dropdown-button"
           type="button"
         >
           <span
@@ -229,6 +234,7 @@ exports[`More content should display classname based on props 1`] = `
       >
         <button
           class="icon-button icon-button--round"
+          data-testid="dropdown-button"
           type="button"
         >
           <span
