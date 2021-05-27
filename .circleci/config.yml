@@ -32,21 +32,21 @@ jobs: # a collection of steps
       - run:
           name: Set version
           command: 'yarn set version berry'
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+      # - restore_cache:
+      #     name: Restore Yarn Package Cache
+      #     keys:
+      #       - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
           command: yarn install
-      - run:
-          name: Check for duplicates
-          command: yarn dedupe
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
+      # - run:
+      #     name: Check for duplicates
+      #     command: yarn dedupe
+      # - save_cache:
+      #     name: Save Yarn Package Cache
+      #     key: yarn-packages-{{ checksum "yarn.lock" }}
+      #     paths:
+      #       - ~/.cache/yarn
       - run:
           name: Run lint
           command: yarn lint
