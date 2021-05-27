@@ -9,7 +9,7 @@ jest.mock('../src/DraftEditor', () => () => <div>Draft Editor</div>);
 describe('DraftEditor component', () => {
   window.getSelection = () => {
     return {
-      removeAllRanges: () => ({}),
+      removeAllRanges: jest.fn(),
     };
   };
 

@@ -12,7 +12,7 @@ interface ITextareaProps {
 
 const defaultProps = (override = {}): ITextareaProps => ({
   label: 'Simple textarea',
-  onChange: () => ({}),
+  onChange: jest.fn(),
   ...override,
 });
 

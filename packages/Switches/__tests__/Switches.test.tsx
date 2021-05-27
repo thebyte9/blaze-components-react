@@ -27,7 +27,7 @@ const single = {
 };
 
 const defaultProps = (override = {}) => ({
-  onChange: () => ({}),
+  onChange: jest.fn(),
   options,
   ...override,
 });

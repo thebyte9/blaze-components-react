@@ -8,7 +8,7 @@ import React from 'react';
 const defaultProps = (override: object = {}) => ({
   minValue: 0,
   maxValue: 20,
-  onChange: () => ({}),
+  onChange: jest.fn(),
   value: 12,
   ...override,
 });

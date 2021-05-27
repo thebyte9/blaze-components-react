@@ -9,7 +9,7 @@ interface IMoreContentProps {
   isMoreMenu?: boolean;
   isDropdown?: boolean;
   handleToggle?: any;
-  displayBg?: string;
+  displayBg?: boolean;
 }
 const MoreContent: React.SFC<IMoreContentProps> = ({
   children,
@@ -80,7 +80,12 @@ const MoreContent: React.SFC<IMoreContentProps> = ({
 
   return (
     <>
-      {toggled && displayBg && createPortal(<div className="more-menu__background" ref={wrapperRef} />, getContainer())}
+      {toggled &&
+        displayBg &&
+        createPortal(
+          <div className="more-menu__background" ref={wrapperRef} data-testid="more-menu-background" />,
+          getContainer(),
+        )}
       <ul className={ulClassName} ref={listMenuRef}>
         {React.Children.map(
           children,

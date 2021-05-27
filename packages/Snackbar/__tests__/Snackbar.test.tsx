@@ -25,7 +25,7 @@ describe('Snackbar component', () => {
   test('should close Snackbar', () => {
     const override = {
       duration: 0,
-      onClose: () => ({}),
+      onClose: jest.fn(),
     };
 
     const { container, getByText, rerender } = render(<Snackbar {...defaultProps()} />);

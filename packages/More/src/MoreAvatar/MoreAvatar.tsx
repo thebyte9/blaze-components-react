@@ -30,7 +30,7 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   });
 
   return (
-    <Button onClick={handleToggle} className={buttonClassName} {...props} data-testid="dropdown-button">
+    <Button onClick={handleToggle} className={buttonClassName} {...props} data-testid="more-avatar-button">
       {isHeader ? (
         <Fragment>
           <span className="dropdown__name">{label}</span>
@@ -42,11 +42,14 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
     </Button>
   );
 };
+
 MoreAvatar.defaultProps = {
   children: null,
   className: '',
   isHeader: false,
   isMoreMenu: false,
   label: '',
+  toggled: false,
 };
+
 export default MoreAvatar;

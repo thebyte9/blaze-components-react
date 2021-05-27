@@ -1,17 +1,17 @@
-import { storiesOf } from "@storybook/react";
-import React from "react";
-import moreReadme from "../README.md";
-import More from "../src/More";
-storiesOf("More", module)
+import { storiesOf } from '@storybook/react';
+import React from 'react';
+import moreReadme from '../README.md';
+import More from '../src/More';
+storiesOf('More', module)
   .addParameters({
     readme: {
       sidebar: moreReadme,
     },
   })
-  .add("Introduction", () => (
+  .add('Introduction', () => (
     <div className="component-wrapper">
-      <More disabled isMoreMenu onClose={() => ({})}>
-        <More.Avatar isMoreMenu handleToggle={() => ({})}>
+      <More disabled isMoreMenu={true} onClose={() => ({})}>
+        <More.Avatar isMoreMenu={true} handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
         </More.Avatar>
         <More.Content isMoreMenu>
@@ -21,7 +21,7 @@ storiesOf("More", module)
         </More.Content>
       </More>
 
-      <More displayBg isMoreMenu>
+      <More displayBg={true} isMoreMenu={true}>
         <More.Avatar isMoreMenu handleToggle={() => ({})}>
           <span className="material-icons">more_vert</span>
         </More.Avatar>

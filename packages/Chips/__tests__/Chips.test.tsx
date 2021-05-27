@@ -20,7 +20,7 @@ describe('Chip component', () => {
     const { asFragment } = render(
       <Chips
         modifiers={[Chips.availableModifiers.parent.deletable, Chips.availableModifiers.parent.small]}
-        action={() => ({})}
+        action={jest.fn()}
       >
         <Chips.Avatar>
           <Avatar username="Lorem Ipsum" modifier="x-small" />

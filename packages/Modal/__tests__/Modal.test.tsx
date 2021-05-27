@@ -41,7 +41,7 @@ describe('Modal component', () => {
   it('should render and close alert modal', () => {
     const actions = [
       {
-        callback: () => ({}),
+        callback: jest.fn(),
         modifiers: ['alert', 'small'],
         textButton: 'delete',
       },
@@ -57,7 +57,7 @@ describe('Modal component', () => {
   it('should render and close alert modal on press escape key', () => {
     const actions = [
       {
-        callback: () => ({}),
+        callback: jest.fn(),
         modifiers: ['alert', 'small'],
         textButton: 'delete',
       },
@@ -83,7 +83,7 @@ describe('Modal component', () => {
   it('should close the modal when overlay is clicked', () => {
     const actions = [
       {
-        callback: () => ({}),
+        callback: jest.fn(),
         modifiers: ['alert', 'small'],
         textButton: 'delete',
       },
@@ -105,11 +105,11 @@ describe('Modal component', () => {
   it('should render and close scrollable modal', () => {
     const actions = [
       {
-        callback: () => ({}),
+        callback: jest.fn(),
         textButton: 'Action 1',
       },
       {
-        callback: () => ({}),
+        callback: jest.fn(),
         textButton: 'Action 2',
       },
     ];

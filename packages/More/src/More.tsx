@@ -5,7 +5,7 @@ import MoreContent from './MoreContent';
 interface IMoreProps {
   isHeader?: boolean;
   isMoreMenu?: boolean;
-  displayBg?: string;
+  displayBg?: boolean;
   children?: any;
   onClose: () => void;
   disabled?: boolean;
@@ -59,14 +59,16 @@ const More = ({ children, isHeader, isMoreMenu, displayBg, disabled, onClose }: 
   };
 
   return (
-    <div className="more-menu__wrapper" ref={moreMenuRef}>
-      <ul className={ulClassName}>
-        <li className={liClassName}>
+    <div className="more-menu__wrapper" ref={moreMenuRef} data-testid="more-menu-wrapper">
+      <ul className={ulClassName} data-testid="more-menu-ul">
+        <li className={liClassName} data-testid="more-menu-li">
           {React.Children.map(children, (child: any) =>
             React.cloneElement(child, {
               handleToggle,
-              toggled,
-              displaybg: displayBg,
+              toggled: toggled?.toString() || 'false',
+              // Warning: React does not recognize the `displayBg` prop on a DOM element.
+              // If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `displaybg` instead.
+              displaybg: displayBg?.toString() || 'false',
               disabled,
             }),
           )}

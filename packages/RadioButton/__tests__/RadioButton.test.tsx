@@ -28,17 +28,17 @@ const options = [
 
 describe('RadioButton component', () => {
   test('should be defined xand renders correctly (snapshot)', () => {
-    const { asFragment } = render(<RadioButton onChange={() => ({})} required options={options} />);
+    const { asFragment } = render(<RadioButton onChange={jest.fn()} required options={options} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   test('should active RadioButton on click', () => {
-    render(<RadioButton onChange={() => ({})} options={options} />);
+    render(<RadioButton onChange={jest.fn()} options={options} />);
     userEvent.click(screen.getByLabelText(/I accept/i));
   });
 
   test("can't interact when RadioButton is disabled", () => {
-    render(<RadioButton onChange={() => ({})} options={options} />);
+    render(<RadioButton onChange={jest.fn()} options={options} />);
     userEvent.click(screen.getByLabelText(/Disabled/i));
   });
 });
