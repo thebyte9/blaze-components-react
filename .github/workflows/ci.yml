@@ -111,7 +111,7 @@ jobs:
 
       - name: Install Yarn v2
         run: |
-          yarn set version berry
+          yarn set version from sources
 
       - name: Yarn workspace
         run: |
