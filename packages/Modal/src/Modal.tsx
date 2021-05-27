@@ -1,5 +1,5 @@
 import { buildClassNames } from '@blaze-react/utils';
-import React, { useEffect } from 'react';
+import React, { useEffect, FunctionComponent } from 'react';
 import { ESCAPE_KEY_CODE } from './constants';
 import ModalFooter from './ModalFooter';
 import ModalHeader from './ModalHeader';
@@ -35,7 +35,7 @@ const Modal: React.SFC<IModalProps> = ({
   overlay,
   className,
   showFooter,
-  onClose = () => ({}),
+  onClose,
 }): JSX.Element => {
   const sections: string[] = ['header', 'content', 'footer'];
 
@@ -50,6 +50,7 @@ const Modal: React.SFC<IModalProps> = ({
   const handleKey = ({ keyCode }: any) => keyCode === ESCAPE_KEY_CODE && closeModal();
 
   const closeModal = (): void => onClose();
+
   const handleOverlay = (): void => {
     if (overlay) {
       closeModal();
@@ -75,8 +76,8 @@ const Modal: React.SFC<IModalProps> = ({
 
   return (
     <>
-      <div className="overlay" onClick={handleOverlay} />
-      <div className={modalClassNames}>
+      <div className="overlay" onClick={handleOverlay} data-testid="overlay" />
+      <div className={modalClassNames} data-testid="modal">
         <div className={modalHeaderClassNames}>{!isAlert && <ModalHeader title={title} closeModal={closeModal} />}</div>
 
         <div className={modalContentClassNames}>{children}</div>

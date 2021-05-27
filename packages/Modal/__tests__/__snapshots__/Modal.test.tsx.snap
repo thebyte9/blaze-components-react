@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal component should be defined and renders correctly (snapshot) 1`] = `
+exports[`Modal component should close modal on overlay clicked 1`] = `
 <DocumentFragment>
   <div
     class="overlay"
+    data-testid="overlay"
   />
   <div
     class=" modal modal--show modal--simple"
+    data-testid="modal"
   >
     <div
       class="modal__header modal__header--simple"
@@ -16,6 +18,7 @@ exports[`Modal component should be defined and renders correctly (snapshot) 1`] 
       />
       <div
         class="modal__close"
+        data-testid="modal-close"
         role="button"
       >
         <i
@@ -41,13 +44,15 @@ exports[`Modal component should be defined and renders correctly (snapshot) 1`] 
 </DocumentFragment>
 `;
 
-exports[`Modal component should close modal on overlay clicked 1`] = `
+exports[`Modal component should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="overlay"
+    data-testid="overlay"
   />
   <div
     class=" modal modal--show modal--simple"
+    data-testid="modal"
   >
     <div
       class="modal__header modal__header--simple"
@@ -57,6 +62,7 @@ exports[`Modal component should close modal on overlay clicked 1`] = `
       />
       <div
         class="modal__close"
+        data-testid="modal-close"
         role="button"
       >
         <i
@@ -86,9 +92,11 @@ exports[`Modal component should render and close alert modal 1`] = `
 <DocumentFragment>
   <div
     class="overlay"
+    data-testid="overlay"
   />
   <div
     class=" modal modal--show modal--alert modal--simple"
+    data-testid="modal"
   >
     <div
       class="modal__header modal__header--alert modal__header--simple"
@@ -117,6 +125,50 @@ exports[`Modal component should render and close alert modal 1`] = `
           delete
         </button>
       </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Modal component should render overlay 1`] = `
+<DocumentFragment>
+  <div
+    class="overlay"
+    data-testid="overlay"
+  />
+  <div
+    class=" modal modal--show modal--simple"
+    data-testid="modal"
+  >
+    <div
+      class="modal__header modal__header--simple"
+    >
+      <div
+        class="modal__title"
+      />
+      <div
+        class="modal__close"
+        data-testid="modal-close"
+        role="button"
+      >
+        <i
+          class="material-icons"
+        >
+          close
+        </i>
+      </div>
+    </div>
+    <div
+      class="modal__content modal__content--simple"
+    >
+      No content
+    </div>
+    <div
+      class="modal__footer modal__footer--simple"
+    >
+      <div
+        class="modal__button"
+      />
     </div>
   </div>
 </DocumentFragment>

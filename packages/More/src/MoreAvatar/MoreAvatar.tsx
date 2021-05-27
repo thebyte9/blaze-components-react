@@ -30,7 +30,7 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   });
 
   return (
-    <Button onClick={handleToggle} className={buttonClassName} {...props}>
+    <Button onClick={handleToggle} className={buttonClassName} {...props} data-testid="dropdown-button">
       {isHeader ? (
         <Fragment>
           <span className="dropdown__name">{label}</span>

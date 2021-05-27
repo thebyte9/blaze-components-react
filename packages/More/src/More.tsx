@@ -5,13 +5,13 @@ import MoreContent from './MoreContent';
 interface IMoreProps {
   isHeader?: boolean;
   isMoreMenu?: boolean;
-  displayBg?: boolean;
+  displayBg?: string;
   children?: any;
   onClose: () => void;
   disabled?: boolean;
 }
 
-const More = ({ children, isHeader, isMoreMenu, displayBg, disabled, onClose }: IMoreProps) => {
+const More = ({ children, isHeader, isMoreMenu, displayBg, disabled, onClose }: IMoreProps): JSX.Element => {
   const moreMenuRef = useRef<HTMLDivElement>(null);
   const [toggled, setToggle] = useState<boolean>(false);
 
@@ -31,8 +31,11 @@ const More = ({ children, isHeader, isMoreMenu, displayBg, disabled, onClose }: 
     if (disabled) {
       return;
     }
+
     event.stopPropagation();
+
     setToggle(!toggled);
+
     if (toggled) {
       onClose();
     }
@@ -63,7 +66,7 @@ const More = ({ children, isHeader, isMoreMenu, displayBg, disabled, onClose }: 
             React.cloneElement(child, {
               handleToggle,
               toggled,
-              displayBg,
+              displaybg: displayBg,
               disabled,
             }),
           )}
@@ -72,13 +75,7 @@ const More = ({ children, isHeader, isMoreMenu, displayBg, disabled, onClose }: 
     </div>
   );
 };
-More.defaultProps = {
-  isHeader: false,
-  isMoreMenu: false,
-  displayBg: false,
-  onClose: () => void 0,
-  disabled: false,
-};
+
 More.Avatar = MoreAvatar;
 More.Content = MoreContent;
 

@@ -1,7 +1,6 @@
 import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
 
 import React, { FunctionComponent, TextareaHTMLAttributes, useEffect, useState } from 'react';
-
 interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   required?: boolean;

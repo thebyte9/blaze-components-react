@@ -9,7 +9,6 @@ const props = {
   actions: [],
   buttonText: 'Simple modal',
   isSimple: true,
-  onChange: () => void 0,
   onClose: jest.fn(),
 };
 
@@ -21,8 +20,16 @@ const defaultProps = (override: object = {}) => ({
 describe('Modal component', () => {
   beforeEach(() => jest.clearAllMocks());
 
-  it('should be defined and renders correctly (snapshot)', () => {
+  it('should match snapshot', () => {
     const { asFragment } = render(<Modal {...defaultProps()} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render overlay', () => {
+    const override = {
+      overlay: true,
+    };
+    const { asFragment } = render(<Modal {...defaultProps(override)} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -48,14 +55,6 @@ describe('Modal component', () => {
   });
 
   it('should render and close alert modal on press escape key', () => {
-    const map: any = {};
-    document.addEventListener = jest.fn((event, callback) => {
-      map[event] = callback;
-    });
-    document.removeEventListener = jest.fn((event, callback) => {
-      map[event] = undefined;
-    });
-
     const actions = [
       {
         callback: () => ({}),
@@ -66,10 +65,41 @@ describe('Modal component', () => {
 
     const override = {
       actions,
-      isAlert: true,
+      isAlert: false,
+    };
+
+    const { getByText } = render(<Modal {...defaultProps(override)} />);
+
+    fireEvent.keyDown(getByText(/No content/i), {
+      key: 'Escape',
+      code: 'Escape',
+      keyCode: 27,
+      charCode: 27,
+    });
+
+    expect(props.onClose).toHaveBeenCalled();
+  });
+
+  it('should close the modal when overlay is clicked', () => {
+    const actions = [
+      {
+        callback: () => ({}),
+        modifiers: ['alert', 'small'],
+        textButton: 'delete',
+      },
+    ];
+
+    const override = {
+      actions,
+      isAlert: false,
+      overlay: true,
     };
 
     render(<Modal {...defaultProps(override)} />);
+
+    const overlay = screen.getByTestId('overlay');
+    fireEvent.click(overlay);
+    expect(props.onClose).toHaveBeenCalled();
   });
 
   it('should render and close scrollable modal', () => {
