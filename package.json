@@ -140,7 +140,7 @@
     "jest": "^26.6.3",
     "jest-dom": "^4.0.0",
     "lerna": "^4.0.0",
-    "lint-staged": "^10.5.4",
+    "lint-staged": "^11.0.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.orderby": "^4.6.0",
     "mini-css-extract-plugin": "^1.4.0",
@@ -175,18 +175,6 @@
     "webpack-merge": "^5.7.3",
     "webpack-virtual-modules": "^0.4.2"
   },
-  // "husky": {
-  //   "hooks": {
-  //     "pre-commit": "lint-staged"
-  //   }
-  // },
-  // "lint-staged": {
-  //   "*.{js,ts,tsx}": [
-  //     "yarn lint",
-  //     "yarn build",
-  //     "yarn test"
-  //   ]
-  // },
   "keywords": [
     "React",
     "components",
