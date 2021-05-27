@@ -14,7 +14,6 @@
     "pre-publish": "yarn build && yarn lint && yarn test"
   },
   "pre-commit": [
-    "lint",
     "test:coverage"
   ],
   "repository": {
