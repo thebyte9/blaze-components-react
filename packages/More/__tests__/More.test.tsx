@@ -3,7 +3,6 @@ import { render, screen, waitFor } from '@testing-library/react';
 import More from '../src/More';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 
 describe('More component', () => {
   test('should render', () => {

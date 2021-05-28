@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom';
-
-import { act, fireEvent, render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import { act, fireEvent, screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Multiselect from '../src/MultiSelect';
 import React from 'react';
@@ -26,6 +26,28 @@ describe('Multiselect component', () => {
     });
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('should select first option and empty the search input', () => {
+    render(<Multiselect name="test" {...defaultProps()} />);
+
+    screen.debug();
+    // userEvent.click(screen.getByRole('input'));
+
+    // wrapper.find('input').at(0).simulate('focus');
+
+    // wrapper
+    //   .find('input')
+    //   .at(0)
+    //   .simulate('change', {
+    //     target: { value: 'abc' },
+    //   });
+
+    // wrapper.find('.form-field--checkbox .form-checkbox').at(0).simulate('click');
+
+    // expect(wrapper.find('div').at(0).text()).toContain('Blaze 1');
+
+    // expect(wrapper.find('input').at(0).props().value).toEqual('');
   });
 
   it('should rerender on receive props', () => {

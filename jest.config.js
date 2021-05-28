@@ -1,3 +1,23 @@
-const jestConfig = require('@blaze-react/build-tools/jest.config');
-
-module.exports = jestConfig;
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  globals: {
+    'ts-jest': {
+      isolatedModules: true,
+    },
+  },
+  collectCoverage: true,
+  testPathIgnorePatterns: ['/node_modules/', '/mocks/'],
+  coverageThreshold: {
+    global: {
+      branches: 40,
+      functions: 60,
+      lines: 60,
+      statements: 60,
+    },
+  },
+  coverageReporters: ['json', 'lcov', 'text', 'clover'],
+  moduleNameMapper: {
+    '@blaze-react/(.+)': '<rootDir>/packages/$1/src',
+  },
+};
