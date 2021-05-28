@@ -1770,7 +1770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/alert@workspace:packages/Alert"
   dependencies:
-    "@blaze-react/utils": "workspace:packages/Utils"
+    "@blaze-react/utils": latest
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2253,6 +2253,20 @@ __metadata:
     webpack-cli: ^4.6.0
   languageName: unknown
   linkType: soft
+
+"@blaze-react/utils@npm:latest":
+  version: 0.7.0
+  resolution: "@blaze-react/utils@npm:0.7.0"
+  dependencies:
+    hoist-non-react-statics: ^3.3.0
+    intersection-observer: ^0.7.0
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ^16.9.0
+    react-dom: ^16.9.0
+  checksum: 90569b1c5fff681edc73a07803d9b1c415a6859f2eaa25dbcb7653024a641cb4a32e2120c7feca1754784f84da0b1056e8622e81f957410a0329c84ac9d10595
+  languageName: node
+  linkType: hard
 
 "@blaze-react/utils@workspace:packages/Utils":
   version: 0.0.0-use.local
@@ -14608,6 +14622,13 @@ __metadata:
   version: 0.12.0
   resolution: "intersection-observer@npm:0.12.0"
   checksum: 44c9f6f41b3cc09e8b56ab143c1830275db37e27f67ed5dd4e81a324a3455cdc0b0e3f04196595c89dae6b278a42c743bff48e8c273658e864cfe292df655635
+  languageName: node
+  linkType: hard
+
+"intersection-observer@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "intersection-observer@npm:0.7.0"
+  checksum: 46ef82d6d5f86ead0318ced312dceb7e2a2a92e679d38f5c36a8e4e12978b94eb0495a35e056cebff75f1b34725b5c452b7c1585f3d4369da7eb477ba4347f05
   languageName: node
   linkType: hard
 

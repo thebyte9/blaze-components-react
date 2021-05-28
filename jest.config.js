@@ -1,4 +1,5 @@
 module.exports = {
+  roots: ['<rootDir>'],
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   globals: {
@@ -18,6 +19,6 @@ module.exports = {
   },
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
   moduleNameMapper: {
-    '@blaze-react/(.+)': '<rootDir>/packages/$1/src',
+    '@blaze-react/(.*)$': '<rootDir>/packages/$1/src',
   },
 };
