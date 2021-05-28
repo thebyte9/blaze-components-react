@@ -7,8 +7,8 @@
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --quiet --fix",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "jest --coverage  --passWithNoTests",
     "pre-publish": "yarn run build && yarn run lint && yarn run test"
   },
   "keywords": [],

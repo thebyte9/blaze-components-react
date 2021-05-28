@@ -1,4 +1,4 @@
-import Select from '@blaze-react/select';
+import Select from '../../Select/src';
 import React, { useState } from 'react';
 import { ANY_DATE, CUSTOM_DATE, DEFAULT_OPTIONS } from './constants';
 import DateRangeSelectDay from './DateRangeSelectDay';

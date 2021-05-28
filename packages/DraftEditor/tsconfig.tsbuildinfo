@@ -172,8 +172,8 @@
         "affectsGlobalScope": true
       },
       "../build-tools/src/config/jest.base.config.js": {
-        "version": "7d6bac800fe9f893f1e25b1675adb845fc70b34e36ada6331942c3dfd8879ffd",
-        "signature": "536b70c71399f0539c8605c2a9b6dc3df5e1471be01622485e5709f2fa5ed4b6",
+        "version": "99aa71c85a16b2b43aaa8f75dfa0757bc7f2930bc62b59fa1ac5345b9919b868",
+        "signature": "bcde17c8ecb0f2c2fdabb13a8a60271c4436c2f5d74a8a401dd6399efba945a6",
         "affectsGlobalScope": true
       },
       "../build-tools/src/index.ts": {

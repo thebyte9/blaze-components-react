@@ -1,5 +1,5 @@
-import Input from '@blaze-react/input';
-import Select from '@blaze-react/select';
+import Input from '../../../Input/src';
+import Select from '../../../Select/src';
 import React from 'react';
 import { IMAGE, INPUT_TYPES, NAME } from '../constants';
 import { getInputLabel, sanitizedFilename } from '../utils';

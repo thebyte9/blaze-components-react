@@ -1,4 +1,4 @@
-import Input from '@blaze-react/input';
+import Input from '../../../Input/src';
 import { buildClassNames } from '@blaze-react/utils';
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { MONTHS, NEXT, PREVIOUS, SEPARATOR } from '../constants';
