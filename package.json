@@ -8,14 +8,13 @@
     "lint": "yarn workspaces foreach run lint",
     "build": "yarn workspaces foreach run build",
     "build-storybook": "NODE_ENV=production build-storybook",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "yarn workspaces foreach run test",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "pre-publish": "yarn build && yarn lint && yarn test"
   },
   "pre-commit": [
     "lint",
-    "test:coverage"
+    "test"
   ],
   "repository": {
     "type": "git",
