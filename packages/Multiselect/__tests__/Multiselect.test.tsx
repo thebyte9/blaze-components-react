@@ -31,7 +31,6 @@ describe('Multiselect component', () => {
   it('should select first option and empty the search input', () => {
     render(<Multiselect name="test" {...defaultProps()} />);
 
-    screen.debug();
     // userEvent.click(screen.getByRole('input'));
 
     // wrapper.find('input').at(0).simulate('focus');

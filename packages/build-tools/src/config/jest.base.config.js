@@ -8,14 +8,6 @@ module.exports = {
   },
   collectCoverage: true,
   testPathIgnorePatterns: ['/node_modules/', '/mocks/'],
-  coverageThreshold: {
-    global: {
-      branches: 30,
-      functions: 30,
-      lines: 30,
-      statements: 30,
-    },
-  },
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
   moduleNameMapper: {
     '@blaze-react/utils': '<rootDir>../Utils/src',
