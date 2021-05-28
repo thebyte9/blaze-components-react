@@ -10,7 +10,7 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/', '/mocks/'],
   coverageThreshold: {
     global: {
-      branches: 50,
+      branches: 40,
       functions: 60,
       lines: 60,
       statements: 60,
@@ -18,6 +18,6 @@ module.exports = {
   },
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
   moduleNameMapper: {
-    '@blaze-react/(.+)': '<rootDir>../$1/src',
+    '@blaze-react/(.+)': '<rootDir>/packages/$1/src',
   },
 };
