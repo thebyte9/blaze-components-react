@@ -19,6 +19,6 @@ module.exports = {
   },
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
   moduleNameMapper: {
-    '@blaze-react/(.*)$': '<rootDir>/packages/$1/src',
+    '@blaze-react/utils': '<rootDir>/packages/Utils/src',
   },
 };
