@@ -4,11 +4,7 @@ module.exports = {
   typescript: {
     check: false,
     checkOptions: {},
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-    },
+    reactDocgen: false,
   },
   stories: ['../packages/**/stories/**/*.stories.mdx', '../packages/**/stories/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -27,6 +23,26 @@ module.exports = {
     builder: 'webpack5',
   },
   webpackFinal: (config) => {
+    config.resolve.modules.push(path.resolve(__dirname, '../packages'));
+
+    config.module.rules.push({
+      test: /\.(ts|tsx)$/,
+      use: [
+        {
+          loader: require.resolve('awesome-typescript-loader'),
+          options: {
+            configFileName: './tsconfig.json',
+            transpileOnly: true,
+            errorsAsWarnings: true,
+          },
+        },
+        {
+          loader: require.resolve('react-docgen-typescript-loader'),
+        },
+      ],
+    });
+    config.resolve.extensions.push('.ts', '.tsx');
+
     config.module.rules.push({
       test: /\.scss$/,
       use: ['style-loader', 'css-loader', 'sass-loader'],
