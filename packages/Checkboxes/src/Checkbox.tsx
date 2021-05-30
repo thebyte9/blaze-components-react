@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Label from './Label';
 import { buildClassNames } from '@blaze-react/utils';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 const Checkbox = ({ checked, value, disabled, required, label, show, name, id, onChange, full, ...attrs }: any) => {
   const [isChecked, setIsChecked] = useState(checked);
@@ -30,7 +30,7 @@ const Checkbox = ({ checked, value, disabled, required, label, show, name, id, o
 
   const labelClassName = buildClassNames({ 'form-field--checkbox-full': full }, {});
 
-  const defaultId = id || uuidv4();
+  const defaultId = id || nanoid();
   const inputId = `${defaultId}-checkbox`;
   const wrapperId = `${defaultId}-wrapper`;
 

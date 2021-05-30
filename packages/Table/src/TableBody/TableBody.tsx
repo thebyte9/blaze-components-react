@@ -2,7 +2,7 @@ import { Checkboxes } from '../../../Checkboxes/src';
 import { ITableRow } from '../interfaces';
 import React from 'react';
 import VirtualList from 'react-tiny-virtual-list';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 interface ICheckbox {
   checked: boolean;
@@ -54,7 +54,7 @@ const TableBody = ({
             <div
               onClick={() => onClickRow({ ...allRows[index], index })}
               className="table-row"
-              key={`tablerow-${uuidv4()}`}
+              key={`tablerow-${nanoid()}`}
               data-testid={`tablerow-${index}`}
               style={style}
             >

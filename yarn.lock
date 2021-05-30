@@ -1784,7 +1784,6 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@types/uuid": ^8.3.0
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1856,7 +1855,6 @@ __metadata:
   resolution: "@blaze-react/button-select@workspace:packages/ButtonSelect"
   dependencies:
     "@blaze-react/blaze-components-theme": ^0.6.0
-    "@types/uuid": ^8.3.0
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1885,7 +1883,6 @@ __metadata:
     babel-plugin-transform-class-properties: ^6.24.1
     react: ^17.0.2
     react-dom: ^17.0.2
-    uuid: ^8.3.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -1955,12 +1952,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/dnd@workspace:packages/Dnd"
   dependencies:
-    "@types/uuid": ^8.3.0
     immutability-helper: ^3.1.1
     react: ^17.0.2
     react-addons-shallow-compare: ^15.6.3
     react-dom: ^17.0.2
-    uuid: ^8.3.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -2011,7 +2006,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/file-upload@workspace:packages/FileUpload"
   dependencies:
-    nanoid: ^3.1.23
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.38.1
@@ -2191,10 +2185,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/switches@workspace:packages/Switches"
   dependencies:
-    "@types/uuid": ^8.3.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    uuid: ^8.3.2
   languageName: unknown
   linkType: soft
 
@@ -2239,7 +2231,6 @@ __metadata:
   dependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
-    react-transition-group: ^4.4.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -6757,13 +6748,6 @@ __metadata:
   version: 2.0.3
   resolution: "@types/unist@npm:2.0.3"
   checksum: 42e0dc4ac75a27c4bb91a3f8e82edfd8819cacb6edda08bdfb436700ea01a587faa30017fde744b0a0b33825f5e37686398c1eb5b664cabc3a72a6b3757f85a5
-  languageName: node
-  linkType: hard
-
-"@types/uuid@npm:^8.3.0":
-  version: 8.3.0
-  resolution: "@types/uuid@npm:8.3.0"
-  checksum: 620985aed8fdb4aed153daca5235f4303457a67a4d181efac0021712eabd9edd7e88895f79730c0e651effde7633b1b61e49a81519ac8d4e75019d2ac9b6412f
   languageName: node
   linkType: hard
 
@@ -18675,7 +18659,6 @@ __metadata:
     is-wsl: ^2.2.0
     semver: ^7.3.2
     shellwords: ^0.1.1
-    uuid: ^8.3.0
     which: ^2.0.2
   checksum: e90aac4592f1fe4822702d21db4f86814e7fbfa5e3f0b809ef74fcca2ba2cb51f9e3cd33d321bc4201979c7b5161faa18de21cefa741e4a3f263c291beb37025
   languageName: node
@@ -22351,7 +22334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-transition-group@npm:^4.3.0, react-transition-group@npm:^4.4.2":
+"react-transition-group@npm:^4.3.0":
   version: 4.4.2
   resolution: "react-transition-group@npm:4.4.2"
   dependencies:
@@ -26107,7 +26090,7 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"uuid@npm:^8.0.0, uuid@npm:^8.3.0, uuid@npm:^8.3.2":
+"uuid@npm:^8.0.0":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
   bin:

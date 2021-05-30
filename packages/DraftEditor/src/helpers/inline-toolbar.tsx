@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { EditorState, RichUtils } from 'draft-js';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
+
 interface IRect {
   x: number;
   y: number;
@@ -178,7 +179,7 @@ const generateToolbar = ({ actions, editorState, handleAction }: IGenerateToolba
 
       return (
         <div
-          key={uuidv4()}
+          key={nanoid()}
           className={className}
           role="button"
           aria-label={action.label}

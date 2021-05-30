@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 
 import Checkbox from './Checkbox';
 import { ErrorMessage } from '@blaze-react/utils';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -93,7 +93,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
           show ? (
             <Checkbox
               full={full}
-              key={id || uuidv4()}
+              key={id || nanoid()}
               onChange={onChange}
               checked={checked}
               disabled={disabled}

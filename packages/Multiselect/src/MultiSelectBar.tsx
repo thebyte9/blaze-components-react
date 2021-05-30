@@ -2,7 +2,7 @@ import Chip from '@blaze-react/chips';
 import Input from '@blaze-react/input';
 import React from 'react';
 import { buildClassNames } from '@blaze-react/utils';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 
 interface ISelectedValue {
   [index: string]: string;
@@ -56,7 +56,7 @@ const MultiSelectBar = ({
                     name: selectedValue[keyValue],
                   })
                 }
-                key={`checked-${uuidv4()}-${index}`}
+                key={`checked-${nanoid()}-${index}`}
               >
                 <Chip.Label data-cy={`multiSelect-${label}-chip${index + 1}-label`}>
                   {getLabel({ label: selectedValue[keyValue], isChip: true })}

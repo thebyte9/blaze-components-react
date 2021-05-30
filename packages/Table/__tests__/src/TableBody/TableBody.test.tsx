@@ -1,13 +1,13 @@
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 
 import React from 'react';
 import TableBody from '../../../src/TableBody/TableBody';
 import { data } from '../../mocks';
 import expect from 'expect';
 
-jest.mock('uuid', () => {
+jest.mock('nanoid', () => {
   return {
-    v4: jest.fn(() => 1),
+    nanoid: jest.fn(() => 1),
   };
 });
 

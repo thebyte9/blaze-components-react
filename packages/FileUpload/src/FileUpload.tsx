@@ -1,6 +1,7 @@
 import cloneDeep from 'lodash.clonedeep';
 import React, { useEffect, useRef, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
+
 import Actions from './Actions';
 import { DATA_ATTRIBUTS } from './constants';
 import { NAME } from './constants';
@@ -118,7 +119,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
 
     files = files.map((file: any) => {
       try {
-        file.id = uuidv4();
+        file.id = nanoid();
       } catch (e) {
         return file;
       }

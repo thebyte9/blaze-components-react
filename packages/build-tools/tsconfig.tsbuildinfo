@@ -172,8 +172,8 @@
         "affectsGlobalScope": true
       },
       "./src/config/jest.base.config.js": {
-        "version": "99aa71c85a16b2b43aaa8f75dfa0757bc7f2930bc62b59fa1ac5345b9919b868",
-        "signature": "bcde17c8ecb0f2c2fdabb13a8a60271c4436c2f5d74a8a401dd6399efba945a6",
+        "version": "86dffa729112eb7057c919ff8563fa3fb82621199d2eedd7168d544a7fc1645b",
+        "signature": "71ca2682372f4210d24a1e2a363673582e33cd4a9f203b4b0a834c00c5439539",
         "affectsGlobalScope": true
       },
       "./src/index.ts": {
@@ -187,8 +187,8 @@
         "affectsGlobalScope": false
       },
       "../../node_modules/@babel/types/lib/index.d.ts": {
-        "version": "04aa4b737624d30147c0a78e643957206ce6cf8bbb18988e5f05669f0ce9fa84",
-        "signature": "04aa4b737624d30147c0a78e643957206ce6cf8bbb18988e5f05669f0ce9fa84",
+        "version": "a17ba25a194979a88bfd925e849d76b63f68c4160b69a99c5d723eac5ffddaf0",
+        "signature": "a17ba25a194979a88bfd925e849d76b63f68c4160b69a99c5d723eac5ffddaf0",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/babel__generator/index.d.ts": {
@@ -992,8 +992,8 @@
         "affectsGlobalScope": false
       },
       "../../node_modules/date-fns/typings.d.ts": {
-        "version": "7ad8a941b63580395b951f33afb7b4fb6e6b6e11502b48c1fbf3b9051e58b80f",
-        "signature": "7ad8a941b63580395b951f33afb7b4fb6e6b6e11502b48c1fbf3b9051e58b80f",
+        "version": "30bd3c809ce73b52e12111e7ca516b0186c2a5c8f970e7ec1cc7762a2e115421",
+        "signature": "30bd3c809ce73b52e12111e7ca516b0186c2a5c8f970e7ec1cc7762a2e115421",
         "affectsGlobalScope": true
       },
       "../../node_modules/@types/react-datepicker/index.d.ts": {
