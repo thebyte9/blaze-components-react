@@ -1,10 +1,9 @@
 import { IData, IMultiSelectProps } from './interface';
 import React, { useEffect, useRef, useState } from 'react';
 
-import { ErrorMessage } from '@blaze-react/utils';
+import { ErrorMessage, buildClassNames } from '@blaze-react/utils';
 import MultiSelectBar from './MultiSelectBar';
 import MultiSelectList from './MultiSelectList';
-import { buildClassNames } from '@blaze-react/utils';
 
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },

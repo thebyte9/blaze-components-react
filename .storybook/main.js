@@ -59,6 +59,16 @@ module.exports = {
           path: require.resolve('path-browserify'),
           fs: false,
         },
+        alias: {
+          ...config.alias,
+          '@blaze-react/utils': path.resolve(__dirname, '../packages/Utils/src'),
+          '@blaze-react/button': path.resolve(__dirname, '../packages/Button/src'),
+          '@blaze-react/select': path.resolve(__dirname, '../packages/Select/src'),
+          '@blaze-react/input': path.resolve(__dirname, '../packages/Input/src'),
+          '@blaze-react/avatar': path.resolve(__dirname, '../packages/Avatar/src'),
+          '@blaze-react/checkboxes': path.resolve(__dirname, '../packages/Checkboxes/src'),
+          '@blaze-react/chips': path.resolve(__dirname, '../packages/Chips/src'),
+        },
       },
     };
   },

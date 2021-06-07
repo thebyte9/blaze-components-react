@@ -4,10 +4,9 @@ module.exports = {
     [
       '@babel/plugin-transform-runtime',
       {
-        regenerator: true,
+        regenerator: false,
       },
     ],
-    '@babel/plugin-syntax-jsx',
     '@babel/proposal-class-properties',
     '@babel/proposal-object-rest-spread',
   ],

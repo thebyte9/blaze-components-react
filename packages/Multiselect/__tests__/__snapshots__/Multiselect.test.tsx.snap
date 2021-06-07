@@ -192,6 +192,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                   />
                   <div
                     class="form-field--checkbox-full"
+                    data-testid="form-field-wrapper"
                   >
                     <label
                       for="1-checkbox"
@@ -226,6 +227,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                   />
                   <div
                     class="form-field--checkbox-full"
+                    data-testid="form-field-wrapper"
                   >
                     <label
                       for="2-checkbox"
@@ -262,6 +264,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                   />
                   <div
                     class="form-field--checkbox-full"
+                    data-testid="form-field-wrapper"
                   >
                     <label
                       for="3-checkbox"

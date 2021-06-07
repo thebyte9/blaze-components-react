@@ -33,6 +33,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
               />
               <div
                 class=""
+                data-testid="form-field-wrapper"
               >
                 <label
                   for="1-checkbox"
@@ -92,6 +93,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
               />
               <div
                 class=""
+                data-testid="form-field-wrapper"
               >
                 <label
                   for="1-checkbox"

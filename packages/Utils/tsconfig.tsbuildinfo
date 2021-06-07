@@ -162,8 +162,8 @@
         "affectsGlobalScope": false
       },
       "../build-tools/src/config/babel.base.config.js": {
-        "version": "6d33fb5edeede85edce7a839c3255a130950b39fa40fb22c939e87823787ddba",
-        "signature": "4d110b228e55290b2713660feb76782819d5bd17166e81d76e199a9b62789755",
+        "version": "189a952b75937f1945342ddcb1fbedf083147d2553836ed50e11ab31b3662f64",
+        "signature": "f661cbd3f20017f56439a6bf63f97f803acd5b4392fa5877e22da3105ba9aa45",
         "affectsGlobalScope": true
       },
       "../build-tools/src/config/eslint.base.config.js": {
@@ -1086,11 +1086,6 @@
         "signature": "bee79f5862fe1278d2ba275298862bce3f7abf1e59d9c669c4b9a4b2bba96956",
         "affectsGlobalScope": false
       },
-      "../../node_modules/@types/uuid/index.d.ts": {
-        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
-        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
-        "affectsGlobalScope": false
-      },
       "../../node_modules/@types/webpack/index.d.ts": {
         "version": "d7e12d9634587982b53654f1c9a96e1f9a911fbd5e69fc5c593565c691fd4a12",
         "signature": "d7e12d9634587982b53654f1c9a96e1f9a911fbd5e69fc5c593565c691fd4a12",
@@ -1223,6 +1218,7 @@
       }
     },
     "options": {
+      "skipLibCheck": true,
       "target": 4,
       "module": 99,
       "allowJs": true,
@@ -1235,9 +1231,33 @@
       "composite": true,
       "strict": true,
       "moduleResolution": 2,
+      "baseUrl": "../packages",
+      "paths": {
+        "@blaze-react/utils/*": [
+          "Utils/src/*"
+        ],
+        "@blaze-react/button/*": [
+          "Button/src/*"
+        ],
+        "@blaze-react/select/*": [
+          "Select/src/*"
+        ],
+        "@blaze-react/input/*": [
+          "Input/src/*"
+        ],
+        "@blaze-react/avatar/*": [
+          "Avatar/src/*"
+        ],
+        "@blaze-react/checkboxes/*": [
+          "Checkboxes/src/*"
+        ],
+        "@blaze-react/chips/*": [
+          "Chips/src/*"
+        ]
+      },
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
-      "skipLibCheck": true,
+      "pathsBasePath": "/Users/ryan/source/byte9/blaze-components-react/packages/build-tools",
       "inlineSourceMap": false,
       "configFilePath": "./tsconfig.json"
     },
@@ -2733,13 +2753,6 @@
         "../../node_modules/source-map/source-map.d.ts"
       ],
       "../../node_modules/@types/unist/index.d.ts": [
-        "../../node_modules/@types/jsdom/base.d.ts",
-        "../../node_modules/@types/jsdom/index.d.ts",
-        "../../node_modules/@types/jsdom/ts3.5/index.d.ts",
-        "../../node_modules/@types/jsdom/ts4.0/index.d.ts",
-        "../../node_modules/date-fns/typings.d.ts"
-      ],
-      "../../node_modules/@types/uuid/index.d.ts": [
         "../../node_modules/@types/jsdom/base.d.ts",
         "../../node_modules/@types/jsdom/index.d.ts",
         "../../node_modules/@types/jsdom/ts3.5/index.d.ts",
@@ -4943,13 +4956,6 @@
         "../../node_modules/@types/jsdom/ts4.0/index.d.ts",
         "../../node_modules/date-fns/typings.d.ts"
       ],
-      "../../node_modules/@types/uuid/index.d.ts": [
-        "../../node_modules/@types/jsdom/base.d.ts",
-        "../../node_modules/@types/jsdom/index.d.ts",
-        "../../node_modules/@types/jsdom/ts3.5/index.d.ts",
-        "../../node_modules/@types/jsdom/ts4.0/index.d.ts",
-        "../../node_modules/date-fns/typings.d.ts"
-      ],
       "../../node_modules/@types/webpack-dev-server/index.d.ts": [
         "../../node_modules/@types/connect-history-api-fallback/index.d.ts",
         "../../node_modules/@types/express/index.d.ts",
@@ -5783,7 +5789,6 @@
       "../../node_modules/@types/tough-cookie/index.d.ts",
       "../../node_modules/@types/uglify-js/index.d.ts",
       "../../node_modules/@types/unist/index.d.ts",
-      "../../node_modules/@types/uuid/index.d.ts",
       "../../node_modules/@types/webpack-dev-server/index.d.ts",
       "../../node_modules/@types/webpack-dev-server/node_modules/@types/webpack/index.d.ts",
       "../../node_modules/@types/webpack-env/index.d.ts",

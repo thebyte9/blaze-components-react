@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
-    "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --quiet --fix",
+    "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore",
     "test": "jest --passWithNoTests",
     "test:coverage": "jest --coverage  --passWithNoTests",
     "pre-publish": "yarn build && yarn lint && yarn test"
@@ -22,6 +22,7 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
+    "@blaze-react/button": "workspace:packages/Button",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }

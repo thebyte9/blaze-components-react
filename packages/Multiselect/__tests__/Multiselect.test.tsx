@@ -31,22 +31,16 @@ describe('Multiselect component', () => {
   it('should select first option and empty the search input', () => {
     render(<Multiselect name="test" {...defaultProps()} />);
 
-    // userEvent.click(screen.getByRole('input'));
+    const input = screen.getByTestId('input');
+    input.focus();
 
-    // wrapper.find('input').at(0).simulate('focus');
+    userEvent.type(input, 'abc');
 
-    // wrapper
-    //   .find('input')
-    //   .at(0)
-    //   .simulate('change', {
-    //     target: { value: 'abc' },
-    //   });
+    userEvent.click(screen.getByTestId('3-checkbox'));
 
-    // wrapper.find('.form-field--checkbox .form-checkbox').at(0).simulate('click');
+    expect(screen.getAllByText(/Blaze 1/i)).toHaveLength(2);
 
-    // expect(wrapper.find('div').at(0).text()).toContain('Blaze 1');
-
-    // expect(wrapper.find('input').at(0).props().value).toEqual('');
+    expect(screen.getByTestId('2-checkbox')).toHaveProperty('value', '');
   });
 
   it('should rerender on receive props', () => {
