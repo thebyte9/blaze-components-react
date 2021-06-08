@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { getInputLabel } from '@blaze-react/utils';
+import getInputLabel from '../../src/utils/get-input-label';
 
 describe('getInputLabel function', () => {
   it('should be defined', () => {

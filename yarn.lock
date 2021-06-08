@@ -1955,6 +1955,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/dnd@workspace:packages/Dnd"
   dependencies:
+    "@blaze-react/utils": "workspace:packages/Utils"
     immutability-helper: ^3.1.1
     react: ^17.0.2
     react-addons-shallow-compare: ^15.6.3
@@ -2009,6 +2010,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/file-upload@workspace:packages/FileUpload"
   dependencies:
+    "@blaze-react/utils": "workspace:packages/Utils"
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.38.1

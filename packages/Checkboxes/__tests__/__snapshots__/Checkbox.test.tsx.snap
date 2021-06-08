@@ -16,6 +16,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
     />
     <div
       class=""
+      data-testid="form-field-wrapper"
     >
       <label
         for="1-checkbox-checkbox"
@@ -41,6 +42,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
     />
     <div
       class=""
+      data-testid="form-field-wrapper"
     >
       <label
         for="2-checkbox-checkbox"
@@ -66,6 +68,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
     />
     <div
       class=""
+      data-testid="form-field-wrapper"
     >
       <label
         for="3-checkbox-checkbox"
@@ -95,6 +98,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
     />
     <div
       class=""
+      data-testid="form-field-wrapper"
     >
       <label
         for="1-checkbox-checkbox"
@@ -120,6 +124,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
     />
     <div
       class=""
+      data-testid="form-field-wrapper"
     >
       <label
         for="2-checkbox-checkbox"
@@ -145,6 +150,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
     />
     <div
       class=""
+      data-testid="form-field-wrapper"
     >
       <label
         for="3-checkbox-checkbox"

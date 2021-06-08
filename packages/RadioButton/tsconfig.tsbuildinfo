@@ -162,7 +162,7 @@
         "affectsGlobalScope": false
       },
       "../build-tools/src/config/babel.base.config.js": {
-        "version": "6d33fb5edeede85edce7a839c3255a130950b39fa40fb22c939e87823787ddba",
+        "version": "49471e99d005b858c9ac4b9770c6d59a6638eb08729c26f6135698b460646dba",
         "signature": "4d110b228e55290b2713660feb76782819d5bd17166e81d76e199a9b62789755",
         "affectsGlobalScope": true
       },
@@ -1218,6 +1218,7 @@
       }
     },
     "options": {
+      "skipLibCheck": true,
       "target": 4,
       "module": 99,
       "allowJs": true,
@@ -1257,7 +1258,6 @@
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
       "pathsBasePath": "/Users/ryan/source/byte9/blaze-components-react/packages/build-tools",
-      "skipLibCheck": true,
       "inlineSourceMap": false,
       "configFilePath": "./tsconfig.json"
     },

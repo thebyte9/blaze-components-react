@@ -7,6 +7,7 @@ module.exports = {
         regenerator: false,
       },
     ],
+    '@babel/plugin-syntax-jsx',
     '@babel/proposal-class-properties',
     '@babel/proposal-object-rest-spread',
   ],

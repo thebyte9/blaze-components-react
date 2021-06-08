@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import Autocomplete from '../src';
 import React from 'react';
@@ -34,7 +34,7 @@ describe('Autocomplete component', () => {
   });
 
   it('should allow to filter', async () => {
-    const { getByText, getByTestId, getByPlaceholderText } = render(AutoCompleteComponent);
+    const { getByText, getByPlaceholderText } = render(AutoCompleteComponent);
 
     const input = getByPlaceholderText('Search');
 
@@ -45,5 +45,20 @@ describe('Autocomplete component', () => {
     });
 
     expect(getByText('Laravel')).not.toBe(null);
+  });
+
+  it('should handle click event', () => {
+    const { getByPlaceholderText } = render(AutoCompleteComponent);
+
+    const input = getByPlaceholderText('Search');
+
+    fireEvent.change(input, {
+      target: {
+        value: 'a',
+      },
+    });
+
+    const option = screen.getByTestId('option-0');
+    fireEvent.click(option);
   });
 });

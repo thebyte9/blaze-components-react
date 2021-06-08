@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { sanitizedFilename } from '@blaze-react/utils';
+import sanitizedFilename from '../../src/utils/sanitized-filename';
 
 describe('sanitizedFilename function', () => {
   it('should be defined', () => {

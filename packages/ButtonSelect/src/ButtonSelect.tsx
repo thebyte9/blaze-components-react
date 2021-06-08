@@ -16,7 +16,12 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({ text, children, .
   const [toggled, setToggled] = useState(false);
   return (
     <div className="more-menu__wrapper">
-      <Button modifiers={['full-width']} onClick={(): void => setToggled(!toggled)} {...Attr}>
+      <Button
+        modifiers={['full-width']}
+        onClick={(): void => setToggled(!toggled)}
+        {...Attr}
+        data-testid="button-select-toggle"
+      >
         <>
           <i className="material-icons">{`keyboard_arrow_${toggled ? 'up' : 'down'}`}</i>
           {text}

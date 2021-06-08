@@ -8,8 +8,8 @@
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --quiet --fix",
     "test": "jest --passWithNoTests",
-    "test:coverage": "jest --coverage  --passWithNoTests",
-    "pre-publish": "yarn run build && yarn run lint && yarn run test",
+    "test:coverage": "jest --coverage --passWithNoTests",
+    "pre-publish": "yarn build && yarn lint && yarn test",
     "bundle-analyser": "node ../../node_modules/webpack-bundle-analyzer/lib/bin/analyzer.js ./stats/stats.json"
   },
   "keywords": [],

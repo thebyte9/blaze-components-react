@@ -18,4 +18,10 @@ describe('ButtonSelect component', () => {
     const { asFragment } = render(component);
     expect(asFragment()).toMatchSnapshot();
   });
+
+  test('should toggle', () => {
+    const { asFragment } = render(component);
+    fireEvent.click(screen.getByTestId('button-select-toggle'));
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

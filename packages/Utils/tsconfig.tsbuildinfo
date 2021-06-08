@@ -162,8 +162,8 @@
         "affectsGlobalScope": false
       },
       "../build-tools/src/config/babel.base.config.js": {
-        "version": "189a952b75937f1945342ddcb1fbedf083147d2553836ed50e11ab31b3662f64",
-        "signature": "f661cbd3f20017f56439a6bf63f97f803acd5b4392fa5877e22da3105ba9aa45",
+        "version": "49471e99d005b858c9ac4b9770c6d59a6638eb08729c26f6135698b460646dba",
+        "signature": "4d110b228e55290b2713660feb76782819d5bd17166e81d76e199a9b62789755",
         "affectsGlobalScope": true
       },
       "../build-tools/src/config/eslint.base.config.js": {
