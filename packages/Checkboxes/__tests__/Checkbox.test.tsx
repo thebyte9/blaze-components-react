@@ -87,8 +87,29 @@ describe('Checkboxes component', () => {
 
   it("can't interact when checkbox is disabled", () => {
     render(<Checkboxes {...defaultProps()} />);
-    const checkbox = screen.getByTestId('1-checkbox');
+    const checkbox = screen.getByTestId('3-checkbox');
     userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
+  });
+
+  it("doesn't trigger onChange event when disabled", () => {
+    const mockOnChange = jest.fn();
+    render(<Checkboxes {...defaultProps({ onChange: mockOnChange })} />);
+    userEvent.click(screen.getByText('Disabled'));
+    expect(mockOnChange).not.toHaveBeenCalled();
+  });
+
+  it('fires onChange event when not disabled', () => {
+    const mockOnChange = jest.fn();
+    render(<Checkboxes {...defaultProps({ onChange: mockOnChange })} />);
+    userEvent.click(screen.getByText('I accept'));
+    expect(mockOnChange).toHaveBeenCalled();
+  });
+
+  it('handles onChange when returnBoolean is true', () => {
+    const mockOnChange = jest.fn();
+    render(<Checkboxes {...defaultProps({ onChange: mockOnChange, returnBoolean: true })} />);
+    userEvent.click(screen.getByText('I accept'));
+    expect(mockOnChange).toHaveBeenCalled();
   });
 });

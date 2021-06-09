@@ -17,10 +17,13 @@ describe('Chip component', () => {
   });
 
   test('should delete Chip', () => {
+    const actionMock = jest.fn();
+    const deleteMock = jest.fn();
     const { asFragment } = render(
       <Chips
         modifiers={[Chips.availableModifiers.parent.deletable, Chips.availableModifiers.parent.small]}
-        action={jest.fn()}
+        action={actionMock}
+        onDelete={deleteMock}
       >
         <Chips.Avatar>
           <Avatar username="Lorem Ipsum" modifier="x-small" />
@@ -36,5 +39,30 @@ describe('Chip component', () => {
     fireEvent.click(deletable);
 
     expect(asFragment()).toMatchSnapshot();
+    expect(actionMock).toHaveBeenCalled();
+    expect(deleteMock).toHaveBeenCalled();
+  });
+
+  test('without modifiers', () => {
+    const actionMock = jest.fn();
+    const deleteMock = jest.fn();
+    const { asFragment } = render(
+      <Chips action={actionMock} onDelete={deleteMock}>
+        <Chips.Avatar>
+          <Avatar username="Lorem Ipsum" modifier="x-small" />
+        </Chips.Avatar>
+        <Chips.Label>Primary deletable chip</Chips.Label>
+        <Chips.Icon modifier={Chips.availableModifiers.icon.delete}>
+          <i className="material-icons">delete</i>
+        </Chips.Icon>
+      </Chips>,
+    );
+
+    const deletable = screen.getByText('delete');
+    fireEvent.click(deletable);
+
+    expect(asFragment()).toMatchSnapshot();
+    expect(actionMock).toHaveBeenCalled();
+    expect(deleteMock).not.toHaveBeenCalled();
   });
 });

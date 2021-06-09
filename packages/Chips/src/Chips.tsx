@@ -8,7 +8,7 @@ type TModifiers = 'deletable' | 'outlined' | 'primary' | 'secondary' | 'small' |
 
 interface IChipsProps {
   children: JSX.Element | JSX.Element[];
-  modifiers: TModifiers[];
+  modifiers?: TModifiers[];
   action: () => void;
   onDelete: () => void;
 }
@@ -71,8 +71,8 @@ Chips.Icon = ChipIcon;
 Chips.availableModifiers = availableModifiers;
 
 Chips.defaultProps = {
-  action: () => void 0,
-  onDelete: () => void 0,
+  action: undefined,
+  onDelete: undefined,
 };
 
 export default Chips;

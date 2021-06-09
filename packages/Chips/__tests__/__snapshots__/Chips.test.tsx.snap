@@ -15,3 +15,37 @@ exports[`Chip component should be defined and renders correctly (snapshot) 1`] =
 `;
 
 exports[`Chip component should delete Chip 1`] = `<DocumentFragment />`;
+
+exports[`Chip component without modifiers 1`] = `
+<DocumentFragment>
+  <div
+    class="chip"
+  >
+    <div
+      class="chip__avatar"
+    >
+      <div
+        class="avatar avatar--x-small"
+      >
+        <span>
+          LI
+        </span>
+      </div>
+    </div>
+    <div
+      class="chip__label"
+    >
+      Primary deletable chip
+    </div>
+    <div
+      class="chip__icon chip__icon--delete"
+    >
+      <i
+        class="material-icons"
+      >
+        delete
+      </i>
+    </div>
+  </div>
+</DocumentFragment>
+`;

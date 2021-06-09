@@ -8,7 +8,7 @@ interface IDateRangeProps {
   children?: any;
   onChange: (args: IOnChangeArguments) => void;
   selected: 1 | 2 | 3 | 7 | 30 | 12 | 'custom' | 'any';
-  custom?: false;
+  custom?: boolean;
 }
 interface IOnChangeArguments {
   end?: string;
@@ -16,7 +16,7 @@ interface IOnChangeArguments {
   selectedDate?: string;
 }
 
-const DateRange: React.SFC<IDateRangeProps> = ({ onChange, custom }) => {
+const DateRange: React.SFC<IDateRangeProps> = ({ onChange = undefined, custom = false }) => {
   const [selectedOption, setSelectedOption] = useState<string>(custom ? CUSTOM_DATE : '');
   const [selectedDate, setSelectedDate] = useState<Record<string, unknown>>({});
 
@@ -43,7 +43,13 @@ const DateRange: React.SFC<IDateRangeProps> = ({ onChange, custom }) => {
 
   return (
     <>
-      <Select label="Date Range" selected={selectedOption} options={DEFAULT_OPTIONS} onChange={handleOnChange} />
+      <Select
+        label="Date Range"
+        selected={selectedOption}
+        options={DEFAULT_OPTIONS}
+        onChange={handleOnChange}
+        data-testid="select-date-range"
+      />
       {isCustom && (
         <>
           <DateRangeSelectDay onChange={handleSelectedDate} type="From" />
@@ -52,11 +58,6 @@ const DateRange: React.SFC<IDateRangeProps> = ({ onChange, custom }) => {
       )}
     </>
   );
-};
-
-DateRange.defaultProps = {
-  custom: false,
-  onChange: () => void 0,
 };
 
 export default DateRange;

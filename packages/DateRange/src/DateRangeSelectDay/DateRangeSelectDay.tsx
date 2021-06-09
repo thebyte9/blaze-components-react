@@ -123,23 +123,29 @@ const DateRangeSelectDay: React.SFC<IDateRangeProps> = ({ onChange, type = '' })
   const handleOnClick = () => setCalendarStatus(true);
 
   return (
-    <div className="calendar-container" ref={wrapperRef}>
+    <div className="calendar-container" ref={wrapperRef} data-testid="calendar-container">
       <div className="calendar-input" onClick={handleOnClick}>
         <span className="calendar-input__label">{type}</span>
-        <Input placeholder="dd/mm/yy" value={selectedDate} className="range-date" onChange={handleInputChange} />
+        <Input
+          placeholder="dd/mm/yy"
+          value={selectedDate}
+          className="range-date"
+          onChange={handleInputChange}
+          data-testid={type ? type : 'range-date'}
+        />
       </div>
       {calendarStatus && (
         <div className="calendar">
           <div className="calendar__header">
-            <span className="calendar__header__prev" onClick={handlePreviousMonth}>
+            <span className="calendar__header__prev" onClick={handlePreviousMonth} data-testid="calendar-header-prev">
               {PREVIOUS}
             </span>
-            <div className="calendar__header__year">
-              <span onClick={resetDate}>
+            <div className="calendar__header__year" data-testid="calendar-header-year">
+              <span onClick={resetDate} data-testid="calendar-reset-date">
                 {MONTHS[Number(month)]} {year}
               </span>
             </div>
-            <span className="calendar__header__next" onClick={handleNextMonth}>
+            <span className="calendar__header__next" onClick={handleNextMonth} data-testid="calendar-header-next-month">
               {NEXT}
             </span>
           </div>
@@ -157,6 +163,11 @@ const DateRangeSelectDay: React.SFC<IDateRangeProps> = ({ onChange, type = '' })
                       currentYearToString,
                     )}
                     onClick={changeDate}
+                    data-testid={DateUtilsSingleton.formatDate(
+                      currentDateToString,
+                      currentMonthToString,
+                      currentYearToString,
+                    )}
                   >
                     {currentDate.getDate()}
                   </li>
