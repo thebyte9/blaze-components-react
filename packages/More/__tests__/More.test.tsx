@@ -152,7 +152,7 @@ describe('More component', () => {
     }
   });
 
-  test('it should update state and cleanup function of useEffect hook', () => {
+  test('it should call useEffect cleanup function', () => {
     const useEffectCleanUpSpy = jest.spyOn(React, 'useEffect');
     const setState = jest.fn();
     const useStateSpy = jest.spyOn(React, 'useState');

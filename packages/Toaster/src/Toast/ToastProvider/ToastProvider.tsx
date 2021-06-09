@@ -8,7 +8,8 @@ import ToastContext from '../ToastContext';
 import ToastController from '../ToastController';
 import { Callback, Id, IOptions } from '../types/common';
 import { IProps, IState } from '../types/provider/provider';
-import { generateUEID, NOOP } from '../utils';
+import { NOOP } from '../utils';
+import { nanoid } from 'nanoid';
 
 const canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
@@ -31,13 +32,15 @@ class ToastProvider extends Component<IProps, IState> {
     return Boolean(this.state.toasts.filter((t: any) => t.id === id).length);
   };
 
-  public onDismiss = (id: Id, cb: Callback = NOOP) => () => {
-    cb(id);
-    this.remove(id);
-  };
+  public onDismiss =
+    (id: Id, cb: Callback = NOOP) =>
+    () => {
+      cb(id);
+      this.remove(id);
+    };
 
   public add = (content: JSX.Element, options: IOptions = {}, cb: Callback = NOOP) => {
-    const id = options.id || generateUEID();
+    const id = options.id || nanoid();
     const callback = () => cb(id);
 
     if (this.has(id)) {

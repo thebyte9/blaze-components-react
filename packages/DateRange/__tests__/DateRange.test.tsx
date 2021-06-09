@@ -25,9 +25,4 @@ describe('DateRange component', () => {
     render(<DateRange {...defaultProps()} />);
     fireEvent.change(screen.getByText('Please Choose...'), { target: { value: 'days, 30' } });
   });
-
-  test('should select a value', () => {
-    render(<DateRange {...defaultProps()} />);
-    fireEvent.change(screen.getByText('Please Choose...'), { target: { value: 'days, 30' } });
-  });
 });
