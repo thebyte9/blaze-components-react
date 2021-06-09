@@ -15,6 +15,6 @@ module.exports = {
     '@blaze-react/chips': '<rootDir>../Chips/src',
     '@blaze-react/input': '<rootDir>../Input/src',
     '@blaze-react/checkboxes': '<rootDir>../Checkboxes/src',
-    '@blaze-react/select': '<rootDir>../Checkboxes/src',
+    '@blaze-react/select': '<rootDir>../Select/src',
   },
 };
