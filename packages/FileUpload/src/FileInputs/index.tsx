@@ -56,6 +56,7 @@ const FileInputs = ({
         />
         <Select
           label="Store type"
+          data-testid="store-type"
           options={selectOptions}
           onChange={(event: any) => handleSelectChange(event, index)}
         />

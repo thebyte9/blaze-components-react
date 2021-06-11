@@ -78,7 +78,9 @@ exports[`FileInputs component should render without throwing error 1`] = `
     >
       Store type
     </label>
-    <select>
+    <select
+      data-testid="store-type"
+    >
       <option>
         Please Choose...
       </option>

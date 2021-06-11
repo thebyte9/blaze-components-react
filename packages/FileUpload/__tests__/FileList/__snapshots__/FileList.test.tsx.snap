@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileList component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="preview"
+  >
+    <div
+      class="preview__file preview__file--image"
+    >
+      <img
+        src="[object Blob]"
+      />
+    </div>
+    <div
+      class="preview__details"
+    >
+      <div
+        class="preview__filename"
+      >
+        file-1.png
+      </div>
+      <div
+        class="preview__form"
+      >
+        <div
+          class="form-field form-field--input  "
+        >
+          <label
+            class=""
+            for="0-title-file-1png"
+          >
+            image title
+          </label>
+          <input
+            data-testid="input"
+            id="0-title-file-1png"
+            name="name"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="form-field form-field--input  "
+        >
+          <label
+            class=""
+            for="0-caption-file-1png"
+          >
+            image caption
+          </label>
+          <input
+            data-testid="input"
+            id="0-caption-file-1png"
+            name="caption-0-file-1png"
+            type="text"
+            value="test caption"
+          />
+        </div>
+        <div
+          class="form-field form-field--input  "
+        >
+          <label
+            class=""
+            for="0-altText-file-1png"
+          >
+            Alternative text
+          </label>
+          <input
+            data-testid="input"
+            id="0-altText-file-1png"
+            name="altText-0-file-1png"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="form-field form-field--input  "
+        >
+          <label
+            class=""
+            for="0-hrefUrl-file-1png"
+          >
+            Url
+          </label>
+          <input
+            data-testid="input"
+            id="0-hrefUrl-file-1png"
+            name="hrefUrl-0-file-1png"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="form-field form-field--select"
+        >
+          <label
+            class=""
+          >
+            Store type
+          </label>
+          <select
+            data-testid="store-type"
+            disabled=""
+          >
+            <option>
+              Please Choose...
+            </option>
+          </select>
+        </div>
+        <i
+          aria-hidden="true"
+          class="material-icons"
+          data-testid="delete"
+        >
+          delete_outline
+        </i>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`FileList component should return input label for video files  1`] = `
+<DocumentFragment>
+  <div
+    class="preview"
+  >
+    <div
+      class="preview__file preview__file--video"
+    >
+      <svg
+        height="100"
+        viewBox="0 0 8 8"
+        width="100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0v8h7v-4h-4v-4h-3zm4 0v3h3l-3-3zm-3 2h1v1h-1v-1zm0 2h1v1h-1v-1zm0 2h4v1h-4v-1z"
+        />
+      </svg>
+    </div>
+    <div
+      class="preview__details"
+    >
+      <div
+        class="preview__filename"
+      >
+        video.mp4
+      </div>
+      <div
+        class="preview__form"
+      >
+        <i
+          aria-hidden="true"
+          class="material-icons"
+          data-testid="delete"
+        >
+          delete_outline
+        </i>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -4,7 +4,6 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import FileUpload from '../src/FileUpload';
 import React from 'react';
-import userEvent from '@testing-library/user-event';
 
 declare global {
   interface Window {
@@ -13,7 +12,7 @@ declare global {
 }
 
 const FileUploadComponent = (
-  <FileUpload selectOptions={[['default', 'Default']]} onChange={() => {}}>
+  <FileUpload selectOptions={[['default', 'Default']]} onChange={jest.fn()}>
     Drag and drop here
   </FileUpload>
 );
