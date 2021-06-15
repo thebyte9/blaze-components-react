@@ -1,4 +1,11 @@
 {
+  "eslint.alwaysShowStatus": true,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": true,
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

@@ -1,4 +1,3 @@
-/dist/
-/node_modules/
-/__tests__/
-/stories/
+dist/
+__tests__/
+stories/

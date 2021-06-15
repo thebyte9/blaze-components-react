@@ -3,20 +3,22 @@
   "version": "0.0.1",
   "description": "React Component Framework for Blaze-CMS",
   "scripts": {
+    "setup": "yarn install && yarn run build",
     "dev": "start-storybook",
     "clean": "lerna clean && yarn cache clean",
-    "lint": "yarn workspaces foreach run lint",
+    "lint": "eslint '*/**/*.{ts,tsx}'",
     "build": "yarn workspaces foreach run build",
     "build-storybook": "NODE_ENV=production build-storybook",
-    "test": "yarn workspaces foreach run test",
+    "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage --testPathPattern=/__tests__/ --passWithNoTests",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "pre-publish": "yarn build && yarn lint && yarn test",
-    "analyse": "ANALYSE=true yarn workspaces foreach run build"
+    "analyse": "ANALYSE=true yarn workspaces foreach run build",
+    "prerelease:version": "npx lerna version --conventional-commits --conventional-prerelease --no-commit-hooks --create-release github",
+    "prerelease:publish": "npx lerna publish from-git --dist-tag alpha",
+    "release:version": "npx lerna version --conventional-commits --conventional-graduate --no-commit-hooks --create-release github",
+    "release:publish": "npx lerna publish from-git",
+    "postinstall": "husky install"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thebyte9/blaze-components-react.git"
@@ -59,6 +61,8 @@
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.12.5",
     "@blaze-cms/blaze-ui": "0.0.6",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@mdx-js/react": "^1.6.22",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@storybook/addon-actions": "^6.3.0-beta.4",

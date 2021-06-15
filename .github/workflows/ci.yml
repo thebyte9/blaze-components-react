@@ -1,4 +1,4 @@
-name: GitHub Actions
+name: CI
 on:
   push:
     branches:
@@ -6,14 +6,14 @@ on:
       - release
       - master
     paths-ignore:
-      - 'docs/**'
-      - '**.md'
+      - "docs/**"
+      - "**.md"
       - LICENSE
   pull_request:
-    types: [edited, opened, synchronize, reopened]
+    types: [opened, synchronize, reopened]
     paths-ignore:
-      - 'docs/**'
-      - '**.md'
+      - "docs/**"
+      - "**.md"
       - LICENSE
 
 jobs:
@@ -24,7 +24,6 @@ jobs:
       matrix:
         os: [ubuntu-18.04]
         node-version: [14.16.x]
-    if: github.head_ref != 'master'
 
     steps:
       - name: Checkout
@@ -37,7 +36,7 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Yarn v2
@@ -93,7 +92,11 @@ jobs:
       matrix:
         os: [ubuntu-18.04]
         node-version: [14.16.x]
-    if: github.ref == 'refs/heads/dev'
+    if: |
+      (github.event_name == 'push' &&
+      startsWith(github.ref, 'refs/tags/v'))
+    # if: (contains(fromJson('["release", "master"]'), github.base_ref) &&
+    #   github.event.pull_request.merged == true)
 
     steps:
       - name: Checkout
@@ -106,33 +109,38 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Yarn v2
-        run: |
-          yarn set version berry
+        run: yarn set version berry
 
-      - name: Yarn workspace
-        run: |
-          cd examples/blaze-example-admin/ &&
-          yarn workspaces focus --production
-
-      #todo check whether we need this step, without it break admin build (next/dynamic missing dependencies)
       - name: Install packages
         run: yarn install
 
-      - name: Create .env file
-        env:
-          BLAZE_ADMIN_URI: ${{ secrets.BLAZE_ADMIN_URI }}
-          BLAZE_GRAPHQL_URI: ${{ secrets.BLAZE_GRAPHQL_URI }}
-        run: |
-          cd examples/blaze-example-admin/ &&
-          env > .env
-
       - name: Build storybook
+        run: yarn run build-storybook
+
+      - name: Set GitHub user details
         run: |
-          yarn run build-storybook
+          git config --global user.email ${{ secrets.GIT_USER_EMAIL }}
+          git config --global user.name ${{ secrets.GIT_USER_NAME }}
+
+      # - name: Create prerelease version
+      #   run: npx lerna version --conventional-commits --conventional-prerelease --no-commit-hooks --create-release github --yes
+      #   if: github.head_ref == 'release'
+
+      # - name: Publish packages to npm as alpha
+      #   run: npx lerna publish from-git --dist-tag alpha --yes
+      #   if: github.head_ref == 'release'
+
+      # - name: Create release version
+      #   run: npx lerna version --conventional-commits --conventional-graduate --no-commit-hooks --create-release github --yes
+      #   if: github.head_ref == 'master'
+
+      # - name: Publish packages to npm
+      #   run: npx lerna publish from-git --yes
+      #   if: github.head_ref == 'master'
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1

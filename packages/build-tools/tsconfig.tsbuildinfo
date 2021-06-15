@@ -172,7 +172,7 @@
         "affectsGlobalScope": true
       },
       "./src/config/jest.base.config.js": {
-        "version": "86dffa729112eb7057c919ff8563fa3fb82621199d2eedd7168d544a7fc1645b",
+        "version": "de1037652d731fa00ff0de2adb4bb2b3f92adbdb25ef17f7c73ad63633045277",
         "signature": "71ca2682372f4210d24a1e2a363673582e33cd4a9f203b4b0a834c00c5439539",
         "affectsGlobalScope": true
       },
@@ -1257,7 +1257,7 @@
       },
       "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
-      "pathsBasePath": "/Users/ryan/source/byte9/blaze-components-react/packages/build-tools",
+      "pathsBasePath": "/Users/grzegorz/Workspace/JS/blaze-components-react/packages/build-tools",
       "inlineSourceMap": false,
       "configFilePath": "./tsconfig.json"
     },
