@@ -249,7 +249,7 @@ class Nestable extends Component<INestableProps, INestableState> {
     });
     return (
       <div className={wrapperClassName}>
-        <ol className="nestable-list nestable-group">
+        <ol className="nestable-list nestable-group" data-testid="nestable-group">
           {items.map((item: any, index: number) => (
             <NestableItem
               dragItem={dragItem}

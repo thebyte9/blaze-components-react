@@ -4,6 +4,7 @@ exports[`Nestable Item should render without throwing error 1`] = `
 <div>
   <li
     class="nestable-item nestable-item-parent"
+    data-testid="nestable-item-0"
     id="7a004940-0f79-11ea-8d2a-2bd884659b73"
   >
     <div
