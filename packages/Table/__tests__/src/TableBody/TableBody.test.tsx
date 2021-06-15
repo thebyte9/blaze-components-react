@@ -1,4 +1,4 @@
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 
 import React from 'react';
 import TableBody from '../../../src/TableBody/TableBody';
@@ -55,5 +55,6 @@ describe('Table body', () => {
         bodyRef={{ current: { offsetHeight: 1000 } }}
       />,
     );
+    fireEvent.click(screen.getByTestId('tablerow-1'));
   });
 });

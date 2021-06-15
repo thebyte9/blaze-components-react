@@ -38,7 +38,7 @@ const NestableItem: React.SFC<INestableItemProps> = ({
   });
 
   return (
-    <li className={listItemClassName} id={item.id}>
+    <li className={listItemClassName} id={item.id} data-testid={`nestable-item-${index}`}>
       <div className="nestable-item-name" onMouseEnter={(e) => onMouseEnter(e, item)}>
         <RenderItem
           item={item}
