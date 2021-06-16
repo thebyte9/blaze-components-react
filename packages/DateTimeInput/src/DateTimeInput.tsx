@@ -83,7 +83,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
       </label>
 
       <DatePicker
-        data-testid="date-time-input"
+        data-testid={id}
         id={id}
         name={id}
         onChange={handleChange}

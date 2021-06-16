@@ -30,7 +30,6 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
       >
         warning
       </i>
-      This field is required
     </div>
   </div>
 </DocumentFragment>
@@ -66,7 +65,6 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
       >
         warning
       </i>
-      This field is required
     </div>
   </div>
 </DocumentFragment>
@@ -102,7 +100,6 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
       >
         warning
       </i>
-      This field is required
     </div>
   </div>
 </DocumentFragment>
@@ -138,7 +135,6 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
       >
         warning
       </i>
-      This field is required
     </div>
   </div>
 </DocumentFragment>
