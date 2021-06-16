@@ -11,3 +11,4 @@ coverage
 .typescript
 storybook-static/
 stats/
+tsconfig.tsbuildinfo
