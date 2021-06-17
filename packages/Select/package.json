@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/select",
-  "version": "0.6.2-alpha.0",
+  "version": "0.8.0-alpha.0",
   "description": "The select component represents an input that provides a menu of options",
   "main": "./dist/main.js",
   "scripts": {
@@ -24,5 +24,6 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
 }
