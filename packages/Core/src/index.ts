@@ -1,4 +1,4 @@
-import { ThemeContext, ThemeContextConsumer, ThemeContextProvider } from './ThemeContext';
+import ThemeContext from './ThemeContext';
 import useTheme from './useTheme';
 
-export { ThemeContext, ThemeContextConsumer, ThemeContextProvider, useTheme }
+export { ThemeContext, useTheme };
