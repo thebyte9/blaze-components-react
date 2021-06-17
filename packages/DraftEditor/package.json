@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/drafteditor",
-  "version": "0.8.0-alpha.2",
+  "version": "0.8.0-alpha.3",
   "description": "Draft.js is a framework for building rich text editors in React",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
