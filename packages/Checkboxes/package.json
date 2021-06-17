@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/checkboxes",
-  "version": "0.6.0",
+  "version": "0.6.2-alpha.0",
   "description": "Boxes that are checked (ticked) when activated. They allow you to select single values for submission in a form (or not).",
   "main": "./dist/main.js",
   "scripts": {

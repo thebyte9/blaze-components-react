@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/breadcrumb",
-  "version": "0.6.0",
+  "version": "0.6.2-alpha.0",
   "description": "Breadcrumbs allow users to make selections from a range of values",
   "main": "./dist/main.js",
   "scripts": {
