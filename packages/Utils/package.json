@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/utils",
-  "version": "0.6.1",
+  "version": "0.8.0-alpha.3",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -25,5 +25,6 @@
     "eslint": "^7.27.0",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0"
-  }
+  },
+  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
 }
