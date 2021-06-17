@@ -16,8 +16,8 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@blaze-react/avatar": "workspace:packages/Avatar",
-    "@blaze-react/utils": "workspace:packages/Utils",
+    "@blaze-react/avatar": "file:../Avatar",
+    "@blaze-react/utils": "file:../Utils",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
