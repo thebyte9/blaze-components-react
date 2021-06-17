@@ -1,56 +1,64 @@
-// import { fireEvent, render } from "@testing-library/react";
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import Autocomplete from "../src";
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import Autocomplete from '../src';
+import React from 'react';
 
 const data = {
   data: [
     {
       id: 1,
-      name: "Laravel",
-      description: "PHP framework"
+      name: 'Laravel',
+      description: 'PHP framework',
     },
     {
       id: 2,
-      name: "React",
-      description: "Javascript library"
+      name: 'React',
+      description: 'Javascript library',
     },
     {
       id: 3,
-      name: "Adonis",
-      description: "Javascript framework"
-    }
+      name: 'Adonis',
+      description: 'Javascript framework',
+    },
   ],
-  filterBy: ["name", "description"],
-  keyValue: "name"
+  filterBy: ['name', 'description'],
+  keyValue: 'name',
 };
 
-describe("Autocomplete component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(<Autocomplete data={data} />);
+const AutoCompleteComponent = <Autocomplete data={data} />;
 
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+describe('Autocomplete component', () => {
+  it('should match snapshot', () => {
+    const { asFragment } = render(AutoCompleteComponent);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  // test.only("should allow to filter", async () => {
-  //   const { getByText, getByTestId, getByPlaceholderText } = render(
-  //     <Autocomplete data={data} />
-  //   );
+  it('should allow to filter', async () => {
+    const { getByText, getByPlaceholderText } = render(AutoCompleteComponent);
 
-  //   const input = getByPlaceholderText("Search");
+    const input = getByPlaceholderText('Search');
 
-  //   fireEvent.change(input, {
-  //     target: {
-  //       value: "php"
-  //     }
-  //   });
+    fireEvent.change(input, {
+      target: {
+        value: 'php',
+      },
+    });
 
-  //   const button = getByTestId("option-1");
-  //   console.log("after button -->", button);
-  //   fireEvent.click(button);
+    expect(getByText('Laravel')).not.toBe(null);
+  });
 
-  //   getByText("Laravel");
-  // });
+  it('should handle click event', () => {
+    const { getByPlaceholderText } = render(AutoCompleteComponent);
+
+    const input = getByPlaceholderText('Search');
+
+    fireEvent.change(input, {
+      target: {
+        value: 'a',
+      },
+    });
+
+    const option = screen.getByTestId('option-0');
+    fireEvent.click(option);
+  });
 });

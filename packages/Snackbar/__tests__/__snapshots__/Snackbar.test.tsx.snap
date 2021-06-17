@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="snackbar snackbar--bottom-right snackbar--info active"
+        class="snackbar snackbar--bottomRight snackbar--info active"
       >
         <div
           class="message"
@@ -16,6 +16,7 @@ Object {
           >
             info
           </i>
+          Test
         </div>
         <div
           class="close"
@@ -31,7 +32,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="snackbar snackbar--bottom-right snackbar--info active"
+      class="snackbar snackbar--bottomRight snackbar--info active"
     >
       <div
         class="message"
@@ -41,6 +42,7 @@ Object {
         >
           info
         </i>
+        Test
       </div>
       <div
         class="close"

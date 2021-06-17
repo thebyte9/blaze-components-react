@@ -1,36 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Switches component should be defined and renders correctly (snapshot) 1`] = `
-<Component
-  error={false}
-  labelPosition="right"
-  modifier=""
-  onChange={[Function]}
-  options={
-    Array [
-      Object {
-        "id": 1,
-        "label": "Switch text",
-      },
-      Object {
-        "id": 2,
-        "label": "Switch text",
-      },
-      Object {
-        "disabled": true,
-        "label": "Disabled",
-      },
-    ]
-  }
-  returnBoolean={false}
-  utils={
-    Object {
-      "ErrorMessage": [Function],
-      "buildClassNames": [Function],
-      "removeExtraSpaces": [Function],
-      "uniqueId": [Function],
-    }
-  }
-  validationMessage="This field is required"
-/>
+<DocumentFragment>
+  <div
+    class="form-group form-group--switch"
+  >
+    <div
+      class="switch switch--label--right"
+    >
+      <div
+        class="switch__text"
+      >
+        Switch text
+      </div>
+      <div
+        class="switch__item"
+      >
+        <input
+          id="1"
+          readonly=""
+          type="checkbox"
+          value=""
+        />
+        <label
+          for="1"
+        >
+          toggle
+        </label>
+      </div>
+    </div>
+    <div
+      class="switch switch--label--right"
+    >
+      <div
+        class="switch__text"
+      >
+        Switch text
+      </div>
+      <div
+        class="switch__item"
+      >
+        <input
+          id="2"
+          readonly=""
+          type="checkbox"
+          value=""
+        />
+        <label
+          for="2"
+        >
+          toggle
+        </label>
+      </div>
+    </div>
+    <div
+      class="switch switch--label--right"
+    >
+      <div
+        class="switch__text"
+      >
+        Disabled
+      </div>
+      <div
+        class="switch__item"
+      >
+        <input
+          disabled=""
+          id="switch-2"
+          readonly=""
+          type="checkbox"
+          value=""
+        />
+        <label
+          for="switch-2"
+        >
+          toggle
+        </label>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;

@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react";
-
 interface IErrorMessage {
-  message: string | JSX.Element;
+  message: string | JSX.Element | undefined;
   icon?: string;
 }
 

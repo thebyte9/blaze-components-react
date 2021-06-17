@@ -1,7 +1,8 @@
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import Drawer from "../src";
+import '@testing-library/jest-dom';
+import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
+import Drawer from '../src/Drawer';
+import React from 'react';
 
 const DrawerComponent = (
   <Drawer modifier="right" title="Drawer Component">
@@ -14,26 +15,20 @@ const DrawerComponent = (
   </Drawer>
 );
 
-describe("Drawer component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(DrawerComponent);
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+describe('Drawer component', () => {
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(DrawerComponent);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  test("should toggle on click", () => {
-    const wrapper = mount(DrawerComponent);
+  test('should toggle the drawer', () => {
+    render(DrawerComponent);
+    userEvent.click(screen.getByTestId('icon-button-arrow'));
 
-    wrapper
-      .find(".icon-button")
-      .at(1)
-      .simulate("click");
-    expect(wrapper.find(".open").length).toEqual(1);
+    const drawer = screen.getByTestId('drawer-wrapper');
+    expect(drawer.classList.contains('open')).toBeTruthy();
 
-    wrapper
-      .find(".icon-button")
-      .at(1)
-      .simulate("click");
-    expect(wrapper.find(".open").length).toEqual(0);
+    userEvent.click(screen.getByTestId('icon-button-arrow'));
+    expect(drawer.classList.contains('open')).toBeFalsy();
   });
 });

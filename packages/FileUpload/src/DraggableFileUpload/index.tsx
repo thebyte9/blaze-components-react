@@ -9,7 +9,7 @@ interface IDraggableFileUpload {
   handleSelectChange?: (...args: any[]) => void;
   area: any;
   customPreview?: boolean;
-  previewImages: object[];
+  previewImages: Record<string, unknown>[];
   selectOptions: any[];
   children: JSX.Element | JSX.Element[];
 }

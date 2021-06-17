@@ -1,34 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chip component should be defined and renders correctly (snapshot) 1`] = `
-<withUtils()
-  action={[Function]}
-  onDelete={[Function]}
->
-  <Component
-    action={[Function]}
-    onDelete={[Function]}
-    utils={
-      Object {
-        "ErrorMessage": [Function],
-        "buildClassNames": [Function],
-        "removeExtraSpaces": [Function],
-        "uniqueId": [Function],
-      }
-    }
+<DocumentFragment>
+  <div
+    class="chip chip--deletable chip--small"
   >
     <div
-      className="chip"
-      onClick={[Function]}
+      class="chip__label"
     >
-      <ChipLabel>
-        <div
-          className="chip__label"
-        >
-          Basic chip
-        </div>
-      </ChipLabel>
+      Basic chip
     </div>
-  </Component>
-</withUtils()>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Chip component should delete Chip 1`] = `<DocumentFragment />`;
+
+exports[`Chip component without modifiers 1`] = `
+<DocumentFragment>
+  <div
+    class="chip"
+  >
+    <div
+      class="chip__avatar"
+    >
+      <div
+        class="avatar avatar--x-small"
+      >
+        <span>
+          LI
+        </span>
+      </div>
+    </div>
+    <div
+      class="chip__label"
+    >
+      Primary deletable chip
+    </div>
+    <div
+      class="chip__icon chip__icon--delete"
+    >
+      <i
+        class="material-icons"
+      >
+        delete
+      </i>
+    </div>
+  </div>
+</DocumentFragment>
 `;

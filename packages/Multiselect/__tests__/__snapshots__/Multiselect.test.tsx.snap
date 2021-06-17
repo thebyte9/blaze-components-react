@@ -16,7 +16,6 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
         />
         <span
           class="chip__wrapper__clear"
-          data-cy="multiSelect--clearAll-button"
         >
           Clear all
         </span>
@@ -32,13 +31,11 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
           >
             <div
               class="chip__label"
-              data-cy="multiSelect--chip1-label"
             >
               Blaze 1
             </div>
             <div
               class="chip__icon chip__icon--delete"
-              data-cy="multiSelect--chip1-icon"
             >
               <i
                 class="material-icons"
@@ -52,13 +49,11 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
           >
             <div
               class="chip__label"
-              data-cy="multiSelect--chip2-label"
             >
               Blaze 2, multi main label
             </div>
             <div
               class="chip__icon chip__icon--delete"
-              data-cy="multiSelect--chip2-icon"
             >
               <i
                 class="material-icons"
@@ -103,7 +98,6 @@ exports[`Multiselect component should be defined and renders correctly when is o
         />
         <span
           class="chip__wrapper__clear"
-          data-cy="multiSelect--clearAll-button"
         >
           Clear all
         </span>
@@ -119,13 +113,11 @@ exports[`Multiselect component should be defined and renders correctly when is o
           >
             <div
               class="chip__label"
-              data-cy="multiSelect--chip1-label"
             >
               Blaze 1
             </div>
             <div
               class="chip__icon chip__icon--delete"
-              data-cy="multiSelect--chip1-icon"
             >
               <i
                 class="material-icons"
@@ -139,13 +131,11 @@ exports[`Multiselect component should be defined and renders correctly when is o
           >
             <div
               class="chip__label"
-              data-cy="multiSelect--chip2-label"
             >
               Blaze 2, multi main label
             </div>
             <div
               class="chip__icon chip__icon--delete"
-              data-cy="multiSelect--chip2-icon"
             >
               <i
                 class="material-icons"
@@ -190,15 +180,19 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     checked=""
                     class="form-checkbox"
                     data-cy="multiselect-checkbox-cy-0"
-                    data-testid="checkbox-0"
+                    data-testid="1-checkbox"
+                    description="Lorem ipsum dolor."
                     id="1-checkbox"
+                    index="0"
                     name="Blaze 1"
                     readonly=""
+                    testid="checkbox-0"
                     type="checkbox"
                     value=""
                   />
                   <div
                     class="form-field--checkbox-full"
+                    data-testid="form-field-wrapper"
                   >
                     <label
                       for="1-checkbox"
@@ -221,15 +215,19 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     checked=""
                     class="form-checkbox"
                     data-cy="multiselect-checkbox-cy-1"
-                    data-testid="checkbox-1"
+                    data-testid="2-checkbox"
+                    description="Lorem ipsum dolor."
                     id="2-checkbox"
+                    index="1"
                     name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
                     readonly=""
+                    testid="checkbox-1"
                     type="checkbox"
                     value=""
                   />
                   <div
                     class="form-field--checkbox-full"
+                    data-testid="form-field-wrapper"
                   >
                     <label
                       for="2-checkbox"
@@ -254,15 +252,19 @@ exports[`Multiselect component should be defined and renders correctly when is o
                   <input
                     class="form-checkbox"
                     data-cy="multiselect-checkbox-cy-2"
-                    data-testid="checkbox-2"
+                    data-testid="3-checkbox"
+                    description="Lorem ipsum dolor."
                     id="3-checkbox"
+                    index="2"
                     name="Blaze 3,Sub label 1,sub label 2"
                     readonly=""
+                    testid="checkbox-2"
                     type="checkbox"
                     value=""
                   />
                   <div
                     class="form-field--checkbox-full"
+                    data-testid="form-field-wrapper"
                   >
                     <label
                       for="3-checkbox"

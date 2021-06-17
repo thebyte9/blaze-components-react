@@ -2,7 +2,11 @@ const TYPE_DATE = "date";
 const TYPE_DATE_TIME = "dateTime";
 const TYPE_TIME = "time";
 
-const DATE_FORMAT_MAP = {
+interface Map {
+  [index: string]: string;
+}
+
+const DATE_FORMAT_MAP: Map = {
   [TYPE_DATE]: "MMMM d, yyyy",
   [TYPE_DATE_TIME]: "MMMM d, yyyy HH:mm",
   [TYPE_TIME]: "HH:mm",

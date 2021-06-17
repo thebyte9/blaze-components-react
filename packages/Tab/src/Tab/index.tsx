@@ -1,6 +1,6 @@
-import Button from "@blaze-react/button";
-import PropTypes from "prop-types";
-import React, { useState } from "react";
+import Button from '@blaze-react/button';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 type selectedType = string | number;
 
@@ -15,19 +15,15 @@ export const Tab = ({ selected, children }: ITabProps) => {
   return (
     <div className="tabs">
       <div className="tabs__list">
-        {children.map(
-          ({ props: { title = "Unnamed tab" } }: any, step: any) => (
-            <Button
-              className={`tabs__list-item ${
-                step === selectedValue ? "current" : ""
-              }`}
-              onClick={() => setSelected(step)}
-              key={title}
-            >
-              {title}
-            </Button>
-          )
-        )}
+        {children.map(({ props: { title = 'Unnamed tab' } }: any, step: any) => (
+          <Button
+            className={`tabs__list-item ${step === selectedValue ? 'current' : ''}`}
+            onClick={() => setSelected(step)}
+            key={title}
+          >
+            {title}
+          </Button>
+        ))}
       </div>
       {children[selectedValue]}
     </div>
@@ -35,14 +31,11 @@ export const Tab = ({ selected, children }: ITabProps) => {
 };
 
 Tab.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
-  selected: PropTypes.number
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  selected: PropTypes.number,
 };
 
 Tab.defaultProps = {
-  children: "No content",
-  selected: 0
+  children: 'No content',
+  selected: 0,
 };

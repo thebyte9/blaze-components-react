@@ -1,145 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Accordion component should be defined and renders correctly (snapshot) 1`] = `
-<Accordion>
+exports[`Accordion component should match snapshot 1`] = `
+<DocumentFragment>
   <div
-    className="accordion"
+    class="accordion"
   >
     <div
-      className="accordion__header"
+      class="accordion__header"
     >
-      <AccordionHeader>
-        <div
-          className="accordion__header-text"
-        >
-          <p>
-            Accordion text 1
-          </p>
-          <p>
-            Accordion text 2
-          </p>
-        </div>
-      </AccordionHeader>
       <div
-        className="icon-button icon-button--accordion"
-        onClick={[Function]}
+        class="accordion__header-text"
+      >
+        <p>
+          Accordion text 1
+        </p>
+        <p>
+          Accordion text 2
+        </p>
+      </div>
+      <div
+        class="icon-button icon-button--accordion"
+        data-testid="toggle-accordion"
       >
         <i
-          className="material-icons"
+          class="material-icons"
         >
           keyboard_arrow_down
         </i>
       </div>
     </div>
     <div
-      className="accordion__content-wrapper"
-      style={
-        Object {
-          "display": "none",
-        }
-      }
+      class="accordion__content-wrapper"
+      style="display: none;"
     >
-      <AccordionContent>
-        <AccordionContentDetails>
-          <div
-            className="accordion__content"
-          >
-            <p>
-              Content here. Components can be placed in here if needed
-            </p>
-            <p>
-              Footer can be added below if needed
-            </p>
-          </div>
-        </AccordionContentDetails>
-        <AccordionContentFooter>
-          <div
-            className="accordion__footer"
-          >
-            <withUtils()
-              disabled={false}
-              modifiers={
-                Array [
-                  "outline",
-                  "light",
-                  "rounded",
-                ]
-              }
-              name="button"
-              type="button"
-            >
-              <Component
-                disabled={false}
-                modifiers={
-                  Array [
-                    "outline",
-                    "light",
-                    "rounded",
-                  ]
-                }
-                name="button"
-                type="button"
-                utils={
-                  Object {
-                    "ErrorMessage": [Function],
-                    "buildClassNames": [Function],
-                    "removeExtraSpaces": [Function],
-                    "uniqueId": [Function],
-                  }
-                }
-              >
-                <button
-                  className="button button--outline button--light button--rounded"
-                  disabled={false}
-                  name="button"
-                  type="button"
-                >
-                  Cancel
-                </button>
-              </Component>
-            </withUtils()>
-            <withUtils()
-              disabled={false}
-              modifiers={
-                Array [
-                  "rounded",
-                ]
-              }
-              name="button"
-              type="button"
-            >
-              <Component
-                disabled={false}
-                modifiers={
-                  Array [
-                    "rounded",
-                  ]
-                }
-                name="button"
-                type="button"
-                utils={
-                  Object {
-                    "ErrorMessage": [Function],
-                    "buildClassNames": [Function],
-                    "removeExtraSpaces": [Function],
-                    "uniqueId": [Function],
-                  }
-                }
-              >
-                <button
-                  className="button button--rounded"
-                  disabled={false}
-                  name="button"
-                  type="button"
-                >
-                  Save
-                </button>
-              </Component>
-            </withUtils()>
-          </div>
-        </AccordionContentFooter>
-      </AccordionContent>
+      <div
+        class="accordion__content"
+      >
+        <p>
+          Content here. Components can be placed in here if needed
+        </p>
+        <p>
+          Footer can be added below if needed
+        </p>
+      </div>
+      <div
+        class="accordion__footer"
+      >
+        <button
+          class="button button--outline button--light button--rounded"
+          name="button"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          class="button button--rounded"
+          name="button"
+          type="button"
+        >
+          Save
+        </button>
+      </div>
     </div>
   </div>
-</Accordion>
+</DocumentFragment>
+`;
+
+exports[`Accordion component should match snapshot 2`] = `
+<DocumentFragment>
+  <div
+    class="accordion"
+  >
+    <div
+      class="accordion__header"
+    >
+      <div
+        class="icon-button icon-button--accordion"
+        data-testid="toggle-accordion"
+      >
+        <i
+          class="material-icons"
+        >
+          keyboard_arrow_down
+        </i>
+      </div>
+    </div>
+    <div
+      class="accordion__content-wrapper"
+      style="display: none;"
+    >
+      <div
+        class="accordion__content"
+      >
+        <p>
+          Content here. Components can be placed in here if needed
+        </p>
+        <p>
+          Footer can be added below if needed
+        </p>
+      </div>
+      <div
+        class="accordion__footer"
+      >
+        <button
+          class="button button--outline button--light button--rounded"
+          name="button"
+          type="button"
+        >
+          Cancel
+        </button>
+        <button
+          class="button button--rounded"
+          name="button"
+          type="button"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;

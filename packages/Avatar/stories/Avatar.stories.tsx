@@ -2,7 +2,7 @@ import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React from "react";
 import avatarReadme from "../README.md";
-import Avatar from "../src";
+import Avatar from "../src/Avatar";
 
 const url = "http://lorempixel.com/400/400/people/";
 storiesOf("Avatar", module)

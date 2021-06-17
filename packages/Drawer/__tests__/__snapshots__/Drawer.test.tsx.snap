@@ -1,145 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Drawer component should be defined and renders correctly (snapshot) 1`] = `
-<withUtils()
-  isPermanent={false}
-  isResponsive={false}
-  modifier="right"
-  title="Drawer Component"
->
-  <Component
-    isPermanent={false}
-    isResponsive={false}
-    modifier="right"
-    title="Drawer Component"
-    utils={
-      Object {
-        "ErrorMessage": [Function],
-        "buildClassNames": [Function],
-        "removeExtraSpaces": [Function],
-        "uniqueId": [Function],
-      }
-    }
+<DocumentFragment>
+  <div
+    class="drawer__wrapper drawer__wrapper--drawer-right"
   >
     <div
-      className="drawer__wrapper drawer__wrapper--drawer-right"
+      class="drawer drawer--right"
+      data-testid="drawer-wrapper"
     >
       <div
-        className="drawer drawer--right"
+        class="drawer__content-wrapper"
       >
         <div
-          className="drawer__content-wrapper"
+          class="drawer__header drawer__header--right"
         >
-          <div
-            className="drawer__header drawer__header--right"
-          >
-            <withUtils()
-              className="icon-button"
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-            >
-              <Component
-                className="icon-button"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-                utils={
-                  Object {
-                    "ErrorMessage": [Function],
-                    "buildClassNames": [Function],
-                    "removeExtraSpaces": [Function],
-                    "uniqueId": [Function],
-                  }
-                }
-              >
-                <button
-                  className="icon-button"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <i
-                    className="material-icons"
-                  >
-                    keyboard_arrow_right
-                  </i>
-                </button>
-              </Component>
-            </withUtils()>
-          </div>
-          <div
-            className="drawer__content"
-          >
-            <DrawerMainContent>
-              <div
-                className="drawer__content"
-              >
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit
-                </p>
-              </div>
-            </DrawerMainContent>
-          </div>
-        </div>
-      </div>
-      <div
-        className="page page--drawer"
-      >
-        <div
-          className="page__header page__header--drawer page__header--opens-right"
-        >
-          <withUtils()
-            className="icon-button"
-            disabled={false}
-            onClick={[Function]}
+          <button
+            class="icon-button"
+            data-testid="icon-button-arrow"
             type="button"
           >
-            <Component
-              className="icon-button"
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-              utils={
-                Object {
-                  "ErrorMessage": [Function],
-                  "buildClassNames": [Function],
-                  "removeExtraSpaces": [Function],
-                  "uniqueId": [Function],
-                }
-              }
+            <i
+              class="material-icons"
             >
-              <button
-                className="icon-button"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <i
-                  className="material-icons"
-                >
-                  menu
-                </i>
-              </button>
-            </Component>
-          </withUtils()>
-          Drawer Component
+              keyboard_arrow_right
+            </i>
+          </button>
         </div>
         <div
-          className="page__content page__content--drawer"
+          class="drawer__content"
         >
-          <DrawerPageContent>
-            <div
-              className="page__content page__content--drawer"
-            >
-              <p>
-                Cum assumenda ullam explicabo nostrum nam natus.
-              </p>
-            </div>
-          </DrawerPageContent>
+          <div
+            class="drawer__content"
+          >
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </Component>
-</withUtils()>
+    <div
+      class="page page--drawer"
+    >
+      <div
+        class="page__header page__header--drawer page__header--opens-right"
+      >
+        <button
+          class="icon-button"
+          data-testid="icon-button-menu"
+          type="button"
+        >
+          <i
+            class="material-icons"
+          >
+            menu
+          </i>
+        </button>
+        Drawer Component
+      </div>
+      <div
+        class="page__content page__content--drawer"
+      >
+        <div
+          class="page__content page__content--drawer"
+        >
+          <p>
+            Cum assumenda ullam explicabo nostrum nam natus.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;

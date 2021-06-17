@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import Timer from "../../Timer";
-import { IProps, IState } from "../types/controller/controller";
+import React, { Component } from 'react';
+import Timer from '../../Timer';
+import { IProps, IState } from '../types/controller/controller';
 
 class ToastController extends Component<IProps, IState> {
   public static defaultProps = {
-    autoDismiss: false
+    autoDismiss: false,
   };
   public timeout: any;
   public state = {
-    isRunning: Boolean(this.props.autoDismiss)
+    isRunning: Boolean(this.props.autoDismiss),
   };
 
   public componentDidMount() {
     this.startTimer();
   }
+
   public componentDidUpdate(prevProps: IProps) {
     if (prevProps.autoDismiss !== this.props.autoDismiss) {
-      const startOrClear = this.props.autoDismiss
-        ? this.startTimer
-        : this.clearTimer;
+      const startOrClear = this.props.autoDismiss ? this.startTimer : this.clearTimer;
 
       startOrClear();
     }
   }
+  
   public componentWillUnmount() {
     this.clearTimer();
   }
@@ -38,6 +38,7 @@ class ToastController extends Component<IProps, IState> {
     this.timeout = new Timer(onDismiss, autoDismissTimeout);
     this.timeout.resume();
   };
+
   public clearTimer = () => {
     if (this.timeout) {
       this.timeout.clear();
@@ -51,6 +52,7 @@ class ToastController extends Component<IProps, IState> {
       }
     });
   };
+
   public onMouseLeave = () => {
     this.setState({ isRunning: true }, () => {
       if (this.timeout) {
@@ -60,25 +62,20 @@ class ToastController extends Component<IProps, IState> {
   };
 
   public render() {
-    const {
-      autoDismiss,
-      autoDismissTimeout,
-      component: Toast,
-      ...props
-    } = this.props;
+    const { autoDismiss, autoDismissTimeout, component: Toast, ...props } = this.props;
     const { isRunning } = this.state;
 
-    const handleMouseEnter = autoDismiss ? this.onMouseEnter : null;
-    const handleMouseLeave = autoDismiss ? this.onMouseLeave : null;
+    const handleMouseEnter = autoDismiss ? this.onMouseEnter : undefined;
+    const handleMouseLeave = autoDismiss ? this.onMouseLeave : undefined;
 
     return (
       <Toast
         autoDismiss={autoDismiss}
         autoDismissTimeout={autoDismissTimeout}
+        {...props}
         isRunning={isRunning}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        {...props}
       />
     );
   }

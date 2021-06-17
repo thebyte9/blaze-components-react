@@ -1,8 +1,10 @@
-import Button from "@blaze-react/button";
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import ButtonSelect from "../src";
+import '@testing-library/jest-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import Button from '@blaze-react/button';
+import ButtonSelect from '../src';
+import React from 'react';
 
 const component = (
   <ButtonSelect text="Actions">
@@ -11,18 +13,15 @@ const component = (
   </ButtonSelect>
 );
 
-describe("ButtonSelect component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = mount(component);
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+describe('ButtonSelect component', () => {
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(component);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('should toggle', () => {
+    const { asFragment } = render(component);
+    fireEvent.click(screen.getByTestId('button-select-toggle'));
+    expect(asFragment()).toMatchSnapshot();
   });
 });

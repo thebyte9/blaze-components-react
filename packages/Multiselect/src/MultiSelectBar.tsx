@@ -1,7 +1,12 @@
-import Chip from "@blaze-react/chips";
-import Input from "@blaze-react/input";
-import withUtils from "@blaze-react/utils";
-import React from "react";
+import Chip from '@blaze-react/chips';
+import Input from '@blaze-react/input';
+import React from 'react';
+import { buildClassNames } from '@blaze-react/utils';
+import { nanoid } from 'nanoid';
+
+interface ISelectedValue {
+  [index: string]: string;
+}
 
 const MultiSelectBar = ({
   attrs,
@@ -18,8 +23,6 @@ const MultiSelectBar = ({
   placeholder,
   required,
   searchValue,
-  uniqueId,
-  utils: { buildClassNames },
 }: any) => {
   const requiredClassName: string = buildClassNames({ required });
 
@@ -30,11 +33,7 @@ const MultiSelectBar = ({
           {label}
         </label>
         {!!checkedItems.length && (
-          <span
-            data-cy={`multiSelect-${label}-clearAll-button`}
-            className="chip__wrapper__clear"
-            onClick={handleClearAll}
-          >
+          <span className="chip__wrapper__clear" onClick={handleClearAll}>
             Clear all
           </span>
         )}
@@ -42,12 +41,9 @@ const MultiSelectBar = ({
       <div className="multiselect__input__container">
         <div className="multiselect__input__container__chips">
           {checkedItems.map(
-            (selectedValue: object, index: number): JSX.Element => (
+            (selectedValue: ISelectedValue, index: number): JSX.Element => (
               <Chip
-                modifiers={[
-                  Chip.availableModifiers.parent.deletable,
-                  Chip.availableModifiers.parent.small,
-                ]}
+                modifiers={[Chip.availableModifiers.parent.deletable, Chip.availableModifiers.parent.small]}
                 onDelete={() =>
                   handleDelete({
                     id: selectedValue[identification],
@@ -60,21 +56,16 @@ const MultiSelectBar = ({
                     name: selectedValue[keyValue],
                   })
                 }
-                key={uniqueId(selectedValue)}
+                key={`checked-${nanoid()}-${index}`}
               >
-                <Chip.Label
-                  data-cy={`multiSelect-${label}-chip${index + 1}-label`}
-                >
+                <Chip.Label data-cy={`multiSelect-${label}-chip${index + 1}-label`}>
                   {getLabel({ label: selectedValue[keyValue], isChip: true })}
                 </Chip.Label>
-                <Chip.Icon
-                  data-cy={`multiSelect-${label}-chip${index + 1}-icon`}
-                  modifier={Chip.availableModifiers.icon.delete}
-                >
+                <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
                   <i className="material-icons">clear</i>
                 </Chip.Icon>
               </Chip>
-            )
+            ),
           )}
           <Input
             value={searchValue}
@@ -90,4 +81,4 @@ const MultiSelectBar = ({
   );
 };
 
-export default withUtils(MultiSelectBar);
+export default MultiSelectBar;

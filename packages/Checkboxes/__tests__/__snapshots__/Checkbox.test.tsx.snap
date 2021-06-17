@@ -1,45 +1,165 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkboxes component should be defined and renders correctly (snapshot) 1`] = `
-<CheckBoxes
-  error={false}
-  full={false}
-  onChange={[Function]}
-  options={
-    Array [
-      Object {
-        "id": 1,
-        "label": "first",
-        "value": "lorem ipsum",
-      },
-      Object {
-        "id": 2,
-        "label": "I accept",
-        "required": true,
-        "value": "accepted",
-      },
-      Object {
-        "disabled": true,
-        "id": 3,
-        "label": "Disabled",
-        "value": "",
-      },
-      Object {
-        "id": 4,
-        "label": "display none",
-        "show": false,
-      },
-    ]
-  }
-  returnBoolean={false}
-  utils={
-    Object {
-      "ErrorMessage": [Function],
-      "buildClassNames": [Function],
-      "removeExtraSpaces": [Function],
-      "uniqueId": [Function],
-    }
-  }
-  validationMessage="This field is required"
-/>
+<DocumentFragment>
+  <div
+    class="form-field form-field--checkbox"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="1-checkbox"
+      id="1-checkbox-checkbox"
+      readonly=""
+      type="checkbox"
+      value="lorem ipsum"
+    />
+    <div
+      class=""
+      data-testid="form-field-wrapper"
+    >
+      <label
+        for="1-checkbox-checkbox"
+      >
+        <span>
+          first
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="form-field form-field--checkbox required"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="2-checkbox"
+      id="2-checkbox-checkbox"
+      readonly=""
+      required=""
+      type="checkbox"
+      value="accepted"
+    />
+    <div
+      class=""
+      data-testid="form-field-wrapper"
+    >
+      <label
+        for="2-checkbox-checkbox"
+      >
+        <span>
+          I accept
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="form-field form-field--checkbox"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="3-checkbox"
+      disabled=""
+      id="3-checkbox-checkbox"
+      readonly=""
+      type="checkbox"
+      value="disabled"
+    />
+    <div
+      class=""
+      data-testid="form-field-wrapper"
+    >
+      <label
+        for="3-checkbox-checkbox"
+      >
+        <span>
+          Disabled
+        </span>
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Checkboxes component should render a disabled checkbox 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--checkbox"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="1-checkbox"
+      id="1-checkbox-checkbox"
+      readonly=""
+      type="checkbox"
+      value="lorem ipsum"
+    />
+    <div
+      class=""
+      data-testid="form-field-wrapper"
+    >
+      <label
+        for="1-checkbox-checkbox"
+      >
+        <span>
+          first
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="form-field form-field--checkbox required"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="2-checkbox"
+      id="2-checkbox-checkbox"
+      readonly=""
+      required=""
+      type="checkbox"
+      value="accepted"
+    />
+    <div
+      class=""
+      data-testid="form-field-wrapper"
+    >
+      <label
+        for="2-checkbox-checkbox"
+      >
+        <span>
+          I accept
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="form-field form-field--checkbox"
+    role="button"
+  >
+    <input
+      class="form-checkbox"
+      data-testid="3-checkbox"
+      disabled=""
+      id="3-checkbox-checkbox"
+      readonly=""
+      type="checkbox"
+      value="disabled"
+    />
+    <div
+      class=""
+      data-testid="form-field-wrapper"
+    >
+      <label
+        for="3-checkbox-checkbox"
+      >
+        <span>
+          Disabled
+        </span>
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
 `;

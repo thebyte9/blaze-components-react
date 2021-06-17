@@ -1,9 +1,9 @@
-import { Checkbox } from "@blaze-react/checkboxes";
-import withUtils from "@blaze-react/utils";
-import differenceWith from "lodash.differencewith";
-import isEqual from "lodash.isequal";
-import React, { useEffect, useState } from "react";
-import VirtualList from "react-tiny-virtual-list";
+import { Checkbox } from '@blaze-react/checkboxes';
+import { ErrorMessage } from '@blaze-react/utils';
+import differenceWith from 'lodash.differencewith';
+import isEqual from 'lodash.isequal';
+import React, { useEffect, useState } from 'react';
+import VirtualList from 'react-tiny-virtual-list';
 
 const MultiSelectList = ({
   dataCopy,
@@ -16,7 +16,6 @@ const MultiSelectList = ({
   matchQuery,
   notFoundMessage,
   onItemsRendered,
-  utils: { ErrorMessage },
   validationMessage,
   ...attrs
 }: any) => {
@@ -39,22 +38,17 @@ const MultiSelectList = ({
         {!!list.length && (
           <div>
             <VirtualList
-              width={"100%"}
-              height={"245px"}
+              width={'100%'}
+              height={'245px'}
               itemCount={list.length}
               itemSize={itemSize}
               overscanCount={20}
               onItemsRendered={onItemsRendered}
               renderItem={({ index, style }) => (
-                <div
-                  style={style}
-                  key={list[index].id || list[index][keyValue] || index}
-                >
+                <div style={style} key={list[index].id || list[index][keyValue] || index}>
                   <Checkbox
                     full
-                    data-cy={`${
-                      attrs["data-cy"] || "multiselect"
-                    }-checkbox-cy-${index}`}
+                    data-cy={`${attrs['data-cy'] || 'multiselect'}-checkbox-cy-${index}`}
                     testId={`checkbox-${index}`}
                     {...list[index]}
                     label={getLabel({
@@ -80,4 +74,4 @@ const MultiSelectList = ({
   );
 };
 
-export default withUtils(MultiSelectList);
+export default MultiSelectList;

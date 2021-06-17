@@ -1,0 +1,29 @@
+{
+  "name": "@blaze-react/group",
+  "version": "0.6.0",
+  "description": "",
+  "main": "./dist/main.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
+    "build-storybook": "build-storybook -c .storybook -o docs-build",
+    "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --fix",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "jest --coverage --passWithNoTests",
+    "pre-publish": "yarn build && yarn lint && yarn test",
+    "bundle-analyser": "node ../../node_modules/webpack-bundle-analyzer/lib/bin/analyzer.js ./stats/stats.json"
+  },
+  "keywords": [],
+  "author": "byte9",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/jit": "^0.1.18",
+    "postcss": "^8.2.9",
+    "tailwindcss": "^2.1.1",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  }
+}

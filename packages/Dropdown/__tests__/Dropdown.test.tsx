@@ -1,7 +1,9 @@
+import '@testing-library/jest-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import Dropdown from '../src/Dropdown';
 import React from 'react';
-import expect from 'expect';
-import { mount } from 'enzyme';
-import Dropdown from '../src';
 
 const component = (
   <Dropdown label="Dropdown">
@@ -12,16 +14,8 @@ const component = (
 
 describe('Dropdown component', () => {
   test('should be defined and renders correctly (snapshot)', () => {
-    const wrapper = mount(component);
-    wrapper
-      .find('button')
-      .at(0)
-      .simulate('click');
-    wrapper
-      .find('button')
-      .at(0)
-      .simulate('click');
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(component);
+
+    expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -1,42 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown component should be defined and renders correctly (snapshot) 1`] = `
-<Dropdown
-  label="Dropdown"
->
+<DocumentFragment>
   <div
-    className="more-menu__wrapper"
+    class="more-menu__wrapper"
   >
     <button
-      className="icon-button toggle"
-      onClick={[Function]}
+      class="icon-button toggle"
       type="button"
     >
       Dropdown
       <i
-        className="material-icons"
+        class="material-icons"
       >
         more_vert
       </i>
     </button>
     <div
-      className="more-menu close"
+      class="more-menu close"
     >
       <ul
-        className="more-menu__list"
+        class="more-menu__list"
       >
         <li
-          className="more-menu__list-item"
+          class="more-menu__list-item"
         >
           <a
             href="/"
-            key=".0"
           >
             Settings
           </a>
           <a
             href="/"
-            key=".1"
           >
             Sign out
           </a>
@@ -44,5 +39,5 @@ exports[`Dropdown component should be defined and renders correctly (snapshot) 1
       </ul>
     </div>
   </div>
-</Dropdown>
+</DocumentFragment>
 `;

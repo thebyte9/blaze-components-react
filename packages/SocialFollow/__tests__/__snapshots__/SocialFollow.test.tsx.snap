@@ -1,145 +1,214 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SocialFollow component should be defined and renders correctly (snapshot) 1`] = `
-<SocialFollow
-  media={
-    Object {
-      "facebook": "https://www.thebyte9.com",
-      "instagram": "https://www.thebyte9.com",
-      "linkedIn": "https://www.thebyte9.com",
-      "pinterest": "https://www.thebyte9.com",
-      "twitter": "https://www.thebyte9.com",
-      "youtube": "https://www.thebyte9.com",
-    }
-  }
-  title="Follow"
-  type="follow"
-  vertical={true}
->
+exports[`SocialFollow component SocialFollow should be share by default 1`] = `
+<DocumentFragment>
   <div
-    className="social social--follow social--vertical"
+    class="social social--share "
   >
-    <p>
-      Follow
-    </p>
     <ul
-      className="social__list social__list--follow social__list--vertical"
+      class="social__list social__list--share "
     >
       <li
-        className="social__list-item social__list-item--follow"
-        key="facebook"
+        class="social__list-item social__list-item--share"
       >
         <a
-          className="facebook"
+          class="facebook"
           href="https://www.thebyte9.com"
           rel="noopener noreferrer"
           target="_blank"
         >
           <i
-            className="fab fa-facebook-f"
+            class="fab fa-facebook-f"
           />
           <span
-            className="hidden"
+            class="hidden"
           >
             Facebook
           </span>
         </a>
       </li>
       <li
-        className="social__list-item social__list-item--follow"
-        key="twitter"
+        class="social__list-item social__list-item--share"
       >
         <a
-          className="twitter"
+          class="twitter"
           href="https://www.thebyte9.com"
           rel="noopener noreferrer"
           target="_blank"
         >
           <i
-            className="fab fa-twitter"
+            class="fab fa-twitter"
           />
           <span
-            className="hidden"
+            class="hidden"
           >
             Twitter
           </span>
         </a>
       </li>
       <li
-        className="social__list-item social__list-item--follow"
-        key="pinterest"
+        class="social__list-item social__list-item--share"
       >
         <a
-          className="pinterest"
+          class="pinterest"
           href="https://www.thebyte9.com"
           rel="noopener noreferrer"
           target="_blank"
         >
           <i
-            className="fab fa-pinterest-p"
+            class="fab fa-pinterest-p"
           />
           <span
-            className="hidden"
+            class="hidden"
           >
             Pinterest
           </span>
         </a>
       </li>
       <li
-        className="social__list-item social__list-item--follow"
-        key="linkedIn"
+        class="social__list-item social__list-item--share"
       >
         <a
-          className="linkedin"
+          class="linkedin"
           href="https://www.thebyte9.com"
           rel="noopener noreferrer"
           target="_blank"
         >
           <i
-            className="fab fa-linkedin-in"
+            class="fab fa-linkedin-in"
           />
           <span
-            className="hidden"
+            class="hidden"
+          >
+            Linkedin
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`SocialFollow component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="social social--follow social--vertical"
+  >
+    <p>
+      Follow
+    </p>
+    <ul
+      class="social__list social__list--follow social__list--vertical"
+    >
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="facebook"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-facebook-f"
+          />
+          <span
+            class="hidden"
+          >
+            Facebook
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="twitter"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-twitter"
+          />
+          <span
+            class="hidden"
+          >
+            Twitter
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="pinterest"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-pinterest-p"
+          />
+          <span
+            class="hidden"
+          >
+            Pinterest
+          </span>
+        </a>
+      </li>
+      <li
+        class="social__list-item social__list-item--follow"
+      >
+        <a
+          class="linkedin"
+          href="https://www.thebyte9.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-linkedin-in"
+          />
+          <span
+            class="hidden"
           >
             Linkedin
           </span>
         </a>
       </li>
       <li
-        className="social__list-item social__list-item--follow"
-        key="youtube"
+        class="social__list-item social__list-item--follow"
       >
         <a
-          className="youtube"
+          class="youtube"
           href="https://www.thebyte9.com"
           rel="noopener noreferrer"
           target="_blank"
         >
           <i
-            className="fab fa-youtube"
+            class="fab fa-youtube"
           />
           <span
-            className="hidden"
+            class="hidden"
           >
             Youtube
           </span>
         </a>
       </li>
       <li
-        className="social__list-item social__list-item--follow"
-        key="instagram"
+        class="social__list-item social__list-item--follow"
       >
         <a
-          className="instagram"
+          class="instagram"
           href="https://www.thebyte9.com"
           rel="noopener noreferrer"
           target="_blank"
         >
           <i
-            className="fab fa-instagram"
+            class="fab fa-instagram"
           />
           <span
-            className="hidden"
+            class="hidden"
           >
             Instagram
           </span>
@@ -147,5 +216,5 @@ exports[`SocialFollow component should be defined and renders correctly (snapsho
       </li>
     </ul>
   </div>
-</SocialFollow>
+</DocumentFragment>
 `;

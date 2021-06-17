@@ -1,6 +1,6 @@
-import Button from "@blaze-react/button";
-import { buildClassNames } from "@blaze-react/utils";
-import React, { Fragment } from "react";
+import Button from '@blaze-react/button';
+import { buildClassNames } from '@blaze-react/utils';
+import React, { Fragment } from 'react';
 interface IMoreAvatarProps {
   handleToggle: (...args: any[]) => any;
   label?: string;
@@ -19,40 +19,37 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   isHeader,
   className,
   isMoreMenu,
-  toggled,
-  displayBg,
   disabled,
   ...props
 }) => {
   const buttonClassName = buildClassNames({
-    "button--disabled": disabled,
+    'button--disabled': disabled,
     dropdown__button: isHeader,
-    "icon-button icon-button--round": isMoreMenu,
+    'icon-button icon-button--round': isMoreMenu,
     [className as string]: Boolean(className),
   });
 
   return (
-    <Button onClick={handleToggle} className={buttonClassName} {...props}>
+    <Button onClick={handleToggle} className={buttonClassName} {...props} data-testid="more-avatar-button">
       {isHeader ? (
         <Fragment>
           <span className="dropdown__name">{label}</span>
           {children}
         </Fragment>
       ) : (
-        <Fragment>
-          {React.Children.map(children, (child: any) =>
-            React.cloneElement(child)
-          )}
-        </Fragment>
+        <Fragment>{React.Children.map(children, (child: any) => React.cloneElement(child))}</Fragment>
       )}
     </Button>
   );
 };
+
 MoreAvatar.defaultProps = {
   children: null,
-  className: "",
+  className: '',
   isHeader: false,
   isMoreMenu: false,
-  label: "",
+  label: '',
+  toggled: false,
 };
+
 export default MoreAvatar;

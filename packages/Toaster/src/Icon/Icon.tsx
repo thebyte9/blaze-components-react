@@ -2,7 +2,15 @@ import React from "react";
 import { AlertIcon, CheckIcon, FlameIcon, InfoIcon } from "../Icons";
 import ToastCountdown from "../Toast/ToastCountdown";
 
-const iconsByAppearance = {
+interface IIconAppearance {
+  [index: string]: any;
+  error: any;
+  info: any;
+  success: any;
+  warning: any;
+}
+
+const iconsByAppearance: IIconAppearance = {
   error: FlameIcon,
   info: InfoIcon,
   success: CheckIcon,

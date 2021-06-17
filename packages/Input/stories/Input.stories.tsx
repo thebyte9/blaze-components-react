@@ -10,7 +10,7 @@ storiesOf("Text Inputs", module)
     }
   })
   .add("Introduction", () => {
-    const Input: any = lazy(() => import("../src"));
+    const Input: any = lazy(() => import("../src/Input"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

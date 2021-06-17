@@ -1,26 +1,13 @@
-import withUtils from "@blaze-react/utils";
-import React, { useState } from "react";
-import Label from "./Label";
+import React, { useState } from 'react';
 
-const Checkbox = ({
-  checked,
-  value,
-  disabled,
-  required,
-  label,
-  show,
-  name,
-  id,
-  onChange,
-  full,
-  utils: { uniqueId, buildClassNames },
-  ...attrs
-}: any) => {
+import Label from './Label';
+import { buildClassNames } from '@blaze-react/utils';
+import { nanoid } from 'nanoid';
+
+const Checkbox = ({ checked, value, disabled, required, label, show, name, id, onChange, full, ...attrs }: any) => {
   const [isChecked, setIsChecked] = useState(checked);
 
-  const handleCheckboxChange = (
-    event: React.MouseEvent<HTMLDivElement>
-  ): void => {
+  const handleCheckboxChange = (event: React.MouseEvent<HTMLDivElement>): void => {
     onChange({
       event,
       value: {
@@ -37,22 +24,19 @@ const Checkbox = ({
     setIsChecked(!isChecked);
   };
 
-  const checkboxClassName = buildClassNames("form-field form-field--checkbox", {
+  const checkboxClassName = buildClassNames('form-field form-field--checkbox', {
     required,
   });
 
-  const labelClassName = buildClassNames({
-    "form-field--checkbox-full": full,
-  });
+  const labelClassName = buildClassNames({ 'form-field--checkbox-full': full }, {});
 
-  const defaultId = id || uniqueId(name || value);
+  const defaultId = id || nanoid();
   const inputId = `${defaultId}-checkbox`;
   const wrapperId = `${defaultId}-wrapper`;
 
   return (
     <div key={wrapperId} className={checkboxClassName} role="button">
       <input
-        data-testid={attrs.testId}
         readOnly
         type="checkbox"
         className="form-checkbox"
@@ -61,15 +45,16 @@ const Checkbox = ({
         checked={checked}
         required={required}
         id={inputId}
+        data-testid={inputId}
         name={name}
         onClick={handleCheckboxChange}
-        data-cy={attrs["data-cy"]}
+        {...attrs}
       />
-      <div onClick={handleCheckboxChange} className={labelClassName}>
+      <div onClick={handleCheckboxChange} className={labelClassName} data-testid="form-field-wrapper">
         <Label defaultId={inputId} label={label} />
       </div>
     </div>
   );
 };
 
-export default withUtils(Checkbox);
+export default Checkbox;

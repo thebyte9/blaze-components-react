@@ -1,16 +1,16 @@
-import Button from "@blaze-react/button";
-import { storiesOf } from "@storybook/react";
-import React from "react";
-import AccordionReadme from "../README.md";
-import Accordion from "../src";
+import Button from '@blaze-react/button';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
+import AccordionReadme from '../README.md';
+import Accordion from '../src/Accordion';
 
-storiesOf("Accordion", module)
+storiesOf('Accordion', module)
   .addParameters({
     readme: {
       sidebar: AccordionReadme,
     },
   })
-  .add("Introduction", () => (
+  .add('Introduction', () => (
     <div className="component-wrapper">
       <h1>Accordion</h1>
       <Accordion>
@@ -24,10 +24,10 @@ storiesOf("Accordion", module)
             <p>Footer can be added below if needed</p>
           </Accordion.ContentDetails>
           <Accordion.ContentFooter>
-            <Button name="button" modifiers={["outline", "light", "rounded"]}>
+            <Button name="button" modifiers={['outline', 'light', 'rounded']}>
               Cancel
             </Button>
-            <Button name="button" modifiers={["rounded"]}>
+            <Button name="button" modifiers={['rounded']}>
               Save
             </Button>
           </Accordion.ContentFooter>

@@ -10,7 +10,7 @@ storiesOf("CodeEditor", module)
     },
   })
   .add("Introduction", () => {
-    const CodeEditor: any = lazy((): any => import("../src"));
+    const CodeEditor: any = lazy((): any => import("../src/CodeEditor"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wapper">

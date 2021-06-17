@@ -1,63 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input component should be defined and renders correctly (snapshot) 1`] = `
-<withUtils(Input)
-  error={true}
-  onChange={[Function]}
-  placeholder="Placeholder text"
->
-  <Input
-    disabled={false}
-    error={true}
-    hideTypeToggle={false}
-    label=""
-    modifier=""
-    onChange={[Function]}
-    placeholder="Placeholder text"
-    required={false}
-    type="text"
-    utils={
-      Object {
-        "ErrorMessage": [Function],
-        "buildClassNames": [Function],
-        "removeExtraSpaces": [Function],
-        "uniqueId": [Function],
-      }
-    }
-    validationMessage="This field is required"
+<DocumentFragment>
+  <div
+    class="form-field form-field--input  "
   >
+    <label
+      class=""
+    />
+    <input
+      data-testid="input"
+      placeholder="Placeholder text"
+      type="text"
+      value=""
+    />
     <div
-      className="form-field form-field--input  "
+      class="validation"
+      data-testid="validation-message"
     >
-      <label
-        className=""
-      />
-      <input
-        data-testid="input"
-        disabled={false}
-        onChange={[Function]}
-        placeholder="Placeholder text"
-        required={false}
-        type="text"
-        value=""
-      />
-      <ErrorMessage
-        icon="warning"
-        message="This field is required"
+      <i
+        class="material-icons"
       >
-        <div
-          className="validation"
-          data-testid="validation-message"
-        >
-          <i
-            className="material-icons"
-          >
-            warning
-          </i>
-          This field is required
-        </div>
-      </ErrorMessage>
+        warning
+      </i>
+      This field is required
     </div>
-  </Input>
-</withUtils(Input)>
+  </div>
+</DocumentFragment>
 `;

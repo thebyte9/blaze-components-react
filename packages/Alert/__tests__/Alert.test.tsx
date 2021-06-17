@@ -1,22 +1,20 @@
-import { fireEvent, render } from "@testing-library/react";
-import { shallow } from "enzyme";
-import expect from "expect";
-import React from "react";
-import Alert from "../src";
+import { fireEvent, render } from '@testing-library/react';
 
-describe("Alert component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = shallow(<Alert />);
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+import Alert from '../src/Alert';
+import React from 'react';
+
+const AlertComponent = <Alert close icon="error" type="warning" />;
+
+describe('Alert component', () => {
+  it('should match snapshot', () => {
+    const { asFragment } = render(AlertComponent);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  test("should close alert", () => {
-    const { container, getByText } = render(
-      <Alert close icon="error" type="warning" />
-    );
+  it('should close alert', () => {
+    const { container, getByText } = render(AlertComponent);
 
-    const close = getByText("close");
+    const close = getByText('close');
     fireEvent.click(close);
 
     expect(container.childElementCount).toBe(0);

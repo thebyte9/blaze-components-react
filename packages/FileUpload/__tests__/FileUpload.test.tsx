@@ -1,7 +1,9 @@
-import { mount, shallow } from "enzyme";
-import expect from "expect";
-import React from "react";
-import FileUpload from "../src";
+import '@testing-library/jest-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import FileUpload from '../src/FileUpload';
+import React from 'react';
 
 declare global {
   interface Window {
@@ -10,91 +12,25 @@ declare global {
 }
 
 const FileUploadComponent = (
-  <FileUpload selectOptions={[["default", "Default"]]} onChange={() => {}}>
+  <FileUpload selectOptions={[['default', 'Default']]} onChange={jest.fn()}>
     Drag and drop here
   </FileUpload>
 );
 
-describe("FileUpload component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = shallow(FileUploadComponent);
-
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+describe('FileUpload component', () => {
+  test('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(FileUploadComponent);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  test("should browse file", async done => {
-    const wrapper = mount(FileUploadComponent);
+  test('should drop files', () => {
+    render(FileUploadComponent);
+    const image = new Blob(['file contents'], { type: 'image/png' });
 
-    wrapper
-      .find("button")
-      .at(0)
-      .simulate("click");
-
-    const typeImage = new Blob(["file contents"], { type: "image/png" });
-    const typeFile = new Blob(["file contents"], { type: "application/pdf" });
-
-    const readAsDataURL = jest.fn();
-    const onload = jest.fn();
-    const onerror = jest.fn();
-
-    const dummyFileReader = {
-      readAsDataURL,
-      onload,
-      onerror
-    };
-
-    window.FileReader = jest.fn(() => dummyFileReader);
-
-    wrapper
-      .find("input")
-      .at(0)
-      .simulate("change", { target: { files: [typeImage] } });
-    wrapper
-      .find("input")
-      .at(0)
-      .simulate("change", { target: { files: [typeFile] } });
-    wrapper
-      .find("input")
-      .at(0)
-      .simulate("change", { target: { files: [] } });
-    done();
-  });
-
-  test("should drop files", () => {
-    const wrapper = mount(FileUploadComponent);
-
-    const domNode = wrapper.getDOMNode();
-
-    const dragover = new Event("dragover");
-
-    const drop: CustomEvent & { dataTransfer?: any } = new CustomEvent("drop", {
-      bubbles: true,
-      cancelable: true
+    fireEvent.drop(screen.getByText('Drag & drop file to upload'), {
+      dataTransfer: {
+        files: [image],
+      },
     });
-
-    const file = {
-      name: "test.jpg",
-      type: "image/jpg"
-    } as File;
-
-    const fileList = {
-      length: 1,
-      item: () => null,
-      0: file
-    };
-
-    drop.dataTransfer = {
-      files: fileList
-    };
-
-    const dropWithoutItems: CustomEvent & {
-      dataTransfer?: any;
-    } = new CustomEvent("drop", { bubbles: true, cancelable: true });
-    dropWithoutItems.dataTransfer = { files: fileList };
-
-    domNode.dispatchEvent(dragover);
-    domNode.dispatchEvent(drop);
-    domNode.dispatchEvent(dropWithoutItems);
   });
 });

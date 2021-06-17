@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VideoContainer component should be defined and renders correctly (snapshot) 1`] = `
-<div
-  className="media-container media-container--video"
->
-  <iframe
-    frameborder="0"
-    src="https://www.youtube.com/embed/sSJiZLkfsnw'"
-    title="lorem ipsum"
-  />
-</div>
+<DocumentFragment>
+  <div
+    class="media-container media-container--video"
+  >
+    <iframe
+      frameborder="0"
+      src="https://www.youtube.com/embed/sSJiZLkfsnw'"
+      title="lorem ipsum"
+    />
+  </div>
+</DocumentFragment>
 `;

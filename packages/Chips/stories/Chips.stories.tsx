@@ -1,29 +1,21 @@
-import Avatar from "@blaze-react/avatar";
-import { storiesOf } from "@storybook/react";
-import React from "react";
-import ChipsReadme from "../README.md";
-import Chips from "../src";
+import Avatar from '@blaze-react/avatar';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
+import ChipsReadme from '../README.md';
+import Chips from '../src';
 
-storiesOf("Chips", module)
+storiesOf('Chips', module)
   .addParameters({
     readme: {
-      sidebar: ChipsReadme
-    }
+      sidebar: ChipsReadme,
+    },
   })
-  .add("Introduction", () => (
+  .add('Introduction', () => (
     <div className="component-wrapper">
       <h1>Chips</h1>
-      <Chips
-        modifiers={[
-          Chips.availableModifiers.parent.deletable,
-          Chips.availableModifiers.parent.small
-        ]}
-      >
+      <Chips modifiers={[Chips.availableModifiers.parent.deletable, Chips.availableModifiers.parent.small]}>
         <Chips.Avatar>
-          <Avatar
-            username="Lorem Ipsum"
-            modifier={Avatar.availableModifiers.xSmall}
-          />
+          <Avatar username="Lorem Ipsum" />
         </Chips.Avatar>
         <Chips.Label>Primary deletable chip</Chips.Label>
         <Chips.Icon modifier={Chips.availableModifiers.icon.delete}>
@@ -33,11 +25,7 @@ storiesOf("Chips", module)
 
       <Chips modifiers={[Chips.availableModifiers.parent.primary]}>
         <Chips.Avatar>
-          <Avatar
-            url="http://lorempixel.com/400/400/people/"
-            username="Lorem Ipsum"
-            modifier={Avatar.availableModifiers.xSmall}
-          />
+          <Avatar url="http://lorempixel.com/400/400/people/" username="Lorem Ipsum" />
         </Chips.Avatar>
         <Chips.Label>Primary deletable chip</Chips.Label>
         <Chips.Icon modifier={Chips.availableModifiers.icon.custom}>

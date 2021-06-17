@@ -1,37 +1,25 @@
 {
   "name": "@blaze-react/progress",
   "version": "0.6.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "",
-  "main": "./lib/index.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "build": "../../node_modules/.bin/rimraf ./lib && ../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
-    "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "pre-publish": "npm run build && npm run lint && npm run test"
+    "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --fix",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "jest --coverage --passWithNoTests",
+    "pre-publish": "yarn build && yarn lint && yarn test",
+    "bundle-analyser": "node ../../node_modules/webpack-bundle-analyzer/lib/bin/analyzer.js ./stats/stats.json"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "byte9",
+  "license": "GPL-3.0",
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
     "@blaze-react/blaze-components-theme": "^0.6.0"
   },
-  "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
-  "gitHead": "c7cc1d26b4046b800c727feb1dd283dbd833328c"
+  "dependencies": {
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  }
 }

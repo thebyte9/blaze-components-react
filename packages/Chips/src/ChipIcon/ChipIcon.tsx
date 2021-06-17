@@ -1,32 +1,23 @@
-import withUtils from "@blaze-react/utils";
-import React from "react";
+import { buildClassNames } from '@blaze-react/utils';
+import React from 'react';
 
-type TModifiers = "custom" | "delete";
+type TModifiers = 'custom' | 'delete' | string;
 interface IChipIconProps {
   children: JSX.Element | JSX.Element[];
   modifier: TModifiers;
-  handleRemoveChip: () => void;
-  utils: {
-    buildClassNames: (className: string | object, optionalClassNames?: object) => string;
-  };
-  'data-cy'?: string;
+  handleRemoveChip?: () => void;
 }
-const ChipIcon = ({
-  children,
-  modifier,
-  handleRemoveChip,
-  utils: { buildClassNames },
-  'data-cy': dataCy
-}: IChipIconProps): JSX.Element => {
-  const iconClassName = buildClassNames("chip__icon", {
-    [`chip__icon--${modifier}`]: !!modifier
+
+const ChipIcon = ({ children, modifier, handleRemoveChip }: IChipIconProps): JSX.Element => {
+  const iconClassName = buildClassNames('chip__icon', {
+    [`chip__icon--${modifier}`]: !!modifier,
   });
 
   return (
-    <div className={iconClassName} onClick={handleRemoveChip} data-cy={dataCy}>
+    <div className={iconClassName} onClick={handleRemoveChip}>
       {children}
     </div>
   );
 };
 
-export default withUtils(ChipIcon);
+export default ChipIcon;

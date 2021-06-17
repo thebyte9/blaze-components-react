@@ -1,8 +1,8 @@
-import React from "react";
-import Icon from "../../Icon";
-import { CloseIcon } from "../../Icons";
-import ToastElement from "../ToastElement";
-import { IToastProps } from "../types/common";
+import React from 'react';
+import Icon from '../../Icon';
+import { CloseIcon } from '../../Icons';
+import ToastElement from '../ToastElement';
+import { IToastProps } from '../types/common';
 
 const DefaultToast = ({
   appearance,
@@ -17,7 +17,7 @@ const DefaultToast = ({
   onMouseEnter,
   onMouseLeave,
   ...otherProps
-}: IToastProps) => (
+}: IToastProps): JSX.Element => (
   <ToastElement
     appearance={appearance}
     placement={placement}
@@ -39,6 +39,7 @@ const DefaultToast = ({
         role="button"
         className="react-toast-notifications__toast__dismiss-button"
         onClick={onDismiss}
+        data-testid="toast-dismiss-button"
       >
         <CloseIcon
           className={`react-toast-notifications__toast__dismiss-icon react-toast-notifications__toast__dismiss-icon--${appearance}`}
@@ -48,11 +49,5 @@ const DefaultToast = ({
     ) : null}
   </ToastElement>
 );
-
-DefaultToast.defaultProps = {
-  onDismiss: () => {
-    return;
-  }
-};
 
 export default DefaultToast;

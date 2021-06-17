@@ -41,6 +41,7 @@ Array [
         style="top: 0px; right: 0px;"
       >
         <div
+          data-testid="toast"
           style="height: auto; transition: height 120ms 100ms;"
         >
           <div
@@ -76,6 +77,7 @@ Array [
             </div>
             <div
               class="react-toast-notifications__toast__dismiss-button"
+              data-testid="toast-dismiss-button"
               role="button"
             >
               <svg
@@ -106,4 +108,10 @@ Array [
 ]
 `;
 
-exports[`Toast provider should render without throwing error 1`] = `<div />`;
+exports[`Toast provider should render without throwing error 1`] = `
+<DocumentFragment>
+  <div>
+    children toastprovider component
+  </div>
+</DocumentFragment>
+`;

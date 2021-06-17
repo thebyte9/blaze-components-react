@@ -1,18 +1,18 @@
-import "@blaze-react/blaze-components-theme";
-import { storiesOf } from "@storybook/react";
-import faker from "faker";
-import React, { lazy, Suspense, useEffect, useState } from "react";
-import uuid from "uuid/v1";
-import TableReadme from "../README.md";
+import '@blaze-react/blaze-components-theme';
+import { storiesOf } from '@storybook/react';
+import faker from 'faker';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
+import { nanoid } from 'nanoid';
+import TableReadme from '../README.md';
 
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
-    appliedSort: { name: "asc" },
-    columns: ["name", "email", "city", "zipCode"],
-    identification: "id",
-    orderBy: ["email", "name", "city", "zipCode"],
+    appliedSort: { name: 'asc' },
+    columns: ['name', 'email', 'city', 'zipCode'],
+    identification: 'id',
+    orderBy: ['email', 'name', 'city', 'zipCode'],
     rows: [],
-    labels: { name: "Name", email: "email", city: "City", zipCode: "Zip code" },
+    labels: { name: 'Name', email: 'email', city: 'City', zipCode: 'Zip code' },
   });
 
   const generateFakeData = () => {
@@ -21,7 +21,7 @@ const DemoComponent = () => {
       rows.push({
         city: faker.address.city(),
         email: faker.internet.email(),
-        id: uuid(),
+        id: nanoid(),
         name: faker.internet.userName(),
         zipCode: faker.address.zipCode(),
       });
@@ -35,7 +35,7 @@ const DemoComponent = () => {
       setData(updatedData);
     }
   }, []);
-  const Table: any = lazy((): any => import("../src"));
+  const Table: any = lazy((): any => import('../src/Table'));
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Table checkboxes data={data} onSelect={() => ({})} />
@@ -43,25 +43,25 @@ const DemoComponent = () => {
   );
 };
 
-storiesOf("Table", module)
+storiesOf('Table', module)
   .addParameters({
     readme: {
       sidebar: TableReadme,
     },
   })
-  .add("Introduction", () => {
+  .add('Introduction', () => {
     return (
       <div className="component-wrapper">
         <h1>Table</h1>
 
         <p>
-          We can choose to render a table with or without row selection by
-                  changing the prop boolean value of <code>checkboxes</code>
+          We can choose to render a table with or without row selection by         changing the prop boolean value of 
+          <code>checkboxes</code>
         </p>
 
         <h4>With Checkboxes</h4>
 
-        <div style={{ margin: "20px", height: "100%" }}>
+        <div style={{ margin: '20px', height: '100%' }}>
           <DemoComponent />
         </div>
       </div>

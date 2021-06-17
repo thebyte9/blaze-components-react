@@ -34,7 +34,7 @@ storiesOf("Radio Buttons", module)
     }
   })
   .add("Introduction", () => {
-    const RadioButton: any = lazy((): any => import("../src"));
+    const RadioButton: any = lazy((): any => import("../src/RadioButton"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <form>

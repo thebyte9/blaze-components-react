@@ -33,7 +33,7 @@ interface IContext {
   remove: RemoveFn;
   removeAll: () => void;
   update: UpdateFn;
-  toasts: object[];
+  toasts: Record<string, unknown>[];
 }
 
 export { IComponents, IProps, IState, IContext };

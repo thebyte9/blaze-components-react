@@ -6,11 +6,11 @@ const ToastContainer = ({
   hasToasts,
   placement,
   ...props
-}: IToastContainerProps | any) => (
+}: IToastContainerProps) => (
   <div
     className="react-toast-notifications__container"
     style={{
-      pointerEvents: hasToasts ? null : "none",
+      pointerEvents: hasToasts ? undefined : "none",
       ...PLACEMENTS[placement]
     }}
     {...props}

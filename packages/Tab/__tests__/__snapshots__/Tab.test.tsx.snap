@@ -1,45 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tab component should be defined and renders correctly (snapshot) 1`] = `
-<div
-  className="tabs"
->
+<DocumentFragment>
   <div
-    className="tabs__list"
+    class="tabs"
   >
-    <withUtils()
-      className="tabs__list-item "
-      disabled={false}
-      key="Unnamed tab"
-      onClick={[Function]}
-      type="button"
+    <div
+      class="tabs__list"
     >
-      Unnamed tab
-    </withUtils()>
-    <withUtils()
-      className="tabs__list-item current"
-      disabled={false}
-      key="Advanced"
-      onClick={[Function]}
-      type="button"
+      <button
+        class="tabs__list-item "
+        type="button"
+      >
+        Unnamed tab
+      </button>
+      <button
+        class="tabs__list-item current"
+        type="button"
+      >
+        Advanced
+      </button>
+      <button
+        class="tabs__list-item "
+        type="button"
+      >
+        Other
+      </button>
+    </div>
+    <div
+      class="tabs__content current"
     >
-      Advanced
-    </withUtils()>
-    <withUtils()
-      className="tabs__list-item "
-      disabled={false}
-      key="Other"
-      onClick={[Function]}
-      type="button"
-    >
-      Other
-    </withUtils()>
+      Advanced content here
+    </div>
   </div>
-  <Component
-    action={[Function]}
-    title="Advanced"
-  >
-    Advanced content here
-  </Component>
-</div>
+</DocumentFragment>
 `;

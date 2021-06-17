@@ -17,7 +17,7 @@ storiesOf("Social Follow", module)
     }
   })
   .add("Introduction", () => {
-    const SocialFollow: any = lazy((): any => import("../src"));
+    const SocialFollow: any = lazy((): any => import("../src/SocialFollow"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">

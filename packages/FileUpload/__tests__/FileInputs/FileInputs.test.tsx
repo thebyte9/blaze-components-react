@@ -1,68 +1,51 @@
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import FileInputs from "../../src/FileInputs";
+import '@testing-library/jest-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
+import FileInputs from '../../src/FileInputs';
+import React from 'react';
+
+const handleSelectChange = jest.fn();
+const handleInputChange = jest.fn();
 
 const mockedProps = {
-  data: { altText: "", caption: "" },
+  data: { altText: '', caption: '' },
   file: {
-    base64: "test-image",
-    id: "test-image-id",
-    name: "test-image-name",
-    type: "image"
+    base64: 'test-image',
+    id: 'test-image-id',
+    name: 'test-image-name',
+    type: 'image',
   },
-  handleInputChange: jest.fn(),
-  handleSelectChange: jest.fn(),
+  handleInputChange: handleInputChange,
+  handleSelectChange: handleSelectChange,
   index: 0,
   name: 'test',
   selectOptions: [
-    ["default", "Default"],
-    ["test", "Test"]
-  ]
-}
+    ['default', 'Default'],
+    ['test', 'Test'],
+  ],
+};
 
-describe("FileInputs component", () => {
-  const component = mount(<FileInputs {...mockedProps} />);
-
-  it("should be defined", () => {
-    expect(FileInputs).toBeDefined();
+describe('FileInputs component', () => {
+  it('should render without throwing error', () => {
+    const { asFragment } = render(<FileInputs {...mockedProps} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  it("should render without throwing error", () => {
-    expect(component).toMatchSnapshot();
+  it('should call mocked function handleInputChange & change the input value', () => {
+    render(<FileInputs {...mockedProps} />);
+    const mockedValue = 'typing first input';
+    fireEvent.change(screen.getByLabelText('Url'), { target: { value: mockedValue } });
+    expect(handleInputChange).toHaveBeenCalled();
   });
 
-  it("should render childs based on type (4 inputs & 1 select if image)", () => {
-    const { length: inputsNumber } = component.find('input');
-    const { length: selectsNumber } = component.find('select')
-
-    expect(inputsNumber).toBe(4);
-    expect(selectsNumber).toBe(1)
+  it('should call mocked function handleSelectChange & change the select value', () => {
+    const mockedValue = 'Test';
+    render(<FileInputs {...mockedProps} />);
+    fireEvent.change(screen.getByLabelText('Alternative text'), { target: { value: mockedValue } });
   });
 
-  it("should call mocked function handleInputChange & change the input value", () => {
-    const mockedValue = 'typing first input'
-    component.find('input').at(0).simulate("change", { target: { value: mockedValue } });
-
-    expect(mockedProps.handleInputChange).toBeCalled()
-    expect(component.find('input').at(0).props().value).toStrictEqual(mockedValue)
-  });
-
-  it("should call mocked function handleSelectChange & change the select value", () => {
-    const mockedValue = 'Test'
-    component.find('select').simulate("change", { target: { value: mockedValue } });
-
-    expect(mockedProps.handleSelectChange).toBeCalled()
-    expect(component.find('select').at(0).props().value).toStrictEqual(mockedValue)
-  });
-
-  it("should render childs based on type (2 inputs if doc)", () => {
-    const updatedProps = { ...mockedProps }
-    updatedProps.file.type = 'doc'
-
-    const docComponent = mount(<FileInputs {...updatedProps} />);
-    const { length: inputsNumber } = docComponent.find('input');
-
-    expect(inputsNumber).toBe(2);
+  it('should render childs based on type (2 inputs if doc)', () => {
+    const updatedProps = { ...mockedProps };
+    updatedProps.file.type = 'doc';
+    render(<FileInputs {...updatedProps} />);
   });
 });

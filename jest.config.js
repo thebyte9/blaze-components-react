@@ -1,31 +1,20 @@
 module.exports = {
-  transform: {
-    "^.+\\.tsx?$": "ts-jest",
-  },
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
   globals: {
-    "ts-jest": {
-      tsConfig: "./.typescript/tsconfig.json",
+    'ts-jest': {
+      isolatedModules: true,
     },
   },
-  testRegex: "(src/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
-  testPathIgnorePatterns: [
-    "/node_modules/",
-    "lib",
-  ],
-  setupFilesAfterEnv: [
-    '@testing-library/react/cleanup-after-each'
-  ],
-  moduleNameMapper: {
-    "\\.(css|less|sass|scss)$": "<rootDir>/packages/__mocks__/styles.mock.js",
-    "monaco-editor": "<rootDir>/node_modules/react-monaco-editor"
-  },
-  setupFiles: ["./.typescript/setupTests.js"],
-  snapshotSerializers: ["enzyme-to-json/serializer"],
-  setupFilesAfterEnv: [
-    '@testing-library/react/cleanup-after-each'
-  ],
-  moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"],
-  coverageDirectory: "./coverage/",
   collectCoverage: true,
-  testEnvironment: 'jsdom'
+  testPathIgnorePatterns: ['/node_modules/', '/mocks/'],
+  coverageReporters: ['json', 'lcov', 'text', 'clover'],
+  moduleNameMapper: {
+    '@blaze-react/utils': '<rootDir>/packages/Utils/src',
+    '@blaze-react/button': '<rootDir>/packages/Button/src',
+    '@blaze-react/chips': '<rootDir>/packages/Chips/src',
+    '@blaze-react/input': '<rootDir>/packages/Input/src',
+    '@blaze-react/checkboxes': '<rootDir>/packages/Checkboxes/src',
+    '@blaze-react/select': '<rootDir>/packages/Select/src',
+  },
 };

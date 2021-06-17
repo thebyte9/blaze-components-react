@@ -1,56 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Alert component should be defined and renders correctly (snapshot) 1`] = `
-<nav
-  className="progress-bar"
->
-  <ol
-    className="progress-bar__list"
+<DocumentFragment>
+  <nav
+    class="progress-bar"
   >
-    <li
-      className="progress-bar__list-item progress-bar__list-item--dots  visited"
-      key="Cart"
+    <ol
+      class="progress-bar__list"
     >
-      <span
-        onClick={[Function]}
-        role="button"
+      <li
+        class="progress-bar__list-item progress-bar__list-item--dots  visited"
       >
-        Cart
-      </span>
-    </li>
-    <li
-      className="progress-bar__list-item progress-bar__list-item--dots  current"
-      key="Billing"
+        <span
+          role="button"
+        >
+          Cart
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--dots  current"
+      >
+        <span
+          role="button"
+        >
+          Billing
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--dots  "
+      >
+        <span
+          role="button"
+        >
+          Delivery
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--dots  final"
+      >
+        <span
+          role="button"
+        >
+          Review & pay
+        </span>
+      </li>
+    </ol>
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`Alert component should be type count and change progress 1`] = `
+<DocumentFragment>
+  <nav
+    class="progress-bar"
+  >
+    <ol
+      class="progress-bar__list"
     >
-      <span
-        onClick={[Function]}
-        role="button"
+      <li
+        class="progress-bar__list-item progress-bar__list-item--count progress-bar__list-item--dots current"
       >
-        Billing
-      </span>
-    </li>
-    <li
-      className="progress-bar__list-item progress-bar__list-item--dots  "
-      key="Delivery"
-    >
-      <span
-        onClick={[Function]}
-        role="button"
+        <span
+          role="button"
+        >
+          Cart
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--count progress-bar__list-item--dots "
       >
-        Delivery
-      </span>
-    </li>
-    <li
-      className="progress-bar__list-item progress-bar__list-item--dots  final"
-      key="Review & pay"
-    >
-      <span
-        onClick={[Function]}
-        role="button"
+        <span
+          role="button"
+        >
+          Billing
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--count progress-bar__list-item--dots "
       >
-        Review & pay
-      </span>
-    </li>
-  </ol>
-</nav>
+        <span
+          role="button"
+        >
+          Delivery
+        </span>
+      </li>
+      <li
+        class="progress-bar__list-item progress-bar__list-item--count progress-bar__list-item--dots final"
+      >
+        <span
+          role="button"
+        >
+          Review & pay
+        </span>
+      </li>
+    </ol>
+  </nav>
+</DocumentFragment>
 `;

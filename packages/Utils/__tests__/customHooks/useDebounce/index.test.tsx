@@ -1,50 +1,45 @@
-import { mount } from "enzyme";
-import expect from "expect";
-import React from "react";
-import { act } from "react-dom/test-utils";
-import useDebounce from "../../../src/customHooks/useDebounce";
+import '@testing-library/jest-dom';
+import { act, renderHook } from '@testing-library/react-hooks';
+import useDebounce from '../../../src/customHooks/useDebounce';
 
 jest.useFakeTimers();
 
-describe("useDebounce", () => {
-  it("should be defined", () => {
-    expect(useDebounce).toBeDefined();
+describe('useDebounce', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
   });
 
-  it("should be a function", () => {
-    expect(typeof useDebounce).toBe("function");
+  afterEach(() => {
+    jest.clearAllTimers();
   });
 
-  it("put initialized value in first render", () => {
-    function Component() {
-      const value = useDebounce("Hello world", 1000);
-      return <div id="test">{value}</div>;
-    }
-    const wrapper = mount(<Component />);
-    const text = wrapper.find("#test").text();
-
-    expect(text).toBe("Hello world");
+  afterAll(() => {
+    jest.useRealTimers();
   });
 
-  it("will update value when timer is called", () => {
-    function Component({ text }: { text: string }) {
-      const value = useDebounce(text, 1000);
-      return <div id="test">{value}</div>;
-    }
-    const tree = mount(<Component text={"Hello"} />);
+  test('should debounce on first render', () => {
+    const { result } = renderHook(() => useDebounce('Hello world', 1000));
+    expect(result.current).toBe('Hello world');
+  });
 
-    expect(tree.text()).toBe("Hello");
-
-    act(() => {
-      tree.setProps({ text: "Hello world" });
+  test('should update value after specified delay', () => {
+    const { result, rerender } = renderHook(({ value, delay }) => useDebounce(value, delay), {
+      initialProps: { value: '', delay: 500 },
     });
-    // timeout shouldn't have called yet
-    expect(tree.text()).toBe("Hello");
 
-    act(() => {
-      jest.runAllTimers();
-    });
-    // after runAllTimer text should be updated
-    expect(tree.text()).toBe("Hello world");
+    expect(result.current).toBe('');
+    act(() => jest.advanceTimersByTime(510));
+
+    expect(result.current).toBe('');
+
+    rerender({ value: 'Hello World', delay: 500 });
+
+    expect(result.current).toBe('');
+    act(() => jest.advanceTimersByTime(498));
+
+    expect(result.current).toBe('');
+    act(() => jest.advanceTimersByTime(3));
+
+    expect(result.current).toBe('Hello World');
   });
 });

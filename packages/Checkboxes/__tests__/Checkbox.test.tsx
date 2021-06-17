@@ -1,72 +1,73 @@
-import { fireEvent, render } from "@testing-library/react";
-import { mount, shallow } from "enzyme";
-import expect from "expect";
-import React from "react";
-import { Checkboxes } from "../src";
+import '@testing-library/jest-dom';
+
+import { fireEvent, render, screen } from '@testing-library/react';
+
+import { Checkboxes } from '../src';
+import React from 'react';
+import userEvent from '@testing-library/user-event';
 
 const options = [
   {
-    id: 1,
-    label: "first",
-    value: "lorem ipsum",
+    id: '1-checkbox',
+    label: 'first',
+    value: 'lorem ipsum',
   },
   {
-    id: 2,
-    label: "I accept",
+    id: '2-checkbox',
+    label: 'I accept',
     required: true,
-    value: "accepted",
+    value: 'accepted',
   },
   {
-    id: 3,
+    id: '3-checkbox',
     disabled: true,
-    label: "Disabled",
-    value: "",
+    label: 'Disabled',
+    value: 'disabled',
   },
   {
-    id: 4,
-    label: "display none",
+    id: '4-checkbox',
+    label: 'display none',
     show: false,
   },
 ];
 
 const single = {
-  label: "Single",
-  value: "lorem ipsum",
+  label: 'Single',
+  value: 'lorem ipsum',
 };
 
 const defaultProps = (override = {}) => ({
-  onChange: () => ({}),
+  onChange: jest.fn(),
   options,
   ...override,
 });
 
-describe("Checkboxes component", () => {
-  test("should be defined and renders correctly (snapshot)", () => {
-    const wrapper = shallow(<Checkboxes {...defaultProps()} />);
-
-    expect(wrapper).toBeDefined();
-    expect(wrapper).toMatchSnapshot();
+describe('Checkboxes component', () => {
+  it('should be defined and renders correctly (snapshot)', () => {
+    const { asFragment } = render(<Checkboxes {...defaultProps()} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  test("should render and toggle single checkbox", () => {
+  it('should render single checkbox', () => {
     const override = {
       options: single,
       returnBoolean: true,
     };
 
-    const wrapper = mount(<Checkboxes {...defaultProps(override)} />);
+    render(<Checkboxes {...defaultProps(override)} />);
 
-    expect(wrapper.find("input").length).toBe(1);
+    const checkboxArray = screen.getAllByRole('checkbox');
 
-    expect(wrapper.find("input").at(0).prop("checked")).toBe(false);
-
-    wrapper.find("input").at(0).simulate("click");
-
-    expect(wrapper.find("input").at(0).prop("checked")).toBe(true);
+    expect(checkboxArray.length).toBe(1);
   });
 
-  test("should render multiple checkboxes and toggle", () => {
-    let selectedBoxLabel: string = "";
+  it('should render a disabled checkbox', () => {
+    const { asFragment } = render(<Checkboxes {...defaultProps()} />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render multiple checkboxes and toggle', () => {
+    let selectedBoxLabel = '';
 
     type TValue = object | any;
 
@@ -74,33 +75,41 @@ describe("Checkboxes component", () => {
       selectedBoxLabel = label;
     };
 
-    let override = {
+    const override = {
       onChange,
     };
 
-    const { rerender, getByTestId } = render(
-      <Checkboxes {...defaultProps(override)} />
-    );
+    render(<Checkboxes {...defaultProps(override)} />);
+    fireEvent.click(screen.getByTestId('1-checkbox'));
 
-    fireEvent.click(getByTestId("checkbox-1"));
-
-    expect(selectedBoxLabel).toEqual("first");
-
-    override = {
-      ...override,
-      ...{
-        options: single,
-      },
-    };
-
-    rerender(<Checkboxes {...defaultProps(override)} />);
+    expect(selectedBoxLabel).toEqual('first');
   });
 
-  test("can't interact when checkbox is disabled", () => {
-    const wrapper = mount(<Checkboxes {...defaultProps()} />);
+  it("can't interact when checkbox is disabled", () => {
+    render(<Checkboxes {...defaultProps()} />);
+    const checkbox = screen.getByTestId('3-checkbox');
+    userEvent.click(checkbox);
+    expect(checkbox).not.toBeChecked();
+  });
 
-    wrapper.find(".form-field").at(2).simulate("click");
+  it("doesn't trigger onChange event when disabled", () => {
+    const mockOnChange = jest.fn();
+    render(<Checkboxes {...defaultProps({ onChange: mockOnChange })} />);
+    userEvent.click(screen.getByText('Disabled'));
+    expect(mockOnChange).not.toHaveBeenCalled();
+  });
 
-    expect(wrapper.find("input").at(2).prop("checked")).toBe(false);
+  it('fires onChange event when not disabled', () => {
+    const mockOnChange = jest.fn();
+    render(<Checkboxes {...defaultProps({ onChange: mockOnChange })} />);
+    userEvent.click(screen.getByText('I accept'));
+    expect(mockOnChange).toHaveBeenCalled();
+  });
+
+  it('handles onChange when returnBoolean is true', () => {
+    const mockOnChange = jest.fn();
+    render(<Checkboxes {...defaultProps({ onChange: mockOnChange, returnBoolean: true })} />);
+    userEvent.click(screen.getByText('I accept'));
+    expect(mockOnChange).toHaveBeenCalled();
   });
 });

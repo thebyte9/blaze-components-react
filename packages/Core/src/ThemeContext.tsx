@@ -1,20 +1,9 @@
-import React from 'react';
+import { createContext } from 'react';
+import { Theme, ThemeContextType } from './types';
 
-
-const ThemeContext = React.createContext({
-  dark: {
-  },
-  default: {
-    button: ''
-  },
-  light: {
-  },
-  selectedTheme: 'default',
+const ThemeContext = createContext<ThemeContextType>({
+  theme: Theme.Light,
+  setTheme: (theme) => console.warn(`no theme provider found for ${theme}`),
 });
-const { Provider: ThemeContextProvider, Consumer: ThemeContextConsumer } = ThemeContext;
 
-export { ThemeContext, ThemeContextProvider, ThemeContextConsumer };
-
-
-
-
+export default ThemeContext;

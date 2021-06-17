@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateRange component should be defined and renders correctly (snapshot) 1`] = `
+<DocumentFragment>
+  <div
+    class="form-field form-field--select"
+  >
+    <label
+      class=""
+    >
+      Date Range
+    </label>
+    <select
+      data-testid="select-date-range"
+    >
+      <option>
+        Please Choose...
+      </option>
+      <option
+        value="days,1"
+      >
+        Last 24 hours
+      </option>
+      <option
+        value="days,2"
+      >
+        Last 48 hours
+      </option>
+      <option
+        value="days,3"
+      >
+        Last 72 hours
+      </option>
+      <option
+        value="days,7"
+      >
+        Last 7 days
+      </option>
+      <option
+        value="days,30"
+      >
+        Last 30 days
+      </option>
+      <option
+        value="years,1"
+      >
+        Last 12 months
+      </option>
+      <option
+        value="custom"
+      >
+        Custom range date
+      </option>
+      <option
+        value="any"
+      >
+        Any date
+      </option>
+    </select>
+  </div>
+  <div
+    class="calendar-container"
+    data-testid="calendar-container"
+  >
+    <div
+      class="calendar-input"
+    >
+      <span
+        class="calendar-input__label"
+      >
+        From
+      </span>
+      <div
+        class="form-field form-field--input  "
+      >
+        <label
+          class=""
+        />
+        <input
+          class="range-date"
+          data-testid="From"
+          placeholder="dd/mm/yy"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="calendar-container"
+    data-testid="calendar-container"
+  >
+    <div
+      class="calendar-input"
+    >
+      <span
+        class="calendar-input__label"
+      >
+        To
+      </span>
+      <div
+        class="form-field form-field--input  "
+      >
+        <label
+          class=""
+        />
+        <input
+          class="range-date"
+          data-testid="To"
+          placeholder="dd/mm/yy"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

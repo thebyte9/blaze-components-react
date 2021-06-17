@@ -3,7 +3,7 @@ import React from "react";
 interface IMultiLevelMenuListItemProps {
   children: string | JSX.Element | JSX.Element[];
   to?: number;
-  handleClickMenu?: (to: number | undefined) => {};
+  handleClickMenu?: (to: number | undefined) => Record<string, unknown>;
 }
 
 const MultiLevelMenuListItem = ({

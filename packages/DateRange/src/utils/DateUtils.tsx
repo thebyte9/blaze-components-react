@@ -1,10 +1,22 @@
-// @ts-nocheck
-import React from "react";
-import { DAYS, DAYS_PER_LIST, SEPARATOR } from "../constants";
+import React from 'react';
+import { DAYS, DAYS_PER_LIST, SEPARATOR } from '../constants';
+
+interface IType {
+  [type: string]: () => number;
+  days: () => number;
+  months: () => number;
+  years: () => number;
+}
 
 class DateUtils {
+  private currentDate = new Date();
+
   constructor() {
     this.currentDate = new Date();
+  }
+
+  public date() {
+    return this.currentDate;
   }
 
   public isToday(dateToCheck: any) {
@@ -39,11 +51,7 @@ class DateUtils {
 
   public getListOfDays(year: number, month: number) {
     return [...new Array(DAYS_PER_LIST)].map((day, i) => {
-      const currentDate = new Date(
-        year,
-        month,
-        i + 2 - this.getFirstDay(year, month)
-      );
+      const currentDate = new Date(year, month, i + 2 - this.getFirstDay(year, month));
 
       const currentYearToString = currentDate.getFullYear().toString();
       const currentMonthToString = currentDate.getMonth().toString();
@@ -53,25 +61,25 @@ class DateUtils {
         currentDate,
         currentDateToString,
         currentMonthToString,
-        currentYearToString
+        currentYearToString,
       };
     });
   }
 
   public padDate(date: string) {
-    return date.toString().padStart(2, "0");
+    return date.toString().padStart(2, '0');
   }
 
   public dateToNumber(DD: string, MM: string, YY: string) {
     return {
       DD: Number(DD),
       MM: Number(MM),
-      YY: Number(YY)
+      YY: Number(YY),
     };
   }
 
-  public formatDate(DD: string, MM: string, YY: string) {
-    return this.padDate(DD) + SEPARATOR + this.padDate(MM) + SEPARATOR + YY;
+  public formatDate(DD: string | number, MM: string | number, YY: string | number) {
+    return this.padDate(DD.toString()) + SEPARATOR + this.padDate(MM.toString()) + SEPARATOR + YY;
   }
 
   public isInvalidDate(DD: string, MM: string, YY: string) {
@@ -81,10 +89,10 @@ class DateUtils {
   public subtractDate(total: number, type: string) {
     const currentDate = new Date();
 
-    const subtractFrom = {
+    const subtractFrom: IType = {
       days: () => currentDate.setDate(currentDate.getDate() - total),
       months: () => currentDate.setMonth(currentDate.getMonth() - total),
-      years: () => currentDate.setFullYear(currentDate.getFullYear() - total)
+      years: () => currentDate.setFullYear(currentDate.getFullYear() - total),
     };
 
     subtractFrom[type]();
@@ -97,4 +105,6 @@ class DateUtils {
   }
 }
 
-export default new DateUtils();
+const DateUtilsSingleton = new DateUtils();
+
+export { DateUtils, DateUtilsSingleton };

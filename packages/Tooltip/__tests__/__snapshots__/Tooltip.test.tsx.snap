@@ -1,14 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tooltip component should be defined and renders correctly (snapshot) 1`] = `
-<div
-  className="tooltip-here"
->
-  No content
-  <span
-    className="tooltip tooltip--top"
+<DocumentFragment>
+  <div
+    class="tooltip-here"
   >
-    Byte9
-  </span>
-</div>
+    No content
+    <span
+      class="tooltip tooltip--top"
+    >
+      Byte9
+    </span>
+  </div>
+</DocumentFragment>
 `;

@@ -1,97 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`More component should be defined and renders correctly (snapshot) 1`] = `
-<More
-  disabled={false}
-  displayBg={false}
-  isHeader={false}
-  isMoreMenu={true}
-  onClose={[Function]}
->
+exports[`More component should render 1`] = `
+<DocumentFragment>
   <div
-    className="more-menu__wrapper"
+    class="more-menu__wrapper"
+    data-testid="more-menu-wrapper"
   >
     <ul
-      className="dropdown dropdown dropdown__list more-menu__list"
+      class="dropdown dropdown dropdown__list more-menu__list"
+      data-testid="more-menu-ul"
     >
       <li
-        className="dropdown__list-item more-menu__list-item"
+        class="dropdown__list-item more-menu__list-item"
+        data-testid="more-menu-li"
       >
-        <MoreAvatar
-          className=""
-          disabled={false}
-          displayBg={false}
-          handleToggle={[Function]}
-          isHeader={false}
-          isMoreMenu={true}
-          key=".0"
-          label=""
-          toggled={false}
+        <button
+          class="icon-button icon-button--round"
+          data-testid="more-avatar-button"
+          displaybg="false"
+          toggled="false"
+          type="button"
         >
-          <withUtils()
-            className="icon-button icon-button--round"
-            disabled={false}
-            onClick={[Function]}
-            type="button"
+          <span
+            class="material-icons"
           >
-            <Component
-              className="icon-button icon-button--round"
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-              utils={
-                Object {
-                  "ErrorMessage": [Function],
-                  "buildClassNames": [Function],
-                  "removeExtraSpaces": [Function],
-                  "uniqueId": [Function],
-                }
-              }
-            >
-              <button
-                className="icon-button icon-button--round"
-                disabled={false}
-                onClick={[Function]}
-                type="button"
-              >
-                <span
-                  className="material-icons"
-                  key=".0"
-                >
-                  more_vert
-                </span>
-              </button>
-            </Component>
-          </withUtils()>
-        </MoreAvatar>
-        <MoreContent
-          disabled={false}
-          displayBg={false}
-          handleToggle={[Function]}
-          isDropdown={false}
-          isHeader={false}
-          isMoreMenu={true}
-          key=".1"
-          toggled={false}
+            more_vert
+          </span>
+        </button>
+        <ul
+          class="more-menu more-menu__list more-menu--open"
+          style="top: 30px;"
         >
-          <ul
-            className="more-menu more-menu__list"
+          <li
+            class="more-menu__list-item"
           >
-            <li
-              className="more-menu__list-item"
-              key=".0"
+            <a
+              class=" more-menu__link"
+              href="/"
             >
-              <a
-                className=" more-menu__link"
-                href="/"
-              >
-                Link
-              </a>
-            </li>
-          </ul>
-        </MoreContent>
+              Link
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
-</More>
+</DocumentFragment>
 `;
