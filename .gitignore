@@ -12,3 +12,4 @@ coverage
 storybook-static/
 stats/
 tsconfig.tsbuildinfo
+*.log
