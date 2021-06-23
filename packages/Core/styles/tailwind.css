@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-button-fill: 255, 173, 1;
+    --color-button-hover: 147, 183, 243;
+    --color-button-pressed: 137, 155, 188;
+    --color-button-disabled: 190, 190, 190;
+
+    --color-button-outline-fill: 255, 255, 255;
+    --color-button-outline-hover: 66, 133, 244;
+    --color-button-outline-pressed: 137, 155, 188;
+    --color-button-outline-disabled: 255, 255, 255;
+    --color-button-outline-disabled-border: 190, 190, 190;
+
+    --color-button-text-base: 255, 255, 255;
+    --color-button-text-muted: 190, 190, 190;
+    --color-button-text-inverted: 66, 133, 244;
+  }
+}
