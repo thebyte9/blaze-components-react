@@ -167,6 +167,7 @@
     "rimraf": "^3.0.2",
     "sass-loader": "^11.0.1",
     "storybook-readme": "latest",
+    "storybook-tailwind-dark-mode": "^1.0.9",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
     "ts-jest": "^26.5.4",

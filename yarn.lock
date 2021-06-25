@@ -9117,6 +9117,7 @@ __metadata:
     rimraf: ^3.0.2
     sass-loader: ^11.0.1
     storybook-readme: latest
+    storybook-tailwind-dark-mode: ^1.0.9
     style-loader: ^2.0.0
     terser-webpack-plugin: ^5.1.1
     ts-jest: ^26.5.4
@@ -24542,6 +24543,26 @@ resolve@^2.0.0-next.3:
     string-raw: ^1.0.1
     vuex: ^3.1.0
   checksum: 963a6fefc51de6ac37937a261a48e3c18a5a400f99486c86eb6e9d9353dbc66669897ad4c6456a144fc4a15d1ae077be7fe3103d03c2156a72f078bd7a3ec081
+  languageName: node
+  linkType: hard
+
+"storybook-tailwind-dark-mode@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "storybook-tailwind-dark-mode@npm:1.0.9"
+  peerDependencies:
+    "@storybook/addons": ^6.2.9
+    "@storybook/api": ^6.2.9
+    "@storybook/components": ^6.2.9
+    "@storybook/core-events": ^6.2.9
+    "@storybook/theming": ^6.2.9
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 100744f7a09a68542d99908dc2571d8d0de85af4a66a16dc85bbd0283b687440c4bba729072f1c929f2965c02baf80de6a22f06df581c46f9653c93937d2d12c
   languageName: node
   linkType: hard
 

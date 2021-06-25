@@ -1,45 +1,39 @@
-function withOpacity(varibleName) {
+function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
-      return `rga(var(${varibleName}), ${opacityValue})`;
+      return `rgba(var(${variableName}), ${opacityValue})`;
     }
 
-    return `rgb(var(${varibleName}))`;
+    return `rgb(var(${variableName}))`;
   };
 }
 
 module.exports = {
-  purge: ['./src/**/*.ts'],
-  darkMode: 'class',
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       textColor: {
-        blaze: {
-          'button-base': withOpacity('--color-button-text-base'),
-          'button-muted': withOpacity('--color-button-text-muted'),
-          'button-inverted': withOpacity('--color-button-text-inverted'),
+        button: {
+          primary: withOpacity('--color-text-primary'),
+          muted: withOpacity('--color-text-muted'),
+          inverted: withOpacity('--color-text-inverted'),
         },
       },
       backgroundColor: {
-        blaze: {
-          'button-hover': withOpacity('--color-button-hover'),
-          'button-pressed': withOpacity('--color-button-pressed'),
-          'button-disabled': withOpacity('--color-button-disabled'),
-          'button-outline-fill': withOpacity('--color-button-outline-fill'),
-          'button-outline-hover': withOpacity('--color-button-outline-hover'),
-          'button-outline-pressed': withOpacity('--color-button-outline-pressed'),
-          'button-outline-disabled': withOpacity('--color-button-outline-pressed'),
+        button: {
+          primary: withOpacity('--color-button-primary'),
+          hover: withOpacity('--color-button-primary-hover'),
+          disabled: withOpacity('--color-button-disabled'),
+          pressed: withOpacity('--color-button-pressed'),
         },
       },
-      borderColor: {
-        blaze: {
-          'button-outline-disabled-border': withOpacity('--color-button-outline-border'),
-        },
+      borderRadius: {
+        button: 'var(--border-radius-button)',
+        'button-large': 'var(--border-radius-button-large)',
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
 };
