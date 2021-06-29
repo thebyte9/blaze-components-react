@@ -1,16 +1,16 @@
-import { cleanup, render } from "@testing-library/react";
-import expect from "expect";
-import React from "react";
-import DragHandler from "../../../../src/DragHandler";
+import { cleanup, render } from '@testing-library/react';
+import expect from 'expect';
+import React from 'react';
+import DragHandler from '../../../../src/DragHandler';
 
-describe("Drag handler", () => {
+describe('Drag handler', () => {
   afterEach(cleanup);
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(DragHandler).toBeDefined();
   });
 
-  it("should render withouth throwing error", () => {
-    const { container } = render(<DragHandler onDragStart={jest.fn} />);
+  it('should render withouth throwing error', () => {
+    const { container } = render(<DragHandler onDragStart={jest.fn} draggable />);
     expect(container).toMatchSnapshot();
   });
 });
