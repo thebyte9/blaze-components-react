@@ -1,5 +1,6 @@
 export enum Theme {
-  Light = 'light',
+  Admin = 'Admin',
+  Frontend = 'Frontend',
 }
 
 export type ThemeContextType = {

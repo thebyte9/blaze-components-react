@@ -10,6 +10,7 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    'storybook-tailwind-dark-mode',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -41,6 +42,7 @@ module.exports = {
         },
       ],
     });
+
     config.resolve.extensions.push('.ts', '.tsx');
 
     config.module.rules.push({

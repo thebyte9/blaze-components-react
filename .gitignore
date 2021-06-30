@@ -13,3 +13,11 @@ storybook-static/
 stats/
 tsconfig.tsbuildinfo
 *.log
+
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
