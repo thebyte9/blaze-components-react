@@ -38,6 +38,7 @@ module.exports = {
       '@blaze-react/avatar': path.resolve(__dirname, '../Avatar/src'),
       '@blaze-react/checkboxes': path.resolve(__dirname, '../Checkboxes/src'),
       '@blaze-react/chips': path.resolve(__dirname, '../Chips/src'),
+      '@blaze-react/themes': path.resolve(__dirname, '../Themes/src'),
     },
   },
   module: {
