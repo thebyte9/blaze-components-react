@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/date-time-input",
-  "version": "0.8.0-alpha.3",
+  "version": "0.8.0-alpha.4",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -24,6 +24,5 @@
     "react-datepicker": "^3.7.0",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
-  },
-  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
+  }
 }

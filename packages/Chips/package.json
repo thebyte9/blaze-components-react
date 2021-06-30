@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/chips",
-  "version": "0.8.0-alpha.3",
+  "version": "0.8.0-alpha.4",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,14 +16,13 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@blaze-react/avatar": "^0.8.0-alpha.3",
-    "@blaze-react/utils": "^0.8.0-alpha.3",
+    "@blaze-react/avatar": "^0.8.0-alpha.4",
+    "@blaze-react/utils": "^0.8.0-alpha.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
-  },
-  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
+  }
 }

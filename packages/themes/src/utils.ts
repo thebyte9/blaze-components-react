@@ -1,14 +1,4 @@
-export interface ITheme {
-  textPrimaryColor: string;
-  textMutedColor: string;
-  textInvertedColor: string;
-  buttonPrimaryColor: string;
-  buttonPrimaryHoverColor: string;
-  buttonDisabledColor: string;
-  buttonPressedColor: string;
-  buttonBorderRadius: string;
-  buttonBorderRadiusLarge: string;
-}
+import { ITheme } from './types';
 
 export function applyTheme(theme: unknown): void {
   const root = document.documentElement;
@@ -28,7 +18,7 @@ export function createTheme({
   buttonPressedColor,
   buttonBorderRadius,
   buttonBorderRadiusLarge,
-}: ITheme): Record<string, unknown> {
+}: ITheme): any {
   return {
     '--color-text-primary': textPrimaryColor,
     '--color-text-muted': textMutedColor,
