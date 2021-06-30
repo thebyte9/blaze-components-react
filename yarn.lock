@@ -2241,6 +2241,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@blaze-react/themes@workspace:packages/themes":
+  version: 0.0.0-use.local
+  resolution: "@blaze-react/themes@workspace:packages/themes"
+  dependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    webpack: ^5.28.0
+    webpack-cli: ^4.6.0
+  languageName: unknown
+  linkType: soft
+
 "@blaze-react/toaster@workspace:packages/Toaster":
   version: 0.0.0-use.local
   resolution: "@blaze-react/toaster@workspace:packages/Toaster"
