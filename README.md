@@ -1,16 +1,36 @@
 # blaze-components-react
 
-View Documentation: https://blaze-components-react.thisisblaze.com
+Storybook: https://blaze-components-react.thisisblaze.com
 
 ## Getting Started
 
-- yarn storybook **Runs storybook dev server for development.**
+### Running storybook
 
-- yarn lint **Runs eslint on js files.**
+`yarn storybook`
 
-- yarn build **Runs webpack to build dist.**
+### Development
 
-## Publish
+#### Lint files
+
+`yarn lint`
+
+#### Run tests
+
+`yarn test`
+
+#### Build library
+
+`yarn build`
+
+#### Build storybook as a static web application
+
+`yarn build-storybook`
+
+#### Run server
+
+`npx http-server ./build`
+
+### Publish
 
 - yarn build && yarn build-storybook
 - commit changes
