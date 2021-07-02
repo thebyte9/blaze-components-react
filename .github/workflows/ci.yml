@@ -93,7 +93,7 @@ jobs:
         os: [ubuntu-18.04]
         node-version: [14.16.x]
     if: |
-      (github.event_name == 'push')
+      (github.event_name == 'push' && github.event.pull_request.merged == true)
     # if: (contains(fromJson('["release", "master"]'), github.base_ref) &&
     #   github.event.pull_request.merged == true)
 
