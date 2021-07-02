@@ -117,6 +117,9 @@ jobs:
       - name: Install packages
         run: yarn install
 
+      - name: Build components
+        run: yarn run build
+
       - name: Build storybook
         run: yarn run build-storybook
 
