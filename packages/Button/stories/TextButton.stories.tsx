@@ -7,7 +7,7 @@ export default {
   title: '@blaze-react/Button/Text',
   component: BlazeButton,
   args: {
-    selectedTheme: 'admin',
+    selectedtheme: 'admin',
     icon: 'left',
   },
   argTypes: {

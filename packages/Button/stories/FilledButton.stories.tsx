@@ -7,7 +7,7 @@ export default {
   title: '@blaze-react/Button/Filled',
   component: BlazeButton,
   args: {
-    selectedTheme: 'admin',
+    selectedtheme: 'admin',
   },
   argTypes: {
     selectedTheme: {
@@ -28,7 +28,6 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => {
-  console.log(args.selectedTheme);
   const selectedTheme = args.selectedTheme === 'admin' ? adminTheme : frontendTheme;
   const [theme, setTheme] = useState(selectedTheme);
 

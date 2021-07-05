@@ -7,7 +7,7 @@ export default {
   title: '@blaze-react/Button/Outlined',
   component: BlazeButton,
   args: {
-    selectedTheme: 'admin',
+    selectedtheme: 'admin',
   },
   argTypes: {
     selectedTheme: {
