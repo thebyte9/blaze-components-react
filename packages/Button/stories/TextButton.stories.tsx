@@ -1,14 +1,15 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React, { useState } from 'react';
-import { BlazeButton } from '../src/BlazeButton';
+import Button from '../src/Button';
 import { adminTheme, frontendTheme, ThemeContext, applyTheme } from '@blaze-react/themes';
 
 export default {
-  title: '@blaze-react/Button/Text',
-  component: BlazeButton,
+  title: '@blaze-react/Button/All Stories/Text',
+  component: Button,
   args: {
-    selectedtheme: 'admin',
+    selectedTheme: 'admin',
     icon: 'left',
+    label: 'Blaze',
   },
   argTypes: {
     selectedTheme: {
@@ -23,7 +24,7 @@ export default {
       },
     },
     icon: {
-      options: ['left', 'right', 'icon-only'],
+      options: ['left', 'right', 'no-icon'],
       control: { type: 'radio' },
       defaultValue: { summary: 'left' },
     },
@@ -38,7 +39,7 @@ const Template: Story = (args) => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <BlazeButton {...args}>
+      <Button {...args}>
         <div className="flex items-center justify-center">
           {args.icon === 'left' ? (
             <>
@@ -49,29 +50,32 @@ const Template: Story = (args) => {
                   clipRule="evenodd"
                 />
               </svg>
-              {args.icon !== 'icon-only' && <span className="mx-1">Save</span>}
+              {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
             </>
           ) : (
             <>
-              {args.icon !== 'icon-only' && <span className="mx-1">Save</span>}
+              {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
 
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                <path
-                  fillRule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              {args.icon !== 'no-icon' && (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fillRule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
             </>
           )}
         </div>
-      </BlazeButton>
+      </Button>
     </ThemeContext.Provider>
   );
 };
 
 export const Left = Template.bind({});
 export const Right = Template.bind({});
+export const NoIcon = Template.bind({});
 
 Left.args = {
   theme: adminTheme,
@@ -81,7 +85,7 @@ Left.args = {
     text-bold
     rounded-button
     text-button-outlined 
-    w-30
+    min-w-min
     dark:bg-gray-800
     dark:text-button-primary
     hover:text-button-muted
@@ -99,7 +103,25 @@ Right.args = {
   text-bold
   rounded-button
   text-button-outlined 
-  w-30
+  min-w-min
+  dark:bg-gray-800
+  dark:text-button-primary
+  hover:text-button-muted
+  focus:outline-none
+  active:text-button-inverted
+  text-sm`,
+};
+
+NoIcon.args = {
+  icon: 'no-icon',
+  theme: adminTheme,
+  utilities: `
+  font-manrope
+  font-medium
+  text-bold
+  rounded-button
+  text-button-outlined 
+  min-w-min
   dark:bg-gray-800
   dark:text-button-primary
   hover:text-button-muted

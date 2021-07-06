@@ -1,32 +1,42 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 import { buildClassNames } from '@blaze-react/utils';
 
 type TType = 'button' | 'submit' | 'reset';
-
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IButtonProps {
   disabled?: boolean;
-  children?: JSX.Element | string;
-  type?: TType;
+  children: unknown;
+  utilities?: string;
   modifiers?: string[];
+  type?: TType;
 }
 
-const Button = ({ disabled, type, children, modifiers = [], ...attrs }: IButtonProps): JSX.Element => {
-  const formatedModifiers: string = modifiers.map((modifier) => `button--${modifier}`).join(' ');
-  const buttonClassNames: string = buildClassNames('button', {
-    [formatedModifiers]: !!modifiers,
-  });
+const Button = ({ children, utilities = '', ...rest }: IButtonProps): JSX.Element => {
+  const DeprecatedButton = () => {
+    const { modifiers = [], disabled, type } = rest;
 
-  return (
-    <button disabled={disabled} className={buttonClassNames} type={type} {...attrs}>
+    console.warn(
+      'Usage of modifiers will be deprecated in the near future. You should use CSS utilities classes instead',
+    );
+
+    const formatedModifiers: string = modifiers.map((modifier) => `button--${modifier}`).join(' ');
+    const buttonClassNames: string = buildClassNames('button', {
+      [formatedModifiers]: !!modifiers,
+    });
+
+    return (
+      <button disabled={disabled} className={buttonClassNames} type={type} {...rest}>
+        {children}
+      </button>
+    );
+  };
+
+  const BlazeButton = (
+    <button type="button" className={utilities} {...rest}>
       {children}
     </button>
   );
-};
 
-Button.defaultProps = {
-  children: '',
-  disabled: false,
-  type: 'button',
+  return utilities !== '' ? BlazeButton : DeprecatedButton();
 };
 
 export default Button;

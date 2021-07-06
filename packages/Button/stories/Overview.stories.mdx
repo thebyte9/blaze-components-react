@@ -1,7 +1,26 @@
-import { Meta, Story, Preview, ArgsTable } from '@storybook/addon-docs';
-import { BlazeButton } from '../src/BlazeButton';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import Button from '../src/Button';
 
-<Meta title="@blaze-react/Button/Overview" component={BlazeButton} />
+<Meta
+  title="@blaze-react/Button/Overview"
+  component={Button}
+  argTypes={{
+    selectedTheme: {
+      options: ['admin', 'frontend'],
+      control: { type: 'radio' },
+      defaultValue: { summary: 'admin' },
+    },
+    theme: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+    label: {
+      control: { type: 'text' },
+    },
+  }}
+/>
 
 # Button
 
@@ -11,88 +30,40 @@ import { BlazeButton } from '../src/BlazeButton';
 
 #### Below is an overview of the Filled, Affix & Icon, Outlined and Text button components.
 
-# Filled Button
+## Filled Button
 
-## Primary
+<Canvas>
+  <Story id="blaze-react-button-all-stories-filled--filled" />
+</Canvas>
 
-<Preview>
-  <Story id="blaze-react-button-filled--filled" />
-</Preview>
+## Outlined Button
 
-## Disabled
+<Canvas>
+  <Story id="blaze-react-button-all-stories-outlined--outlined" />
+</Canvas>
 
-<Preview>
-  <Story id="blaze-react-button-filled--disabled" />
-</Preview>
+## Text Button
 
-## Small
-
-<Preview>
-  <Story id="blaze-react-button-filled--small" />
-</Preview>
-
-## Medium
-
-<Preview>
-  <Story id="blaze-react-button-filled--medium" />
-</Preview>
-
-## Large
-
-<Preview>
-  <Story id="blaze-react-button-filled--large" />
-</Preview>
-
-## Stretched
-
-<Preview>
-  <Story id="blaze-react-button-filled--stretched" />
-</Preview>
-
-# Affix & Icon
-
-## Icon left
-
-<Preview>
-  <Story id="blaze-react-button-affix-icon--left" />
-</Preview>
-
-## Icon right
-
-<Preview>
-  <Story id="blaze-react-button-affix-icon--right" />
-</Preview>
-
-## Icon only
-
-<Preview>
-  <Story id="blaze-react-button-affix-icon--icon-only" />
-</Preview>
-
-## Icon and Text
-
-<Preview>
-  <Story id="blaze-react-button-affix-icon--with-text" />
-</Preview>
-
-# Outlined
-
-## Default
-
-<Preview>
-  <Story id="blaze-react-button-outlined--outlined" />
-</Preview>
+<Canvas>
+  <Story id="blaze-react-button-all-stories-text--no-icon" />
+</Canvas>
 
 # Usage guidelines
 
 ## Best practices
 
-Pending
+Description here ...
 
 ## Use cases
 
-Pending
+Description here ...
 
-# Available Props
+# Available props
 
-<ArgsTable of={BlazeButton} />
+| NAME      |         TYPE          | DEFAULT | VALUES                                                                                          |
+| :-------- | :-------------------: | :-----: | ----------------------------------------------------------------------------------------------- |
+| modifiers |         Array         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
+| type      |        String         | button  | button, submit, reset                                                                           |
+| disabled  |        Boolean        |  false  |                                                                                                 |
+| children  | single/array of nodes |  null   | A single string e.g label                                                                       |
+| utilities | CSS utilities classes |  empty  | Tailwind utilities classes                                                                      |

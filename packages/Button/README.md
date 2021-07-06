@@ -20,8 +20,10 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 
 ##### Buttons can receive a number of `props` as follow:
 
-|   NAME    |         TYPE          | DEFAULT |               OPTIONS               |
-| :-------: | :-------------------: | :-----: | :---------------------------------: |
-| utilities |        String         |  empty  |      tailwind class utilities       |
-|   rest    |        Unknown        |  null   | event handler and custom properties |
-| children  | single/array of nodes |  null   |             react node              |
+| NAME      |         TYPE          | DEFAULT | OPTIONS                                                                                         |
+| :-------- | :-------------------: | :-----: | ----------------------------------------------------------------------------------------------- |
+| modifiers |         Array         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
+| type      |        String         | button  | button, submit, reset                                                                           |
+| disabled  |        Boolean        |  false  |                                                                                                 |
+| children  | single/array of nodes |  null   |                                                                                                 |
+| utilities | CSS utilities classes |  empty  |                                                                                                 |

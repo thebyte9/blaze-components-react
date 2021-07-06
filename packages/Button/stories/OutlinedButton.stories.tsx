@@ -1,13 +1,14 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React, { useState } from 'react';
-import { BlazeButton } from '../src/BlazeButton';
+import Button from '../src/Button';
 import { adminTheme, frontendTheme, ThemeContext, applyTheme } from '@blaze-react/themes';
 
 export default {
-  title: '@blaze-react/Button/Outlined',
-  component: BlazeButton,
+  title: '@blaze-react/Button/All Stories/Outlined',
+  component: Button,
   args: {
-    selectedtheme: 'admin',
+    selectedTheme: 'admin',
+    label: 'Blaze',
   },
   argTypes: {
     selectedTheme: {
@@ -32,7 +33,7 @@ const Template: Story = (args) => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <BlazeButton {...args}>Blaze</BlazeButton>
+      <Button {...args}>{args.label ?? 'Blaze'}</Button>
     </ThemeContext.Provider>
   );
 };
@@ -55,7 +56,7 @@ Outlined.args = {
     text-button-outlined
     px-6
     py-1
-    w-24
+    min-w-min
     dark:bg-gray-800
     dark:text-button-primary
     border-2
@@ -76,7 +77,7 @@ Disabled.args = {
     rounded-button
     px-6
     py-1
-    w-24 
+    min-w-min 
     dark:bg-gray-800
     dark:text-button-primary
     border-2
@@ -100,7 +101,7 @@ Small.args = {
     text-button-primary 
     px-5 
     py-1 
-    w-20
+    min-w-min
     border-2
     border-button-outlined
     hover:bg-button-outlined-hover
@@ -126,7 +127,7 @@ Medium.args = {
     text-button-primary 
     px-6 
     py-1 
-    w-24 
+    min-w-min 
     border-2
     border-button-outlined
     hover:bg-button-outlined-hover
@@ -152,7 +153,7 @@ Large.args = {
     text-button-primary 
     px-6 
     py-1 
-    w-32
+    min-w-min
     border-2
     border-button-outlined
     hover:bg-button-outlined-hover
@@ -161,7 +162,7 @@ Large.args = {
     dark:text-button-primary
     focus:outline-none 
     active:bg-button-pressed
-    text-md
+    text-lg
   `,
 };
 

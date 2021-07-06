@@ -1,13 +1,14 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React, { useState } from 'react';
-import { BlazeButton } from '../src/BlazeButton';
+import Button from '../src/Button';
 import { adminTheme, frontendTheme, ThemeContext, applyTheme } from '@blaze-react/themes';
 
 export default {
-  title: '@blaze-react/Button/Affix & Icon',
-  component: BlazeButton,
+  title: '@blaze-react/Button/All Stories/Affix & Icon',
+  component: Button,
   args: {
-    selectedtheme: 'admin',
+    selectedTheme: 'admin',
+    label: 'Blaze',
     icon: 'left',
   },
   argTypes: {
@@ -38,7 +39,7 @@ const Template: Story = (args) => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <BlazeButton {...args}>
+      <Button {...args}>
         <div className="flex items-center justify-center">
           {args.icon === 'left' ? (
             <>
@@ -56,12 +57,14 @@ const Template: Story = (args) => {
                   d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
                 />
               </svg>
-              {args.icon !== 'icon-only' && <span className="mx-1">Save</span>}
-              {args.icon === 'icon-only' && args.icon === 'with-text' && <span className="mx-1">Save</span>}
+              {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
+              {args.icon === 'icon-only' && args.icon === 'with-text' && (
+                <span className="mx-1">{args.label ?? 'Blaze'}</span>
+              )}
             </>
           ) : (
             <>
-              {args.icon !== 'icon-only' && <span className="mx-1">Save</span>}
+              {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,11 +81,13 @@ const Template: Story = (args) => {
                 />
               </svg>
 
-              {args.icon === 'icon-only' && args.icon === 'with-text' && <span className="mx-1">Save</span>}
+              {args.icon === 'icon-only' && args.icon === 'with-text' && (
+                <span className="mx-1">{args.label ?? 'Blaze'}</span>
+              )}
             </>
           )}
         </div>
-      </BlazeButton>
+      </Button>
     </ThemeContext.Provider>
   );
 };
@@ -96,7 +101,7 @@ const TemplateIconWithText: Story = (args) => {
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className="inline-flex items-center">
-        <BlazeButton {...args}>
+        <Button {...args}>
           <div className="flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
               <path
@@ -106,7 +111,7 @@ const TemplateIconWithText: Story = (args) => {
               />
             </svg>
           </div>
-        </BlazeButton>
+        </Button>
         <div className="ml-1 text-sm font-normal uppercase text-button-base font-manrope">Add new property</div>
       </div>
     </ThemeContext.Provider>
@@ -129,7 +134,7 @@ Left.args = {
     text-button-outlined 
     px-6
     py-2
-    w-30
+    min-w-min
     dark:bg-gray-800
     dark:text-button-primary
     border-2
@@ -153,7 +158,7 @@ Right.args = {
     text-button-outlined 
     px-6
     py-2
-    w-30
+    min-w-min
     dark:bg-gray-800
     dark:text-button-primary
     border-2

@@ -1,0 +1,133 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import Button from '../src/Button';
+
+<Meta
+  title="@blaze-react/Button/Variations"
+  component={Button}
+  argTypes={{
+    selectedTheme: {
+      options: ['admin', 'frontend'],
+      control: { type: 'radio' },
+      defaultValue: { summary: 'admin' },
+    },
+    theme: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+    label: {
+      control: { type: 'text' },
+    },
+  }}
+/>
+
+# Filled Button
+
+Description here ...
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-filled--filled" />
+</Canvas>
+
+## States
+
+Filled buttons have idle, disabled, hover, active, and focus states. Head to the Canvas tab on the [Properties](?path=/story/blaze-react-button-all-stories-filled--filled)
+page to interact with the different states and options that are possible.
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-filled--filled" />
+  <Story id="blaze-react-button-all-stories-filled--disabled" />
+</Canvas>
+
+## Sizes
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-filled--small" />
+  <Story id="blaze-react-button-all-stories-filled--medium" />
+  <Story id="blaze-react-button-all-stories-filled--large" />
+</Canvas>
+
+## Icon Left
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-filled--icon-left" />
+</Canvas>
+
+## Icon Right
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-filled--icon-right" />
+</Canvas>
+
+## Icon only
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-filled--no-icon" />
+</Canvas>
+
+# Outlined Button
+
+Description here ...
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-outlined--outlined" />
+</Canvas>
+
+## Sizes
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-outlined--small" />
+  <Story id="blaze-react-button-all-stories-outlined--medium" />
+  <Story id="blaze-react-button-all-stories-outlined--large" />
+</Canvas>
+
+## Icon Left
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-affix-icon--left" />
+</Canvas>
+
+## Icon Right
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-affix-icon--right" />
+</Canvas>
+
+## Icon only
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-affix-icon--icon-only" />
+</Canvas>
+
+# Text Button
+
+Description here ...
+
+## Icon Left
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-text--left" />
+</Canvas>
+
+## Icon Right
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-text--right" />
+</Canvas>
+
+## Text Only
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-text--no-icon" />
+</Canvas>
+
+# Usage guidelines
+
+## Best practices
+
+Description here ...
+
+## Use cases
+
+Description here ...
