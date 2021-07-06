@@ -4,7 +4,7 @@ import { buildClassNames } from '@blaze-react/utils';
 type TType = 'button' | 'submit' | 'reset';
 export interface IButtonProps {
   disabled?: boolean;
-  children: unknown;
+  children?: unknown;
   utilities?: string;
   modifiers?: string[];
   type?: TType;
@@ -15,7 +15,7 @@ const Button = ({ children, utilities = '', ...rest }: IButtonProps): JSX.Elemen
     const { modifiers = [], disabled, type } = rest;
 
     console.warn(
-      'Usage of modifiers will be deprecated in the near future. You should use CSS utilities classes instead',
+      'Modifiers will be deprecated in the near future. You should use CSS utilities classes instead',
     );
 
     const formatedModifiers: string = modifiers.map((modifier) => `button--${modifier}`).join(' ');

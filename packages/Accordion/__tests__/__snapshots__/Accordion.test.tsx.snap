@@ -48,15 +48,15 @@ exports[`Accordion component should match snapshot 1`] = `
       >
         <button
           class="button button--outline button--light button--rounded"
+          modifiers="outline,light,rounded"
           name="button"
-          type="button"
         >
           Cancel
         </button>
         <button
           class="button button--rounded"
+          modifiers="rounded"
           name="button"
-          type="button"
         >
           Save
         </button>
@@ -104,15 +104,15 @@ exports[`Accordion component should match snapshot 2`] = `
       >
         <button
           class="button button--outline button--light button--rounded"
+          modifiers="outline,light,rounded"
           name="button"
-          type="button"
         >
           Cancel
         </button>
         <button
           class="button button--rounded"
+          modifiers="rounded"
           name="button"
-          type="button"
         >
           Save
         </button>

@@ -8,7 +8,7 @@ exports[`ButtonSelect component should be defined and renders correctly (snapsho
     <button
       class="button button--full-width"
       data-testid="button-select-toggle"
-      type="button"
+      modifiers="full-width"
     >
       <i
         class="material-icons"
@@ -29,7 +29,7 @@ exports[`ButtonSelect component should toggle 1`] = `
     <button
       class="button button--full-width"
       data-testid="button-select-toggle"
-      type="button"
+      modifiers="full-width"
     >
       <i
         class="material-icons"
@@ -44,13 +44,11 @@ exports[`ButtonSelect component should toggle 1`] = `
     >
       <button
         class="button"
-        type="button"
       >
         Settings
       </button>
       <button
         class="button"
-        type="button"
       >
         Sign out
       </button>

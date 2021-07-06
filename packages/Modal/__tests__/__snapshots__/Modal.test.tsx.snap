@@ -114,13 +114,13 @@ exports[`Modal component should render and close alert modal 1`] = `
       >
         <button
           class="button button--cancel"
-          type="button"
+          modifiers="cancel"
         >
           Cancel
         </button>
         <button
           class="button button--alert button--small"
-          type="button"
+          modifiers="alert,small"
         >
           delete
         </button>
