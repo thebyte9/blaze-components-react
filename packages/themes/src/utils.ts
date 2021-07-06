@@ -15,6 +15,7 @@ export function createTheme({
   textInvertedColor,
   textOutlinedColor,
   textOutlinedDisabledColor,
+
   buttonPrimaryColor,
   buttonPrimaryHoverColor,
   buttonDisabledColor,
@@ -25,6 +26,12 @@ export function createTheme({
   buttonBorderRadiusLarge,
   buttonBorderOutlinedColor,
   buttonBorderOutlinedDisabledColor,
+
+  tabTextBaseColor,
+  tabTextInvertedColor,
+  tabPrimaryColor,
+  tabHoverColor,
+  tabBorderRadius,
 }: ITheme): any {
   return {
     '--color-text-base': textBaseColor,
@@ -43,5 +50,10 @@ export function createTheme({
     '--border-radius-button-large': buttonBorderRadiusLarge,
     '--border-button-outlined': buttonBorderOutlinedColor,
     '--border-button-disabled': buttonBorderOutlinedDisabledColor,
+    '--tab-color-text-base': tabTextBaseColor,
+    '--tab-color-text-inverted': tabTextInvertedColor,
+    '--tab-color-button-primary': tabPrimaryColor,
+    '--tab-color-button-primary-hover': tabHoverColor,
+    '--tab-border-radius': tabBorderRadius,
   };
 }

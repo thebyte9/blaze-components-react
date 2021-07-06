@@ -14,6 +14,10 @@ module.exports = {
   theme: {
     extend: {
       textColor: {
+        tab: {
+          base: withOpacity('--tab-color-text-base'),
+          inverted: withOpacity('--tab-color-text-inverted'),
+        },
         button: {
           base: withOpacity('--color-text-base'),
           primary: withOpacity('--color-text-primary'),
@@ -24,6 +28,10 @@ module.exports = {
         },
       },
       backgroundColor: {
+        tab: {
+          primary: withOpacity('--tab-color-button-primary'),
+          hover: withOpacity('--tab-color-button-primary-hover'),
+        },
         button: {
           primary: withOpacity('--color-button-primary'),
           hover: withOpacity('--color-button-primary-hover'),
@@ -34,6 +42,7 @@ module.exports = {
         },
       },
       borderRadius: {
+        tab: 'var(--tab-border-radius)',
         button: 'var(--border-radius-button)',
         'button-large': 'var(--border-radius-button-large)',
       },
