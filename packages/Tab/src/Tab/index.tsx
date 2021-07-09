@@ -1,6 +1,6 @@
 import Button from '@blaze-react/button';
 import React, { useState } from 'react';
-import CustomIcon from '@blaze-react/icon';
+import CustomIcon from '../../../Icon/src';
 
 type selectedType = string | number;
 
