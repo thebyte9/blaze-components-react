@@ -19,6 +19,7 @@ exports[`More component should render 1`] = `
           data-testid="more-avatar-button"
           displaybg="false"
           toggled="false"
+          type="button"
         >
           <span
             class="material-icons"

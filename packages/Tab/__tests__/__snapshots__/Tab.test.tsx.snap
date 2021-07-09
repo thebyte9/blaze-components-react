@@ -10,16 +10,19 @@ exports[`Tab component should be defined and renders correctly (snapshot) 1`] = 
     >
       <button
         class="tabs__list-item "
+        type="button"
       >
         Unnamed tab
       </button>
       <button
         class="tabs__list-item current"
+        type="button"
       >
         Advanced
       </button>
       <button
         class="tabs__list-item "
+        type="button"
       >
         Other
       </button>

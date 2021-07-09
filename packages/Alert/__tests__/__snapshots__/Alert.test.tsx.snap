@@ -13,6 +13,7 @@ exports[`Alert component should match snapshot 1`] = `
     No content
     <button
       class="icon-button icon-button--close"
+      type="button"
     >
       <i
         class="material-icons"

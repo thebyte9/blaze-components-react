@@ -31,6 +31,7 @@ exports[`FileUpload component should be defined and renders correctly (snapshot)
       </div>
       <button
         class="button"
+        type="button"
       >
         Browse
       </button>

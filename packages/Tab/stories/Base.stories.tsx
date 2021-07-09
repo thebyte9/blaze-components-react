@@ -119,6 +119,14 @@ const TemplateScrolling: Story = (args) => {
       <TabItem title="Tab 10">Tab 10 content ...</TabItem>
       <TabItem title="Tab 11">Tab 11 content ...</TabItem>
       <TabItem title="Tab 12">Tab 12 content ...</TabItem>
+      <TabItem title="Tab 13">Tab 13 content ...</TabItem>
+      <TabItem title="Tab 14">Tab 14 content ...</TabItem>
+      <TabItem title="Tab 15">Tab 15 content ...</TabItem>
+      <TabItem title="Tab 16">Tab 16 content ...</TabItem>
+      <TabItem title="Tab 17">Tab 17 content ...</TabItem>
+      <TabItem title="Tab 18">Tab 18 content ...</TabItem>
+      <TabItem title="Tab 19">Tab 19 content ...</TabItem>
+      <TabItem title="Tab 20">Tab 20 content ...</TabItem>
     </Tab>
   );
 };
