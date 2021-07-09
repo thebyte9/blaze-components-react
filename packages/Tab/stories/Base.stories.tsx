@@ -135,8 +135,9 @@ export const Default = Template.bind({});
 export const Small = Template.bind({});
 export const Medium = Template.bind({});
 export const Large = Template.bind({});
-export const Compact = TemplateCompact.bind({});
-export const Expanded = TemplateExpanded.bind({});
+export const Stretched = Template.bind({});
+export const Icon = TemplateCompact.bind({});
+export const IconWithLabel = TemplateExpanded.bind({});
 export const Scrolling = TemplateScrolling.bind({});
 
 Default.args = {
@@ -171,7 +172,7 @@ Small.args = {
   rounded-tab 
   bg-tab-primary 
   text-tab-base 
-  px-8 
+  px-4 
   py-1 
   min-w-min 
   dark:bg-gray-800 
@@ -181,7 +182,7 @@ Small.args = {
   hover:text-tab-inverted
   focus:outline-none 
   active:bg-tab-hover
-  text-sm
+  text-xs
   mr-1
   `,
 };
@@ -219,6 +220,29 @@ Large.args = {
     rounded-tab
     bg-tab-primary 
     text-tab-primary 
+    px-20
+    py-1 
+    dark:bg-gray-800 
+    dark:text-tab-primary 
+    text-base-primary 
+    hover:bg-tab-hover 
+    hover:text-tab-inverted
+    focus:outline-none 
+    active:bg-tab-hover
+    text-lg
+    mr-1
+  `,
+};
+
+Stretched.args = {
+  theme: adminTheme,
+  selected: 0,
+  utilities: `
+    font-manrope
+    font-medium
+    rounded-tab
+    bg-tab-primary 
+    text-tab-primary 
     px-16 
     py-1 
     w-full
@@ -234,7 +258,7 @@ Large.args = {
   `,
 };
 
-Compact.args = {
+Icon.args = {
   theme: adminTheme,
   selected: 0,
   utilities: `
@@ -258,7 +282,7 @@ Compact.args = {
     mr-3`,
 };
 
-Expanded.args = {
+IconWithLabel.args = {
   theme: adminTheme,
   selected: 0,
   utilities: `

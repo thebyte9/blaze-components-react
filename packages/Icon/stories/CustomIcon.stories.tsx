@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import { CustomIcon } from '../src';
+import CustomIcon from '../src';
 
 export default {
   title: '@blaze-react/Icon/All Stories/Custom',

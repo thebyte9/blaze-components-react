@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
 import Button from '../src/Button';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
-import { CustomIcon } from '@blaze-react/icon';
+import CustomIcon from '@blaze-react/icon';
 import { args, argTypes } from './shared';
 
 export default {
@@ -99,7 +99,7 @@ Small.args = {
     rounded-button 
     bg-button-primary 
     text-button-primary 
-    px-5 
+    px-4 
     py-1 
     min-w-min 
     dark:bg-gray-800 

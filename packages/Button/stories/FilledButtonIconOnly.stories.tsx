@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
 import Button from '../src/Button';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
-import { CustomIcon } from '@blaze-react/icon';
+import CustomIcon from '@blaze-react/icon';
 
 export default {
   title: '@blaze-react/Button/All Stories/Filled/Icon Only',
