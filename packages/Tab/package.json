@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/tab",
-  "version": "0.8.0-alpha.3",
+  "version": "0.8.0-alpha.6",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@blaze-react/button": "0.8.0-alpha.4",
-    "@blaze-react/icon": "workspace:packages/Icon",
+    "@blaze-react/icon": "file:../Icon/src",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

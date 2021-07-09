@@ -1,0 +1,11 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.8.0-alpha.6](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.3...v0.8.0-alpha.6) (2021-07-09)
+
+
+### Features
+
+* add Tab stories ([13adc96](https://github.com/thebyte9/blaze-components-react/commit/13adc969d8e58179e2ba661039b2e2c4a491e9fd))

@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/video-container",
-  "version": "0.8.0-alpha.3",
+  "version": "0.8.0-alpha.6",
   "description": "The VideoContainer component is a simple wrapper to make the video responsive",
   "main": "./dist/main.js",
   "scripts": {
