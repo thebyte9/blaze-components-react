@@ -60,10 +60,10 @@ Description here ...
 
 # Available props
 
-| NAME      |         TYPE          | DEFAULT | VALUES                                                                                          |
-| :-------- | :-------------------: | :-----: | ----------------------------------------------------------------------------------------------- |
-| modifiers |         Array         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
-| type      |        String         | button  | button, submit, reset                                                                           |
-| disabled  |        Boolean        |  false  |                                                                                                 |
-| children  | single/array of nodes |  null   | A single string e.g label                                                                       |
-| utilities | CSS utilities classes |  empty  | Tailwind utilities classes                                                                      |
+| NAME      |  TYPE   | DEFAULT | DEPRECATED | VALUES                                                                                          |
+| :-------- | :-----: | :-----: | :--------: | ----------------------------------------------------------------------------------------------- |
+| modifiers |  array  |  empty  |    yes     | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
+| type      | string  | button  |    yes     | button, submit, reset                                                                           |
+| disabled  | boolean |  false  |            |                                                                                                 |
+| children  | unknown |  null   |            | JSX element or string                                                                           |
+| utilities | string  |  empty  |            | Tailwind utilities classes                                                                      |

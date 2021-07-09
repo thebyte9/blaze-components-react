@@ -5,6 +5,8 @@ interface ITabItemProps {
   children?: unknown;
   title?: string;
   utilities?: string;
+  icon?: string;
+  showLabel?: boolean;
 }
 
 export const TabItem = ({ action, utilities = '', children }: ITabItemProps): JSX.Element => {

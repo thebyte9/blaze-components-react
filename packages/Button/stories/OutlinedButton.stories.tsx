@@ -1,28 +1,15 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React, { useState } from 'react';
 import Button from '../src/Button';
-import { adminTheme, frontendTheme, ThemeContext, applyTheme } from '@blaze-react/themes';
+import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
+import { args, argTypes } from './shared';
+import { CustomIcon } from '@blaze-react/icon';
 
 export default {
   title: '@blaze-react/Button/All Stories/Outlined',
   component: Button,
-  args: {
-    selectedTheme: 'admin',
-    label: 'Blaze',
-  },
-  argTypes: {
-    selectedTheme: {
-      options: ['admin', 'frontend'],
-      control: { type: 'radio' },
-      defaultValue: { summary: 'admin' },
-    },
-    theme: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-  },
+  args: args,
+  argTypes: argTypes,
 } as Meta;
 
 const Template: Story = (args) => {
@@ -32,9 +19,31 @@ const Template: Story = (args) => {
   applyTheme(selectedTheme);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Button {...args}>{args.label ?? 'Blaze'}</Button>
-    </ThemeContext.Provider>
+    <Button {...args}>
+      <div className="flex items-center justify-center">
+        {args.icon === 'left' ? (
+          <>
+            <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
+            {args.icon === 'icon-only' && args.icon === 'with-text' && (
+              <span className="mx-1">{args.label ?? 'Blaze'}</span>
+            )}
+          </>
+        ) : (
+          <>
+            {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
+
+            {args.icon !== 'no-icon' && (
+              <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            )}
+
+            {args.icon === 'icon-only' && args.icon === 'with-text' && (
+              <span className="mx-1">{args.label ?? 'Blaze'}</span>
+            )}
+          </>
+        )}
+      </div>
+    </Button>
   );
 };
 
@@ -44,6 +53,8 @@ export const Small = Template.bind({});
 export const Medium = Template.bind({});
 export const Large = Template.bind({});
 export const Stretched = Template.bind({});
+export const IconLeft = Template.bind({});
+export const IconRight = Template.bind({});
 
 Outlined.args = {
   theme: adminTheme,
@@ -168,6 +179,7 @@ Large.args = {
 
 Stretched.args = {
   theme: adminTheme,
+  icon: 'no-icon',
   utilities: `
   font-manrope
   font-medium
@@ -189,5 +201,53 @@ Stretched.args = {
   focus:outline-none
   active:bg-button-pressed
   text-md
+  `,
+};
+
+IconLeft.args = {
+  icon: 'left',
+  theme: adminTheme,
+  utilities: `
+  font-manrope
+  font-medium
+  text-bold
+  rounded-button
+  bg-button-outlined
+  text-button-outlined
+  px-6
+  py-1
+  min-w-min
+  dark:bg-gray-800
+  dark:text-button-primary
+  border-2
+  border-button-outlined
+  hover:bg-button-outlined-hover
+  hover:text-button-primary
+  focus:outline-none
+  active:bg-button-pressed
+  `,
+};
+
+IconRight.args = {
+  icon: 'right',
+  theme: adminTheme,
+  utilities: `
+  font-manrope
+  font-medium
+  text-bold
+  rounded-button
+  bg-button-outlined
+  text-button-outlined
+  px-6
+  py-1
+  min-w-min
+  dark:bg-gray-800
+  dark:text-button-primary
+  border-2
+  border-button-outlined
+  hover:bg-button-outlined-hover
+  hover:text-button-primary
+  focus:outline-none
+  active:bg-button-pressed
   `,
 };

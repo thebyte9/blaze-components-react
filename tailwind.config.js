@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -63,4 +65,24 @@ module.exports = {
       textColor: ['active'],
     },
   },
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-hide': {
+          /* Firefox */
+          'scrollbar-width': 'none',
+
+          /* IE and Edge */
+          '-ms-overflow-style': 'none',
+
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      };
+
+      addUtilities(newUtilities);
+    }),
+  ],
 };

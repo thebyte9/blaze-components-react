@@ -11,12 +11,10 @@ export interface IButtonProps {
 }
 
 const Button = ({ children, utilities = '', ...rest }: IButtonProps): JSX.Element => {
-  const DeprecatedButton = () => {
-    const { modifiers = [], disabled, type } = rest;
+  const { modifiers = [], disabled, type = 'button' } = rest;
 
-    console.warn(
-      'Modifiers will be deprecated in the near future. You should use CSS utilities classes instead',
-    );
+  const DeprecatedButton = () => {
+    console.warn('Modifiers will be deprecated in the near future. You should use CSS utilities classes instead');
 
     const formatedModifiers: string = modifiers.map((modifier) => `button--${modifier}`).join(' ');
     const buttonClassNames: string = buildClassNames('button', {
