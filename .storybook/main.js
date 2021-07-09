@@ -4,12 +4,13 @@ module.exports = {
   typescript: {
     check: false,
     checkOptions: {},
-    reactDocgen: false,
+    reactDocgen: true,
   },
   stories: ['../packages/**/stories/**/*.stories.mdx', '../packages/**/stories/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    'storybook-tailwind-dark-mode',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -41,6 +42,7 @@ module.exports = {
         },
       ],
     });
+
     config.resolve.extensions.push('.ts', '.tsx');
 
     config.module.rules.push({
@@ -68,6 +70,7 @@ module.exports = {
           '@blaze-react/avatar': path.resolve(__dirname, '../packages/Avatar/src'),
           '@blaze-react/checkboxes': path.resolve(__dirname, '../packages/Checkboxes/src'),
           '@blaze-react/chips': path.resolve(__dirname, '../packages/Chips/src'),
+          '@blaze-react/themes': path.resolve(__dirname, '../packages/themes/src'),
         },
       },
     };

@@ -10,25 +10,18 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 <Button>Button</Button>
 ```
 
-- With modifiers
+- Themed and tailwind class utilities
 
 ```js
-<Button modifiers={["outline", "dark"]}>Rounded/Outline</Button>
-```
-
-- Type submit
-
-```js
-<Button type="submit">Send</Button>
+<Button utilities={`text-bold`}>Bold</Button>
 ```
 
 ## API
 
 ##### Buttons can receive a number of `props` as follow:
 
-| NAME      |         TYPE          | DEFAULT | OPTIONS                                                                                         |
-| :-------- | :-------------------: | :-----: | ----------------------------------------------------------------------------------------------- |
-| modifiers |         Array         |  empty  | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
-| type      |        String         | button  | button, submit, reset                                                                           |
-| disabled  |        Boolean        |  false  |
-| children  | single/array of nodes |  null   |
+|   NAME    |         TYPE          | DEFAULT |               OPTIONS               |
+| :-------: | :-------------------: | :-----: | :---------------------------------: |
+| utilities |        String         |  empty  |      tailwind class utilities       |
+|   rest    |        Unknown        |  null   | event handler and custom properties |
+| children  | single/array of nodes |  null   |             react node              |
