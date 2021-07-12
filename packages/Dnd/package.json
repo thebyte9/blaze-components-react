@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/dnd",
-  "version": "0.8.0-alpha.7",
+  "version": "0.8.0-alpha.8",
   "description": "Recursive drag and drop",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@blaze-react/utils": "^0.8.0-alpha.7",
+    "@blaze-react/utils": "^0.8.0-alpha.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
