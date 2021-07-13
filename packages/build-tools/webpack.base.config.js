@@ -12,6 +12,8 @@ module.exports = {
     path: path.resolve('./dist'),
     filename: '[name].js',
     clean: true,
+    libraryTarget: 'umd',
+    library: '@blaze-react',
   },
   optimization: {
     minimize: true,
