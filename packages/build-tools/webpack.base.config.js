@@ -6,10 +6,6 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-  },
   mode: 'production',
   entry: './src/index.ts',
   output: {
