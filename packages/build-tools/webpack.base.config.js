@@ -6,16 +6,14 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-  },
   mode: 'production',
   entry: './src/index.ts',
   output: {
     path: path.resolve('./dist'),
     filename: '[name].js',
     clean: true,
+    libraryTarget: 'umd',
+    library: '@blaze-react',
   },
   optimization: {
     minimize: true,
@@ -39,6 +37,7 @@ module.exports = {
       '@blaze-react/checkboxes': path.resolve(__dirname, '../Checkboxes/src'),
       '@blaze-react/chips': path.resolve(__dirname, '../Chips/src'),
       '@blaze-react/themes': path.resolve(__dirname, '../themes/src'),
+      '@blaze-react/icon': path.resolve(__dirname, '../Icon/src'),
     },
   },
   module: {

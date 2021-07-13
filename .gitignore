@@ -21,3 +21,5 @@ tsconfig.tsbuildinfo
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+.yarn/build-state.yml

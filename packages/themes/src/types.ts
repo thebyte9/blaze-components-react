@@ -5,6 +5,7 @@ export interface ITheme {
   textInvertedColor: string;
   textOutlinedColor: string;
   textOutlinedDisabledColor: string;
+
   buttonPrimaryColor: string;
   buttonPrimaryHoverColor: string;
   buttonDisabledColor: string;
@@ -15,4 +16,10 @@ export interface ITheme {
   buttonBorderRadiusLarge: string;
   buttonBorderOutlinedColor: string;
   buttonBorderOutlinedDisabledColor: string;
+
+  tabTextBaseColor: string;
+  tabTextInvertedColor: string;
+  tabPrimaryColor: string;
+  tabHoverColor: string;
+  tabBorderRadius: string;
 }

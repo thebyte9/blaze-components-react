@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '@testing-library/jest-dom/extend-expect';
-
 import toastStates from './utils/transitions';
 
 const ToastElement = ({ appearance, placement, transitionDuration, transitionState, ...props }: any) => {

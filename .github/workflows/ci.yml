@@ -93,7 +93,7 @@ jobs:
         os: [ubuntu-18.04]
         node-version: [14.16.x]
     if: |
-      (github.event_name == 'push' && github.event.pull_request.merged == true)
+      github.event_name == 'pull_request'
     # if: (contains(fromJson('["release", "master"]'), github.base_ref) &&
     #   github.event.pull_request.merged == true)
 
@@ -149,4 +149,4 @@ jobs:
           aws-region: eu-west-1
 
       - name: Sync files to AWS S3
-        run: aws s3 sync build/* s3://blaze-components-react.thisisblaze.com --delete --acl public-read
+        run: aws s3 sync ./storybook-static s3://blaze-components-react.thisisblaze.com --delete --acl public-read

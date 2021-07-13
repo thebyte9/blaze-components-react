@@ -8,8 +8,8 @@
     "clean": "lerna clean && yarn cache clean",
     "lint": "eslint '*/**/*.{ts,tsx}'",
     "build": "yarn workspaces foreach run build",
-    "build-storybook": "NODE_ENV=production build-storybook -o ./build",
-    "serve-storybook": "npx http-server ./build",
+    "build-storybook": "NODE_ENV=production build-storybook -o ./storybook-static",
+    "serve-storybook": "npx http-server ./storybook-static",
     "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage --testPathPattern=/__tests__/ --passWithNoTests",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "pre-publish": "yarn build && yarn lint && yarn test",
@@ -33,6 +33,12 @@
     "url": "https://github.com/thebyte9/blaze-components-react/issues"
   },
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
+  "dependencies": {
+    "draft-js-export-html": "^1.4.1",
+    "html-react-parser": "^1.2.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
@@ -159,10 +165,8 @@
     "postcss-loader": "^5.2.0",
     "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
-    "react": "^17.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "react-dom": "^17.0.2",
     "react-refresh": "^0.9.0",
     "react-test-renderer": "^17.0.2",
     "rimraf": "^3.0.2",
