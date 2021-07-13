@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/build-tools",
-  "version": "0.8.0-alpha.12",
+  "version": "0.8.0-alpha.13",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
