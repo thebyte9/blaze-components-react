@@ -10,7 +10,7 @@ export interface IButtonProps {
   type?: TType;
 }
 
-const Button = ({ children, utilities = '', ...rest }: IButtonProps): JSX.Element => {
+export const Button = ({ children, utilities = '', ...rest }: IButtonProps): JSX.Element => {
   const { modifiers = [], disabled, type = 'button' } = rest;
 
   const DeprecatedButton = () => {
@@ -36,5 +36,3 @@ const Button = ({ children, utilities = '', ...rest }: IButtonProps): JSX.Elemen
 
   return utilities !== '' ? BlazeButton : DeprecatedButton();
 };
-
-export default Button;

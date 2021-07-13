@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React, { useState } from 'react';
-import Button from '../src/Button';
+import Button from '../src';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
 import { args, argTypes } from './shared';
 import CustomIcon from '@blaze-react/icon';
