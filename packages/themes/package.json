@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/themes",
-  "version": "0.8.0-alpha.17",
+  "version": "0.8.0-alpha.18",
   "description": "Blaze themes",
   "main": "./dist/main.js",
   "scripts": {
