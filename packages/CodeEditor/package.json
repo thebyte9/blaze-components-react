@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/code-editor",
-  "version": "0.8.0-alpha.10",
+  "version": "0.8.0-alpha.11",
   "description": "Code editor based on monaco-editor for react",
   "main": "./dist/main.js",
   "scripts": {

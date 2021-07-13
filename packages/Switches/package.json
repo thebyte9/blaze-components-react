@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/switches",
-  "version": "0.8.0-alpha.10",
+  "version": "0.8.0-alpha.11",
   "description": "Switches component is a digital on/off switch used for activating one of two predefined options",
   "main": "./dist/main.js",
   "scripts": {
