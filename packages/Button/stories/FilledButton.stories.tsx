@@ -1,43 +1,48 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import React, { useState } from 'react';
-import { BlazeButton } from '../src/BlazeButton';
-import { adminTheme, frontendTheme, ThemeContext, applyTheme } from '@blaze-react/themes';
+import React from 'react';
+import Button from '../src';
+import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
+import CustomIcon from '@blaze-react/icon';
+import { args, argTypes } from './shared';
 
 export default {
-  title: '@blaze-react/Button/Filled',
-  component: BlazeButton,
-  args: {
-    selectedTheme: 'admin',
-  },
-  argTypes: {
-    selectedTheme: {
-      options: ['admin', 'frontend'],
-      control: { type: 'radio' },
-      defaultValue: { summary: 'admin' },
-    },
-    theme: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-    label: {
-      control: { type: 'text' },
-    },
-  },
+  title: '@blaze-react/Button/All Stories/Filled',
+  component: Button,
+  args: args,
+  argTypes: argTypes,
 } as Meta;
 
 const Template: Story = (args) => {
-  console.log(args.selectedTheme);
   const selectedTheme = args.selectedTheme === 'admin' ? adminTheme : frontendTheme;
-  const [theme, setTheme] = useState(selectedTheme);
 
   applyTheme(selectedTheme);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <BlazeButton {...args}>Blaze</BlazeButton>
-    </ThemeContext.Provider>
+    <Button {...args}>
+      <div className="flex items-center justify-center">
+        {args.icon === 'left' ? (
+          <>
+            <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
+            {args.icon === 'icon-only' && args.icon === 'with-text' && (
+              <span className="mx-1">{args.label ?? 'Blaze'}</span>
+            )}
+          </>
+        ) : (
+          <>
+            {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
+
+            {args.icon !== 'no-icon' && (
+              <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            )}
+
+            {args.icon === 'icon-only' && args.icon === 'with-text' && (
+              <span className="mx-1">{args.label ?? 'Blaze'}</span>
+            )}
+          </>
+        )}
+      </div>
+    </Button>
   );
 };
 
@@ -47,6 +52,8 @@ export const Small = Template.bind({});
 export const Medium = Template.bind({});
 export const Large = Template.bind({});
 export const Stretched = Template.bind({});
+export const IconLeft = Template.bind({});
+export const IconRight = Template.bind({});
 
 Filled.args = {
   theme: adminTheme,
@@ -58,7 +65,7 @@ Filled.args = {
     text-button-primary 
     px-6 
     py-1 
-    w-24 
+    min-w-min 
     dark:bg-gray-800 
     dark:text-button-primary 
     text-base-primary 
@@ -77,7 +84,7 @@ Disabled.args = {
     text-button-primary 
     px-6 
     py-1 
-    w-24 
+    min-w-min 
     dark:bg-gray-800 
     dark:text-button-disabled 
     text-base-primary 
@@ -92,9 +99,9 @@ Small.args = {
     rounded-button 
     bg-button-primary 
     text-button-primary 
-    px-5 
+    px-4 
     py-1 
-    w-20 
+    min-w-min 
     dark:bg-gray-800 
     dark:text-button-primary 
     text-base-primary 
@@ -115,7 +122,7 @@ Medium.args = {
     text-button-primary 
     px-6 
     py-1 
-    w-24 
+    min-w-min 
     dark:bg-gray-800 
     dark:text-button-primary 
     text-base-primary 
@@ -136,7 +143,7 @@ Large.args = {
     text-button-primary 
     px-6 
     py-1 
-    w-32 
+    min-w-min 
     dark:bg-gray-800 
     dark:text-button-primary 
     text-base-primary 
@@ -166,4 +173,44 @@ Stretched.args = {
     active:bg-button-pressed
     text-lg
   `,
+};
+
+IconLeft.args = {
+  theme: adminTheme,
+  icon: 'left',
+  utilities: `
+    font-manrope
+    font-medium
+    rounded-button 
+    bg-button-primary 
+    text-button-primary 
+    px-6 
+    py-1 
+    min-w-min 
+    dark:bg-gray-800 
+    dark:text-button-primary 
+    text-base-primary 
+    hover:bg-button-hover 
+    focus:outline-none 
+    active:bg-button-pressed`,
+};
+
+IconRight.args = {
+  theme: adminTheme,
+  icon: 'right',
+  utilities: `
+    font-manrope
+    font-medium
+    rounded-button 
+    bg-button-primary 
+    text-button-primary 
+    px-6 
+    py-1 
+    min-w-min 
+    dark:bg-gray-800 
+    dark:text-button-primary 
+    text-base-primary 
+    hover:bg-button-hover 
+    focus:outline-none 
+    active:bg-button-pressed`,
 };

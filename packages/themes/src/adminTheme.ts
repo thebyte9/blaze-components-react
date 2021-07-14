@@ -8,6 +8,7 @@ export const adminTheme: ITheme = createTheme({
   textInvertedColor: '137, 155, 188',
   textOutlinedColor: '66, 133, 244',
   textOutlinedDisabledColor: '190, 190, 190',
+
   buttonPrimaryColor: '255, 173, 1',
   buttonPrimaryHoverColor: '147, 183, 243',
   buttonDisabledColor: '190, 190, 190',
@@ -18,4 +19,10 @@ export const adminTheme: ITheme = createTheme({
   buttonBorderRadiusLarge: '21px',
   buttonBorderOutlinedColor: '66, 133, 244',
   buttonBorderOutlinedDisabledColor: '66, 133, 244',
+
+  tabTextBaseColor: '66, 63, 63',
+  tabTextInvertedColor: '255, 255, 255',
+  tabPrimaryColor: '215, 224, 240',
+  tabHoverColor: '66, 133, 244',
+  tabBorderRadius: '8px',
 });

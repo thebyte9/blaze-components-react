@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { Tab, TabItem } from '../src/index';
+import { Tab, TabItem } from '../src';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import React from 'react';

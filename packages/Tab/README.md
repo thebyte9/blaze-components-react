@@ -1,4 +1,3 @@
-
 ## Description
 
 Tabs organize a static or dynamic content across different screens.
@@ -7,11 +6,11 @@ Tabs organize a static or dynamic content across different screens.
 
 ```js
 <Tab selected={0}>
-    <TabItem title="Basic">Basic content here</TabItem>
-    <TabItem title="Advanced" action={() => {}}>
-        {dynamicData}
-    </TabItem>
-    <TabItem title="Other">Other content here</TabItem>
+  <TabItem title="Basic">Basic content here</TabItem>
+  <TabItem title="Advanced" action={() => {}}>
+    {dynamicData}
+  </TabItem>
+  <TabItem title="Other">Other content here</TabItem>
 </Tab>
 ```
 
@@ -19,10 +18,9 @@ Tabs organize a static or dynamic content across different screens.
 
 ##### Tab can receive a number of `props` as follow:
 
-| NAME   | TYPE | DEFAULT | 
-| :---  | :---:  | :---: | 
-| label | String | Unnamed tab | 
-| selected | Number | 0 | 
-| action | Function | () => {} |
-| children | Single or array of nodes | No content | 
-
+| NAME     |   TYPE   |   DEFAULT   |
+| :------- | :------: | :---------: |
+| label    |  string  | Unnamed tab |
+| selected |  number  |      0      |
+| action   | function |  () => {}   |
+| children | unknown  | No content  |

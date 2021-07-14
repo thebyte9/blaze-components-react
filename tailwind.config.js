@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -9,10 +11,15 @@ function withOpacity(variableName) {
 }
 
 module.exports = {
+  purge: false,
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       textColor: {
+        tab: {
+          base: withOpacity('--tab-color-text-base'),
+          inverted: withOpacity('--tab-color-text-inverted'),
+        },
         button: {
           base: withOpacity('--color-text-base'),
           primary: withOpacity('--color-text-primary'),
@@ -23,6 +30,10 @@ module.exports = {
         },
       },
       backgroundColor: {
+        tab: {
+          primary: withOpacity('--tab-color-button-primary'),
+          hover: withOpacity('--tab-color-button-primary-hover'),
+        },
         button: {
           primary: withOpacity('--color-button-primary'),
           hover: withOpacity('--color-button-primary-hover'),
@@ -33,6 +44,7 @@ module.exports = {
         },
       },
       borderRadius: {
+        tab: 'var(--tab-border-radius)',
         button: 'var(--border-radius-button)',
         'button-large': 'var(--border-radius-button-large)',
       },
@@ -53,4 +65,24 @@ module.exports = {
       textColor: ['active'],
     },
   },
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-hide': {
+          /* Firefox */
+          'scrollbar-width': 'none',
+
+          /* IE and Edge */
+          '-ms-overflow-style': 'none',
+
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      };
+
+      addUtilities(newUtilities);
+    }),
+  ],
 };
