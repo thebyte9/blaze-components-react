@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/multi-level-menu",
-  "version": "0.8.0-alpha.20",
+  "version": "0.8.0-alpha.21",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {

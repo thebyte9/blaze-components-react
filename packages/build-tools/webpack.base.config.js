@@ -14,6 +14,7 @@ module.exports = {
     clean: true,
     libraryTarget: 'umd',
     library: '@blaze-react',
+    globalObject: 'this',
   },
   optimization: {
     minimize: true,
