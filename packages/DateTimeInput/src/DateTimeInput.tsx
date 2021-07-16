@@ -1,6 +1,6 @@
 import { buildClassNames } from '@blaze-react/utils';
 import { ErrorMessage } from '@blaze-react/utils';
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import { DATE_FORMAT_MAP, TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
 
@@ -42,11 +42,21 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   const [newError, setError] = useState<boolean | undefined>(error);
   const [newOpen, setOpen] = useState<boolean>(false);
 
-  let whitelistedType = '';
+  const containerRef = useRef<any>(null);
+  let whitelistedType: string = type as string;
 
   if (type !== TYPE_TIME && type !== TYPE_DATE) {
     whitelistedType = TYPE_DATE_TIME;
   }
+
+  useEffect(() => {
+    if (newOpen && containerRef && containerRef.current) {
+      const selectedDay = containerRef.current.querySelector('.react-datepicker__day--selected');
+      if (selectedDay) {
+        selectedDay.focus();
+      }
+    }
+  }, [newOpen, containerRef]);
 
   useEffect(() => {
     setError(error);
@@ -77,7 +87,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   });
 
   return (
-    <div className={rootClasses}>
+    <div className={rootClasses} ref={containerRef}>
       <label htmlFor={id} className={requiredClassName}>
         {label}
       </label>
