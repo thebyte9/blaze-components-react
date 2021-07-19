@@ -1,7 +1,7 @@
-import { withOpacity } from './withOpacity';
-import { adminTheme } from './adminTheme';
-import { frontendTheme } from './frontendTheme';
-import { Themes, ThemeContext, useTheme } from './themeContext';
+import { withOpacity } from './utils/withOpacity';
+import { adminTheme } from './themes/adminTheme';
+import { frontendTheme } from './themes/frontendTheme';
+import { Themes, ThemeContext, useTheme } from './context/themeContext';
 import { applyTheme, createTheme } from './utils';
-
-export { withOpacity, adminTheme, frontendTheme, Themes, ThemeContext, useTheme, applyTheme, createTheme };
+import { variants } from './variants';
+export { withOpacity, adminTheme, frontendTheme, Themes, ThemeContext, useTheme, applyTheme, createTheme, variants };

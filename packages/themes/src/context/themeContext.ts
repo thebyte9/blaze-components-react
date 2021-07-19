@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
-import { ITheme } from './types';
-import { adminTheme } from './adminTheme';
+import { ITheme } from '../types';
+import { adminTheme } from '../themes/adminTheme';
 
 export enum Themes {
   Admin = 'Admin',

@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-text-base: 66, 63, 63;
+    --color-text-primary: 255, 255, 255;
+    --color-text-muted: 199, 210, 254;
+    --color-text-inverted: 137, 155, 188;
+    --color-text-outlined: 66, 133, 244;
+    --color-text-outlined-disabled: 190, 190, 190;
+    --color-button-primary: 255, 173, 1;
+    --color-button-primary-hover: 147, 183, 243;
+    --color-button-disabled: 190, 190, 190;
+    --color-button-pressed: 137, 155, 188;
+    --color-button-outlined: 255, 255, 255;
+    --color-button-outlined-hover: 66, 133, 244;
+    --border-radius-button: 17px;
+    --border-radius-button-large: 21px;
+    --border-button-outlined: 66, 133, 244;
+    --border-button-disabled: 66, 133, 244;
+    --tab-color-text-base: 66, 63, 63;
+    --tab-color-text-inverted: 255, 255, 255;
+    --tab-color-button-primary: 215, 224, 240;
+    --tab-color-button-primary-hover: 66, 133, 244;
+    --tab-border-radius: 8px;
+  }
+
+  .theme-frontend {
+    --color-text-base: 66, 63, 63;
+    --color-text-primary: 255, 255, 255;
+    --color-text-muted: 199, 210, 254;
+    --color-text-inverted: 137, 155, 188;
+    --color-text-outlined: 66, 133, 244;
+    --color-text-outlined-disabled: 190, 190, 190;
+    --color-button-primary: 59, 130, 246;
+    --color-button-primary-hover: 29, 78, 216;
+    --color-button-disabled: 190, 190, 190;
+    --color-button-pressed: 96, 165, 250;
+    --color-button-outlined: 255, 255, 255;
+    --color-button-outlined-hover: 66, 133, 244;
+    --border-radius-button: 5px;
+    --border-radius-button-large: 8px;
+    --border-button-outlined: 66, 133, 244;
+    --border-button-disabled: 66, 133, 244;
+    --tab-color-text-base: 66, 63, 63;
+    --tab-color-text-inverted: 255, 255, 255;
+    --tab-color-button-primary: 215, 224, 240;
+    --tab-color-button-primary-hover: 66, 133, 244;
+    --tab-border-radius: 8px;
+  }
+}

@@ -161,6 +161,7 @@
     "optimize-css-assets-webpack-plugin": "^6.0.0",
     "path-browserify": "^1.0.1",
     "postcss": "^8.2.8",
+    "postcss-css-variables": "^0.18.0",
     "postcss-import": "^14.0.0",
     "postcss-loader": "^5.2.0",
     "pre-commit": "^1.2.2",

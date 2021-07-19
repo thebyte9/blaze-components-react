@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import React, { useState } from 'react';
 import Button from '../src';
 import { adminTheme, frontendTheme, ThemeContext, applyTheme } from '@blaze-react/themes';
-import CustomIcon from '@blaze-react/icon';
+import { CustomIcon } from '@blaze-react/icon';
 import { args, argTypes } from './shared';
 
 export default {

@@ -1,12 +1,10 @@
 import './styles.css';
-import { adminTheme, ThemeContext, applyTheme } from '@blaze-react/themes';
+import { adminTheme, ThemeContext } from '@blaze-react/themes';
 import React, { useState } from 'react';
 
 export const decorators = [
   (Story) => {
     const [theme, setTheme] = useState(adminTheme);
-
-    applyTheme(theme);
 
     return (
       <ThemeContext.Provider value={{ theme, setTheme }}>

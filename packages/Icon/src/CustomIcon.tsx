@@ -1,7 +1,7 @@
-import { IconProps } from './types';
+import { CustomIconProps } from './types';
 import React from 'react';
 
-const CustomIcon = ({ utilities = '', children, ...rest }: IconProps): JSX.Element => {
+export const CustomIcon = ({ utilities = '', children, ...rest }: CustomIconProps): JSX.Element => {
   const { content = '' } = rest;
   return (
     <div className={utilities} dangerouslySetInnerHTML={{ __html: content }}>
@@ -9,5 +9,3 @@ const CustomIcon = ({ utilities = '', children, ...rest }: IconProps): JSX.Eleme
     </div>
   );
 };
-
-export default CustomIcon;

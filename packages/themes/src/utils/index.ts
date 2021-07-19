@@ -1,4 +1,4 @@
-import { ITheme } from './types';
+import { ITheme } from '../types';
 
 export function applyTheme(theme: unknown): void {
   const root = document.documentElement;

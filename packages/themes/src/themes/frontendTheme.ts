@@ -1,5 +1,5 @@
-import { ITheme } from './types';
-import { createTheme } from './utils';
+import { ITheme } from '../types';
+import { createTheme } from '../utils';
 
 export const frontendTheme: ITheme = createTheme({
   textBaseColor: '66, 63, 63',

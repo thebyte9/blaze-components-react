@@ -1767,7 +1767,7 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/button": ^0.8.0-alpha.18
+    "@blaze-react/button": ^0.8.0-alpha.21
     jest: ^26.6.3
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -1780,7 +1780,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/alert@workspace:packages/Alert"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.18
+    "@blaze-react/utils": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1801,7 +1801,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/avatar@^0.8.0-alpha.18, @blaze-react/avatar@workspace:packages/Avatar":
+"@blaze-react/avatar@^0.8.0-alpha.21, @blaze-react/avatar@workspace:packages/Avatar":
   version: 0.0.0-use.local
   resolution: "@blaze-react/avatar@workspace:packages/Avatar"
   dependencies:
@@ -1825,7 +1825,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/blaze-components-theme@^0.8.0-alpha.18, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
+"@blaze-react/blaze-components-theme@^0.8.0-alpha.21, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
   version: 0.0.0-use.local
   resolution: "@blaze-react/blaze-components-theme@workspace:packages/Blaze-ui"
   dependencies:
@@ -1864,7 +1864,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/button-select@workspace:packages/ButtonSelect"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.18
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1872,18 +1872,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/button@^0.8.0-alpha.18, @blaze-react/button@workspace:packages/Button":
+"@blaze-react/button@^0.8.0-alpha.21, @blaze-react/button@workspace:packages/Button":
   version: 0.0.0-use.local
   resolution: "@blaze-react/button@workspace:packages/Button"
   dependencies:
+    "@xstate/react": ^1.5.1
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+    xstate: ^4.23.0
   languageName: unknown
   linkType: soft
 
-"@blaze-react/checkboxes@^0.8.0-alpha.18, @blaze-react/checkboxes@workspace:packages/Checkboxes":
+"@blaze-react/checkboxes@^0.8.0-alpha.21, @blaze-react/checkboxes@workspace:packages/Checkboxes":
   version: 0.0.0-use.local
   resolution: "@blaze-react/checkboxes@workspace:packages/Checkboxes"
   dependencies:
@@ -1902,8 +1904,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/chips@workspace:packages/Chips"
   dependencies:
-    "@blaze-react/avatar": ^0.8.0-alpha.18
-    "@blaze-react/utils": ^0.8.0-alpha.18
+    "@blaze-react/avatar": ^0.8.0-alpha.21
+    "@blaze-react/utils": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1964,7 +1966,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/dnd@workspace:packages/Dnd"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.18
+    "@blaze-react/utils": ^0.8.0-alpha.21
     immutability-helper: ^3.1.1
     react: ^17.0.2
     react-addons-shallow-compare: ^15.6.3
@@ -1997,7 +1999,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/drawer@workspace:packages/Drawer"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.18
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.21
     "@types/classnames": ^2.3.1
     classnames: ^2.2.6
     react: ^17.0.2
@@ -2020,7 +2022,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/file-upload@workspace:packages/FileUpload"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.18
+    "@blaze-react/utils": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.38.1
@@ -2042,7 +2044,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/icon@^0.8.0-alpha.18, @blaze-react/icon@workspace:packages/Icon":
+"@blaze-react/icon@^0.8.0-alpha.21, @blaze-react/icon@workspace:packages/Icon":
   version: 0.0.0-use.local
   resolution: "@blaze-react/icon@workspace:packages/Icon"
   dependencies:
@@ -2117,8 +2119,8 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/checkboxes": ^0.8.0-alpha.18
-    "@blaze-react/utils": ^0.8.0-alpha.18
+    "@blaze-react/checkboxes": ^0.8.0-alpha.21
+    "@blaze-react/utils": ^0.8.0-alpha.21
     "@types/lodash.unionby": ^4.8.6
     lodash.differencewith: ^4.5.0
     lodash.isequal: ^4.5.0
@@ -2135,7 +2137,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/progress@workspace:packages/Progress"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.18
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.21
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -2203,7 +2205,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/social-follow@workspace:packages/SocialFollow"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.18
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2224,8 +2226,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/tab@workspace:packages/Tab"
   dependencies:
-    "@blaze-react/button": ^0.8.0-alpha.18
-    "@blaze-react/icon": ^0.8.0-alpha.18
+    "@blaze-react/button": ^0.8.0-alpha.21
+    "@blaze-react/icon": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2237,7 +2239,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/table@workspace:packages/Table"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.18
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2249,7 +2251,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/text-area@workspace:packages/Textarea"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.18
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.29.0
@@ -2283,7 +2285,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/tooltip@workspace:packages/Tooltip"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.18
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.21
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2291,7 +2293,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/utils@^0.8.0-alpha.18, @blaze-react/utils@workspace:packages/Utils":
+"@blaze-react/utils@^0.8.0-alpha.21, @blaze-react/utils@workspace:packages/Utils":
   version: 0.0.0-use.local
   resolution: "@blaze-react/utils@workspace:packages/Utils"
   dependencies:
@@ -7907,6 +7909,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xstate/react@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@xstate/react@npm:1.5.1"
+  dependencies:
+    use-isomorphic-layout-effect: ^1.0.0
+    use-subscription: ^1.3.0
+  peerDependencies:
+    "@xstate/fsm": ^1.0.0
+    react: ^16.8.0 || ^17.0.0
+    xstate: ^4.11.0
+  peerDependenciesMeta:
+    "@xstate/fsm":
+      optional: true
+    xstate:
+      optional: true
+  checksum: b6e85fc8198ad85e5ba40e0b439087c4d8f1b82ea8832e10d4930044177b8a22beaa3b11316fad07578d91ad443c214ea4456b47abd06a2caafe41febf4992bf
+  languageName: node
+  linkType: hard
+
 "@xtuc/ieee754@npm:^1.2.0":
   version: 1.2.0
   resolution: "@xtuc/ieee754@npm:1.2.0"
@@ -9513,6 +9534,7 @@ __metadata:
     optimize-css-assets-webpack-plugin: ^6.0.0
     path-browserify: ^1.0.1
     postcss: ^8.2.8
+    postcss-css-variables: ^0.18.0
     postcss-import: ^14.0.0
     postcss-loader: ^5.2.0
     pre-commit: ^1.2.2
@@ -13117,7 +13139,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"escape-string-regexp@npm:^1.0.2, escape-string-regexp@npm:^1.0.5":
+"escape-string-regexp@npm:^1.0.2, escape-string-regexp@npm:^1.0.3, escape-string-regexp@npm:^1.0.5":
   version: 1.0.5
   resolution: "escape-string-regexp@npm:1.0.5"
   checksum: f9484b8b4c8827d816e0fd905c25ed4b561376a9c220e1430403ea84619bf680c76a883a48cff8b8e091daf55d6a497e37479f9787b9f15f3c421b6054289744
@@ -13756,7 +13778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:~3.0.2":
+"extend@npm:^3.0.0, extend@npm:^3.0.1, extend@npm:~3.0.2":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: 1406da1f0c4b00b839497e4cdd0ec4303ce2ae349144b7c28064a5073c93ce8c08da4e8fb1bc5cb459ffcdff30a35fc0fe54344eb88320e70100c1baea6f195c
@@ -20890,6 +20912,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-css-variables@npm:^0.18.0":
+  version: 0.18.0
+  resolution: "postcss-css-variables@npm:0.18.0"
+  dependencies:
+    balanced-match: ^1.0.0
+    escape-string-regexp: ^1.0.3
+    extend: ^3.0.1
+  peerDependencies:
+    postcss: ^8.2.6
+  checksum: d40ef46b35afef32951848edcb4dc9bedda9372dbf368ec9993fd5d158b31b544ece6124bdf2b4bb02f9dcfeb5218caa2d07d65d57b262f7ba8e743b6041f08b
+  languageName: node
+  linkType: hard
+
 "postcss-custom-media@npm:^7.0.8":
   version: 7.0.8
   resolution: "postcss-custom-media@npm:7.0.8"
@@ -26824,6 +26859,17 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
+"use-subscription@npm:^1.3.0":
+  version: 1.5.1
+  resolution: "use-subscription@npm:1.5.1"
+  dependencies:
+    object-assign: ^4.1.1
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+  checksum: 3abcef55244fc12ba02f8a2a35e1d53984f9bc40d205713245b61defc1d84015b310d6d684d0fe3555c6b4a892aecc585e7c90bad4031d543bc77fe31284ee71
+  languageName: node
+  linkType: hard
+
 "use@npm:^3.1.0":
   version: 3.1.1
   resolution: "use@npm:3.1.1"
@@ -27760,6 +27806,13 @@ typescript@4.2.4:
   version: 2.2.0
   resolution: "xmlchars@npm:2.2.0"
   checksum: 69bbb61e8d939873c8aa7d006d082944de2eb6f12f55e53fdfc670d544e677736b59e498ece303f264bd1dc39b77557eef1c1c9bfb09eb5e1e30ac552420d81e
+  languageName: node
+  linkType: hard
+
+"xstate@npm:^4.23.0":
+  version: 4.23.0
+  resolution: "xstate@npm:4.23.0"
+  checksum: c4e60a313af35a9030842289ee6c7f823f358a63f37cdb8d31278a380c13f00c8bb6e019a48104f4f01f9638b2f8f58857f4485776c4531d46a945c597b75213
   languageName: node
   linkType: hard
 

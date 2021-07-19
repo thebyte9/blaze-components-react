@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Button from '../src';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
 import { args, argTypes } from './shared';
-import CustomIcon from '@blaze-react/icon';
+import { CustomIcon } from '@blaze-react/icon';
 
 export default {
   title: '@blaze-react/Button/All Stories/Outlined',
