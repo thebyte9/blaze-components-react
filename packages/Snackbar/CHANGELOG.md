@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.23](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.22...v0.8.0-alpha.23) (2021-07-19)
+
+**Note:** Version bump only for package @blaze-react/snackbar
+
+
+
+
+
 
 
 **Note:** Version bump only for package @blaze-react/snackbar
