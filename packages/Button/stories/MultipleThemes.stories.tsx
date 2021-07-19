@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Button from '../src';
 import { CustomIcon } from '@blaze-react/icon';
 import { args, argTypes } from './shared';
