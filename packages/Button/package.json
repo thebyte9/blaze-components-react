@@ -16,10 +16,9 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@xstate/react": "^1.5.1",
+    "@blaze-react/themes": "workspace:packages/themes",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "xstate": "^4.23.0"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "webpack": "^5.28.0",
