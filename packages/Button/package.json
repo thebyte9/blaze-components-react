@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/button",
-  "version": "0.8.0-alpha.24",
+  "version": "0.8.0-alpha.25",
   "description": "Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.",
   "main": "./dist/main.js",
   "scripts": {
