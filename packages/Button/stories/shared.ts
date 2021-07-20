@@ -47,7 +47,7 @@ export const argTypes = {
       disable: true,
     },
   },
-  svgIcon: {
+  disabled: {
     control: false,
     table: {
       disable: true,
