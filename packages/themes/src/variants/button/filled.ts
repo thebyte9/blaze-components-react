@@ -60,6 +60,7 @@ export const filledVariants = {
       min-w-min 
       dark:bg-gray-800 
       dark:text-button-primary 
+      text-base-primary 
       hover:bg-button-hover 
       focus:outline-none 
       active:bg-button-pressed
@@ -77,6 +78,7 @@ export const filledVariants = {
       min-w-min 
       dark:bg-gray-800 
       dark:text-button-primary 
+      text-base-primary 
       hover:bg-button-hover 
       focus:outline-none 
       active:bg-button-pressed

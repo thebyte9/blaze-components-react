@@ -20,32 +20,17 @@ export const useVariant = (variantsGroup = VariantsGroup.Filled, variant = Varia
     }
     case Variants.Medium: {
       return {
-        utilities: themeVariants.button[variantsGroup].small,
+        utilities: themeVariants.button[variantsGroup].medium,
       };
     }
     case Variants.Large: {
       return {
-        utilities: themeVariants.button[variantsGroup].small,
+        utilities: themeVariants.button[variantsGroup].large,
       };
     }
     case Variants.Stretched: {
       return {
         utilities: themeVariants.button[variantsGroup].stretched,
-      };
-    }
-    case Variants.IconOnly: {
-      return {
-        utilities: themeVariants.button[variantsGroup].iconOnly,
-      };
-    }
-    case Variants.IconLeft: {
-      return {
-        utilities: themeVariants.button[variantsGroup].IconLeft,
-      };
-    }
-    case Variants.IconRight: {
-      return {
-        utilities: themeVariants.button[variantsGroup].iconRight,
       };
     }
     default: {
