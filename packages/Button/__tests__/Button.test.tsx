@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { render, screen } from '@testing-library/react';
 
-import Button from '../src';
+import { Button } from '../src/view/Button';
 import React from 'react';
 
 const testProps = {

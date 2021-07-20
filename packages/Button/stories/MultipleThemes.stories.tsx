@@ -1,17 +1,14 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import Button from '../src';
-import { CustomIcon } from '@blaze-react/icon';
-import { args, argTypes } from './shared';
-import './styles.css';
+import { controllerArgs, disabledControls } from './shared';
 import { ButtonController } from '@blaze-react/button';
 
 export default {
-  title: '@blaze-react/Button/All Stories/Multiple Themes',
-  component: Button,
-  args: args,
+  title: '@blaze-react/Button/All Stories/Other/Multiple Themes',
+  component: ButtonController,
+  args: controllerArgs,
   argTypes: {
-    ...argTypes,
+    ...disabledControls,
     selectedTheme: {
       control: false,
       table: {
@@ -23,15 +20,18 @@ export default {
 
 const Template: Story = (args) => {
   return (
-    <div className="theme-frontend">
+    <div className="flex">
       <ButtonController {...args} />
+      <div className="theme-frontend">
+        <ButtonController {...args} />
+      </div>
     </div>
   );
 };
 
-export const MultipleTheme = Template.bind({});
+export const Default = Template.bind({});
 
-MultipleTheme.args = {
+Default.args = {
   utilities: `
     font-manrope
     font-medium

@@ -11,7 +11,7 @@ function withOpacity(variableName) {
 }
 
 module.exports = {
-  purge: false,
+  important: true,
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {

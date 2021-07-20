@@ -1,4 +1,4 @@
-import Button from '@blaze-react/button';
+import { Button } from '@blaze-react/button';
 import React, { Fragment, FunctionComponent, useState } from 'react';
 import { buildClassNames } from '@blaze-react/utils';
 

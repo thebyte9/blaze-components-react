@@ -1,4 +1,4 @@
-import Button from '@blaze-react/button';
+import { Button } from '@blaze-react/button';
 import React, { useState } from 'react';
 import { CustomIcon } from '@blaze-react/icon';
 

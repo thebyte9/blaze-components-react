@@ -1,4 +1,4 @@
-import Button from '@blaze-react/button';
+import { Button } from '@blaze-react/button';
 import React from 'react';
 
 interface IActions {

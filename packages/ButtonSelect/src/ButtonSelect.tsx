@@ -1,4 +1,4 @@
-import Button from '@blaze-react/button';
+import { Button } from '@blaze-react/button';
 import React, { FunctionComponent, useState } from 'react';
 
 const menuStyles = {

@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import Button from '../src';
+import { Button } from '../src/view/Button';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
 import { CustomIcon } from '@blaze-react/icon';
 import { args, argTypes } from './shared';

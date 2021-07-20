@@ -1,22 +1,45 @@
 export type TType = 'button' | 'submit' | 'reset';
 
+export enum ButtonType {
+  Button = 'button',
+  Submit = 'submit',
+  Reset = 'reset',
+}
+
 export enum Variants {
   Primary = 'primary',
-  Secondary = 'secondary',
   Disabled = 'disabled',
   Small = 'small',
   Medium = 'medium',
   Large = 'large',
   Stretched = 'stretched',
-  IconRight = 'iconRight',
-  IconLeft = 'iconLeft',
-  IconOnly = 'iconOnly',
 }
 
-export enum VariantGroup {
+export enum VariantsGroup {
   Filled = 'filled',
-  Outline = 'outline',
+  Outlined = 'outlined',
   Text = 'text',
+}
+
+export enum DisplayIconProps {
+  Left = 'left',
+  Right = 'right',
+  NoIcon = 'no-icon',
+}
+
+export interface IButtonControllerProps {
+  label?: string;
+  disabled?: boolean;
+  children?: unknown;
+  utilities?: string;
+  modifiers?: string[];
+  type?: TType;
+  variantsGroup?: VariantsGroup;
+  variant?: Variants;
+  displayIcon?: 'left' | 'right' | 'no-icon';
+  iconOnly?: boolean;
+  icon?: string;
+  overrides?: string;
 }
 
 export interface IButtonProps {
@@ -26,9 +49,4 @@ export interface IButtonProps {
   utilities?: string;
   modifiers?: string[];
   type?: TType;
-  variantGroup?: VariantGroup;
-  variant?: Variants;
-  displayIcon?: 'left' | 'right' | 'no-icon';
-  iconOnly?: boolean;
-  icon?: string;
 }

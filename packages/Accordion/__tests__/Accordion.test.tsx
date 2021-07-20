@@ -1,4 +1,4 @@
-import Button from '@blaze-react/button';
+import { Button } from '@blaze-react/button';
 import React from 'react';
 import Accordion from '../src/Accordion';
 import { screen, render, fireEvent } from '@testing-library/react';
