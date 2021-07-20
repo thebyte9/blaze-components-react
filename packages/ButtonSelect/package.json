@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/button-select",
-  "version": "0.8.0-alpha.23",
+  "version": "0.8.0-alpha.24",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.23",
+    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.24",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
