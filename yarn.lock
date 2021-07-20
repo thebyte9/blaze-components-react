@@ -1867,7 +1867,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/button@workspace:packages/Button"
   dependencies:
-    "@blaze-react/themes": "workspace:packages/themes"
+    "@blaze-react/themes": ^0.8.0-alpha.26
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2249,7 +2249,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/themes@workspace:packages/themes":
+"@blaze-react/themes@^0.8.0-alpha.26, @blaze-react/themes@workspace:packages/themes":
   version: 0.0.0-use.local
   resolution: "@blaze-react/themes@workspace:packages/themes"
   dependencies:
@@ -6401,11 +6401,11 @@ __metadata:
   linkType: hard
 
 "@types/testing-library__jest-dom@npm:^5.9.1":
-  version: 5.14.0
-  resolution: "@types/testing-library__jest-dom@npm:5.14.0"
+  version: 5.14.1
+  resolution: "@types/testing-library__jest-dom@npm:5.14.1"
   dependencies:
     "@types/jest": "*"
-  checksum: 7d34c6e3619cb5c1a20ed263293b5c7a38af4bb3b8795031a957b8c98fcdfad2b394e44f72a8793a40dcdaf8ba0df30bb66b46320b2d589dc8c128077cdafa86
+  checksum: 40c7417a26c1906ae1f04eddeea1de76b7c71d0ce917614b88e0a2aafb1db8393187c9f4d799520cca3f128b7ceb8408dced1c5c730e51b27212436547dc3c29
   languageName: node
   linkType: hard
 
@@ -13745,11 +13745,11 @@ __metadata:
   linkType: hard
 
 "glob-parent@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "glob-parent@npm:6.0.0"
+  version: 6.0.1
+  resolution: "glob-parent@npm:6.0.1"
   dependencies:
     is-glob: ^4.0.1
-  checksum: 0e29b74888702867f75e9d125c96b6104f787b3c203d9d83ea8d662778e57bfcbb4c8d5d8f32ade99aa05aac8dcd95ecdf952d8cf43d2de31741141de7629a7d
+  checksum: d59ef1df0b5cffa6982472d9ae3e62238c99f4202b42631a6a37e03c003c860f293ad1a3457614a59615f44e040dd58bffdec750c0b533f0526e5467c35c5c59
   languageName: node
   linkType: hard
 
@@ -22325,11 +22325,11 @@ __metadata:
   linkType: hard
 
 "rechoir@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "rechoir@npm:0.7.0"
+  version: 0.7.1
+  resolution: "rechoir@npm:0.7.1"
   dependencies:
     resolve: ^1.9.0
-  checksum: 1d4cc8db1d4ff51d4c156db7ff6fe0a376e7527b61afafd148f1cfa2c19a6c454f3f77f1cb175e1f1f1476a83dbeba3632de088441dbaa404091a30d39c8749f
+  checksum: 7b554df78bff67e0371394d34ac401252af1e4129a19cb5155213e04114a6ce90b692fcc5cb47329296ec3b72da5da00ea681d5fb727c83346d4615100791b0d
   languageName: node
   linkType: hard
 
@@ -26343,12 +26343,12 @@ typescript@4.2.4:
   linkType: hard
 
 "webpack-sources@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "webpack-sources@npm:2.3.0"
+  version: 2.3.1
+  resolution: "webpack-sources@npm:2.3.1"
   dependencies:
     source-list-map: ^2.0.1
     source-map: ^0.6.1
-  checksum: b929133f8b86fa91a42d2e557f2b2cd6136f62a50c10e32db9f37a63609cd4d1b3475772503c814baa2e25c02d3206110ec2add7a3aaf2794217fbf48664e72a
+  checksum: 28b9bebf5e67f3cea733eede930aaf9c73c93a21cdf47c816daae001c5c4ec2b25cd8a1d5bcdd33bce3853b35498a10686582d6ad6f28468f00068ff6ae995a7
   languageName: node
   linkType: hard
 

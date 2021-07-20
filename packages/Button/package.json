@@ -16,7 +16,7 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@blaze-react/themes": "workspace:packages/themes",
+    "@blaze-react/themes": "^0.8.0-alpha.26",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
