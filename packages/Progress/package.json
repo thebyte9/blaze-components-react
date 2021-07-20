@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/progress",
-  "version": "0.8.0-alpha.26",
+  "version": "0.8.0-alpha.28",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.26"
+    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.28"
   },
   "dependencies": {
     "webpack": "^5.28.0",
