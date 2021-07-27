@@ -13,8 +13,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'off',
     'react/display-name': 'off',
-    //https://github.com/typescript-eslint/typescript-eslint/blob/v4.21.0/packages/eslint-plugin/docs/rules/no-unused-vars.md
-    'no-unused-vars': 'off',
+    'no-unused-vars': 'error',
     '@typescript-eslint/no-unused-vars': ['error'],
   },
   settings: {

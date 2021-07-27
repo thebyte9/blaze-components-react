@@ -1,4 +1,4 @@
-// TODO: another iteration - reuse common class utilities
+// Note: this should be move out to the Button stories folder
 
 export const filledVariants = {
   filled: {

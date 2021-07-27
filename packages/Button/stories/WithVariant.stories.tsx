@@ -19,8 +19,8 @@ const Template: Story = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const WithVariant = Template.bind({});
 
-Default.args = {
-  variant: 'primary',
+WithVariant.args = {
+  variant: 'secondary',
 };

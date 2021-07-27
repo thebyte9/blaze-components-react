@@ -1,4 +1,4 @@
-import { Button } from '@blaze-react/button';
+import { ButtonView } from '@blaze-react/button';
 import React, { FunctionComponent, useState } from 'react';
 
 const menuStyles = {
@@ -16,7 +16,7 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({ text, children, .
   const [toggled, setToggled] = useState(false);
   return (
     <div className="more-menu__wrapper">
-      <Button
+      <ButtonView
         modifiers={['full-width']}
         onClick={(): void => setToggled(!toggled)}
         {...Attr}
@@ -26,7 +26,7 @@ const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({ text, children, .
           <i className="material-icons">{`keyboard_arrow_${toggled ? 'up' : 'down'}`}</i>
           {text}
         </>
-      </Button>
+      </ButtonView>
 
       {toggled && (
         <div className="more-menu--open" style={menuStyles}>

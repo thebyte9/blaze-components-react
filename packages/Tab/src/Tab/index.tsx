@@ -1,4 +1,4 @@
-import { Button } from '@blaze-react/button';
+import { ButtonView } from '@blaze-react/button';
 import React, { useState } from 'react';
 import { CustomIcon } from '@blaze-react/icon';
 
@@ -23,13 +23,13 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
         <div className="tabs__list">
           {children.map(({ props: { title = 'Unnamed tab' } }: any, step: any) => {
             return (
-              <Button
+              <ButtonView
                 className={`tabs__list-item ${step === selectedValue ? 'current' : ''}`}
                 onClick={() => setSelected(step)}
                 key={title}
               >
                 {title}
-              </Button>
+              </ButtonView>
             );
           })}
         </div>
@@ -46,7 +46,7 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
             `group mr-2 ${step === selectedValue ? ' bg-tab-hover text-tab-inverted' : ''}`,
           );
           return (
-            <Button utilities={override} onClick={() => setSelected(step)} key={title}>
+            <ButtonView utilities={override} onClick={() => setSelected(step)} key={title}>
               <div className="flex items-center justify-center">
                 {!icon ? (
                   title
@@ -66,7 +66,7 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
                 )}
               </div>
               {icon && showLabel && <span className="mt-1 text-sm">{title}</span>}
-            </Button>
+            </ButtonView>
           );
         })}
       </div>

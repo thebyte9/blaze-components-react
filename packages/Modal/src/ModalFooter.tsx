@@ -1,4 +1,4 @@
-import { Button } from '@blaze-react/button';
+import { ButtonView } from '@blaze-react/button';
 import React from 'react';
 
 interface IActions {
@@ -18,15 +18,15 @@ const ModalFooter = ({ footerClassNames, closeModal, actions, isAlert }: IModalF
   <div className={footerClassNames}>
     <div className="modal__button">
       {isAlert && (
-        <Button modifiers={['cancel']} onClick={closeModal}>
+        <ButtonView modifiers={['cancel']} onClick={closeModal}>
           Cancel
-        </Button>
+        </ButtonView>
       )}
       {actions.map(
         ({ textButton, callback, modifiers = [], ...props }: IActions): JSX.Element => (
-          <Button key={textButton} modifiers={modifiers} onClick={callback} {...props}>
+          <ButtonView key={textButton} modifiers={modifiers} onClick={callback} {...props}>
             {textButton}
-          </Button>
+          </ButtonView>
         ),
       )}
     </div>

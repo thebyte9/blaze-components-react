@@ -1,3 +1,5 @@
+import { ThemeType } from '@blaze-react/themes';
+
 export type TType = 'button' | 'submit' | 'reset';
 
 export enum ButtonType {
@@ -6,19 +8,10 @@ export enum ButtonType {
   Reset = 'reset',
 }
 
+// Variants enum is used only on Storybook. Theming variants are dynamically defined inside a Theme object.
 export enum Variants {
   Primary = 'primary',
-  Disabled = 'disabled',
-  Small = 'small',
-  Medium = 'medium',
-  Large = 'large',
-  Stretched = 'stretched',
-}
-
-export enum VariantsGroup {
-  Filled = 'filled',
-  Outlined = 'outlined',
-  Text = 'text',
+  Secondary = 'secondary',
 }
 
 export enum DisplayIconProps {
@@ -27,22 +20,16 @@ export enum DisplayIconProps {
   NoIcon = 'no-icon',
 }
 
-export interface IButtonControllerProps {
-  label?: string;
-  disabled?: boolean;
-  children?: unknown;
-  utilities?: string;
-  modifiers?: string[];
-  type?: TType;
-  variantsGroup?: VariantsGroup;
+export interface IButtonProps extends IButtonViewProps {
   variant?: Variants;
   displayIcon?: 'left' | 'right' | 'no-icon';
   iconOnly?: boolean;
   icon?: string;
-  overrides?: string;
+  overrides?: string[];
+  theme?: ThemeType;
 }
 
-export interface IButtonProps {
+export interface IButtonViewProps {
   label?: string;
   disabled?: boolean;
   children?: unknown;

@@ -1,12 +1,12 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import { Button } from '../src/view/Button';
+import { ButtonView } from '../src/view/ButtonView';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
 import { CustomIcon } from '@blaze-react/icon';
 
 export default {
   title: '@blaze-react/Button/All Stories/Filled/Icon Only',
-  component: Button,
+  component: ButtonView,
   args: {
     selectedTheme: 'admin',
     label: 'Blaze',
@@ -69,7 +69,7 @@ const Template: Story = (args) => {
   applyTheme(selectedTheme);
 
   return (
-    <Button {...args}>
+    <ButtonView {...args}>
       <div className="flex items-center justify-center">
         {args.icon === 'left' ? (
           <>
@@ -93,7 +93,7 @@ const Template: Story = (args) => {
           </>
         )}
       </div>
-    </Button>
+    </ButtonView>
   );
 };
 

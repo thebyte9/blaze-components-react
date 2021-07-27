@@ -1,0 +1,95 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Button } from '../src/controller/Button';
+import { Source } from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+<Meta title="@blaze-react/Theming/Adding a New Variant" />
+
+# Adding a New Component Variant
+
+Variants are dynamically defined by Developers inside the Theme object.
+
+Let's say we would like to add a new Call to Action Button. Components such as Modal are grouped as a stack of components while simple components such as Button requires just a wrapper or container definition.
+
+While theming follows same React Composition principles as you'd normally follow while developing a custom component, e.g. a Modal is composed by other components such as header, body, accept/cancel buttons, close button, and so on... You will group the components inside the Theme object like in the following example,
+
+```js
+const theme = {
+  modal: {
+    states: {
+      disabled: {
+        primary: {
+          container: [...],
+          header: [...],
+          close: [...]
+          accept: [...],
+          cancel: [...]
+        },
+        ...other disabled state variants
+      },
+      ...other states
+    },
+    variants: {
+      primary: {
+        container: [...],
+        header: [...],
+        close: [...]
+        accept: [...],
+        cancel: [...]
+        ...other component variants
+      },
+      ...other group variants
+    }
+  }
+}
+```
+
+```js
+const theme = {
+  button: {
+    states: {
+      disabled: {
+        ...other variants
+        cta: {
+          container: [
+            'font-manrope',
+            'font-medium',
+            'rounded-button',
+            'bg-button-disabled',
+            'text-button-primary',
+            'px-6',
+            'py-1',
+            'min-w-min',
+            'dark:bg-gray-800',
+            'dark:text-button-disabled',
+            'focus:outline-none',
+            'cursor-not-allowed',
+          ],
+        },
+      },
+    },
+    variants: {
+      ...other variants
+      cta: {
+        container: [
+          'font-manrope',
+          'font-medium',
+          'rounded-md',
+          'text-lg',
+          'bg-red-600',
+          'text-button-primary',
+          'px-6',
+          'py-1',
+          'min-w-min',
+          'dark:bg-gray-800',
+          'dark:text-button-primary',
+          'hover:bg-green-700',
+          'focus:outline-none',
+          'mr-1',
+          'active:bg-green-500',
+        ],
+      },
+    }
+  }
+}
+```

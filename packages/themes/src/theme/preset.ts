@@ -1,25 +1,6 @@
-import { Meta, Story } from '@storybook/react/types-6-0';
-import React from 'react';
-import { controllerArgs, disabledControls } from './shared';
-import { Button } from '@blaze-react/button';
-import { ThemeProvider, preset } from '@blaze-react/themes';
+import { ThemeType } from '../types';
 
-export default {
-  title: '@blaze-react/Theming/All Stories',
-  component: Button,
-  args: controllerArgs,
-  argTypes: {
-    ...disabledControls,
-    selectedTheme: {
-      control: false,
-      table: {
-        disable: true,
-      },
-    },
-  },
-} as Meta;
-
-const appTheme = {
+export const preset: ThemeType = {
   button: {
     states: {
       disabled: {
@@ -66,18 +47,18 @@ const appTheme = {
         container: [
           'font-manrope',
           'font-medium',
-          'rounded-md',
-          'bg-green-600',
+          'rounded-button',
+          'bg-button-primary',
           'text-button-primary',
           'px-6',
           'py-1',
           'min-w-min',
           'dark:bg-gray-800',
           'dark:text-button-primary',
-          'hover:bg-green-700',
+          'hover:bg-button-hover',
           'focus:outline-none',
           'mr-1',
-          'active:bg-green-500',
+          'active:bg-button-pressed',
         ],
       },
       secondary: {
@@ -104,16 +85,3 @@ const appTheme = {
     },
   },
 };
-
-const Template: Story = (args) => {
-  return (
-    <div className="flex">
-      <Button {...args} />
-      <Button theme={appTheme} />
-    </div>
-  );
-};
-
-export const Multiple = Template.bind({});
-
-Multiple.args = {};

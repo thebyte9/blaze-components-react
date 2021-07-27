@@ -23,3 +23,7 @@ export interface ITheme {
   tabHoverColor: string;
   tabBorderRadius: string;
 }
+
+export type ThemeType = {
+  [index: string]: any;
+};

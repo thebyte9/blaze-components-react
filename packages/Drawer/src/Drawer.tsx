@@ -1,4 +1,4 @@
-import { Button } from '@blaze-react/button';
+import { ButtonView } from '@blaze-react/button';
 import { buildClassNames } from '@blaze-react/utils';
 import React, { useState } from 'react';
 
@@ -46,9 +46,9 @@ const Drawer = ({ children, modifier, isResponsive, isPermanent, title }: IDrawe
         <div className="drawer__content-wrapper">
           <div className={drawerHeaderClassNames}>
             {!isPermanent && (
-              <Button className="icon-button" onClick={handleToggleMenuStatus} data-testid="icon-button-arrow">
+              <ButtonView className="icon-button" onClick={handleToggleMenuStatus} data-testid="icon-button-arrow">
                 <i className="material-icons">{`keyboard_arrow_${modifier}`}</i>
-              </Button>
+              </ButtonView>
             )}
           </div>
           <div className="drawer__content">{DrawerMainContentComponent}</div>
@@ -57,9 +57,9 @@ const Drawer = ({ children, modifier, isResponsive, isPermanent, title }: IDrawe
       <div className="page page--drawer">
         <div className={drawerPageHeaderClassNames}>
           {!isPermanent && (
-            <Button className="icon-button" onClick={handleToggleMenuStatus} data-testid="icon-button-menu">
+            <ButtonView className="icon-button" onClick={handleToggleMenuStatus} data-testid="icon-button-menu">
               <i className="material-icons">menu</i>
-            </Button>
+            </ButtonView>
           )}
           {title}
         </div>

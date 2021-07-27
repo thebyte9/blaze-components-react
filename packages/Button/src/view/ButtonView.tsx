@@ -1,9 +1,8 @@
 import React from 'react';
 import { buildClassNames } from '@blaze-react/utils';
-import { IButtonProps } from '../types';
+import { IButtonViewProps } from '../types';
 
-
-export const Button = ({ children, utilities = '', ...rest }: IButtonProps): JSX.Element => {
+export const ButtonView = ({ children, utilities = '', ...rest }: IButtonViewProps): JSX.Element => {
   const { modifiers = [], disabled, type = 'button' } = rest;
 
   const DeprecatedButton = () => {

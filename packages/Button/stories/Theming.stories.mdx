@@ -1,0 +1,155 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Button } from '../src/controller/Button';
+import { Source } from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+<Meta title="@blaze-react/Theming/Getting Started" />
+
+# Theming
+
+Blaze components are built with themeability in mind. All colors, typographic styles, layout styles, and component variants can be completely customized with theming.
+
+To apply themes to Blaze components, add a ThemeProvider component to the root of your application and pass a theme object as a prop.
+
+<Source
+  language="jsx"
+  code={dedent`
+    export default props =>
+      <ThemeProvider theme={theme}>
+        {props.children}
+      </ThemeProvider>
+  `}
+/>
+
+# Theme structure
+
+The following is an example theme, showing some of the design variants and states for the Button component
+
+<Source
+  language="javascript"
+  code={dedent`
+    const theme = { 
+      button: {
+        states: {
+          disabled: {
+            primary: {
+              container: [
+                'font-manrope',
+                'font-medium',
+                'rounded-button',
+                'bg-button-disabled',
+                'text-button-primary',
+                'px-6',
+                'py-1',
+                'min-w-min',
+                'dark:bg-gray-800',
+                'dark:text-button-disabled',
+                'focus:outline-none',
+                'cursor-not-allowed',
+              ],
+            },
+            secondary: {
+              container: [
+                'font-manrope',
+                'font-medium',
+                'text-bold',
+                'text-button-outlined-disabled',
+                'rounded-button',
+                'px-6',
+                'py-1',
+                'min-w-min',
+                'dark:bg-gray-800',
+                'dark:text-button-primary',
+                'border-2',
+                'border-button-outlined-disabled',
+                'hover:bg-button-outlined-hover',
+                'hover:text-button-primary',
+                'focus:outline-none',
+                'active:bg-button-pressed',
+              ],
+            },
+          },
+        },
+        variants: {
+          primary: {
+            container: [
+              'font-manrope',
+              'font-medium',
+              'rounded-button',
+              'bg-button-primary',
+              'text-button-primary',
+              'px-6',
+              'py-1',
+              'min-w-min',
+              'dark:bg-gray-800',
+              'dark:text-button-primary',
+              'hover:bg-button-hover',
+              'focus:outline-none',
+              'mr-1',
+              'active:bg-button-pressed',
+            ],
+          },
+          secondary: {
+            container: [
+              'font-manrope',
+              'font-medium',
+              'text-bold',
+              'rounded-button',
+              'bg-button-outlined',
+              'text-button-outlined',
+              'px-6',
+              'py-1',
+              'min-w-min',
+              'dark:bg-gray-800',
+              'dark:text-button-primary',
+              'border-2',
+              'border-button-outlined',
+              'hover:bg-button-outlined-hover',
+              'hover:text-button-primary',
+              'focus:outline-none',
+              'active:bg-button-pressed',
+            ],
+          },
+        },
+      },
+    }
+`}
+/>
+
+# Examples
+
+## Default Theme
+
+<Canvas>
+  <Story id="blaze-react-theming-all-stories--default" />
+</Canvas>
+
+## Custom Theme
+
+<Canvas>
+  <Story id="blaze-react-theming-all-stories--custom" />
+</Canvas>
+
+## Multiple Themes
+
+<Canvas>
+  <Story id="blaze-react-theming-all-stories--multiple" />
+</Canvas>
+
+## With Variant
+
+<Canvas>
+  <Story id="blaze-react-theming-all-stories--with-variant" />
+</Canvas>
+
+## Without Context
+
+<Canvas>
+  <Story id="blaze-react-theming-all-stories--without-context" />
+</Canvas>
+
+## Without Variant
+
+<Canvas>
+  <Story id="blaze-react-theming-all-stories--without-variant" />
+</Canvas>
