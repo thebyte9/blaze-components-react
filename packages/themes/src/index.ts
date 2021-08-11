@@ -8,7 +8,6 @@ import { applyTheme, createTheme } from './utils';
 import { variants } from './variants';
 import { preset } from './theme/preset';
 import { useVariant } from './hooks/useVariant';
-import { useVariantForState } from './hooks/useVariantForState';
 import { ThemeType } from './types';
 
 export {
@@ -23,7 +22,6 @@ export {
   overrideClasses,
   preset,
   useVariant,
-  useVariantForState,
   ThemeProvider,
   ThemeType,
 };

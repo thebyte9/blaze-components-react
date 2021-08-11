@@ -11,47 +11,63 @@ function withOpacity(variableName) {
 }
 
 module.exports = {
-  important: true,
+  purge: false,
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       textColor: {
         tab: {
-          base: withOpacity('--tab-color-text-base'),
-          inverted: withOpacity('--tab-color-text-inverted'),
+          base: withOpacity('--tab-text-color-base'),
+          inverted: withOpacity('--tab-text-color-inverted'),
         },
         button: {
-          base: withOpacity('--color-text-base'),
-          primary: withOpacity('--color-text-primary'),
-          muted: withOpacity('--color-text-muted'),
-          inverted: withOpacity('--color-text-inverted'),
-          outlined: withOpacity('--color-text-outlined'),
-          'outlined-disabled': withOpacity('--color-text-outlined-disabled'),
+          base: withOpacity('--button-text-color-base'),
+          primary: withOpacity('--button-text-color-primary'),
+          muted: withOpacity('--button-text-color-muted'),
+          inverted: withOpacity('--button-text-color-inverted'),
+          outlined: withOpacity('--button-text-color-outlined'),
+          'outlined-disabled': withOpacity('--button-text-color-outlined-disabled'),
+        },
+        modal: {
+          header: withOpacity('--modal-text-color-header'),
+          body: withOpacity('--modal-text-color-body'),
+          footer: withOpacity('--modal-text-color-footer'),
         },
       },
       backgroundColor: {
         tab: {
-          primary: withOpacity('--tab-color-button-primary'),
-          hover: withOpacity('--tab-color-button-primary-hover'),
+          primary: withOpacity('--tab-fill-color-primary'),
+          hover: withOpacity('--tab-fill-color-primary-hover'),
         },
         button: {
-          primary: withOpacity('--color-button-primary'),
-          hover: withOpacity('--color-button-primary-hover'),
-          disabled: withOpacity('--color-button-disabled'),
-          pressed: withOpacity('--color-button-pressed'),
-          outlined: withOpacity('--color-button-outlined'),
-          'outlined-hover': withOpacity('--color-button-outlined-hover'),
+          primary: withOpacity('--button-fill-color-primary'),
+          hover: withOpacity('--button-fill-color-primary-hover'),
+          disabled: withOpacity('--button-fill-color-disabled'),
+          pressed: withOpacity('--button-fill-color-pressed'),
+          outlined: withOpacity('--button-fill-color-outlined'),
+          'outlined-hover': withOpacity('--button-fill-color-outlined-hover'),
+        },
+        modal: {
+          header: withOpacity('--modal-fill-color-header'),
+          container: withOpacity('--modal-fill-color-container'),
+          content: withOpacity('--modal-fill-color-content'),
+          footer: withOpacity('--modal-fill-color-footer'),
         },
       },
       borderRadius: {
         tab: 'var(--tab-border-radius)',
-        button: 'var(--border-radius-button)',
-        'button-large': 'var(--border-radius-button-large)',
+        button: 'var(--button-border-radius)',
+        'button-large': 'var(--button-border-radius-large)',
+        modal: 'var(--modal-border-radius)',
       },
       borderColor: {
         button: {
-          outlined: withOpacity('--border-outlined-button'),
-          'outlined-disabled': withOpacity('--border-outlined-disabled-button'),
+          outlined: withOpacity('--button-border-outlined'),
+          'outlined-pressed': withOpacity('--button-border-outlined-pressed'),
+          'outlined-disabled': withOpacity('--button-border-outlined-disabled'),
+        },
+        modal: {
+          footer: withOpacity('--modal-border-color-footer'),
         },
       },
       fontFamily: {
@@ -63,6 +79,8 @@ module.exports = {
     extend: {
       backgroundColor: ['active'],
       textColor: ['active'],
+      borderWidth: ['active'],
+      borderColor: ['active'],
     },
   },
   plugins: [

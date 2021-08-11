@@ -36,4 +36,5 @@ export interface IButtonViewProps {
   utilities?: string;
   modifiers?: string[];
   type?: TType;
+  onClick?: () => void;
 }

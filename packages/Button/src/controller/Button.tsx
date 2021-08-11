@@ -2,7 +2,7 @@ import React from 'react';
 import { DisplayIconProps, IButtonProps } from '../types';
 import { ButtonView } from '../view/ButtonView';
 import { Icon } from '@blaze-react/icon';
-import { useTheme, useVariant, useVariantForState, overrideClasses } from '@blaze-react/themes';
+import { useComponentLogic } from '../hooks/useComponentLogic';
 
 export const Button = ({
   label,
@@ -15,29 +15,19 @@ export const Button = ({
   overrides = [],
   children,
   theme,
+  onClick,
 }: IButtonProps): JSX.Element => {
-  //Get theme
-  const { theme: themeFromContext } = useTheme();
-
-  //If theme prop is set it overrides the theme received from context.
-  const currentTheme = theme ?? themeFromContext;
-
-  // Get variants
-  const defaultUtilities = useVariant(currentTheme, 'button', 'primary', 'container') ?? '';
-  const variantUtilities = useVariant(currentTheme, 'button', variant, 'container') ?? defaultUtilities;
-  const disabledUtilities = useVariantForState(currentTheme, 'button', 'disabled', variant, 'container') ?? '';
-
-  // Icon logic
-  const display = iconOnly && displayIcon === 'no-icon' ? 'icon-left' : displayIcon;
-
-  // Disable state
-  const buttonUtilities = disabled ? disabledUtilities : variantUtilities;
-
-  // Override Tailwind classes
-  const utilities = overrideClasses(buttonUtilities, overrides);
+  const { display, classes } = useComponentLogic({
+    componentVariant: variant,
+    theme: theme,
+    displayIcon,
+    iconOnly: iconOnly,
+    disabled: disabled,
+    overrides: overrides,
+  });
 
   return (
-    <ButtonView utilities={utilities} type={type} disabled={disabled}>
+    <ButtonView utilities={classes} type={type} disabled={disabled} onClick={onClick}>
       <Icon display={display} iconOnly={iconOnly} label={label} icon={icon} />
       {children}
     </ButtonView>

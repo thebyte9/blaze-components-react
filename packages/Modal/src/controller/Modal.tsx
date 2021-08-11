@@ -1,18 +1,21 @@
 import { buildClassNames } from '@blaze-react/utils';
 import React, { useEffect, FunctionComponent } from 'react';
-import { ESCAPE_KEY_CODE } from './constants';
-import ModalFooter from './ModalFooter';
-import ModalHeader from './ModalHeader';
+import { ESCAPE_KEY_CODE } from '../constants';
+import { useComponentLogic } from '../hooks/useComponentLogic';
+import { DeprecatedModalFooter, ModalFooter } from '../view/ModalFooter';
+import { DeprecatedModalHeader, ModalHeader } from '../view/ModalHeader';
+import { IModalProps, ModalType } from '../types';
+import { ModalView } from '../view/ModalView';
 
-interface IActions {
+interface DeprecatedIActions {
   textButton: string;
   callback: () => void;
   modifiers?: string[];
 }
 
-interface IModalProps {
+interface DeprecatedIModalProps {
   title?: string;
-  actions: IActions[];
+  actions: DeprecatedIActions[];
   isSimple?: boolean;
   isUpload?: boolean;
   isFullScreen?: boolean;
@@ -24,7 +27,7 @@ interface IModalProps {
   className?: string;
 }
 
-const Modal: FunctionComponent<IModalProps> = ({
+export const DeprecatedModal: FunctionComponent<DeprecatedIModalProps> = ({
   children,
   isSimple,
   isAlert,
@@ -78,12 +81,14 @@ const Modal: FunctionComponent<IModalProps> = ({
     <>
       <div className="overlay" onClick={handleOverlay} data-testid="overlay" />
       <div className={modalClassNames} data-testid="modal">
-        <div className={modalHeaderClassNames}>{!isAlert && <ModalHeader title={title} closeModal={closeModal} />}</div>
+        <div className={modalHeaderClassNames}>
+          {!isAlert && <DeprecatedModalHeader title={title} closeModal={closeModal} />}
+        </div>
 
         <div className={modalContentClassNames}>{children}</div>
 
         {showFooter && (
-          <ModalFooter
+          <DeprecatedModalFooter
             isAlert={isAlert}
             footerClassNames={modalFooterClassNames}
             closeModal={closeModal}
@@ -95,7 +100,37 @@ const Modal: FunctionComponent<IModalProps> = ({
   );
 };
 
-Modal.defaultProps = {
+export const Modal = ({
+  type = ModalType.OVERLAY,
+  title,
+  onClose,
+  children,
+  actions,
+  showFooter,
+  theme,
+  variant = 'default',
+  overrides,
+  ...rest
+}: IModalProps): any => {
+  const { container, header, footer } = useComponentLogic({
+    componentVariant: variant,
+    theme: theme,
+    overrides: overrides,
+  });
+
+  return (
+    <>
+      <ModalView classes={container} {...rest}>
+        {type !== ModalType.ALERT && <ModalHeader classes={header} title={title} onClose={onClose}></ModalHeader>}
+        {children}
+        {showFooter && <ModalFooter classes={footer} onClose={onClose} actions={actions} type={type}></ModalFooter>}
+      </ModalView>
+      <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+    </>
+  );
+};
+
+DeprecatedModal.defaultProps = {
   actions: [],
   children: 'No content',
   className: '',
@@ -107,5 +142,3 @@ Modal.defaultProps = {
   showFooter: true,
   title: '',
 };
-
-export default Modal;

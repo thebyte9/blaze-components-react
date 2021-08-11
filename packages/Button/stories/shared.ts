@@ -1,3 +1,5 @@
+import { preset } from '@blaze-react/themes';
+
 export const args = {
   selectedTheme: 'admin',
   label: 'Blaze',
@@ -105,7 +107,7 @@ export const controllerArgTypes = {
     },
   },
   variant: {
-    options: ['primary', 'secondary'],
+    options: Object.keys(preset.button.variants),
     control: { type: 'select' },
     table: {
       defaultValue: { summary: 'admin' },

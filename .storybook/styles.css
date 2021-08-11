@@ -4,27 +4,37 @@
 
 @layer base {
   :root {
-    --color-text-base: 66, 63, 63;
-    --color-text-primary: 255, 255, 255;
-    --color-text-muted: 199, 210, 254;
-    --color-text-inverted: 137, 155, 188;
-    --color-text-outlined: 66, 133, 244;
-    --color-text-outlined-disabled: 190, 190, 190;
-    --color-button-primary: 255, 173, 1;
-    --color-button-primary-hover: 147, 183, 243;
-    --color-button-disabled: 190, 190, 190;
-    --color-button-pressed: 137, 155, 188;
-    --color-button-outlined: 255, 255, 255;
-    --color-button-outlined-hover: 66, 133, 244;
-    --border-radius-button: 17px;
-    --border-radius-button-large: 21px;
-    --border-button-outlined: 66, 133, 244;
-    --border-button-disabled: 66, 133, 244;
-    --tab-color-text-base: 66, 63, 63;
-    --tab-color-text-inverted: 255, 255, 255;
-    --tab-color-button-primary: 215, 224, 240;
-    --tab-color-button-primary-hover: 66, 133, 244;
+    --button-text-color-base: 66, 63, 63;
+    --button-text-color-primary: 255, 255, 255;
+    --button-text-color-muted: 199, 210, 254;
+    --button-text-color-inverted: 137, 155, 188;
+    --button-text-color-outlined: 66, 133, 244;
+    --button-text-color-outlined-disabled: 190, 190, 190;
+    --button-fill-color-primary: 255, 173, 1;
+    --button-fill-color-primary-hover: 147, 183, 243;
+    --button-fill-color-disabled: 190, 190, 190;
+    --button-fill-color-pressed: 137, 155, 188;
+    --button-fill-color-outlined: 255, 255, 255;
+    --button-fill-color-outlined-hover: 66, 133, 244;
+    --button-border-radius: 17px;
+    --button-border-radius-large: 21px;
+    --button-border-outlined: 66, 133, 244;
+    --button-border-outlined-pressed: 137, 155, 188;
+    --button-border-outlined-disabled: 137, 155, 188;
+    --tab-text-color-base: 66, 63, 63;
+    --tab-text-color-inverted: 255, 255, 255;
+    --tab-fill-color-primary: 215, 224, 240;
+    --tab-fill-color-primary-hover: 66, 133, 244;
     --tab-border-radius: 8px;
+    --modal-text-color-header: 66, 63, 63;
+    --modal-text-color-content: 66, 63, 63;
+    --modal-text-color-footer: 66, 63, 63;
+    --modal-fill-color-header: 255, 255, 255;
+    --modal-fill-color-container: 247, 250, 251;
+    --modal-fill-color-content: 247, 250, 251;
+    --modal-fill-color-footer: 247, 250, 251;
+    --modal-border-color-footer: 221, 221, 221;
+    --modal-border-radius: 8px;
   }
 
   .theme-frontend {

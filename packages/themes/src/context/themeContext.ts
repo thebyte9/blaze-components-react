@@ -1,12 +1,20 @@
 import { createContext, useContext } from 'react';
 import { ThemeType } from '../types';
 import { preset } from '../theme/preset';
-import { applyTheme } from '../utils';
+import { applyTheme } from '../utils/index';
+import { useVariant } from '../hooks/useVariant';
 
 type ThemeContextType = {
   theme: ThemeType;
   setTheme: (theme: ThemeType) => void;
 };
+
+interface IUseThemeProps {
+  component: string;
+  element?: string;
+  variant?: string;
+  theme?: ThemeType;
+}
 
 export const ThemeContext = createContext<ThemeContextType>({
   theme: preset,
@@ -20,4 +28,19 @@ export const ThemeContext = createContext<ThemeContextType>({
   },
 });
 
-export const useTheme = (): any => useContext(ThemeContext);
+export const useTheme = ({ component, element = 'container', variant = 'default', theme }: IUseThemeProps): any => {
+  const { theme: themeFromContext } = useContext(ThemeContext);
+
+  const currentTheme = theme ?? themeFromContext;
+
+  const componentVariant = useVariant({
+    theme: currentTheme,
+    component: component,
+    variant: variant,
+    element: element,
+  });
+
+  const variants = currentTheme[component].variants ?? '';
+
+  return { variant: componentVariant, variants: variants };
+};

@@ -1,9 +1,12 @@
 import { ThemeType } from '../types';
 
-export function useVariant(theme: ThemeType, component: string, variantName: string, children: string): unknown {
-  const defaultVariant = theme[component].variants.primary[children];
+interface IUseVariantProps {
+  theme: ThemeType;
+  component: string;
+  variant?: string;
+  element: string;
+}
 
-  if (!variantName) return defaultVariant;
-
-  return theme[component].variants[variantName][children] ?? '';
+export function useVariant({ theme, component, variant = 'default', element }: IUseVariantProps): any {
+  return theme[component]?.variants[variant][element];
 }
