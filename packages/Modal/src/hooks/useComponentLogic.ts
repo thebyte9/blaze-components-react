@@ -12,7 +12,6 @@ export const useComponentLogic = ({
   componentVariant = DEFAULT_VARIANT,
   element = CONTAINER,
   theme,
-  overrides = [],
 }: IComponentLogicProps): any => {
   // Theme logic
   const { variant, variants } = useTheme({
