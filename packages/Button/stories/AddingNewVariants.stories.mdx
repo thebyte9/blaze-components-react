@@ -7,15 +7,17 @@ import dedent from 'ts-dedent';
 
 # Adding a New Component Variant
 
-Variants are dynamically added by developers to a theme object.
+Developers can add variants to a custom theme or extend the preset theme provided by Blaze.
 
-In case we would like to add a new Call to Action Button. Components such as Modal are grouped as a stack of components while simple components such as Button requires just a wrapper or container definition.
+You can group components as a whole stack, e.g. a Modal is composed of a Header, Content, and Footer sections. A modal footer contains actions, usually displayed as buttons.
 
-While theming follows same React Composition principles as you'd normally follow while developing a custom component, e.g. a Modal is composed by other components such as header, body, accept/cancel buttons, close button, and so on... You will group the components inside the Theme object like in the following example,
+We strongly suggest following React Composition principles as you would usually do while developing a custom component.
+
+Following is an example of a custom theme,
 
 ```js
 
-export const preset: ThemeType = {
+export const customTheme: ThemeType = {
   button: {
     variants: {
       default: {
