@@ -4,7 +4,31 @@ import { theme } from '../__mocks__/theme';
 
 describe('useVariant hook', () => {
   test('it should return the secondary variant', () => {
-    const { result } = renderHook(() => useVariant(theme, 'button', 'secondary', 'container'));
+    const { result } = renderHook(() =>
+      useVariant({ theme: theme, component: 'button', variant: 'default', element: 'container' }),
+    );
+    expect(result.current).toStrictEqual([
+      'font-manrope',
+      'font-medium',
+      'rounded-button',
+      'bg-button-primary',
+      'text-button-primary',
+      'px-6',
+      'py-1',
+      'min-w-min',
+      'dark:bg-gray-800',
+      'dark:text-button-primary',
+      'hover:bg-button-hover',
+      'focus:outline-none',
+      'mr-1',
+      'active:bg-button-pressed',
+    ]);
+  });
+
+  test('it should return default variant if variant is not passed as parameter', () => {
+    const { result } = renderHook(() =>
+      useVariant({ theme: theme, component: 'button', variant: 'secondary', element: 'container' }),
+    );
     expect(result.current).toStrictEqual([
       'font-manrope',
       'font-medium',
@@ -23,26 +47,7 @@ describe('useVariant hook', () => {
       'hover:text-button-primary',
       'focus:outline-none',
       'active:bg-button-pressed',
-    ]);
-  });
-
-  test('it should return default variant if variant is not passed as parameter', () => {
-    const { result } = renderHook(() => useVariant(theme, 'button', undefined, 'container'));
-    expect(result.current).toStrictEqual([
-      'font-manrope',
-      'font-medium',
-      'rounded-md',
-      'bg-green-600',
-      'text-button-primary',
-      'px-6',
-      'py-1',
-      'min-w-min',
-      'dark:bg-gray-800',
-      'dark:text-button-primary',
-      'hover:bg-green-700',
-      'focus:outline-none',
-      'mr-1',
-      'active:bg-green-500',
+      'active:border-button-outlined-pressed',
     ]);
   });
 });
