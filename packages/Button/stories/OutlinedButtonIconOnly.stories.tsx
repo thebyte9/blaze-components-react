@@ -139,6 +139,7 @@ IconOnly.args = {
     hover:text-button-primary
     focus:outline-none
     active:bg-button-pressed
+    active:border-button-outlined-pressed
     text-sm
     text-center
   `,

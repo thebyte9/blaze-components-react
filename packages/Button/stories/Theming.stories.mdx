@@ -9,7 +9,7 @@ import dedent from 'ts-dedent';
 
 Blaze components are built with themeability in mind. All colors, typographic styles, layout styles, and component variants can be completely customized with theming.
 
-To apply themes to Blaze components, add a ThemeProvider component to the root of your application and pass a theme object as a prop.
+To start theming your Blaze components add a ThemeProvider and pass a theme object as a prop.
 
 <Source
   language="jsx"
@@ -23,53 +23,13 @@ To apply themes to Blaze components, add a ThemeProvider component to the root o
 
 # Theme structure
 
-The following is an example theme, showing some of the design variants and states for the Button component
+The following is an example theme, showing some of the design variants for the Button component
 
 <Source
   language="javascript"
   code={dedent`
     const theme = { 
       button: {
-        states: {
-          disabled: {
-            primary: {
-              container: [
-                'font-manrope',
-                'font-medium',
-                'rounded-button',
-                'bg-button-disabled',
-                'text-button-primary',
-                'px-6',
-                'py-1',
-                'min-w-min',
-                'dark:bg-gray-800',
-                'dark:text-button-disabled',
-                'focus:outline-none',
-                'cursor-not-allowed',
-              ],
-            },
-            secondary: {
-              container: [
-                'font-manrope',
-                'font-medium',
-                'text-bold',
-                'text-button-outlined-disabled',
-                'rounded-button',
-                'px-6',
-                'py-1',
-                'min-w-min',
-                'dark:bg-gray-800',
-                'dark:text-button-primary',
-                'border-2',
-                'border-button-outlined-disabled',
-                'hover:bg-button-outlined-hover',
-                'hover:text-button-primary',
-                'focus:outline-none',
-                'active:bg-button-pressed',
-              ],
-            },
-          },
-        },
         variants: {
           primary: {
             container: [

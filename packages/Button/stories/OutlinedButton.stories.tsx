@@ -75,7 +75,9 @@ Outlined.args = {
     hover:bg-button-outlined-hover
     hover:text-button-primary
     focus:outline-none
-    active:bg-button-pressed`,
+    active:bg-button-pressed
+    active:border-button-outlined-pressed
+  `,
 };
 
 Disabled.args = {
@@ -96,7 +98,9 @@ Disabled.args = {
     hover:bg-button-outlined-hover
     hover:text-button-primary
     focus:outline-none
-    active:bg-button-pressed`,
+    active:bg-button-pressed
+    active:border-button-outlined-pressed
+  `,
 };
 
 Small.args = {
@@ -121,6 +125,7 @@ Small.args = {
     dark:text-button-primary
     focus:outline-none 
     active:bg-button-pressed
+    active:border-button-outlined-pressed
     text-sm
   `,
 };
@@ -147,6 +152,7 @@ Medium.args = {
     dark:text-button-primary
     focus:outline-none 
     active:bg-button-pressed
+    active:border-button-outlined-pressed
     text-md
   `,
 };
@@ -173,6 +179,7 @@ Large.args = {
     dark:text-button-primary
     focus:outline-none 
     active:bg-button-pressed
+    active:border-button-outlined-pressed
     text-lg
   `,
 };
@@ -200,6 +207,7 @@ Stretched.args = {
   dark:text-button-primary
   focus:outline-none
   active:bg-button-pressed
+  active:border-button-outlined-pressed
   text-md
   `,
 };
@@ -225,6 +233,7 @@ IconLeft.args = {
   hover:text-button-primary
   focus:outline-none
   active:bg-button-pressed
+  active:border-button-outlined-pressed
   `,
 };
 
@@ -249,5 +258,6 @@ IconRight.args = {
   hover:text-button-primary
   focus:outline-none
   active:bg-button-pressed
+  active:border-button-outlined-pressed
   `,
 };

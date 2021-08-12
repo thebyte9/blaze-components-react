@@ -26,62 +26,6 @@ export const CTA = Template.bind({});
 CTA.args = {
   theme: {
     button: {
-      states: {
-        disabled: {
-          cta: {
-            container: [
-              'font-manrope',
-              'font-medium',
-              'rounded-button',
-              'bg-button-disabled',
-              'text-button-primary',
-              'px-6',
-              'py-1',
-              'min-w-min',
-              'dark:bg-gray-800',
-              'dark:text-button-disabled',
-              'focus:outline-none',
-              'cursor-not-allowed',
-            ],
-          },
-          primary: {
-            container: [
-              'font-manrope',
-              'font-medium',
-              'rounded-button',
-              'bg-button-disabled',
-              'text-button-primary',
-              'px-6',
-              'py-1',
-              'min-w-min',
-              'dark:bg-gray-800',
-              'dark:text-button-disabled',
-              'focus:outline-none',
-              'cursor-not-allowed',
-            ],
-          },
-          secondary: {
-            container: [
-              'font-manrope',
-              'font-medium',
-              'text-bold',
-              'text-button-outlined-disabled',
-              'rounded-button',
-              'px-6',
-              'py-1',
-              'min-w-min',
-              'dark:bg-gray-800',
-              'dark:text-button-primary',
-              'border-2',
-              'border-button-outlined-disabled',
-              'hover:bg-button-outlined-hover',
-              'hover:text-button-primary',
-              'focus:outline-none',
-              'active:bg-button-pressed',
-            ],
-          },
-        },
-      },
       variants: {
         primary: {
           container: [

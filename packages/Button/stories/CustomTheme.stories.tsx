@@ -24,12 +24,28 @@ const Template: Story = (args) => {
 export const Custom = Template.bind({});
 
 Custom.args = {
-  variant: 'primary',
+  variant: 'default',
   theme: {
     button: {
-      states: {
-        disabled: {
-          primary: {
+      variants: {
+        default: {
+          container: [
+            'font-manrope',
+            'font-medium',
+            'rounded-button',
+            'bg-green-600',
+            'text-button-primary',
+            'px-6',
+            'py-1',
+            'min-w-min',
+            'dark:bg-gray-800',
+            'dark:text-button-primary',
+            'hover:bg-button-hover',
+            'focus:outline-none',
+            'mr-1',
+            'active:bg-button-pressed',
+          ],
+          disabled: {
             container: [
               'font-manrope',
               'font-medium',
@@ -45,46 +61,6 @@ Custom.args = {
               'cursor-not-allowed',
             ],
           },
-          secondary: {
-            container: [
-              'font-manrope',
-              'font-medium',
-              'text-bold',
-              'text-button-outlined-disabled',
-              'rounded-button',
-              'px-6',
-              'py-1',
-              'min-w-min',
-              'dark:bg-gray-800',
-              'dark:text-button-primary',
-              'border-2',
-              'border-button-outlined-disabled',
-              'hover:bg-button-outlined-hover',
-              'hover:text-button-primary',
-              'focus:outline-none',
-              'active:bg-button-pressed',
-            ],
-          },
-        },
-      },
-      variants: {
-        primary: {
-          container: [
-            'font-manrope',
-            'font-medium',
-            'rounded-md',
-            'bg-green-600',
-            'text-button-primary',
-            'px-6',
-            'py-1',
-            'min-w-min',
-            'dark:bg-gray-800',
-            'dark:text-button-primary',
-            'hover:bg-green-700',
-            'focus:outline-none',
-            'mr-1',
-            'active:bg-green-500',
-          ],
         },
         secondary: {
           container: [
@@ -105,7 +81,27 @@ Custom.args = {
             'hover:text-button-primary',
             'focus:outline-none',
             'active:bg-button-pressed',
+            'active:border-button-outlined-pressed',
           ],
+          disabled: {
+            container: [
+              'font-manrope',
+              'font-medium',
+              'text-bold',
+              'text-button-outlined-disabled',
+              'bg-button-outlined-disabled',
+              'rounded-button',
+              'px-6',
+              'py-1',
+              'min-w-min',
+              'dark:bg-gray-800',
+              'dark:text-button-primary',
+              'border-2',
+              'border-button-outlined-disabled',
+              'focus:outline-none',
+              'cursor-not-allowed',
+            ],
+          },
         },
       },
     },

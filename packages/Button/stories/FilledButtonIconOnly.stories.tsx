@@ -117,5 +117,6 @@ IconOnly.args = {
     text-base-primary 
     hover:bg-button-hover 
     focus:outline-none 
-    active:bg-button-pressed`,
+    active:bg-button-pressed
+    `,
 };

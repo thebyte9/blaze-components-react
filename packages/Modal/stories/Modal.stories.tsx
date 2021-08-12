@@ -58,6 +58,7 @@ Default.args = {
   theme: preset,
   title: 'Modal',
   showFooter: true,
+  variant: 'default',
   actions: [
     {
       label: 'Cancel',
