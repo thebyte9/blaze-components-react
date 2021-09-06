@@ -1,7 +1,7 @@
 {
-  "name": "@blaze-react/drawer",
+  "name": "@blaze-react/skeleton",
   "version": "0.8.0-alpha.30",
-  "description": "",
+  "description": "Custom skeleton loading screen tailored for blaze react components",
   "main": "./dist/main.js",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.js",
@@ -20,11 +20,11 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.30",
-    "@types/classnames": "^2.3.1",
-    "classnames": "^2.2.6",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
-  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
+  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb",
+  "publishConfig": {
+    "access": "public"
+  }
 }
