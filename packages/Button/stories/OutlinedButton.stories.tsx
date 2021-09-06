@@ -23,7 +23,7 @@ const Template: Story = (args) => {
       <div className="flex items-center justify-center">
         {args.icon === 'left' ? (
           <>
-            <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
               <span className="mx-1">{args.label ?? 'Blaze'}</span>
@@ -34,7 +34,7 @@ const Template: Story = (args) => {
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
 
             {args.icon !== 'no-icon' && (
-              <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+              <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             )}
 
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
@@ -58,7 +58,7 @@ export const IconRight = Template.bind({});
 
 Outlined.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     text-bold
@@ -82,7 +82,7 @@ Outlined.args = {
 
 Disabled.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium  
     text-bold
@@ -105,7 +105,7 @@ Disabled.args = {
 
 Small.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium  
     text-bold
@@ -132,7 +132,7 @@ Small.args = {
 
 Medium.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium  
     text-bold
@@ -159,7 +159,7 @@ Medium.args = {
 
 Large.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium  
     text-bold
@@ -187,7 +187,7 @@ Large.args = {
 Stretched.args = {
   theme: adminTheme,
   icon: 'no-icon',
-  utilities: `
+  classes: `
   font-manrope
   font-medium
   text-bold
@@ -215,7 +215,7 @@ Stretched.args = {
 IconLeft.args = {
   icon: 'left',
   theme: adminTheme,
-  utilities: `
+  classes: `
   font-manrope
   font-medium
   text-bold
@@ -240,7 +240,7 @@ IconLeft.args = {
 IconRight.args = {
   icon: 'right',
   theme: adminTheme,
-  utilities: `
+  classes: `
   font-manrope
   font-medium
   text-bold

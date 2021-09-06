@@ -22,7 +22,7 @@ const Template: Story = (args) => {
       <div className="flex items-center justify-center">
         {args.icon === 'left' ? (
           <>
-            <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
               <span className="mx-1">{args.label ?? 'Blaze'}</span>
@@ -33,7 +33,7 @@ const Template: Story = (args) => {
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
 
             {args.icon !== 'no-icon' && (
-              <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+              <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             )}
 
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
@@ -53,7 +53,7 @@ export const NoIcon = Template.bind({});
 Left.args = {
   icon: 'left',
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     text-bold
@@ -71,7 +71,7 @@ Left.args = {
 Right.args = {
   icon: 'right',
   theme: adminTheme,
-  utilities: `
+  classes: `
   font-manrope
   font-medium
   text-bold
@@ -89,7 +89,7 @@ Right.args = {
 NoIcon.args = {
   icon: 'no-icon',
   theme: adminTheme,
-  utilities: `
+  classes: `
   font-manrope
   font-medium
   text-bold

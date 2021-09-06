@@ -100,12 +100,6 @@ export const controllerArgTypes = {
       disable: true,
     },
   },
-  utilities: {
-    control: false,
-    table: {
-      disable: true,
-    },
-  },
   variant: {
     options: Object.keys(preset.button.variants),
     control: { type: 'select' },
@@ -164,7 +158,7 @@ export const disabledControls = {
       disable: true,
     },
   },
-  utilities: {
+  classes: {
     control: false,
     table: {
       disable: true,

@@ -1,4 +1,12 @@
 export const theme = {
+  input: {
+    variants: {
+      error: {
+        string: {},
+        number: {},
+      },
+    },
+  },
   button: {
     variants: {
       default: {
@@ -15,25 +23,12 @@ export const theme = {
           'dark:text-button-primary',
           'hover:bg-button-hover',
           'focus:outline-none',
-          'mr-1',
           'active:bg-button-pressed',
+          'disabled:text-button-disabled',
+          'disabled:bg-button-disabled',
+          'disabled:cursor-not-allowed',
+          'disabled:border-button-disabled',
         ],
-        disabled: {
-          container: [
-            'font-manrope',
-            'font-medium',
-            'rounded-button',
-            'bg-button-disabled',
-            'text-button-primary',
-            'px-6',
-            'py-1',
-            'min-w-min',
-            'dark:bg-gray-800',
-            'dark:text-button-disabled',
-            'focus:outline-none',
-            'cursor-not-allowed',
-          ],
-        },
       },
       secondary: {
         container: [
@@ -55,26 +50,11 @@ export const theme = {
           'focus:outline-none',
           'active:bg-button-pressed',
           'active:border-button-outlined-pressed',
+          'disabled:text-button-outlined-disabled',
+          'disabled:bg-button-outlined-disabled',
+          'disabled:cursor-not-allowed',
+          'disabled:border-button-disabled',
         ],
-        disabled: {
-          container: [
-            'font-manrope',
-            'font-medium',
-            'text-bold',
-            'text-button-outlined-disabled',
-            'bg-button-outlined-disabled',
-            'rounded-button',
-            'px-6',
-            'py-1',
-            'min-w-min',
-            'dark:bg-gray-800',
-            'dark:text-button-primary',
-            'border-2',
-            'border-button-outlined-disabled',
-            'focus:outline-none',
-            'cursor-not-allowed',
-          ],
-        },
       },
     },
   },

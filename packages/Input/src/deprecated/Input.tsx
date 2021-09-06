@@ -1,6 +1,6 @@
 import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import ToggleInputType from './ToggleInputType';
+import ToggleInputType from '../ToggleInputType';
 
 interface IInputProps {
   disabled?: boolean;

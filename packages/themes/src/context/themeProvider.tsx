@@ -1,4 +1,4 @@
-import { ThemeType } from '../types.js';
+import { ThemeType } from '../types';
 import React, { useState } from 'react';
 import { ThemeContext } from './themeContext';
 

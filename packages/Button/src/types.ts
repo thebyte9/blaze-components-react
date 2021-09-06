@@ -33,7 +33,7 @@ export interface IButtonViewProps {
   label?: string;
   disabled?: boolean;
   children?: unknown;
-  utilities?: string;
+  classes?: string;
   modifiers?: string[];
   type?: TType;
   onClick?: () => void;

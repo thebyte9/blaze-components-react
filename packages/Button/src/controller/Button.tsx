@@ -22,12 +22,11 @@ export const Button = ({
     theme: theme,
     displayIcon,
     iconOnly: iconOnly,
-    disabled: disabled,
     overrides: overrides,
   });
 
   return (
-    <ButtonView utilities={classes} type={type} disabled={disabled} onClick={onClick}>
+    <ButtonView classes={classes} type={type} disabled={disabled} onClick={onClick}>
       <Icon display={display} iconOnly={iconOnly} label={label} icon={icon} />
       {children}
     </ButtonView>

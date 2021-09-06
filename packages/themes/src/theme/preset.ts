@@ -1,136 +1,20 @@
 import { ThemeType } from '../types';
+import { button } from './components/button';
+import { modal } from './components/modal';
+import { navbar } from './components/navbar';
+import { input } from './components/input';
 
 export const preset: ThemeType = {
   button: {
-    variants: {
-      default: {
-        container: [
-          'font-manrope',
-          'font-medium',
-          'rounded-button',
-          'bg-button-primary',
-          'text-button-primary',
-          'px-6',
-          'py-1',
-          'min-w-min',
-          'dark:bg-gray-800',
-          'dark:text-button-primary',
-          'hover:bg-button-hover',
-          'focus:outline-none',
-          'mr-1',
-          'active:bg-button-pressed',
-        ],
-        disabled: {
-          container: [
-            'font-manrope',
-            'font-medium',
-            'rounded-button',
-            'bg-button-disabled',
-            'text-button-primary',
-            'px-6',
-            'py-1',
-            'min-w-min',
-            'dark:bg-gray-800',
-            'dark:text-button-disabled',
-            'focus:outline-none',
-            'cursor-not-allowed',
-          ],
-        },
-      },
-      secondary: {
-        container: [
-          'font-manrope',
-          'font-medium',
-          'text-bold',
-          'rounded-button',
-          'bg-button-outlined',
-          'text-button-outlined',
-          'px-6',
-          'py-1',
-          'min-w-min',
-          'dark:bg-gray-800',
-          'dark:text-button-primary',
-          'border-2',
-          'border-button-outlined',
-          'hover:bg-button-outlined-hover',
-          'hover:text-button-primary',
-          'focus:outline-none',
-          'active:bg-button-pressed',
-          'active:border-button-outlined-pressed',
-        ],
-        disabled: {
-          container: [
-            'font-manrope',
-            'font-medium',
-            'text-bold',
-            'text-button-outlined-disabled',
-            'bg-button-outlined-disabled',
-            'rounded-button',
-            'px-6',
-            'py-1',
-            'min-w-min',
-            'dark:bg-gray-800',
-            'dark:text-button-primary',
-            'border-2',
-            'border-button-outlined-disabled',
-            'focus:outline-none',
-            'cursor-not-allowed',
-          ],
-        },
-      },
-    },
+    ...button,
   },
   modal: {
-    variants: {
-      default: {
-        container: [
-          'font-manrope',
-          'font-light',
-          'justify-center',
-          'items-center',
-          'flex',
-          'overflow-x-hidden',
-          'overflow-y-auto',
-          'fixed',
-          'inset-0',
-          'z-50',
-          'outline-none',
-          'rounded-lg',
-          'focus:outline-none',
-        ],
-        header: {
-          container: [
-            'font-manrope',
-            'font-bold',
-            'flex',
-            'justify-between',
-            'rounded',
-            'rounded-lg',
-            'm-1',
-            'bg-modal-header',
-            'text-modal-header',
-          ],
-          title: ['text-xl', 'font-normal', 'text-modal-header', 'p-3', 'font-manrope', 'mb-0'],
-          button: ['ml-auto', 'bg-transparent', 'border-0', 'outline-none', 'focus:outline-none', 'pr-2'],
-        },
-        content: ['font-manrope', 'font-medium', 'bg-modal-content'],
-        footer: {
-          container: [
-            'font-manrope',
-            'font-medium',
-            'bg-modal-footer',
-            'border-t',
-            'border-footer',
-            'py-4',
-            'pr-8',
-            'flex',
-            'justify-end',
-            'space-x-4',
-            'rounded',
-            'rounded-lg',
-          ],
-        },
-      },
-    },
+    ...modal,
+  },
+  navbar: {
+    ...navbar,
+  },
+  input: {
+    ...input,
   },
 };

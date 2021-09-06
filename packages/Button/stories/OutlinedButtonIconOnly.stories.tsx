@@ -121,7 +121,7 @@ export const IconOnly = Template.bind({});
 IconOnly.args = {
   icon: 'icon-only',
   theme: adminTheme,
-  utilities: `
+  classes: `
     mx-auto
     font-manrope
     font-medium

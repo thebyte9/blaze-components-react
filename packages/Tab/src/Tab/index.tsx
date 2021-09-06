@@ -7,15 +7,15 @@ type selectedType = string | number;
 interface ITabProps {
   selected: selectedType;
   children?: any;
-  utilities?: string;
+  classes?: string;
 }
 
-export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: ITabProps): JSX.Element => {
+export const Tab = ({ selected = 0, classes = '', children = 'No content' }: ITabProps): JSX.Element => {
   const [selectedValue, setSelected] = useState(selected);
 
   const DeprecatedTabs = () => {
     console.warn(
-      'Usage of CSS classes will be deprecated in the near future. You should use Tailwind utilities classes instead',
+      'Usage of CSS classes will be deprecated in the near future. You should use Tailwind classes classes instead',
     );
 
     return (
@@ -42,17 +42,17 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
     <>
       <div className="flex overflow-x-auto scrollbar-hide">
         {children.map(({ props: { title = 'Unnamed tab', icon, showLabel } }: any, step: any) => {
-          const override = utilities.concat(
+          const override = classes.concat(
             `group mr-2 ${step === selectedValue ? ' bg-tab-hover text-tab-inverted' : ''}`,
           );
           return (
-            <ButtonView utilities={override} onClick={() => setSelected(step)} key={title}>
+            <ButtonView classes={override} onClick={() => setSelected(step)} key={title}>
               <div className="flex items-center justify-center">
                 {!icon ? (
                   title
                 ) : (
                   <CustomIcon
-                    utilities={`
+                    classes={`
                       w-6 h-6 
                       stroke-current 
                       fill-current 
@@ -74,5 +74,5 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
     </>
   );
 
-  return utilities !== '' ? BlazeTabs : DeprecatedTabs();
+  return classes !== '' ? BlazeTabs : DeprecatedTabs();
 };

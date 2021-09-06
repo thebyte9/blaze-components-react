@@ -1,3 +1,3 @@
-import Input from './Input';
+import { Input } from './controller/Input';
 
 export default Input;

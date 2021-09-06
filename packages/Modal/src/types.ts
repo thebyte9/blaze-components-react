@@ -2,8 +2,9 @@ import { ThemeType } from '@blaze-react/themes';
 
 export interface IModalActions {
   label: string;
-  action: () => void;
+  onClick: () => void;
   variant?: string | 'default';
+  disabled?: boolean;
 }
 
 export enum ModalType {

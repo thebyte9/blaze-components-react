@@ -77,15 +77,16 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['active'],
-      textColor: ['active'],
-      borderWidth: ['active'],
-      borderColor: ['active'],
+      backgroundColor: ['disabled', 'active', 'hover'],
+      textColor: ['disabled', 'active', 'hover'],
+      borderWidth: ['disabled', 'active', 'hover'],
+      borderColor: ['disabled', 'active', 'hover'],
+      cursor: ['disabled'],
     },
   },
   plugins: [
     plugin(function ({ addUtilities }) {
-      const newUtilities = {
+      const scrollbarUtilities = {
         '.scrollbar-hide': {
           /* Firefox */
           'scrollbar-width': 'none',
@@ -99,8 +100,7 @@ module.exports = {
           },
         },
       };
-
-      addUtilities(newUtilities);
+      addUtilities(scrollbarUtilities);
     }),
   ],
 };

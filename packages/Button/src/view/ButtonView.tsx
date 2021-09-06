@@ -2,11 +2,11 @@ import React from 'react';
 import { buildClassNames } from '@blaze-react/utils';
 import { IButtonViewProps } from '../types';
 
-export const ButtonView = ({ children, utilities = '', ...rest }: IButtonViewProps): JSX.Element => {
+export const ButtonView = ({ children, classes = '', ...rest }: IButtonViewProps): JSX.Element => {
   const { modifiers = [], disabled, type = 'button' } = rest;
 
   const DeprecatedButton = () => {
-    console.warn('Modifiers will be deprecated in the near future. You should use CSS utilities classes instead.');
+    console.warn('Modifiers will be deprecated in the near future. You should use CSS classes classes instead.');
 
     const formatedModifiers: string = modifiers.map((modifier) => `button--${modifier}`).join(' ');
     const buttonClassNames: string = buildClassNames('button', {
@@ -21,10 +21,10 @@ export const ButtonView = ({ children, utilities = '', ...rest }: IButtonViewPro
   };
 
   const BlazeButton = (
-    <button type="button" className={utilities} {...rest}>
+    <button type="button" className={classes} {...rest} disabled={disabled}>
       {children}
     </button>
   );
 
-  return utilities !== '' ? BlazeButton : DeprecatedButton();
+  return classes !== '' ? BlazeButton : DeprecatedButton();
 };

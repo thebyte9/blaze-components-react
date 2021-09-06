@@ -10,6 +10,7 @@ export default {
   title: '@blaze-react/Modal/All Stories',
   component: Modal,
   argTypes: modalArgTypes,
+  parameters: { actions: { argTypesRegex: '^on.*' } },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => {
@@ -62,12 +63,14 @@ Default.args = {
   actions: [
     {
       label: 'Cancel',
-      action: action('Cancel'),
+      onClick: action('Cancel'),
       variant: 'secondary',
+      disabled: false,
     },
     {
       label: 'Save',
-      action: action('Save'),
+      onClick: action('Save'),
+      disabled: false,
     },
   ],
 };

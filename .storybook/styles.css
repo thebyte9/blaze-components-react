@@ -20,7 +20,7 @@
     --button-border-radius-large: 21px;
     --button-border-outlined: 66, 133, 244;
     --button-border-outlined-pressed: 137, 155, 188;
-    --button-border-outlined-disabled: 137, 155, 188;
+    --button-border-outlined-disabled: 190, 190, 190;
     --tab-text-color-base: 66, 63, 63;
     --tab-text-color-inverted: 255, 255, 255;
     --tab-fill-color-primary: 215, 224, 240;

@@ -42,8 +42,8 @@ export const DeprecatedModalFooter = ({
 export const ModalFooter = ({ actions, onClose, type, classes }: IModalFooter): any => {
   const modalFooterActions = () => {
     return actions.map(
-      ({ label, action, variant }: IModalActions): JSX.Element => (
-        <Button key={label} onClick={() => action()} label={label} variant={variant} />
+      ({ label, onClick, variant, disabled }: IModalActions): JSX.Element => (
+        <Button key={label} onClick={onClick} label={label} variant={variant} disabled={disabled} />
       ),
     );
   };

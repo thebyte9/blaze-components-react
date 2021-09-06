@@ -5,7 +5,7 @@ export const ModalView = ({ classes, children, ...rest }: IModalViewProps): JSX.
   return (
     <div className={classes} {...rest}>
       <div className="relative w-auto max-w-3xl mx-auto my-6 rounded rounded-lg bg-modal-container">
-        <div className="relative flex flex-col w-full rounded-lg shadow-lg outline-none bg-modal-content focus:outline-none">
+        <div className="relative flex flex-col w-full rounded-lg shadow-lg outline-none bg-modal-content">
           {children}
         </div>
       </div>
