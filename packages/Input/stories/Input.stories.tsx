@@ -15,7 +15,7 @@ export default {
 const Template: ComponentStory<typeof Input> = (args) => {
   return (
     <ThemeProvider theme={preset}>
-      <div className="max-w-xl py-12 mx-auto md:max-w-4xl">
+      <div className="max-w-xl py-12 mx-auto md:max-w-4xl component-wrapper">
         <Input {...args} error />
       </div>
     </ThemeProvider>

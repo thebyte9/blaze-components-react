@@ -22,12 +22,13 @@ export const Input = ({
   });
 
   if (layout === LayoutType.Horizontal) {
-    classes[currentState].container += ' flex items-center justify-between';
-    classes[currentState].message += ' ml-28';
+    classes[currentState].container = 'flex-row items-center justify-between relative';
+    classes[currentState].message += ' ml-32';
+    classes[currentState].icon += ' top-0';
   }
 
   if (layout === LayoutType.Vertical) {
-    classes[currentState].icon += ' top-10';
+    classes[currentState].icon += ' top-8 mt-1';
     classes[currentState].label += ' min-w-max mr-6';
   }
 

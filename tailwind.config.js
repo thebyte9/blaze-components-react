@@ -106,5 +106,5 @@ module.exports = {
       outline: ['hover', 'active'],
     },
   },
-  // plugins: [forms, hideScrollbar, required, success, error],
+  plugins: [hideScrollbar, required, success, error],
 };
