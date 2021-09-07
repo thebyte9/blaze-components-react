@@ -1,9 +1,14 @@
-const { withOpacity } = require('@blaze-react/themes');
-const forms = require('@tailwindcss/forms');
-const hideScrollbar = require('@blaze-react/themes');
-const required = require('@blaze-react/themes');
-const success = require('@blaze-react/themes');
-const error = require('@blaze-react/themes');
+const plugin = require('tailwindcss/plugin');
+
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`;
+    }
+
+    return `rgb(var(${variableName}))`;
+  };
+}
 
 module.exports = {
   darkMode: 'class', // or 'media' or 'class'
@@ -106,5 +111,24 @@ module.exports = {
       outline: ['hover', 'active'],
     },
   },
-  plugins: [hideScrollbar, required, success, error],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-hide': {
+          /* Firefox */
+          'scrollbar-width': 'none',
+
+          /* IE and Edge */
+          '-ms-overflow-style': 'none',
+
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      };
+
+      addUtilities(newUtilities);
+    }),
+  ],
 };

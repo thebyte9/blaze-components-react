@@ -1,10 +1,10 @@
-import plugin from 'tailwindcss/plugin';
+const plugin = require('tailwindcss/plugin');
 
 interface IHideScrollbar {
   addUtilities: any;
 }
 
-const hideScrollbar = plugin(function ({ addUtilities }: IHideScrollbar) {
+module.exports = plugin(function ({ addUtilities }: IHideScrollbar) {
   const scrollbar = {
     '.scrollbar-hide': {
       /* Firefox */
@@ -22,5 +22,3 @@ const hideScrollbar = plugin(function ({ addUtilities }: IHideScrollbar) {
 
   addUtilities(scrollbar);
 });
-
-export default hideScrollbar;

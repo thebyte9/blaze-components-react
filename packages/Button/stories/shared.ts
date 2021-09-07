@@ -100,6 +100,12 @@ export const controllerArgTypes = {
       disable: true,
     },
   },
+  onClick: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
   variant: {
     options: Object.keys(preset.button.variants),
     control: { type: 'select' },

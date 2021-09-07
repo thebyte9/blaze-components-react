@@ -8,6 +8,24 @@ export const inputArgTypes = {
       defaultValue: { summary: 'admin' },
     },
   },
+  error: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  icon: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
+  classes: {
+    control: false,
+    table: {
+      disable: true,
+    },
+  },
   type: {
     options: InputType,
     control: { type: 'select' },

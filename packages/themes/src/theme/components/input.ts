@@ -25,6 +25,7 @@ export const input = {
         container: ['flex flex-col relative'],
         label: ['text-red-600', 'min-w-max', 'mr-8', 'text-base'],
         input: [
+          'mt-1',
           'form-input',
           'font-manrope',
           'font-light',
@@ -53,6 +54,7 @@ export const input = {
         container: ['flex flex-col relative'],
         label: ['text-input-loading', 'min-w-max', 'mr-8', 'text-base'],
         input: [
+          'mt-1',
           'form-input',
           'font-manrope',
           'font-light',
@@ -81,6 +83,7 @@ export const input = {
         container: ['flex flex-col relative'],
         label: ['text-input-warning', 'min-w-max', 'mr-8', 'text-base'],
         input: [
+          'mt-1',
           'form-input',
           'font-manrope',
           'font-light',
@@ -109,6 +112,7 @@ export const input = {
         container: ['flex flex-col relative'],
         label: ['text-input-success', 'min-w-max', 'mr-8', 'text-base'],
         input: [
+          'mt-1',
           'form-input',
           'font-manrope',
           'font-light',
@@ -140,7 +144,7 @@ export const input = {
         vertical: {
           container: ['animate-pulse'],
           label: ['mt-1', 'bg-gray-400', 'rounded-input', 'w-20', 'h-4'],
-          input: ['mt-1', 'bg-gray-400', 'rounded-input', 'min-w-min', 'h-10'],
+          input: ['mt-1', 'bg-gray-400', 'rounded-input', 'min-w-min', 'h-10', 'mt-1'],
         },
         horizontal: {
           container: ['grid', 'grid-cols-3', 'gap-4', 'items-center', 'mt-1'],
