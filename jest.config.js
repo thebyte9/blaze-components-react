@@ -18,5 +18,6 @@ module.exports = {
     '@blaze-react/select': '<rootDir>/packages/Select/src',
     '@blaze-react/themes': '<rootDir>/packages/themes/src',
     '@blaze-react/icon': '<rootDir>/packages/Icon/src',
+    '@blaze-react/skeleton': '<rootDir>/packages/Skeleton/src',
   },
 };
