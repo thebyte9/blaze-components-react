@@ -107,7 +107,7 @@ export const input = {
       },
       success: {
         container: ['flex flex-col relative'],
-        label: ['text-input-success', 'min-w-max', 'mr-8', 'text-md'],
+        label: ['text-input-success', 'min-w-max', 'mr-8', 'text-base'],
         input: [
           'form-input',
           'font-manrope',

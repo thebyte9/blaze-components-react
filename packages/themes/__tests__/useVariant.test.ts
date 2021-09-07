@@ -20,8 +20,11 @@ describe('useVariant hook', () => {
       'dark:text-button-primary',
       'hover:bg-button-hover',
       'focus:outline-none',
-      'mr-1',
       'active:bg-button-pressed',
+      'disabled:text-button-disabled',
+      'disabled:bg-button-disabled', 
+      'disabled:cursor-not-allowed',
+      'disabled:border-button-disabled',
     ]);
   });
 
@@ -48,6 +51,10 @@ describe('useVariant hook', () => {
       'focus:outline-none',
       'active:bg-button-pressed',
       'active:border-button-outlined-pressed',
+      'disabled:text-button-outlined-disabled',
+      'disabled:bg-button-outlined-disabled',
+      'disabled:cursor-not-allowed',
+      'disabled:border-button-disabled',
     ]);
   });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputType, LayoutType, DisplayErrorAs, InputState } from '../src/types';
-import { Input } from '@blaze-react/input';
+import { BlazeInput as Input } from '@blaze-react/input';
 import { preset, ThemeProvider } from '@blaze-react/themes';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { inputArgTypes } from './shared';
