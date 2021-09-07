@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/group",
-  "version": "0.8.0-alpha.33",
+  "version": "0.8.0-alpha.34",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
