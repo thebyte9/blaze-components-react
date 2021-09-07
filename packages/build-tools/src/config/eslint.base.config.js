@@ -15,6 +15,7 @@ module.exports = {
     'react/display-name': 'off',
     'no-unused-vars': 'error',
     '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/no-var-requires': 0,
   },
   settings: {
     react: {

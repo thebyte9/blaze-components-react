@@ -1,3 +1,5 @@
+/* eslint @typescript-eslint/no-var-requires: "off" */
+
 const plugin = require('tailwindcss/plugin');
 
 interface IHideScrollbar {
