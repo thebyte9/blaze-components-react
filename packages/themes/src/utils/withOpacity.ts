@@ -1,4 +1,4 @@
-function withOpacity(variableName) {
+export function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
       return `rgba(var(${variableName}), ${opacityValue})`;
@@ -7,5 +7,3 @@ function withOpacity(variableName) {
     return `rgba(var(${variableName}))`;
   };
 }
-
-export default withOpacity;
