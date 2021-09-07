@@ -9,11 +9,20 @@ import { variants } from './variants';
 import { preset } from './theme/preset';
 import { useVariant } from './hooks/useVariant';
 import { useComponentVariant } from './hooks/useComponentVariant';
-
+import error from './plugins/error';
+import hideScrollbar from './plugins/hideScrollbar';
+import requiredField from './plugins/required';
+import success from './plugins/success';
+import warning from './plugins/warning';
 import { ThemeType } from './types';
 
 export {
   withOpacity,
+  error,
+  hideScrollbar,
+  requiredField,
+  success,
+  warning,
   adminTheme,
   frontendTheme,
   ThemeContext,

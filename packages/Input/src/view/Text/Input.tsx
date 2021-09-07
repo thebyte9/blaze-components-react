@@ -6,7 +6,7 @@ import { LoadingIcon } from './Icons/LoadingIcon';
 import { SuccessIcon } from './Icons/SuccessIcon';
 import { WarningIcon } from './Icons/WarningIcon';
 
-export default ({
+export const TextInput = ({
   placeholder,
   label = 'Label',
   currentState,

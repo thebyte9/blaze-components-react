@@ -20,7 +20,7 @@
     --button-border-radius-large: 21px;
     --button-border-outlined: 66, 133, 244;
     --button-border-outlined-pressed: 137, 155, 188;
-    --button-border-outlined-disabled: 190, 190, 190;
+    --button-border-outlined-disabled: 137, 155, 188;
     --tab-text-color-base: 66, 63, 63;
     --tab-text-color-inverted: 255, 255, 255;
     --tab-fill-color-primary: 215, 224, 240;
@@ -35,29 +35,26 @@
     --modal-fill-color-footer: 247, 250, 251;
     --modal-border-color-footer: 221, 221, 221;
     --modal-border-radius: 8px;
-  }
-
-  .theme-frontend {
-    --color-text-base: 66, 63, 63;
-    --color-text-primary: 255, 255, 255;
-    --color-text-muted: 199, 210, 254;
-    --color-text-inverted: 137, 155, 188;
-    --color-text-outlined: 66, 133, 244;
-    --color-text-outlined-disabled: 190, 190, 190;
-    --color-button-primary: 59, 130, 246;
-    --color-button-primary-hover: 29, 78, 216;
-    --color-button-disabled: 190, 190, 190;
-    --color-button-pressed: 96, 165, 250;
-    --color-button-outlined: 255, 255, 255;
-    --color-button-outlined-hover: 66, 133, 244;
-    --border-radius-button: 5px;
-    --border-radius-button-large: 8px;
-    --border-button-outlined: 66, 133, 244;
-    --border-button-disabled: 66, 133, 244;
-    --tab-color-text-base: 66, 63, 63;
-    --tab-color-text-inverted: 255, 255, 255;
-    --tab-color-button-primary: 215, 224, 240;
-    --tab-color-button-primary-hover: 66, 133, 244;
-    --tab-border-radius: 8px;
+    --input-text-color-base: 102, 102, 102;
+    --input-border-radius: 5px;
+    --input-fill-color-base: 254, 254, 254;
+    --input-fill-color-hover: 247, 250, 251;
+    --input-fill-color-focus: 247, 250, 251;
+    --input-border-base: 178, 191, 214;
+    --input-border-focus: 66, 133, 244;
+    --input-border-success: 15, 157, 88;
+    --input-border-loading: 178, 191, 214;
+    --input-border-warning: 244, 180, 2;
+    --input-border-error: 219, 68, 55;
+    --input-text-color-base: 102, 102, 102;
+    --input-text-color-success: 15, 157, 88;
+    --input-text-color-error: 219, 68, 55;
+    --input-text-color-warning: 244, 180, 2;
+    --input-text-color-loading: 66, 133, 244;
+    --input-ring-color-success: 15, 157, 88;
+    --input-ring-color-error: 219, 68, 55;
+    --input-ring-color-loading: 66, 133, 244;
+    --input-ring-color-warning: 244, 180, 2;
+    --input-ring-color-success: 15, 157, 88;
   }
 }
