@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/text-area",
-  "version": "0.8.0-alpha.21",
+  "version": "0.8.0-alpha.36",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -20,9 +20,9 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.21",
+    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.36",
     "webpack": "^5.29.0",
     "webpack-cli": "^4.6.0"
   },
-  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
+  "gitHead": "4bfe5dcb677b6f46229be4039ba4ca7db86e7cca"
 }

@@ -1,0 +1,50 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Button } from '../src/controller/Button';
+import { Source } from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+<Meta title="@blaze-react/Theming/Adding a New Variant" />
+
+# Adding a New Component Variant
+
+Developers can add variants to a custom theme or extend the default theme provided by Blaze.
+
+Components can be grouped as a stack, e.g. a Modal is composed of a header, content, and footer sections.
+
+```js
+
+export const customTheme: ThemeType = {
+  button: {
+    variants: {
+      default: {
+        container: [...],
+        disabled: {
+          container: [...],
+        },
+      },
+      secondary: {
+        container: [...],
+        disabled: {
+          container: [...],
+        },
+      },
+    },
+  },
+  modal: {
+    variants: {
+      default: {
+        container: [...],
+        header: {
+          container: [...],
+          title: [...],
+          button: [...],
+        },
+        content: [...],
+        footer: {
+          container: [...],
+        },
+      },
+    },
+  },
+};
+```

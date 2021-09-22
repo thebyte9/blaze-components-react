@@ -1,4 +1,4 @@
-import Input from '@blaze-react/input';
+import { Input } from '@blaze-react/input';
 import { storiesOf } from '@storybook/react';
 import React, { Fragment, useEffect, useState } from 'react';
 import LoaderReadme from '../README.md';

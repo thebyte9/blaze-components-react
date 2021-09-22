@@ -1,3 +1,4 @@
-import { Button } from './Button';
+import { Button } from './controller/Button';
+import { ButtonView } from './view/ButtonView';
 
-export default Button;
+export { Button, ButtonView };
