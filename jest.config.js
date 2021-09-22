@@ -16,5 +16,8 @@ module.exports = {
     '@blaze-react/input': '<rootDir>/packages/Input/src',
     '@blaze-react/checkboxes': '<rootDir>/packages/Checkboxes/src',
     '@blaze-react/select': '<rootDir>/packages/Select/src',
+    '@blaze-react/themes': '<rootDir>/packages/themes/src',
+    '@blaze-react/icon': '<rootDir>/packages/Icon/src',
+    '@blaze-react/skeleton': '<rootDir>/packages/Skeleton/src',
   },
 };

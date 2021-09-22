@@ -1,13 +1,11 @@
-import { IconProps } from './types';
+import { CustomIconProps } from './types';
 import React from 'react';
 
-const CustomIcon = ({ utilities = '', children, ...rest }: IconProps): JSX.Element => {
+export const CustomIcon = ({ classes = '', children, ...rest }: CustomIconProps): JSX.Element => {
   const { content = '' } = rest;
   return (
-    <div className={utilities} dangerouslySetInnerHTML={{ __html: content }}>
+    <div className={classes} dangerouslySetInnerHTML={{ __html: content }}>
       {children}
     </div>
   );
 };
-
-export default CustomIcon;

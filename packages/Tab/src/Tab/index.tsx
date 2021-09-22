@@ -1,21 +1,21 @@
-import Button from '@blaze-react/button';
+import { ButtonView } from '@blaze-react/button';
 import React, { useState } from 'react';
-import CustomIcon from '../../../Icon/src';
+import { CustomIcon } from '@blaze-react/icon';
 
 type selectedType = string | number;
 
 interface ITabProps {
   selected: selectedType;
   children?: any;
-  utilities?: string;
+  classes?: string;
 }
 
-export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: ITabProps): JSX.Element => {
+export const Tab = ({ selected = 0, classes = '', children = 'No content' }: ITabProps): JSX.Element => {
   const [selectedValue, setSelected] = useState(selected);
 
   const DeprecatedTabs = () => {
     console.warn(
-      'Usage of CSS classes will be deprecated in the near future. You should use Tailwind utilities classes instead',
+      'Usage of CSS classes will be deprecated in the near future. You should use Tailwind classes classes instead',
     );
 
     return (
@@ -23,13 +23,13 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
         <div className="tabs__list">
           {children.map(({ props: { title = 'Unnamed tab' } }: any, step: any) => {
             return (
-              <Button
+              <ButtonView
                 className={`tabs__list-item ${step === selectedValue ? 'current' : ''}`}
                 onClick={() => setSelected(step)}
                 key={title}
               >
                 {title}
-              </Button>
+              </ButtonView>
             );
           })}
         </div>
@@ -42,17 +42,17 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
     <>
       <div className="flex overflow-x-auto scrollbar-hide">
         {children.map(({ props: { title = 'Unnamed tab', icon, showLabel } }: any, step: any) => {
-          const override = utilities.concat(
+          const override = classes.concat(
             `group mr-2 ${step === selectedValue ? ' bg-tab-hover text-tab-inverted' : ''}`,
           );
           return (
-            <Button utilities={override} onClick={() => setSelected(step)} key={title}>
+            <ButtonView classes={override} onClick={() => setSelected(step)} key={title}>
               <div className="flex items-center justify-center">
                 {!icon ? (
                   title
                 ) : (
                   <CustomIcon
-                    utilities={`
+                    classes={`
                       w-6 h-6 
                       stroke-current 
                       fill-current 
@@ -66,7 +66,7 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
                 )}
               </div>
               {icon && showLabel && <span className="mt-1 text-sm">{title}</span>}
-            </Button>
+            </ButtonView>
           );
         })}
       </div>
@@ -74,5 +74,5 @@ export const Tab = ({ selected = 0, utilities = '', children = 'No content' }: I
     </>
   );
 
-  return utilities !== '' ? BlazeTabs : DeprecatedTabs();
+  return classes !== '' ? BlazeTabs : DeprecatedTabs();
 };

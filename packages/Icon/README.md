@@ -13,7 +13,7 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 - Themed and tailwind class utilities
 
 ```js
-<Button utilities={`text-bold`}>Bold</Button>
+<Button classes={`text-bold`}>Bold</Button>
 ```
 
 ## API
@@ -26,4 +26,4 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 | type      |        String         | button  | button, submit, reset                                                                           |
 | disabled  |        Boolean        |  false  |                                                                                                 |
 | children  | single/array of nodes |  null   |                                                                                                 |
-| utilities | CSS utilities classes |  empty  |                                                                                                 |
+| classes   | CSS utilities classes |  empty  |                                                                                                 |

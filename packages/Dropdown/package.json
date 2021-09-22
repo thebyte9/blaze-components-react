@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/dropdown",
-  "version": "0.8.0-alpha.21",
+  "version": "0.8.0-alpha.36",
   "description": "Drawer component is a panel that is typically used to render the content of the drawer with navigation items",
   "main": "./dist/main.js",
   "scripts": {
@@ -19,5 +19,5 @@
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
-  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
+  "gitHead": "4bfe5dcb677b6f46229be4039ba4ca7db86e7cca"
 }

@@ -143,7 +143,7 @@ export const Scrolling = TemplateScrolling.bind({});
 Default.args = {
   theme: adminTheme,
   selected: 0,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-tab 
@@ -166,7 +166,7 @@ Default.args = {
 Small.args = {
   theme: adminTheme,
   selected: 0,
-  utilities: `
+  classes: `
   font-manrope
   font-medium
   rounded-tab 
@@ -190,7 +190,7 @@ Small.args = {
 Medium.args = {
   theme: adminTheme,
   selected: 0,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-tab 
@@ -214,7 +214,7 @@ Medium.args = {
 Large.args = {
   theme: adminTheme,
   selected: 0,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-tab
@@ -237,7 +237,7 @@ Large.args = {
 Stretched.args = {
   theme: adminTheme,
   selected: 0,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-tab
@@ -261,7 +261,7 @@ Stretched.args = {
 Icon.args = {
   theme: adminTheme,
   selected: 0,
-  utilities: `
+  classes: `
     group
     font-manrope
     font-medium
@@ -285,7 +285,7 @@ Icon.args = {
 IconWithLabel.args = {
   theme: adminTheme,
   selected: 0,
-  utilities: `
+  classes: `
     group
     font-manrope
     font-medium
@@ -309,7 +309,7 @@ IconWithLabel.args = {
 Scrolling.args = {
   theme: adminTheme,
   selected: 0,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-tab 

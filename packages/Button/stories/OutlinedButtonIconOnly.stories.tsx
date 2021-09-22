@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React, { useState } from 'react';
-import Button from '../src';
+import { ButtonView } from '../src/view/ButtonView';
 import { adminTheme, frontendTheme, ThemeContext, applyTheme } from '@blaze-react/themes';
 
 export default {
   title: '@blaze-react/Button/All Stories/Outlined/Icon Only',
-  component: Button,
+  component: ButtonView,
   args: {
     selectedTheme: 'admin',
     label: 'Blaze',
@@ -61,7 +61,7 @@ const Template: Story = (args) => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Button {...args}>
+      <ButtonView {...args}>
         <div className="flex items-center justify-center">
           {args.icon === 'left' ? (
             <>
@@ -111,7 +111,7 @@ const Template: Story = (args) => {
             </>
           )}
         </div>
-      </Button>
+      </ButtonView>
     </ThemeContext.Provider>
   );
 };
@@ -121,7 +121,7 @@ export const IconOnly = Template.bind({});
 IconOnly.args = {
   icon: 'icon-only',
   theme: adminTheme,
-  utilities: `
+  classes: `
     mx-auto
     font-manrope
     font-medium
@@ -139,6 +139,7 @@ IconOnly.args = {
     hover:text-button-primary
     focus:outline-none
     active:bg-button-pressed
+    active:border-button-outlined-pressed
     text-sm
     text-center
   `,
