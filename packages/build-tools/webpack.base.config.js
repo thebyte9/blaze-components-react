@@ -39,7 +39,6 @@ module.exports = {
       '@blaze-react/chips': path.resolve(__dirname, '../Chips/src'),
       '@blaze-react/themes': path.resolve(__dirname, '../themes/src'),
       '@blaze-react/icon': path.resolve(__dirname, '../Icon/src'),
-      '@blaze-react/skeleton': path.resolve(__dirname, '../Skeleton/src'),
     },
   },
   module: {

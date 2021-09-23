@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Theme Context it should console.warn if theme is undefined 1`] = `[Function]`;
-
-exports[`Theme Context it should render correctly 1`] = `[Function]`;

@@ -1,13 +1,13 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React, { useState } from 'react';
-import { ButtonView } from '../src/view/ButtonView';
+import Button from '../src';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
 import { args, argTypes } from './shared';
-import { CustomIcon } from '@blaze-react/icon';
+import CustomIcon from '@blaze-react/icon';
 
 export default {
   title: '@blaze-react/Button/All Stories/Outlined',
-  component: ButtonView,
+  component: Button,
   args: args,
   argTypes: argTypes,
 } as Meta;
@@ -19,11 +19,11 @@ const Template: Story = (args) => {
   applyTheme(selectedTheme);
 
   return (
-    <ButtonView {...args}>
+    <Button {...args}>
       <div className="flex items-center justify-center">
         {args.icon === 'left' ? (
           <>
-            <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
               <span className="mx-1">{args.label ?? 'Blaze'}</span>
@@ -34,7 +34,7 @@ const Template: Story = (args) => {
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
 
             {args.icon !== 'no-icon' && (
-              <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+              <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             )}
 
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
@@ -43,7 +43,7 @@ const Template: Story = (args) => {
           </>
         )}
       </div>
-    </ButtonView>
+    </Button>
   );
 };
 
@@ -58,7 +58,7 @@ export const IconRight = Template.bind({});
 
 Outlined.args = {
   theme: adminTheme,
-  classes: `
+  utilities: `
     font-manrope
     font-medium
     text-bold
@@ -75,14 +75,12 @@ Outlined.args = {
     hover:bg-button-outlined-hover
     hover:text-button-primary
     focus:outline-none
-    active:bg-button-pressed
-    active:border-button-outlined-pressed
-  `,
+    active:bg-button-pressed`,
 };
 
 Disabled.args = {
   theme: adminTheme,
-  classes: `
+  utilities: `
     font-manrope
     font-medium  
     text-bold
@@ -98,14 +96,12 @@ Disabled.args = {
     hover:bg-button-outlined-hover
     hover:text-button-primary
     focus:outline-none
-    active:bg-button-pressed
-    active:border-button-outlined-pressed
-  `,
+    active:bg-button-pressed`,
 };
 
 Small.args = {
   theme: adminTheme,
-  classes: `
+  utilities: `
     font-manrope
     font-medium  
     text-bold
@@ -125,14 +121,13 @@ Small.args = {
     dark:text-button-primary
     focus:outline-none 
     active:bg-button-pressed
-    active:border-button-outlined-pressed
     text-sm
   `,
 };
 
 Medium.args = {
   theme: adminTheme,
-  classes: `
+  utilities: `
     font-manrope
     font-medium  
     text-bold
@@ -152,14 +147,13 @@ Medium.args = {
     dark:text-button-primary
     focus:outline-none 
     active:bg-button-pressed
-    active:border-button-outlined-pressed
     text-md
   `,
 };
 
 Large.args = {
   theme: adminTheme,
-  classes: `
+  utilities: `
     font-manrope
     font-medium  
     text-bold
@@ -179,7 +173,6 @@ Large.args = {
     dark:text-button-primary
     focus:outline-none 
     active:bg-button-pressed
-    active:border-button-outlined-pressed
     text-lg
   `,
 };
@@ -187,7 +180,7 @@ Large.args = {
 Stretched.args = {
   theme: adminTheme,
   icon: 'no-icon',
-  classes: `
+  utilities: `
   font-manrope
   font-medium
   text-bold
@@ -207,7 +200,6 @@ Stretched.args = {
   dark:text-button-primary
   focus:outline-none
   active:bg-button-pressed
-  active:border-button-outlined-pressed
   text-md
   `,
 };
@@ -215,7 +207,7 @@ Stretched.args = {
 IconLeft.args = {
   icon: 'left',
   theme: adminTheme,
-  classes: `
+  utilities: `
   font-manrope
   font-medium
   text-bold
@@ -233,14 +225,13 @@ IconLeft.args = {
   hover:text-button-primary
   focus:outline-none
   active:bg-button-pressed
-  active:border-button-outlined-pressed
   `,
 };
 
 IconRight.args = {
   icon: 'right',
   theme: adminTheme,
-  classes: `
+  utilities: `
   font-manrope
   font-medium
   text-bold
@@ -258,6 +249,5 @@ IconRight.args = {
   hover:text-button-primary
   focus:outline-none
   active:bg-button-pressed
-  active:border-button-outlined-pressed
   `,
 };

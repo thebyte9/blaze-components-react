@@ -1,4 +1,4 @@
-import { ButtonView } from '@blaze-react/button';
+import Button from '@blaze-react/button';
 import React from 'react';
 import Accordion from '../src/Accordion';
 import { screen, render, fireEvent } from '@testing-library/react';
@@ -15,12 +15,12 @@ const AccordionComponent = (props = { isOpen: false }) => (
         <p>Footer can be added below if needed</p>
       </Accordion.ContentDetails>
       <Accordion.ContentFooter>
-        <ButtonView name="button" modifiers={['outline', 'light', 'rounded']}>
+        <Button name="button" modifiers={['outline', 'light', 'rounded']}>
           Cancel
-        </ButtonView>
-        <ButtonView name="button" modifiers={['rounded']}>
+        </Button>
+        <Button name="button" modifiers={['rounded']}>
           Save
-        </ButtonView>
+        </Button>
       </Accordion.ContentFooter>
     </Accordion.Content>
   </Accordion>
@@ -35,12 +35,12 @@ const AccordionComponentNoHeaderChildren = (
         <p>Footer can be added below if needed</p>
       </Accordion.ContentDetails>
       <Accordion.ContentFooter>
-        <ButtonView name="button" modifiers={['outline', 'light', 'rounded']}>
+        <Button name="button" modifiers={['outline', 'light', 'rounded']}>
           Cancel
-        </ButtonView>
-        <ButtonView name="button" modifiers={['rounded']}>
+        </Button>
+        <Button name="button" modifiers={['rounded']}>
           Save
-        </ButtonView>
+        </Button>
       </Accordion.ContentFooter>
     </Accordion.Content>
   </Accordion>

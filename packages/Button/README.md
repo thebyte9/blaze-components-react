@@ -26,4 +26,4 @@ Custom button styles for actions in forms, dialogs, and more with support for mu
 | type      |        String         | button  | button, submit, reset                                                                           |
 | disabled  |        Boolean        |  false  |                                                                                                 |
 | children  | single/array of nodes |  null   |                                                                                                 |
-| classes   | CSS utilities classes |  empty  |                                                                                                 |
+| utilities | CSS utilities classes |  empty  |                                                                                                 |

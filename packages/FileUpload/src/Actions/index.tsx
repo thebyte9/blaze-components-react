@@ -1,4 +1,4 @@
-import { ButtonView } from '@blaze-react/button';
+import Button from '@blaze-react/button';
 import React from 'react';
 
 interface IActions {
@@ -11,8 +11,8 @@ interface IActions {
 
 const Actions = ({ handleBrowse, handleLibraryClick, handleChange, selectFile, actionText }: IActions) => (
   <>
-    {!handleLibraryClick && <ButtonView onClick={handleBrowse}>Browse</ButtonView>}
-    {handleLibraryClick && <ButtonView onClick={handleLibraryClick}>{actionText}</ButtonView>}
+    {!handleLibraryClick && <Button onClick={handleBrowse}>Browse</Button>}
+    {handleLibraryClick && <Button onClick={handleLibraryClick}>{actionText}</Button>}
     <input type="file" onChange={handleChange} ref={selectFile} style={{ display: 'none' }} />
   </>
 );

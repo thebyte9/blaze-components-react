@@ -1,5 +1,4 @@
-import useDebounce from './useDebounce';
-import { useInView } from './useInView';
-import { useEventListener } from './useEventListener';
+import useDebounce from "./useDebounce";
+import useInView from "./useInView/useInView";
 
-export { useDebounce, useInView, useEventListener };
+export { useDebounce, useInView };

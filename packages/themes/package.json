@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/themes",
-  "version": "0.8.0-alpha.36",
+  "version": "0.8.0-alpha.21",
   "description": "Blaze themes",
   "main": "./dist/main.js",
   "scripts": {
@@ -25,6 +25,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "4bfe5dcb677b6f46229be4039ba4ca7db86e7cca"
+  }
 }

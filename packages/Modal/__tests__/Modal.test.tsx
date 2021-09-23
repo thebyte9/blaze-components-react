@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { DeprecatedModal } from '../src/controller/Modal';
+import Modal from '../src/Modal';
 import React from 'react';
 
 const props = {
@@ -21,7 +21,7 @@ describe('Modal component', () => {
   beforeEach(() => jest.clearAllMocks());
 
   it('should match snapshot', () => {
-    const { asFragment } = render(<DeprecatedModal {...defaultProps()} />);
+    const { asFragment } = render(<Modal {...defaultProps()} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -29,12 +29,12 @@ describe('Modal component', () => {
     const override = {
       overlay: true,
     };
-    const { asFragment } = render(<DeprecatedModal {...defaultProps(override)} />);
+    const { asFragment } = render(<Modal {...defaultProps(override)} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should close modal on overlay clicked', () => {
-    const { asFragment } = render(<DeprecatedModal {...defaultProps()} />);
+    const { asFragment } = render(<Modal {...defaultProps()} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -50,7 +50,7 @@ describe('Modal component', () => {
       actions,
       isAlert: true,
     };
-    const { asFragment } = render(<DeprecatedModal {...defaultProps(override)} />);
+    const { asFragment } = render(<Modal {...defaultProps(override)} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -68,7 +68,7 @@ describe('Modal component', () => {
       isAlert: false,
     };
 
-    const { getByText } = render(<DeprecatedModal {...defaultProps(override)} />);
+    const { getByText } = render(<Modal {...defaultProps(override)} />);
 
     fireEvent.keyDown(getByText(/No content/i), {
       key: 'Escape',
@@ -95,7 +95,7 @@ describe('Modal component', () => {
       overlay: true,
     };
 
-    render(<DeprecatedModal {...defaultProps(override)} />);
+    render(<Modal {...defaultProps(override)} />);
 
     const overlay = screen.getByTestId('overlay');
     fireEvent.click(overlay);
@@ -120,6 +120,6 @@ describe('Modal component', () => {
       title: 'Scrollable Modal',
     };
 
-    render(<DeprecatedModal {...defaultProps(override)} />);
+    render(<Modal {...defaultProps(override)} />);
   });
 });

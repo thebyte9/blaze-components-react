@@ -2,14 +2,14 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { ButtonView } from '@blaze-react/button';
+import Button from '@blaze-react/button';
 import ButtonSelect from '../src';
 import React from 'react';
 
 const component = (
   <ButtonSelect text="Actions">
-    <ButtonView>Settings</ButtonView>
-    <ButtonView>Sign out</ButtonView>
+    <Button>Settings</Button>
+    <Button>Sign out</Button>
   </ButtonSelect>
 );
 

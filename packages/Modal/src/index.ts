@@ -1,4 +1,3 @@
-import { Modal } from './controller/Modal';
-import { ModalView } from './view/ModalView';
+import Modal from './Modal';
 
-export default { Modal, ModalView };
+export default Modal;

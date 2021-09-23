@@ -1,4 +1,4 @@
-import { ButtonView } from '@blaze-react/button';
+import Button from '@blaze-react/button';
 import React, { Fragment, FunctionComponent, useState } from 'react';
 import { buildClassNames } from '@blaze-react/utils';
 
@@ -23,9 +23,9 @@ const Alert: FunctionComponent<IAlertProps> = ({ children, close, icon, type, ..
       {icon && <i className="material-icons">{icon}</i>}
       {children}
       {close && (
-        <ButtonView onClick={() => setModalOff(true)} className="icon-button icon-button--close">
+        <Button onClick={() => setModalOff(true)} className="icon-button icon-button--close">
           <i className="material-icons">close</i>
-        </ButtonView>
+        </Button>
       )}
     </div>
   );

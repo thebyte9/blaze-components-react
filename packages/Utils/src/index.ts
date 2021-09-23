@@ -1,5 +1,5 @@
 import buildClassNames from './buildClassNames';
-import { useDebounce, useInView, useEventListener } from './customHooks';
+import { useDebounce, useInView } from './customHooks';
 import ErrorMessage from './ErrorMessage';
 
-export { useDebounce, useInView, buildClassNames, ErrorMessage, useEventListener };
+export { useDebounce, useInView, buildClassNames, ErrorMessage };

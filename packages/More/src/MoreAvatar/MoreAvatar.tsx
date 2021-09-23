@@ -1,4 +1,4 @@
-import { ButtonView } from '@blaze-react/button';
+import Button from '@blaze-react/button';
 import { buildClassNames } from '@blaze-react/utils';
 import React, { Fragment } from 'react';
 interface IMoreAvatarProps {
@@ -30,7 +30,7 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
   });
 
   return (
-    <ButtonView onClick={handleToggle} className={buttonClassName} {...props} data-testid="more-avatar-button">
+    <Button onClick={handleToggle} className={buttonClassName} {...props} data-testid="more-avatar-button">
       {isHeader ? (
         <Fragment>
           <span className="dropdown__name">{label}</span>
@@ -39,7 +39,7 @@ const MoreAvatar: React.SFC<IMoreAvatarProps> = ({
       ) : (
         <Fragment>{React.Children.map(children, (child: any) => React.cloneElement(child))}</Fragment>
       )}
-    </ButtonView>
+    </Button>
   );
 };
 

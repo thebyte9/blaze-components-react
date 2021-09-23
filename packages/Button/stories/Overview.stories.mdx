@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { ButtonView } from '../src/view/ButtonView';
+import Button from '../src';
 
 <Meta
   title="@blaze-react/Button/Overview"
-  component={ButtonView}
+  component={Button}
   argTypes={{
     selectedTheme: {
       options: ['admin', 'frontend'],
@@ -66,4 +66,4 @@ Description here ...
 | type      | string  | button  |            | button, submit, reset                                                                           |
 | disabled  | boolean |  false  |            |                                                                                                 |
 | children  | unknown |  null   |            | JSX element or string                                                                           |
-| classes   | string  |  empty  |            | Tailwind utilities classes                                                                      |
+| utilities | string  |  empty  |            | Tailwind utilities classes                                                                      |

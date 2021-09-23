@@ -1,12 +1,12 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import { ButtonView } from '../src/view/ButtonView';
+import Button from '../src';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
-import { CustomIcon } from '@blaze-react/icon';
+import CustomIcon from '@blaze-react/icon';
 
 export default {
   title: '@blaze-react/Button/All Stories/Filled/Icon Only',
-  component: ButtonView,
+  component: Button,
   args: {
     selectedTheme: 'admin',
     label: 'Blaze',
@@ -69,11 +69,11 @@ const Template: Story = (args) => {
   applyTheme(selectedTheme);
 
   return (
-    <ButtonView {...args}>
+    <Button {...args}>
       <div className="flex items-center justify-center">
         {args.icon === 'left' ? (
           <>
-            <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
               <span className="mx-1">{args.label ?? 'Blaze'}</span>
@@ -84,7 +84,7 @@ const Template: Story = (args) => {
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
 
             {args.icon !== 'no-icon' && (
-              <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+              <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             )}
 
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
@@ -93,7 +93,7 @@ const Template: Story = (args) => {
           </>
         )}
       </div>
-    </ButtonView>
+    </Button>
   );
 };
 
@@ -102,7 +102,7 @@ export const IconOnly = Template.bind({});
 IconOnly.args = {
   theme: adminTheme,
   icon: 'icon-only',
-  classes: `
+  utilities: `
     font-manrope
     font-medium
     rounded-full
@@ -117,6 +117,5 @@ IconOnly.args = {
     text-base-primary 
     hover:bg-button-hover 
     focus:outline-none 
-    active:bg-button-pressed
-    `,
+    active:bg-button-pressed`,
 };

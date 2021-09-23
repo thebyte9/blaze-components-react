@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/file-upload",
-  "version": "0.8.0-alpha.36",
+  "version": "0.8.0-alpha.21",
   "description": "FileUpload component",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@blaze-react/utils": "^0.8.0-alpha.36",
+    "@blaze-react/utils": "^0.8.0-alpha.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -24,5 +24,5 @@
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0"
   },
-  "gitHead": "4bfe5dcb677b6f46229be4039ba4ca7db86e7cca"
+  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
 }

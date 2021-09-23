@@ -1,37 +1,78 @@
-import React from 'react';
-import { InputType, LayoutType, DisplayErrorAs, InputState } from '../src/types';
-import { BlazeInput as Input } from '@blaze-react/input';
-import { preset, ThemeProvider } from '@blaze-react/themes';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { inputArgTypes } from './shared';
+import "@blaze-react/blaze-components-theme";
+import { storiesOf } from "@storybook/react";
+import React, { lazy, Suspense } from "react";
+import inputReadme from "../README.md";
 
-export default {
-  title: '@blaze-react/Input',
-  component: Input,
-  argTypes: inputArgTypes,
-  parameters: { actions: { argTypesRegex: '^on.*' } },
-} as ComponentMeta<typeof Input>;
+storiesOf("Text Inputs", module)
+  .addParameters({
+    readme: {
+      sidebar: inputReadme
+    }
+  })
+  .add("Introduction", () => {
+    const Input: any = lazy(() => import("../src/Input"));
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="component-wrapper">
+          <section className="introductionSection">
+            <h1>Text Inputs</h1>
+            <p>Create basic single-line text fields.</p>
+          </section>
 
-const Template: ComponentStory<typeof Input> = (args) => {
-  return (
-    <ThemeProvider theme={preset}>
-      <div className="max-w-xl py-12 mx-auto md:max-w-4xl component-wrapper">
-        <Input {...args} error />
-      </div>
-    </ThemeProvider>
-  );
-};
+          <h4>Required</h4>
+          <Input
+            label="Required field with error activated"
+            placeholder="Enter email"
+            validationMessage="Email address is required"
+            onChange={(): void => {
+              return;
+            }}
+            type="email"
+            required
+            error
+          />
+          <h4>Number</h4>
+          <Input
+            label="Number Input"
+            value="9"
+            onChange={(): void => {
+              return;
+            }}
+            type="number"
+          />
+          <h4>Disabled</h4>
+          <Input
+            label="Text input disabled"
+            placeholder="Placeholder text"
+            onChange={(): void => {
+              return;
+            }}
+            modifier="full-width"
+            hideTypeToggle
+            disabled
+          />
 
-export const Default = Template.bind({});
+          <h4>Password toggle type</h4>
+          <Input
+            label="Password - show hide"
+            placeholder="******"
+            onChange={(): void => {
+              return;
+            }}
+            type="password"
+            value="Lorem ipsum"
+          />
 
-Default.args = {
-  theme: preset,
-  loading: false,
-  label: 'Input (text)',
-  layout: LayoutType.Vertical,
-  type: InputType.Text,
-  placeholder: 'Text',
-  currentState: InputState.Error,
-  displayError: DisplayErrorAs.Message,
-  errorMessage: 'Enter a valid email address',
-};
+          <h4>Date</h4>
+          <Input
+            label="Date Picker"
+            placeholder="******"
+            onChange={(): void => {
+              return;
+            }}
+            type="date"
+          />
+        </div>
+      </Suspense>
+    );
+  });

@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/badge",
-  "version": "0.8.0-alpha.36",
+  "version": "0.8.0-alpha.21",
   "description": "Badges are small components typically used to communicate a numerical value or indicate the status of an item to the user",
   "main": "./dist/main.js",
   "scripts": {
@@ -23,5 +23,5 @@
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
-  "gitHead": "4bfe5dcb677b6f46229be4039ba4ca7db86e7cca"
+  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
 }
