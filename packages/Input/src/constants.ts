@@ -1,0 +1,15 @@
+export const CONTAINER = 'container';
+export const COMPONENT = 'input';
+export const DEFAULT_VARIANT = 'default';
+export const SKELETON = 'skeleton';
+export const LABEL = 'label';
+export const INPUT = 'input';
+export const TEXT = 'text';
+export const VERTICAL = 'vertical';
+export const HORIZONTAL = 'horizontal';
+export const ERROR = 'error';
+export const SUCCESS = 'success';
+export const LOADING = 'loading';
+export const WARNING = 'warning';
+export const MESSAGE = 'message';
+export const ICON = 'icon';

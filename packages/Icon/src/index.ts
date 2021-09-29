@@ -1,3 +1,4 @@
-import CustomIcon from './CustomIcon';
+import { CustomIcon } from './CustomIcon';
+import { Icon } from './Icon';
 
-export default CustomIcon;
+export { Icon, CustomIcon };

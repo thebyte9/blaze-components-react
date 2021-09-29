@@ -73,6 +73,7 @@ module.exports = {
           '@blaze-react/themes': path.resolve(__dirname, '../packages/themes/src'),
           '@blaze-react/modal': path.resolve(__dirname, '../packages/Modal/src'),
           '@blaze-react/icon': path.resolve(__dirname, '../packages/Icon/src'),
+          '@blaze-react/skeleton': path.resolve(__dirname, '../packages/Skeleton/src'),
         },
       },
     };

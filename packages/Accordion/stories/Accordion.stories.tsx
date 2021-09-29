@@ -1,4 +1,4 @@
-import Button from '@blaze-react/button';
+import { Button } from '@blaze-react/button';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import AccordionReadme from '../README.md';

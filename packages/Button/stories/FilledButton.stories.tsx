@@ -1,13 +1,13 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
-import Button from '../src';
+import { ButtonView } from '../src/view/ButtonView';
 import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
-import CustomIcon from '@blaze-react/icon';
+import { CustomIcon } from '@blaze-react/icon';
 import { args, argTypes } from './shared';
 
 export default {
   title: '@blaze-react/Button/All Stories/Filled',
-  component: Button,
+  component: ButtonView,
   args: args,
   argTypes: argTypes,
 } as Meta;
@@ -18,11 +18,11 @@ const Template: Story = (args) => {
   applyTheme(selectedTheme);
 
   return (
-    <Button {...args}>
+    <ButtonView {...args}>
       <div className="flex items-center justify-center">
         {args.icon === 'left' ? (
           <>
-            <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+            <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
               <span className="mx-1">{args.label ?? 'Blaze'}</span>
@@ -33,7 +33,7 @@ const Template: Story = (args) => {
             {args.icon !== 'icon-only' && <span className="mx-1">{args.label ?? 'Blaze'}</span>}
 
             {args.icon !== 'no-icon' && (
-              <CustomIcon utilities="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
+              <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={args.svgIcon} />
             )}
 
             {args.icon === 'icon-only' && args.icon === 'with-text' && (
@@ -42,7 +42,7 @@ const Template: Story = (args) => {
           </>
         )}
       </div>
-    </Button>
+    </ButtonView>
   );
 };
 
@@ -57,7 +57,7 @@ export const IconRight = Template.bind({});
 
 Filled.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-button 
@@ -76,7 +76,7 @@ Filled.args = {
 
 Disabled.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-button 
@@ -93,7 +93,7 @@ Disabled.args = {
 
 Small.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-button 
@@ -114,7 +114,7 @@ Small.args = {
 
 Medium.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-button 
@@ -135,7 +135,7 @@ Medium.args = {
 
 Large.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-button-large 
@@ -156,7 +156,7 @@ Large.args = {
 
 Stretched.args = {
   theme: adminTheme,
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-button 
@@ -178,7 +178,7 @@ Stretched.args = {
 IconLeft.args = {
   theme: adminTheme,
   icon: 'left',
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-button 
@@ -198,7 +198,7 @@ IconLeft.args = {
 IconRight.args = {
   theme: adminTheme,
   icon: 'right',
-  utilities: `
+  classes: `
     font-manrope
     font-medium
     rounded-button 

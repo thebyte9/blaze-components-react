@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/alert",
-  "version": "0.8.0-alpha.21",
+  "version": "0.8.0-alpha.36",
   "description": "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages. Alerts may have a type, be dismissable, include a close button, and contain any sort of children components.",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@blaze-react/utils": "^0.8.0-alpha.21",
+    "@blaze-react/utils": "^0.8.0-alpha.36",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -24,5 +24,5 @@
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
-  "gitHead": "91fa52db7188d6090f03041963d00fa3405a7dcb"
+  "gitHead": "4bfe5dcb677b6f46229be4039ba4ca7db86e7cca"
 }
