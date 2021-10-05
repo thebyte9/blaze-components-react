@@ -7,6 +7,7 @@ import { useVariant } from '../hooks/useVariant';
 type ThemeContextType = {
   theme: ThemeType;
   setTheme: (theme: ThemeType) => void;
+  showSkeleton: boolean;
 };
 
 interface IUseThemeProps {
@@ -18,6 +19,7 @@ interface IUseThemeProps {
 
 export const ThemeContext = createContext<ThemeContextType>({
   theme: preset,
+  showSkeleton: false,
   setTheme: (theme: ThemeType) => {
     if (!theme) {
       console.warn('Theme not provided');
@@ -29,7 +31,7 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const useTheme = ({ component, element = 'container', variant = 'default', theme }: IUseThemeProps): any => {
-  const { theme: themeFromContext } = useContext(ThemeContext);
+  const { theme: themeFromContext, showSkeleton = false } = useContext(ThemeContext);
 
   const currentTheme = theme ?? themeFromContext;
 
@@ -42,5 +44,5 @@ export const useTheme = ({ component, element = 'container', variant = 'default'
 
   const variants = currentTheme[component].variants ?? '';
 
-  return { variant: componentVariant, variants: variants };
+  return { variant: componentVariant, variants: variants, showSkeleton };
 };
