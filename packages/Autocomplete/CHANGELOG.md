@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.39](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.38...v0.8.0-alpha.39) (2021-10-05)
+
+**Note:** Version bump only for package @blaze-react/autocomplete
+
+
+
+
+
 # [0.8.0-alpha.38](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.37...v0.8.0-alpha.38) (2021-10-05)
 
 **Note:** Version bump only for package @blaze-react/autocomplete
