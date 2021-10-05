@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
+
+**Note:** Version bump only for package @blaze-react/select
+
+
+
+
+
 # [0.8.0-alpha.37](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.36...v0.8.0-alpha.37) (2021-10-05)
 
 **Note:** Version bump only for package @blaze-react/select
