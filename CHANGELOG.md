@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.37](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.36...v0.8.0-alpha.37) (2021-10-05)
+
+
+### Features
+
+* add showSkeleton to ThemeProvider ([5c611ed](https://github.com/thebyte9/blaze-components-react/commit/5c611ed9b4232ab5358cf1c4f7b8120d27ced163))
+
+
+
+
+
 # [0.8.0-alpha.36](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.35...v0.8.0-alpha.36) (2021-09-08)
 
 **Note:** Version bump only for package blaze-react
