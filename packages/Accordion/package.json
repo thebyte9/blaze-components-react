@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/accordion",
-  "version": "0.8.0-alpha.37",
+  "version": "0.8.0-alpha.38",
   "description": "Accordion component is a list of headers that hide or reveal additional content when selected",
   "main": "./dist/main.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
-    "@blaze-react/button": "^0.8.0-alpha.37",
+    "@blaze-react/button": "^0.8.0-alpha.38",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
