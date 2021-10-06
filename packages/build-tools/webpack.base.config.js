@@ -12,9 +12,13 @@ module.exports = {
     path: path.resolve('./dist'),
     filename: '[name].js',
     clean: true,
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs2',
     library: '@blaze-react',
     globalObject: 'this',
+  },
+  externals: {
+    react: "commonjs react",
+    "react-dom": "commonjs react-dom",
   },
   optimization: {
     minimize: true,
@@ -97,5 +101,6 @@ module.exports = {
       generateStatsFile: true,
       statsFilename: path.resolve('./stats/stats.json'),
     }),
+   
   ],
 };
