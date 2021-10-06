@@ -2,7 +2,6 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
 import { Skeleton } from '@blaze-react/skeleton';
 import { preset, ThemeProvider } from '@blaze-react/themes';
-import { controllerArgs, controllerArgTypes } from './shared';
 
 export default {
   title: '@blaze-react/Skeleton',
