@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/input",
-  "version": "0.8.0-alpha.45",
+  "version": "0.8.0-alpha.46",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -20,9 +20,9 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
-    "@blaze-react/icon": "^0.8.0-alpha.45",
-    "@blaze-react/skeleton": "^0.8.0-alpha.45",
-    "@blaze-react/themes": "^0.8.0-alpha.45",
+    "@blaze-react/icon": "^0.8.0-alpha.46",
+    "@blaze-react/skeleton": "^0.8.0-alpha.46",
+    "@blaze-react/themes": "^0.8.0-alpha.46",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

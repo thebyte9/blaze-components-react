@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/text-area",
-  "version": "0.8.0-alpha.45",
+  "version": "0.8.0-alpha.46",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.45",
+    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.46",
     "webpack": "^5.29.0",
     "webpack-cli": "^4.6.0"
   },
