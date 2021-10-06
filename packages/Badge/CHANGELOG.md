@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.43](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.42...v0.8.0-alpha.43) (2021-10-06)
+
+**Note:** Version bump only for package @blaze-react/badge
+
+
+
+
+
 # [0.8.0-alpha.42](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.41...v0.8.0-alpha.42) (2021-10-06)
 
 **Note:** Version bump only for package @blaze-react/badge
