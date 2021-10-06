@@ -12,13 +12,9 @@ module.exports = {
     path: path.resolve('./dist'),
     filename: '[name].js',
     clean: true,
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
     library: '@blaze-react',
     globalObject: 'this',
-  },
-  externals: {
-    react: "commonjs react",
-    "react-dom": "commonjs react-dom",
   },
   optimization: {
     minimize: true,
