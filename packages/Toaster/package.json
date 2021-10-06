@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/toaster",
-  "version": "0.8.0-alpha.38",
+  "version": "0.8.0-alpha.40",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
