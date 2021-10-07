@@ -8,5 +8,8 @@ export const Skeleton = ({ classes, children, theme, variant, overrides = [] }: 
     componentVariant: variant,
     theme: theme,
   });
-  return showSkeleton ? <div className={classes ?? container}>{children}</div> : null;
+
+  const className = classes === undefined ? container : classes;
+
+  return showSkeleton ? <div className={className}>{children}</div> : null;
 };
