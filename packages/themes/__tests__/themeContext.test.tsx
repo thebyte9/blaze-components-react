@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render } from '@testing-library/react';
 import { ThemeContext } from '../src/context/themeContext';
 import { ThemeProvider } from '../src/context/themeProvider';
 import { preset } from '@blaze-react/themes';

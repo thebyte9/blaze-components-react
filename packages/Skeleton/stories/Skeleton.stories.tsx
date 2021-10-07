@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import React from 'react';
+import React, { useState } from 'react';
 import { Skeleton } from '@blaze-react/skeleton';
 import { preset, ThemeProvider } from '@blaze-react/themes';
 
@@ -29,8 +29,9 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => {
+  const [theme, setTheme] = useState(preset);
   return (
-    <ThemeProvider theme={preset} showSkeleton>
+    <ThemeProvider theme={theme} setTheme={setTheme} showSkeleton>
       <div className="h-48">
         <Skeleton {...args} />
       </div>
@@ -40,6 +41,4 @@ const Template: Story = (args) => {
 
 export const Default = Template.bind({});
 
-Default.args = {
-  theme: preset;
-};
+Default.args = {};
