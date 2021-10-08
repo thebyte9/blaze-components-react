@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/button",
-  "version": "0.8.0-alpha.48",
+  "version": "0.8.0-alpha.49",
   "description": "Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.",
   "main": "./dist/main.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "@blaze-react/icon": "^0.8.0-alpha.46",
-    "@blaze-react/themes": "^0.8.0-alpha.48",
+    "@blaze-react/themes": "^0.8.0-alpha.49",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
