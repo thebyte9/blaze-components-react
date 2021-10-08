@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/tab",
-  "version": "0.8.0-alpha.47",
+  "version": "0.8.0-alpha.48",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
-    "@blaze-react/button": "^0.8.0-alpha.47",
+    "@blaze-react/button": "^0.8.0-alpha.48",
     "@blaze-react/icon": "^0.8.0-alpha.46",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
