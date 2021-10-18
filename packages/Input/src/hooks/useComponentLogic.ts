@@ -25,7 +25,16 @@ interface IComponentLogicProps {
   currentState: InputState;
 }
 
-export const useComponentLogic = ({ componentVariant = DEFAULT_VARIANT, theme, overrides }: IComponentLogicProps) => {
+interface IComponentLogicProps {
+  componentVariant: string;
+  element?: string;
+  theme: ThemeType;
+  overrides: string[];
+  type: InputType;
+  currentState: InputState;
+}
+
+export const useComponentLogic = ({ componentVariant = DEFAULT_VARIANT, theme, overrides }: IComponentLogicProps): unknown => {
   // Theme logic
   const { variant, variants } = useTheme({
     component: COMPONENT,

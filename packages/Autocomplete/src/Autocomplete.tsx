@@ -7,11 +7,11 @@ interface IAutocompleteProps {
     filterBy: string[];
     data: Record<string, unknown>[];
   };
-  selected?: (...args: any[]) => any;
+  selected?: (...args: unknown[]) => unknown;
   label?: string;
   placeholder?: string;
   disabled?: boolean;
-  inputProps?: any;
+  inputProps?: unknown;
 }
 
 const Autocomplete: React.SFC<IAutocompleteProps> = ({
@@ -31,10 +31,10 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     filterByValue(value);
   };
 
-  const filterByValue = (value: string): any[] =>
-    data.filter((copy: any) => !!keys.some((key) => copy[key].toLowerCase().includes(value.toLowerCase())));
+  const filterByValue = (value: string): unknown[] =>
+    data.filter((copy: unknown) => !!keys.some((key) => copy[key].toLowerCase().includes(value.toLowerCase())));
 
-  const handleClick = (copiedData: any): void => {
+  const handleClick = (copiedData: unknown): void => {
     setInputValue(copiedData[keyValue]);
     setShowSelect(false);
     selected && selected(copiedData);
@@ -53,7 +53,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
 
       {showSelect &&
         filterByValue(inputValue).map(
-          (copiedData: any, key: number): JSX.Element => (
+          (copiedData: unknown, key: number): JSX.Element => (
             <div
               className="panel"
               key={`panel-${key}`}
