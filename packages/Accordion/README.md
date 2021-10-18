@@ -31,7 +31,10 @@ Accordion component is a list of headers that hide or reveal additional content 
 
 ##### Accordion menu can receive a number of `props` as follow:
 
-| NAME     |         TYPE          | DEFAULT |
-| :------- | :-------------------: | :-----: |
-| isOpen   |        Boolean        |  false  |
-| children | single/array of nodes |  empty  |
+| NAME     |         TYPE          |  DEFAULT   |
+| :------- | :-------------------: | :--------: |
+| isOpen   |        Boolean        |   false    |
+| isOpen   |        Boolean        |   false    |
+| onOpen   |       Function        | () => void |
+| onClose  |       Function        | () => void |
+| children | single/array of nodes |   empty    |
