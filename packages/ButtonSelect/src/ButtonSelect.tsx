@@ -8,8 +8,8 @@ const menuStyles = {
 
 interface IButtonSelectProps {
   text?: string;
-  children?: any;
-  Attr?: any;
+  children?: unknown;
+  Attr?: unknown;
 }
 
 const ButtonSelect: FunctionComponent<IButtonSelectProps> = ({ text, children, ...Attr }) => {
