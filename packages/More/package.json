@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/more",
-  "version": "0.8.0-alpha.36",
+  "version": "0.8.0-alpha.46",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -24,5 +24,5 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "gitHead": "4bfe5dcb677b6f46229be4039ba4ca7db86e7cca"
+  "gitHead": "d9cac6fc28dad1d0794718aac09d292019446698"
 }

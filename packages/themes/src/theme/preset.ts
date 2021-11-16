@@ -3,6 +3,7 @@ import { button } from './components/button';
 import { modal } from './components/modal';
 import { navbar } from './components/navbar';
 import { input } from './components/input';
+import { skeleton } from './components/skeleton';
 
 export const preset: ThemeType = {
   button: {
@@ -16,5 +17,8 @@ export const preset: ThemeType = {
   },
   input: {
     ...input,
+  },
+  skeleton: {
+    ...skeleton,
   },
 };

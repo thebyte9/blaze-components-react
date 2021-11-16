@@ -11,6 +11,7 @@ function withOpacity(variableName) {
 }
 
 module.exports = {
+  mode: 'aot',
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {

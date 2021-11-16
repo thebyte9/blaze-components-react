@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/tab",
-  "version": "0.8.0-alpha.36",
+  "version": "0.8.0-alpha.49",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -20,10 +20,10 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
-    "@blaze-react/button": "^0.8.0-alpha.36",
-    "@blaze-react/icon": "^0.8.0-alpha.36",
+    "@blaze-react/button": "^0.8.0-alpha.49",
+    "@blaze-react/icon": "^0.8.0-alpha.46",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "gitHead": "4bfe5dcb677b6f46229be4039ba4ca7db86e7cca"
+  "gitHead": "6e7fd8d59476e6d7c5ef48cb9b7bfc47c387f332"
 }
