@@ -18,7 +18,7 @@
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
-    "@types/react-datepicker": "^3.1.8"
+    "@types/react-datepicker": "^4.3.1"
   },
   "dependencies": {
     "react-datepicker": "^3.7.0",
