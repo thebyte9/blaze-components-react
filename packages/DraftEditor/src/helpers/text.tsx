@@ -204,6 +204,17 @@ const handleKeyCommand = ({
   return KEY_BINDING_NOT_HANDLED;
 };
 
+const handleReturn = (
+  event: React.KeyboardEvent<Record<string, unknown>>,
+  handleChange: (editorState: EditorState, source?: string
+  ) => void, editorState: EditorState) => {
+  if (event.shiftKey) {
+    handleChange(RichUtils.insertSoftNewline(editorState));
+    return KEY_BINDING_HANDLED;
+  }
+  return KEY_BINDING_NOT_HANDLED;
+};
+
 interface IAddLink {
   url: string;
   linkState: any;
@@ -268,4 +279,5 @@ export {
   handleAddLink,
   clearEditor,
   IAddLink,
+  handleReturn
 };

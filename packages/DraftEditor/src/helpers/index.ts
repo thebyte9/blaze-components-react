@@ -25,6 +25,7 @@ import {
   handleKeyCommand,
   handleAddLink,
   clearEditor,
+  handleReturn
 } from './text';
 
 import { handleCreate, generateRibbon } from './toolbar';
@@ -56,4 +57,5 @@ export {
   generateRibbon,
   composeKey,
   isValidJSON,
+  handleReturn
 };

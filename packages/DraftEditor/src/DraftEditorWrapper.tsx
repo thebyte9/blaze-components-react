@@ -23,7 +23,8 @@ import {
   customBlockStyle,
   customBlockRenderer,
   handleKeyCommand,
-  handleAddLink,
+  handleAddLink,,
+  handleReturn
 } from './helpers';
 
 import BaseComponent from './BaseComponent';
@@ -211,6 +212,7 @@ const DraftEditorWrapper = ({
     customBlockRenderer,
     handleOnBlur,
     handleOnFocus,
+    handleReturn
   };
 
   const { editorState } = state;

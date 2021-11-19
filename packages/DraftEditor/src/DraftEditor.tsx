@@ -41,6 +41,7 @@ const DraftEditor = ({
   customBlockRenderer,
   handleOnBlur,
   handleOnFocus,
+  handleReturn
 }: IEditor): JSX.Element => {
   return (
     <div className="editor-view__textblock--editor">
@@ -65,6 +66,7 @@ const DraftEditor = ({
         blockRendererFn={customBlockRenderer}
         onBlur={(e) => handleOnBlur(e)}
         onFocus={(e) => handleOnFocus(e)}
+        handleReturn={e => handleReturn(e, handleChange, editorState)}
       />
     </div>
   );
@@ -87,6 +89,7 @@ DraftEditor.propTypes = {
   customBlockRenderer: PropTypes.func.isRequired,
   handleOnBlur: PropTypes.func.isRequired,
   handleOnFocus: PropTypes.func.isRequired,
+  handleReturn: PropTypes.func.isRequired
 };
 
 export default DraftEditor;
