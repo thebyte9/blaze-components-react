@@ -97,5 +97,6 @@ module.exports = {
       generateStatsFile: true,
       statsFilename: path.resolve('./stats/stats.json'),
     }),
+   
   ],
 };

@@ -1,18 +1,17 @@
 import { ThemeType } from '../types';
-import React, { useState } from 'react';
+import React from 'react';
 import { ThemeContext } from './themeContext';
 
 interface ThemeProviderProps {
   theme: ThemeType;
   showSkeleton: boolean;
   children: unknown;
+  setTheme?: (theme: ThemeType) => void;
 }
 
-export function ThemeProvider({ theme, showSkeleton, children }: ThemeProviderProps): JSX.Element {
-  const [currentTheme, setTheme] = useState(theme);
-
+export function ThemeProvider({ theme, setTheme, showSkeleton, children }: ThemeProviderProps): JSX.Element {
   return (
-    <ThemeContext.Provider value={{ theme: currentTheme, setTheme: setTheme, showSkeleton: showSkeleton }}>
+    <ThemeContext.Provider value={{ theme: theme, setTheme: setTheme, showSkeleton: showSkeleton }}>
       {children}
     </ThemeContext.Provider>
   );

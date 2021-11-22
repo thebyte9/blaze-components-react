@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.8.0-alpha.40](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.37...v0.8.0-alpha.40) (2021-10-06)
+# [0.8.0-alpha.46](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.45...v0.8.0-alpha.46) (2021-10-06)
 
 **Note:** Version bump only for package @blaze-react/range-slider
 
@@ -11,7 +11,79 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.8.0-alpha.38](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.37...v0.8.0-alpha.38) (2021-10-06)
+
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+# [0.8.0-alpha.45](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.44...v0.8.0-alpha.45) (2021-10-06)
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+# [0.8.0-alpha.44](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.43...v0.8.0-alpha.44) (2021-10-06)
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+# [0.8.0-alpha.43](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.42...v0.8.0-alpha.43) (2021-10-06)
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+# [0.8.0-alpha.42](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.41...v0.8.0-alpha.42) (2021-10-06)
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+# [0.8.0-alpha.41](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.39...v0.8.0-alpha.41) (2021-10-06)
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+# [0.8.0-alpha.40](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.39...v0.8.0-alpha.40) (2021-10-06)
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+# [0.8.0-alpha.39](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.38...v0.8.0-alpha.39) (2021-10-05)
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+# [0.8.0-alpha.38](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.37...v0.8.0-alpha.38) (2021-10-05)
+
+**Note:** Version bump only for package @blaze-react/range-slider
+
+
+
+
+
+
 
 **Note:** Version bump only for package @blaze-react/range-slider
 

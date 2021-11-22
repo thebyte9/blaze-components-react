@@ -31,7 +31,13 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const useTheme = ({ component, element = 'container', variant = 'default', theme }: IUseThemeProps): any => {
-  const { theme: themeFromContext, showSkeleton = false } = useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+
+  if (context === undefined) {
+    throw new Error('useContext must be used within a ThemeProvider');
+  }
+
+  const { theme: themeFromContext, showSkeleton = false } = context;
 
   const currentTheme = theme ?? themeFromContext;
 
