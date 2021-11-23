@@ -1,8 +1,23 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import React, { useState } from 'react';
 
+import React from 'react';
 import { SvgIcon } from '../src';
 import { default as icons } from '../src/fontawesome/icons'
+
+const capitalize = (s) => {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+const parseIconName = (name) => {
+  if (name.includes('-')) {
+    const ary = name.split('-');
+    const left = capitalize(ary[1]);
+    return ary[0] + left;
+  }
+
+  return name;
+}
 
 export default {
   title: '@blaze-react/Icon/All Stories/SvgIcon',
@@ -33,7 +48,8 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => {  
-  return <SvgIcon svg={icons[args.name]} classes={args.classes}/>;
+  const name = parseIconName(args.name);
+  return <SvgIcon svg={icons[name]} classes={args.classes}/>;
 };
 
 export const Fontawesome = Template.bind({});

@@ -7,16 +7,16 @@ import { Icon } from '../src';
 
 #### Icons symbolise common actions, files, devices, and directories.
 
-# Custom Icon
+# SvgIcon
 
-#### A custom SVG icon can be used by setting the `content` property.
+#### SvgIcon implements the [Facade Pattern](https://en.wikipedia.org/wiki/Facade_pattern) to allow Blaze users use their favourite icon packs, e.g. Fontawesome or Material UI.
 
 # Examples
 
-## Academic cap
+## Address Icon
 
 <Canvas>
-  <Story id="blaze-react-icon-all-stories-custom--custom" />
+  <Story id="blaze-react-icon-all-stories-svgicon--fontawesome&args=name:ad" />
 </Canvas>
 
 # Usage guidelines
@@ -34,4 +34,4 @@ Description here ...
 | NAME    |  TYPE  | DEFAULT | VALUES                      |
 | :------ | :----: | :-----: | --------------------------- |
 | classes | string |  empty  | Tailwind utility classes    |
-| content | string | string  | SVG path and other elements |
+| svg     | string | string  | SVG icon                    |

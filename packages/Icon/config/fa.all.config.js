@@ -1,4 +1,4 @@
-const common = require('./common.config');
+const common = require('./fa.base.config');
 
 const icons = {
   ...common,

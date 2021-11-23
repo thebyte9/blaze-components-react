@@ -4,7 +4,7 @@
   "description": "Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.",
   "main": "./dist/main.js",
   "scripts": {
-    "build:icons": "svg-to-ts --config ./config/fa.config.js",
+    "build:icons": "svg-to-ts --config ./config/fa.all.config.js",
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
     "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --fix",
