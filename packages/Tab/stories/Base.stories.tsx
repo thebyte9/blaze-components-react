@@ -1,7 +1,8 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import React from 'react';
 import { Tab, TabItem } from '../src';
-import { adminTheme, frontendTheme, applyTheme } from '@blaze-react/themes';
+import { adminTheme, applyTheme, frontendTheme } from '@blaze-react/themes';
+
+import React from 'react';
 
 export default {
   title: '@blaze-react/Tab/All Stories',
@@ -258,53 +259,53 @@ Stretched.args = {
   `,
 };
 
-Icon.args = {
-  theme: adminTheme,
-  selected: 0,
-  classes: `
-    group
-    font-manrope
-    font-medium
-    rounded-full 
-    bg-tab-primary 
-    text-tab-base 
-    w-10
-    h-10
-    min-w-min 
-    dark:bg-gray-800 
-    dark:text-tab-base 
-    text-tab-base 
-    hover:bg-tab-hover 
-    hover:text-tab-inverted
-    focus:outline-none 
-    active:bg-tab-hover
-    text-md
-    mr-3`,
-};
+// Icon.args = {
+//   theme: adminTheme,
+//   selected: 0,
+//   classes: `
+//     group
+//     font-manrope
+//     font-medium
+//     rounded-full 
+//     bg-tab-primary 
+//     text-tab-base 
+//     w-10
+//     h-10
+//     min-w-min 
+//     dark:bg-gray-800 
+//     dark:text-tab-base 
+//     text-tab-base 
+//     hover:bg-tab-hover 
+//     hover:text-tab-inverted
+//     focus:outline-none 
+//     active:bg-tab-hover
+//     text-md
+//     mr-3`,
+// };
 
-IconWithLabel.args = {
-  theme: adminTheme,
-  selected: 0,
-  classes: `
-    group
-    font-manrope
-    font-medium
-    rounded-full 
-    bg-tab-primary 
-    text-tab-base 
-    w-20
-    h-20
-    min-w-min 
-    dark:bg-gray-800 
-    dark:text-tab-base 
-    text-tab-base 
-    hover:bg-tab-hover 
-    hover:text-tab-inverted
-    focus:outline-none 
-    active:bg-tab-hover
-    text-md
-    mr-3`,
-};
+// IconWithLabel.args = {
+//   theme: adminTheme,
+//   selected: 0,
+//   classes: `
+//     group
+//     font-manrope
+//     font-medium
+//     rounded-full 
+//     bg-tab-primary 
+//     text-tab-base 
+//     w-20
+//     h-20
+//     min-w-min 
+//     dark:bg-gray-800 
+//     dark:text-tab-base 
+//     text-tab-base 
+//     hover:bg-tab-hover 
+//     hover:text-tab-inverted
+//     focus:outline-none 
+//     active:bg-tab-hover
+//     text-md
+//     mr-3`,
+// };
 
 Scrolling.args = {
   theme: adminTheme,
