@@ -1,6 +1,6 @@
-export interface CustomIconProps {
+export interface SvgIconProps {
   children?: unknown;
-  content?: string;
+  svg?: string;
   classes?: string;
 }
 

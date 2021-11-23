@@ -1758,7 +1758,7 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/button": ^0.8.0-alpha.36
+    "@blaze-react/button": ^0.8.0-alpha.49
     jest: ^26.6.3
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -1771,7 +1771,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/alert@workspace:packages/Alert"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.36
+    "@blaze-react/utils": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1792,7 +1792,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/avatar@^0.8.0-alpha.36, @blaze-react/avatar@workspace:packages/Avatar":
+"@blaze-react/avatar@^0.8.0-alpha.46, @blaze-react/avatar@workspace:packages/Avatar":
   version: 0.0.0-use.local
   resolution: "@blaze-react/avatar@workspace:packages/Avatar"
   dependencies:
@@ -1816,7 +1816,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/blaze-components-theme@^0.8.0-alpha.36, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
+"@blaze-react/blaze-components-theme@^0.8.0-alpha.46, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
   version: 0.0.0-use.local
   resolution: "@blaze-react/blaze-components-theme@workspace:packages/Blaze-ui"
   dependencies:
@@ -1855,7 +1855,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/button-select@workspace:packages/ButtonSelect"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.36
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1863,12 +1863,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/button@^0.8.0-alpha.36, @blaze-react/button@workspace:packages/Button":
+"@blaze-react/button@^0.8.0-alpha.49, @blaze-react/button@workspace:packages/Button":
   version: 0.0.0-use.local
   resolution: "@blaze-react/button@workspace:packages/Button"
   dependencies:
-    "@blaze-react/icon": ^0.8.0-alpha.36
-    "@blaze-react/themes": ^0.8.0-alpha.36
+    "@blaze-react/icon": ^0.8.0-alpha.46
+    "@blaze-react/themes": ^0.8.0-alpha.49
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1876,7 +1876,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/checkboxes@^0.8.0-alpha.36, @blaze-react/checkboxes@workspace:packages/Checkboxes":
+"@blaze-react/checkboxes@^0.8.0-alpha.46, @blaze-react/checkboxes@workspace:packages/Checkboxes":
   version: 0.0.0-use.local
   resolution: "@blaze-react/checkboxes@workspace:packages/Checkboxes"
   dependencies:
@@ -1895,8 +1895,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/chips@workspace:packages/Chips"
   dependencies:
-    "@blaze-react/avatar": ^0.8.0-alpha.36
-    "@blaze-react/utils": ^0.8.0-alpha.36
+    "@blaze-react/avatar": ^0.8.0-alpha.46
+    "@blaze-react/utils": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1957,7 +1957,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/dnd@workspace:packages/Dnd"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.36
+    "@blaze-react/utils": ^0.8.0-alpha.46
     immutability-helper: ^3.1.1
     react: ^17.0.2
     react-addons-shallow-compare: ^15.6.3
@@ -1990,7 +1990,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/drawer@workspace:packages/Drawer"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.36
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.46
     "@types/classnames": ^2.3.1
     classnames: ^2.2.6
     react: ^17.0.2
@@ -2013,7 +2013,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/file-upload@workspace:packages/FileUpload"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.36
+    "@blaze-react/utils": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.38.1
@@ -2035,12 +2035,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/icon@^0.8.0-alpha.36, @blaze-react/icon@workspace:packages/Icon":
+"@blaze-react/icon@^0.8.0-alpha.46, @blaze-react/icon@workspace:packages/Icon":
   version: 0.0.0-use.local
   resolution: "@blaze-react/icon@workspace:packages/Icon"
   dependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
+    svg-to-ts: ^7.1.0
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -2050,9 +2051,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/input@workspace:packages/Input"
   dependencies:
-    "@blaze-react/icon": ^0.8.0-alpha.36
-    "@blaze-react/skeleton": ^0.8.0-alpha.36
-    "@blaze-react/themes": ^0.8.0-alpha.36
+    "@blaze-react/icon": ^0.8.0-alpha.46
+    "@blaze-react/skeleton": ^0.8.0-alpha.49
+    "@blaze-react/themes": ^0.8.0-alpha.49
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2113,8 +2114,8 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/checkboxes": ^0.8.0-alpha.36
-    "@blaze-react/utils": ^0.8.0-alpha.36
+    "@blaze-react/checkboxes": ^0.8.0-alpha.46
+    "@blaze-react/utils": ^0.8.0-alpha.46
     "@types/lodash.unionby": ^4.8.6
     lodash.differencewith: ^4.5.0
     lodash.isequal: ^4.5.0
@@ -2131,7 +2132,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/progress@workspace:packages/Progress"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.36
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.46
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -2184,11 +2185,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/skeleton@^0.8.0-alpha.36, @blaze-react/skeleton@workspace:packages/Skeleton":
+"@blaze-react/skeleton@^0.8.0-alpha.49, @blaze-react/skeleton@workspace:packages/Skeleton":
   version: 0.0.0-use.local
   resolution: "@blaze-react/skeleton@workspace:packages/Skeleton"
   dependencies:
-    "@blaze-react/themes": ^0.8.0-alpha.36
+    "@blaze-react/themes": ^0.8.0-alpha.49
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2211,7 +2212,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/social-follow@workspace:packages/SocialFollow"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.36
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2232,8 +2233,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/tab@workspace:packages/Tab"
   dependencies:
-    "@blaze-react/button": ^0.8.0-alpha.36
-    "@blaze-react/icon": ^0.8.0-alpha.36
+    "@blaze-react/button": ^0.8.0-alpha.49
+    "@blaze-react/icon": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2245,7 +2246,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/table@workspace:packages/Table"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.36
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2257,7 +2258,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/text-area@workspace:packages/Textarea"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.36
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.29.0
@@ -2265,7 +2266,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/themes@^0.8.0-alpha.36, @blaze-react/themes@workspace:packages/themes":
+"@blaze-react/themes@^0.8.0-alpha.49, @blaze-react/themes@workspace:packages/themes":
   version: 0.0.0-use.local
   resolution: "@blaze-react/themes@workspace:packages/themes"
   dependencies:
@@ -2291,7 +2292,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/tooltip@workspace:packages/Tooltip"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.36
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.46
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2299,7 +2300,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/utils@^0.8.0-alpha.36, @blaze-react/utils@workspace:packages/Utils":
+"@blaze-react/utils@^0.8.0-alpha.46, @blaze-react/utils@workspace:packages/Utils":
   version: 0.0.0-use.local
   resolution: "@blaze-react/utils@workspace:packages/Utils"
   dependencies:
@@ -6368,6 +6369,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@trysound/sax@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@trysound/sax@npm:0.2.0"
+  checksum: 55c7d0801a51848b8032b943590a15d8a2155480c123ed4338d2b4299293398037ea05c65c586ad35c4d52c3fc1dfade5745cf6666158c0653df291ceef425e5
+  languageName: node
+  linkType: hard
+
 "@types/aria-query@npm:^4.2.0":
   version: 4.2.2
   resolution: "@types/aria-query@npm:4.2.2"
@@ -9023,7 +9031,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base64-js@npm:^1.0.2":
+"base64-js@npm:^1.0.2, base64-js@npm:^1.3.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: c1b41a26ddc6620eb7f1ee6c29c812f5942a4e328e74263f995872cfb8ca3aee08542beb25cd10fd7ef16e4f16603e25c35a26e776c01fd55277e5035e829e0e
@@ -9111,6 +9119,17 @@ __metadata:
   dependencies:
     file-uri-to-path: 1.0.0
   checksum: bd623dec58f126eb0c30f04a20da7080f06cdd5af26bf5a91615e70055fbba66c4cec5c88b156e8181c1d822f2392034a40a9121ef3ebc25638dc2163332b12d
+  languageName: node
+  linkType: hard
+
+"bl@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "bl@npm:4.1.0"
+  dependencies:
+    buffer: ^5.5.0
+    inherits: ^2.0.4
+    readable-stream: ^3.4.0
+  checksum: 15d009339c2eeaedb9dab39c48f910a2fd6a9ba11400e61990917ebf3b25fa32cd9b80c7531a95467078258f6a59bd3f5d93323565423a7843855a16a1794261
   languageName: node
   linkType: hard
 
@@ -9562,6 +9581,16 @@ __metadata:
     ieee754: ^1.1.4
     isarray: ^1.0.0
   checksum: e29ecda22aa854008e26a8df294be1e5339a3bec8cbf537a794fecf63a024da68165743bc9afb1524909c74d8b03392e93a9c8fa5c2b064b1b2a52d4680c204e
+  languageName: node
+  linkType: hard
+
+"buffer@npm:^5.5.0":
+  version: 5.7.1
+  resolution: "buffer@npm:5.7.1"
+  dependencies:
+    base64-js: ^1.3.1
+    ieee754: ^1.1.13
+  checksum: 1750ac396eb36e0157ff5299509723ac0681338ef6cd40b039bc86d59c8b9a9494e99db992836eb6d637de0b270b53ec1a62d4a1c9faeaa51468cc340e553984
   languageName: node
   linkType: hard
 
@@ -10152,6 +10181,13 @@ __metadata:
   dependencies:
     restore-cursor: ^3.1.0
   checksum: 15dbfc222f27da8cbc61680e4948b189e811224271f6ee5be9db0dcbabe23ae3b2c5a5663be6f17ee51f6203ab44abddd4f4cffb20d69458fc845fa86976f96a
+  languageName: node
+  linkType: hard
+
+"cli-spinners@npm:^2.5.0":
+  version: 2.6.1
+  resolution: "cli-spinners@npm:2.6.1"
+  checksum: d2b54d139bb4137e4ee889b0f4f7936b329d340f90165fb588b11c260cbf4449323e4ec48614b6de1a48a5a5d07ef6a599ccc9aee7b2114f525d2fc174efd66b
   languageName: node
   linkType: hard
 
@@ -11224,7 +11260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^1.1.2":
+"css-tree@npm:^1.1.2, css-tree@npm:^1.1.3":
   version: 1.1.3
   resolution: "css-tree@npm:1.1.3"
   dependencies:
@@ -15385,7 +15421,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ieee754@npm:^1.1.4":
+"ieee754@npm:^1.1.13, ieee754@npm:^1.1.4":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
   checksum: 6c1cfab995ecab3b0dbb6cfb7e192686eb02f0f8e788f2d962e1fc02e2d5ab38a85e06d417221f136bd029663a77cdb920d99605d68d3730a05597dd7910426a
@@ -16058,6 +16094,13 @@ __metadata:
   version: 1.0.4
   resolution: "is-hexadecimal@npm:1.0.4"
   checksum: 653c1d0115196e97ed20177393cff833fbdfdbed3d28abdffbfd0fe50b9c62bf7e76ee56a9a47fec84f30ca0d40256fd065a71a65b0ed32fc77650b39c8c9295
+  languageName: node
+  linkType: hard
+
+"is-interactive@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "is-interactive@npm:1.0.0"
+  checksum: d79b435e5134ccd60dfe035117b1cddd5c5100e90b2d33428adfe1667e26f0114cc1bc7b3ff84a1b107de8ef27f155e3ecc3bb08c0e502a15c66300b4a45d9e5
   languageName: node
   linkType: hard
 
@@ -17637,6 +17680,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.camelcase@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "lodash.camelcase@npm:4.3.0"
+  checksum: 3cb674ed3b37bb698f2ec5a1c3f607d157279f3015877132e8be5c22cf8048988cb9bf1e61c90dbefea3895a459c095773cc266a5b1a9f4202bcd062b3983e37
+  languageName: node
+  linkType: hard
+
 "lodash.clonedeep@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.clonedeep@npm:4.5.0"
@@ -17686,6 +17736,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.kebabcase@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.kebabcase@npm:4.1.1"
+  checksum: cee7b365bf62c9ae357d8c5cbd1dc767ce626fecea31b8ff7919cb15adaf2c36652fb07688bf8d55e71c456ac8e5dc7c85bf12f88716114bde232645714d538f
+  languageName: node
+  linkType: hard
+
 "lodash.memoize@npm:^4.1.2":
   version: 4.1.2
   resolution: "lodash.memoize@npm:4.1.2"
@@ -17704,6 +17761,13 @@ __metadata:
   version: 4.6.0
   resolution: "lodash.orderby@npm:4.6.0"
   checksum: a25b51d29c8016be620da3c8e80792b717e5c8a16ff94bba799751d4a991e18884a2e0b22b55efb61371d115736a6fc38b91fddb8d1053389ae49bbaffbe60b4
+  languageName: node
+  linkType: hard
+
+"lodash.snakecase@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.snakecase@npm:4.1.1"
+  checksum: 3b3d1457597b45952d7c4e7975dfe10203f667d2f78bfe0d604f818d462628ad9f100f0fe95328a55ccf96fab4465a1f22602ca20a0ac0ed8e7ecf8067a972e6
   languageName: node
   linkType: hard
 
@@ -19623,6 +19687,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ora@npm:^5.1.0":
+  version: 5.4.1
+  resolution: "ora@npm:5.4.1"
+  dependencies:
+    bl: ^4.1.0
+    chalk: ^4.1.0
+    cli-cursor: ^3.1.0
+    cli-spinners: ^2.5.0
+    is-interactive: ^1.0.0
+    is-unicode-supported: ^0.1.0
+    log-symbols: ^4.1.0
+    strip-ansi: ^6.0.0
+    wcwidth: ^1.0.1
+  checksum: 589ac687d6dfbac970f1bf4ec94f3e1cfc9e2a4dd4727a0c60dfcdef138f59b5de5694447881fa5a2793a91f0b2619a96bdd3d5425be30d155540abbe1df95b9
+  languageName: node
+  linkType: hard
+
 "original@npm:^1.0.0":
   version: 1.0.2
   resolution: "original@npm:1.0.2"
@@ -20238,6 +20319,13 @@ __metadata:
   version: 2.1.0
   resolution: "performance-now@npm:2.1.0"
   checksum: bb4ebed0b03d6c3ad3ae4eddd1182c895d385cff9096af441c19c130aaae3ea70229438ebc3297dfc52c86022f6becf177a810050823d01bf5280779cd2de624
+  languageName: node
+  linkType: hard
+
+"picocolors@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "picocolors@npm:1.0.0"
+  checksum: 6616d34dd03bde8881c63402dea34f0b5972845b04b791b234446d4a408bc3d7f932acea3970a6b671d8f5c5aae1b1ce9fc1f89b0ed9a363469cf9da8e916b71
   languageName: node
   linkType: hard
 
@@ -21676,6 +21764,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^1.19.1":
+  version: 1.19.1
+  resolution: "prettier@npm:1.19.1"
+  bin:
+    prettier: ./bin-prettier.js
+  checksum: e5fcdfe5e159ef5c5480245353cf8fb5bbd1b8afff266f31f281641825238f8a645e58472f77cd75a09ccc45d44c335466e8d901ec138c2bda05e1bd6ea1077c
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.2.1":
   version: 2.3.2
   resolution: "prettier@npm:2.3.2"
@@ -22933,7 +23030,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:3, readable-stream@npm:^3.0.0, readable-stream@npm:^3.0.2, readable-stream@npm:^3.0.6, readable-stream@npm:^3.6.0":
+"readable-stream@npm:3, readable-stream@npm:^3.0.0, readable-stream@npm:^3.0.2, readable-stream@npm:^3.0.6, readable-stream@npm:^3.4.0, readable-stream@npm:^3.6.0":
   version: 3.6.0
   resolution: "readable-stream@npm:3.6.0"
   dependencies:
@@ -25137,6 +25234,29 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"svg-to-ts@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "svg-to-ts@npm:7.1.0"
+  dependencies:
+    chalk: ^3.0.0
+    commander: ^4.0.1
+    cosmiconfig: ^6.0.0
+    glob: ^7.1.6
+    graceful-fs: ^4.2.6
+    lodash.camelcase: ^4.3.0
+    lodash.kebabcase: ^4.1.1
+    lodash.snakecase: ^4.1.1
+    ora: ^5.1.0
+    prettier: ^1.19.1
+    svgo: ^2.7.0
+    typescript: ^3.7.2
+  bin:
+    svg-to-ts: src/bin/svg-to-ts.js
+    svgtots: src/bin/svg-to-ts.js
+  checksum: d21fdbacf65d744132e9313b609a8a5f8a3c6d2154207e3e8abdb300028e22dc902a6ae40400ff36032f230c3ffaf56e66b41cb42b162c706f36cb8014c99f42
+  languageName: node
+  linkType: hard
+
 "svgo@npm:^1.0.0, svgo@npm:^1.2.2":
   version: 1.3.2
   resolution: "svgo@npm:1.3.2"
@@ -25174,6 +25294,23 @@ resolve@^2.0.0-next.3:
   bin:
     svgo: bin/svgo
   checksum: 37b973c87296d6c7357612f20cc5e1e8bfc30dcb87f4cdd7d246da8c9c798e94c4384e4ebb841255a2bc27e7e7d69d422a8b71f239cb9e5b852440bb4f7f8ca0
+  languageName: node
+  linkType: hard
+
+"svgo@npm:^2.7.0":
+  version: 2.8.0
+  resolution: "svgo@npm:2.8.0"
+  dependencies:
+    "@trysound/sax": 0.2.0
+    commander: ^7.2.0
+    css-select: ^4.1.3
+    css-tree: ^1.1.3
+    csso: ^4.2.0
+    picocolors: ^1.0.0
+    stable: ^0.1.8
+  bin:
+    svgo: bin/svgo
+  checksum: 778e120d57b8a7018e27a2569d0b28d0c5057358eedbbf0823f7af805ec646cf55fc59a7665fb89058d424edb76dac4347cfde1384688d0480e3e047e1375c51
   languageName: node
   linkType: hard
 
@@ -26023,6 +26160,16 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
+typescript@^3.7.2:
+  version: 3.9.10
+  resolution: "typescript@npm:3.9.10"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 544f3810ac3d3fcd141907e7f52f0b8c70af178adc83af47e2b8a48351e5a119919a4d3bfbe2f62d5165b5aa203e896fe0432024cfbda670dbd03a4f53ce7748
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@4.2.4#builtin<compat/typescript>":
   version: 4.2.4
   resolution: "typescript@patch:typescript@npm%3A4.2.4#builtin<compat/typescript>::version=4.2.4&hash=a45b0e"
@@ -26030,6 +26177,16 @@ typescript@4.2.4:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 3be44317593182e8ce494c114e7ad9b0bb2553a22f3085cc6da4f0a36912c20850daa9be4c898af2ab6fc8b12f430c1c9e46ac715721867cd38643f2350d3ef9
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^3.7.2#builtin<compat/typescript>":
+  version: 3.9.10
+  resolution: "typescript@patch:typescript@npm%3A3.9.10#builtin<compat/typescript>::version=3.9.10&hash=a45b0e"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 744dab471ae59659b1618be636ab56b9c0afbca801e0640c3cdfad0a894315c87d30a290b7063c6a3f1860bf47fe44d9188cb85e46b2bdadda7f207d67e6b4e1
   languageName: node
   linkType: hard
 
@@ -26781,7 +26938,7 @@ typescript@4.2.4:
   languageName: node
   linkType: hard
 
-"wcwidth@npm:^1.0.0":
+"wcwidth@npm:^1.0.0, wcwidth@npm:^1.0.1":
   version: 1.0.1
   resolution: "wcwidth@npm:1.0.1"
   dependencies:

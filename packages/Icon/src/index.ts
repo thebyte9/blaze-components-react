@@ -1,4 +1,3 @@
-import { CustomIcon } from './CustomIcon';
 import { Icon } from './Icon';
-
-export { Icon, CustomIcon };
+import { SvgIcon } from './SvgIcon';
+export { Icon, SvgIcon };

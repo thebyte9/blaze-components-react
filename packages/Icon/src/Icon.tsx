@@ -1,12 +1,13 @@
-import React from 'react';
-import { CustomIcon } from './CustomIcon';
 import { IconDisplayType, IconProps } from './types';
+
+import React from 'react';
+import { SvgIcon } from './SvgIcon';
 
 export const Icon = ({ display, label, iconOnly, icon }: IconProps): JSX.Element => (
   <div className="flex items-center justify-center">
     {display === IconDisplayType.Left ? (
       <>
-        <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={icon} />
+        <SvgIcon classes="w-6 h-6 stroke-current fill-current" svg={icon} />
         {!iconOnly && <span className="mx-1">{label ?? 'Blaze'}</span>}
       </>
     ) : (
@@ -14,7 +15,7 @@ export const Icon = ({ display, label, iconOnly, icon }: IconProps): JSX.Element
         {!iconOnly && <span className="mx-1">{label ?? 'Blaze'}</span>}
 
         {display !== IconDisplayType.NoIcon && (
-          <CustomIcon classes="w-6 h-6 stroke-current fill-current" content={icon} />
+          <SvgIcon classes="w-6 h-6 stroke-current fill-current" svg={icon} />
         )}
       </>
     )}
