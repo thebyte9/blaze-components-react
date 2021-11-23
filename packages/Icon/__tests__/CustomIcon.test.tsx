@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react';
 import React from 'react';
-import { CustomIcon } from '../src/CustomIcon';
+import { SvgIcon } from '../src/SvgIcon';
+import { render } from '@testing-library/react';
 
 const testProps = {
   classes: 'w-10 h-10 text-blue-500 stroke-current fill-current',
@@ -12,12 +12,12 @@ const testProps = {
 };
 describe('Custom Icon component', () => {
   test('it renders correctly', () => {
-    const { asFragment } = render(<CustomIcon {...testProps} />);
+    const { asFragment } = render(<SvgIcon {...testProps} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   test('it renders childrens', () => {
-    const { asFragment } = render(<CustomIcon {...testProps}></CustomIcon>);
+    const { asFragment } = render(<SvgIcon {...testProps}></SvgIcon>);
     expect(asFragment()).toMatchSnapshot();
   });
 });
