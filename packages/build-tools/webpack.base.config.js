@@ -10,7 +10,8 @@ module.exports = {
   mode: 'production',
   entry: './src/index.ts',
   externals: {
-    "react": "React"
+    'react': 'react',
+    'react-dom' : 'reactDOM'
   },
   output: {
     path: path.resolve('./dist'),
