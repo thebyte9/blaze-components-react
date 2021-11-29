@@ -101,9 +101,6 @@ module.exports = {
       openAnalyzer: false,
       generateStatsFile: true,
       statsFilename: path.resolve('./stats/stats.json'),
-    }),
-    new IgnorePlugin({
-      resourceRegExp: /react/
     })
   ],
 };
