@@ -1,0 +1,69 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { ButtonView } from '../src/view/ButtonView';
+
+<Meta
+  title="@blaze-react/Button/Overview"
+  component={ButtonView}
+  argTypes={{
+    selectedTheme: {
+      options: ['admin', 'frontend'],
+      control: { type: 'radio' },
+      defaultValue: { summary: 'admin' },
+    },
+    theme: {
+      control: false,
+      table: {
+        disable: true,
+      },
+    },
+    label: {
+      control: { type: 'text' },
+    },
+  }}
+/>
+
+# Button
+
+#### Buttons are used to show the user’s choice of options for actions and assign these to a clear hierarchy. A button helps the user to find the most important actions of a page or within a viewport and enables them to perform these actions. The label is used to clearly indicate to the user what action will be triggered. Buttons allow users to commit a change, complete steps in a task, or make choices.
+
+## Examples
+
+#### Below is an overview of the Filled, Outlined and Text button components.
+
+## Filled Button
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-filled--filled" />
+</Canvas>
+
+## Outlined Button
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-outlined--outlined" />
+</Canvas>
+
+## Text Button
+
+<Canvas>
+  <Story id="blaze-react-button-all-stories-text--no-icon" />
+</Canvas>
+
+# Usage guidelines
+
+## Best practices
+
+Description here ...
+
+## Use cases
+
+Description here ...
+
+# Available props
+
+| NAME      |  TYPE   | DEFAULT | DEPRECATED | VALUES                                                                                          |
+| :-------- | :-----: | :-----: | :--------: | ----------------------------------------------------------------------------------------------- |
+| modifiers |  array  |  empty  |    yes     | rounded, outline, alert, cta, light, dark, disabled, icon, small, full-width, plain, back, link |
+| type      | string  | button  |            | button, submit, reset                                                                           |
+| disabled  | boolean |  false  |            |                                                                                                 |
+| children  | unknown |  null   |            | JSX element or string                                                                           |
+| classes   | string  |  empty  |            | Tailwind utilities classes                                                                      |

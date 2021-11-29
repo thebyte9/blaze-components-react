@@ -1,0 +1,208 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Button } from '../src/controller/Button';
+import { Source } from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
+<Meta title="@blaze-react/Theming/Creating a Custom Theme" />
+
+# Creating a Blaze Custom Theme
+
+CSS Custom properties enable us to make our code more efficient. One area where they have enormous potential is theming. At Blaze, we use Tailwind CSS, a utility class framework, for writing our styles.
+
+We will look at how to use custom properties for theming and integrate them with Tailwind to maximise the reusability of our code. We won’t cover getting up and running with Tailwind — check out the [official documentation](https://tailwindcss.com/docs/installation) to learn more about it.
+
+These are the steps involved in setting up a custom theme:
+
+1. Define custom properties as variables on the **:root** selector for the Tailwind **@base layer**.
+2. Extend the Tailwind base theme found in **tailwind.config.js** and use the custom properties defined in the previous step.
+3. Create a Blaze theme and set the Tailwind utility classes for your components.
+
+## 1. Theming with Custom Properties
+
+Using custom properties for our colour themes can drastically reduce the amount of code we need to write and alleviate the maintenance burden. Let’s first take a look at how we can do this using regular CSS.
+
+We define our custom properties as variables on the `:root` selector, making them global variables. The body selector would serve us just as well. Then we can use those variables in a selector in place of our colour property values using RGB format:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-text-base: 66, 63, 63;
+    --color-text-primary: 255, 255, 255;
+    --color-text-muted: 199, 210, 254;
+    --color-text-inverted: 137, 155, 188;
+    --color-text-outlined: 66, 133, 244;
+    --color-text-outlined-disabled: 190, 190, 190;
+    --color-button-primary: 255, 173, 1;
+    --color-button-primary-hover: 147, 183, 243;
+    --color-button-disabled: 190, 190, 190;
+    --color-button-pressed: 137, 155, 188;
+    --color-button-outlined: 255, 255, 255;
+    --color-button-outlined-hover: 66, 133, 244;
+    --border-radius-button: 17px;
+    --border-radius-button-large: 21px;
+    --border-button-outlined: 66, 133, 244;
+    --border-button-disabled: 66, 133, 244;
+    --tab-color-text-base: 66, 63, 63;
+    --tab-color-text-inverted: 255, 255, 255;
+    --tab-color-button-primary: 215, 224, 240;
+    --tab-color-button-primary-hover: 66, 133, 244;
+    --tab-border-radius: 8px;
+  }
+}
+```
+
+This is where the real magic happens: now the code for creating each of our themes becomes a case of only updating those custom property values. The new values will be inherited wherever we apply our theme class:
+
+```css
+.theme-custom {
+  --color-text-base: 66, 63, 63;
+  --color-text-primary: 255, 255, 255;
+  --color-text-muted: 199, 210, 254;
+  --color-text-inverted: 137, 155, 188;
+  --color-text-outlined: 66, 133, 244;
+  --color-text-outlined-disabled: 190, 190, 190;
+  --color-button-primary: 59, 130, 246;
+  --color-button-primary-hover: 29, 78, 216;
+  --color-button-disabled: 190, 190, 190;
+  --color-button-pressed: 96, 165, 250;
+  --color-button-outlined: 255, 255, 255;
+  --color-button-outlined-hover: 66, 133, 244;
+  --border-radius-button: 5px;
+  --border-radius-button-large: 8px;
+  --border-button-outlined: 66, 133, 244;
+  --border-button-disabled: 66, 133, 244;
+  --tab-color-text-base: 66, 63, 63;
+  --tab-color-text-inverted: 255, 255, 255;
+  --tab-color-button-primary: 215, 224, 240;
+  --tab-color-button-primary-hover: 66, 133, 244;
+  --tab-border-radius: 8px;
+}
+```
+
+## 2. Extend the Tailwind Base Theme
+
+Extend the Tailwind base theme and use the custom properties defined on previous step.
+
+Tailwind will generate our custom utility classes at compile time, e.g. if we extend the `textColor` property and add a `button` key containing a `primary` variant then we can use `text-button-primary` in our code to set the text color for our Button.
+
+You can also
+**Tailwind.config.js**
+
+```js
+...
+module.exports = {
+  important: true,
+  darkMode: 'class', // or 'media' or 'class'
+  theme: {
+    extend: {
+      textColor: {
+        button: {
+          base: 'var(--color-text-base)',
+          primary: 'var(--color-text-primary'),
+          muted: 'var(--color-text-muted)',
+          inverted: 'var(--color-text-inverted)',
+          outlined: 'var(--color-text-outlined)',
+          'outlined-disabled': 'var(--color-text-outlined-disabled)',
+        },
+      },
+      backgroundColor: {
+        button: {
+          primary: 'var(--color-button-primary)',
+          hover: 'var(--color-button-primary-hover)',
+          disabled: 'var(--color-button-disabled)',
+          pressed: 'var(--color-button-pressed)',
+          outlined: 'var(--color-button-outlined)',
+          'outlined-hover': 'var(--color-button-outlined-hover)',
+        },
+      },
+      borderRadius: {
+        button: 'var(--border-radius-button)',
+        'button-large': 'var(--border-radius-button-large)',
+      },
+      borderColor: {
+        button: {
+          outlined: 'var(--border-outlined-button)',
+          'outlined-disabled': 'var(--border-outlined-disabled-button)',
+        },
+      },
+      fontFamily: {
+        manrope: ['Manrope', 'sans-serif'],
+      },
+    },
+  },
+  variants: {
+    extend: {
+      backgroundColor: ['active'],
+      textColor: ['active'],
+    },
+  },
+};
+```
+
+## 3. Create a Blaze Theme
+
+A Blaze Theme is a layer of abstraction on top of the Tailwind theme for styling components on Blaze CMS.
+
+A theme contains states and variants for each component, e.g button that have **states** and **variants**.
+
+```js
+const theme = {
+  button: {
+    variants: {
+      primary: {
+        container: [
+          'font-manrope',
+          'font-medium',
+          'rounded-button',
+          'bg-button-primary',
+          'text-button-primary',
+          'px-6',
+          'py-1',
+          'min-w-min',
+          'dark:bg-gray-800',
+          'dark:text-button-primary',
+          'hover:bg-button-hover',
+          'focus:outline-none',
+          'mr-1',
+          'active:bg-button-pressed',
+        ],
+      },
+      secondary: {
+        container: [
+          'font-manrope',
+          'font-medium',
+          'text-bold',
+          'rounded-button',
+          'bg-button-outlined',
+          'text-button-outlined',
+          'px-6',
+          'py-1',
+          'min-w-min',
+          'dark:bg-gray-800',
+          'dark:text-button-primary',
+          'border-2',
+          'border-button-outlined',
+          'hover:bg-button-outlined-hover',
+          'hover:text-button-primary',
+          'focus:outline-none',
+          'active:bg-button-pressed',
+        ],
+      },
+    },
+  },
+};
+```
+
+## 4. Using the ThemeProvider
+
+You can add a theme to your application using `ThemeProvider` and by providing a theme in context. For this guide, we are going to use Blaze `ThemeProvider` with the default `preset` theme.
+
+```jsx
+<ThemeProvider theme={preset}>
+  <Button {...args} />
+</ThemeProvider>
+```

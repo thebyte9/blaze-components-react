@@ -1,28 +1,26 @@
-import PropTypes from "prop-types";
-import React from "react";
+import React from 'react';
 
 interface ITabItemProps {
   action: () => Record<string, unknown>;
-  children?: any;
+  children?: unknown;
   title?: string;
+  classes?: string;
+  icon?: string;
+  showLabel?: boolean;
 }
 
-export const TabItem = ({ action, children }: ITabItemProps) => {
+export const TabItem = ({ action, classes = '', children }: ITabItemProps): JSX.Element => {
   action();
-  return <div className="tabs__content current">{children}</div>;
-};
-
-TabItem.propTypes = {
-  action: PropTypes.func,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
+  return classes !== '' ? (
+    <div className="tabs__content current">{children}</div>
+  ) : (
+    <div className={classes}>{children}</div>
+  );
 };
 
 TabItem.defaultProps = {
   action: (): void => {
     return;
   },
-  children: "No content"
+  children: 'No content',
 };

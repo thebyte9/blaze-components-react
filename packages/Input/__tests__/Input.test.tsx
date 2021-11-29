@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 
 import { fireEvent, render } from '@testing-library/react';
 
-import Input from '../src/Input';
+import Input from '../src/deprecated/Input';
 import React from 'react';
 
 const defaultProps = (override: object = {}) => ({
