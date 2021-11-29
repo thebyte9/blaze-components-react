@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/icon",
-  "version": "0.8.0-alpha.46",
+  "version": "0.8.0-alpha.50",
   "description": "Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.",
   "main": "./dist/main.js",
   "scripts": {
