@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.52](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.49...v0.8.0-alpha.52) (2021-11-29)
+
+
+### Bug Fixes
+
+* date jumps to end of input ([#561](https://github.com/thebyte9/blaze-components-react/issues/561)) ([0d54e9c](https://github.com/thebyte9/blaze-components-react/commit/0d54e9cd8530c7d3820fd9f915285ffa7a36fc99))
+
+
+
+
+
 # [0.8.0-alpha.46](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.45...v0.8.0-alpha.46) (2021-10-06)
 
 **Note:** Version bump only for package @blaze-react/breadcrumb

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.52](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.49...v0.8.0-alpha.52) (2021-11-29)
+
+
+### Features
+
+* add props to handle accordion status ([#571](https://github.com/thebyte9/blaze-components-react/issues/571)) ([f92d525](https://github.com/thebyte9/blaze-components-react/commit/f92d525188c28bd6ecdf5755517fd0adfaae2d62))
+
+
+
+
+
 # [0.8.0-alpha.49](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.48...v0.8.0-alpha.49) (2021-10-08)
 
 **Note:** Version bump only for package @blaze-react/accordion
