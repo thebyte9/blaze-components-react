@@ -34,7 +34,7 @@
     "url": "https://github.com/thebyte9/blaze-components-react/issues"
   },
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
-  "dependencies": {
+  "peerDependencies": {
     "draft-js-export-html": "^1.4.1",
     "html-react-parser": "^1.2.6",
     "react": "^17.0.2",
