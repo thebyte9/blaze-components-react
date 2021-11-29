@@ -89,8 +89,8 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         </label>
       )}
       <div className="values">
-        <span>{minValue}</span>
-        <span>{maxValue}</span>
+        <span>{Number(minValue).toLocaleString('en-US')}</span>
+        <span>{Number(maxValue).toLocaleString('en-US')}</span>
       </div>
       <div
         min={min}
