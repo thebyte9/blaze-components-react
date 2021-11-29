@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/range-slider",
-  "version": "0.8.0-alpha.56",
+  "version": "0.8.0-alpha.57",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
