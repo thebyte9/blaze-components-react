@@ -4,15 +4,10 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const { IgnorePlugin } = require('webpack');
  
 module.exports = {
   mode: 'production',
   entry: './src/index.ts',
-  externals: {
-    'react': 'react',
-    'react-dom' : 'reactDOM'
-  },
   output: {
     path: path.resolve('./dist'),
     filename: '[name].js',
