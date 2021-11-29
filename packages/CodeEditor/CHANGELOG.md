@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.52](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.51...v0.8.0-alpha.52) (2021-11-29)
+
+**Note:** Version bump only for package @blaze-react/code-editor
+
+
+
+
+
 # [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)
 
 **Note:** Version bump only for package @blaze-react/code-editor
