@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/skeleton",
-  "version": "0.8.0-alpha.52",
+  "version": "0.8.0-alpha.56",
   "description": "Custom skeleton loading screen tailored for blaze react components",
   "main": "./dist/main.js",
   "scripts": {

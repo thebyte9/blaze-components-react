@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.56](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.55...v0.8.0-alpha.56) (2021-11-29)
+
+**Note:** Version bump only for package @blaze-react/checkboxes
+
+
+
+
+
 # [0.8.0-alpha.52](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.49...v0.8.0-alpha.52) (2021-11-29)
 
 **Note:** Version bump only for package @blaze-react/checkboxes
