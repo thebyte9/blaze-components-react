@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/multiselect",
-  "version": "0.8.0-alpha.53",
+  "version": "0.8.0-alpha.55",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@blaze-react/checkboxes": "^0.8.0-alpha.52",
-    "@blaze-react/utils": "^0.8.0-alpha.53",
+    "@blaze-react/utils": "^0.8.0-alpha.55",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-tiny-virtual-list": "^2.2.0"
