@@ -29,7 +29,7 @@ interface IRangeFilterProps {
   required?: boolean;
   error?: boolean;
   validationMessage: string | JSX.Element;
-  value: IRangeValue | any;
+  value: IRangeValue | unknown;
 }
 
 const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
@@ -55,8 +55,12 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     isContentLoaded(init, reInit);
   }, []);
 
-  const getMinMax = (minvalue: any, maxvalue: any) => {
-    const newValue = { ...inputs, minValue: minvalue, maxValue: maxvalue };
+  const getMinMax = (minvalue: number, maxvalue: number) => {
+    const newValue = {
+      ...inputs,
+      minValue: minvalue,
+      maxValue: maxvalue
+    };
     onChange({ value: newValue });
     setInputs(newValue);
   };
@@ -85,8 +89,8 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         </label>
       )}
       <div className="values">
-        <span>{minValue}</span>
-        <span>{maxValue}</span>
+        <span>{Number(minValue).toLocaleString('en-US')}</span>
+        <span>{Number(maxValue).toLocaleString('en-US')}</span>
       </div>
 
       <div
