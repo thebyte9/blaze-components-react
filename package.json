@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "pre-publish": "yarn build && yarn lint && yarn test",
     "analyse": "ANALYSE=true yarn workspaces foreach run build",
-    "prerelease": "yarn build && yarn test && GH_TOKEN=$GH_TOKEN_BLAZE yarn prerelease:version && yarn prerelease:publish",
+    "prerelease": "yarn build && yarn test && yarn storybook && GH_TOKEN=$GH_TOKEN_BLAZE yarn prerelease:version && yarn prerelease:publish",
     "prerelease:version": "npx lerna version --conventional-commits --conventional-prerelease --no-commit-hooks --create-release github",
     "prerelease:publish": "npx lerna publish from-git --dist-tag alpha",
     "release:version": "npx lerna version --conventional-commits --conventional-graduate --no-commit-hooks --create-release github",

@@ -1949,6 +1949,7 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
+    "@monaco-editor/react": ^4.3.1
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -3927,6 +3928,31 @@ __metadata:
   version: 1.6.22
   resolution: "@mdx-js/util@npm:1.6.22"
   checksum: da433289de67201931104cfe0cb65f7c3c94b296a4569fa2d396ace64548bc57838cf876ae4d3d24653569706a0ac38f0666876f8fd3ddf16a80578463447057
+  languageName: node
+  linkType: hard
+
+"@monaco-editor/loader@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@monaco-editor/loader@npm:1.2.0"
+  dependencies:
+    state-local: ^1.0.6
+  peerDependencies:
+    monaco-editor: ">= 0.21.0 < 1"
+  checksum: 78f1871c044812266522fa8eef6ebe8a3e1422d62810d842e2c31cae99e3260fb8a508ff0a9a5bbee2abfb0389c6fc3e631d038277f40abecab891b437bd81d8
+  languageName: node
+  linkType: hard
+
+"@monaco-editor/react@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "@monaco-editor/react@npm:4.3.1"
+  dependencies:
+    "@monaco-editor/loader": ^1.2.0
+    prop-types: ^15.7.2
+  peerDependencies:
+    monaco-editor: ">= 0.25.0 < 1"
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: fa9436dc5b0da16f55230eabd466f56565ede2cb47e8e9d1778b50b295fe6bfd392012d0f96a682b7f64b04bedded6bac7086e40fd05a614ee531043a8b9c80f
   languageName: node
   linkType: hard
 
@@ -24583,6 +24609,13 @@ resolve@^2.0.0-next.3:
   version: 1.2.0
   resolution: "stackframe@npm:1.2.0"
   checksum: 71e2868a529123e9ca1cf510192a7de879b8d92b5829c7f58d5576e1500cbedf22b5d9cc86589c547b6842abcf01cea13979ab8301b51e85bdb6267a6f9288f2
+  languageName: node
+  linkType: hard
+
+"state-local@npm:^1.0.6":
+  version: 1.0.7
+  resolution: "state-local@npm:1.0.7"
+  checksum: e272ccbedabead16ac7dce577bb68fec512e5cf8c9474cecc9f2e3afd759b45ac3bf949deaa53825e987de8b9d585d7fa7c70c092195f8fa963f75f53efd9897
   languageName: node
   linkType: hard
 

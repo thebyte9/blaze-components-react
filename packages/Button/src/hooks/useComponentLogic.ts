@@ -1,13 +1,12 @@
 import { COMPONENT, DEFAULT_VARIANT } from '../constants';
+import { IconDisplayType, IconProps } from '@blaze-react/icon';
 import { ThemeType, overrideClasses, useTheme } from '@blaze-react/themes';
-
-import { DisplayIconProps } from '@blaze-react/icon';
 
 interface IComponentLogicProps {
   componentVariant: string;
   element?: string;
   theme: ThemeType;
-  displayIcon: DisplayIconProps;
+  displayIcon: IconDisplayType;
   iconOnly: boolean;
   overrides: string[];
 }
@@ -27,7 +26,7 @@ export const useComponentLogic = ({
   });
 
   // Icon logic.
-  const display = iconOnly && displayIcon === DisplayIconProps.NoIcon ? DisplayIconProps.Left : displayIcon;
+  const display = iconOnly && displayIcon === IconDisplayType.NoIcon ? IconDisplayType.Left : displayIcon;
 
   // Override Tailwind classes.
   const classes = overrideClasses(variant, overrides);
