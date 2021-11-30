@@ -1770,12 +1770,15 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/button": ^0.8.0-alpha.52
     jest: ^26.6.3
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/button": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1783,11 +1786,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/alert@workspace:packages/Alert"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.53
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/utils": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1801,10 +1807,13 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@blaze-react/avatar@^0.8.0-alpha.52, @blaze-react/avatar@workspace:packages/Avatar":
+"@blaze-react/avatar@workspace:packages/Avatar":
   version: 0.0.0-use.local
   resolution: "@blaze-react/avatar@workspace:packages/Avatar"
   dependencies:
@@ -1814,6 +1823,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1825,10 +1837,13 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@blaze-react/blaze-components-theme@^0.8.0-alpha.52, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
+"@blaze-react/blaze-components-theme@^0.8.0-alpha.59, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
   version: 0.0.0-use.local
   resolution: "@blaze-react/blaze-components-theme@workspace:packages/Blaze-ui"
   dependencies:
@@ -1846,6 +1861,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1855,12 +1873,8 @@ __metadata:
   dependencies:
     "@types/classnames": ^2.3.1
     eslint: ^7.27.0
-    intersection-observer: ^0.12.0
     webpack: ^5.37.1
     webpack-cli: ^4.7.0
-  peerDependencies:
-    react: ^17.0.2
-    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1868,28 +1882,34 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/button-select@workspace:packages/ButtonSelect"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@blaze-react/button@^0.8.0-alpha.52, @blaze-react/button@workspace:packages/Button":
+"@blaze-react/button@workspace:packages/Button":
   version: 0.0.0-use.local
   resolution: "@blaze-react/button@workspace:packages/Button"
   dependencies:
-    "@blaze-react/icon": ^0.8.0-alpha.52
-    "@blaze-react/themes": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/icon": ^0.8.0-alpha.58
+    "@blaze-react/themes": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@blaze-react/checkboxes@^0.8.0-alpha.52, @blaze-react/checkboxes@workspace:packages/Checkboxes":
+"@blaze-react/checkboxes@workspace:packages/Checkboxes":
   version: 0.0.0-use.local
   resolution: "@blaze-react/checkboxes@workspace:packages/Checkboxes"
   dependencies:
@@ -1901,6 +1921,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1908,12 +1931,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/chips@workspace:packages/Chips"
   dependencies:
-    "@blaze-react/avatar": ^0.8.0-alpha.52
-    "@blaze-react/utils": ^0.8.0-alpha.53
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/avatar": ^0.8.0-alpha.58
+    "@blaze-react/utils": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1923,11 +1949,14 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@monaco-editor/react": ^4.1.3
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@monaco-editor/react": ^4.1.3
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1939,6 +1968,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1950,6 +1982,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1960,7 +1995,10 @@ __metadata:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
     "@types/react-datepicker": ^3.1.8
+  peerDependencies:
+    react: ^17.0.2
     react-datepicker: ^3.7.0
+    react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -1970,13 +2008,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/dnd@workspace:packages/Dnd"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.53
     immutability-helper: ^3.1.1
     react: ^17.0.2
     react-addons-shallow-compare: ^15.6.3
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/utils": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1989,6 +2030,8 @@ __metadata:
     "@types/draft-js": ^0.11.1
     compression-webpack-plugin: ^7.1.2
     postcss-preset-env: ^6.7.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   peerDependencies:
@@ -2003,20 +2046,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/drawer@workspace:packages/Drawer"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
     "@types/classnames": ^2.3.1
     classnames: ^2.2.6
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
 "@blaze-react/dropdown@workspace:packages/Dropdown":
   version: 0.0.0-use.local
   resolution: "@blaze-react/dropdown@workspace:packages/Dropdown"
-  dependencies:
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -2026,11 +2074,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/file-upload@workspace:packages/FileUpload"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.53
-    react: ^17.0.2
-    react-dom: ^17.0.2
     webpack: ^5.38.1
     webpack-cli: ^4.7.0
+  peerDependencies:
+    "@blaze-react/utils": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2045,10 +2094,13 @@ __metadata:
     tailwindcss: ^2.2.4
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@blaze-react/icon@^0.8.0-alpha.52, @blaze-react/icon@workspace:packages/Icon":
+"@blaze-react/icon@workspace:packages/Icon":
   version: 0.0.0-use.local
   resolution: "@blaze-react/icon@workspace:packages/Icon"
   dependencies:
@@ -2056,6 +2108,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2063,13 +2118,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/input@workspace:packages/Input"
   dependencies:
-    "@blaze-react/icon": ^0.8.0-alpha.52
-    "@blaze-react/skeleton": ^0.8.0-alpha.52
-    "@blaze-react/themes": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/icon": ^0.8.0-alpha.58
+    "@blaze-react/skeleton": ^0.8.0-alpha.58
+    "@blaze-react/themes": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2083,13 +2141,16 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
 "@blaze-react/modal@workspace:packages/Modal":
   version: 0.0.0-use.local
   resolution: "@blaze-react/modal@workspace:packages/Modal"
-  dependencies:
+  peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2106,6 +2167,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2117,6 +2181,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2126,17 +2193,20 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/checkboxes": ^0.8.0-alpha.52
-    "@blaze-react/utils": ^0.8.0-alpha.53
     "@types/lodash.unionby": ^4.8.6
     lodash.differencewith: ^4.5.0
     lodash.isequal: ^4.5.0
     lodash.unionby: ^4.8.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    react-tiny-virtual-list: ^2.2.0
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/checkboxes": ^0.8.0-alpha.58
+    "@blaze-react/utils": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-tiny-virtual-list: ^2.2.0
   languageName: unknown
   linkType: soft
 
@@ -2144,7 +2214,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/progress@workspace:packages/Progress"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -2158,6 +2231,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2165,10 +2241,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/range-filter@workspace:packages/RangeFilter"
   dependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   peerDependencies:
-    "@blaze-react/utils": 0.8.0-alpha.53
+    "@blaze-react/utils": 0.8.0-alpha.58
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -2180,9 +2258,12 @@ __metadata:
   dependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
-    react-input-range: ^1.3.0
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-input-range: ^1.3.0
   languageName: unknown
   linkType: soft
 
@@ -2196,18 +2277,24 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@blaze-react/skeleton@^0.8.0-alpha.52, @blaze-react/skeleton@workspace:packages/Skeleton":
+"@blaze-react/skeleton@workspace:packages/Skeleton":
   version: 0.0.0-use.local
   resolution: "@blaze-react/skeleton@workspace:packages/Skeleton"
   dependencies:
-    "@blaze-react/themes": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/themes": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2219,6 +2306,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2226,18 +2316,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/social-follow@workspace:packages/SocialFollow"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
 "@blaze-react/switches@workspace:packages/Switches":
   version: 0.0.0-use.local
   resolution: "@blaze-react/switches@workspace:packages/Switches"
-  dependencies:
+  peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -2247,12 +2340,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/tab@workspace:packages/Tab"
   dependencies:
-    "@blaze-react/button": ^0.8.0-alpha.52
-    "@blaze-react/icon": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    "@blaze-react/button": ^0.8.0-alpha.58
+    "@blaze-react/icon": ^0.8.0-alpha.58
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2260,11 +2356,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/table@workspace:packages/Table"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2272,15 +2371,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/text-area@workspace:packages/Textarea"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.29.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@blaze-react/themes@^0.8.0-alpha.52, @blaze-react/themes@workspace:packages/themes":
+"@blaze-react/themes@workspace:packages/themes":
   version: 0.0.0-use.local
   resolution: "@blaze-react/themes@workspace:packages/themes"
   dependencies:
@@ -2288,6 +2390,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2299,6 +2404,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2306,15 +2414,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/tooltip@workspace:packages/Tooltip"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
-"@blaze-react/utils@^0.8.0-alpha.53, @blaze-react/utils@workspace:packages/Utils":
+"@blaze-react/utils@workspace:packages/Utils":
   version: 0.0.0-use.local
   resolution: "@blaze-react/utils@workspace:packages/Utils"
   dependencies:
@@ -2324,7 +2435,10 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.37.1
-    webpack-cli: ^4.7.0
+    webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -2336,6 +2450,9 @@ __metadata:
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
+  peerDependencies:
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -3803,31 +3920,6 @@ __metadata:
   version: 1.6.22
   resolution: "@mdx-js/util@npm:1.6.22"
   checksum: da433289de67201931104cfe0cb65f7c3c94b296a4569fa2d396ace64548bc57838cf876ae4d3d24653569706a0ac38f0666876f8fd3ddf16a80578463447057
-  languageName: node
-  linkType: hard
-
-"@monaco-editor/loader@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@monaco-editor/loader@npm:1.2.0"
-  dependencies:
-    state-local: ^1.0.6
-  peerDependencies:
-    monaco-editor: ">= 0.21.0 < 1"
-  checksum: 78f1871c044812266522fa8eef6ebe8a3e1422d62810d842e2c31cae99e3260fb8a508ff0a9a5bbee2abfb0389c6fc3e631d038277f40abecab891b437bd81d8
-  languageName: node
-  linkType: hard
-
-"@monaco-editor/react@npm:^4.1.3":
-  version: 4.3.1
-  resolution: "@monaco-editor/react@npm:4.3.1"
-  dependencies:
-    "@monaco-editor/loader": ^1.2.0
-    prop-types: ^15.7.2
-  peerDependencies:
-    monaco-editor: ">= 0.25.0 < 1"
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  checksum: fa9436dc5b0da16f55230eabd466f56565ede2cb47e8e9d1778b50b295fe6bfd392012d0f96a682b7f64b04bedded6bac7086e40fd05a614ee531043a8b9c80f
   languageName: node
   linkType: hard
 
@@ -8034,13 +8126,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autobind-decorator@npm:^1.3.4":
-  version: 1.4.3
-  resolution: "autobind-decorator@npm:1.4.3"
-  checksum: 794657e80930d62fc777dc9e442208433a124f756e884c00c729fcdfc7e9fd94be21538aebf6115af7751c17b083de286331862e4b64bf0ddeff65324850ce42
-  languageName: node
-  linkType: hard
-
 "autoprefixer@npm:^10.3.1":
   version: 10.4.0
   resolution: "autoprefixer@npm:10.4.0"
@@ -8791,7 +8876,6 @@ __metadata:
     css-minimizer-webpack-plugin: ^1.3.0
     dotenv-webpack: ^7.0.2
     draft-js: ^0.11.7
-    draft-js-export-html: ^1.4.1
     draft-js-linkify-plugin: ^2.0.2
     enzyme: ^3.11.0
     enzyme-adapter-react-16: ^1.15.6
@@ -8810,7 +8894,6 @@ __metadata:
     faker: ^5.5.1
     fork-ts-checker-webpack-plugin: ^6.2.0
     fs-extra: ^9.1.0
-    html-react-parser: ^1.2.6
     html-to-draftjs: ^1.5.0
     html-webpack-plugin: ^5.3.1
     husky: ^6.0.0
@@ -8856,6 +8939,11 @@ __metadata:
     webpack-dev-server: ^3.11.2
     webpack-merge: ^5.7.3
     webpack-virtual-modules: ^0.4.2
+  peerDependencies:
+    draft-js-export-html: ^1.4.1
+    html-react-parser: ^1.2.6
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -11727,7 +11815,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domhandler@npm:4.2.2, domhandler@npm:^4.0.0, domhandler@npm:^4.2.0, domhandler@npm:^4.2.2":
+"domhandler@npm:^4.0.0, domhandler@npm:^4.2.0":
   version: 4.2.2
   resolution: "domhandler@npm:4.2.2"
   dependencies:
@@ -11746,7 +11834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domutils@npm:^2.5.2, domutils@npm:^2.6.0, domutils@npm:^2.7.0, domutils@npm:^2.8.0":
+"domutils@npm:^2.5.2, domutils@npm:^2.6.0, domutils@npm:^2.7.0":
   version: 2.8.0
   resolution: "domutils@npm:2.8.0"
   dependencies:
@@ -11834,18 +11922,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"draft-js-export-html@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "draft-js-export-html@npm:1.4.1"
-  dependencies:
-    draft-js-utils: ^1.4.0
-  peerDependencies:
-    draft-js: ">=0.10.0"
-    immutable: 3.x.x
-  checksum: df6d0994fd0a89f1c00c06c8b9958bbafa3d29372ccb7d2e689503edf1f72d7a5e1330f6125140814f1ef7ca6a8df43a01c794f244f7f98195dddb8720cde304
-  languageName: node
-  linkType: hard
-
 "draft-js-linkify-plugin@npm:^2.0.2":
   version: 2.0.2
   resolution: "draft-js-linkify-plugin@npm:2.0.2"
@@ -11858,16 +11934,6 @@ __metadata:
     react: ^15.5.0 || ^16.0.0-rc
     react-dom: ^15.5.0 || ^16.0.0-rc
   checksum: 654327bca2785f86b789055d89f1b06e4fd025a5b1dfcebd4b411691a1a8311e3fdca823c0cdca510f77536d8eb60b9a4e60fd9c927cb076fe6b120f80c0b082
-  languageName: node
-  linkType: hard
-
-"draft-js-utils@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "draft-js-utils@npm:1.4.0"
-  peerDependencies:
-    draft-js: ">=0.10.0"
-    immutable: 3.x.x
-  checksum: 785de2e28b04c24484aa72b97affcb9a1391755c3089c16ff692dc40848e51fc32b41f96edde8a9f00d18390616ade3866759b5f485e7c937bac6e106e8ebdad
   languageName: node
   linkType: hard
 
@@ -12071,13 +12137,6 @@ __metadata:
   version: 2.2.0
   resolution: "entities@npm:2.2.0"
   checksum: ebd62621a15a13f4e914322cf8b1d4aeb224fa5365910d8899615835dada8b1349dea77bbcd4db2eea100845de313c46303accafece669d929d64ebcc90f4517
-  languageName: node
-  linkType: hard
-
-"entities@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "entities@npm:3.0.1"
-  checksum: 563426e9abc2f697c42c57f69f4321d407f11dfa0066d975e2e9288b504ddfc874aac045565f3774dcf4755a3b415f35b6ef84278e27f9e4329b761e2232a228
   languageName: node
   linkType: hard
 
@@ -14714,16 +14773,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-dom-parser@npm:1.0.3":
-  version: 1.0.3
-  resolution: "html-dom-parser@npm:1.0.3"
-  dependencies:
-    domhandler: 4.2.2
-    htmlparser2: 7.2.0
-  checksum: 5331f7d5986f1a7520cf5dba504c6c762d4216d2f48c554681fb6b4ffb88aeacef713a97f87405f1bbda3f7bfdb69682361b21dc33936198649932b79d650c58
-  languageName: node
-  linkType: hard
-
 "html-element-map@npm:^1.2.0":
   version: 1.3.1
   resolution: "html-element-map@npm:1.3.1"
@@ -14828,20 +14877,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-react-parser@npm:^1.2.6":
-  version: 1.4.1
-  resolution: "html-react-parser@npm:1.4.1"
-  dependencies:
-    domhandler: 4.2.2
-    html-dom-parser: 1.0.3
-    react-property: 2.0.0
-    style-to-js: 1.1.0
-  peerDependencies:
-    react: 0.14 || 15 || 16 || 17
-  checksum: 8e01e58714e9194a157907545aa0c01892fc76ac2274fb3c276177e3c7092a015b0f7b91a5e0aaf2ead0af67fccc5424062541adb1705664d61fbf4ac705a6fb
-  languageName: node
-  linkType: hard
-
 "html-tags@npm:^3.1.0":
   version: 3.1.0
   resolution: "html-tags@npm:3.1.0"
@@ -14897,18 +14932,6 @@ __metadata:
   peerDependencies:
     webpack: ^5.20.0
   checksum: 78b25495b07365537aecb862492c8f3fc7f58319b736c3a60bb8fa77e37692a7499a59ce6c8d9080d610eb4818122c4290473bb0bbf5a5d052ee504b797c7b5b
-  languageName: node
-  linkType: hard
-
-"htmlparser2@npm:7.2.0":
-  version: 7.2.0
-  resolution: "htmlparser2@npm:7.2.0"
-  dependencies:
-    domelementtype: ^2.0.1
-    domhandler: ^4.2.2
-    domutils: ^2.8.0
-    entities: ^3.0.1
-  checksum: 022f20e9f3ff452de69c803758aa08f7ab443ea1b0d080bce34c073120c7d4d42ae1d3757c06c7e9a81b695fc8d8c2b322ea879078940b086eb534bf5ea8f20e
   languageName: node
   linkType: hard
 
@@ -21726,7 +21749,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.5.7, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -22086,22 +22109,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-datepicker@npm:^3.7.0":
-  version: 3.8.0
-  resolution: "react-datepicker@npm:3.8.0"
-  dependencies:
-    classnames: ^2.2.6
-    date-fns: ^2.0.1
-    prop-types: ^15.7.2
-    react-onclickoutside: ^6.10.0
-    react-popper: ^1.3.8
-  peerDependencies:
-    react: ^16.9.0 || ^17
-    react-dom: ^16.9.0 || ^17
-  checksum: a82c4bc768962d1d1682e57212b30c077a55b680fa8776b51ca3e7f8271e7f5c6d000d7a22c85430b6ed12b9e276b4669a12076f941d6e331a11327eca5d207e
-  languageName: node
-  linkType: hard
-
 "react-dev-utils@npm:^11.0.4":
   version: 11.0.4
   resolution: "react-dev-utils@npm:11.0.4"
@@ -22317,19 +22324,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-input-range@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "react-input-range@npm:1.3.0"
-  dependencies:
-    autobind-decorator: ^1.3.4
-    prop-types: ^15.5.8
-  peerDependencies:
-    react: ^15.0.0 || ^16.0.0
-    react-dom: ^15.0.0 || ^16.0.0
-  checksum: a168a626c04268b286b0f3febff4900273d89cd2ca98ba0263f09f058d6ee187a2c56c67313814b070ca860749c05547c1e73e0c2638c2ef7c7d50b79becffd0
-  languageName: node
-  linkType: hard
-
 "react-inspector@npm:^5.1.0":
   version: 5.1.1
   resolution: "react-inspector@npm:5.1.1"
@@ -22364,16 +22358,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-onclickoutside@npm:^6.10.0":
-  version: 6.12.1
-  resolution: "react-onclickoutside@npm:6.12.1"
-  peerDependencies:
-    react: ^15.5.x || ^16.x || ^17.x
-    react-dom: ^15.5.x || ^16.x || ^17.x
-  checksum: 1adb6d2e5f9995be2c3fb6b1722fb21bc5cdc170dc05a378981cd740b9f22bc123ffdd3227de64c6269d998207ad32f4880b0af01237fed67fa529b399fd364c
-  languageName: node
-  linkType: hard
-
 "react-popper-tooltip@npm:^2.8.3":
   version: 2.11.1
   resolution: "react-popper-tooltip@npm:2.11.1"
@@ -22401,7 +22385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-popper@npm:^1.3.7, react-popper@npm:^1.3.8":
+"react-popper@npm:^1.3.7":
   version: 1.3.11
   resolution: "react-popper@npm:1.3.11"
   dependencies:
@@ -22428,13 +22412,6 @@ __metadata:
     "@popperjs/core": ^2.0.0
     react: ^16.8.0 || ^17
   checksum: 5cac009001e2a7c640ba931afedbbf33c94a672a3f7c6ef672e55561b72778c6941a09f57156962114b9e47793779728088845fc306c43477ddc645cdb8793ea
-  languageName: node
-  linkType: hard
-
-"react-property@npm:2.0.0":
-  version: 2.0.0
-  resolution: "react-property@npm:2.0.0"
-  checksum: e198c195008055b072bbe7b8e98fadcc8279ef030a4d2590f358faffd6d8f664cb2c96dda21ccc3d2f19917efc72b124a012ce6c8f74e19107c8b86427031a98
   languageName: node
   linkType: hard
 
@@ -22599,17 +22576,6 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: fa24eec06273e0bd56875c14ab6e90c5ef728dc4231a80a44854d861ec2ba10296e975758c1f211bd613df279476049d20fc84fe01dc5e3afaceecf17686fb1a
-  languageName: node
-  linkType: hard
-
-"react-tiny-virtual-list@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "react-tiny-virtual-list@npm:2.2.0"
-  dependencies:
-    prop-types: ^15.5.7
-  peerDependencies:
-    react: 15.x || 16.x
-  checksum: 82e63452ed98e1869b81aac204597b260a45ce97dfc1faa8f07f03ac071da6309736299c32e9eaf89e35c285d119e1a6a841dd1b058e3dbe677df961153b7eda
   languageName: node
   linkType: hard
 
@@ -24484,13 +24450,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"state-local@npm:^1.0.6":
-  version: 1.0.7
-  resolution: "state-local@npm:1.0.7"
-  checksum: e272ccbedabead16ac7dce577bb68fec512e5cf8c9474cecc9f2e3afd759b45ac3bf949deaa53825e987de8b9d585d7fa7c70c092195f8fa963f75f53efd9897
-  languageName: node
-  linkType: hard
-
 "state-toggle@npm:^1.0.0":
   version: 1.0.3
   resolution: "state-toggle@npm:1.0.3"
@@ -24942,15 +24901,6 @@ resolve@^2.0.0-next.3:
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
   checksum: ffc305488244ab499f91b05a1c94dd199b8b106d69e260ce38bd599819bbb352357e107bef3c319b775b9fb0eaed571cb68f8c7940e457553f85a980f4b630d8
-  languageName: node
-  linkType: hard
-
-"style-to-js@npm:1.1.0":
-  version: 1.1.0
-  resolution: "style-to-js@npm:1.1.0"
-  dependencies:
-    style-to-object: 0.3.0
-  checksum: d2a31479969dce7ebc141987f10b6eda9d12ef9c56dd0ec2ad25fe236ce41bd56aaad8dbe421529cb87847285ea84477634ca6fb3b03900f7918fe986446ab66
   languageName: node
   linkType: hard
 
