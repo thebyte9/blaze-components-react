@@ -1,9 +1,10 @@
 import '@blaze-react/blaze-components-theme';
 
-import React, { Suspense, lazy } from 'react';
+import React, from 'react';
+import FileUpload from '../src/FileUpload';
 
 import FileUploadReadme from '../README.md';
-import Modal from '@blaze-react/modal';
+import { Modal } from '@blaze-react/modal';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('FileUpload', module)
@@ -16,26 +17,9 @@ storiesOf('FileUpload', module)
     const FileUploadModal = ({ onClose }: any) => {
       const onChange = (event: any[], currentFiles: any[]) => {};
 
-      const FileUpload: any = lazy(() => import('../src/FileUpload'));
       return (
-        <Suspense fallback={<div>Loading...</div>}>
-          <Modal
-            title="Add media"
-            actions={[
-              {
-                modifiers: ['cancel'],
-                textButton: 'Cancel',
-              },
-              {
-                modifiers: [],
-                textButton: 'Save',
-              },
-            ]}
-            upload
-          >
+         
             <FileUpload onChange={onChange} selectOptions={[['default', 'Default']]} />
-          </Modal>
-        </Suspense>
       );
     };
     return (

@@ -1,9 +1,11 @@
-import Button from "@blaze-react/button";
 import "@blaze-react/blaze-components-theme";
-import { storiesOf } from "@storybook/react";
+
+import { ToastProvider, useToasts } from "../src";
+
+import { Button } from "@blaze-react/button";
 import React from "react";
 import ToasterReadme from "../README.md";
-import { ToastProvider, useToasts } from "../src";
+import { storiesOf } from "@storybook/react";
 
 function Toasts() {
   const { addToast } = useToasts();

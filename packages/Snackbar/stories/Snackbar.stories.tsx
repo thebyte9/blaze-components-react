@@ -1,8 +1,9 @@
-import Button from "@blaze-react/button";
-import { storiesOf } from "@storybook/react";
 import React, { useState } from "react";
-import SnackbarReadme from "../README.md";
+
+import { Button } from "@blaze-react/button";
 import Snackbar from "../src/Snackbar";
+import SnackbarReadme from "../README.md";
+import { storiesOf } from "@storybook/react";
 
 const Notification = ({
   children
