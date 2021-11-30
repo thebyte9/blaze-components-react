@@ -1,6 +1,7 @@
 import { COMPONENT, DEFAULT_VARIANT } from '../constants';
-import { IconDisplayType, IconProps } from '@blaze-react/icon';
 import { ThemeType, overrideClasses, useTheme } from '@blaze-react/themes';
+
+import { IconDisplayType } from '@blaze-react/icon';
 
 interface IComponentLogicProps {
   componentVariant: string;
