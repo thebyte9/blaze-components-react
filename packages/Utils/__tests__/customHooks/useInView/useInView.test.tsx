@@ -1,8 +1,9 @@
 import { act, render } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
-import expect from 'expect';
+
 import React from 'react';
-import useInView from '../../../src/customHooks/useInView/useInView';
+import expect from 'expect';
+import { renderHook } from '@testing-library/react-hooks';
+import { useInView } from '../../../src/customHooks';
 
 class MockedIntersectionObserver {
   public static getInstance() {

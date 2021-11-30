@@ -1,5 +1,7 @@
 import 'intersection-observer';
+
 import { useEffect, useRef, useState } from 'react';
+
 declare global {
   interface Window {
     IntersectionObserver: any;
@@ -29,7 +31,7 @@ function useInView({ ref, once = true, offset = '0px' }: IUseInView) {
           setIntersecting(entry.isIntersecting);
 
           if (entry.isIntersecting) {
-            once && observer?.unobserve(current);
+            once && observer.unobserve(current);
           }
         },
         {
@@ -40,7 +42,7 @@ function useInView({ ref, once = true, offset = '0px' }: IUseInView) {
       current && newObserver.observe(current);
 
       return () => {
-        newObserver?.unobserve(current);
+        newObserver.unobserve(current);
       };
     })();
   }, [offset, once, ref]);
