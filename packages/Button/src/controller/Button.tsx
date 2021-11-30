@@ -1,7 +1,8 @@
-import React from 'react';
-import { DisplayIconProps, IButtonProps } from '../types';
+import { Icon, IconDisplayType } from '@blaze-react/icon';
+
 import { ButtonView } from '../view/ButtonView';
-import { Icon } from '@blaze-react/icon';
+import { IButtonProps } from '../types';
+import React from 'react';
 import { useComponentLogic } from '../hooks/useComponentLogic';
 
 export const Button = ({
@@ -11,7 +12,7 @@ export const Button = ({
   iconOnly = false,
   disabled = false,
   icon,
-  displayIcon = DisplayIconProps.NoIcon,
+  displayIcon = IconDisplayType.NoIcon,
   overrides = [],
   children,
   theme,

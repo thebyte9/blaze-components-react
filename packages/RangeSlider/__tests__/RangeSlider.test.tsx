@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom';
-
-import { fireEvent, render, screen } from '@testing-library/react';
+import 'react-input-range';
 
 import RangeSlider from '../src/RangeSlider';
 import React from 'react';
+import { render } from '@testing-library/react';
 
 const defaultProps = (override: object = {}) => ({
   minValue: 0,

@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/snackbar",
-  "version": "0.8.0-alpha.46",
+  "version": "0.8.0-alpha.60",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -15,11 +15,13 @@
   "keywords": [],
   "author": "byte9",
   "license": "GPL-3.0",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },

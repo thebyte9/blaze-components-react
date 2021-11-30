@@ -3,6 +3,91 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.59](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.58...v0.8.0-alpha.59) (2021-11-29)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.58](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.57...v0.8.0-alpha.58) (2021-11-29)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.57](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.56...v0.8.0-alpha.57) (2021-11-29)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.56](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.55...v0.8.0-alpha.56) (2021-11-29)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.55](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.54...v0.8.0-alpha.55) (2021-11-29)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.54](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.53...v0.8.0-alpha.54) (2021-11-29)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.53](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.52...v0.8.0-alpha.53) (2021-11-29)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.52](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.49...v0.8.0-alpha.52) (2021-11-29)
+
+
+### Bug Fixes
+
+* date jumps to end of input ([#561](https://github.com/thebyte9/blaze-components-react/issues/561)) ([0d54e9c](https://github.com/thebyte9/blaze-components-react/commit/0d54e9cd8530c7d3820fd9f915285ffa7a36fc99))
+* range number formatting ([#582](https://github.com/thebyte9/blaze-components-react/issues/582)) ([8839ee6](https://github.com/thebyte9/blaze-components-react/commit/8839ee6bd4e9cc502d57d71b8acf3cda636d0266))
+
+
+### Features
+
+* add props to handle accordion status ([#571](https://github.com/thebyte9/blaze-components-react/issues/571)) ([f92d525](https://github.com/thebyte9/blaze-components-react/commit/f92d525188c28bd6ecdf5755517fd0adfaae2d62))
+
+
+
+# [0.8.0-alpha.40](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.39...v0.8.0-alpha.40) (2021-10-06)
+
+
+
+
+
 # [0.8.0-alpha.49](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.48...v0.8.0-alpha.49) (2021-10-08)
 
 **Note:** Version bump only for package blaze-react

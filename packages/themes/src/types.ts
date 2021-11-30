@@ -24,6 +24,6 @@ export interface ITheme {
   tabBorderRadius: string;
 }
 
-export type ThemeType = {
+export interface ThemeType {
   [index: string]: any;
-};
+}
