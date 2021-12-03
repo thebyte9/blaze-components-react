@@ -73,6 +73,8 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     setTimeout(init, time);
   };
 
+  const formatNumbers = (number: number) => number > 9999 ? Number(number).toLocaleString('en-US') : number;
+
   const modifierClassName: string = buildClassNames({
     [`form-field--${modifier}`]: !!modifier
   });
@@ -80,6 +82,9 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   const requiredClassName: string = buildClassNames({ required });
 
   const { min = 0, max = 0, step = 1, minValue = 0, maxValue = 0 } = inputs;
+
+  const formatedMinValue = formatNumbers(minValue);
+  const formatedMaxValue = formatNumbers(maxValue);
 
   return (
     <div className={`form-field form-field--range ${modifierClassName}`}>
@@ -89,8 +94,8 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         </label>
       )}
       <div className="values">
-        <span>{Number(minValue).toLocaleString('en-US')}</span>
-        <span>{Number(maxValue).toLocaleString('en-US')}</span>
+        <span>{formatedMinValue}</span>
+        <span>{formatedMaxValue}</span>
       </div>
       <div
         min={min}

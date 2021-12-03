@@ -4,11 +4,11 @@ import React, { lazy, Suspense } from "react";
 import inputReadme from "../README.md";
 
 const value = {
-  max: 20000000,
-  min: 10000000,
-  step: 1,
-  minValue: 10000000,
-  maxValue: 20000000
+  max: 9000,
+  min: 1000,
+  step: 10,
+  minValue: 1000,
+  maxValue: 5000
 };
 
 storiesOf("Range Filter", module)
