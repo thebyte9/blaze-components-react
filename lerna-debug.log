@@ -1,0 +1,500 @@
+0 silly argv {
+0 silly argv   _: [ 'version' ],
+0 silly argv   'commit-hooks': false,
+0 silly argv   commitHooks: false,
+0 silly argv   'force-publish': true,
+0 silly argv   forcePublish: true,
+0 silly argv   'conventional-commits': true,
+0 silly argv   conventionalCommits: true,
+0 silly argv   'conventional-prerelease': true,
+0 silly argv   conventionalPrerelease: true,
+0 silly argv   'create-release': 'github',
+0 silly argv   createRelease: 'github',
+0 silly argv   lernaVersion: '4.0.0',
+0 silly argv   '$0': 'node_modules/.bin/lerna',
+0 silly argv   bump: '0.8.0-alpha.51'
+0 silly argv }
+1 notice cli v4.0.0
+2 verbose rootPath /Users/ismaelhaytam/Documents/byte9/blaze-components-react
+3 silly createGitHubClient
+4 info current version 0.8.0-alpha.50
+5 silly isAnythingCommitted
+6 verbose isAnythingCommitted 1
+7 silly getCurrentBranch
+8 verbose currentBranch dev
+9 silly remoteBranchExists
+10 silly isBehindUpstream
+11 silly isBehindUpstream dev is behind origin/dev by 0 commit(s) and ahead by 1
+12 silly hasTags
+13 verbose hasTags true
+14 silly git-describe.sync "v0.8.0-alpha.50-0-g51f4fabc" => {"lastTagName":"v0.8.0-alpha.50","lastVersion":"v0.8.0-alpha.50","refCount":"0","sha":"51f4fabc","isDirty":false}
+15 warn force-publish all packages
+16 info Assuming all packages changed
+17 verbose updated @blaze-react/accordion
+18 verbose updated @blaze-react/alert
+19 verbose updated @blaze-react/autocomplete
+20 verbose updated @blaze-react/avatar
+21 verbose updated @blaze-react/badge
+22 verbose updated @blaze-react/blaze-components-theme
+23 verbose updated @blaze-react/breadcrumb
+24 verbose updated @blaze-react/button
+25 verbose updated @blaze-react/button-select
+26 verbose updated @blaze-react/checkboxes
+27 verbose updated @blaze-react/chips
+28 verbose updated @blaze-react/code-editor
+29 verbose updated @blaze-react/core
+30 verbose updated @blaze-react/date-range
+31 verbose updated @blaze-react/date-time-input
+32 verbose updated @blaze-react/dnd
+33 verbose updated @blaze-react/drafteditor
+34 verbose updated @blaze-react/drawer
+35 verbose updated @blaze-react/dropdown
+36 verbose updated @blaze-react/file-upload
+37 verbose updated @blaze-react/group
+38 verbose updated @blaze-react/icon
+39 verbose updated @blaze-react/input
+40 verbose updated @blaze-react/loader
+41 verbose updated @blaze-react/modal
+42 verbose updated @blaze-react/more
+43 verbose updated @blaze-react/multi-level-menu
+44 verbose updated @blaze-react/multiselect
+45 verbose updated @blaze-react/progress
+46 verbose updated @blaze-react/radio-button
+47 verbose updated @blaze-react/range-filter
+48 verbose updated @blaze-react/range-slider
+49 verbose updated @blaze-react/select
+50 verbose updated @blaze-react/skeleton
+51 verbose updated @blaze-react/snackbar
+52 verbose updated @blaze-react/social-follow
+53 verbose updated @blaze-react/switches
+54 verbose updated @blaze-react/tab
+55 verbose updated @blaze-react/table
+56 verbose updated @blaze-react/text-area
+57 verbose updated @blaze-react/toaster
+58 verbose updated @blaze-react/tooltip
+59 verbose updated @blaze-react/utils
+60 verbose updated @blaze-react/video-container
+61 verbose updated @blaze-react/build-tools
+62 verbose updated @blaze-react/themes
+63 info execute Creating releases...
+64 silly lifecycle No script for "preversion" in "blaze-react", continuing
+65 silly lifecycle No script for "preversion" in "@blaze-react/autocomplete", continuing
+66 silly lifecycle No script for "preversion" in "@blaze-react/avatar", continuing
+67 silly lifecycle No script for "preversion" in "@blaze-react/badge", continuing
+68 silly lifecycle No script for "preversion" in "@blaze-react/blaze-components-theme", continuing
+69 silly lifecycle No script for "preversion" in "@blaze-react/breadcrumb", continuing
+70 silly lifecycle No script for "preversion" in "@blaze-react/checkboxes", continuing
+71 silly lifecycle No script for "preversion" in "@blaze-react/code-editor", continuing
+72 silly lifecycle No script for "preversion" in "@blaze-react/core", continuing
+73 silly lifecycle No script for "preversion" in "@blaze-react/date-range", continuing
+74 silly lifecycle No script for "preversion" in "@blaze-react/date-time-input", continuing
+75 silly lifecycle No script for "preversion" in "@blaze-react/drafteditor", continuing
+76 silly lifecycle No script for "preversion" in "@blaze-react/dropdown", continuing
+77 silly lifecycle No script for "version" in "@blaze-react/avatar", continuing
+78 silly fixed for @blaze-react/avatar at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Avatar
+79 verbose getChangelogConfig using preset "conventional-changelog-angular"
+80 silly npa Result {
+80 silly npa   type: 'tag',
+80 silly npa   registry: true,
+80 silly npa   where: undefined,
+80 silly npa   raw: 'conventional-changelog-angular',
+80 silly npa   name: 'conventional-changelog-angular',
+80 silly npa   escapedName: 'conventional-changelog-angular',
+80 silly npa   scope: undefined,
+80 silly npa   rawSpec: '',
+80 silly npa   saveSpec: null,
+80 silly npa   fetchSpec: 'latest',
+80 silly npa   gitRange: undefined,
+80 silly npa   gitCommittish: undefined,
+80 silly npa   hosted: undefined
+80 silly npa }
+81 verbose getChangelogConfig Attempting to resolve preset "conventional-changelog-angular"
+82 info getChangelogConfig Successfully resolved preset "conventional-changelog-angular"
+83 silly lifecycle No script for "version" in "@blaze-react/breadcrumb", continuing
+84 silly fixed for @blaze-react/breadcrumb at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Breadcrumb
+85 silly lifecycle No script for "version" in "@blaze-react/date-time-input", continuing
+86 silly fixed for @blaze-react/date-time-input at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/DateTimeInput
+87 silly lifecycle No script for "version" in "@blaze-react/drafteditor", continuing
+88 silly fixed for @blaze-react/drafteditor at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/DraftEditor
+89 silly lifecycle No script for "version" in "@blaze-react/core", continuing
+90 silly fixed for @blaze-react/core at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Core
+91 silly lifecycle No script for "version" in "@blaze-react/badge", continuing
+92 silly fixed for @blaze-react/badge at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Badge
+93 silly lifecycle No script for "version" in "@blaze-react/blaze-components-theme", continuing
+94 silly fixed for @blaze-react/blaze-components-theme at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Blaze-ui
+95 silly lifecycle No script for "version" in "@blaze-react/autocomplete", continuing
+96 silly fixed for @blaze-react/autocomplete at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Autocomplete
+97 silly lifecycle No script for "version" in "@blaze-react/dropdown", continuing
+98 silly fixed for @blaze-react/dropdown at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Dropdown
+99 silly lifecycle No script for "version" in "@blaze-react/checkboxes", continuing
+100 silly fixed for @blaze-react/checkboxes at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Checkboxes
+101 silly lifecycle No script for "version" in "@blaze-react/date-range", continuing
+102 silly fixed for @blaze-react/date-range at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/DateRange
+103 silly lifecycle No script for "version" in "@blaze-react/code-editor", continuing
+104 silly fixed for @blaze-react/code-editor at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/CodeEditor
+105 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/core\n\n\n\n"
+106 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/avatar\n\n\n\n"
+107 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/drafteditor\n\n\n\n"
+108 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/date-time-input\n\n\n\n"
+109 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/autocomplete\n\n\n\n"
+110 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/code-editor\n\n\n\n"
+111 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/breadcrumb\n\n\n\n"
+112 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Core/CHANGELOG.md
+113 silly lifecycle No script for "preversion" in "@blaze-react/group", continuing
+114 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Avatar/CHANGELOG.md
+115 silly lifecycle No script for "preversion" in "@blaze-react/icon", continuing
+116 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/DraftEditor/CHANGELOG.md
+117 silly lifecycle No script for "preversion" in "@blaze-react/loader", continuing
+118 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/blaze-components-theme\n\n\n\n"
+119 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/dropdown\n\n\n\n"
+120 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/DateTimeInput/CHANGELOG.md
+121 silly lifecycle No script for "preversion" in "@blaze-react/modal", continuing
+122 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/checkboxes\n\n\n\n"
+123 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/CodeEditor/CHANGELOG.md
+124 silly lifecycle No script for "preversion" in "@blaze-react/more", continuing
+125 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Breadcrumb/CHANGELOG.md
+126 silly lifecycle No script for "preversion" in "@blaze-react/multi-level-menu", continuing
+127 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Autocomplete/CHANGELOG.md
+128 silly lifecycle No script for "preversion" in "@blaze-react/radio-button", continuing
+129 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Blaze-ui/CHANGELOG.md
+130 silly lifecycle No script for "preversion" in "@blaze-react/range-filter", continuing
+131 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Dropdown/CHANGELOG.md
+132 silly lifecycle No script for "preversion" in "@blaze-react/range-slider", continuing
+133 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/badge\n\n\n\n"
+134 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Checkboxes/CHANGELOG.md
+135 silly lifecycle No script for "preversion" in "@blaze-react/select", continuing
+136 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Badge/CHANGELOG.md
+137 silly lifecycle No script for "preversion" in "@blaze-react/snackbar", continuing
+138 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/date-range\n\n\n\n"
+139 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/DateRange/CHANGELOG.md
+140 silly lifecycle No script for "preversion" in "@blaze-react/switches", continuing
+141 silly lifecycle No script for "version" in "@blaze-react/group", continuing
+142 silly fixed for @blaze-react/group at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Group
+143 silly lifecycle No script for "version" in "@blaze-react/loader", continuing
+144 silly fixed for @blaze-react/loader at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Loader
+145 silly lifecycle No script for "version" in "@blaze-react/icon", continuing
+146 silly fixed for @blaze-react/icon at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon
+147 silly lifecycle No script for "version" in "@blaze-react/modal", continuing
+148 silly fixed for @blaze-react/modal at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Modal
+149 silly lifecycle No script for "version" in "@blaze-react/more", continuing
+150 silly fixed for @blaze-react/more at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/More
+151 silly lifecycle No script for "version" in "@blaze-react/radio-button", continuing
+152 silly fixed for @blaze-react/radio-button at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/RadioButton
+153 silly lifecycle No script for "version" in "@blaze-react/multi-level-menu", continuing
+154 silly fixed for @blaze-react/multi-level-menu at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/MultiLevelMenu
+155 silly lifecycle No script for "version" in "@blaze-react/range-filter", continuing
+156 silly fixed for @blaze-react/range-filter at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/RangeFilter
+157 silly lifecycle No script for "version" in "@blaze-react/range-slider", continuing
+158 silly fixed for @blaze-react/range-slider at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/RangeSlider
+159 silly lifecycle No script for "version" in "@blaze-react/select", continuing
+160 silly fixed for @blaze-react/select at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Select
+161 silly lifecycle No script for "version" in "@blaze-react/snackbar", continuing
+162 silly fixed for @blaze-react/snackbar at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Snackbar
+163 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/group\n\n\n\n"
+164 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Group/CHANGELOG.md
+165 silly lifecycle No script for "preversion" in "@blaze-react/toaster", continuing
+166 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/loader\n\n\n\n"
+167 silly lifecycle No script for "version" in "@blaze-react/switches", continuing
+168 silly fixed for @blaze-react/switches at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Switches
+169 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/icon\n\n\n\n"
+170 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Loader/CHANGELOG.md
+171 silly lifecycle No script for "preversion" in "@blaze-react/utils", continuing
+172 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/CHANGELOG.md
+173 silly lifecycle No script for "preversion" in "@blaze-react/video-container", continuing
+174 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/more\n\n\n\n"
+175 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/modal\n\n\n\n"
+176 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/radio-button\n\n\n\n"
+177 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/range-slider\n\n\n\n"
+178 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/More/CHANGELOG.md
+179 silly lifecycle No script for "preversion" in "@blaze-react/build-tools", continuing
+180 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Modal/CHANGELOG.md
+181 silly lifecycle No script for "preversion" in "@blaze-react/themes", continuing
+182 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/range-filter\n\n\n\n"
+183 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/RadioButton/CHANGELOG.md
+184 silly lifecycle No script for "preversion" in "@blaze-react/button-select", continuing
+185 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/RangeSlider/CHANGELOG.md
+186 silly lifecycle No script for "preversion" in "@blaze-react/drawer", continuing
+187 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/multi-level-menu\n\n\n\n"
+188 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/RangeFilter/CHANGELOG.md
+189 silly lifecycle No script for "preversion" in "@blaze-react/progress", continuing
+190 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/MultiLevelMenu/CHANGELOG.md
+191 silly lifecycle No script for "preversion" in "@blaze-react/social-follow", continuing
+192 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/snackbar\n\n\n\n"
+193 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/select\n\n\n\n"
+194 silly lifecycle No script for "version" in "@blaze-react/toaster", continuing
+195 silly fixed for @blaze-react/toaster at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Toaster
+196 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Select/CHANGELOG.md
+197 silly lifecycle No script for "preversion" in "@blaze-react/table", continuing
+198 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Snackbar/CHANGELOG.md
+199 silly lifecycle No script for "preversion" in "@blaze-react/text-area", continuing
+200 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/switches\n\n\n\n"
+201 silly lifecycle No script for "version" in "@blaze-react/utils", continuing
+202 silly fixed for @blaze-react/utils at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Utils
+203 silly lifecycle No script for "version" in "@blaze-react/video-container", continuing
+204 silly fixed for @blaze-react/video-container at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer
+205 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Switches/CHANGELOG.md
+206 silly lifecycle No script for "preversion" in "@blaze-react/tooltip", continuing
+207 silly lifecycle No script for "version" in "@blaze-react/themes", continuing
+208 silly fixed for @blaze-react/themes at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/themes
+209 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/toaster\n\n\n\n"
+210 silly lifecycle No script for "version" in "@blaze-react/build-tools", continuing
+211 silly fixed for @blaze-react/build-tools at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools
+212 silly lifecycle No script for "version" in "@blaze-react/button-select", continuing
+213 silly fixed for @blaze-react/button-select at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/ButtonSelect
+214 silly lifecycle No script for "version" in "@blaze-react/drawer", continuing
+215 silly fixed for @blaze-react/drawer at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Drawer
+216 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Toaster/CHANGELOG.md
+217 silly lifecycle No script for "version" in "@blaze-react/progress", continuing
+218 silly fixed for @blaze-react/progress at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress
+219 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/video-container\n\n\n\n"
+220 silly lifecycle No script for "version" in "@blaze-react/social-follow", continuing
+221 silly fixed for @blaze-react/social-follow at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/SocialFollow
+222 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/utils\n\n\n\n"
+223 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/CHANGELOG.md
+224 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Utils/CHANGELOG.md
+225 silly lifecycle No script for "preversion" in "@blaze-react/alert", continuing
+226 silly lifecycle No script for "preversion" in "@blaze-react/chips", continuing
+227 silly lifecycle No script for "preversion" in "@blaze-react/dnd", continuing
+228 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/button-select\n\n\n\n"
+229 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/themes\n\n\n\n"
+230 silly lifecycle No script for "version" in "@blaze-react/text-area", continuing
+231 silly fixed for @blaze-react/text-area at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Textarea
+232 silly lifecycle No script for "version" in "@blaze-react/table", continuing
+233 silly fixed for @blaze-react/table at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Table
+234 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/build-tools\n\n\n\n"
+235 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/drawer\n\n\n\n"
+236 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/ButtonSelect/CHANGELOG.md
+237 silly lifecycle No script for "preversion" in "@blaze-react/file-upload", continuing
+238 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/themes/CHANGELOG.md
+239 silly lifecycle No script for "preversion" in "@blaze-react/multiselect", continuing
+240 silly lifecycle No script for "version" in "@blaze-react/tooltip", continuing
+241 silly fixed for @blaze-react/tooltip at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Tooltip
+242 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/progress\n\n\n\n"
+243 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/CHANGELOG.md
+244 silly lifecycle No script for "preversion" in "@blaze-react/button", continuing
+245 silly lifecycle No script for "version" in "@blaze-react/alert", continuing
+246 silly fixed for @blaze-react/alert at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Alert
+247 silly lifecycle No script for "version" in "@blaze-react/dnd", continuing
+248 silly fixed for @blaze-react/dnd at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Dnd
+249 silly lifecycle No script for "version" in "@blaze-react/chips", continuing
+250 silly fixed for @blaze-react/chips at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Chips
+251 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Drawer/CHANGELOG.md
+252 silly lifecycle No script for "preversion" in "@blaze-react/skeleton", continuing
+253 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/CHANGELOG.md
+254 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/social-follow\n\n\n\n"
+255 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/SocialFollow/CHANGELOG.md
+256 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/text-area\n\n\n\n"
+257 silly lifecycle No script for "version" in "@blaze-react/file-upload", continuing
+258 silly fixed for @blaze-react/file-upload at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/FileUpload
+259 silly lifecycle No script for "version" in "@blaze-react/button", continuing
+260 silly fixed for @blaze-react/button at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Button
+261 silly lifecycle No script for "version" in "@blaze-react/multiselect", continuing
+262 silly fixed for @blaze-react/multiselect at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Multiselect
+263 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/table\n\n\n\n"
+264 silly lifecycle No script for "version" in "@blaze-react/skeleton", continuing
+265 silly fixed for @blaze-react/skeleton at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Skeleton
+266 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Textarea/CHANGELOG.md
+267 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/tooltip\n\n\n\n"
+268 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Table/CHANGELOG.md
+269 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Tooltip/CHANGELOG.md
+270 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/alert\n\n\n\n"
+271 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/dnd\n\n\n\n"
+272 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Alert/CHANGELOG.md
+273 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Dnd/CHANGELOG.md
+274 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/chips\n\n\n\n"
+275 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Chips/CHANGELOG.md
+276 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/file-upload\n\n\n\n"
+277 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/button\n\n\n\n"
+278 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/skeleton\n\n\n\n"
+279 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/FileUpload/CHANGELOG.md
+280 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/multiselect\n\n\n\n"
+281 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Button/CHANGELOG.md
+282 silly lifecycle No script for "preversion" in "@blaze-react/accordion", continuing
+283 silly lifecycle No script for "preversion" in "@blaze-react/tab", continuing
+284 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Skeleton/CHANGELOG.md
+285 silly lifecycle No script for "preversion" in "@blaze-react/input", continuing
+286 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Multiselect/CHANGELOG.md
+287 silly lifecycle No script for "version" in "@blaze-react/accordion", continuing
+288 silly fixed for @blaze-react/accordion at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Accordion
+289 silly lifecycle No script for "version" in "@blaze-react/tab", continuing
+290 silly fixed for @blaze-react/tab at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Tab
+291 silly lifecycle No script for "version" in "@blaze-react/input", continuing
+292 silly fixed for @blaze-react/input at /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Input
+293 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/accordion\n\n\n\n"
+294 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/tab\n\n\n\n"
+295 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Accordion/CHANGELOG.md
+296 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Tab/CHANGELOG.md
+297 silly fixed writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package @blaze-react/input\n\n\n\n"
+298 verbose fixed wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Input/CHANGELOG.md
+299 silly root for blaze-react at /Users/ismaelhaytam/Documents/byte9/blaze-components-react
+300 silly root writing new entry: "# [0.8.0-alpha.51](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.50...v0.8.0-alpha.51) (2021-11-29)\n\n**Note:** Version bump only for package blaze-react\n\n\n\n"
+301 verbose root wrote /Users/ismaelhaytam/Documents/byte9/blaze-components-react/CHANGELOG.md
+302 silly lifecycle No script for "version" in "blaze-react", continuing
+303 silly gitAdd [
+303 silly gitAdd   'packages/Avatar/package.json',
+303 silly gitAdd   'packages/Breadcrumb/package.json',
+303 silly gitAdd   'packages/DateTimeInput/package.json',
+303 silly gitAdd   'packages/DraftEditor/package.json',
+303 silly gitAdd   'packages/Core/package.json',
+303 silly gitAdd   'packages/Badge/package.json',
+303 silly gitAdd   'packages/Blaze-ui/package.json',
+303 silly gitAdd   'packages/Autocomplete/package.json',
+303 silly gitAdd   'packages/Dropdown/package.json',
+303 silly gitAdd   'packages/Checkboxes/package.json',
+303 silly gitAdd   'packages/DateRange/package.json',
+303 silly gitAdd   'packages/CodeEditor/package.json',
+303 silly gitAdd   'packages/Core/CHANGELOG.md',
+303 silly gitAdd   'packages/Avatar/CHANGELOG.md',
+303 silly gitAdd   'packages/DraftEditor/CHANGELOG.md',
+303 silly gitAdd   'packages/DateTimeInput/CHANGELOG.md',
+303 silly gitAdd   'packages/CodeEditor/CHANGELOG.md',
+303 silly gitAdd   'packages/Breadcrumb/CHANGELOG.md',
+303 silly gitAdd   'packages/Autocomplete/CHANGELOG.md',
+303 silly gitAdd   'packages/Blaze-ui/CHANGELOG.md',
+303 silly gitAdd   'packages/Dropdown/CHANGELOG.md',
+303 silly gitAdd   'packages/Checkboxes/CHANGELOG.md',
+303 silly gitAdd   'packages/Badge/CHANGELOG.md',
+303 silly gitAdd   'packages/DateRange/CHANGELOG.md',
+303 silly gitAdd   'packages/Group/package.json',
+303 silly gitAdd   'packages/Loader/package.json',
+303 silly gitAdd   'packages/Icon/package.json',
+303 silly gitAdd   'packages/Modal/package.json',
+303 silly gitAdd   'packages/More/package.json',
+303 silly gitAdd   'packages/RadioButton/package.json',
+303 silly gitAdd   'packages/MultiLevelMenu/package.json',
+303 silly gitAdd   'packages/RangeFilter/package.json',
+303 silly gitAdd   'packages/RangeSlider/package.json',
+303 silly gitAdd   'packages/Select/package.json',
+303 silly gitAdd   'packages/Snackbar/package.json',
+303 silly gitAdd   'packages/Group/CHANGELOG.md',
+303 silly gitAdd   'packages/Switches/package.json',
+303 silly gitAdd   'packages/Loader/CHANGELOG.md',
+303 silly gitAdd   'packages/Icon/CHANGELOG.md',
+303 silly gitAdd   'packages/More/CHANGELOG.md',
+303 silly gitAdd   'packages/Modal/CHANGELOG.md',
+303 silly gitAdd   'packages/RadioButton/CHANGELOG.md',
+303 silly gitAdd   'packages/RangeSlider/CHANGELOG.md',
+303 silly gitAdd   'packages/RangeFilter/CHANGELOG.md',
+303 silly gitAdd   'packages/MultiLevelMenu/CHANGELOG.md',
+303 silly gitAdd   'packages/Toaster/package.json',
+303 silly gitAdd   'packages/Select/CHANGELOG.md',
+303 silly gitAdd   'packages/Snackbar/CHANGELOG.md',
+303 silly gitAdd   'packages/Utils/package.json',
+303 silly gitAdd   'packages/VideoContainer/package.json',
+303 silly gitAdd   'packages/Switches/CHANGELOG.md',
+303 silly gitAdd   'packages/themes/package.json',
+303 silly gitAdd   'packages/build-tools/package.json',
+303 silly gitAdd   'packages/ButtonSelect/package.json',
+303 silly gitAdd   'packages/Drawer/package.json',
+303 silly gitAdd   'packages/Toaster/CHANGELOG.md',
+303 silly gitAdd   'packages/Progress/package.json',
+303 silly gitAdd   'packages/SocialFollow/package.json',
+303 silly gitAdd   'packages/VideoContainer/CHANGELOG.md',
+303 silly gitAdd   'packages/Utils/CHANGELOG.md',
+303 silly gitAdd   'packages/Textarea/package.json',
+303 silly gitAdd   'packages/Table/package.json',
+303 silly gitAdd   'packages/ButtonSelect/CHANGELOG.md',
+303 silly gitAdd   'packages/themes/CHANGELOG.md',
+303 silly gitAdd   'packages/Tooltip/package.json',
+303 silly gitAdd   'packages/build-tools/CHANGELOG.md',
+303 silly gitAdd   'packages/Alert/package.json',
+303 silly gitAdd   'packages/Dnd/package.json',
+303 silly gitAdd   'packages/Chips/package.json',
+303 silly gitAdd   'packages/Drawer/CHANGELOG.md',
+303 silly gitAdd   'packages/Progress/CHANGELOG.md',
+303 silly gitAdd   'packages/SocialFollow/CHANGELOG.md',
+303 silly gitAdd   'packages/FileUpload/package.json',
+303 silly gitAdd   'packages/Button/package.json',
+303 silly gitAdd   'packages/Multiselect/package.json',
+303 silly gitAdd   'packages/Skeleton/package.json',
+303 silly gitAdd   'packages/Textarea/CHANGELOG.md',
+303 silly gitAdd   'packages/Table/CHANGELOG.md',
+303 silly gitAdd   'packages/Tooltip/CHANGELOG.md',
+303 silly gitAdd   'packages/Alert/CHANGELOG.md',
+303 silly gitAdd   'packages/Dnd/CHANGELOG.md',
+303 silly gitAdd   'packages/Chips/CHANGELOG.md',
+303 silly gitAdd   'packages/FileUpload/CHANGELOG.md',
+303 silly gitAdd   'packages/Button/CHANGELOG.md',
+303 silly gitAdd   'packages/Skeleton/CHANGELOG.md',
+303 silly gitAdd   'packages/Multiselect/CHANGELOG.md',
+303 silly gitAdd   'packages/Accordion/package.json',
+303 silly gitAdd   'packages/Tab/package.json',
+303 silly gitAdd   'packages/Input/package.json',
+303 silly gitAdd   'packages/Accordion/CHANGELOG.md',
+303 silly gitAdd   'packages/Tab/CHANGELOG.md',
+303 silly gitAdd   'packages/Input/CHANGELOG.md',
+303 silly gitAdd   'CHANGELOG.md',
+303 silly gitAdd   'lerna.json'
+303 silly gitAdd ]
+304 silly gitCommit v0.8.0-alpha.51
+305 verbose git [ 'commit', '--no-verify', '-m', 'v0.8.0-alpha.51' ]
+306 silly gitTag v0.8.0-alpha.51
+307 verbose git [ 'tag', 'v0.8.0-alpha.51', '-m', 'v0.8.0-alpha.51' ]
+308 silly lifecycle No script for "postversion" in "@blaze-react/accordion", continuing
+309 silly lifecycle No script for "postversion" in "@blaze-react/alert", continuing
+310 silly lifecycle No script for "postversion" in "@blaze-react/autocomplete", continuing
+311 silly lifecycle No script for "postversion" in "@blaze-react/avatar", continuing
+312 silly lifecycle No script for "postversion" in "@blaze-react/badge", continuing
+313 silly lifecycle No script for "postversion" in "@blaze-react/blaze-components-theme", continuing
+314 silly lifecycle No script for "postversion" in "@blaze-react/breadcrumb", continuing
+315 silly lifecycle No script for "postversion" in "@blaze-react/button", continuing
+316 silly lifecycle No script for "postversion" in "@blaze-react/button-select", continuing
+317 silly lifecycle No script for "postversion" in "@blaze-react/checkboxes", continuing
+318 silly lifecycle No script for "postversion" in "@blaze-react/chips", continuing
+319 silly lifecycle No script for "postversion" in "@blaze-react/code-editor", continuing
+320 silly lifecycle No script for "postversion" in "@blaze-react/core", continuing
+321 silly lifecycle No script for "postversion" in "@blaze-react/date-range", continuing
+322 silly lifecycle No script for "postversion" in "@blaze-react/date-time-input", continuing
+323 silly lifecycle No script for "postversion" in "@blaze-react/dnd", continuing
+324 silly lifecycle No script for "postversion" in "@blaze-react/drafteditor", continuing
+325 silly lifecycle No script for "postversion" in "@blaze-react/drawer", continuing
+326 silly lifecycle No script for "postversion" in "@blaze-react/dropdown", continuing
+327 silly lifecycle No script for "postversion" in "@blaze-react/file-upload", continuing
+328 silly lifecycle No script for "postversion" in "@blaze-react/group", continuing
+329 silly lifecycle No script for "postversion" in "@blaze-react/icon", continuing
+330 silly lifecycle No script for "postversion" in "@blaze-react/input", continuing
+331 silly lifecycle No script for "postversion" in "@blaze-react/loader", continuing
+332 silly lifecycle No script for "postversion" in "@blaze-react/modal", continuing
+333 silly lifecycle No script for "postversion" in "@blaze-react/more", continuing
+334 silly lifecycle No script for "postversion" in "@blaze-react/multi-level-menu", continuing
+335 silly lifecycle No script for "postversion" in "@blaze-react/multiselect", continuing
+336 silly lifecycle No script for "postversion" in "@blaze-react/progress", continuing
+337 silly lifecycle No script for "postversion" in "@blaze-react/radio-button", continuing
+338 silly lifecycle No script for "postversion" in "@blaze-react/range-filter", continuing
+339 silly lifecycle No script for "postversion" in "@blaze-react/range-slider", continuing
+340 silly lifecycle No script for "postversion" in "@blaze-react/select", continuing
+341 silly lifecycle No script for "postversion" in "@blaze-react/skeleton", continuing
+342 silly lifecycle No script for "postversion" in "@blaze-react/snackbar", continuing
+343 silly lifecycle No script for "postversion" in "@blaze-react/social-follow", continuing
+344 silly lifecycle No script for "postversion" in "@blaze-react/switches", continuing
+345 silly lifecycle No script for "postversion" in "@blaze-react/tab", continuing
+346 silly lifecycle No script for "postversion" in "@blaze-react/table", continuing
+347 silly lifecycle No script for "postversion" in "@blaze-react/text-area", continuing
+348 silly lifecycle No script for "postversion" in "@blaze-react/toaster", continuing
+349 silly lifecycle No script for "postversion" in "@blaze-react/tooltip", continuing
+350 silly lifecycle No script for "postversion" in "@blaze-react/utils", continuing
+351 silly lifecycle No script for "postversion" in "@blaze-react/video-container", continuing
+352 silly lifecycle No script for "postversion" in "@blaze-react/build-tools", continuing
+353 silly lifecycle No script for "postversion" in "@blaze-react/themes", continuing
+354 silly lifecycle No script for "postversion" in "blaze-react", continuing
+355 info git Pushing tags...
+356 silly gitPush origin dev
+357 warn gitPush remote: error: GH006: Protected branch update failed for refs/heads/dev.
+357 warn gitPush remote: error: 2 of 2 required status checks are expected. At least 1 approving review is required by reviewers with write access.
+357 warn gitPush To https://github.com/thebyte9/blaze-components-react.git
+357 warn gitPush  ! [remote rejected]   dev -> dev (protected branch hook declined)
+357 warn gitPush  ! [remote rejected]   v0.8.0-alpha.51 -> v0.8.0-alpha.51 (atomic transaction failed)
+357 warn gitPush error: failed to push some refs to 'https://github.com/thebyte9/blaze-components-react.git'
+358 info gitPush --atomic failed, attempting non-atomic push
+359 error Error: Command failed with exit code 1: git push --follow-tags --no-verify origin dev
+359 error remote: error: GH006: Protected branch update failed for refs/heads/dev.
+359 error remote: error: 2 of 2 required status checks are expected. At least 1 approving review is required by reviewers with write access.
+359 error To https://github.com/thebyte9/blaze-components-react.git
+359 error  * [new tag]           v0.8.0-alpha.51 -> v0.8.0-alpha.51
+359 error  ! [remote rejected]   dev -> dev (protected branch hook declined)
+359 error error: failed to push some refs to 'https://github.com/thebyte9/blaze-components-react.git'
+359 error     at makeError (/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/execa/lib/error.js:60:11)
+359 error     at handlePromise (/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/execa/index.js:118:26)
+359 error     at runMicrotasks (<anonymous>)
+359 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+359 error     at async Promise.all (index 0)

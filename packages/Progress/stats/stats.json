@@ -1,0 +1,3752 @@
+{
+  "hash": "07fc6f6444d0c11f944f",
+  "version": "5.45.1",
+  "time": 2686,
+  "builtAt": 1638202372361,
+  "publicPath": "auto",
+  "outputPath": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/dist",
+  "assetsByChunkName": {
+    "main": [
+      "main.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "main.js",
+      "size": 10292,
+      "emitted": false,
+      "comparedForEmit": true,
+      "cached": false,
+      "info": {
+        "javascriptModule": false,
+        "minimized": true,
+        "related": {
+          "license": "main.js.LICENSE.txt"
+        },
+        "size": 10292
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 0,
+      "related": [
+        {
+          "type": "license",
+          "name": "main.js.LICENSE.txt",
+          "size": 549,
+          "emitted": false,
+          "comparedForEmit": true,
+          "cached": false,
+          "info": {
+            "extractedComments": true,
+            "size": 549
+          },
+          "chunkNames": [],
+          "chunkIdHints": [],
+          "auxiliaryChunkNames": [],
+          "auxiliaryChunkIdHints": [],
+          "related": {},
+          "chunks": [],
+          "auxiliaryChunks": [],
+          "isOverSizeLimit": false
+        }
+      ],
+      "chunks": [
+        179
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    }
+  ],
+  "chunks": [
+    {
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "recorded": false,
+      "size": 15008,
+      "sizes": {
+        "javascript": 14313,
+        "runtime": 695
+      },
+      "names": [
+        "main"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "main.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "3e2239c666e8519c6f2a",
+      "childrenByOrder": {},
+      "id": 179,
+      "siblings": [],
+      "parents": [],
+      "children": [],
+      "modules": [
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 2108,
+          "sizes": {
+            "javascript": 2108
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "name": "../../node_modules/object-assign/index.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "index": 4,
+          "preOrderIndex": 4,
+          "index2": 0,
+          "postOrderIndex": 0,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+          "issuerName": "../../node_modules/react/cjs/react.production.min.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+              "name": "../../node_modules/react/index.js",
+              "id": 784
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+              "name": "../../node_modules/react/cjs/react.production.min.js",
+              "id": 426
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 320,
+          "issuerId": 426,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+              "module": "../../node_modules/object-assign/index.js",
+              "moduleName": "../../node_modules/object-assign/index.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+              "resolvedModule": "../../node_modules/object-assign/index.js",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "65:0-14",
+              "moduleId": 320,
+              "resolvedModuleId": 320
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "type": "cjs require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "object-assign",
+              "loc": "9:13-37",
+              "moduleId": 837,
+              "resolvedModuleId": 837
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+              "module": "../../node_modules/react/cjs/react.production.min.js",
+              "moduleName": "../../node_modules/react/cjs/react.production.min.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+              "resolvedModule": "../../node_modules/react/cjs/react.production.min.js",
+              "type": "cjs require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "object-assign",
+              "loc": "9:19-43",
+              "moduleId": 426,
+              "resolvedModuleId": 426
+            }
+          ],
+          "usedExports": null,
+          "providedExports": null,
+          "optimizationBailout": [
+            "CommonJS bailout: module.exports is used directly at 65:0-14",
+            "Statement (VariableDeclaration) with side effects in source code at 9:0-57",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 4
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 962,
+          "sizes": {
+            "javascript": 962
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "index": 6,
+          "preOrderIndex": 6,
+          "index2": 3,
+          "postOrderIndex": 3,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "issuerName": "../../node_modules/react/jsx-runtime.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "name": "../../node_modules/react/jsx-runtime.js",
+              "id": 322
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 837,
+          "issuerId": 322,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "module": "../../node_modules/react/jsx-runtime.js",
+              "moduleName": "../../node_modules/react/jsx-runtime.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "resolvedModule": "../../node_modules/react/jsx-runtime.js",
+              "type": "cjs export require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./cjs/react-jsx-runtime.production.min.js",
+              "loc": "4:2-71",
+              "moduleId": 322,
+              "resolvedModuleId": 322
+            }
+          ],
+          "usedExports": [
+            "jsx"
+          ],
+          "providedExports": [
+            "Fragment",
+            "jsx",
+            "jsxs"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 9:13-38",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 3
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 6450,
+          "sizes": {
+            "javascript": 6450
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+          "name": "../../node_modules/react/cjs/react.production.min.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+          "index": 3,
+          "preOrderIndex": 3,
+          "index2": 1,
+          "postOrderIndex": 1,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+          "issuerName": "../../node_modules/react/index.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+              "name": "../../node_modules/react/index.js",
+              "id": 784
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 426,
+          "issuerId": 784,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+              "module": "../../node_modules/react/index.js",
+              "moduleName": "../../node_modules/react/index.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+              "resolvedModule": "../../node_modules/react/index.js",
+              "type": "cjs export require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./cjs/react.production.min.js",
+              "loc": "4:2-59",
+              "moduleId": 784,
+              "resolvedModuleId": 784
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [
+            "Children",
+            "Component",
+            "Fragment",
+            "Profiler",
+            "PureComponent",
+            "StrictMode",
+            "Suspense",
+            "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
+            "cloneElement",
+            "createContext",
+            "createElement",
+            "createFactory",
+            "createRef",
+            "forwardRef",
+            "isValidElement",
+            "lazy",
+            "memo",
+            "useCallback",
+            "useContext",
+            "useDebugValue",
+            "useEffect",
+            "useImperativeHandle",
+            "useLayoutEffect",
+            "useMemo",
+            "useReducer",
+            "useRef",
+            "useState",
+            "version"
+          ],
+          "optimizationBailout": [
+            "Statement (VariableDeclaration) with side effects in source code at 9:13-60",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 3
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 190,
+          "sizes": {
+            "javascript": 190
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+          "name": "../../node_modules/react/index.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+          "index": 2,
+          "preOrderIndex": 2,
+          "index2": 2,
+          "postOrderIndex": 2,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "issuerName": "./src/Progress.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 784,
+          "issuerId": null,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "2:0-40",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "11:18-26",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+              "module": "./src/index.ts + 7 modules",
+              "moduleName": "./src/index.ts + 7 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "2:0-40",
+              "moduleId": 100,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+              "module": "./src/index.ts + 7 modules",
+              "moduleName": "./src/index.ts + 7 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "11:18-26",
+              "moduleId": 100,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "type": "cjs require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "9:44-60",
+              "moduleId": 837,
+              "resolvedModuleId": 837
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [
+            "Children",
+            "Component",
+            "Fragment",
+            "Profiler",
+            "PureComponent",
+            "StrictMode",
+            "Suspense",
+            "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
+            "cloneElement",
+            "createContext",
+            "createElement",
+            "createFactory",
+            "createRef",
+            "forwardRef",
+            "isValidElement",
+            "lazy",
+            "memo",
+            "useCallback",
+            "useContext",
+            "useDebugValue",
+            "useEffect",
+            "useImperativeHandle",
+            "useLayoutEffect",
+            "useMemo",
+            "useReducer",
+            "useRef",
+            "useState",
+            "version"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 4:2-60",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 214,
+          "sizes": {
+            "javascript": 214
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "name": "../../node_modules/react/jsx-runtime.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "index": 5,
+          "preOrderIndex": 5,
+          "index2": 4,
+          "postOrderIndex": 4,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "issuerName": "./src/Progress.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 322,
+          "issuerId": null,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "3:0-48",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "61:22-26",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "63:27-31",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "66:28-32",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "68:33-37",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+              "module": "./src/index.ts + 7 modules",
+              "moduleName": "./src/index.ts + 7 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "3:0-48",
+              "moduleId": 100,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+              "module": "./src/index.ts + 7 modules",
+              "moduleName": "./src/index.ts + 7 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "61:22-26",
+              "moduleId": 100,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+              "module": "./src/index.ts + 7 modules",
+              "moduleName": "./src/index.ts + 7 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "63:27-31",
+              "moduleId": 100,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+              "module": "./src/index.ts + 7 modules",
+              "moduleName": "./src/index.ts + 7 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "66:28-32",
+              "moduleId": 100,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+              "module": "./src/index.ts + 7 modules",
+              "moduleName": "./src/index.ts + 7 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "68:33-37",
+              "moduleId": 100,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "jsx"
+          ],
+          "providedExports": [
+            "Fragment",
+            "jsx",
+            "jsxs"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 4:2-72",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 4389,
+          "sizes": {
+            "javascript": 4389
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+          "name": "./src/index.ts + 7 modules",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "index": 0,
+          "preOrderIndex": 0,
+          "index2": 12,
+          "postOrderIndex": 12,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 100,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": "entry",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./src/index.ts",
+              "loc": "main",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": null,
+              "active": true,
+              "explanation": "used as library export",
+              "userRequest": null,
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Cannot concat with ../../node_modules/react/index.js: Module is not an ECMAScript module",
+            "ModuleConcatenation bailout: Cannot concat with ../../node_modules/react/jsx-runtime.js: Module is not an ECMAScript module"
+          ],
+          "depth": 0,
+          "modules": [
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 59,
+              "sizes": {
+                "javascript": 59
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "index": 0,
+              "preOrderIndex": 0,
+              "index2": 12,
+              "postOrderIndex": 12,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [],
+              "usedExports": true,
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [
+                "Dependency (harmony side effect evaluation) with side effects at 1:0-34"
+              ],
+              "depth": 0
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 2311,
+              "sizes": {
+                "javascript": 2311
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "index": 1,
+              "preOrderIndex": 1,
+              "index2": 11,
+              "postOrderIndex": 11,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "issuerName": "./src/index.ts",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony side effect evaluation",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./Progress",
+                  "loc": "1:0-34",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./Progress",
+                  "loc": "2:15-23",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [
+                "Statement (ExpressionStatement) with side effects in source code at 84:0-91:2"
+              ],
+              "depth": 1
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 409,
+              "sizes": {
+                "javascript": 409
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "index": 7,
+              "preOrderIndex": 7,
+              "index2": 10,
+              "postOrderIndex": 10,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "issuerName": "./src/Progress.tsx",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "name": "./src/Progress.tsx",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "module": "./src/Progress.tsx",
+                  "moduleName": "./src/Progress.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "resolvedModule": "./src/Progress.tsx",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "@babel/runtime/helpers/slicedToArray",
+                  "loc": "1:0-66",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "module": "./src/Progress.tsx",
+                  "moduleName": "./src/Progress.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "resolvedModule": "./src/Progress.tsx",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "@babel/runtime/helpers/slicedToArray",
+                  "loc": "12:19-33",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 2
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 86,
+              "sizes": {
+                "javascript": 86
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+              "index": 8,
+              "preOrderIndex": 8,
+              "index2": 5,
+              "postOrderIndex": 5,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "name": "./src/Progress.tsx",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "./arrayWithHoles.js",
+                  "loc": "1:0-49",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./arrayWithHoles.js",
+                  "loc": "6:9-23",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 3
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 607,
+              "sizes": {
+                "javascript": 607
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+              "index": 9,
+              "preOrderIndex": 9,
+              "index2": 6,
+              "postOrderIndex": 6,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "name": "./src/Progress.tsx",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "./iterableToArrayLimit.js",
+                  "loc": "2:0-61",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./iterableToArrayLimit.js",
+                  "loc": "6:32-52",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 3
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 495,
+              "sizes": {
+                "javascript": 495
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "index": 10,
+              "preOrderIndex": 10,
+              "index2": 8,
+              "postOrderIndex": 8,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "name": "./src/Progress.tsx",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "./unsupportedIterableToArray.js",
+                  "loc": "3:0-73",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./unsupportedIterableToArray.js",
+                  "loc": "6:64-90",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 3
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 210,
+              "sizes": {
+                "javascript": 210
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+              "index": 12,
+              "preOrderIndex": 12,
+              "index2": 9,
+              "postOrderIndex": 9,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "name": "./src/Progress.tsx",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "./nonIterableRest.js",
+                  "loc": "4:0-51",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./nonIterableRest.js",
+                  "loc": "6:102-117",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 3
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 212,
+              "sizes": {
+                "javascript": 212
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+              "index": 11,
+              "preOrderIndex": 11,
+              "index2": 7,
+              "postOrderIndex": 7,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "issuerName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+                  "name": "./src/Progress.tsx",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "name": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "./arrayLikeToArray.js",
+                  "loc": "1:0-53",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./arrayLikeToArray.js",
+                  "loc": "4:36-52",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./arrayLikeToArray.js",
+                  "loc": "8:86-102",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 4
+            }
+          ]
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 313,
+          "sizes": {
+            "runtime": 313
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/define property getters",
+          "name": "webpack/runtime/define property getters",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 103,
+          "sizes": {
+            "runtime": 103
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/hasOwnProperty shorthand",
+          "name": "webpack/runtime/hasOwnProperty shorthand",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 279,
+          "sizes": {
+            "runtime": 279
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/make namespace object",
+          "name": "webpack/runtime/make namespace object",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        }
+      ],
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src/index.ts"
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 4389,
+      "sizes": {
+        "javascript": 4389
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+      "name": "./src/index.ts + 7 modules",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+      "index": 0,
+      "preOrderIndex": 0,
+      "index2": 12,
+      "postOrderIndex": 12,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 100,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": "entry",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./src/index.ts",
+          "loc": "main",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": null,
+          "active": true,
+          "explanation": "used as library export",
+          "userRequest": null,
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Cannot concat with ../../node_modules/react/index.js: Module is not an ECMAScript module",
+        "ModuleConcatenation bailout: Cannot concat with ../../node_modules/react/jsx-runtime.js: Module is not an ECMAScript module"
+      ],
+      "depth": 0,
+      "modules": [
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 59,
+          "sizes": {
+            "javascript": 59
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "index": 0,
+          "preOrderIndex": 0,
+          "index2": 12,
+          "postOrderIndex": 12,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [
+            "Dependency (harmony side effect evaluation) with side effects at 1:0-34"
+          ],
+          "depth": 0
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 2311,
+          "sizes": {
+            "javascript": 2311
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "index": 1,
+          "preOrderIndex": 1,
+          "index2": 11,
+          "postOrderIndex": 11,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./Progress",
+              "loc": "1:0-34",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./Progress",
+              "loc": "2:15-23",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 84:0-91:2"
+          ],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 409,
+          "sizes": {
+            "javascript": 409
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "index": 7,
+          "preOrderIndex": 7,
+          "index2": 10,
+          "postOrderIndex": 10,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "issuerName": "./src/Progress.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "@babel/runtime/helpers/slicedToArray",
+              "loc": "1:0-66",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "module": "./src/Progress.tsx",
+              "moduleName": "./src/Progress.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "resolvedModule": "./src/Progress.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "@babel/runtime/helpers/slicedToArray",
+              "loc": "12:19-33",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 86,
+          "sizes": {
+            "javascript": 86
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+          "index": 8,
+          "preOrderIndex": 8,
+          "index2": 5,
+          "postOrderIndex": 5,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "./arrayWithHoles.js",
+              "loc": "1:0-49",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./arrayWithHoles.js",
+              "loc": "6:9-23",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 3
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 607,
+          "sizes": {
+            "javascript": 607
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+          "index": 9,
+          "preOrderIndex": 9,
+          "index2": 6,
+          "postOrderIndex": 6,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "./iterableToArrayLimit.js",
+              "loc": "2:0-61",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./iterableToArrayLimit.js",
+              "loc": "6:32-52",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 3
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 495,
+          "sizes": {
+            "javascript": 495
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "index": 10,
+          "preOrderIndex": 10,
+          "index2": 8,
+          "postOrderIndex": 8,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "./unsupportedIterableToArray.js",
+              "loc": "3:0-73",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./unsupportedIterableToArray.js",
+              "loc": "6:64-90",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 3
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 210,
+          "sizes": {
+            "javascript": 210
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+          "index": 12,
+          "preOrderIndex": 12,
+          "index2": 9,
+          "postOrderIndex": 9,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "./nonIterableRest.js",
+              "loc": "4:0-51",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./nonIterableRest.js",
+              "loc": "6:102-117",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 3
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 212,
+          "sizes": {
+            "javascript": 212
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+          "index": 11,
+          "preOrderIndex": 11,
+          "index2": 7,
+          "postOrderIndex": 7,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "issuerName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+              "name": "./src/Progress.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "./arrayLikeToArray.js",
+              "loc": "1:0-53",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./arrayLikeToArray.js",
+              "loc": "4:36-52",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./arrayLikeToArray.js",
+              "loc": "8:86-102",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 4
+        }
+      ]
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 2311,
+      "sizes": {
+        "javascript": 2311
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+      "name": "./src/Progress.tsx",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+      "index": 1,
+      "preOrderIndex": 1,
+      "index2": 11,
+      "postOrderIndex": 11,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./Progress",
+          "loc": "1:0-34",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./Progress",
+          "loc": "2:15-23",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 84:0-91:2"
+      ],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 190,
+      "sizes": {
+        "javascript": 190
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+      "name": "../../node_modules/react/index.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+      "index": 2,
+      "preOrderIndex": 2,
+      "index2": 2,
+      "postOrderIndex": 2,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+      "issuerName": "./src/Progress.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 784,
+      "issuerId": null,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "2:0-40",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "11:18-26",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+          "module": "./src/index.ts + 7 modules",
+          "moduleName": "./src/index.ts + 7 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "2:0-40",
+          "moduleId": 100,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+          "module": "./src/index.ts + 7 modules",
+          "moduleName": "./src/index.ts + 7 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "11:18-26",
+          "moduleId": 100,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "type": "cjs require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "9:44-60",
+          "moduleId": 837,
+          "resolvedModuleId": 837
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [
+        "Children",
+        "Component",
+        "Fragment",
+        "Profiler",
+        "PureComponent",
+        "StrictMode",
+        "Suspense",
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
+        "cloneElement",
+        "createContext",
+        "createElement",
+        "createFactory",
+        "createRef",
+        "forwardRef",
+        "isValidElement",
+        "lazy",
+        "memo",
+        "useCallback",
+        "useContext",
+        "useDebugValue",
+        "useEffect",
+        "useImperativeHandle",
+        "useLayoutEffect",
+        "useMemo",
+        "useReducer",
+        "useRef",
+        "useState",
+        "version"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 4:2-60",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 214,
+      "sizes": {
+        "javascript": 214
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "name": "../../node_modules/react/jsx-runtime.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "index": 5,
+      "preOrderIndex": 5,
+      "index2": 4,
+      "postOrderIndex": 4,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+      "issuerName": "./src/Progress.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 322,
+      "issuerId": null,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "3:0-48",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "61:22-26",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "63:27-31",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "66:28-32",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "68:33-37",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+          "module": "./src/index.ts + 7 modules",
+          "moduleName": "./src/index.ts + 7 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "3:0-48",
+          "moduleId": 100,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+          "module": "./src/index.ts + 7 modules",
+          "moduleName": "./src/index.ts + 7 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "61:22-26",
+          "moduleId": 100,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+          "module": "./src/index.ts + 7 modules",
+          "moduleName": "./src/index.ts + 7 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "63:27-31",
+          "moduleId": 100,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+          "module": "./src/index.ts + 7 modules",
+          "moduleName": "./src/index.ts + 7 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "66:28-32",
+          "moduleId": 100,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts|b69ed5d75c28d83ad8b389c7973ce112",
+          "module": "./src/index.ts + 7 modules",
+          "moduleName": "./src/index.ts + 7 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "68:33-37",
+          "moduleId": 100,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "jsx"
+      ],
+      "providedExports": [
+        "Fragment",
+        "jsx",
+        "jsxs"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 4:2-72",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 409,
+      "sizes": {
+        "javascript": 409
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "index": 7,
+      "preOrderIndex": 7,
+      "index2": 10,
+      "postOrderIndex": 10,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+      "issuerName": "./src/Progress.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "@babel/runtime/helpers/slicedToArray",
+          "loc": "1:0-66",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "module": "./src/Progress.tsx",
+          "moduleName": "./src/Progress.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "resolvedModule": "./src/Progress.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "@babel/runtime/helpers/slicedToArray",
+          "loc": "12:19-33",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 6450,
+      "sizes": {
+        "javascript": 6450
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+      "name": "../../node_modules/react/cjs/react.production.min.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+      "index": 3,
+      "preOrderIndex": 3,
+      "index2": 1,
+      "postOrderIndex": 1,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+      "issuerName": "../../node_modules/react/index.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+          "name": "../../node_modules/react/index.js",
+          "id": 784
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 426,
+      "issuerId": 784,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+          "module": "../../node_modules/react/index.js",
+          "moduleName": "../../node_modules/react/index.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+          "resolvedModule": "../../node_modules/react/index.js",
+          "type": "cjs export require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./cjs/react.production.min.js",
+          "loc": "4:2-59",
+          "moduleId": 784,
+          "resolvedModuleId": 784
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [
+        "Children",
+        "Component",
+        "Fragment",
+        "Profiler",
+        "PureComponent",
+        "StrictMode",
+        "Suspense",
+        "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED",
+        "cloneElement",
+        "createContext",
+        "createElement",
+        "createFactory",
+        "createRef",
+        "forwardRef",
+        "isValidElement",
+        "lazy",
+        "memo",
+        "useCallback",
+        "useContext",
+        "useDebugValue",
+        "useEffect",
+        "useImperativeHandle",
+        "useLayoutEffect",
+        "useMemo",
+        "useReducer",
+        "useRef",
+        "useState",
+        "version"
+      ],
+      "optimizationBailout": [
+        "Statement (VariableDeclaration) with side effects in source code at 9:13-60",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 962,
+      "sizes": {
+        "javascript": 962
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "index": 6,
+      "preOrderIndex": 6,
+      "index2": 3,
+      "postOrderIndex": 3,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "issuerName": "../../node_modules/react/jsx-runtime.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "name": "../../node_modules/react/jsx-runtime.js",
+          "id": 322
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 837,
+      "issuerId": 322,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "module": "../../node_modules/react/jsx-runtime.js",
+          "moduleName": "../../node_modules/react/jsx-runtime.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "resolvedModule": "../../node_modules/react/jsx-runtime.js",
+          "type": "cjs export require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./cjs/react-jsx-runtime.production.min.js",
+          "loc": "4:2-71",
+          "moduleId": 322,
+          "resolvedModuleId": 322
+        }
+      ],
+      "usedExports": [
+        "jsx"
+      ],
+      "providedExports": [
+        "Fragment",
+        "jsx",
+        "jsxs"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 9:13-38",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 86,
+      "sizes": {
+        "javascript": 86
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+      "index": 8,
+      "preOrderIndex": 8,
+      "index2": 5,
+      "postOrderIndex": 5,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "./arrayWithHoles.js",
+          "loc": "1:0-49",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./arrayWithHoles.js",
+          "loc": "6:9-23",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 607,
+      "sizes": {
+        "javascript": 607
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+      "index": 9,
+      "preOrderIndex": 9,
+      "index2": 6,
+      "postOrderIndex": 6,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "./iterableToArrayLimit.js",
+          "loc": "2:0-61",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./iterableToArrayLimit.js",
+          "loc": "6:32-52",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 495,
+      "sizes": {
+        "javascript": 495
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+      "index": 10,
+      "preOrderIndex": 10,
+      "index2": 8,
+      "postOrderIndex": 8,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "./unsupportedIterableToArray.js",
+          "loc": "3:0-73",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./unsupportedIterableToArray.js",
+          "loc": "6:64-90",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 210,
+      "sizes": {
+        "javascript": 210
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+      "index": 12,
+      "preOrderIndex": 12,
+      "index2": 9,
+      "postOrderIndex": 9,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "issuerName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "./nonIterableRest.js",
+          "loc": "4:0-51",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./nonIterableRest.js",
+          "loc": "6:102-117",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 2108,
+      "sizes": {
+        "javascript": 2108
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+      "name": "../../node_modules/object-assign/index.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+      "index": 4,
+      "preOrderIndex": 4,
+      "index2": 0,
+      "postOrderIndex": 0,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+      "issuerName": "../../node_modules/react/cjs/react.production.min.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/index.js",
+          "name": "../../node_modules/react/index.js",
+          "id": 784
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+          "name": "../../node_modules/react/cjs/react.production.min.js",
+          "id": 426
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 320,
+      "issuerId": 426,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "module": "../../node_modules/object-assign/index.js",
+          "moduleName": "../../node_modules/object-assign/index.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "resolvedModule": "../../node_modules/object-assign/index.js",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "65:0-14",
+          "moduleId": 320,
+          "resolvedModuleId": 320
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "type": "cjs require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "object-assign",
+          "loc": "9:13-37",
+          "moduleId": 837,
+          "resolvedModuleId": 837
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+          "module": "../../node_modules/react/cjs/react.production.min.js",
+          "moduleName": "../../node_modules/react/cjs/react.production.min.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react.production.min.js",
+          "resolvedModule": "../../node_modules/react/cjs/react.production.min.js",
+          "type": "cjs require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "object-assign",
+          "loc": "9:19-43",
+          "moduleId": 426,
+          "resolvedModuleId": 426
+        }
+      ],
+      "usedExports": null,
+      "providedExports": null,
+      "optimizationBailout": [
+        "CommonJS bailout: module.exports is used directly at 65:0-14",
+        "Statement (VariableDeclaration) with side effects in source code at 9:0-57",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 4
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 212,
+      "sizes": {
+        "javascript": 212
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+      "index": 11,
+      "preOrderIndex": 11,
+      "index2": 7,
+      "postOrderIndex": 7,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+      "issuerName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx",
+          "name": "./src/Progress.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "./arrayLikeToArray.js",
+          "loc": "1:0-53",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./arrayLikeToArray.js",
+          "loc": "4:36-52",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./arrayLikeToArray.js",
+          "loc": "8:86-102",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 4
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 313,
+      "sizes": {
+        "runtime": 313
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/define property getters",
+      "name": "webpack/runtime/define property getters",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 103,
+      "sizes": {
+        "runtime": 103
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/hasOwnProperty shorthand",
+      "name": "webpack/runtime/hasOwnProperty shorthand",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 279,
+      "sizes": {
+        "runtime": 279
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/make namespace object",
+      "name": "webpack/runtime/make namespace object",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    }
+  ],
+  "entrypoints": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        179
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 10292
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 10292,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        179
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 10292
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 10292,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "errors": [],
+  "errorsCount": 0,
+  "warnings": [
+    {
+      "message": "\n/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Progress/src/Progress.tsx\n   4:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n   5:10  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n   6:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n   6:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  15:50  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  15:61  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  19:28  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n✖ 7 problems (0 errors, 7 warnings)\n",
+      "stack": ""
+    }
+  ],
+  "warningsCount": 1,
+  "children": []
+}
