@@ -77,8 +77,8 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
     [`form-field--${modifier}`]: !!modifier
   });
 
-  const formatNumbers = (number: number) => number > 9999 ? Number(number).toLocaleString('en-US') : number;
-  
+  const formatNumbers = (num: number) => num > 9999 ? Number(num).toLocaleString('en-US') : num;
+
   const requiredClassName: string = buildClassNames({ required });
   const { min = 0, max = 0, step = 1, minValue = 0, maxValue = 0 } = inputs;
 
