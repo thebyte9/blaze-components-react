@@ -72,7 +72,7 @@ const Select: FunctionComponent<ISelectProps> = ({
       return setOption(option[value], option[text]);
     });
   };
-  console.log({selectedOption})
+  
   return (
     <div className="form-field form-field--select">
       {label && (
