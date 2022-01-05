@@ -53,6 +53,11 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
 
   useEffect(() => {
     isContentLoaded(init, reInit);
+    function handleResize() {
+      init()
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const getMinMax = (minvalue: number, maxvalue: number) => {
