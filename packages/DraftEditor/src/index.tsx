@@ -294,7 +294,7 @@ const DraftEditor: FunctionComponent<IDraftEditorProps> = ({
   };
 
   const handleReturn = (event: any) => {
-    if (isSoftNewlineEvent(event)) {
+    if (isSoftNewlineEvent(event) || event.shiftKey) {
       onEditorChange(RichUtils.insertSoftNewline(editorState));
       return HANDLED;
     }

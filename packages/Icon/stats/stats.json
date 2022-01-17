@@ -1,0 +1,3593 @@
+{
+  "hash": "38e168ab69e74de344c4",
+  "version": "5.64.4",
+  "time": 2903,
+  "builtAt": 1641374187077,
+  "publicPath": "auto",
+  "outputPath": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/dist",
+  "assetsByChunkName": {
+    "main": [
+      "main.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "main.js",
+      "size": 3841,
+      "emitted": true,
+      "comparedForEmit": false,
+      "cached": false,
+      "info": {
+        "javascriptModule": false,
+        "minimized": true,
+        "related": {
+          "license": "main.js.LICENSE.txt"
+        },
+        "size": 3841
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 0,
+      "related": [
+        {
+          "type": "license",
+          "name": "main.js.LICENSE.txt",
+          "size": 306,
+          "emitted": true,
+          "comparedForEmit": false,
+          "cached": false,
+          "info": {
+            "extractedComments": true,
+            "size": 306
+          },
+          "chunkNames": [],
+          "chunkIdHints": [],
+          "auxiliaryChunkNames": [],
+          "auxiliaryChunkIdHints": [],
+          "related": {},
+          "chunks": [],
+          "auxiliaryChunks": [],
+          "isOverSizeLimit": false
+        }
+      ],
+      "chunks": [
+        179
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    }
+  ],
+  "chunks": [
+    {
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "recorded": false,
+      "size": 7320,
+      "sizes": {
+        "javascript": 6625,
+        "runtime": 695
+      },
+      "names": [
+        "main"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "main.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "62da43f67eeda3985b08",
+      "childrenByOrder": {},
+      "id": 179,
+      "siblings": [],
+      "parents": [],
+      "children": [],
+      "modules": [
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 2108,
+          "sizes": {
+            "javascript": 2108
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "name": "../../node_modules/object-assign/index.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "index": 5,
+          "preOrderIndex": 5,
+          "index2": 1,
+          "postOrderIndex": 1,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "issuerName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "name": "./src/Icon.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "name": "../../node_modules/react/jsx-runtime.js",
+              "id": 322
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "id": 837
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 320,
+          "issuerId": 837,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+              "module": "../../node_modules/object-assign/index.js",
+              "moduleName": "../../node_modules/object-assign/index.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+              "resolvedModule": "../../node_modules/object-assign/index.js",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "65:0-14",
+              "moduleId": 320,
+              "resolvedModuleId": 320
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "type": "cjs require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "object-assign",
+              "loc": "9:13-37",
+              "moduleId": 837,
+              "resolvedModuleId": 837
+            }
+          ],
+          "usedExports": null,
+          "providedExports": null,
+          "optimizationBailout": [
+            "CommonJS bailout: module.exports is used directly at 65:0-14",
+            "Statement (VariableDeclaration) with side effects in source code at 9:0-57",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 4
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 962,
+          "sizes": {
+            "javascript": 962
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "index": 4,
+          "preOrderIndex": 4,
+          "index2": 2,
+          "postOrderIndex": 2,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "issuerName": "../../node_modules/react/jsx-runtime.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "name": "./src/Icon.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "name": "../../node_modules/react/jsx-runtime.js",
+              "id": 322
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 837,
+          "issuerId": 322,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "module": "../../node_modules/react/jsx-runtime.js",
+              "moduleName": "../../node_modules/react/jsx-runtime.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "resolvedModule": "../../node_modules/react/jsx-runtime.js",
+              "type": "cjs export require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./cjs/react-jsx-runtime.production.min.js",
+              "loc": "4:2-71",
+              "moduleId": 322,
+              "resolvedModuleId": 322
+            }
+          ],
+          "usedExports": [
+            "Fragment",
+            "jsx",
+            "jsxs"
+          ],
+          "providedExports": [
+            "Fragment",
+            "jsx",
+            "jsxs"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 9:13-38",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 3
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 214,
+          "sizes": {
+            "javascript": 214
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "name": "../../node_modules/react/jsx-runtime.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "index": 3,
+          "preOrderIndex": 3,
+          "index2": 3,
+          "postOrderIndex": 3,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "issuerName": "./src/Icon.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "name": "./src/Icon.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 322,
+          "issuerId": null,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "module": "./src/CustomIcon.tsx",
+              "moduleName": "./src/CustomIcon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "resolvedModule": "./src/CustomIcon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "4:0-48",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "module": "./src/CustomIcon.tsx",
+              "moduleName": "./src/CustomIcon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "resolvedModule": "./src/CustomIcon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "13:22-26",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "4:0-48",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "5:0-58",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "6:0-50",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "12:22-26",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "14:62-67",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "14:68-77",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "15:30-34",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "18:36-40",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "22:22-27",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "22:28-37",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "23:43-47",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "26:61-65",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "resolvedModule": "./src/CustomIcon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "4:0-48",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "resolvedModule": "./src/CustomIcon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "13:22-26",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "4:0-48",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "5:0-58",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "6:0-50",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "12:22-26",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "14:62-67",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "14:68-77",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "15:30-34",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "18:36-40",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "22:22-27",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "22:28-37",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "23:43-47",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "26:61-65",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "Fragment",
+            "jsx",
+            "jsxs"
+          ],
+          "providedExports": [
+            "Fragment",
+            "jsx",
+            "jsxs"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 4:2-72",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 3299,
+          "sizes": {
+            "javascript": 3299
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "name": "./src/index.ts + 5 modules",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "index": 0,
+          "preOrderIndex": 0,
+          "index2": 9,
+          "postOrderIndex": 9,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 154,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": "entry",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./src/index.ts",
+              "loc": "main",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": null,
+              "active": true,
+              "explanation": "used as library export",
+              "userRequest": null,
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [
+            "CustomIcon",
+            "Icon",
+            "IconDisplayType"
+          ],
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Cannot concat with ../../node_modules/react/jsx-runtime.js: Module is not an ECMAScript module",
+            "ModuleConcatenation bailout: Cannot concat with external {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}: umd externals can't be concatenated"
+          ],
+          "depth": 0,
+          "modules": [
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 145,
+              "sizes": {
+                "javascript": 145
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "index": 0,
+              "preOrderIndex": 0,
+              "index2": 9,
+              "postOrderIndex": 9,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [],
+              "usedExports": true,
+              "providedExports": [
+                "CustomIcon",
+                "Icon",
+                "IconDisplayType"
+              ],
+              "optimizationBailout": [
+                "Dependency (harmony side effect evaluation) with side effects at 1:0-42"
+              ],
+              "depth": 0
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 691,
+              "sizes": {
+                "javascript": 691
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "name": "./src/CustomIcon.tsx",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "index": 1,
+              "preOrderIndex": 1,
+              "index2": 6,
+              "postOrderIndex": 6,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "issuerName": "./src/index.ts",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "module": "./src/Icon.tsx",
+                  "moduleName": "./src/Icon.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "resolvedModule": "./src/Icon.tsx",
+                  "type": "harmony side effect evaluation",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./CustomIcon",
+                  "loc": "2:0-42",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "module": "./src/Icon.tsx",
+                  "moduleName": "./src/Icon.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "resolvedModule": "./src/Icon.tsx",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./CustomIcon",
+                  "loc": "15:35-45",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "module": "./src/Icon.tsx",
+                  "moduleName": "./src/Icon.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "resolvedModule": "./src/Icon.tsx",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./CustomIcon",
+                  "loc": "26:66-76",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony side effect evaluation",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./CustomIcon",
+                  "loc": "1:0-42",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony export imported specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./CustomIcon",
+                  "loc": "4:0-28",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "CustomIcon"
+              ],
+              "providedExports": [
+                "CustomIcon"
+              ],
+              "optimizationBailout": [
+                "Dependency (harmony side effect evaluation) with side effects at 3:0-26"
+              ],
+              "depth": 1
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 1258,
+              "sizes": {
+                "javascript": 1258
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "name": "./src/Icon.tsx",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "index": 8,
+              "preOrderIndex": 8,
+              "index2": 8,
+              "postOrderIndex": 8,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "issuerName": "./src/index.ts",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony side effect evaluation",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./Icon",
+                  "loc": "2:0-30",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony export imported specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./Icon",
+                  "loc": "4:0-28",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "Icon"
+              ],
+              "providedExports": [
+                "Icon"
+              ],
+              "optimizationBailout": [
+                "Dependency (harmony side effect evaluation) with side effects at 1:0-26"
+              ],
+              "depth": 1
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 220,
+              "sizes": {
+                "javascript": 220
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/types.ts",
+              "name": "./src/types.ts",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/types.ts",
+              "index": 9,
+              "preOrderIndex": 9,
+              "index2": 7,
+              "postOrderIndex": 7,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "issuerName": "./src/index.ts",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "module": "./src/Icon.tsx",
+                  "moduleName": "./src/Icon.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "resolvedModule": "./src/Icon.tsx",
+                  "type": "harmony side effect evaluation",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./types",
+                  "loc": "3:0-42",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "module": "./src/Icon.tsx",
+                  "moduleName": "./src/Icon.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "resolvedModule": "./src/Icon.tsx",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./types",
+                  "loc": "14:26-46",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "module": "./src/Icon.tsx",
+                  "moduleName": "./src/Icon.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+                  "resolvedModule": "./src/Icon.tsx",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./types",
+                  "loc": "26:22-44",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony side effect evaluation",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./types",
+                  "loc": "3:0-42",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony export imported specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./types",
+                  "loc": "3:0-42",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "IconDisplayType"
+              ],
+              "providedExports": [
+                "IconDisplayType"
+              ],
+              "optimizationBailout": [
+                "Statement (ExpressionStatement) with side effects in source code at 3:0-7:46"
+              ],
+              "depth": 1
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 635,
+              "sizes": {
+                "javascript": 635
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "index": 6,
+              "preOrderIndex": 6,
+              "index2": 5,
+              "postOrderIndex": 5,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "issuerName": "./src/CustomIcon.tsx",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+                  "name": "./src/CustomIcon.tsx",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+                  "module": "./src/CustomIcon.tsx",
+                  "moduleName": "./src/CustomIcon.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+                  "resolvedModule": "./src/CustomIcon.tsx",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+                  "loc": "1:0-86",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+                  "module": "./src/CustomIcon.tsx",
+                  "moduleName": "./src/CustomIcon.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+                  "resolvedModule": "./src/CustomIcon.tsx",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+                  "loc": "9:13-37",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 2
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 350,
+              "sizes": {
+                "javascript": 350
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+              "index": 7,
+              "preOrderIndex": 7,
+              "index2": 4,
+              "postOrderIndex": 4,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "issuerName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+                  "name": "./src/CustomIcon.tsx",
+                  "id": null
+                },
+                {
+                  "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "./objectWithoutPropertiesLoose.js",
+                  "loc": "1:0-77",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./objectWithoutPropertiesLoose.js",
+                  "loc": "4:15-43",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 3
+            }
+          ]
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/dynamic",
+          "layer": null,
+          "size": 42,
+          "sizes": {
+            "javascript": 42
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "external umd {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}",
+          "name": "external {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}",
+          "nameForCondition": null,
+          "index": 2,
+          "preOrderIndex": 2,
+          "index2": 0,
+          "postOrderIndex": 0,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "issuerName": "./src/Icon.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "name": "./src/Icon.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 787,
+          "issuerId": null,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "module": "./src/CustomIcon.tsx",
+              "moduleName": "./src/CustomIcon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "resolvedModule": "./src/CustomIcon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "3:0-26",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "1:0-26",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "resolvedModule": "./src/CustomIcon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "3:0-26",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+              "module": "./src/index.ts + 5 modules",
+              "moduleName": "./src/index.ts + 5 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "1:0-26",
+              "moduleId": 154,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "type": "cjs require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "9:44-60",
+              "moduleId": 837,
+              "resolvedModuleId": 837
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: umd externals can't be concatenated"
+          ],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 313,
+          "sizes": {
+            "runtime": 313
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/define property getters",
+          "name": "webpack/runtime/define property getters",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 103,
+          "sizes": {
+            "runtime": 103
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/hasOwnProperty shorthand",
+          "name": "webpack/runtime/hasOwnProperty shorthand",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 279,
+          "sizes": {
+            "runtime": 279
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/make namespace object",
+          "name": "webpack/runtime/make namespace object",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        }
+      ],
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src/index.ts"
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 3299,
+      "sizes": {
+        "javascript": 3299
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+      "name": "./src/index.ts + 5 modules",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+      "index": 0,
+      "preOrderIndex": 0,
+      "index2": 9,
+      "postOrderIndex": 9,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 154,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": "entry",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./src/index.ts",
+          "loc": "main",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": null,
+          "active": true,
+          "explanation": "used as library export",
+          "userRequest": null,
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [
+        "CustomIcon",
+        "Icon",
+        "IconDisplayType"
+      ],
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Cannot concat with ../../node_modules/react/jsx-runtime.js: Module is not an ECMAScript module",
+        "ModuleConcatenation bailout: Cannot concat with external {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}: umd externals can't be concatenated"
+      ],
+      "depth": 0,
+      "modules": [
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 145,
+          "sizes": {
+            "javascript": 145
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "index": 0,
+          "preOrderIndex": 0,
+          "index2": 9,
+          "postOrderIndex": 9,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": [
+            "CustomIcon",
+            "Icon",
+            "IconDisplayType"
+          ],
+          "optimizationBailout": [
+            "Dependency (harmony side effect evaluation) with side effects at 1:0-42"
+          ],
+          "depth": 0
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 691,
+          "sizes": {
+            "javascript": 691
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "name": "./src/CustomIcon.tsx",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "index": 1,
+          "preOrderIndex": 1,
+          "index2": 6,
+          "postOrderIndex": 6,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./CustomIcon",
+              "loc": "2:0-42",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./CustomIcon",
+              "loc": "15:35-45",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./CustomIcon",
+              "loc": "26:66-76",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./CustomIcon",
+              "loc": "1:0-42",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony export imported specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./CustomIcon",
+              "loc": "4:0-28",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "CustomIcon"
+          ],
+          "providedExports": [
+            "CustomIcon"
+          ],
+          "optimizationBailout": [
+            "Dependency (harmony side effect evaluation) with side effects at 3:0-26"
+          ],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 1258,
+          "sizes": {
+            "javascript": 1258
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "name": "./src/Icon.tsx",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "index": 8,
+          "preOrderIndex": 8,
+          "index2": 8,
+          "postOrderIndex": 8,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./Icon",
+              "loc": "2:0-30",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony export imported specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./Icon",
+              "loc": "4:0-28",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "Icon"
+          ],
+          "providedExports": [
+            "Icon"
+          ],
+          "optimizationBailout": [
+            "Dependency (harmony side effect evaluation) with side effects at 1:0-26"
+          ],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 220,
+          "sizes": {
+            "javascript": 220
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/types.ts",
+          "name": "./src/types.ts",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/types.ts",
+          "index": 9,
+          "preOrderIndex": 9,
+          "index2": 7,
+          "postOrderIndex": 7,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./types",
+              "loc": "3:0-42",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./types",
+              "loc": "14:26-46",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "module": "./src/Icon.tsx",
+              "moduleName": "./src/Icon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+              "resolvedModule": "./src/Icon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./types",
+              "loc": "26:22-44",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./types",
+              "loc": "3:0-42",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony export imported specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./types",
+              "loc": "3:0-42",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "IconDisplayType"
+          ],
+          "providedExports": [
+            "IconDisplayType"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 3:0-7:46"
+          ],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 635,
+          "sizes": {
+            "javascript": 635
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "index": 6,
+          "preOrderIndex": 6,
+          "index2": 5,
+          "postOrderIndex": 5,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "issuerName": "./src/CustomIcon.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "name": "./src/CustomIcon.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "module": "./src/CustomIcon.tsx",
+              "moduleName": "./src/CustomIcon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "resolvedModule": "./src/CustomIcon.tsx",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+              "loc": "1:0-86",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "module": "./src/CustomIcon.tsx",
+              "moduleName": "./src/CustomIcon.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "resolvedModule": "./src/CustomIcon.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+              "loc": "9:13-37",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 350,
+          "sizes": {
+            "javascript": 350
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+          "index": 7,
+          "preOrderIndex": 7,
+          "index2": 4,
+          "postOrderIndex": 4,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "issuerName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+              "name": "./src/CustomIcon.tsx",
+              "id": null
+            },
+            {
+              "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "./objectWithoutPropertiesLoose.js",
+              "loc": "1:0-77",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./objectWithoutPropertiesLoose.js",
+              "loc": "4:15-43",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 3
+        }
+      ]
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 691,
+      "sizes": {
+        "javascript": 691
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+      "name": "./src/CustomIcon.tsx",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+      "index": 1,
+      "preOrderIndex": 1,
+      "index2": 6,
+      "postOrderIndex": 6,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./CustomIcon",
+          "loc": "2:0-42",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./CustomIcon",
+          "loc": "15:35-45",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./CustomIcon",
+          "loc": "26:66-76",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./CustomIcon",
+          "loc": "1:0-42",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony export imported specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./CustomIcon",
+          "loc": "4:0-28",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "CustomIcon"
+      ],
+      "providedExports": [
+        "CustomIcon"
+      ],
+      "optimizationBailout": [
+        "Dependency (harmony side effect evaluation) with side effects at 3:0-26"
+      ],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 1258,
+      "sizes": {
+        "javascript": 1258
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+      "name": "./src/Icon.tsx",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+      "index": 8,
+      "preOrderIndex": 8,
+      "index2": 8,
+      "postOrderIndex": 8,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./Icon",
+          "loc": "2:0-30",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony export imported specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./Icon",
+          "loc": "4:0-28",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "Icon"
+      ],
+      "providedExports": [
+        "Icon"
+      ],
+      "optimizationBailout": [
+        "Dependency (harmony side effect evaluation) with side effects at 1:0-26"
+      ],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 220,
+      "sizes": {
+        "javascript": 220
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/types.ts",
+      "name": "./src/types.ts",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/types.ts",
+      "index": 9,
+      "preOrderIndex": 9,
+      "index2": 7,
+      "postOrderIndex": 7,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./types",
+          "loc": "3:0-42",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./types",
+          "loc": "14:26-46",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./types",
+          "loc": "26:22-44",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./types",
+          "loc": "3:0-42",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony export imported specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./types",
+          "loc": "3:0-42",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "IconDisplayType"
+      ],
+      "providedExports": [
+        "IconDisplayType"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 3:0-7:46"
+      ],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/dynamic",
+      "layer": null,
+      "size": 42,
+      "sizes": {
+        "javascript": 42
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "external umd {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}",
+      "name": "external {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}",
+      "nameForCondition": null,
+      "index": 2,
+      "preOrderIndex": 2,
+      "index2": 0,
+      "postOrderIndex": 0,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+      "issuerName": "./src/Icon.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "name": "./src/Icon.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 787,
+      "issuerId": null,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "module": "./src/CustomIcon.tsx",
+          "moduleName": "./src/CustomIcon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "resolvedModule": "./src/CustomIcon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "3:0-26",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "1:0-26",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "resolvedModule": "./src/CustomIcon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "3:0-26",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "1:0-26",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "type": "cjs require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "9:44-60",
+          "moduleId": 837,
+          "resolvedModuleId": 837
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: umd externals can't be concatenated"
+      ],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 214,
+      "sizes": {
+        "javascript": 214
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "name": "../../node_modules/react/jsx-runtime.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "index": 3,
+      "preOrderIndex": 3,
+      "index2": 3,
+      "postOrderIndex": 3,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+      "issuerName": "./src/Icon.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "name": "./src/Icon.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 322,
+      "issuerId": null,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "module": "./src/CustomIcon.tsx",
+          "moduleName": "./src/CustomIcon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "resolvedModule": "./src/CustomIcon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "4:0-48",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "module": "./src/CustomIcon.tsx",
+          "moduleName": "./src/CustomIcon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "resolvedModule": "./src/CustomIcon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "13:22-26",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "4:0-48",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "5:0-58",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "6:0-50",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "12:22-26",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "14:62-67",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "14:68-77",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "15:30-34",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "18:36-40",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "22:22-27",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "22:28-37",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "23:43-47",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "module": "./src/Icon.tsx",
+          "moduleName": "./src/Icon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "26:61-65",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "resolvedModule": "./src/CustomIcon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "4:0-48",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "resolvedModule": "./src/CustomIcon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "13:22-26",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "4:0-48",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "5:0-58",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "6:0-50",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "12:22-26",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "14:62-67",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "14:68-77",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "15:30-34",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "18:36-40",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "22:22-27",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "22:28-37",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "23:43-47",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts|4f3d68c02d3a3da0626cbba1c2aeeb18",
+          "module": "./src/index.ts + 5 modules",
+          "moduleName": "./src/index.ts + 5 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "resolvedModule": "./src/Icon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "26:61-65",
+          "moduleId": 154,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "Fragment",
+        "jsx",
+        "jsxs"
+      ],
+      "providedExports": [
+        "Fragment",
+        "jsx",
+        "jsxs"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 4:2-72",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 635,
+      "sizes": {
+        "javascript": 635
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "index": 6,
+      "preOrderIndex": 6,
+      "index2": 5,
+      "postOrderIndex": 5,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+      "issuerName": "./src/CustomIcon.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "name": "./src/CustomIcon.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "module": "./src/CustomIcon.tsx",
+          "moduleName": "./src/CustomIcon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "resolvedModule": "./src/CustomIcon.tsx",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+          "loc": "1:0-86",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "module": "./src/CustomIcon.tsx",
+          "moduleName": "./src/CustomIcon.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "resolvedModule": "./src/CustomIcon.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+          "loc": "9:13-37",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 962,
+      "sizes": {
+        "javascript": 962
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "index": 4,
+      "preOrderIndex": 4,
+      "index2": 2,
+      "postOrderIndex": 2,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "issuerName": "../../node_modules/react/jsx-runtime.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "name": "./src/Icon.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "name": "../../node_modules/react/jsx-runtime.js",
+          "id": 322
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 837,
+      "issuerId": 322,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "module": "../../node_modules/react/jsx-runtime.js",
+          "moduleName": "../../node_modules/react/jsx-runtime.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "resolvedModule": "../../node_modules/react/jsx-runtime.js",
+          "type": "cjs export require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./cjs/react-jsx-runtime.production.min.js",
+          "loc": "4:2-71",
+          "moduleId": 322,
+          "resolvedModuleId": 322
+        }
+      ],
+      "usedExports": [
+        "Fragment",
+        "jsx",
+        "jsxs"
+      ],
+      "providedExports": [
+        "Fragment",
+        "jsx",
+        "jsxs"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 9:13-38",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 350,
+      "sizes": {
+        "javascript": 350
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+      "index": 7,
+      "preOrderIndex": 7,
+      "index2": 4,
+      "postOrderIndex": 4,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "issuerName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/CustomIcon.tsx",
+          "name": "./src/CustomIcon.tsx",
+          "id": null
+        },
+        {
+          "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "./objectWithoutPropertiesLoose.js",
+          "loc": "1:0-77",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./objectWithoutPropertiesLoose.js",
+          "loc": "4:15-43",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 2108,
+      "sizes": {
+        "javascript": 2108
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+      "name": "../../node_modules/object-assign/index.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+      "index": 5,
+      "preOrderIndex": 5,
+      "index2": 1,
+      "postOrderIndex": 1,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "issuerName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/Icon/src/Icon.tsx",
+          "name": "./src/Icon.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "name": "../../node_modules/react/jsx-runtime.js",
+          "id": 322
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "id": 837
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 320,
+      "issuerId": 837,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "module": "../../node_modules/object-assign/index.js",
+          "moduleName": "../../node_modules/object-assign/index.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "resolvedModule": "../../node_modules/object-assign/index.js",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "65:0-14",
+          "moduleId": 320,
+          "resolvedModuleId": 320
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "type": "cjs require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "object-assign",
+          "loc": "9:13-37",
+          "moduleId": 837,
+          "resolvedModuleId": 837
+        }
+      ],
+      "usedExports": null,
+      "providedExports": null,
+      "optimizationBailout": [
+        "CommonJS bailout: module.exports is used directly at 65:0-14",
+        "Statement (VariableDeclaration) with side effects in source code at 9:0-57",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 4
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 313,
+      "sizes": {
+        "runtime": 313
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/define property getters",
+      "name": "webpack/runtime/define property getters",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 103,
+      "sizes": {
+        "runtime": 103
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/hasOwnProperty shorthand",
+      "name": "webpack/runtime/hasOwnProperty shorthand",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 279,
+      "sizes": {
+        "runtime": 279
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/make namespace object",
+      "name": "webpack/runtime/make namespace object",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    }
+  ],
+  "entrypoints": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        179
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 3841
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 3841,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        179
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 3841
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 3841,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "errors": [],
+  "errorsCount": 0,
+  "warnings": [],
+  "warningsCount": 0,
+  "children": []
+}

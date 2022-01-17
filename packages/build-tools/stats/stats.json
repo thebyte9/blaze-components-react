@@ -1,0 +1,1132 @@
+{
+  "hash": "1fb981b8b8a9c9041b4a",
+  "version": "5.64.4",
+  "time": 2897,
+  "builtAt": 1641374285713,
+  "publicPath": "auto",
+  "outputPath": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/dist",
+  "assetsByChunkName": {
+    "main": [
+      "main.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "main.js",
+      "size": 2659,
+      "emitted": true,
+      "comparedForEmit": false,
+      "cached": false,
+      "info": {
+        "javascriptModule": false,
+        "minimized": true,
+        "size": 2659
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        179
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    }
+  ],
+  "chunks": [
+    {
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "recorded": false,
+      "size": 3047,
+      "sizes": {
+        "javascript": 2050,
+        "runtime": 997
+      },
+      "names": [
+        "main"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "main.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "db83ee67dc2bb3732d69",
+      "childrenByOrder": {},
+      "id": 179,
+      "siblings": [],
+      "parents": [],
+      "children": [],
+      "modules": [
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 385,
+          "sizes": {
+            "javascript": 385
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/babel.base.config.js",
+          "name": "./src/config/babel.base.config.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/babel.base.config.js",
+          "index": 1,
+          "preOrderIndex": 1,
+          "index2": 0,
+          "postOrderIndex": 0,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "name": "./src/index.ts",
+              "id": 721
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 819,
+          "issuerId": 721,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/babel.base.config.js",
+              "module": "./src/config/babel.base.config.js",
+              "moduleName": "./src/config/babel.base.config.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/babel.base.config.js",
+              "resolvedModule": "./src/config/babel.base.config.js",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "1:0-14",
+              "moduleId": 819,
+              "resolvedModuleId": 819
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./config/babel.base.config",
+              "loc": "1:0-53",
+              "moduleId": 721,
+              "resolvedModuleId": 721
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony export imported specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./config/babel.base.config",
+              "loc": "4:0-49",
+              "moduleId": 721,
+              "resolvedModuleId": 721
+            }
+          ],
+          "usedExports": null,
+          "providedExports": null,
+          "optimizationBailout": [
+            "CommonJS bailout: module.exports is used directly at 1:0-14",
+            "Statement (ExpressionStatement) with side effects in source code at 1:0-6:2",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 782,
+          "sizes": {
+            "javascript": 782
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/eslint.base.config.js",
+          "name": "./src/config/eslint.base.config.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/eslint.base.config.js",
+          "index": 2,
+          "preOrderIndex": 2,
+          "index2": 1,
+          "postOrderIndex": 1,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "name": "./src/index.ts",
+              "id": 721
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 448,
+          "issuerId": 721,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/eslint.base.config.js",
+              "module": "./src/config/eslint.base.config.js",
+              "moduleName": "./src/config/eslint.base.config.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/eslint.base.config.js",
+              "resolvedModule": "./src/config/eslint.base.config.js",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "1:0-14",
+              "moduleId": 448,
+              "resolvedModuleId": 448
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./config/eslint.base.config",
+              "loc": "2:0-55",
+              "moduleId": 721,
+              "resolvedModuleId": 721
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony export imported specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./config/eslint.base.config",
+              "loc": "4:0-49",
+              "moduleId": 721,
+              "resolvedModuleId": 721
+            }
+          ],
+          "usedExports": null,
+          "providedExports": null,
+          "optimizationBailout": [
+            "CommonJS bailout: module.exports is used directly at 1:0-14",
+            "Statement (ExpressionStatement) with side effects in source code at 1:0-28:2",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 672,
+          "sizes": {
+            "javascript": 672
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/jest.base.config.js",
+          "name": "./src/config/jest.base.config.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/jest.base.config.js",
+          "index": 3,
+          "preOrderIndex": 3,
+          "index2": 2,
+          "postOrderIndex": 2,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "name": "./src/index.ts",
+              "id": 721
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 709,
+          "issuerId": 721,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/jest.base.config.js",
+              "module": "./src/config/jest.base.config.js",
+              "moduleName": "./src/config/jest.base.config.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/jest.base.config.js",
+              "resolvedModule": "./src/config/jest.base.config.js",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "1:0-14",
+              "moduleId": 709,
+              "resolvedModuleId": 709
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./config/jest.base.config",
+              "loc": "3:0-51",
+              "moduleId": 721,
+              "resolvedModuleId": 721
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony export imported specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./config/jest.base.config",
+              "loc": "4:0-49",
+              "moduleId": 721,
+              "resolvedModuleId": 721
+            }
+          ],
+          "usedExports": null,
+          "providedExports": null,
+          "optimizationBailout": [
+            "CommonJS bailout: module.exports is used directly at 1:0-14",
+            "Statement (ExpressionStatement) with side effects in source code at 1:0-21:2",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 211,
+          "sizes": {
+            "javascript": 211
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "name": "./src/index.ts",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "index": 0,
+          "preOrderIndex": 0,
+          "index2": 3,
+          "postOrderIndex": 3,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "issuer": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 721,
+          "issuerId": null,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": "entry",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./src/index.ts",
+              "loc": "main",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": null,
+              "active": true,
+              "explanation": "used as library export",
+              "userRequest": null,
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [
+            "babelConfig",
+            "eslintConfig",
+            "jestConfig"
+          ],
+          "optimizationBailout": [
+            "Dependency (harmony side effect evaluation) with side effects at 1:0-53",
+            "ModuleConcatenation bailout: Cannot concat with ./src/config/babel.base.config.js: Module is not an ECMAScript module",
+            "ModuleConcatenation bailout: Cannot concat with ./src/config/eslint.base.config.js: Module is not an ECMAScript module",
+            "ModuleConcatenation bailout: Cannot concat with ./src/config/jest.base.config.js: Module is not an ECMAScript module"
+          ],
+          "depth": 0
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 302,
+          "sizes": {
+            "runtime": 302
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/compat get default export",
+          "name": "webpack/runtime/compat get default export",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 313,
+          "sizes": {
+            "runtime": 313
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/define property getters",
+          "name": "webpack/runtime/define property getters",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 103,
+          "sizes": {
+            "runtime": 103
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/hasOwnProperty shorthand",
+          "name": "webpack/runtime/hasOwnProperty shorthand",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 279,
+          "sizes": {
+            "runtime": 279
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/make namespace object",
+          "name": "webpack/runtime/make namespace object",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        }
+      ],
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src/index.ts"
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 211,
+      "sizes": {
+        "javascript": 211
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+      "name": "./src/index.ts",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+      "index": 0,
+      "preOrderIndex": 0,
+      "index2": 3,
+      "postOrderIndex": 3,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 721,
+      "issuerId": null,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": "entry",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./src/index.ts",
+          "loc": "main",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": null,
+          "active": true,
+          "explanation": "used as library export",
+          "userRequest": null,
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [
+        "babelConfig",
+        "eslintConfig",
+        "jestConfig"
+      ],
+      "optimizationBailout": [
+        "Dependency (harmony side effect evaluation) with side effects at 1:0-53",
+        "ModuleConcatenation bailout: Cannot concat with ./src/config/babel.base.config.js: Module is not an ECMAScript module",
+        "ModuleConcatenation bailout: Cannot concat with ./src/config/eslint.base.config.js: Module is not an ECMAScript module",
+        "ModuleConcatenation bailout: Cannot concat with ./src/config/jest.base.config.js: Module is not an ECMAScript module"
+      ],
+      "depth": 0
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 385,
+      "sizes": {
+        "javascript": 385
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/babel.base.config.js",
+      "name": "./src/config/babel.base.config.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/babel.base.config.js",
+      "index": 1,
+      "preOrderIndex": 1,
+      "index2": 0,
+      "postOrderIndex": 0,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "name": "./src/index.ts",
+          "id": 721
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 819,
+      "issuerId": 721,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/babel.base.config.js",
+          "module": "./src/config/babel.base.config.js",
+          "moduleName": "./src/config/babel.base.config.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/babel.base.config.js",
+          "resolvedModule": "./src/config/babel.base.config.js",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "1:0-14",
+          "moduleId": 819,
+          "resolvedModuleId": 819
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./config/babel.base.config",
+          "loc": "1:0-53",
+          "moduleId": 721,
+          "resolvedModuleId": 721
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony export imported specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./config/babel.base.config",
+          "loc": "4:0-49",
+          "moduleId": 721,
+          "resolvedModuleId": 721
+        }
+      ],
+      "usedExports": null,
+      "providedExports": null,
+      "optimizationBailout": [
+        "CommonJS bailout: module.exports is used directly at 1:0-14",
+        "Statement (ExpressionStatement) with side effects in source code at 1:0-6:2",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 782,
+      "sizes": {
+        "javascript": 782
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/eslint.base.config.js",
+      "name": "./src/config/eslint.base.config.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/eslint.base.config.js",
+      "index": 2,
+      "preOrderIndex": 2,
+      "index2": 1,
+      "postOrderIndex": 1,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "name": "./src/index.ts",
+          "id": 721
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 448,
+      "issuerId": 721,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/eslint.base.config.js",
+          "module": "./src/config/eslint.base.config.js",
+          "moduleName": "./src/config/eslint.base.config.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/eslint.base.config.js",
+          "resolvedModule": "./src/config/eslint.base.config.js",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "1:0-14",
+          "moduleId": 448,
+          "resolvedModuleId": 448
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./config/eslint.base.config",
+          "loc": "2:0-55",
+          "moduleId": 721,
+          "resolvedModuleId": 721
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony export imported specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./config/eslint.base.config",
+          "loc": "4:0-49",
+          "moduleId": 721,
+          "resolvedModuleId": 721
+        }
+      ],
+      "usedExports": null,
+      "providedExports": null,
+      "optimizationBailout": [
+        "CommonJS bailout: module.exports is used directly at 1:0-14",
+        "Statement (ExpressionStatement) with side effects in source code at 1:0-28:2",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 672,
+      "sizes": {
+        "javascript": 672
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/jest.base.config.js",
+      "name": "./src/config/jest.base.config.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/jest.base.config.js",
+      "index": 3,
+      "preOrderIndex": 3,
+      "index2": 2,
+      "postOrderIndex": 2,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "name": "./src/index.ts",
+          "id": 721
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 709,
+      "issuerId": 721,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/jest.base.config.js",
+          "module": "./src/config/jest.base.config.js",
+          "moduleName": "./src/config/jest.base.config.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/config/jest.base.config.js",
+          "resolvedModule": "./src/config/jest.base.config.js",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "1:0-14",
+          "moduleId": 709,
+          "resolvedModuleId": 709
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./config/jest.base.config",
+          "loc": "3:0-51",
+          "moduleId": 721,
+          "resolvedModuleId": 721
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/build-tools/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony export imported specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./config/jest.base.config",
+          "loc": "4:0-49",
+          "moduleId": 721,
+          "resolvedModuleId": 721
+        }
+      ],
+      "usedExports": null,
+      "providedExports": null,
+      "optimizationBailout": [
+        "CommonJS bailout: module.exports is used directly at 1:0-14",
+        "Statement (ExpressionStatement) with side effects in source code at 1:0-21:2",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 302,
+      "sizes": {
+        "runtime": 302
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/compat get default export",
+      "name": "webpack/runtime/compat get default export",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 313,
+      "sizes": {
+        "runtime": 313
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/define property getters",
+      "name": "webpack/runtime/define property getters",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 103,
+      "sizes": {
+        "runtime": 103
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/hasOwnProperty shorthand",
+      "name": "webpack/runtime/hasOwnProperty shorthand",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 279,
+      "sizes": {
+        "runtime": 279
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/make namespace object",
+      "name": "webpack/runtime/make namespace object",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    }
+  ],
+  "entrypoints": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        179
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 2659
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 2659,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        179
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 2659
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 2659,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "errors": [],
+  "errorsCount": 0,
+  "warnings": [],
+  "warningsCount": 0,
+  "children": []
+}

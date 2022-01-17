@@ -1,0 +1,2424 @@
+{
+  "hash": "a7598e1204203facb331",
+  "version": "5.64.4",
+  "time": 2905,
+  "builtAt": 1641374281509,
+  "publicPath": "auto",
+  "outputPath": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/dist",
+  "assetsByChunkName": {
+    "main": [
+      "main.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "main.js",
+      "size": 3863,
+      "emitted": true,
+      "comparedForEmit": false,
+      "cached": false,
+      "info": {
+        "javascriptModule": false,
+        "minimized": true,
+        "related": {
+          "license": "main.js.LICENSE.txt"
+        },
+        "size": 3863
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 0,
+      "related": [
+        {
+          "type": "license",
+          "name": "main.js.LICENSE.txt",
+          "size": 306,
+          "emitted": true,
+          "comparedForEmit": false,
+          "cached": false,
+          "info": {
+            "extractedComments": true,
+            "size": 306
+          },
+          "chunkNames": [],
+          "chunkIdHints": [],
+          "auxiliaryChunkNames": [],
+          "auxiliaryChunkIdHints": [],
+          "related": {},
+          "chunks": [],
+          "auxiliaryChunks": [],
+          "isOverSizeLimit": false
+        }
+      ],
+      "chunks": [
+        179
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    }
+  ],
+  "chunks": [
+    {
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "recorded": false,
+      "size": 6961,
+      "sizes": {
+        "javascript": 6266,
+        "runtime": 695
+      },
+      "names": [
+        "main"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "main.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "ee0994242992737adcb3",
+      "childrenByOrder": {},
+      "id": 179,
+      "siblings": [],
+      "parents": [],
+      "children": [],
+      "modules": [
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 2108,
+          "sizes": {
+            "javascript": 2108
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "name": "../../node_modules/object-assign/index.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "index": 6,
+          "preOrderIndex": 6,
+          "index2": 2,
+          "postOrderIndex": 2,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "issuerName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "name": "./src/VideoContainer.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "name": "../../node_modules/react/jsx-runtime.js",
+              "id": 322
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "id": 837
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 320,
+          "issuerId": 837,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+              "module": "../../node_modules/object-assign/index.js",
+              "moduleName": "../../node_modules/object-assign/index.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+              "resolvedModule": "../../node_modules/object-assign/index.js",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "65:0-14",
+              "moduleId": 320,
+              "resolvedModuleId": 320
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "type": "cjs require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "object-assign",
+              "loc": "9:13-37",
+              "moduleId": 837,
+              "resolvedModuleId": 837
+            }
+          ],
+          "usedExports": null,
+          "providedExports": null,
+          "optimizationBailout": [
+            "CommonJS bailout: module.exports is used directly at 65:0-14",
+            "Statement (VariableDeclaration) with side effects in source code at 9:0-57",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 4
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 962,
+          "sizes": {
+            "javascript": 962
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "index": 5,
+          "preOrderIndex": 5,
+          "index2": 3,
+          "postOrderIndex": 3,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "issuerName": "../../node_modules/react/jsx-runtime.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "name": "./src/VideoContainer.tsx",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "name": "../../node_modules/react/jsx-runtime.js",
+              "id": 322
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 837,
+          "issuerId": 322,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "module": "../../node_modules/react/jsx-runtime.js",
+              "moduleName": "../../node_modules/react/jsx-runtime.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+              "resolvedModule": "../../node_modules/react/jsx-runtime.js",
+              "type": "cjs export require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./cjs/react-jsx-runtime.production.min.js",
+              "loc": "4:2-71",
+              "moduleId": 322,
+              "resolvedModuleId": 322
+            }
+          ],
+          "usedExports": [
+            "jsx"
+          ],
+          "providedExports": [
+            "Fragment",
+            "jsx",
+            "jsxs"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 9:13-38",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 3
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 214,
+          "sizes": {
+            "javascript": 214
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "name": "../../node_modules/react/jsx-runtime.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "index": 4,
+          "preOrderIndex": 4,
+          "index2": 4,
+          "postOrderIndex": 4,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "issuerName": "./src/VideoContainer.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "name": "./src/VideoContainer.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 322,
+          "issuerId": null,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "module": "./src/VideoContainer.tsx",
+              "moduleName": "./src/VideoContainer.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "10:0-48",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "module": "./src/VideoContainer.tsx",
+              "moduleName": "./src/VideoContainer.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "17:22-26",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "module": "./src/VideoContainer.tsx",
+              "moduleName": "./src/VideoContainer.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "19:27-31",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+              "module": "./src/index.ts + 4 modules",
+              "moduleName": "./src/index.ts + 4 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "10:0-48",
+              "moduleId": 994,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+              "module": "./src/index.ts + 4 modules",
+              "moduleName": "./src/index.ts + 4 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "17:22-26",
+              "moduleId": 994,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+              "module": "./src/index.ts + 4 modules",
+              "moduleName": "./src/index.ts + 4 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react/jsx-runtime",
+              "loc": "19:27-31",
+              "moduleId": 994,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "jsx"
+          ],
+          "providedExports": [
+            "Fragment",
+            "jsx",
+            "jsxs"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 4:2-72",
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 2940,
+          "sizes": {
+            "javascript": 2940
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+          "name": "./src/index.ts + 4 modules",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "index": 0,
+          "preOrderIndex": 0,
+          "index2": 8,
+          "postOrderIndex": 8,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 994,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": "entry",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./src/index.ts",
+              "loc": "main",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": null,
+              "active": true,
+              "explanation": "used as library export",
+              "userRequest": null,
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Cannot concat with ../../node_modules/react/jsx-runtime.js: Module is not an ECMAScript module",
+            "ModuleConcatenation bailout: Cannot concat with external {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}: umd externals can't be concatenated"
+          ],
+          "depth": 0,
+          "modules": [
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 77,
+              "sizes": {
+                "javascript": 77
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "index": 0,
+              "preOrderIndex": 0,
+              "index2": 8,
+              "postOrderIndex": 8,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [],
+              "usedExports": true,
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [
+                "Dependency (harmony side effect evaluation) with side effects at 1:0-46"
+              ],
+              "depth": 0
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 1609,
+              "sizes": {
+                "javascript": 1609
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "name": "./src/VideoContainer.tsx",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "index": 1,
+              "preOrderIndex": 1,
+              "index2": 7,
+              "postOrderIndex": 7,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "issuerName": "./src/index.ts",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony side effect evaluation",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./VideoContainer",
+                  "loc": "1:0-46",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+                  "module": "./src/index.ts",
+                  "moduleName": "./src/index.ts",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+                  "resolvedModule": "./src/index.ts",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./VideoContainer",
+                  "loc": "2:15-29",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [
+                "Statement (ExpressionStatement) with side effects in source code at 26:0-29:2"
+              ],
+              "depth": 1
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 269,
+              "sizes": {
+                "javascript": 269
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+              "index": 2,
+              "preOrderIndex": 2,
+              "index2": 0,
+              "postOrderIndex": 0,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "issuerName": "./src/VideoContainer.tsx",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "name": "./src/VideoContainer.tsx",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "module": "./src/VideoContainer.tsx",
+                  "moduleName": "./src/VideoContainer.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "resolvedModule": "./src/VideoContainer.tsx",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "@babel/runtime/helpers/defineProperty",
+                  "loc": "1:0-68",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "module": "./src/VideoContainer.tsx",
+                  "moduleName": "./src/VideoContainer.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "resolvedModule": "./src/VideoContainer.tsx",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "@babel/runtime/helpers/defineProperty",
+                  "loc": "7:201-216",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 2
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 635,
+              "sizes": {
+                "javascript": 635
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "index": 7,
+              "preOrderIndex": 7,
+              "index2": 6,
+              "postOrderIndex": 6,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "issuerName": "./src/VideoContainer.tsx",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "name": "./src/VideoContainer.tsx",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "module": "./src/VideoContainer.tsx",
+                  "moduleName": "./src/VideoContainer.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "resolvedModule": "./src/VideoContainer.tsx",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+                  "loc": "2:0-86",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "module": "./src/VideoContainer.tsx",
+                  "moduleName": "./src/VideoContainer.tsx",
+                  "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "resolvedModule": "./src/VideoContainer.tsx",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+                  "loc": "15:14-38",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 2
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/esm",
+              "layer": null,
+              "size": 350,
+              "sizes": {
+                "javascript": 350
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+              "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+              "index": 8,
+              "preOrderIndex": 8,
+              "index2": 5,
+              "postOrderIndex": 5,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "issuerName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "issuerPath": [
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+                  "name": "./src/index.ts",
+                  "id": null
+                },
+                {
+                  "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+                  "name": "./src/VideoContainer.tsx",
+                  "id": null
+                },
+                {
+                  "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "./objectWithoutPropertiesLoose.js",
+                  "loc": "1:0-77",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./objectWithoutPropertiesLoose.js",
+                  "loc": "4:15-43",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "default"
+              ],
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [],
+              "depth": 3
+            }
+          ]
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/dynamic",
+          "layer": null,
+          "size": 42,
+          "sizes": {
+            "javascript": 42
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "external umd {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}",
+          "name": "external {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}",
+          "nameForCondition": null,
+          "index": 3,
+          "preOrderIndex": 3,
+          "index2": 1,
+          "postOrderIndex": 1,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "issuerName": "./src/VideoContainer.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "name": "./src/VideoContainer.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": 787,
+          "issuerId": null,
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "module": "./src/VideoContainer.tsx",
+              "moduleName": "./src/VideoContainer.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "9:0-26",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+              "module": "./src/index.ts + 4 modules",
+              "moduleName": "./src/index.ts + 4 modules",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "9:0-26",
+              "moduleId": 994,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+              "type": "cjs require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "react",
+              "loc": "9:44-60",
+              "moduleId": 837,
+              "resolvedModuleId": 837
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: umd externals can't be concatenated"
+          ],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 313,
+          "sizes": {
+            "runtime": 313
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/define property getters",
+          "name": "webpack/runtime/define property getters",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 103,
+          "sizes": {
+            "runtime": 103
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/hasOwnProperty shorthand",
+          "name": "webpack/runtime/hasOwnProperty shorthand",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        },
+        {
+          "type": "module",
+          "moduleType": "runtime",
+          "layer": null,
+          "size": 279,
+          "sizes": {
+            "runtime": 279
+          },
+          "built": false,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "webpack/runtime/make namespace object",
+          "name": "webpack/runtime/make namespace object",
+          "nameForCondition": null,
+          "index": null,
+          "preOrderIndex": null,
+          "index2": null,
+          "postOrderIndex": null,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "",
+          "chunks": [
+            179
+          ],
+          "assets": [],
+          "reasons": [],
+          "usedExports": null,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": null
+        }
+      ],
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src/index.ts"
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 2940,
+      "sizes": {
+        "javascript": 2940
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+      "name": "./src/index.ts + 4 modules",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+      "index": 0,
+      "preOrderIndex": 0,
+      "index2": 8,
+      "postOrderIndex": 8,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 994,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": "entry",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./src/index.ts",
+          "loc": "main",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": null,
+          "active": true,
+          "explanation": "used as library export",
+          "userRequest": null,
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Cannot concat with ../../node_modules/react/jsx-runtime.js: Module is not an ECMAScript module",
+        "ModuleConcatenation bailout: Cannot concat with external {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}: umd externals can't be concatenated"
+      ],
+      "depth": 0,
+      "modules": [
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 77,
+          "sizes": {
+            "javascript": 77
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "index": 0,
+          "preOrderIndex": 0,
+          "index2": 8,
+          "postOrderIndex": 8,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [
+            "Dependency (harmony side effect evaluation) with side effects at 1:0-46"
+          ],
+          "depth": 0
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 1609,
+          "sizes": {
+            "javascript": 1609
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "name": "./src/VideoContainer.tsx",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "index": 1,
+          "preOrderIndex": 1,
+          "index2": 7,
+          "postOrderIndex": 7,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony side effect evaluation",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./VideoContainer",
+              "loc": "1:0-46",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./VideoContainer",
+              "loc": "2:15-29",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [
+            "Statement (ExpressionStatement) with side effects in source code at 26:0-29:2"
+          ],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 269,
+          "sizes": {
+            "javascript": 269
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+          "index": 2,
+          "preOrderIndex": 2,
+          "index2": 0,
+          "postOrderIndex": 0,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "issuerName": "./src/VideoContainer.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "name": "./src/VideoContainer.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "module": "./src/VideoContainer.tsx",
+              "moduleName": "./src/VideoContainer.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "@babel/runtime/helpers/defineProperty",
+              "loc": "1:0-68",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "module": "./src/VideoContainer.tsx",
+              "moduleName": "./src/VideoContainer.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "@babel/runtime/helpers/defineProperty",
+              "loc": "7:201-216",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 635,
+          "sizes": {
+            "javascript": 635
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "index": 7,
+          "preOrderIndex": 7,
+          "index2": 6,
+          "postOrderIndex": 6,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "issuerName": "./src/VideoContainer.tsx",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "name": "./src/VideoContainer.tsx",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "module": "./src/VideoContainer.tsx",
+              "moduleName": "./src/VideoContainer.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+              "loc": "2:0-86",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "module": "./src/VideoContainer.tsx",
+              "moduleName": "./src/VideoContainer.tsx",
+              "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "resolvedModule": "./src/VideoContainer.tsx",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+              "loc": "15:14-38",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 2
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/esm",
+          "layer": null,
+          "size": 350,
+          "sizes": {
+            "javascript": 350
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+          "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+          "index": 8,
+          "preOrderIndex": 8,
+          "index2": 5,
+          "postOrderIndex": 5,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "issuerName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "issuerPath": [
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+              "name": "./src/index.ts",
+              "id": null
+            },
+            {
+              "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+              "name": "./src/VideoContainer.tsx",
+              "id": null
+            },
+            {
+              "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "./objectWithoutPropertiesLoose.js",
+              "loc": "1:0-77",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./objectWithoutPropertiesLoose.js",
+              "loc": "4:15-43",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 3
+        }
+      ]
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 1609,
+      "sizes": {
+        "javascript": 1609
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+      "name": "./src/VideoContainer.tsx",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+      "index": 1,
+      "preOrderIndex": 1,
+      "index2": 7,
+      "postOrderIndex": 7,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./VideoContainer",
+          "loc": "1:0-46",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./VideoContainer",
+          "loc": "2:15-29",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 26:0-29:2"
+      ],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 269,
+      "sizes": {
+        "javascript": 269
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+      "index": 2,
+      "preOrderIndex": 2,
+      "index2": 0,
+      "postOrderIndex": 0,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+      "issuerName": "./src/VideoContainer.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "name": "./src/VideoContainer.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "module": "./src/VideoContainer.tsx",
+          "moduleName": "./src/VideoContainer.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "@babel/runtime/helpers/defineProperty",
+          "loc": "1:0-68",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "module": "./src/VideoContainer.tsx",
+          "moduleName": "./src/VideoContainer.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "@babel/runtime/helpers/defineProperty",
+          "loc": "7:201-216",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/dynamic",
+      "layer": null,
+      "size": 42,
+      "sizes": {
+        "javascript": 42
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "external umd {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}",
+      "name": "external {\"root\":\"React\",\"commonjs2\":\"react\",\"commonjs\":\"react\",\"amd\":\"react\"}",
+      "nameForCondition": null,
+      "index": 3,
+      "preOrderIndex": 3,
+      "index2": 1,
+      "postOrderIndex": 1,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+      "issuerName": "./src/VideoContainer.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "name": "./src/VideoContainer.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 787,
+      "issuerId": null,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "module": "./src/VideoContainer.tsx",
+          "moduleName": "./src/VideoContainer.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "9:0-26",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+          "module": "./src/index.ts + 4 modules",
+          "moduleName": "./src/index.ts + 4 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "9:0-26",
+          "moduleId": 994,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "type": "cjs require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react",
+          "loc": "9:44-60",
+          "moduleId": 837,
+          "resolvedModuleId": 837
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: umd externals can't be concatenated"
+      ],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 214,
+      "sizes": {
+        "javascript": 214
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "name": "../../node_modules/react/jsx-runtime.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "index": 4,
+      "preOrderIndex": 4,
+      "index2": 4,
+      "postOrderIndex": 4,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+      "issuerName": "./src/VideoContainer.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "name": "./src/VideoContainer.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 322,
+      "issuerId": null,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "module": "./src/VideoContainer.tsx",
+          "moduleName": "./src/VideoContainer.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "10:0-48",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "module": "./src/VideoContainer.tsx",
+          "moduleName": "./src/VideoContainer.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "17:22-26",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "module": "./src/VideoContainer.tsx",
+          "moduleName": "./src/VideoContainer.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "19:27-31",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+          "module": "./src/index.ts + 4 modules",
+          "moduleName": "./src/index.ts + 4 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony side effect evaluation",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "10:0-48",
+          "moduleId": 994,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+          "module": "./src/index.ts + 4 modules",
+          "moduleName": "./src/index.ts + 4 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "17:22-26",
+          "moduleId": 994,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts|0040e345fc86324df0bd7b8bb7427480",
+          "module": "./src/index.ts + 4 modules",
+          "moduleName": "./src/index.ts + 4 modules",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "react/jsx-runtime",
+          "loc": "19:27-31",
+          "moduleId": 994,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "jsx"
+      ],
+      "providedExports": [
+        "Fragment",
+        "jsx",
+        "jsxs"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 4:2-72",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 635,
+      "sizes": {
+        "javascript": 635
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "index": 7,
+      "preOrderIndex": 7,
+      "index2": 6,
+      "postOrderIndex": 6,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+      "issuerName": "./src/VideoContainer.tsx",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "name": "./src/VideoContainer.tsx",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "module": "./src/VideoContainer.tsx",
+          "moduleName": "./src/VideoContainer.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+          "loc": "2:0-86",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "module": "./src/VideoContainer.tsx",
+          "moduleName": "./src/VideoContainer.tsx",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "resolvedModule": "./src/VideoContainer.tsx",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "@babel/runtime/helpers/objectWithoutProperties",
+          "loc": "15:14-38",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 2
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 962,
+      "sizes": {
+        "javascript": 962
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "index": 5,
+      "preOrderIndex": 5,
+      "index2": 3,
+      "postOrderIndex": 3,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+      "issuerName": "../../node_modules/react/jsx-runtime.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "name": "./src/VideoContainer.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "name": "../../node_modules/react/jsx-runtime.js",
+          "id": 322
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 837,
+      "issuerId": 322,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "module": "../../node_modules/react/jsx-runtime.js",
+          "moduleName": "../../node_modules/react/jsx-runtime.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "resolvedModule": "../../node_modules/react/jsx-runtime.js",
+          "type": "cjs export require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./cjs/react-jsx-runtime.production.min.js",
+          "loc": "4:2-71",
+          "moduleId": 322,
+          "resolvedModuleId": 322
+        }
+      ],
+      "usedExports": [
+        "jsx"
+      ],
+      "providedExports": [
+        "Fragment",
+        "jsx",
+        "jsxs"
+      ],
+      "optimizationBailout": [
+        "Statement (ExpressionStatement) with side effects in source code at 9:13-38",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/esm",
+      "layer": null,
+      "size": 350,
+      "sizes": {
+        "javascript": 350
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+      "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js",
+      "index": 8,
+      "preOrderIndex": 8,
+      "index2": 5,
+      "postOrderIndex": 5,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "issuerName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "name": "./src/VideoContainer.tsx",
+          "id": null
+        },
+        {
+          "identifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "name": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "./objectWithoutPropertiesLoose.js",
+          "loc": "1:0-77",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "module": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "moduleName": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "resolvedModuleIdentifier": "javascript/esm|/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "resolvedModule": "../../node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./objectWithoutPropertiesLoose.js",
+          "loc": "4:15-43",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 3
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 2108,
+      "sizes": {
+        "javascript": 2108
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+      "name": "../../node_modules/object-assign/index.js",
+      "nameForCondition": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+      "index": 6,
+      "preOrderIndex": 6,
+      "index2": 2,
+      "postOrderIndex": 2,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "issuerName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+      "issuerPath": [
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/index.ts",
+          "name": "./src/index.ts",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/babel-loader/lib/index.js??ruleSet[1].rules[0].use!/Users/ismaelhaytam/Documents/byte9/blaze-components-react/packages/VideoContainer/src/VideoContainer.tsx",
+          "name": "./src/VideoContainer.tsx",
+          "id": null
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/jsx-runtime.js",
+          "name": "../../node_modules/react/jsx-runtime.js",
+          "id": 322
+        },
+        {
+          "identifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "name": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "id": 837
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": 320,
+      "issuerId": 837,
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "module": "../../node_modules/object-assign/index.js",
+          "moduleName": "../../node_modules/object-assign/index.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/object-assign/index.js",
+          "resolvedModule": "../../node_modules/object-assign/index.js",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "65:0-14",
+          "moduleId": 320,
+          "resolvedModuleId": 320
+        },
+        {
+          "moduleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "module": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "moduleName": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModuleIdentifier": "/Users/ismaelhaytam/Documents/byte9/blaze-components-react/node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "resolvedModule": "../../node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "type": "cjs require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "object-assign",
+          "loc": "9:13-37",
+          "moduleId": 837,
+          "resolvedModuleId": 837
+        }
+      ],
+      "usedExports": null,
+      "providedExports": null,
+      "optimizationBailout": [
+        "CommonJS bailout: module.exports is used directly at 65:0-14",
+        "Statement (VariableDeclaration) with side effects in source code at 9:0-57",
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 4
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 313,
+      "sizes": {
+        "runtime": 313
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/define property getters",
+      "name": "webpack/runtime/define property getters",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 103,
+      "sizes": {
+        "runtime": 103
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/hasOwnProperty shorthand",
+      "name": "webpack/runtime/hasOwnProperty shorthand",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    },
+    {
+      "type": "module",
+      "moduleType": "runtime",
+      "layer": null,
+      "size": 279,
+      "sizes": {
+        "runtime": 279
+      },
+      "built": false,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "webpack/runtime/make namespace object",
+      "name": "webpack/runtime/make namespace object",
+      "nameForCondition": null,
+      "index": null,
+      "preOrderIndex": null,
+      "index2": null,
+      "postOrderIndex": null,
+      "optional": false,
+      "orphan": false,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "",
+      "chunks": [
+        179
+      ],
+      "assets": [],
+      "reasons": [],
+      "usedExports": null,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": null
+    }
+  ],
+  "entrypoints": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        179
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 3863
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 3863,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        179
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 3863
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 3863,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "errors": [],
+  "errorsCount": 0,
+  "warnings": [],
+  "warningsCount": 0,
+  "children": []
+}

@@ -10,7 +10,7 @@ describe("Drag handler", () => {
   });
 
   it("should render withouth throwing error", () => {
-    const { container } = render(<DragHandler onDragStart={jest.fn} />);
+    const { container } = render(<DragHandler onDragStart={jest.fn} draggable />);
     expect(container).toMatchSnapshot();
   });
 });
