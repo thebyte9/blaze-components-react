@@ -1,5 +1,6 @@
 # Folders
 packages/**/lib
+packages/**/dist
 packages/**/.DS_Store
 packages/.DS_Store
 .DS_Store
