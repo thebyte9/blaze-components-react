@@ -1,7 +1,7 @@
 import React from 'react';
 interface IDragHandlerProps {
   onDragStart: (...args: any[]) => any;
-  draggable: boolean;
+  draggable?: boolean;
 }
 const DragHandler: React.SFC<IDragHandlerProps> = ({ onDragStart, draggable }) => (
   <div className="list__drag" onDragStart={onDragStart} draggable={draggable} data-testid="drag-handler">

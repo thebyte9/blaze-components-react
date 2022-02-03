@@ -48,7 +48,7 @@ const NestableItem: React.SFC<INestableItemProps> = ({
           )}
         >
           {hasChildrenProperty && hasChildren ? (
-            <ol className="nestable-list">
+            <ol className="nestable-list">x
               {item[childrenProp].map((element: any, i: number) => (
                 <NestableItem
                   key={element.id}
