@@ -1,0 +1,3 @@
+{
+  "extends": "@blaze-react/build-tools/tsconfig.base.json"
+}

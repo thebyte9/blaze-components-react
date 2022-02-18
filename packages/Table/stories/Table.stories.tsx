@@ -8,22 +8,20 @@ import TableReadme from '../README.md';
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
     appliedSort: { name: 'asc' },
-    columns: ['name', 'email', 'city', 'zipCode'],
+    columns: ['name', 'email'],
     identification: 'id',
-    orderBy: ['email', 'name', 'city', 'zipCode'],
+    orderBy: ['email', 'name'],
     rows: [],
-    labels: { name: 'Name', email: 'email', city: 'City', zipCode: 'Zip code' },
+    labels: { name: 'Name', email: 'email'},
   });
 
   const generateFakeData = () => {
     const rows = [];
     for (let i = 0; i < 100; i++) {
       rows.push({
-        city: faker.address.city(),
         email: faker.internet.email(),
         id: nanoid(),
         name: faker.internet.userName(),
-        zipCode: faker.address.zipCode(),
       });
     }
     return rows;
@@ -36,6 +34,7 @@ const DemoComponent = () => {
     }
   }, []);
   const Table: any = lazy((): any => import('../src/Table'));
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Table checkboxes data={data} onSelect={() => ({})} />

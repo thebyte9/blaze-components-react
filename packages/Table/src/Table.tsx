@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import Pagination from "@blaze-react/pagination";
 import TableBody from './TableBody';
 import TableHead from './TableHead';
 import { ITableRow, ICheckboxItem } from './interfaces';
@@ -30,43 +31,20 @@ const Table: FunctionComponent<ITableProps> = ({
   onClickRow = () => ({}),
   checkboxes,
   placeholder = '',
-  overScanBuffer = 0,
-  onRenderItems,
-  scrollToIndex = 0,
 }) => {
   const [selected, setSelected] = useState<any[]>([]);
   const [allRows, setAllRows] = useState<ITableRow[]>(rows);
   const [allColumns, setAllColumns] = useState<any>(columns);
+  const [pagination, setPagination] = useState({
+    currentPage: 1,
+    itemsPerPage: 4,
+  });
   const headRef = useRef<any>(null);
-  const bodyRef = useRef<any>(null);
 
   useEffect(() => {
     setAllRows(rows);
     setAllColumns(columns);
   }, [rows, rows && rows.length, columns, columns && columns.length]);
-
-  useEffect(() => {
-    if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild && allRows.length) {
-      bodyRef.current.firstElementChild.addEventListener('scroll', (event: any) => syncScroll(headRef.current, event));
-    }
-
-    if (headRef && headRef.current && headRef.current.firstElementChild) {
-      headRef.current.addEventListener('scroll', (event: any) => syncScroll(bodyRef.current.firstElementChild, event));
-    }
-
-    return () => {
-      if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild) {
-        bodyRef.current.firstElementChild.removeEventListener('scroll', syncScroll);
-      }
-      if (headRef.current) {
-        headRef.current.removeEventListener('scroll', syncScroll);
-      }
-    };
-  }, [bodyRef.current, headRef.current, allRows]);
-
-  const syncScroll = (ref: any, event: any) => {
-    ref.scrollLeft = event.target.scrollLeft;
-  };
 
   const handleSelected = ([checked]: ICheckboxItem[], value: string | ICheckboxItem[], multiselect = false): void => {
     let checkedValue = [];
@@ -85,7 +63,21 @@ const Table: FunctionComponent<ITableProps> = ({
     onSelect(checkedValue);
   };
 
+  const getTableBody = () => {
+    const indexOfLastTodo = pagination.currentPage * pagination.itemsPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - pagination.itemsPerPage;
+    return allRows.slice(indexOfFirstTodo, indexOfLastTodo);
+  };
+
+  const handleOnPageChange = (currentPage) => {
+    setPagination({ ...pagination, currentPage });
+  };
+
+  const tableBody = getTableBody();
+  const totalPages = Math.round(allRows.length / pagination.itemsPerPage);
+
   return (
+    <>
     <div className="table-wrapper">
       <TableHead
         onSort={onSort}
@@ -96,20 +88,23 @@ const Table: FunctionComponent<ITableProps> = ({
         labels={labels}
       />
       <TableBody
-        scrollToIndex={scrollToIndex}
         onClickRow={onClickRow}
-        bodyRef={bodyRef}
-        allRows={allRows}
+        allRows={tableBody}
         checkboxes={checkboxes}
         identification={identification}
         selected={selected}
         handleSelected={handleSelected}
         columns={columns}
         placeholder={placeholder}
-        overScanBuffer={overScanBuffer}
-        onRenderItems={onRenderItems}
       />
     </div>
+    <Pagination
+        totalPages={totalPages}
+        currentPage={pagination.currentPage}
+        paginationPagesPerSide={5}
+        handleOnPageChange={handleOnPageChange}
+      />
+    </>
   );
 };
 
