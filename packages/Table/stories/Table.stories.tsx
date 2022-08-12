@@ -1,6 +1,5 @@
 import '@blaze-react/blaze-components-theme';
 import { storiesOf } from '@storybook/react';
-import faker from 'faker';
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import TableReadme from '../README.md';
@@ -19,11 +18,11 @@ const DemoComponent = () => {
     const rows = [];
     for (let i = 0; i < 100; i++) {
       rows.push({
-        city: faker.address.city(),
-        email: faker.internet.email(),
+        city: `city ${i}`,
+        email: `email ${i}`,
         id: nanoid(),
-        name: faker.internet.userName(),
-        zipCode: faker.address.zipCode(),
+        name: `name ${i}`,
+        zipCode: `zipCode ${i}`,
       });
     }
     return rows;
@@ -36,6 +35,7 @@ const DemoComponent = () => {
     }
   }, []);
   const Table: any = lazy((): any => import('../src/Table'));
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Table checkboxes data={data} onSelect={() => ({})} />

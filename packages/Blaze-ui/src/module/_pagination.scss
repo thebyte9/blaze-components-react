@@ -33,7 +33,7 @@
     }
 
     &.disabled {
-      opacity: .4;
+      opacity: 0.4;
       cursor: move;
     }
 
@@ -76,7 +76,7 @@
   }
 
   &__pages {
-    font-size: .875rem;
+    font-size: 0.875rem;
     color: $grey-dark;
     margin-right: 20px;
     white-space: nowrap;
@@ -90,6 +90,50 @@
     align-items: flex-end;
     margin-left: 20px;
     white-space: nowrap;
+  }
+}
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin: 20px 0;
+  &__item {
+    &:hover {
+      background: $grey-light;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    &--active {
+      background: $primary-color;
+      color: white;
+    }
+    &--icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $primary-color;
+      font-weight: 400;
+      font-size: 25px;
+      border-radius: 15px;
+      padding-bottom: 5px;
+    }
+  }
+  &__input {
+    width: 50px;
+    height: 30px;
+    margin-left: 10px;
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid #f8f9fb;
   }
 }
