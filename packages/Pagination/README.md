@@ -1,6 +1,6 @@
 ## Description
 
-Create basic single-line input fields.
+The Pagination component enables the user to select a specific page from a range of pages.
 
 ## Usage
 
@@ -45,7 +45,7 @@ Create basic single-line input fields.
 
 ## API
 
-##### Input can receive a number of `props` as follow:
+##### Pagination can receive a number of `props` as follow:
 
 | NAME              |   TYPE   |        DEFAULT         |
 | :---------------- | :------: | :--------------------: |

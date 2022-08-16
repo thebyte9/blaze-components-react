@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination component should be defined and renders correctly (snapshot) 1`] = `
+<div>
+  <div
+    class="pagination"
+  >
+    <div>
+      <span>
+        Displaying
+      </span>
+      <input
+        class="pagination__input"
+        min="0"
+        placeholder="Go to"
+        type="number"
+        value="10"
+      />
+      <span>
+        rows per page
+      </span>
+    </div>
+    <ul
+      class="pagination"
+    >
+      <li
+        class="pagination__item pagination__item--icon"
+      >
+        ‹
+      </li>
+      <li
+        class="pagination__item pagination__item--active"
+      >
+        1
+      </li>
+      <li
+        class="pagination__item "
+      >
+        2
+      </li>
+      <li
+        class="pagination__item "
+      >
+        3
+      </li>
+      <li
+        class="pagination__item "
+      >
+        4
+      </li>
+      <li
+        class="pagination__item "
+      >
+        5
+      </li>
+      <li
+        class="pagination__item "
+      >
+        6
+      </li>
+      <li>
+        ...
+      </li>
+      <li
+        class="pagination__item"
+      >
+        100
+      </li>
+      <li
+        class="pagination__item pagination__item--icon"
+      >
+        ›
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`should be defined and renders correctly (snapshot) 1`] = `
+<div>
+  <div
+    class="pagination"
+  >
+    <div>
+      <span>
+        Displaying
+      </span>
+      <input
+        class="pagination__input"
+        min="0"
+        placeholder="Go to"
+        type="number"
+        value="10"
+      />
+      <span>
+        rows per page
+      </span>
+    </div>
+    <ul
+      class="pagination"
+    >
+      <li
+        class="pagination__item pagination__item--icon"
+      >
+        ‹
+      </li>
+      <li
+        class="pagination__item pagination__item--active"
+      >
+        1
+      </li>
+      <li
+        class="pagination__item "
+      >
+        2
+      </li>
+      <li
+        class="pagination__item "
+      >
+        3
+      </li>
+      <li
+        class="pagination__item "
+      >
+        4
+      </li>
+      <li
+        class="pagination__item "
+      >
+        5
+      </li>
+      <li
+        class="pagination__item "
+      >
+        6
+      </li>
+      <li>
+        ...
+      </li>
+      <li
+        class="pagination__item"
+      >
+        100
+      </li>
+      <li
+        class="pagination__item pagination__item--icon"
+      >
+        ›
+      </li>
+    </ul>
+  </div>
+</div>
+`;

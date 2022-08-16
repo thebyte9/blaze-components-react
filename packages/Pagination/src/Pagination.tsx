@@ -1,20 +1,27 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 
 interface IPaginationProps {
   totalPages: number;
-  currentPage: number;
+  activePage: number;
   paginationPagesPerSide: number;
-  handleOnPageChange: (page: number) => void;
-  query?: string;
-  pageParameterName?: string;
+  defaultRowsPerPage: number;
+  handleOnPageChange: ({ rowsPerPage, currentPage }: { rowsPerPage: number, currentPage: number }) => void;
 }
 
-const Pagination: FunctionComponent<IPaginationProps> = ({ 
+const Pagination: FunctionComponent<IPaginationProps> = ({
   totalPages,
   handleOnPageChange,
-  currentPage,
+  activePage,
   paginationPagesPerSide,
+  defaultRowsPerPage
 }): JSX.Element => {
+  const [currentPage, setCurrentPage] = useState(activePage)
+  const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage)
+
+  useEffect(() => {
+    handleOnPageChange({ currentPage, rowsPerPage })
+  }, [currentPage, handleOnPageChange, rowsPerPage])
+
   const getPaginationNumbers = () => {
     const { nextPages, prevPages } = getPagesPerSide();
     const numbers: number[] = [];
@@ -32,14 +39,17 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
     return { nextPages, prevPages };
   };
 
-  const handleGoToPage = ({ target: { value } }) =>
-    !!parseInt(value) && handleOnPageChange(parseInt(value));
-  const nextPage = () =>
-    currentPage < totalPages && handleOnPageChange(currentPage + 1);
-  const prevPage = () => currentPage > 1 && handleOnPageChange(currentPage - 1);
+  const handleRowsPerPage = ({ target: { value } }) => {
+    const totalRows = parseInt(value) || 0;
+    setRowsPerPage(totalRows);
+  }
+
+  const nextPage = () => currentPage < totalPages && setCurrentPage(currentPage + 1);
+
+  const prevPage = () => currentPage > 1 && setCurrentPage(currentPage - 1);
+
   const getItemClassName = (number: number) =>
-    `pagination__item ${
-      number === currentPage ? "pagination__item--active" : ""
+    `pagination__item ${number === currentPage ? "pagination__item--active" : ""
     }`;
 
   const currentNumbers: number[] = getPaginationNumbers();
@@ -49,48 +59,48 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
       <div>
         <span>Displaying</span>
         <input
-          min="1"
+          min="0"
           className="pagination__input"
           type="number"
           placeholder="Go to"
-          value={currentPage}
-          onChange={handleGoToPage}
+          value={rowsPerPage}
+          onChange={handleRowsPerPage}
         />
-        <span> rows per page</span>
+        <span>rows per page</span>
       </div>
       <ul className="pagination">
-      <li className="pagination__item pagination__item--icon" onClick={prevPage}>
-        &lsaquo;
-      </li>
-      {currentNumbers.map((number) => (
-        <li
-          key={`${number}`}
-          className={getItemClassName(number)}
-          onClick={() => {
-            handleOnPageChange(number);
-          }}
-        >
-          {number}
+        <li className="pagination__item pagination__item--icon" onClick={prevPage}>
+          &lsaquo;
         </li>
-      ))}
-      <li>...</li>
-      <li className="pagination__item" onClick={() => {
-            handleOnPageChange(totalPages);
-          }}>
-        {totalPages}
-      </li>
-      <li className="pagination__item pagination__item--icon" onClick={nextPage}>
-        &rsaquo;
-      </li>
+        {currentNumbers.map((number) => (
+          <li
+            key={`${number}`}
+            className={getItemClassName(number)}
+            onClick={() => {
+              setCurrentPage(number);
+            }}
+          >
+            {number}
+          </li>
+        ))}
+        <li>...</li>
+        <li className="pagination__item" onClick={() => {
+          setCurrentPage(totalPages);
+        }}>
+          {totalPages}
+        </li>
+        <li className="pagination__item pagination__item--icon" onClick={nextPage}>
+          &rsaquo;
+        </li>
       </ul>
     </div>
   );
 };
 
 Pagination.defaultProps = {
-  currentPage: 1,
+  activePage: 1,
   paginationPagesPerSide: 5,
-  pageParameterName: "page"
+  defaultRowsPerPage: 10
 };
 
 export default Pagination;
