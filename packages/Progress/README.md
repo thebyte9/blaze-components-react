@@ -55,9 +55,9 @@ const steps = [
 
 | NAME   | TYPE | DEFAULT | 
 | :---  | :---:  | :---: | 
-| totalPages | Number | [] | 
-| handleOnPageChange | Number | 0 | 
-| activePage | Number | dots  | 
-| paginationPagesPerSide | Number | () => {} |
-| defaultRowsPerPage | Function | () => {} |
+| steps | Array | [] | 
+| progress | Number | 0 | 
+| type | Text | dots  | 
+| onChange | Function | () => {} |
+
 

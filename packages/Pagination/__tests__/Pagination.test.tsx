@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Pagination from '../src';
 import React from 'react';
@@ -28,7 +28,7 @@ describe('Pagination component', () => {
 
     it('handles page change', () => {
         const mockOnChange = jest.fn();
-        render(<Pagination {...defaultProps({ handleOnPageChange: mockOnChange, })} />);
+        render(<Pagination {...defaultProps({ handleOnPageChange: mockOnChange })} />);
         userEvent.click(screen.getByText('6'));
         expect(mockOnChange).toHaveBeenCalled();
     });

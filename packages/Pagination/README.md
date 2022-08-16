@@ -7,54 +7,24 @@ The Pagination component enables the user to select a specific page from a range
 - Required
 
 ```js
-<Input
-  label="Text input required"
-  placeholder="Placeholder text"
-  onChange={({ event, value }) => {}}
-  modifier="full-width"
-  validationMessage="Email address is required"
-  error
-  required
-/>
-```
-
-- Disabled
-
-```js
-<Input
-  label="Text input disabled"
-  placeholder="Placeholder text"
-  onChange={({ event, value }) => {}}
-  type="password"
-  hideTypeToggle
-  disabled
-/>
-```
-
-- Password toggle type
-
-```js
-<Input
-  label="Password - show hide"
-  placeholder="******"
-  onChange={({ event, value }) => {}}
-  type="password"
-  value="Lorem ipsum"
-/>
+<Pagination
+    totalPages={100}
+    currentPage={1}
+    paginationPagesPerSide={5}
+    handleOnPageChange={({ currentPage, rowsPerPage }) => {
+    // ...
+    }}
+  />
 ```
 
 ## API
 
 ##### Pagination can receive a number of `props` as follow:
 
-| NAME              |   TYPE   |        DEFAULT         |
-| :---------------- | :------: | :--------------------: |
-| label             |  String  |         empty          |
-| type              |  String  |          text          |
-| value             |  String  |         empty          |
-| validationMessage |  String  | This field is required |
-| disabled          | Boolean  |         false          |
-| required          | Boolean  |         false          |
-| hideTypeToggle    | Boolean  |         false          |
-| error             | Boolean  |         false          |
-| onChange          | Function |        () => {}        |
+| NAME   | TYPE | DEFAULT | 
+| :---  | :---:  | :---: | 
+| totalPages | Number | 100 | 
+| handleOnPageChange | Function | (obj) => {}  | 
+| activePage | Number | 1  | 
+| paginationPagesPerSide | Number | 5 |
+| defaultRowsPerPage | Number | 10 |
