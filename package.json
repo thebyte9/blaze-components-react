@@ -9,6 +9,7 @@
     "lint": "eslint '*/**/*.{ts,tsx}'",
     "build": "yarn workspaces foreach run build",
     "build-storybook": "NODE_ENV=production build-storybook -o ./storybook-static",
+    "test-storybook": "test-storybook",
     "serve-storybook": "npx http-server ./storybook-static",
     "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage --testPathPattern=/__tests__/ --passWithNoTests",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
@@ -76,14 +77,18 @@
     "@storybook/addon-actions": "^6.3.8",
     "@storybook/addon-docs": "^6.3.8",
     "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-interactions": "^6.5.10",
     "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-links": "^6.3.8",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addon-storyshots": "^6.3.8",
     "@storybook/builder-webpack5": "^6.3.8",
     "@storybook/components": "^6.3.8",
+    "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.3.8",
     "@storybook/react": "^6.3.8",
+    "@storybook/test-runner": "^0.7.0",
+    "@storybook/testing-library": "^0.0.13",
     "@storybook/theming": "^6.3.8",
     "@svgr/webpack": "^5.5.0",
     "@tailwindcss/forms": "^0.3.3",
@@ -148,10 +153,11 @@
     "faker": "^5.5.1",
     "fork-ts-checker-webpack-plugin": "^6.2.0",
     "fs-extra": "^9.1.0",
+    "html-react-parser": "^1.2.6",
     "html-to-draftjs": "^1.5.0",
     "html-webpack-plugin": "^5.3.1",
     "husky": "^6.0.0",
-    "jest": "^26.6.3",
+    "jest": "27",
     "jest-dom": "^4.0.0",
     "lerna": "^4.0.0",
     "lint-staged": "^11.0.0",
@@ -208,5 +214,8 @@
     "React",
     "components",
     "library"
-  ]
+  ],
+  "dependencies": {
+    "test-storybook": "^1.0.0"
+  }
 }
