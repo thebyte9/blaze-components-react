@@ -8959,7 +8959,7 @@ __metadata:
     react-docgen-typescript-loader: ^3.7.2
     react-docgen-typescript-webpack-plugin: ^1.1.0
     react-dom: ^17.0.2
-    react-refresh: ^0.9.0
+    react-refresh: ^0.14.0
     react-test-renderer: ^17.0.2
     rimraf: ^3.0.2
     sass-loader: ^11.0.1
@@ -22573,10 +22573,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-refresh@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "react-refresh@npm:0.9.0"
-  checksum: 300dc431389f4c532bdfec08d5bc59b591c8c440486a7d5770c8954adf3afe62501b659c5acbdb7831751e8be506eb90a6f72491fab40352f3b3fba16897acf6
+"react-refresh@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "react-refresh@npm:0.14.0"
+  checksum: 88ad43ceb1a29f55f8cb0a401ce378e6aa99033866e83873e145eb64674899348f2272ba42b3cb2baed85ec60db004e3156f227850d157bf87cb8c6e96227bfa
   languageName: node
   linkType: hard
 
