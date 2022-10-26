@@ -6157,13 +6157,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/draft-js@npm:0.11.1":
-  version: 0.11.1
-  resolution: "@types/draft-js@npm:0.11.1"
+"@types/draft-js@npm:0.11.9":
+  version: 0.11.9
+  resolution: "@types/draft-js@npm:0.11.9"
   dependencies:
     "@types/react": "*"
     immutable: ~3.7.4
-  checksum: fffbd8020a994067d7329587c9faca9fddfdc8f1a1726a0b5df4efa5d480ed49241e7029ed2cd2d419958f83a53e3c717f37199f0e7e9ca499f1d787629b0c17
+  checksum: fd2647c30df01b728a3066a26822bdbf8f5fadd813d10332344f0fc9950198bd4b698e3270df750191122673fd69a0f9486703f19c92df829b9ed3fb419bfe6a
   languageName: node
   linkType: hard
 
@@ -8880,7 +8880,7 @@ __metadata:
     "@testing-library/react-hooks": ^7.0.0
     "@testing-library/user-event": ^13.1.1
     "@types/classnames": ^2.3.1
-    "@types/draft-js": 0.11.1
+    "@types/draft-js": 0.11.9
     "@types/enzyme": ^3.10.8
     "@types/faker": ^5.1.7
     "@types/fork-ts-checker-webpack-plugin": ^0.4.5
