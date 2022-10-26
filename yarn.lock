@@ -15530,9 +15530,9 @@ __metadata:
   linkType: hard
 
 "intersection-observer@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "intersection-observer@npm:0.12.0"
-  checksum: 44c9f6f41b3cc09e8b56ab143c1830275db37e27f67ed5dd4e81a324a3455cdc0b0e3f04196595c89dae6b278a42c743bff48e8c273658e864cfe292df655635
+  version: 0.12.2
+  resolution: "intersection-observer@npm:0.12.2"
+  checksum: 1c9ebfb201e2efd10360e9cedbd30ab5332e08a8e85061d8d4c2e862aa52cffcbe7d371b8ca9e5537ebe39fb770c7eb3b4912ca44d5be3e3107f9796432b4fb3
   languageName: node
   linkType: hard
 
