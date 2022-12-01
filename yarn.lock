@@ -8952,7 +8952,7 @@ __metadata:
     postcss: ^8.3.5
     postcss-css-variables: ^0.18.0
     postcss-import: ^14.0.2
-    postcss-loader: ^5.3.0
+    postcss-loader: ^7.0.2
     pre-commit: ^1.2.2
     prettier: ^2.2.1
     react: ^17.0.2
@@ -17251,7 +17251,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"klona@npm:^2.0.4":
+"klona@npm:^2.0.4, klona@npm:^2.0.5":
   version: 2.0.5
   resolution: "klona@npm:2.0.5"
   checksum: 0fa5dada3d91fdd5959094a5f89f37e099d6f7aad95e581be22fbdaaf2a91800ca9f7f10915a6c0eba5dbd2b51697b053b169cad74a99dabc8967f990195fd48
@@ -20794,17 +20794,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-loader@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "postcss-loader@npm:5.3.0"
+"postcss-loader@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "postcss-loader@npm:7.0.2"
   dependencies:
     cosmiconfig: ^7.0.0
-    klona: ^2.0.4
-    semver: ^7.3.4
+    klona: ^2.0.5
+    semver: ^7.3.8
   peerDependencies:
     postcss: ^7.0.0 || ^8.0.1
     webpack: ^5.0.0
-  checksum: fd7a1a673b0e8f238392b3d449f2727767522febb2f60bfc9bb5cd4e373b07ba8df621f4e2fad92bf085765dcdea0f049497ae799ce1c9f1a592820275cc7e65
+  checksum: 5b49edb93b7983f2f07f56208a89691808024104488c3c07bed4e87e2411f1b7efadfd1a376ad8b3944902adc2dccc12ab3c71db8086a42c3427fd0865d43f94
   languageName: node
   linkType: hard
 
@@ -23886,6 +23886,17 @@ resolve@^2.0.0-next.3:
   bin:
     semver: ./bin/semver.js
   checksum: f0d155c06a67cc7e500c92d929339f1c6efd4ce9fe398aee6acc00a2333489cca0f5b4e76ee7292beba237fcca4b5a3d4a6153471f105f56299801bdab37289f
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.3.8":
+  version: 7.3.8
+  resolution: "semver@npm:7.3.8"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: cfb9c2101dae4ee93c415471f48797c750174d65def4e06ff691bf910194cc6ca92793e597be8302175ceb640100a3da36451e7656320da53b51167eeaf11eb5
   languageName: node
   linkType: hard
 
