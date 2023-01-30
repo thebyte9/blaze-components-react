@@ -23,9 +23,10 @@ const Accordion = ({ children, isOpen, onOpen, onClose }: IAccordionProps): JSX.
 
   const isActive: boolean = accordionStatus === FLEX;
   const toggleAccordion = (): void => {
-    setAccordionStatus(isActive ? NONE : FLEX);
-    isOpen && onOpen();
-    !isOpen && onClose();
+    const status = isActive ? NONE : FLEX;
+    setAccordionStatus(status);
+    status === FLEX && onOpen();
+    status === NONE && onClose();
   };
 
   const arrowType = isActive ? UP : DOWN;
