@@ -1758,7 +1758,7 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/button": ^0.8.0-alpha.51
+    "@blaze-react/button": ^0.8.0-alpha.52
     jest: ^26.6.3
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -1771,7 +1771,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/alert@workspace:packages/Alert"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.51
+    "@blaze-react/utils": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1792,7 +1792,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/avatar@^0.8.0-alpha.51, @blaze-react/avatar@workspace:packages/Avatar":
+"@blaze-react/avatar@^0.8.0-alpha.52, @blaze-react/avatar@workspace:packages/Avatar":
   version: 0.0.0-use.local
   resolution: "@blaze-react/avatar@workspace:packages/Avatar"
   dependencies:
@@ -1816,7 +1816,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/blaze-components-theme@^0.8.0-alpha.51, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
+"@blaze-react/blaze-components-theme@^0.8.0-alpha.52, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
   version: 0.0.0-use.local
   resolution: "@blaze-react/blaze-components-theme@workspace:packages/Blaze-ui"
   dependencies:
@@ -1855,7 +1855,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/button-select@workspace:packages/ButtonSelect"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.51
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1863,12 +1863,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/button@^0.8.0-alpha.51, @blaze-react/button@workspace:packages/Button":
+"@blaze-react/button@^0.8.0-alpha.52, @blaze-react/button@workspace:packages/Button":
   version: 0.0.0-use.local
   resolution: "@blaze-react/button@workspace:packages/Button"
   dependencies:
-    "@blaze-react/icon": ^0.8.0-alpha.51
-    "@blaze-react/themes": ^0.8.0-alpha.51
+    "@blaze-react/icon": ^0.8.0-alpha.52
+    "@blaze-react/themes": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1876,7 +1876,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/checkboxes@^0.8.0-alpha.51, @blaze-react/checkboxes@workspace:packages/Checkboxes":
+"@blaze-react/checkboxes@^0.8.0-alpha.52, @blaze-react/checkboxes@workspace:packages/Checkboxes":
   version: 0.0.0-use.local
   resolution: "@blaze-react/checkboxes@workspace:packages/Checkboxes"
   dependencies:
@@ -1895,8 +1895,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/chips@workspace:packages/Chips"
   dependencies:
-    "@blaze-react/avatar": ^0.8.0-alpha.51
-    "@blaze-react/utils": ^0.8.0-alpha.51
+    "@blaze-react/avatar": ^0.8.0-alpha.52
+    "@blaze-react/utils": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -1957,7 +1957,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/dnd@workspace:packages/Dnd"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.51
+    "@blaze-react/utils": ^0.8.0-alpha.52
     immutability-helper: ^3.1.1
     react: ^17.0.2
     react-addons-shallow-compare: ^15.6.3
@@ -1990,7 +1990,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/drawer@workspace:packages/Drawer"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.51
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
     "@types/classnames": ^2.3.1
     classnames: ^2.2.6
     react: ^17.0.2
@@ -2013,7 +2013,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/file-upload@workspace:packages/FileUpload"
   dependencies:
-    "@blaze-react/utils": ^0.8.0-alpha.51
+    "@blaze-react/utils": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.38.1
@@ -2035,7 +2035,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/icon@^0.8.0-alpha.51, @blaze-react/icon@workspace:packages/Icon":
+"@blaze-react/icon@^0.8.0-alpha.52, @blaze-react/icon@workspace:packages/Icon":
   version: 0.0.0-use.local
   resolution: "@blaze-react/icon@workspace:packages/Icon"
   dependencies:
@@ -2050,9 +2050,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/input@workspace:packages/Input"
   dependencies:
-    "@blaze-react/icon": ^0.8.0-alpha.51
-    "@blaze-react/skeleton": ^0.8.0-alpha.51
-    "@blaze-react/themes": ^0.8.0-alpha.51
+    "@blaze-react/icon": ^0.8.0-alpha.52
+    "@blaze-react/skeleton": ^0.8.0-alpha.52
+    "@blaze-react/themes": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2113,8 +2113,8 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/checkboxes": ^0.8.0-alpha.51
-    "@blaze-react/utils": ^0.8.0-alpha.51
+    "@blaze-react/checkboxes": ^0.8.0-alpha.52
+    "@blaze-react/utils": ^0.8.0-alpha.52
     "@types/lodash.unionby": ^4.8.6
     lodash.differencewith: ^4.5.0
     lodash.isequal: ^4.5.0
@@ -2131,7 +2131,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/progress@workspace:packages/Progress"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.51
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   languageName: unknown
@@ -2184,11 +2184,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/skeleton@^0.8.0-alpha.51, @blaze-react/skeleton@workspace:packages/Skeleton":
+"@blaze-react/skeleton@^0.8.0-alpha.52, @blaze-react/skeleton@workspace:packages/Skeleton":
   version: 0.0.0-use.local
   resolution: "@blaze-react/skeleton@workspace:packages/Skeleton"
   dependencies:
-    "@blaze-react/themes": ^0.8.0-alpha.51
+    "@blaze-react/themes": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2211,7 +2211,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/social-follow@workspace:packages/SocialFollow"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.51
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2232,8 +2232,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/tab@workspace:packages/Tab"
   dependencies:
-    "@blaze-react/button": ^0.8.0-alpha.51
-    "@blaze-react/icon": ^0.8.0-alpha.51
+    "@blaze-react/button": ^0.8.0-alpha.52
+    "@blaze-react/icon": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2245,7 +2245,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/table@workspace:packages/Table"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.51
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2257,7 +2257,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/text-area@workspace:packages/Textarea"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.51
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.29.0
@@ -2265,7 +2265,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/themes@^0.8.0-alpha.51, @blaze-react/themes@workspace:packages/themes":
+"@blaze-react/themes@^0.8.0-alpha.52, @blaze-react/themes@workspace:packages/themes":
   version: 0.0.0-use.local
   resolution: "@blaze-react/themes@workspace:packages/themes"
   dependencies:
@@ -2291,7 +2291,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/tooltip@workspace:packages/Tooltip"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.51
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.52
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2299,7 +2299,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/utils@^0.8.0-alpha.51, @blaze-react/utils@workspace:packages/Utils":
+"@blaze-react/utils@^0.8.0-alpha.52, @blaze-react/utils@workspace:packages/Utils":
   version: 0.0.0-use.local
   resolution: "@blaze-react/utils@workspace:packages/Utils"
   dependencies:
