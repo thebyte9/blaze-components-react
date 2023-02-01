@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.61](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.60...v0.8.0-alpha.61) (2023-01-31)
+
+
+### Bug Fixes
+
+* persist memu accordion state ([1875872](https://github.com/thebyte9/blaze-components-react/commit/187587277de698452676dcf275c0fdb223a2b47a))
+* removed console.log ([fd44b73](https://github.com/thebyte9/blaze-components-react/commit/fd44b733d4e3d48bd7f1c97eeee841926db030ff))
+* select component now returns empty string when selecting default value ([743e2c5](https://github.com/thebyte9/blaze-components-react/commit/743e2c56a8b8a9e9cedc47781ee36a84686b4eee))
+
+
+
+
+
 # [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
 
 **Note:** Version bump only for package blaze-react
