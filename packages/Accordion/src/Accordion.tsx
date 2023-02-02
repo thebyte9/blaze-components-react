@@ -14,18 +14,24 @@ interface IAccordionProps {
 
 const Accordion = ({ children, isOpen, onOpen, onClose }: IAccordionProps): JSX.Element => {
   const [accordionStatus, setAccordionStatus] = useState<string>(isOpen ? FLEX : NONE);
-
   const [header, content]: [JSX.Element, JSX.Element] = children;
+  const isActive = accordionStatus === FLEX;
 
   useEffect(() => {
     setAccordionStatus(isOpen ? FLEX : NONE);
   }, [isOpen]);
 
-  const isActive: boolean = accordionStatus === FLEX;
+  useEffect(() => {
+    if (accordionStatus === FLEX) {
+      onOpen && onOpen();
+    } else {
+      onClose && onClose();
+    }
+  }, [accordionStatus, onClose, onOpen])
+
   const toggleAccordion = (): void => {
-    setAccordionStatus(isActive ? NONE : FLEX);
-    isOpen && onOpen();
-    !isOpen && onClose();
+    const status = isActive ? NONE : FLEX;
+    setAccordionStatus(status);
   };
 
   const arrowType = isActive ? UP : DOWN;

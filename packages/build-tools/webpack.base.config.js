@@ -4,10 +4,24 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
+ 
 module.exports = {
   mode: 'production',
   entry: './src/index.ts',
+  externals: {
+    react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+    },
+    'react-dom': {
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom'
+    }
+  },
   output: {
     path: path.resolve('./dist'),
     filename: '[name].js',
@@ -96,7 +110,6 @@ module.exports = {
       openAnalyzer: false,
       generateStatsFile: true,
       statsFilename: path.resolve('./stats/stats.json'),
-    }),
-   
+    })
   ],
 };

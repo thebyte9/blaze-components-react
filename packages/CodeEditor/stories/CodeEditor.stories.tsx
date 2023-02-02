@@ -1,7 +1,9 @@
 import "@blaze-react/blaze-components-theme";
-import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense } from "react";
+
+import CodeEditor from '../src/CodeEditor';
 import CodeEditorReadme from "../README.md";
+import React from "react";
+import { storiesOf } from "@storybook/react";
 
 storiesOf("CodeEditor", module)
   .addParameters({
@@ -10,14 +12,11 @@ storiesOf("CodeEditor", module)
     },
   })
   .add("Introduction", () => {
-    const CodeEditor: any = lazy((): any => import("../src/CodeEditor"));
     return (
-      <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wapper">
           <h1>CodeEditor</h1>
 
           <CodeEditor value="" onChange={() => ({})} />
         </div>
-      </Suspense>
     );
   });

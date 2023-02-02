@@ -1,7 +1,9 @@
 import "@blaze-react/blaze-components-theme";
-import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense } from "react";
+
+import Progress from "../src/Progress";
 import ProgressReadme from "../README.md";
+import React from "react";
+import { storiesOf } from "@storybook/react";
 
 const steps = ["Cart", "Billing", "Delivery", "Review & pay"];
 storiesOf("Progress", module)
@@ -11,9 +13,7 @@ storiesOf("Progress", module)
     }
   })
   .add("Introduction", () => {
-    const Progress: any = lazy((): any => import("../src/Progress"));
     return (
-      <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
           <h1>Progress</h1>
 
@@ -58,6 +58,5 @@ storiesOf("Progress", module)
           <br />
           <br />
         </div>
-      </Suspense>
     );
   });

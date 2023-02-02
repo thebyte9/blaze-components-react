@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/multiselect",
-  "version": "0.8.0-alpha.52",
+  "version": "0.8.0-alpha.60",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -22,12 +22,15 @@
     "lodash.differencewith": "^4.5.0",
     "lodash.isequal": "^4.5.0",
     "lodash.unionby": "^4.8.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-tiny-virtual-list": "^2.2.0",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
-  "dependencies": {
-    "@blaze-react/checkboxes": "^0.8.0-alpha.52",
-    "@blaze-react/utils": "^0.8.0-alpha.52",
+  "peerDependencies": {
+    "@blaze-react/checkboxes": "^0.8.0-alpha.58",
+    "@blaze-react/utils": "^0.8.0-alpha.58",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-tiny-virtual-list": "^2.2.0"

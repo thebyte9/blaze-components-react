@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "pre-publish": "yarn build && yarn lint && yarn test",
     "analyse": "ANALYSE=true yarn workspaces foreach run build",
-    "prerelease": "yarn build && GH_TOKEN=$GH_TOKEN_BLAZE yarn prerelease:version && yarn prerelease:publish",
+    "prerelease": "yarn build && yarn test && yarn storybook && GH_TOKEN=$GH_TOKEN_BLAZE yarn prerelease:version && yarn prerelease:publish",
     "prerelease:version": "npx lerna version --conventional-commits --conventional-prerelease --no-commit-hooks --create-release github",
     "prerelease:publish": "npx lerna publish from-git --dist-tag alpha",
     "release:version": "npx lerna version --conventional-commits --conventional-graduate --no-commit-hooks --create-release github",
@@ -34,7 +34,7 @@
     "url": "https://github.com/thebyte9/blaze-components-react/issues"
   },
   "homepage": "https://github.com/thebyte9/blaze-components-react#readme",
-  "dependencies": {
+  "peerDependencies": {
     "draft-js-export-html": "^1.4.1",
     "html-react-parser": "^1.2.6",
     "react": "^17.0.2",
@@ -169,8 +169,10 @@
     "postcss-loader": "^5.3.0",
     "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
+    "react": "^17.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "react-dom": "^17.0.2",
     "react-refresh": "^0.9.0",
     "react-test-renderer": "^17.0.2",
     "rimraf": "^3.0.2",

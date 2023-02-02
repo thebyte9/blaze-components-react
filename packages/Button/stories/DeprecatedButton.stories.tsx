@@ -1,7 +1,9 @@
 import "@blaze-react/blaze-components-theme";
-import { storiesOf } from "@storybook/react";
-import React, { lazy, Suspense } from "react";
+
+import { ButtonView as Button } from '../src/view/ButtonView';
 import ButtonReadme from "../README.md";
+import React from "react";
+import { storiesOf } from "@storybook/react";
 
 const showCaseDivStyles: React.CSSProperties = {
   display: "flex",
@@ -16,9 +18,7 @@ storiesOf("Button", module)
     }
   })
   .add("Introduction", (): any => {
-    const Button = lazy(() => import("../src"));
     return (
-      <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
           <h1>Buttons</h1>
 
@@ -85,6 +85,5 @@ storiesOf("Button", module)
             </div>
           </section>
         </div>
-      </Suspense>
     );
   });

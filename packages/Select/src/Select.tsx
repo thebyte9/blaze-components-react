@@ -39,8 +39,9 @@ const Select: FunctionComponent<ISelectProps> = ({
     const {
       target: { value },
     } = event;
-    setSelectedOption(value);
-    onChange({ event, value });
+    const parsedValue = value === 'Please Choose...' ? '' : value
+    setSelectedOption(parsedValue);
+    onChange({ event, value: parsedValue });
   };
 
   const requiredClassName: string = buildClassNames({
@@ -71,7 +72,7 @@ const Select: FunctionComponent<ISelectProps> = ({
       return setOption(option[value], option[text]);
     });
   };
-
+  
   return (
     <div className="form-field form-field--select">
       {label && (

@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/code-editor",
-  "version": "0.8.0-alpha.52",
+  "version": "0.8.0-alpha.60",
   "description": "Code editor based on monaco-editor for react",
   "main": "./dist/main.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "keywords": [],
   "author": "byte9",
   "license": "GPL-3.0",
-  "dependencies": {
+  "peerDependencies": {
     "@monaco-editor/react": "^4.1.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -23,6 +23,9 @@
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
+    "@monaco-editor/react": "^4.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
