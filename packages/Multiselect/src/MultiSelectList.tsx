@@ -31,7 +31,7 @@ const MultiSelectList = ({
 
   return (
     <>
-      <div className="multiselect__dropdown">
+      {!limitReached ? <div className="multiselect__dropdown">
         {error && <ErrorMessage message={validationMessage} />}
 
         {!matchQuery.length && <p>{notFoundMessage}</p>}
@@ -68,8 +68,7 @@ const MultiSelectList = ({
             ></VirtualList>
           </div>
         )}
-      </div>
-      {limitReached && <p>{limitReachedMessage}</p>}
+      </div> : <p>{limitReachedMessage}</p>}
     </>
   );
 };
