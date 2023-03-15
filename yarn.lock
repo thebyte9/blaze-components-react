@@ -6375,14 +6375,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsdom@npm:^16.2.9":
-  version: 16.2.13
-  resolution: "@types/jsdom@npm:16.2.13"
+"@types/jsdom@npm:^20.0.1":
+  version: 20.0.1
+  resolution: "@types/jsdom@npm:20.0.1"
   dependencies:
     "@types/node": "*"
-    "@types/parse5": "*"
     "@types/tough-cookie": "*"
-  checksum: ddfbdce9b9707a1a3cc9b247c4cc7e99be6d456484011c4aef41b1647b460834c12cbaecdae3ffad43be6971ca8be11b1f8dbfd0f02812e0f7dd3fe38a3dc96e
+    parse5: ^7.0.0
+  checksum: d3c6866c513f8c4e3fc743189b42e6d8120a67599e776156de571cfe56acc734a2a70ee08eb6d9a8c98efc2e97c29e2bae5488b28c703255bc7642014928790b
   languageName: node
   linkType: hard
 
@@ -6533,13 +6533,6 @@ __metadata:
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
   checksum: 4a8f720afac47b474d3f2eece312340e72bc31bc9561cda37b596ce2ed218c0099765d302625bb67d659a8452a1f93d514f4863c11c7ebaf65430428687dc426
-  languageName: node
-  linkType: hard
-
-"@types/parse5@npm:*":
-  version: 6.0.2
-  resolution: "@types/parse5@npm:6.0.2"
-  checksum: 665d916d06a98a038d63eee4f0169377a21817073e1eae387d79480fa6d42f4ef5b93dd3ee125e28a6ec85815a6c10a6b014289b88d691bd437ce8313ac53462
   languageName: node
   linkType: hard
 
@@ -8885,7 +8878,7 @@ __metadata:
     "@types/faker": ^5.1.7
     "@types/fork-ts-checker-webpack-plugin": ^0.4.5
     "@types/jest": ^26.0.22
-    "@types/jsdom": ^16.2.9
+    "@types/jsdom": ^20.0.1
     "@types/lodash.clonedeep": ^4.5.6
     "@types/lodash.differencewith": ^4.5.6
     "@types/lodash.isequal": ^4.5.5
@@ -12206,6 +12199,13 @@ __metadata:
   version: 3.0.1
   resolution: "entities@npm:3.0.1"
   checksum: 563426e9abc2f697c42c57f69f4321d407f11dfa0066d975e2e9288b504ddfc874aac045565f3774dcf4755a3b415f35b6ef84278e27f9e4329b761e2232a228
+  languageName: node
+  linkType: hard
+
+"entities@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "entities@npm:4.4.0"
+  checksum: 6ead62f0710579c2ca2d821bfd5ac95cf2d84208e269c21781e13e514944e66f7ebf69d7871e376b8c9fd3130b22bc8c790aff3182dd599dd28bf7fadafd1067
   languageName: node
   linkType: hard
 
@@ -20047,6 +20047,15 @@ __metadata:
   version: 6.0.1
   resolution: "parse5@npm:6.0.1"
   checksum: e312014edd76a6dc2eac35248ad53477b2594a7b92b7a00f66169483bb87c3d1d36660daddeb720457418dfe0893eb3ad1043085047fc3699167afa6834cb4c4
+  languageName: node
+  linkType: hard
+
+"parse5@npm:^7.0.0":
+  version: 7.1.1
+  resolution: "parse5@npm:7.1.1"
+  dependencies:
+    entities: ^4.4.0
+  checksum: b9710b5ee3df926365964b9688e847954c04142c82280120fc7cf17bb49bcae388454fe60e0837e09702fb28ccc8f465a3f32f7fd73a32725dc98dc368f25afc
   languageName: node
   linkType: hard
 
