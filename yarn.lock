@@ -6401,11 +6401,11 @@ __metadata:
   linkType: hard
 
 "@types/lodash.clonedeep@npm:^4.5.6":
-  version: 4.5.6
-  resolution: "@types/lodash.clonedeep@npm:4.5.6"
+  version: 4.5.7
+  resolution: "@types/lodash.clonedeep@npm:4.5.7"
   dependencies:
     "@types/lodash": "*"
-  checksum: dbea0618d2cdd02cc0447cc74b3e44dfb04bf9b45069f36da666d4e17d4ffc5457d46ee6180b72ed87635ef7a5b0c01ae16eaf1b116551eaf2058ae204679ca8
+  checksum: 8a75b1dd4750c9a6d5b20cf8582ab62410946e26dd95b08aa529e82b38f4f587bfaf6f53a1306e17fe97b505b4c3177f25441c3b7cb6e8d34d39a966ae56f3b3
   languageName: node
   linkType: hard
 
