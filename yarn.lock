@@ -2032,7 +2032,7 @@ __metadata:
     "@types/draft-js": ^0.11.1
     compression-webpack-plugin: ^7.1.2
     draft-js-export-html: ^1.4.1
-    html-react-parser: ^1.2.6
+    html-react-parser: ^3.0.8
     postcss-preset-env: ^6.7.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2040,7 +2040,7 @@ __metadata:
     webpack-cli: ^4.6.0
   peerDependencies:
     draft-js-export-html: ^1.4.1
-    html-react-parser: ^1.2.6
+    html-react-parser: ^3.0.8
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -11818,6 +11818,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-serializer@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "dom-serializer@npm:2.0.0"
+  dependencies:
+    domelementtype: ^2.3.0
+    domhandler: ^5.0.2
+    entities: ^4.2.0
+  checksum: bf20b38ea932142d73a95840b8de87ca021132d65d0d7f1df2616ec91d6ba3db3ba14ebb5ffc9967cd6af42a7b54a7c70cf9459739871c12eff7452f77c905d4
+  languageName: node
+  linkType: hard
+
 "dom-walk@npm:^0.1.0":
   version: 0.1.2
   resolution: "dom-walk@npm:0.1.2"
@@ -11846,6 +11857,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"domelementtype@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "domelementtype@npm:2.3.0"
+  checksum: 661829f0c64908d8220a5abd94f8ef7faa4cff64c58bba41ad25cb80cb43fadcf44b81ae469b2f29823b657f842d8a66355f08f11c2e739263d134ef540e03f0
+  languageName: node
+  linkType: hard
+
 "domexception@npm:^2.0.1":
   version: 2.0.1
   resolution: "domexception@npm:2.0.1"
@@ -11855,7 +11873,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domhandler@npm:4.2.2, domhandler@npm:^4.0.0, domhandler@npm:^4.2.0, domhandler@npm:^4.2.2":
+"domhandler@npm:5.0.3, domhandler@npm:^5.0.1, domhandler@npm:^5.0.2":
+  version: 5.0.3
+  resolution: "domhandler@npm:5.0.3"
+  dependencies:
+    domelementtype: ^2.3.0
+  checksum: 12878420200fc76710a440f7e60917a1fe41d2bbdaafee815a1c6f038196cc09e67048e7c3d4e4ed5d84d1ba5d24204038ae1a06e505bb9017f5bd9d50d43de2
+  languageName: node
+  linkType: hard
+
+"domhandler@npm:^4.0.0, domhandler@npm:^4.2.0":
   version: 4.2.2
   resolution: "domhandler@npm:4.2.2"
   dependencies:
@@ -11874,7 +11901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domutils@npm:^2.5.2, domutils@npm:^2.6.0, domutils@npm:^2.7.0, domutils@npm:^2.8.0":
+"domutils@npm:^2.5.2, domutils@npm:^2.6.0, domutils@npm:^2.7.0":
   version: 2.8.0
   resolution: "domutils@npm:2.8.0"
   dependencies:
@@ -11882,6 +11909,17 @@ __metadata:
     domelementtype: ^2.2.0
     domhandler: ^4.2.0
   checksum: f1d0cfab0649e530a26ac23a636ab6574302b9c4bb271acb08fdcb84dd3957d5340670bf5eb587871585813c0b3727c33e50be7389e317cd758d837e5442f971
+  languageName: node
+  linkType: hard
+
+"domutils@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "domutils@npm:3.0.1"
+  dependencies:
+    dom-serializer: ^2.0.0
+    domelementtype: ^2.3.0
+    domhandler: ^5.0.1
+  checksum: 6e17ca5bffc5dd6c35b1a5976566a09c5ad75edc6297575d3befa4fa179006bfa21bd03d2fb1124f661d64e863a7e96d70eb8f8966e9118d8c12845a0f46e02c
   languageName: node
   linkType: hard
 
@@ -12202,10 +12240,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "entities@npm:3.0.1"
-  checksum: 563426e9abc2f697c42c57f69f4321d407f11dfa0066d975e2e9288b504ddfc874aac045565f3774dcf4755a3b415f35b6ef84278e27f9e4329b761e2232a228
+"entities@npm:^4.2.0, entities@npm:^4.3.0":
+  version: 4.4.0
+  resolution: "entities@npm:4.4.0"
+  checksum: 6ead62f0710579c2ca2d821bfd5ac95cf2d84208e269c21781e13e514944e66f7ebf69d7871e376b8c9fd3130b22bc8c790aff3182dd599dd28bf7fadafd1067
   languageName: node
   linkType: hard
 
@@ -14842,13 +14880,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-dom-parser@npm:1.0.3":
-  version: 1.0.3
-  resolution: "html-dom-parser@npm:1.0.3"
+"html-dom-parser@npm:3.1.3":
+  version: 3.1.3
+  resolution: "html-dom-parser@npm:3.1.3"
   dependencies:
-    domhandler: 4.2.2
-    htmlparser2: 7.2.0
-  checksum: 5331f7d5986f1a7520cf5dba504c6c762d4216d2f48c554681fb6b4ffb88aeacef713a97f87405f1bbda3f7bfdb69682361b21dc33936198649932b79d650c58
+    domhandler: 5.0.3
+    htmlparser2: 8.0.1
+  checksum: 79b9ecd6d06b34b1336c33fcccf57c8acfee26cca4f2897b255a452e411104c31eb108c0973cac898c9cf5763b32e22f2352a99ee0dcaf0fa3b49b88181b72f7
   languageName: node
   linkType: hard
 
@@ -14956,17 +14994,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-react-parser@npm:^1.2.6":
-  version: 1.4.1
-  resolution: "html-react-parser@npm:1.4.1"
+"html-react-parser@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "html-react-parser@npm:3.0.8"
   dependencies:
-    domhandler: 4.2.2
-    html-dom-parser: 1.0.3
+    domhandler: 5.0.3
+    html-dom-parser: 3.1.3
     react-property: 2.0.0
-    style-to-js: 1.1.0
+    style-to-js: 1.1.3
   peerDependencies:
-    react: 0.14 || 15 || 16 || 17
-  checksum: 8e01e58714e9194a157907545aa0c01892fc76ac2274fb3c276177e3c7092a015b0f7b91a5e0aaf2ead0af67fccc5424062541adb1705664d61fbf4ac705a6fb
+    react: 0.14 || 15 || 16 || 17 || 18
+  checksum: 9f3085b38d158bc614cc164f28340c73d2abefd63a2e7d48469e2f7054cea4732fe1afc76848776d623f780817b3d43da0209b9d69ff2f474086f9f18004bb87
   languageName: node
   linkType: hard
 
@@ -15028,15 +15066,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"htmlparser2@npm:7.2.0":
-  version: 7.2.0
-  resolution: "htmlparser2@npm:7.2.0"
+"htmlparser2@npm:8.0.1":
+  version: 8.0.1
+  resolution: "htmlparser2@npm:8.0.1"
   dependencies:
-    domelementtype: ^2.0.1
-    domhandler: ^4.2.2
-    domutils: ^2.8.0
-    entities: ^3.0.1
-  checksum: 022f20e9f3ff452de69c803758aa08f7ab443ea1b0d080bce34c073120c7d4d42ae1d3757c06c7e9a81b695fc8d8c2b322ea879078940b086eb534bf5ea8f20e
+    domelementtype: ^2.3.0
+    domhandler: ^5.0.2
+    domutils: ^3.0.1
+    entities: ^4.3.0
+  checksum: 7d3be08f8f382ca61b64ae4d39eca881e8aacdc597c36fe860ef91c3cef98cc88d7bbdd254178bc68296c4a4f24637dc446b4c86e5dd79b51be2b8df04e8fb3c
   languageName: node
   linkType: hard
 
@@ -25073,12 +25111,12 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"style-to-js@npm:1.1.0":
-  version: 1.1.0
-  resolution: "style-to-js@npm:1.1.0"
+"style-to-js@npm:1.1.3":
+  version: 1.1.3
+  resolution: "style-to-js@npm:1.1.3"
   dependencies:
-    style-to-object: 0.3.0
-  checksum: d2a31479969dce7ebc141987f10b6eda9d12ef9c56dd0ec2ad25fe236ce41bd56aaad8dbe421529cb87847285ea84477634ca6fb3b03900f7918fe986446ab66
+    style-to-object: 0.4.1
+  checksum: 393b31dff21dd974e531c07f0f0469500e93de60f444bf8e6a2710800389b14eb9c305ddf7f456e117539740227a4fbaaf106b889bf7b540ba86040d5755f504
   languageName: node
   linkType: hard
 
@@ -25088,6 +25126,15 @@ resolve@^2.0.0-next.3:
   dependencies:
     inline-style-parser: 0.1.1
   checksum: 869b30171c2c0d1ed1928e86c3644d691d96277e484fdafaa99df3ad3b1e11e0fcfc2ac2def4e3dd068df49995de585918dbda2ff833b5691bc8206d1cda37ad
+  languageName: node
+  linkType: hard
+
+"style-to-object@npm:0.4.1":
+  version: 0.4.1
+  resolution: "style-to-object@npm:0.4.1"
+  dependencies:
+    inline-style-parser: 0.1.1
+  checksum: 9afb758e201b2dde57a55d85ab6a470ca823e04c07c61c3de69de8384c072b68182ff6d48ecbbff45c7e1aa8ab0336aa1808c977f7a24ccb5ce795a7c3a68e44
   languageName: node
   linkType: hard
 
