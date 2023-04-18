@@ -1,4 +1,5 @@
 # Folders
+./vscode/**
 packages/**/lib
 packages/**/.DS_Store
 packages/.DS_Store
