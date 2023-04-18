@@ -27,7 +27,7 @@ const Accordion = ({ children, isOpen, onOpen, onClose }: IAccordionProps): JSX.
     } else {
       onClose && onClose();
     }
-  }, [accordionStatus, onClose, onOpen])
+  }, [accordionStatus, onClose, onOpen]);
 
   const toggleAccordion = (): void => {
     const status = isActive ? NONE : FLEX;
@@ -37,10 +37,10 @@ const Accordion = ({ children, isOpen, onOpen, onClose }: IAccordionProps): JSX.
   const arrowType = isActive ? UP : DOWN;
 
   return (
-    <div className="accordion">
+    <div className="accordion" onClick={toggleAccordion} data-testid="toggle-accordion">
       <div className="accordion__header">
         {header}
-        <div className="icon-button icon-button--accordion" data-testid="toggle-accordion" onClick={toggleAccordion}>
+        <div className="icon-button icon-button--accordion>
           <i className="material-icons">{`keyboard_arrow_${arrowType}`}</i>
         </div>
       </div>
