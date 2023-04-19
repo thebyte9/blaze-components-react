@@ -238,7 +238,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
           getLabel={getLabel}
         />
 
-        {show && (
+        {show && !limitReached && (
           <MultiSelectList
             onItemsRendered={handleOnItemsRenderer}
             error={error}
