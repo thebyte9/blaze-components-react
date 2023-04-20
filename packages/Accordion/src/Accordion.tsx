@@ -40,7 +40,7 @@ const Accordion = ({ children, isOpen, onOpen, onClose }: IAccordionProps): JSX.
     <div className="accordion" onClick={toggleAccordion} data-testid="toggle-accordion">
       <div className="accordion__header">
         {header}
-        <div className="icon-button icon-button--accordion>
+        <div className="icon-button icon-button--accordion">
           <i className="material-icons">{`keyboard_arrow_${arrowType}`}</i>
         </div>
       </div>
