@@ -14,6 +14,7 @@ interface ISelectProps {
   id?: string;
   disabled?: any[];
   defaultTextValue?: string;
+  showDefaultOption?: boolean;
 }
 
 const Select: FunctionComponent<ISelectProps> = ({
@@ -27,9 +28,10 @@ const Select: FunctionComponent<ISelectProps> = ({
   validationMessage,
   disabled,
   defaultTextValue,
+  showDefaultOption,
   ...attrs
 }) => {
-  const [selectedOption, setSelectedOption] = useState<string>(selected);
+  const [selectedOption, setSelectedOption] = useState<string>(selected || '');
 
   useEffect(() => {
     setSelectedOption(selected);
@@ -81,7 +83,7 @@ const Select: FunctionComponent<ISelectProps> = ({
         </label>
       )}
       <select onChange={handleChange} disabled={!options.length} value={selectedOption} {...attrs}>
-        {!required && <option defaultValue="">{defaultTextValue}</option>}
+        {(!required || showDefaultOption) && <option defaultValue="">{defaultTextValue}</option>}
         {renderOptions()}
       </select>
       {error && <ErrorMessage message={validationMessage} />}
@@ -95,6 +97,7 @@ Select.defaultProps = {
   error: false,
   keys: [],
   label: '',
+  showDefaultOption: true,
   onChange: (): void => {
     return;
   },

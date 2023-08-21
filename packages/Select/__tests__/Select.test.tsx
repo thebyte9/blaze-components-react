@@ -31,4 +31,9 @@ describe('Select component', () => {
     render(<Select {...defaultProps()} />);
     fireEvent.change(screen.getByText('Please Choose...'), { target: { value: 'ipsum' } });
   });
+
+  test('should have Please choose as a default option', () => {
+    render(<Select {...defaultProps()} />);
+    expect(screen.getByText('Please Choose...')).toBeInTheDocument();
+  });
 });
