@@ -36,11 +36,7 @@ exports[`Select component should be disabled when none options 1`] = `
     </label>
     <select
       disabled=""
-    >
-      <option>
-        Please Choose...
-      </option>
-    </select>
+    />
   </div>
 </DocumentFragment>
 `;
