@@ -62,6 +62,23 @@ exports[`FileList component should match snapshot 1`] = `
         >
           <label
             class=""
+            for="0-credits-file-1png"
+          >
+            image credits
+          </label>
+          <input
+            data-testid="input"
+            id="0-credits-file-1png"
+            name="credits-0-file-1png"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="form-field form-field--input  "
+        >
+          <label
+            class=""
             for="0-altText-file-1png"
           >
             Alternative text

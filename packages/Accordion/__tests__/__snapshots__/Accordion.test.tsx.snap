@@ -4,6 +4,7 @@ exports[`Accordion component should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="accordion"
+    data-testid="toggle-accordion"
   >
     <div
       class="accordion__header"
@@ -20,7 +21,6 @@ exports[`Accordion component should match snapshot 1`] = `
       </div>
       <div
         class="icon-button icon-button--accordion"
-        data-testid="toggle-accordion"
       >
         <i
           class="material-icons"
@@ -72,13 +72,13 @@ exports[`Accordion component should match snapshot 2`] = `
 <DocumentFragment>
   <div
     class="accordion"
+    data-testid="toggle-accordion"
   >
     <div
       class="accordion__header"
     >
       <div
         class="icon-button icon-button--accordion"
-        data-testid="toggle-accordion"
       >
         <i
           class="material-icons"
