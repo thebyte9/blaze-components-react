@@ -7,6 +7,7 @@ import Select from '../src/Select';
 
 const defaultProps = (override: object = {}) => ({
   onChange: () => void 0,
+  showDefaultOption: false,
   options: ['lorem', 'ipsum'],
   ...override,
 });
@@ -30,5 +31,10 @@ describe('Select component', () => {
   test('should select a different value', () => {
     render(<Select {...defaultProps()} />);
     fireEvent.change(screen.getByText('Please Choose...'), { target: { value: 'ipsum' } });
+  });
+
+  test('should have Please choose as a default option', () => {
+    render(<Select {...defaultProps({showDefaultOption: true})} />);
+    expect(screen.getByText('Please Choose...')).toBeInTheDocument();
   });
 });

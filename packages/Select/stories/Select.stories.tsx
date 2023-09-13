@@ -29,6 +29,7 @@ const SelectDemo = () => {
         selected={selected}
         onChange={() => ({})}
         required
+        showDefaultOption={false}
       />
     </Suspense>
   );

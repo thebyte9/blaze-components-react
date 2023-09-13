@@ -86,4 +86,5 @@ const disabled = ["17006"]
 | keys             |  Array   |        []        |
 | onChange         | Function |     () => {}     |
 | disabled         |  Array   |        []        |
+| showDefaultOption| Boolean  |       true       |
 | defaultTextValue |  String  | Please Choose... |
