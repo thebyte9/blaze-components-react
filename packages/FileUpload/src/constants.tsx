@@ -8,6 +8,7 @@ const INPUT_TYPES = {
   ALT_TEXT: "altText",
   CAPTION: "caption",
   TITLE: 'title',
+  CREDITS: 'credits',
   HREF_URL: 'hrefUrl'
 };
 

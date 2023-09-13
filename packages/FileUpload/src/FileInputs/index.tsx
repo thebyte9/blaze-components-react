@@ -4,7 +4,7 @@ import React from 'react';
 import { IMAGE, INPUT_TYPES, NAME } from '../constants';
 import { getInputLabel, sanitizedFilename } from '../utils';
 
-const { ALT_TEXT, CAPTION, HREF_URL, TITLE } = INPUT_TYPES;
+const { ALT_TEXT, CAPTION, HREF_URL, TITLE, CREDITS } = INPUT_TYPES;
 
 const FileInputs = ({
   data,
@@ -37,6 +37,13 @@ const FileInputs = ({
       value={data.caption}
       id={`${index}-caption-${sanitizedFilename(file)}`}
       name={`${CAPTION}-${index}-${sanitizedFilename(file)}`}
+    />
+    <Input
+      label={getInputLabel(CREDITS, file.type)}
+      onChange={handleInputChange}
+      value={data.caption}
+      id={`${index}-credits-${sanitizedFilename(file)}`}
+      name={`${CREDITS}-${index}-${sanitizedFilename(file)}`}
     />
     {file.type === IMAGE && (
       <>
