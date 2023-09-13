@@ -41,6 +41,23 @@ exports[`FileInputs component should render without throwing error 1`] = `
   >
     <label
       class=""
+      for="0-credits-test-image-name"
+    >
+      image credits
+    </label>
+    <input
+      data-testid="input"
+      id="0-credits-test-image-name"
+      name="credits-0-test-image-name"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="form-field form-field--input  "
+  >
+    <label
+      class=""
       for="0-altText-test-image-name"
     >
       Alternative text
