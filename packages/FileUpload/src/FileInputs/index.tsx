@@ -41,7 +41,7 @@ const FileInputs = ({
     <Input
       label={getInputLabel(CREDITS, file.type)}
       onChange={handleInputChange}
-      value={data.caption}
+      value={data.credits}
       id={`${index}-credits-${sanitizedFilename(file)}`}
       name={`${CREDITS}-${index}-${sanitizedFilename(file)}`}
     />
