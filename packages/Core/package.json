@@ -8,7 +8,7 @@
     "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --fix",
     "test": "jest --passWithNoTests",
     "test:coverage": "jest --coverage --passWithNoTests",
-    "pre-publish": "yarn build && yarn lint && yarn test",
+    "prepublishOnly": "yarn build",
     "bundle-analyser": "node ../../node_modules/webpack-bundle-analyzer/lib/bin/analyzer.js ./stats/stats.json"
   },
   "keywords": [],
