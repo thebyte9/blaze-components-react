@@ -6,14 +6,14 @@ on:
       - release
       - master
     paths-ignore:
-      - 'docs/**'
-      - '**.md'
+      - "docs/**"
+      - "**.md"
       - LICENSE
   pull_request:
     types: [opened, synchronize, reopened, closed]
     paths-ignore:
-      - 'docs/**'
-      - '**.md'
+      - "docs/**"
+      - "**.md"
       - LICENSE
 
 jobs:
@@ -23,21 +23,27 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [14.16.x]
+        node-version: [14.21.x]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: actions/cache@v2
+      - name: Cache - node_modules
+        uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-cache-
+
+      - name: Display information
+        run: |
+          echo "node: $(node -v)"
 
       - name: Install Yarn v2
         run: yarn set version berry
@@ -55,13 +61,14 @@ jobs:
         run: yarn run test
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/*
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: true
+          verbose: true
 
   pull_request_format:
     name: Pull request format
@@ -69,7 +76,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [14.16.x]
     if: |
       github.event_name == 'pull_request' &&
       github.head_ref != 'master' &&
@@ -91,7 +97,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [14.16.x]
+        node-version: [14.21.x]
     if: |
       github.event_name == 'pull_request'
     # if: (contains(fromJson('["release", "master"]'), github.base_ref) &&
@@ -99,17 +105,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: actions/cache@v2
+      - name: Cache - node_modules
+        uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-cache-
 
       - name: Install Yarn v2
         run: yarn set version berry
@@ -142,7 +150,7 @@ jobs:
       #   if: github.head_ref == 'master'
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
