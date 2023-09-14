@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.63](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.62...v0.8.0-alpha.63) (2023-09-14)
+
+
+### Features
+
+* update fileupload component to allow setting credits ([591a7b1](https://github.com/thebyte9/blaze-components-react/commit/591a7b11d9a5d2d02259e9713f1e0c160ddeda1e))
+* update fileupload component to allow setting credits ([840907b](https://github.com/thebyte9/blaze-components-react/commit/840907b8f9f531aa0e3749e207d5bc33f9d1b165))
+
+
+
+
+
 # [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
 
 **Note:** Version bump only for package @blaze-react/file-upload

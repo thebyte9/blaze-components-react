@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.63](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.62...v0.8.0-alpha.63) (2023-09-14)
+
+
+### Bug Fixes
+
+* make please choose option configurable ([#668](https://github.com/thebyte9/blaze-components-react/issues/668)) ([717a81b](https://github.com/thebyte9/blaze-components-react/commit/717a81b1e51307ff7569a934da40f36958707b15))
+
+
+
+
+
 # [0.8.0-alpha.61](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.60...v0.8.0-alpha.61) (2023-01-31)
 
 
