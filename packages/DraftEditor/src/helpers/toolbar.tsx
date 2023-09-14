@@ -152,6 +152,7 @@ const generateRibbon = ({
       ) {
         return (
           <div
+            key={name}
             className="editor-view__toolbar--item"
             role="button"
             data-testid={name}

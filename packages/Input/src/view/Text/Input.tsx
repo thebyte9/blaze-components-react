@@ -37,10 +37,7 @@ export const TextInput = ({
           className={classes[currentState].input}
           placeholder={placeholder}
           autoComplete="true"
-          error={currentState === InputState.Error}
           loading={currentState === InputState.Loading}
-          warning={currentState === InputState.Warning}
-          success={currentState === InputState.Success}
           {...rest}
         />
       </label>
