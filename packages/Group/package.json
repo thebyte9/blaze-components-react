@@ -16,14 +16,14 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.2",
+    "react-dom": "^18.0.2"
   },
   "devDependencies": {
     "@tailwindcss/jit": "^0.1.18",
     "postcss": "^8.3.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.0.2",
+    "react-dom": "^18.0.2",
     "tailwindcss": "^2.2.4",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
