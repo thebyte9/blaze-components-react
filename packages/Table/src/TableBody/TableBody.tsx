@@ -41,15 +41,16 @@ const TableBody = ({
   onClickRow,
   tableBodyHeight,
 }: ITableBody): JSX.Element => {
-  if (!bodyRef) return null;
+  if (!rows || !rows.length)
+    return (
+      <div className="table-body-placeholder">
+        <div>{placeholder}</div>
+      </div>
+    );
 
   const rowsLength = rows.length;
-  const listHeight = tableBodyHeight || bodyRef.offsetHeight;
-
-  if (!rowsLength)
-    <div className="table-body-placeholder">
-      <div>{placeholder}</div>
-    </div>;
+  const bodyHeight = bodyRef && bodyRef.offsetHeight;
+  const listHeight = tableBodyHeight || bodyHeight;
 
   return (
     <VirtualList

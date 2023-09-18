@@ -14,16 +14,12 @@ jest.mock('nanoid', () => {
 describe('Table body', () => {
   afterEach(cleanup);
 
-  it('should be defined', () => {
-    expect(TableBody).toBeDefined();
-  });
-
   it('should show placeholder if there is no data yet', () => {
     const placeholder = 'The table is empty of records';
-
-    const { getByText } = render(<TableBody allRows={[]} bodyRef={{ current: false }} placeholder={placeholder} />);
+    const { getByText, container } = render(<TableBody rows={[]} placeholder={placeholder} />);
 
     getByText(placeholder);
+    expect(container).toMatchSnapshot();
   });
 
   it('should render data and pass it throught virtual list', () => {
@@ -33,15 +29,15 @@ describe('Table body', () => {
         onItemsRendered={jest.fn}
         checkboxes={true}
         columns={data.columns}
-        allRows={data.rows}
-        bodyRef={{ current: { offsetHeight: 1000 } }}
+        rows={data.rows}
+        bodyRef={{ offsetHeight: 1000 }}
       />,
     );
 
     expect(container).toMatchSnapshot();
   });
 
-  it('should retun row on be clicked', () => {
+  it('should retun row data when clicked clicked', () => {
     const mockedOnClickRow = jest.fn();
     const { getByTestId } = render(
       <TableBody
@@ -51,8 +47,8 @@ describe('Table body', () => {
         onItemsRendered={jest.fn}
         checkboxes={true}
         columns={data.columns}
-        allRows={data.rows}
-        bodyRef={{ current: { offsetHeight: 1000 } }}
+        rows={data.rows}
+        bodyRef={{ offsetHeight: 1000 }}
       />,
     );
     fireEvent.click(screen.getByTestId('tablerow-1'));
