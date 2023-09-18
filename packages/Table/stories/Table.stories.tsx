@@ -5,6 +5,22 @@ import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import TableReadme from '../README.md';
 
+const Table: any = lazy((): any => import('../src/Table'));
+
+const generateFakeData = () => {
+  const rows = [];
+  for (let i = 0; i < 100; i++) {
+    rows.push({
+      city: faker.address.city(),
+      email: faker.internet.email(),
+      id: nanoid(),
+      name: faker.internet.userName(),
+      zipCode: faker.address.zipCode(),
+    });
+  }
+  return rows;
+};
+
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
     appliedSort: { name: 'asc' },
@@ -15,30 +31,16 @@ const DemoComponent = () => {
     labels: { name: 'Name', email: 'email', city: 'City', zipCode: 'Zip code' },
   });
 
-  const generateFakeData = () => {
-    const rows = [];
-    for (let i = 0; i < 100; i++) {
-      rows.push({
-        city: faker.address.city(),
-        email: faker.internet.email(),
-        id: nanoid(),
-        name: faker.internet.userName(),
-        zipCode: faker.address.zipCode(),
-      });
-    }
-    return rows;
-  };
-
   useEffect(() => {
-    if (data.rows && !data.rows.length) {
+    if (!data.rows.length) {
       const updatedData = { ...data, rows: generateFakeData() };
       setData(updatedData);
     }
   }, []);
-  const Table: any = lazy((): any => import('../src/Table'));
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Table checkboxes data={data} onSelect={() => ({})} />
+      <Table checkboxes data={data} onSelect={() => ({})} tableBodyHeight={400} />
     </Suspense>
   );
 };

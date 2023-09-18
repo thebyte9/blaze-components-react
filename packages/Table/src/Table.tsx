@@ -21,6 +21,7 @@ interface ITableProps {
   onRenderItems?: (arg: any) => void;
   onClickRow?: (arg: any) => void;
   scrollToIndex?: number;
+  tableBodyHeight?: number;
 }
 
 const Table: FunctionComponent<ITableProps> = ({
@@ -33,20 +34,16 @@ const Table: FunctionComponent<ITableProps> = ({
   overScanBuffer = 0,
   onRenderItems,
   scrollToIndex = 0,
+  tableBodyHeight,
 }) => {
-  const [selected, setSelected] = useState<any[]>([]);
-  const [allRows, setAllRows] = useState<ITableRow[]>(rows);
-  const [allColumns, setAllColumns] = useState<any>(columns);
   const headRef = useRef<any>(null);
   const bodyRef = useRef<any>(null);
+  const [selected, setSelected] = useState<any[]>([]);
+  const [bodyCurrentState, setBodyCurrentState] = useState();
 
   useEffect(() => {
-    setAllRows(rows);
-    setAllColumns(columns);
-  }, [rows, rows && rows.length, columns, columns && columns.length]);
-
-  useEffect(() => {
-    if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild && allRows.length) {
+    setBodyCurrentState(bodyRef.current);
+    if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild && rows.length) {
       bodyRef.current.firstElementChild.addEventListener('scroll', (event: any) => syncScroll(headRef.current, event));
     }
 
@@ -62,14 +59,14 @@ const Table: FunctionComponent<ITableProps> = ({
         headRef.current.removeEventListener('scroll', syncScroll);
       }
     };
-  }, [bodyRef.current, headRef.current, allRows]);
+  }, [bodyRef.current, headRef.current]);
 
   const syncScroll = (ref: any, event: any) => {
     ref.scrollLeft = event.target.scrollLeft;
   };
 
   const handleSelected = ([checked]: ICheckboxItem[], value: string | ICheckboxItem[], multiselect = false): void => {
-    let checkedValue = [];
+    let checkedValue: any = [];
 
     if (checked && !selected.includes(checked.value)) {
       checkedValue = [...selected, checked.value];
@@ -91,24 +88,27 @@ const Table: FunctionComponent<ITableProps> = ({
         onSort={onSort}
         orderBy={orderBy}
         headRef={headRef}
-        columns={allColumns}
+        columns={columns}
         appliedSort={appliedSort}
         labels={labels}
       />
-      <TableBody
-        scrollToIndex={scrollToIndex}
-        onClickRow={onClickRow}
-        bodyRef={bodyRef}
-        allRows={allRows}
-        checkboxes={checkboxes}
-        identification={identification}
-        selected={selected}
-        handleSelected={handleSelected}
-        columns={columns}
-        placeholder={placeholder}
-        overScanBuffer={overScanBuffer}
-        onRenderItems={onRenderItems}
-      />
+      <div ref={bodyRef} className="table-body">
+        <TableBody
+          scrollToIndex={scrollToIndex}
+          onClickRow={onClickRow}
+          bodyRef={bodyCurrentState}
+          tableBodyHeight={tableBodyHeight}
+          rows={rows}
+          checkboxes={checkboxes}
+          identification={identification}
+          selected={selected}
+          handleSelected={handleSelected}
+          columns={columns}
+          placeholder={placeholder}
+          overScanBuffer={overScanBuffer}
+          onRenderItems={onRenderItems}
+        />
+      </div>
     </div>
   );
 };
