@@ -11,7 +11,7 @@ interface ICheckbox {
 }
 
 interface ITableBody {
-  allRows: ITableRow[];
+  rows: ITableRow[];
   checkboxes?: boolean;
   identification: string;
   selected: any[];
@@ -23,10 +23,11 @@ interface ITableBody {
   overScanBuffer: number;
   onRenderItems?: (arg: any) => void;
   onClickRow: (arg: any) => void;
+  tableBodyHeight?: number;
 }
 
 const TableBody = ({
-  allRows,
+  rows,
   checkboxes,
   identification,
   selected,
@@ -38,57 +39,59 @@ const TableBody = ({
   onRenderItems,
   scrollToIndex = 0,
   onClickRow,
+  tableBodyHeight,
 }: ITableBody): JSX.Element => {
+  if (!rows || !rows.length)
+    return (
+      <div className="table-body-placeholder">
+        <div>{placeholder}</div>
+      </div>
+    );
+
+  const rowsLength = rows.length;
+  const bodyHeight = bodyRef && bodyRef.offsetHeight;
+  const listHeight = tableBodyHeight || bodyHeight;
+
   return (
-    <div ref={bodyRef} className="table-body">
-      {bodyRef.current && allRows.length && (
-        <VirtualList
-          width={'100%'}
-          height={bodyRef.current.offsetHeight}
-          itemCount={allRows.length}
-          itemSize={62}
-          scrollToIndex={scrollToIndex}
-          overscanCount={overScanBuffer}
-          onItemsRendered={onRenderItems}
-          renderItem={({ index, style }) => (
-            <div
-              onClick={() => onClickRow({ ...allRows[index], index })}
-              className="table-row"
-              key={`tablerow-${nanoid()}`}
-              data-testid={`tablerow-${index}`}
-              style={style}
-            >
-              {checkboxes && (
-                <div className="table-cell--checkbox">
-                  <Checkboxes
-                    test-id={`row-checkbox-${index}`}
-                    options={{
-                      checked: selected.includes(allRows[index][identification]),
-                      id: allRows[index][identification],
-                      value: allRows[index][identification],
-                    }}
-                    onChange={({ value }: any): void => handleSelected(value, allRows[index][identification])}
-                  />
-                </div>
-              )}
-              {columns.map(
-                (column: string): JSX.Element => (
-                  <div className="table-cell" key={column}>
-                    <div className="table-cell--content">{allRows[index][column]}</div>
-                  </div>
-                ),
-              )}
+    <VirtualList
+      width="100%"
+      height={listHeight}
+      itemCount={rowsLength}
+      itemSize={62}
+      scrollToIndex={scrollToIndex}
+      overscanCount={overScanBuffer}
+      onItemsRendered={onRenderItems}
+      renderItem={({ index, style }) => (
+        <div
+          onClick={() => onClickRow({ ...rows[index], index })}
+          className="table-row"
+          key={`tablerow-${nanoid()}`}
+          data-testid={`tablerow-${index}`}
+          style={style}
+        >
+          {checkboxes && (
+            <div className="table-cell--checkbox">
+              <Checkboxes
+                test-id={`row-checkbox-${index}`}
+                options={{
+                  checked: selected.includes(rows[index][identification]),
+                  id: rows[index][identification],
+                  value: rows[index][identification],
+                }}
+                onChange={({ value }: any): void => handleSelected(value, rows[index][identification])}
+              />
             </div>
           )}
-        />
-      )}
-
-      {!allRows.length && (
-        <div className="table-body-placeholder">
-          <div>{placeholder}</div>
+          {columns.map(
+            (column: string): JSX.Element => (
+              <div className="table-cell" key={column}>
+                <div className="table-cell--content">{rows[index][column]}</div>
+              </div>
+            ),
+          )}
         </div>
       )}
-    </div>
+    />
   );
 };
 

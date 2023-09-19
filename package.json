@@ -12,7 +12,6 @@
     "serve-storybook": "npx http-server ./storybook-static",
     "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage --testPathPattern=/__tests__/ --passWithNoTests",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
-    "prepublishOnly": "yarn build",
     "analyse": "ANALYSE=true yarn workspaces foreach run build",
     "prerelease": "yarn build && yarn test && yarn storybook && GH_TOKEN=$GH_TOKEN_BLAZE yarn prerelease:version && yarn prerelease:publish",
     "prerelease:version": "npx lerna version --conventional-commits --conventional-prerelease --no-commit-hooks --create-release github",
