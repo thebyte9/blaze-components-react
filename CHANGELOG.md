@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.65](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.64...v0.8.0-alpha.65) (2023-09-19)
+
+
+### Bug Fixes
+
+* fixed failing snapshot ([49b749a](https://github.com/thebyte9/blaze-components-react/commit/49b749aff4c68df0ac5784ed58313b00e29e0de6))
+* fixed failing test ([05732b8](https://github.com/thebyte9/blaze-components-react/commit/05732b8b6dde5541dcaeb55a701dbab4f1766c93))
+* fixed table not rendering correctly ([114e361](https://github.com/thebyte9/blaze-components-react/commit/114e361634b7452cc9ec93d11b5f780f8ae5b036))
+
+
+
+
+
 # [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
 
 **Note:** Version bump only for package blaze-react
