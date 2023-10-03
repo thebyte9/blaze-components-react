@@ -1,6 +1,7 @@
 import { ButtonView } from '@blaze-react/button';
 import React, { useState } from 'react';
 import { CustomIcon } from '@blaze-react/icon';
+import { TabItem } from '../TabItem';
 
 type selectedType = string | number;
 
@@ -21,7 +22,8 @@ export const Tab = ({ selected = 0, classes = '', children = 'No content' }: ITa
     return (
       <div className="tabs">
         <div className="tabs__list">
-          {children.map(({ props: { title = 'Unnamed tab' } }: any, step: any) => {
+          {children.map((child: any, step: number) => {
+            const { props: { title = 'Unnamed tab' } = {} }: any = child;
             return (
               <ButtonView
                 className={`tabs__list-item ${step === selectedValue ? 'current' : ''}`}
@@ -41,10 +43,18 @@ export const Tab = ({ selected = 0, classes = '', children = 'No content' }: ITa
   const BlazeTabs = (
     <>
       <div className="flex overflow-x-auto scrollbar-hide">
-        {children.map(({ props: { title = 'Unnamed tab', icon, showLabel } }: any, step: any) => {
+        {children.map((child: any, step: number) => {
+          if (!React.isValidElement(child) || child.type !== TabItem) {
+            console.warn('Tab component only accepts children of type TabItem.')
+            return null;
+          }
+
+          const { props: { title = 'Unnamed tab', icon, showLabel } }: any = child;
+
           const override = classes.concat(
             `group mr-2 ${step === selectedValue ? ' bg-tab-hover text-tab-inverted' : ''}`,
           );
+
           return (
             <ButtonView classes={override} onClick={() => setSelected(step)} key={title}>
               <div className="flex items-center justify-center">
