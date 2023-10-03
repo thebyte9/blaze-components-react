@@ -2,18 +2,19 @@ import React, { Fragment } from 'react';
 import { DOC, IMAGE } from '../constants';
 import DocumentIcon from '../DocumentIcon';
 import FileInputs from '../FileInputs';
-
 const FileList = ({
   previewImages,
   handleCancel,
   handleInputChange,
   handleSelectChange,
   selectOptions,
+  copyToOthers
 }: {
   previewImages: any;
   handleCancel: any;
   handleInputChange: any;
   handleSelectChange: any;
+  copyToOthers: (name: string, index: number) => void;
   selectOptions: any[];
 }) => (
   <>
@@ -38,9 +39,9 @@ const FileList = ({
           index,
           name,
           selectOptions,
+          copyToOthers
         };
         const isImage = file.type === IMAGE;
-
         return (
           <Fragment key={file.id}>
             <div className="preview">
@@ -68,5 +69,4 @@ const FileList = ({
     )}
   </>
 );
-
 export default FileList;

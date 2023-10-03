@@ -3,9 +3,7 @@ import Select from '@blaze-react/select';
 import React from 'react';
 import { IMAGE, INPUT_TYPES, NAME } from '../constants';
 import { getInputLabel, sanitizedFilename } from '../utils';
-
 const { ALT_TEXT, CAPTION, HREF_URL, TITLE, CREDITS } = INPUT_TYPES;
-
 const FileInputs = ({
   data,
   file,
@@ -14,6 +12,7 @@ const FileInputs = ({
   index,
   name,
   selectOptions,
+  copyToOthers,
 }: {
   data: any | null;
   file: any;
@@ -22,6 +21,7 @@ const FileInputs = ({
   index: any;
   name: string;
   selectOptions: any[];
+  copyToOthers: (name: string, index: number) => void
 }) => (
   <>
     <Input
@@ -38,6 +38,7 @@ const FileInputs = ({
       id={`${index}-caption-${sanitizedFilename(file)}`}
       name={`${CAPTION}-${index}-${sanitizedFilename(file)}`}
     />
+    <span role='button' onClick={() => copyToOthers(CAPTION, index)}>Copy</span>
     <Input
       label={getInputLabel(CREDITS, file.type)}
       onChange={handleInputChange}
@@ -71,5 +72,4 @@ const FileInputs = ({
     )}
   </>
 );
-
 export default FileInputs;
