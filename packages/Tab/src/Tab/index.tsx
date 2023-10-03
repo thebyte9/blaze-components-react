@@ -23,6 +23,11 @@ export const Tab = ({ selected = 0, classes = '', children = 'No content' }: ITa
       <div className="tabs">
         <div className="tabs__list">
           {children.map((child: any, step: number) => {
+
+            if (!React.isValidElement(child) || child.type !== TabItem) {
+              return null;
+            }
+
             const { props: { title = 'Unnamed tab' } = {} }: any = child;
             return (
               <ButtonView
