@@ -14,8 +14,6 @@ storiesOf("Tab", module)
       const [content, setContent] = useState("Loading...");
       const [showOtherContent, setShowOtherContent] = useState(false);
 
-
-
       const loadContent = () =>
         setTimeout(
           () => setContent("Dynamic content successfully loaded"),
