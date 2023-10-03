@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/avatar",
-  "version": "0.8.0-alpha.64",
+  "version": "0.8.0-alpha.66",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
