@@ -207,5 +207,9 @@
     "React",
     "components",
     "library"
-  ]
+  ],
+  "dependencies": {
+    "icons": "^1.0.0",
+    "react-icons": "^4.11.0"
+  }
 }
