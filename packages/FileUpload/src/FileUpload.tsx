@@ -157,13 +157,22 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const filesToUploadCopy = cloneDeep(filesToUpload);
     const previewImagesCopy = cloneDeep(previewImages);
     const value = filesToUploadCopy[index].data[name]
+
     filesToUploadCopy.forEach((file: any, i: number) => {
-      file.data[name] = value;
-      previewImagesCopy[i].data[name] = value;
+      if (name === "title") {
+        file.name = filesToUploadCopy[index].name
+        previewImagesCopy[i].name = filesToUploadCopy[index].name;
+      } else {
+        file.data[name] = value;
+        previewImagesCopy[i].data[name] = value;
+      }
     });
+    console.log(filesToUploadCopy, 99999, name)
     setFilesToUpload(filesToUploadCopy);
     setPreviewImages(previewImagesCopy);
+
   }
+
   const handleInputChange = ({ event }: any) => {
     const {
       target: { id, name, value },

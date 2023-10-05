@@ -62,7 +62,7 @@ const FileInputs = ({
           <Input
             label={<span className='input-label'>{getInputLabel(HREF_URL, file.type)}<MdOutlineCopyAll role='button' onClick={() => copyToOthers(HREF_URL, index)} /> </span>}
             onChange={handleInputChange}
-            value={data.urlRedirect}
+            value={data.hrefUrl}
             id={`${index}-hrefUrl-${sanitizedFilename(file)}`}
             name={`${HREF_URL}-${index}-${sanitizedFilename(file)}`}
           />
