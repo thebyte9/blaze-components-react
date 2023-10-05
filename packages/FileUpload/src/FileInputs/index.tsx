@@ -27,7 +27,7 @@ const FileInputs = ({
 }) => (
   <>
     <Input
-      label={<span className='input-label'>{getInputLabel(TITLE, file.type)}<MdOutlineCopyAll /> </span>}
+      label={<span className='input-label'>{getInputLabel(TITLE, file.type)}<MdOutlineCopyAll role='button' onClick={() => copyToOthers(TITLE, index)} /> </span>}
       onChange={handleInputChange}
       value={name}
       id={`${index}-title-${sanitizedFilename(file)}`}
@@ -35,7 +35,7 @@ const FileInputs = ({
     />
 
     <Input
-      label={<span className='input-label'>{getInputLabel(CAPTION, file.type)}<MdOutlineCopyAll /> </span>}
+      label={<span className='input-label' >{getInputLabel(CAPTION, file.type)}<MdOutlineCopyAll role='button' onClick={() => copyToOthers(CAPTION, index)} /> </span>}
       onChange={handleInputChange}
       value={data.caption}
       id={`${index}-caption-${sanitizedFilename(file)}`}
@@ -43,7 +43,7 @@ const FileInputs = ({
     />
 
     <Input
-      label={<span className='input-label'>{getInputLabel(CREDITS, file.type)}<MdOutlineCopyAll /> </span>}
+      label={<span className='input-label'>{getInputLabel(CREDITS, file.type)}<MdOutlineCopyAll role='button' onClick={() => copyToOthers(CREDITS, index)} /> </span>}
       onChange={handleInputChange}
       value={data.credits}
       id={`${index}-credits-${sanitizedFilename(file)}`}
@@ -53,14 +53,14 @@ const FileInputs = ({
       file.type === IMAGE && (
         <>
           <Input
-            label="Alternative text"
+            label={<span className='input-label'>{getInputLabel(ALT_TEXT, file.type)}<MdOutlineCopyAll role='button' onClick={() => copyToOthers(ALT_TEXT, index)} /> </span>}
             onChange={handleInputChange}
             value={data.altText}
             id={`${index}-altText-${sanitizedFilename(file)}`}
             name={`${ALT_TEXT}-${index}-${sanitizedFilename(file)}`}
           />
           <Input
-            label="Url"
+            label={<span className='input-label'>{getInputLabel(HREF_URL, file.type)}<MdOutlineCopyAll role='button' onClick={() => copyToOthers(HREF_URL, index)} /> </span>}
             onChange={handleInputChange}
             value={data.urlRedirect}
             id={`${index}-hrefUrl-${sanitizedFilename(file)}`}
