@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import FileList from "../FileList";
+import React, { useEffect, useState } from 'react';
+import FileList from '../FileList';
 interface IDraggableFileUpload {
   handleLibraryClick?: (...args: any[]) => void;
   handleBrowse?: (...args: any[]) => void;
@@ -53,12 +53,3 @@ const DraggableFileUpload = ({
   );
 };
 export default DraggableFileUpload;
-
-
-
-
-
-
-
-
-
