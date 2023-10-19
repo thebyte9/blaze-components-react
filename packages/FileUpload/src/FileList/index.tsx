@@ -24,10 +24,12 @@ const FileList = ({
           file,
           name,
           data,
+          storeKey
         }: {
           file: any;
           name: string;
           data: any | null;
+          storeKey: string;
         },
         index: any,
       ) => {
@@ -39,6 +41,7 @@ const FileList = ({
           index,
           name,
           selectOptions,
+          storeKey,
           copyToOthers
         };
         const isImage = file.type === IMAGE;

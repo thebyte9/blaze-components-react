@@ -161,6 +161,9 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       if (name === 'title') {
         file.name = filesToUploadCopy[index].name;
         previewImagesCopy[i].name = filesToUploadCopy[index].name;
+      } else if (name === 'storeKey') {
+        file.storeKey = filesToUploadCopy[index].storeKey;
+        previewImagesCopy[i].storeKey = filesToUploadCopy[index].storeKey;
       } else {
         file.data[name] = filesToUploadCopy[index].data[name];
         previewImagesCopy[i].data[name] = filesToUploadCopy[index].data[name];
@@ -193,9 +196,13 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       target: { value },
     } = event;
     const filesToUploadCopy = cloneDeep(filesToUpload);
+    const previewImagesCopy = cloneDeep(previewImages);
     filesToUploadCopy[index].storeKey = value;
+    previewImagesCopy[index].storeKey = value;
     setFilesToUpload(filesToUploadCopy);
+    setPreviewImages(previewImagesCopy);
   };
+
   return (
     <>
       {enableDragAndDrop ? (

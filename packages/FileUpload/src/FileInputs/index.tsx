@@ -4,7 +4,7 @@ import React from 'react';
 import { IMAGE, INPUT_TYPES, NAME } from '../constants';
 import { getInputLabel, sanitizedFilename } from '../utils';
 import { MdOutlineCopyAll } from 'react-icons/md';
-const { ALT_TEXT, CAPTION, HREF_URL, TITLE, CREDITS } = INPUT_TYPES;
+const { ALT_TEXT, CAPTION, HREF_URL, TITLE, CREDITS, STORE_KEY } = INPUT_TYPES;
 
 const FileInputs = ({
   data,
@@ -13,6 +13,7 @@ const FileInputs = ({
   handleSelectChange,
   index,
   name,
+  storeKey,
   selectOptions,
   copyToOthers,
 }: {
@@ -22,14 +23,15 @@ const FileInputs = ({
   handleSelectChange: any;
   index: any;
   name: string;
+  storeKey: string;
   selectOptions: any[];
   copyToOthers: (name: string, index: number) => void;
 }) => {
-  const buildLabel = (labelKey: string) => {
+  const buildLabel = (labelKey: string, labelValue: string) => {
     return (
       <span className="input-label">
-        {getInputLabel(labelKey, file.type)}
-        <MdOutlineCopyAll role="button" onClick={() => copyToOthers(labelKey, index)} />{' '}
+        {labelValue || getInputLabel(labelKey, file.type)}
+        <MdOutlineCopyAll data-testid={`copy-to-${labelKey}`} role="button" onClick={() => copyToOthers(labelKey, index)} />{' '}
       </span>
     );
   };
@@ -60,27 +62,29 @@ const FileInputs = ({
       {file.type === IMAGE && (
         <>
           <Input
-            label={buildLabel(ALT_TEXT)}
+            label={buildLabel(ALT_TEXT, 'Alternative text')}
             onChange={handleInputChange}
             value={data.altText}
             id={`${index}-altText-${sanitizedFilename(file)}`}
             name={`${ALT_TEXT}-${index}-${sanitizedFilename(file)}`}
           />
           <Input
-            label={buildLabel(HREF_URL)}
+            label={buildLabel(HREF_URL, 'Url')}
             onChange={handleInputChange}
             value={data.hrefUrl}
             id={`${index}-hrefUrl-${sanitizedFilename(file)}`}
             name={`${HREF_URL}-${index}-${sanitizedFilename(file)}`}
           />
-          <Select
-            label="Store type"
-            data-testid="store-type"
-            options={selectOptions}
-            onChange={(event: any) => handleSelectChange(event, index)}
-          />
+
         </>
       )}
+      <Select
+        label={buildLabel(STORE_KEY, 'Store type')}
+        data-testid="store-type"
+        options={selectOptions}
+        selected={storeKey}
+        onChange={(event: any) => handleSelectChange(event, index)}
+      />
     </>
   );
 };
