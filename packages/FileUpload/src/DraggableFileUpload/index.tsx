@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import FileList from "../FileList";
-
+import React, { useEffect, useState } from 'react';
+import FileList from '../FileList';
 interface IDraggableFileUpload {
   handleLibraryClick?: (...args: any[]) => void;
   handleBrowse?: (...args: any[]) => void;
@@ -12,8 +11,8 @@ interface IDraggableFileUpload {
   previewImages: Record<string, unknown>[];
   selectOptions: any[];
   children: JSX.Element | JSX.Element[];
+  copyToOthers: (name: string, index: number) => void;
 }
-
 const DraggableFileUpload = ({
   handleCancel,
   area,
@@ -23,12 +22,11 @@ const DraggableFileUpload = ({
   handleSelectChange,
   children,
   selectOptions,
+  copyToOthers,
   ...attrs
 }: IDraggableFileUpload) => {
   const [imagesToPreview, setImagesToPreview] = useState(previewImages);
-
   useEffect(() => setImagesToPreview(previewImages), [previewImages]);
-
   return (
     <div ref={area} className="upload" {...attrs}>
       <div className="upload__drag-drop">
@@ -37,12 +35,10 @@ const DraggableFileUpload = ({
         </div>
         <p>Drag &amp; drop file to upload</p>
       </div>
-
       <div className="upload__browse">
         <div className="upload__text">or</div>
         {children}
       </div>
-
       {!customPreview && (
         <FileList
           previewImages={imagesToPreview}
@@ -50,10 +46,10 @@ const DraggableFileUpload = ({
           handleInputChange={handleInputChange}
           handleSelectChange={handleSelectChange}
           selectOptions={selectOptions}
+          copyToOthers={copyToOthers}
         />
       )}
     </div>
   );
 };
-
 export default DraggableFileUpload;

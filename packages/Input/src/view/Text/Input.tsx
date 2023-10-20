@@ -23,7 +23,7 @@ export const TextInput = ({
 
   return (
     <>
-      <label className={classes[currentState].container}>
+      <label data-testid="input-label" className={classes[currentState].container}>
         <span className={classes[currentState].label}>{label}</span>
         {currentState === InputState.Error &&
           displayError === DisplayErrorAs.Icon &&
@@ -37,10 +37,8 @@ export const TextInput = ({
           className={classes[currentState].input}
           placeholder={placeholder}
           autoComplete="true"
-          error={currentState === InputState.Error}
           loading={currentState === InputState.Loading}
-          warning={currentState === InputState.Warning}
-          success={currentState === InputState.Success}
+
           {...rest}
         />
       </label>
