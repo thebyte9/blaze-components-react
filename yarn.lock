@@ -2078,6 +2078,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/file-upload@workspace:packages/FileUpload"
   dependencies:
+    react-icons: ^4.11.0
     webpack: ^5.38.1
     webpack-cli: ^4.7.0
   peerDependencies:
@@ -22431,6 +22432,15 @@ __metadata:
     react: ^16.6.0 || ^17.0.0
     react-dom: ^16.6.0 || ^17.0.0
   checksum: fc58341fbb65a95f4fb1071d3d230b7573bd6591637ea19754eb7fc5a5dbcc4342a776a2c3cc05993a5389dad4a3dadf34cac34093db2ec9fcdf43685aec012b
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.11.0":
+  version: 4.11.0
+  resolution: "react-icons@npm:4.11.0"
+  peerDependencies:
+    react: "*"
+  checksum: 902f744138b2ce92a2ec81f4c14953428ae6df933a218fea423a2f3bd845f67b866a41ee7435949dee6085fcd686780b8281401d16e1b070f42374b5792ceb7e
   languageName: node
   linkType: hard
 
