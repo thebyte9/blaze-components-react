@@ -102,7 +102,10 @@ storiesOf("Select", module)
               <br />
 
               <h4>By default is disabled if none options</h4>
-              <Select label="Disabled" onChange={() => ({})} options={[]} />
+              <Select label="Disabled options" onChange={() => ({})} options={[]} />
+
+              <h4>Disabled select</h4>
+              <Select label="Disabled select" selectDisabled onChange={() => ({})} options={[]} />
             </div>
           </section>
         </div>
