@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.68](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.67...v0.8.0-alpha.68) (2023-10-24)
+
+
+### Features
+
+* add disabled pror ([#680](https://github.com/thebyte9/blaze-components-react/issues/680)) ([a9ee485](https://github.com/thebyte9/blaze-components-react/commit/a9ee4850b41f5d685b0289c55b396c2454c366cd))
+
+
+
+
+
 # [0.8.0-alpha.67](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.66...v0.8.0-alpha.67) (2023-10-20)
 
 
