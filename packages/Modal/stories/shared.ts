@@ -18,6 +18,7 @@ export const modalArgTypes = {
     table: {
       disable: true,
     },
+    action: true
   },
   variant: {
     options: Object.keys(preset.modal.variants),
