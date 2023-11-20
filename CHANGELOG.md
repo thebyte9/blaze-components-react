@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.69](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.68...v0.8.0-alpha.69) (2023-11-20)
+
+
+### Bug Fixes
+
+* handle on change ([#681](https://github.com/thebyte9/blaze-components-react/issues/681)) ([ea15993](https://github.com/thebyte9/blaze-components-react/commit/ea15993885446073fb90ede9e6570894d01aae68))
+
+
+
+
+
 # [0.8.0-alpha.68](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.67...v0.8.0-alpha.68) (2023-10-24)
 
 
