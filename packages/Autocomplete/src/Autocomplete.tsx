@@ -7,6 +7,7 @@ interface IAutocompleteProps {
     filterBy: string[];
     data: Record<string, unknown>[];
   };
+  onChange: (value: string) => void;
   selected?: (...args: unknown[]) => unknown;
   label?: string;
   placeholder?: string;
@@ -20,6 +21,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   label,
   placeholder,
   selected,
+  onChange,
   inputProps,
 }) => {
   const [inputValue, setInputValue] = useState<string>('');
@@ -27,6 +29,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
 
   const handleChange = ({ value }: { value: string }): void => {
     setShowSelect(true);
+    onChange && onChange(value);
     setInputValue(value);
     filterByValue(value);
   };
@@ -75,7 +78,7 @@ Autocomplete.defaultProps = {
   placeholder: 'Search',
   selected: (): void => {
     return;
-  },
+  }
 };
 
 export default Autocomplete;
