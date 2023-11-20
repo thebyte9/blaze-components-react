@@ -78,10 +78,7 @@ Autocomplete.defaultProps = {
   placeholder: 'Search',
   selected: (): void => {
     return;
-  },
-  onChange: (): void => {
-    return;
-  },
+  }
 };
 
 export default Autocomplete;
