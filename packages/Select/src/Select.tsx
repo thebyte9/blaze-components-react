@@ -13,7 +13,9 @@ interface ISelectProps {
   selected?: any;
   id?: string;
   disabled?: any[];
+  selectDisabled?: boolean;
   defaultTextValue?: string;
+  showDefaultOption?: boolean;
 }
 
 const Select: FunctionComponent<ISelectProps> = ({
@@ -26,10 +28,12 @@ const Select: FunctionComponent<ISelectProps> = ({
   error,
   validationMessage,
   disabled,
+  selectDisabled,
   defaultTextValue,
+  showDefaultOption,
   ...attrs
 }) => {
-  const [selectedOption, setSelectedOption] = useState<string>(selected);
+  const [selectedOption, setSelectedOption] = useState<string>(selected || '');
 
   useEffect(() => {
     setSelectedOption(selected);
@@ -72,7 +76,7 @@ const Select: FunctionComponent<ISelectProps> = ({
       return setOption(option[value], option[text]);
     });
   };
-  
+
   return (
     <div className="form-field form-field--select">
       {label && (
@@ -80,8 +84,8 @@ const Select: FunctionComponent<ISelectProps> = ({
           {label}
         </label>
       )}
-      <select onChange={handleChange} disabled={!options.length} value={selectedOption} {...attrs}>
-        {!required && <option defaultValue="">{defaultTextValue}</option>}
+      <select onChange={handleChange} disabled={selectDisabled || !options.length} value={selectedOption} {...attrs}>
+        {(!required || showDefaultOption) && <option defaultValue="">{defaultTextValue}</option>}
         {renderOptions()}
       </select>
       {error && <ErrorMessage message={validationMessage} />}
@@ -92,9 +96,11 @@ const Select: FunctionComponent<ISelectProps> = ({
 Select.defaultProps = {
   defaultTextValue: 'Please Choose...',
   disabled: [],
+  selectDisabled: false,
   error: false,
   keys: [],
   label: '',
+  showDefaultOption: true,
   onChange: (): void => {
     return;
   },

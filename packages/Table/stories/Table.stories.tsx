@@ -4,6 +4,8 @@ import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import TableReadme from '../README.md';
 
+const Table: any = lazy((): any => import('../src/Table'));
+
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
     appliedSort: { name: 'asc' },
@@ -29,16 +31,15 @@ const DemoComponent = () => {
   };
 
   useEffect(() => {
-    if (data.rows && !data.rows.length) {
+    if (!data.rows.length) {
       const updatedData = { ...data, rows: generateFakeData() };
       setData(updatedData);
     }
   }, []);
-  const Table: any = lazy((): any => import('../src/Table'));
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Table checkboxes data={data} onSelect={() => ({})} />
+      <Table checkboxes data={data} onSelect={() => ({})} tableBodyHeight={400} />
     </Suspense>
   );
 };
@@ -55,7 +56,7 @@ storiesOf('Table', module)
         <h1>Table</h1>
 
         <p>
-          We can choose to render a table with or without row selection by         changing the prop boolean value of 
+          We can choose to render a table with or without row selection by         changing the prop boolean value of
           <code>checkboxes</code>
         </p>
 

@@ -8,7 +8,9 @@ const INPUT_TYPES = {
   ALT_TEXT: "altText",
   CAPTION: "caption",
   TITLE: 'title',
-  HREF_URL: 'hrefUrl'
+  CREDITS: 'credits',
+  HREF_URL: 'hrefUrl',
+  STORE_KEY: 'storeKey',
 };
 
 const IMAGE = "image";

@@ -15,11 +15,11 @@ storiesOf('FileUpload', module)
   })
   .add('Introduction', (): any => {
     const FileUploadModal = ({ onClose }: any) => {
-      const onChange = (event: any[], currentFiles: any[]) => {};
+      const onChange = (event: any[], currentFiles: any[]) => { };
 
       return (
-         
-            <FileUpload onChange={onChange} selectOptions={[['default', 'Default']]} />
+
+        <FileUpload onChange={onChange} selectOptions={[['default', 'Default']]} />
       );
     };
     return (
@@ -31,7 +31,7 @@ storiesOf('FileUpload', module)
           }
         </p>
 
-        <FileUploadModal onClose={() => {}} />
+        <FileUploadModal onClose={() => { }} />
       </div>
     );
   });

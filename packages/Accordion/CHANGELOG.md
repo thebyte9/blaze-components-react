@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.62](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.61...v0.8.0-alpha.62) (2023-02-01)
+
+**Note:** Version bump only for package @blaze-react/accordion
+
+
+
+
+
+# [0.8.0-alpha.61](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.60...v0.8.0-alpha.61) (2023-01-31)
+
+
+### Bug Fixes
+
+* persist memu accordion state ([1875872](https://github.com/thebyte9/blaze-components-react/commit/187587277de698452676dcf275c0fdb223a2b47a))
+
+
+
+
+
 # [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
 
 **Note:** Version bump only for package @blaze-react/accordion

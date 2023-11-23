@@ -19,20 +19,20 @@ exports[`RangeFilter component should be defined and renders correctly (snapshot
       class="range__filter _test_"
       id="_test_Range"
       max="20"
-      max-value="10"
+      max-value="NaN"
       min="0"
-      min-value="5"
+      min-value="NaN"
       step="1"
     >
       <div
         class="range__filter--left"
-        style="left: -6px;"
+        style="left: 0px;"
       >
         <span />
       </div>
       <div
         class="range__filter--right"
-        style="left: 13px;"
+        style="left: 0px;"
       >
         <span />
       </div>
