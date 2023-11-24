@@ -1,8 +1,15 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import React, { FunctionComponent, useRef, useState } from 'react';
+import Pagination from '@blaze-react/pagination';
 import TableBody from './TableBody';
 import TableHead from './TableHead';
 import { ITableRow, ICheckboxItem } from './interfaces';
 
+interface IPaginationProps {
+  display: boolean;
+  paginationPagesPerSide: number;
+  itemsPerPage: number;
+  currentPage: number;
+}
 interface ITableProps {
   placeholder?: string;
   checkboxes?: boolean;
@@ -14,14 +21,13 @@ interface ITableProps {
     appliedSort?: any;
     labels: Record<string, unknown>;
   };
+  rowsPerPage: number;
   value?: string;
   overScanBuffer?: number;
   onSelect?: (arg: any[]) => any;
   onSort?: (arg: any) => any;
-  onRenderItems?: (arg: any) => void;
   onClickRow?: (arg: any) => void;
-  scrollToIndex?: number;
-  tableBodyHeight?: number;
+  paginationProps: IPaginationProps;
 }
 
 const Table: FunctionComponent<ITableProps> = ({
@@ -31,39 +37,16 @@ const Table: FunctionComponent<ITableProps> = ({
   onClickRow = () => ({}),
   checkboxes,
   placeholder = '',
-  overScanBuffer = 0,
-  onRenderItems,
-  scrollToIndex = 0,
-  tableBodyHeight,
+  paginationProps
 }) => {
   const headRef = useRef<any>(null);
-  const bodyRef = useRef<any>(null);
   const [selected, setSelected] = useState<any[]>([]);
-  const [bodyCurrentState, setBodyCurrentState] = useState();
 
-  useEffect(() => {
-    setBodyCurrentState(bodyRef.current);
-    if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild && rows.length) {
-      bodyRef.current.firstElementChild.addEventListener('scroll', (event: any) => syncScroll(headRef.current, event));
-    }
 
-    if (headRef && headRef.current && headRef.current.firstElementChild) {
-      headRef.current.addEventListener('scroll', (event: any) => syncScroll(bodyRef.current.firstElementChild, event));
-    }
-
-    return () => {
-      if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild) {
-        bodyRef.current.firstElementChild.removeEventListener('scroll', syncScroll);
-      }
-      if (headRef.current) {
-        headRef.current.removeEventListener('scroll', syncScroll);
-      }
-    };
-  }, [bodyRef.current, headRef.current]);
-
-  const syncScroll = (ref: any, event: any) => {
-    ref.scrollLeft = event.target.scrollLeft;
-  };
+  const [pagination, setPagination] = useState({
+    currentPage: paginationProps.currentPage,
+    itemsPerPage: paginationProps.itemsPerPage,
+  });
 
   const handleSelected = ([checked]: ICheckboxItem[], value: string | ICheckboxItem[], multiselect = false): void => {
     let checkedValue: any = [];
@@ -82,6 +65,20 @@ const Table: FunctionComponent<ITableProps> = ({
     onSelect(checkedValue);
   };
 
+  const handleOnPageChange = (currentPage) => {
+    setPagination({ ...pagination, ...currentPage });
+  };
+
+
+  const getTableBody = () => {
+    const indexOfLastTodo = pagination.currentPage * pagination.itemsPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - pagination.itemsPerPage;
+    return rows.slice(indexOfFirstTodo, indexOfLastTodo);
+  };
+
+  const totalPages = Math.round(rows.length / paginationProps.itemsPerPage);
+  const tableRows = getTableBody();
+
   return (
     <div className="table-wrapper">
       <TableHead
@@ -92,23 +89,24 @@ const Table: FunctionComponent<ITableProps> = ({
         appliedSort={appliedSort}
         labels={labels}
       />
-      <div ref={bodyRef} className="table-body">
+      <div className="table-body">
         <TableBody
-          scrollToIndex={scrollToIndex}
           onClickRow={onClickRow}
-          bodyRef={bodyCurrentState}
-          tableBodyHeight={tableBodyHeight}
-          rows={rows}
+          rows={tableRows}
           checkboxes={checkboxes}
           identification={identification}
           selected={selected}
           handleSelected={handleSelected}
           columns={columns}
           placeholder={placeholder}
-          overScanBuffer={overScanBuffer}
-          onRenderItems={onRenderItems}
         />
       </div>
+      {paginationProps.display && <Pagination
+        totalPages={totalPages}
+        currentPage={paginationProps.currentPage}
+        paginationPagesPerSide={paginationProps.paginationPagesPerSide}
+        handleOnPageChange={handleOnPageChange}
+      />}
     </div>
   );
 };
@@ -121,6 +119,12 @@ Table.defaultProps = {
     orderBy: [],
     rows: [],
     labels: {},
+  },
+  paginationProps: {
+    display: true,
+    paginationPagesPerSide: 5,
+    itemsPerPage: 5,
+    currentPage: 1
   },
   placeholder: 'No records available',
 };

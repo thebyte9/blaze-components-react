@@ -4,8 +4,8 @@ interface IPaginationProps {
   totalPages: number;
   activePage: number;
   paginationPagesPerSide: number;
-  defaultRowsPerPage: number;
-  handleOnPageChange: ({ rowsPerPage, currentPage }: { rowsPerPage: number, currentPage: number }) => void;
+  defaultItemsPerPage: number;
+  handleOnPageChange: ({ itemsPerPage, currentPage }: { itemsPerPage: number, currentPage: number }) => void;
 }
 
 const Pagination: FunctionComponent<IPaginationProps> = ({
@@ -13,14 +13,15 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
   handleOnPageChange,
   activePage,
   paginationPagesPerSide,
-  defaultRowsPerPage
+  defaultItemsPerPage
 }): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(activePage)
-  const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage)
+  const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage)
 
   useEffect(() => {
-    handleOnPageChange({ currentPage, rowsPerPage })
-  }, [currentPage, handleOnPageChange, rowsPerPage])
+    handleOnPageChange({ currentPage, itemsPerPage })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage, itemsPerPage])
 
   const getPaginationNumbers = () => {
     const { nextPages, prevPages } = getPagesPerSide();
@@ -41,7 +42,7 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
 
   const handleRowsPerPage = ({ target: { value } }) => {
     const totalRows = parseInt(value) || 0;
-    setRowsPerPage(totalRows);
+    setItemsPerPage(totalRows);
   }
 
   const nextPage = () => currentPage < totalPages && setCurrentPage(currentPage + 1);
@@ -59,19 +60,25 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
       <div>
         <span>Displaying</span>
         <input
-          min="0"
           className="pagination__input"
-          type="number"
-          placeholder="Go to"
-          value={rowsPerPage}
+          placeholder={itemsPerPage.toString()}
           onChange={handleRowsPerPage}
         />
         <span>rows per page</span>
       </div>
       <ul className="pagination">
-        <li className="pagination__item pagination__item--icon" onClick={prevPage}>
+        {currentPage !== 1 && <li className="pagination__item pagination__item--icon" onClick={prevPage}>
           &lsaquo;
-        </li>
+        </li>}
+        {currentPage - 2 >= paginationPagesPerSide && <>
+          <li className="pagination__item" onClick={() => {
+            setCurrentPage(1);
+          }}>
+            1
+          </li>
+          <li>...</li>
+
+        </>}
         {currentNumbers.map((number) => (
           <li
             key={`${number}`}
@@ -83,15 +90,17 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
             {number}
           </li>
         ))}
-        <li>...</li>
-        <li className="pagination__item" onClick={() => {
-          setCurrentPage(totalPages);
-        }}>
-          {totalPages}
-        </li>
-        <li className="pagination__item pagination__item--icon" onClick={nextPage}>
+        {totalPages - currentPage >= paginationPagesPerSide && <>
+          <li>...</li>
+          <li className="pagination__item" onClick={() => {
+            setCurrentPage(totalPages);
+          }}>
+            {totalPages}
+          </li>
+        </>}
+        {currentPage !== totalPages && <li className="pagination__item pagination__item--icon" onClick={nextPage}>
           &rsaquo;
-        </li>
+        </li>}
       </ul>
     </div>
   );
@@ -100,7 +109,7 @@ const Pagination: FunctionComponent<IPaginationProps> = ({
 Pagination.defaultProps = {
   activePage: 1,
   paginationPagesPerSide: 5,
-  defaultRowsPerPage: 10
+  defaultItemsPerPage: 5
 };
 
 export default Pagination;

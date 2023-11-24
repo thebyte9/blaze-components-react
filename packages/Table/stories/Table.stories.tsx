@@ -9,22 +9,21 @@ const Table: any = lazy((): any => import('../src/Table'));
 const DemoComponent = () => {
   const [data, setData] = useState<any>({
     appliedSort: { name: 'asc' },
-    columns: ['name', 'email', 'city', 'zipCode'],
+    columns: ['name', 'email', 'city'],
     identification: 'id',
-    orderBy: ['email', 'name', 'city', 'zipCode'],
+    orderBy: ['email', 'name', 'city'],
     rows: [],
-    labels: { name: 'Name', email: 'email', city: 'City', zipCode: 'Zip code' },
+    labels: { name: 'Name', email: 'email', city: 'City' },
   });
 
   const generateFakeData = () => {
     const rows = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 1; i < 100; i++) {
       rows.push({
         city: `city ${i}`,
-        email: `email ${i}`,
+        email: `email${i}@byte9.com`,
         id: nanoid(),
         name: `name ${i}`,
-        zipCode: `zipCode ${i}`,
       });
     }
     return rows;
