@@ -11,10 +11,7 @@ exports[`Pagination component should be defined and renders correctly (snapshot)
       </span>
       <input
         class="pagination__input"
-        min="0"
-        placeholder="Go to"
-        type="number"
-        value="10"
+        placeholder="10"
       />
       <span>
         rows per page
@@ -23,11 +20,6 @@ exports[`Pagination component should be defined and renders correctly (snapshot)
     <ul
       class="pagination"
     >
-      <li
-        class="pagination__item pagination__item--icon"
-      >
-        ‹
-      </li>
       <li
         class="pagination__item pagination__item--active"
       >

@@ -21,7 +21,6 @@ interface ITableProps {
     appliedSort?: any;
     labels: Record<string, unknown>;
   };
-  rowsPerPage: number;
   value?: string;
   overScanBuffer?: number;
   onSelect?: (arg: any[]) => any;

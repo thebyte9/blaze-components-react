@@ -10,7 +10,7 @@ const defaultProps = (override = {}) => ({
     handleOnPageChange: jest.fn(),
     activePage: 1,
     paginationPagesPerSide: 5,
-    defaultRowsPerPage: 10,
+    defaultItemsPerPage: 10,
     totalPages: 100,
     ...override,
 });
