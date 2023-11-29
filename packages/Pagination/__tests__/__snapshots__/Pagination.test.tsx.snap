@@ -5,21 +5,14 @@ exports[`Pagination component should be defined and renders correctly (snapshot)
   <div
     class="pagination"
   >
-    <div>
-      <span>
-        Displaying
-      </span>
-      <input
-        class="pagination__input"
-        placeholder="10"
-      />
-      <span>
-        rows per page
-      </span>
-    </div>
     <ul
       class="pagination"
     >
+      <li
+        class="pagination__item pagination__item--icon"
+      >
+        ‹
+      </li>
       <li
         class="pagination__item pagination__item--active"
       >
@@ -50,11 +43,31 @@ exports[`Pagination component should be defined and renders correctly (snapshot)
       >
         6
       </li>
-      <li>
-        ...
+      <li
+        class="pagination__item "
+      >
+        7
       </li>
       <li
-        class="pagination__item"
+        class="pagination__item "
+      >
+        8
+      </li>
+      <li
+        class="pagination__item "
+      >
+        9
+      </li>
+      <li
+        class="pagination__item "
+      >
+        10
+      </li>
+      <span>
+        ...
+      </span>
+      <li
+        class="pagination__item "
       >
         100
       </li>

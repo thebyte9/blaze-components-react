@@ -1,115 +1,76 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React from 'react';
+import Input from '@blaze-react/input';
+import usePagination from './hooks/usePagination';
 
-interface IPaginationProps {
+interface PaginationProps {
   totalPages: number;
-  activePage: number;
-  paginationPagesPerSide: number;
-  defaultItemsPerPage: number;
-  handleOnPageChange: ({ itemsPerPage, currentPage }: { itemsPerPage: number, currentPage: number }) => void;
+  currentPage: number;
+  visiblePages: number;
+  itemsPerPage?: number;
+  onPageChange: ({ pageNumber, itemsPerPage }: { pageNumber: number, itemsPerPage: number }) => void;
 }
 
-const Pagination: FunctionComponent<IPaginationProps> = ({
-  totalPages,
-  handleOnPageChange,
-  activePage,
-  paginationPagesPerSide,
-  defaultItemsPerPage
-}): JSX.Element => {
-  const [currentPage, setCurrentPage] = useState(activePage)
-  const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage)
+const Pagination: React.FC<PaginationProps> = ({ totalPages, currentPage, onPageChange, visiblePages, itemsPerPage }) => {
 
-  useEffect(() => {
-    handleOnPageChange({ currentPage, itemsPerPage })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, itemsPerPage])
-
-  const getPaginationNumbers = () => {
-    const { nextPages, prevPages } = getPagesPerSide();
-    const numbers: number[] = [];
-    for (let number = prevPages; number <= nextPages; number++) {
-      numbers.push(number);
-    }
-    return numbers;
-  };
-
-  const getPagesPerSide = () => {
-    let prevPages: number = currentPage - paginationPagesPerSide;
-    let nextPages: number = currentPage + paginationPagesPerSide;
-    if (prevPages <= 0) prevPages = 1;
-    if (nextPages > totalPages) nextPages = totalPages;
-    return { nextPages, prevPages };
-  };
-
-  const handleRowsPerPage = ({ target: { value } }) => {
-    const totalRows = parseInt(value) || 0;
-    setItemsPerPage(totalRows);
-  }
-
-  const nextPage = () => currentPage < totalPages && setCurrentPage(currentPage + 1);
-
-  const prevPage = () => currentPage > 1 && setCurrentPage(currentPage - 1);
+  const { page, handlePageChange, calculatePages, handleOnItemsPerPage } = usePagination({
+    totalPages,
+    currentPage,
+    visiblePages,
+    onPageChange
+  });
 
   const getItemClassName = (number: number) =>
-    `pagination__item ${number === currentPage ? "pagination__item--active" : ""
+    `pagination__item ${number === page ? "pagination__item--active" : ""
     }`;
 
-  const currentNumbers: number[] = getPaginationNumbers();
+  const pages = calculatePages();
 
   return (
     <div className="pagination">
-      <div>
+      {itemsPerPage && <div>
         <span>Displaying</span>
-        <input
+        <Input
           className="pagination__input"
-          placeholder={itemsPerPage.toString()}
-          onChange={handleRowsPerPage}
+          value={itemsPerPage.toString()}
+          onChange={({ value }) => handleOnItemsPerPage(parseInt(value))}
+          type="number"
+
         />
         <span>rows per page</span>
-      </div>
+      </div>}
       <ul className="pagination">
-        {currentPage !== 1 && <li className="pagination__item pagination__item--icon" onClick={prevPage}>
+        <li className="pagination__item pagination__item--icon"
+          onClick={() => handlePageChange(page - 1)}
+        >
           &lsaquo;
-        </li>}
-        {currentPage - 2 >= paginationPagesPerSide && <>
-          <li className="pagination__item" onClick={() => {
-            setCurrentPage(1);
-          }}>
-            1
-          </li>
-          <li>...</li>
-
-        </>}
-        {currentNumbers.map((number) => (
-          <li
-            key={`${number}`}
-            className={getItemClassName(number)}
-            onClick={() => {
-              setCurrentPage(number);
-            }}
-          >
-            {number}
-          </li>
+        </li>
+        {pages.map((pageNumber: number, index: number) => (
+          <>
+            {pageNumber < 0 ? <span key={index}>...</span> : (
+              <li
+                className={getItemClassName(pageNumber)}
+                key={index}
+                onClick={() => handlePageChange(pageNumber)}
+              >
+                {pageNumber}
+              </li>
+            )}
+          </>
         ))}
-        {totalPages - currentPage >= paginationPagesPerSide && <>
-          <li>...</li>
-          <li className="pagination__item" onClick={() => {
-            setCurrentPage(totalPages);
-          }}>
-            {totalPages}
-          </li>
-        </>}
-        {currentPage !== totalPages && <li className="pagination__item pagination__item--icon" onClick={nextPage}>
+        <li
+          className="pagination__item pagination__item--icon"
+          onClick={() => handlePageChange(page + 1)}
+        >
           &rsaquo;
-        </li>}
+        </li>
       </ul>
     </div>
   );
 };
 
 Pagination.defaultProps = {
-  activePage: 1,
-  paginationPagesPerSide: 5,
-  defaultItemsPerPage: 5
+  visiblePages: 10,
+  currentPage: 1,
 };
 
 export default Pagination;

@@ -23,10 +23,11 @@ storiesOf("Pagination", module)
 
           <h4>Example</h4>
           <Pagination
-            totalPages={100}
+            totalPages={15}
             currentPage={1}
-            paginationPagesPerSide={5}
-            handleOnPageChange={(page: Number) => {
+            visiblePages={10}
+            itemsPerPage={10}
+            onPageChange={(page: { pageNumber: number, itemsPerPage: number }) => {
               console.log(page)
             }}
           />

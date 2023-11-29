@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom';
-
 import { render, screen } from '@testing-library/react';
 
 import Pagination from '../src';
@@ -7,10 +6,10 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 
 const defaultProps = (override = {}) => ({
-    handleOnPageChange: jest.fn(),
-    activePage: 1,
-    paginationPagesPerSide: 5,
-    defaultItemsPerPage: 10,
+    onPageChange: jest.fn(),
+    currentPage: 1,
+    itemsPerPage: 10,
+    visiblePages: 10,
     totalPages: 100,
     ...override,
 });
@@ -28,7 +27,7 @@ describe('Pagination component', () => {
 
     it('handles page change', () => {
         const mockOnChange = jest.fn();
-        render(<Pagination {...defaultProps({ handleOnPageChange: mockOnChange })} />);
+        render(<Pagination {...defaultProps({ onPageChange: mockOnChange })} />);
         userEvent.click(screen.getByText('6'));
         expect(mockOnChange).toHaveBeenCalled();
     });
