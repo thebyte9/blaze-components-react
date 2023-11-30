@@ -128,31 +128,6 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
         </div>
       </div>
     </div>
-    <div
-      class="pagination"
-    >
-      <div>
-        <span>
-          Displaying
-        </span>
-        <input
-          class="pagination__input"
-          placeholder="5"
-        />
-        <span>
-          rows per page
-        </span>
-      </div>
-      <ul
-        class="pagination"
-      >
-        <li
-          class="pagination__item pagination__item--icon"
-        >
-          ›
-        </li>
-      </ul>
-    </div>
   </div>
 </DocumentFragment>
 `;
