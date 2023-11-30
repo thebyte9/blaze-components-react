@@ -16,7 +16,8 @@ const Pagination: React.FC<PaginationProps> = ({ totalPages, currentPage, onPage
     totalPages,
     currentPage,
     visiblePages,
-    onPageChange
+    onPageChange,
+    defaultItemsPerPage: itemsPerPage
   });
 
   const getItemClassName = (number: number) =>
@@ -27,7 +28,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalPages, currentPage, onPage
 
   return (
     <div className="pagination">
-      {itemsPerPage && <div>
+      {itemsPerPage && <div className="pagination__rows">
         <span>Displaying</span>
         <Input
           className="pagination__input"

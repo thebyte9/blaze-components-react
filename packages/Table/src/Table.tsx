@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useRef, useState } from 'react';
-import Pagination from '@blaze-react/pagination';
 import TableBody from './TableBody';
 import TableHead from './TableHead';
 import { ITableRow, ICheckboxItem } from './interfaces';
@@ -100,12 +99,6 @@ const Table: FunctionComponent<ITableProps> = ({
           placeholder={placeholder}
         />
       </div>
-      {paginationProps.display && <Pagination
-        totalPages={totalPages}
-        currentPage={paginationProps.currentPage}
-        paginationPagesPerSide={paginationProps.paginationPagesPerSide}
-        handleOnPageChange={handleOnPageChange}
-      />}
     </div>
   );
 };

@@ -3,6 +3,17 @@
   align-items: center;
   margin: 20px 0;
 
+  &__rows {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+
+    .form-field {
+      width: auto;
+      margin-right: 5px;
+    }
+  }
+
   &__list {
     @extend %list;
     display: flex;
