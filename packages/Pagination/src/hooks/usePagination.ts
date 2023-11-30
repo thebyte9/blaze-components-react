@@ -5,7 +5,7 @@ type PaginationHookProps = {
   currentPage: number,
   visiblePages: number,
   defaultItemsPerPage?: number;
-  onPageChange: ({ pageNumber, itemsPerPage }: { pageNumber: number, itemsPerPage: number }) => void
+  onPageChange: ({ pageNumber, itemsPerPage, offset }: { pageNumber: number, itemsPerPage: number, offset: number }) => void
 }
 
 type PaginationReturnType = {
@@ -40,12 +40,12 @@ const usePagination = ({
 
   const handlePageChange = (pageNumber: number) => {
     setPage(pageNumber);
-    onPageChange({ pageNumber, itemsPerPage });
+    onPageChange({ pageNumber, itemsPerPage, offset: (currentPage - 1) * itemsPerPage });
   };
 
   const handleOnItemsPerPage = (itemsNumber: number) => {
     setItemsPerPage(itemsNumber);
-    onPageChange({ pageNumber: page, itemsPerPage: itemsNumber });
+    onPageChange({ pageNumber: page, itemsPerPage: itemsNumber, offset: (currentPage - 1) * itemsPerPage });
   }
 
   const calculatePages = () => {

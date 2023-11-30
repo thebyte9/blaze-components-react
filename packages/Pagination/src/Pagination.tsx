@@ -31,9 +31,10 @@ const Pagination: React.FC<PaginationProps> = ({ totalPages, currentPage, onPage
       {itemsPerPage && <div className="pagination__rows">
         <span>Displaying</span>
         <Input
+          min="1"
           className="pagination__input"
           value={itemsPerPage.toString()}
-          onChange={({ value }) => handleOnItemsPerPage(parseInt(value))}
+          onChange={({ value }) => value && handleOnItemsPerPage(parseInt(value))}
           type="number"
 
         />

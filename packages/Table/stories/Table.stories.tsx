@@ -11,7 +11,8 @@ const DemoComponent = () => {
   const [pagination, setPagination] = useState({
     itemsPerPage: 5,
     visiblePages: 10,
-    currentPage: 1
+    currentPage: 1,
+    offset: 10
   })
 
   const [data, setData] = useState<any>({
@@ -58,11 +59,11 @@ const DemoComponent = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Table checkboxes data={getTableData()} onSelect={() => ({})} tableBodyHeight={400} />
+
       <Pagination
         totalPages={totalPages}
-        onPageChange={(page: { pageNumber: number, itemsPerPage: number }) => {
-          console.log(page)
-          setPagination({ ...pagination, itemsPerPage: page.itemsPerPage, currentPage: page.pageNumber })
+        onPageChange={(page: { pageNumber: number, itemsPerPage: number, offset: number }) => {
+          setPagination({ ...pagination, itemsPerPage: page.itemsPerPage, currentPage: page.pageNumber, offset: page.offset })
         }}
         {...pagination}
       />
@@ -74,9 +75,10 @@ const DemoComponent = () => {
 
 const SpaceXDemoComponent = () => {
   const [pagination, setPagination] = useState({
-    itemsPerPage: 10,
+    itemsPerPage: 5,
     visiblePages: 10,
-    currentPage: 1
+    currentPage: 1,
+    offset: 5
   });
 
   const [data, setData] = useState<any>({
@@ -87,14 +89,12 @@ const SpaceXDemoComponent = () => {
 
   useEffect(() => {
     fetchData();
-  }, [pagination.currentPage]);
+  }, [pagination.currentPage, pagination.itemsPerPage]);
 
   const fetchData = async () => {
     try {
-      const offset = (pagination.currentPage - 1) * pagination.itemsPerPage;
-      const response = await fetch(`https://api.spacexdata.com/v3/launches?limit=${pagination.itemsPerPage}&offset=${offset}`);
+      const response = await fetch(`https://api.spacexdata.com/v3/launches?limit=${pagination.itemsPerPage}&offset=${pagination.offset}`);
       const jsonData = await response.json();
-      console.log(jsonData)
       setData({ ...data, rows: jsonData });
     } catch (error) {
       console.error('Error fetching data: ', error);
@@ -111,14 +111,13 @@ const SpaceXDemoComponent = () => {
     };
   };
 
-  console.log(getTableData())
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Table checkboxes data={getTableData()} onSelect={() => ({})} tableBodyHeight={400} />
       <Pagination
         totalPages={totalPages}
-        onPageChange={(page: { pageNumber: number, itemsPerPage: number }) => {
-          setPagination({ ...pagination, itemsPerPage: page.itemsPerPage, currentPage: page.pageNumber })
+        onPageChange={(page: { pageNumber: number, itemsPerPage: number, offset: number }) => {
+          setPagination({ ...pagination, itemsPerPage: page.itemsPerPage, currentPage: page.pageNumber, offset: page.offset })
         }}
         {...pagination}
       />
@@ -151,7 +150,7 @@ storiesOf('Table', module)
       </div>
     );
   })
-  .add('SpaceX API Demo', () => {
+  .add('Fetch table', () => {
     return (
       <div className="component-wrapper">
         <h1>SpaceX Data Table with Offset Pagination</h1>
