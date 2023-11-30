@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 type PaginationHookProps = {
-  totalPages: number,
+  totalItems: number,
   currentPage: number,
   visiblePages: number,
   defaultItemsPerPage?: number;
@@ -20,7 +20,7 @@ type PaginationReturnType = {
 const DEFAULT_ITEMS_PER_PAGE = 10;
 
 const usePagination = ({
-  totalPages,
+  totalItems,
   currentPage,
   visiblePages,
   onPageChange,
@@ -40,30 +40,30 @@ const usePagination = ({
 
   const handlePageChange = (pageNumber: number) => {
     setPage(pageNumber);
-    onPageChange({ pageNumber, itemsPerPage, offset: (currentPage - 1) * itemsPerPage });
+    onPageChange({ pageNumber, itemsPerPage, offset: pageNumber * itemsPerPage });
   };
 
   const handleOnItemsPerPage = (itemsNumber: number) => {
     setItemsPerPage(itemsNumber);
-    onPageChange({ pageNumber: page, itemsPerPage: itemsNumber, offset: (currentPage - 1) * itemsPerPage });
+    onPageChange({ pageNumber: page, itemsPerPage: itemsNumber, offset: (page - 1) * itemsPerPage });
   }
 
   const calculatePages = () => {
     const pages: number[] = [];
     const halfVisiblePages = Math.floor(visiblePages / 2);
 
-    if (totalPages <= visiblePages) {
-      for (let i = 1; i <= totalPages; i++) {
+    if (totalItems <= visiblePages) {
+      for (let i = 1; i <= totalItems; i++) {
         pages.push(i);
       }
     } else {
       let startPage = Math.max(1, page - halfVisiblePages);
-      let endPage = Math.min(totalPages, startPage + visiblePages - 1);
+      let endPage = Math.min(totalItems, startPage + visiblePages - 1);
 
       if (startPage === 1) {
         endPage = visiblePages;
-      } else if (endPage === totalPages) {
-        startPage = totalPages - visiblePages + 1;
+      } else if (endPage === totalItems) {
+        startPage = totalItems - visiblePages + 1;
       }
 
       for (let i = startPage; i <= endPage; i++) {
@@ -75,9 +75,9 @@ const usePagination = ({
         pages.unshift(1);
       }
 
-      if (endPage < totalPages) {
+      if (endPage < totalItems) {
         pages.push(-2);
-        pages.push(totalPages);
+        pages.push(totalItems);
       }
     }
 

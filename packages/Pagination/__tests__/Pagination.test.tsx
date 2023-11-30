@@ -10,7 +10,7 @@ const defaultProps = (override = {}) => ({
     currentPage: 1,
     itemsPerPage: 10,
     visiblePages: 10,
-    totalPages: 100,
+    totalItems: 100,
     ...override,
 });
 

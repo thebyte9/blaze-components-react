@@ -44,7 +44,7 @@ const DemoComponent = () => {
     }
   }, []);
 
-  const totalPages = Math.round(data.rows.length / pagination.itemsPerPage);
+  const totalItems = Math.round(data.rows.length / pagination.itemsPerPage);
 
   const getTableData = () => {
     const indexOfLastTodo = pagination.currentPage * pagination.itemsPerPage;
@@ -61,7 +61,7 @@ const DemoComponent = () => {
       <Table checkboxes data={getTableData()} onSelect={() => ({})} tableBodyHeight={400} />
 
       <Pagination
-        totalPages={totalPages}
+        totalItems={totalItems}
         onPageChange={(page: { pageNumber: number, itemsPerPage: number, offset: number }) => {
           setPagination({ ...pagination, itemsPerPage: page.itemsPerPage, currentPage: page.pageNumber, offset: page.offset })
         }}
@@ -101,9 +101,9 @@ const SpaceXDemoComponent = () => {
     }
   };
 
-  const totalItems = 111; // api count
+  const API_COUNT = 111; // api count
 
-  const totalPages = Math.ceil(totalItems / pagination.itemsPerPage);
+  const totalItems = Math.ceil(API_COUNT / pagination.itemsPerPage);
 
   const getTableData = () => {
     return {
@@ -111,11 +111,12 @@ const SpaceXDemoComponent = () => {
     };
   };
 
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Table checkboxes data={getTableData()} onSelect={() => ({})} tableBodyHeight={400} />
       <Pagination
-        totalPages={totalPages}
+        totalItems={totalItems}
         onPageChange={(page: { pageNumber: number, itemsPerPage: number, offset: number }) => {
           setPagination({ ...pagination, itemsPerPage: page.itemsPerPage, currentPage: page.pageNumber, offset: page.offset })
         }}

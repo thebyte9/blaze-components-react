@@ -3,17 +3,17 @@ import Input from '@blaze-react/input';
 import usePagination from './hooks/usePagination';
 
 interface PaginationProps {
-  totalPages: number;
+  totalItems: number;
   currentPage: number;
   visiblePages: number;
   itemsPerPage?: number;
-  onPageChange: ({ pageNumber, itemsPerPage }: { pageNumber: number, itemsPerPage: number }) => void;
+  onPageChange: ({ pageNumber, itemsPerPage, offset }: { pageNumber: number, itemsPerPage: number, offset: number }) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ totalPages, currentPage, onPageChange, visiblePages, itemsPerPage }) => {
+const Pagination: React.FC<PaginationProps> = ({ totalItems, currentPage, onPageChange, visiblePages, itemsPerPage }) => {
 
   const { page, handlePageChange, calculatePages, handleOnItemsPerPage } = usePagination({
-    totalPages,
+    totalItems,
     currentPage,
     visiblePages,
     onPageChange,

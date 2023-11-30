@@ -8,7 +8,7 @@ The Pagination component enables the user to select a specific page from a range
 
 ```js
 <Pagination
-  totalPages={100}
+  totalItems={100}
   currentPage={1}
   visiblePages={10}
   onPageChange={(page: Number) => {
@@ -23,7 +23,7 @@ The Pagination component enables the user to select a specific page from a range
 
 | NAME         |   TYPE   |   DEFAULT    |
 | :----------- | :------: | :----------: |
-| totalPages   |  Number  |   required   |
+| totalItems   |  Number  |   required   |
 | visiblePages |  Number  |      10      |
 | onPageChange | Function | (page) => {} |
 | currentPage  |  Number  |      1       |
