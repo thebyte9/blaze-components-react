@@ -3,6 +3,12 @@ import Input from '@blaze-react/input';
 import usePagination from './hooks/usePagination';
 
 interface PaginationProps {
+  options: {
+    previous: string | JSX.Element,
+    next: string | JSX.Element
+    displayText: string,
+    rowText: string
+  }
   totalItems: number;
   currentPage: number;
   visiblePages: number;
@@ -10,7 +16,7 @@ interface PaginationProps {
   onPageChange: ({ pageNumber, itemsPerPage, offset }: { pageNumber: number, itemsPerPage: number, offset: number }) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ totalItems, currentPage, onPageChange, visiblePages, itemsPerPage }) => {
+const Pagination: React.FC<PaginationProps> = ({ options, totalItems, currentPage, onPageChange, visiblePages, itemsPerPage }) => {
 
   const { page, handlePageChange, calculatePages, handleOnItemsPerPage } = usePagination({
     totalItems,
@@ -29,7 +35,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, currentPage, onPage
   return (
     <div className="pagination">
       {itemsPerPage && <div className="pagination__rows">
-        <span>Displaying</span>
+        <span> {options.displayText}</span>
         <Input
           min="1"
           className="pagination__input"
@@ -38,13 +44,13 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, currentPage, onPage
           type="number"
 
         />
-        <span>rows per page</span>
+        <span> {options.rowText}</span>
       </div>}
       <ul className="pagination">
         <li className="pagination__item pagination__item--icon"
           onClick={() => handlePageChange(page - 1)}
         >
-          &lsaquo;
+          {options.previous}
         </li>
         {pages.map((pageNumber: number, index: number) => (
           <>
@@ -63,7 +69,7 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, currentPage, onPage
           className="pagination__item pagination__item--icon"
           onClick={() => handlePageChange(page + 1)}
         >
-          &rsaquo;
+          {options.next}
         </li>
       </ul>
     </div>
@@ -73,6 +79,12 @@ const Pagination: React.FC<PaginationProps> = ({ totalItems, currentPage, onPage
 Pagination.defaultProps = {
   visiblePages: 10,
   currentPage: 1,
+  options: {
+    previous: <span>&lsaquo;</span>,
+    next: <span>&rsaquo;</span>,
+    displayText: 'Displaying',
+    rowText: 'rows per page'
+  }
 };
 
 export default Pagination;

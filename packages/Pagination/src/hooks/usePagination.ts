@@ -52,38 +52,33 @@ const usePagination = ({
     const pages: number[] = [];
     const halfVisiblePages = Math.floor(visiblePages / 2);
 
-    if (totalItems <= visiblePages) {
-      for (let i = 1; i <= totalItems; i++) {
-        pages.push(i);
-      }
-    } else {
-      let startPage = Math.max(1, page - halfVisiblePages);
-      let endPage = Math.min(totalItems, startPage + visiblePages - 1);
+    if (totalItems <= visiblePages) return [...Array(totalItems).keys()].map(i => i + 1)
 
-      if (startPage === 1) {
-        endPage = visiblePages;
-      } else if (endPage === totalItems) {
-        startPage = totalItems - visiblePages + 1;
-      }
+    let startPage = Math.max(1, page - halfVisiblePages);
+    let endPage = Math.min(totalItems, startPage + visiblePages - 1);
 
-      for (let i = startPage; i <= endPage; i++) {
-        pages.push(i);
-      }
+    if (startPage === 1) {
+      endPage = visiblePages;
+    } else if (endPage === totalItems) {
+      startPage = totalItems - visiblePages + 1;
+    }
 
-      if (startPage > 1) {
-        pages.unshift(-1);
-        pages.unshift(1);
-      }
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
 
-      if (endPage < totalItems) {
-        pages.push(-2);
-        pages.push(totalItems);
-      }
+    if (startPage > 1) {
+      pages.unshift(-1);
+      pages.unshift(1);
+    }
+
+    if (endPage < totalItems) {
+      pages.push(-2);
+      pages.push(totalItems);
     }
 
     return pages;
   };
-
 
   return { page, handlePageChange, calculatePages, itemsPerPage, handleOnItemsPerPage };
 };
