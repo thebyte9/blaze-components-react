@@ -1,7 +1,6 @@
 import { Checkboxes } from '@blaze-react/checkboxes';
 import { ITableRow } from '../interfaces';
 import React from 'react';
-import VirtualList from 'react-tiny-virtual-list';
 import { nanoid } from 'nanoid';
 
 interface ICheckbox {
@@ -18,12 +17,7 @@ interface ITableBody {
   handleSelected: (checked: ICheckbox[], value: string | ICheckbox[], isMultiselect?: boolean) => void;
   columns: string[];
   placeholder: string | JSX.Element;
-  bodyRef: any;
-  scrollToIndex: number;
-  overScanBuffer: number;
-  onRenderItems?: (arg: any) => void;
   onClickRow: (arg: any) => void;
-  tableBodyHeight?: number;
 }
 
 const TableBody = ({
@@ -34,12 +28,7 @@ const TableBody = ({
   handleSelected,
   columns,
   placeholder,
-  bodyRef,
-  overScanBuffer = 20,
-  onRenderItems,
-  scrollToIndex = 0,
   onClickRow,
-  tableBodyHeight,
 }: ITableBody): JSX.Element => {
   if (!rows || !rows.length)
     return (
@@ -48,50 +37,38 @@ const TableBody = ({
       </div>
     );
 
-  const rowsLength = rows.length;
-  const bodyHeight = bodyRef && bodyRef.offsetHeight;
-  const listHeight = tableBodyHeight || bodyHeight;
 
   return (
-    <VirtualList
-      width="100%"
-      height={listHeight}
-      itemCount={rowsLength}
-      itemSize={62}
-      scrollToIndex={scrollToIndex}
-      overscanCount={overScanBuffer}
-      onItemsRendered={onRenderItems}
-      renderItem={({ index, style }) => (
+    <div className="custom-virtual-list">
+      {rows.map((row, index) => (
         <div
-          onClick={() => onClickRow({ ...rows[index], index })}
+          onClick={() => onClickRow({ ...row, index })}
           className="table-row"
           key={`tablerow-${nanoid()}`}
           data-testid={`tablerow-${index}`}
-          style={style}
+          style={{ height: '62px' }} // Adjust the height as needed
         >
           {checkboxes && (
             <div className="table-cell--checkbox">
               <Checkboxes
                 test-id={`row-checkbox-${index}`}
                 options={{
-                  checked: selected.includes(rows[index][identification]),
-                  id: rows[index][identification],
-                  value: rows[index][identification],
+                  checked: selected.includes(row[identification]),
+                  id: row[identification],
+                  value: row[identification],
                 }}
-                onChange={({ value }: any): void => handleSelected(value, rows[index][identification])}
+                onChange={({ value }: any): void => handleSelected(value, row[identification])}
               />
             </div>
           )}
-          {columns.map(
-            (column: string): JSX.Element => (
-              <div className="table-cell" key={column}>
-                <div className="table-cell--content">{rows[index][column]}</div>
-              </div>
-            ),
-          )}
+          {columns.map((column: string) => (
+            <div className="table-cell" key={column}>
+              <div className="table-cell--content">{row[column]}</div>
+            </div>
+          ))}
         </div>
-      )}
-    />
+      ))}
+    </div>
   );
 };
 

@@ -11,12 +11,23 @@ jest.mock('nanoid', () => {
   };
 });
 
+const tableBodyProps = {
+  handleSelected: jest.fn(),
+  onClickRow: jest.fn(),
+  selected: [],
+  checkboxes: true,
+  columns: data.columns,
+  rows: data.rows,
+  placeholder: 'table body',
+  identification: "id"
+}
+
 describe('Table body', () => {
   afterEach(cleanup);
 
   it('should show placeholder if there is no data yet', () => {
     const placeholder = 'The table is empty of records';
-    const { getByText, container } = render(<TableBody rows={[]} placeholder={placeholder} />);
+    const { getByText, container } = render(<TableBody {...tableBodyProps} rows={[]} placeholder={placeholder} />);
 
     getByText(placeholder);
     expect(container).toMatchSnapshot();
@@ -25,12 +36,11 @@ describe('Table body', () => {
   it('should render data and pass it throught virtual list', () => {
     const { container } = render(
       <TableBody
+        {...tableBodyProps}
         selected={[]}
-        onItemsRendered={jest.fn}
         checkboxes={true}
         columns={data.columns}
         rows={data.rows}
-        bodyRef={{ offsetHeight: 1000 }}
       />,
     );
 
@@ -39,18 +49,13 @@ describe('Table body', () => {
 
   it('should retun row data when clicked clicked', () => {
     const mockedOnClickRow = jest.fn();
-    const { getByTestId } = render(
+    render(
       <TableBody
-        handleSelected={jest.fn()}
+        {...tableBodyProps}
         onClickRow={mockedOnClickRow}
-        selected={[]}
-        onItemsRendered={jest.fn}
-        checkboxes={true}
-        columns={data.columns}
-        rows={data.rows}
-        bodyRef={{ offsetHeight: 1000 }}
       />,
     );
     fireEvent.click(screen.getByTestId('tablerow-1'));
+    expect(mockedOnClickRow).toHaveBeenCalledTimes(1);
   });
 });

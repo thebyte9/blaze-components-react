@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
+import React, { FunctionComponent, useRef, useState } from 'react';
 import TableBody from './TableBody';
 import TableHead from './TableHead';
 import { ITableRow, ICheckboxItem } from './interfaces';
@@ -18,10 +18,7 @@ interface ITableProps {
   overScanBuffer?: number;
   onSelect?: (arg: any[]) => any;
   onSort?: (arg: any) => any;
-  onRenderItems?: (arg: any) => void;
   onClickRow?: (arg: any) => void;
-  scrollToIndex?: number;
-  tableBodyHeight?: number;
 }
 
 const Table: FunctionComponent<ITableProps> = ({
@@ -31,39 +28,9 @@ const Table: FunctionComponent<ITableProps> = ({
   onClickRow = () => ({}),
   checkboxes,
   placeholder = '',
-  overScanBuffer = 0,
-  onRenderItems,
-  scrollToIndex = 0,
-  tableBodyHeight,
 }) => {
   const headRef = useRef<any>(null);
-  const bodyRef = useRef<any>(null);
   const [selected, setSelected] = useState<any[]>([]);
-  const [bodyCurrentState, setBodyCurrentState] = useState();
-
-  useEffect(() => {
-    setBodyCurrentState(bodyRef.current);
-    if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild && rows.length) {
-      bodyRef.current.firstElementChild.addEventListener('scroll', (event: any) => syncScroll(headRef.current, event));
-    }
-
-    if (headRef && headRef.current && headRef.current.firstElementChild) {
-      headRef.current.addEventListener('scroll', (event: any) => syncScroll(bodyRef.current.firstElementChild, event));
-    }
-
-    return () => {
-      if (bodyRef && bodyRef.current && bodyRef.current.firstElementChild) {
-        bodyRef.current.firstElementChild.removeEventListener('scroll', syncScroll);
-      }
-      if (headRef.current) {
-        headRef.current.removeEventListener('scroll', syncScroll);
-      }
-    };
-  }, [bodyRef.current, headRef.current]);
-
-  const syncScroll = (ref: any, event: any) => {
-    ref.scrollLeft = event.target.scrollLeft;
-  };
 
   const handleSelected = ([checked]: ICheckboxItem[], value: string | ICheckboxItem[], multiselect = false): void => {
     let checkedValue: any = [];
@@ -92,12 +59,9 @@ const Table: FunctionComponent<ITableProps> = ({
         appliedSort={appliedSort}
         labels={labels}
       />
-      <div ref={bodyRef} className="table-body">
+      <div className="table-body">
         <TableBody
-          scrollToIndex={scrollToIndex}
           onClickRow={onClickRow}
-          bodyRef={bodyCurrentState}
-          tableBodyHeight={tableBodyHeight}
           rows={rows}
           checkboxes={checkboxes}
           identification={identification}
@@ -105,8 +69,6 @@ const Table: FunctionComponent<ITableProps> = ({
           handleSelected={handleSelected}
           columns={columns}
           placeholder={placeholder}
-          overScanBuffer={overScanBuffer}
-          onRenderItems={onRenderItems}
         />
       </div>
     </div>

@@ -74,6 +74,7 @@ module.exports = {
           '@blaze-react/modal': path.resolve(__dirname, '../packages/Modal/src'),
           '@blaze-react/icon': path.resolve(__dirname, '../packages/Icon/src'),
           '@blaze-react/skeleton': path.resolve(__dirname, '../packages/Skeleton/src'),
+          '@blaze-react/pagination': path.resolve(__dirname, '../packages/Pagination/src'),
         },
       },
     };
