@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.67](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.66...v0.8.0-alpha.67) (2023-10-20)
+
+
+### Bug Fixes
+
+* ammend broken file input test ([b4fe69e](https://github.com/thebyte9/blaze-components-react/commit/b4fe69e31d3063fe2a3ceabb4725799ce6bb9f39))
+* update snapshot ([15636e6](https://github.com/thebyte9/blaze-components-react/commit/15636e63f19d83edbeafe1c808e219cf4f84174a))
+
+
+
+
+
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+**Note:** Version bump only for package @blaze-react/range-filter
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/range-filter
+
+
+
+
+
 # [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
 
 **Note:** Version bump only for package @blaze-react/range-filter

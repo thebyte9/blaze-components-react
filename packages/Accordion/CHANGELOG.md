@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+**Note:** Version bump only for package @blaze-react/accordion
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/accordion
+
+
+
+
+
+# [0.8.0-alpha.63](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.62...v0.8.0-alpha.63) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/accordion
+
+
+
+
+
 # [0.8.0-alpha.62](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.61...v0.8.0-alpha.62) (2023-02-01)
 
 **Note:** Version bump only for package @blaze-react/accordion

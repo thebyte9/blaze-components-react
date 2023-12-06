@@ -3,6 +3,96 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.69](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.68...v0.8.0-alpha.69) (2023-11-20)
+
+
+### Bug Fixes
+
+* handle on change ([#681](https://github.com/thebyte9/blaze-components-react/issues/681)) ([ea15993](https://github.com/thebyte9/blaze-components-react/commit/ea15993885446073fb90ede9e6570894d01aae68))
+
+
+
+
+
+# [0.8.0-alpha.68](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.67...v0.8.0-alpha.68) (2023-10-24)
+
+
+### Features
+
+* add disabled pror ([#680](https://github.com/thebyte9/blaze-components-react/issues/680)) ([a9ee485](https://github.com/thebyte9/blaze-components-react/commit/a9ee4850b41f5d685b0289c55b396c2454c366cd))
+
+
+
+
+
+# [0.8.0-alpha.67](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.66...v0.8.0-alpha.67) (2023-10-20)
+
+
+### Bug Fixes
+
+* ammend broken file input test ([b4fe69e](https://github.com/thebyte9/blaze-components-react/commit/b4fe69e31d3063fe2a3ceabb4725799ce6bb9f39))
+* ammended comments ([19c01a7](https://github.com/thebyte9/blaze-components-react/commit/19c01a76d39013891b52387e20e974089a0c447e))
+* update snapshot ([15636e6](https://github.com/thebyte9/blaze-components-react/commit/15636e63f19d83edbeafe1c808e219cf4f84174a))
+
+
+### Features
+
+* allow input copy ([bd1a7c6](https://github.com/thebyte9/blaze-components-react/commit/bd1a7c64e34545880efe639029d3f9ed2399c25b))
+
+
+
+
+
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+
+### Features
+
+* update tabs to handle conditional items ([#676](https://github.com/thebyte9/blaze-components-react/issues/676)) ([b2f409c](https://github.com/thebyte9/blaze-components-react/commit/b2f409c153cf70d163fc0ef7ab6f464a94ef4ce1))
+
+
+
+
+
+# [0.8.0-alpha.65](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.64...v0.8.0-alpha.65) (2023-09-19)
+
+
+### Bug Fixes
+
+* fixed failing snapshot ([49b749a](https://github.com/thebyte9/blaze-components-react/commit/49b749aff4c68df0ac5784ed58313b00e29e0de6))
+* fixed failing test ([05732b8](https://github.com/thebyte9/blaze-components-react/commit/05732b8b6dde5541dcaeb55a701dbab4f1766c93))
+* fixed table not rendering correctly ([114e361](https://github.com/thebyte9/blaze-components-react/commit/114e361634b7452cc9ec93d11b5f780f8ae5b036))
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
+# [0.8.0-alpha.63](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.62...v0.8.0-alpha.63) (2023-09-14)
+
+
+### Bug Fixes
+
+* make please choose option configurable ([#668](https://github.com/thebyte9/blaze-components-react/issues/668)) ([717a81b](https://github.com/thebyte9/blaze-components-react/commit/717a81b1e51307ff7569a934da40f36958707b15))
+* remove choose prompt when limit reached ([24acdc1](https://github.com/thebyte9/blaze-components-react/commit/24acdc1bd572940c3933ca0216d815116b86b596))
+
+
+### Features
+
+* update fileupload component to allow setting credits ([591a7b1](https://github.com/thebyte9/blaze-components-react/commit/591a7b11d9a5d2d02259e9713f1e0c160ddeda1e))
+* update fileupload component to allow setting credits ([840907b](https://github.com/thebyte9/blaze-components-react/commit/840907b8f9f531aa0e3749e207d5bc33f9d1b165))
+
+
+
+
+
 # [0.8.0-alpha.62](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.61...v0.8.0-alpha.62) (2023-02-01)
 
 **Note:** Version bump only for package blaze-react
