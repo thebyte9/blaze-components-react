@@ -114,7 +114,7 @@ const SpaceXDemoComponent = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Table checkboxes data={getTableData()} onSelect={() => ({})} tableBodyHeight={400} />
+      <Table checkboxes data={getTableData()} onSelect={() => ({})} />
       <Pagination
         totalItems={totalItems}
         onPageChange={(page: { pageNumber: number, itemsPerPage: number, offset: number }) => {

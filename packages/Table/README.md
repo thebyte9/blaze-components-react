@@ -3,18 +3,18 @@
 Wrap your app in the `ToastProvider`, which provides context for the `Toast` descendants.
 
 ```jsx
-import { ToastProvider, useToasts } from "@blaze-cms/toaster";
+import { ToastProvider, useToasts } from '@blaze-cms/toaster';
 
 const FormWithToasts = () => {
   const { addToast } = useToasts();
 
-  const onSubmit = async value => {
+  const onSubmit = async (value) => {
     const { error } = await dataPersistenceLayer(value);
 
     if (error) {
-      addToast(error.message, { appearance: "error" });
+      addToast(error.message, { appearance: 'error' });
     } else {
-      addToast("Saved Successfully", { appearance: "success" });
+      addToast('Saved Successfully', { appearance: 'success' });
     }
   };
 
@@ -61,13 +61,7 @@ For brevity:
 The `useToast` hook has the following signature:
 
 ```jsx
-const {
-  addToast,
-  removeToast,
-  removeAllToasts,
-  updateToast,
-  toastStack
-} = useToasts();
+const { addToast, removeToast, removeAllToasts, updateToast, toastStack } = useToasts();
 ```
 
 The `addToast` method has three arguments:
@@ -94,11 +88,11 @@ The `toastStack` is an array of objects representing the current toasts, e.g.
 ```jsx
 [
   {
-    content: "Something went wrong",
-    id: "generated-string",
-    appearance: "error"
+    content: 'Something went wrong',
+    id: 'generated-string',
+    appearance: 'error',
   },
-  { content: "Item saved", id: "generated-string", appearance: "success" }
+  { content: 'Item saved', id: 'generated-string', appearance: 'success' },
 ];
 ```
 
@@ -107,23 +101,19 @@ The `toastStack` is an array of objects representing the current toasts, e.g.
 To bring each toast notification inline with your app, you can provide alternative components to the `ToastProvider`:
 
 ```jsx
-import { ToastProvider } from "@blaze-cms/toaster";
+import { ToastProvider } from '@blaze-cms/toaster';
 
 const MyCustomToast = ({ appearance, children }) => (
-  <div style={{ background: appearance === "error" ? "red" : "green" }}>
-    {children}
-  </div>
+  <div style={{ background: appearance === 'error' ? 'red' : 'green' }}>{children}</div>
 );
 
-const App = () => (
-  <ToastProvider components={{ Toast: MyCustomToast }}>...</ToastProvider>
-);
+const App = () => <ToastProvider components={{ Toast: MyCustomToast }}>...</ToastProvider>;
 ```
 
 To customize the existing component instead of creating a new one, you may import `DefaultToast`:
 
 ```jsx
-import { DefaultToast } from "@blaze-cms/toaster";
+import { DefaultToast } from '@blaze-cms/toaster';
 export const MyCustomToast = ({ children, ...props }) => (
   <DefaultToast {...props}>
     <SomethingSpecial>{children}</SomethingSpecial>
