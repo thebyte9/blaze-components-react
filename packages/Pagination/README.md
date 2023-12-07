@@ -28,3 +28,4 @@ The Pagination component enables the user to select a specific page from a range
 | onPageChange | Function | (page) => {} |
 | currentPage  |  Number  |      1       |
 | itemsPerPage |  Number  |      10      |
+| simple       | Boolean  |    false     |
