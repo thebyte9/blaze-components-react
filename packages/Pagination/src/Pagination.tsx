@@ -3,6 +3,7 @@ import Input from '@blaze-react/input';
 import usePagination from './hooks/usePagination';
 
 interface PaginationProps {
+  simple?: boolean;
   options: {
     previous: string | JSX.Element,
     next: string | JSX.Element
@@ -13,10 +14,21 @@ interface PaginationProps {
   currentPage: number;
   visiblePages: number;
   itemsPerPage?: number;
-  onPageChange: ({ pageNumber, itemsPerPage, offset }: { pageNumber: number, itemsPerPage: number, offset: number }) => void;
+  onPageChange: (
+    { pageNumber, itemsPerPage, offset }: { pageNumber: number, itemsPerPage: number, offset: number }
+  ) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ options, totalItems, currentPage, onPageChange, visiblePages, itemsPerPage }) => {
+const Pagination: React.FC<PaginationProps> = (
+  {
+    simple,
+    options,
+    totalItems,
+    currentPage,
+    onPageChange,
+    visiblePages,
+    itemsPerPage
+  }) => {
 
   const { page, handlePageChange, calculatePages, handleOnItemsPerPage } = usePagination({
     totalItems,
@@ -30,7 +42,9 @@ const Pagination: React.FC<PaginationProps> = ({ options, totalItems, currentPag
     `pagination__item ${number === page ? "pagination__item--active" : ""
     }`;
 
-  const pages = calculatePages();
+  if (totalItems === 0) return null;
+
+  const pages = simple || totalItems === 0 ? null : calculatePages();
 
   return (
     <div className="pagination">
@@ -52,7 +66,7 @@ const Pagination: React.FC<PaginationProps> = ({ options, totalItems, currentPag
         >
           {options.previous}
         </li>
-        {pages.map((pageNumber: number, index: number) => (
+        {pages && pages.map((pageNumber: number, index: number) => (
           <>
             {pageNumber < 0 ? <span key={index}>...</span> : (
               <li

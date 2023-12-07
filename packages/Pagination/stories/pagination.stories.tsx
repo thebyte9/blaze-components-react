@@ -23,6 +23,7 @@ storiesOf("Pagination", module)
 
           <h4>Example</h4>
           <Pagination
+            simple
             totalItems={15}
             currentPage={1}
             visiblePages={10}
