@@ -3,7 +3,6 @@ import Input from '@blaze-react/input';
 import usePagination from './hooks/usePagination';
 
 interface PaginationProps {
-  simple?: boolean;
   options: {
     previous: string | JSX.Element,
     next: string | JSX.Element
@@ -21,7 +20,6 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = (
   {
-    simple,
     options,
     totalItems,
     currentPage,
