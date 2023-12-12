@@ -2,8 +2,14 @@ import React from 'react';
 import Input from '@blaze-react/input';
 import usePagination from './hooks/usePagination';
 
+const DEFAULT_OPTIONS = {
+  previous: <span>&lsaquo;</span>,
+  next: <span>&rsaquo;</span>,
+  displayText: 'Displaying',
+  rowText: 'rows per page'
+}
 interface PaginationProps {
-  options: {
+  options?: {
     previous: string | JSX.Element,
     next: string | JSX.Element
     displayText: string,
@@ -20,7 +26,7 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = (
   {
-    options,
+    options = DEFAULT_OPTIONS,
     totalItems,
     currentPage,
     onPageChange,
@@ -88,13 +94,7 @@ const Pagination: React.FC<PaginationProps> = (
 
 Pagination.defaultProps = {
   visiblePages: 10,
-  currentPage: 1,
-  options: {
-    previous: <span>&lsaquo;</span>,
-    next: <span>&rsaquo;</span>,
-    displayText: 'Displaying',
-    rowText: 'rows per page'
-  }
+  currentPage: 1
 };
 
 export default Pagination;

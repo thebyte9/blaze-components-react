@@ -91,14 +91,6 @@ exports[`Pagination component should be defined and renders correctly (snapshot)
       >
         10
       </li>
-      <span>
-        ...
-      </span>
-      <li
-        class="pagination__item "
-      >
-        100
-      </li>
       <li
         class="pagination__item pagination__item--icon"
       >
