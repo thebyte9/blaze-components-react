@@ -29,7 +29,6 @@ const usePagination = ({
   const [page, setPage] = useState<number>(currentPage);
   const [itemsPerPage, setItemsPerPage] = useState(DEFAULT_ITEMS_PER_PAGE);
 
-
   useEffect(() => {
     setPage(currentPage);
   }, [currentPage]);

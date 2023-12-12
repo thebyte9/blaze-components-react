@@ -50,7 +50,7 @@ const Pagination: React.FC<PaginationProps> = (
 
   return (
     <div className="pagination">
-      {itemsPerPage && <div className="pagination__rows">
+      {itemsPerPage && pages && <div className="pagination__rows" data-testid="items-perpage">
         <span> {options.displayText}</span>
         <Input
           min="1"
@@ -68,12 +68,12 @@ const Pagination: React.FC<PaginationProps> = (
         >
           {options.previous}
         </li>
-        {pages && pages.map((pageNumber: number, index: number) => (
+        {pages && pages.map((pageNumber: number) => (
           <>
-            {pageNumber < 0 ? <span key={index}>...</span> : (
+            {pageNumber < 0 ? <span key="dots">...</span> : (
               <li
                 className={getItemClassName(pageNumber)}
-                key={index}
+                key={pageNumber}
                 onClick={() => handlePageChange(pageNumber)}
               >
                 {pageNumber}

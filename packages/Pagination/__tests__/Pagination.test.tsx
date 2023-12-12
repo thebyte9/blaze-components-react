@@ -25,11 +25,17 @@ describe('Pagination component', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('handles page change', () => {
+    it('Should handle page change', () => {
         const mockOnChange = jest.fn();
         render(<Pagination {...defaultProps({ onPageChange: mockOnChange })} />);
         userEvent.click(screen.getByText('6'));
         expect(mockOnChange).toHaveBeenCalled();
+    });
+
+    it('Does not display items per page when total items are zero.', () => {
+        const { queryByTestId } = render(<Pagination {...defaultProps({ totalItems: 0 })} />);
+        const element = queryByTestId('items-perpage');
+        expect(element).not.toBeInTheDocument();
     });
 
 });
