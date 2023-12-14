@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.72](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.71...v0.8.0-alpha.72) (2023-12-14)
+
+**Note:** Version bump only for package @blaze-react/pagination
+
+
+
+
+
 # [0.8.0-alpha.71](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.70...v0.8.0-alpha.71) (2023-12-14)
 
 
