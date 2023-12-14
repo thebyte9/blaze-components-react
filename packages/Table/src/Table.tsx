@@ -15,7 +15,6 @@ interface ITableProps {
     labels: Record<string, unknown>;
   };
   value?: string;
-  overScanBuffer?: number;
   onSelect?: (arg: any[]) => any;
   onSort?: (arg: any) => any;
   onClickRow?: (arg: any) => void;
