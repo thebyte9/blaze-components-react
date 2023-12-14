@@ -14,7 +14,6 @@ type PaginationReturnType = {
   calculatePages: () => number[],
   handlePageChange: (pageNumber: number) => void,
   handleOnItemsPerPage: (itemsNumber: number) => void,
-
 }
 
 const DEFAULT_ITEMS_PER_PAGE = 10;
