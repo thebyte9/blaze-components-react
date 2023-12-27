@@ -10,7 +10,7 @@ const Table: any = lazy((): any => import('../src/Table'));
 const DemoComponent = () => {
   const [pagination, setPagination] = useState({
     itemsPerPage: 5,
-    visiblePages: 10,
+    visiblePages: 5,
     currentPage: 1,
     offset: 10
   })
@@ -26,7 +26,7 @@ const DemoComponent = () => {
 
   const generateFakeData = () => {
     const rows = [];
-    for (let i = 1; i < 75; i++) {
+    for (let i = 1; i <= 102; i++) {
       rows.push({
         city: `city ${i}`,
         email: `email${i}@byte9.com`,
@@ -44,7 +44,6 @@ const DemoComponent = () => {
     }
   }, []);
 
-  const totalItems = Math.round(data.rows.length / pagination.itemsPerPage);
 
   const getTableData = () => {
     const indexOfLastTodo = pagination.currentPage * pagination.itemsPerPage;
@@ -58,10 +57,10 @@ const DemoComponent = () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Table checkboxes data={getTableData()} onSelect={() => ({})} tableBodyHeight={400} />
+      <Table checkboxes data={getTableData()} onSelect={() => ({})} />
 
       <Pagination
-        totalItems={totalItems}
+        totalItems={data.rows.length}
         onPageChange={(page: { pageNumber: number, itemsPerPage: number, offset: number }) => {
           setPagination({ ...pagination, itemsPerPage: page.itemsPerPage, currentPage: page.pageNumber, offset: page.offset })
         }}

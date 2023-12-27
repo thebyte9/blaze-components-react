@@ -14,6 +14,8 @@ type PaginationReturnType = {
   calculatePages: () => number[],
   handlePageChange: (pageNumber: number) => void,
   handleOnItemsPerPage: (itemsNumber: number) => void,
+  isNextDisabled: boolean,
+  isPrevDisabled: boolean
 }
 
 const DEFAULT_ITEMS_PER_PAGE = 10;
@@ -80,7 +82,18 @@ const usePagination = ({
     return pages;
   };
 
-  return { page, handlePageChange, calculatePages, itemsPerPage, handleOnItemsPerPage };
+  const isPrevDisabled = page === 1;
+  const isNextDisabled = page === totalPages;
+
+  return {
+    page,
+    handlePageChange,
+    calculatePages,
+    itemsPerPage,
+    handleOnItemsPerPage,
+    isNextDisabled,
+    isPrevDisabled
+  };
 };
 
 export default usePagination;
