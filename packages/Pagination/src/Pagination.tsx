@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '@blaze-react/input';
+import { buildClassNames } from '@blaze-react/utils';
 import usePagination from './hooks/usePagination';
 
 const DEFAULT_OPTIONS = {
@@ -34,7 +35,14 @@ const Pagination: React.FC<PaginationProps> = (
     itemsPerPage
   }) => {
 
-  const { page, handlePageChange, calculatePages, handleOnItemsPerPage } = usePagination({
+  const {
+    page,
+    handlePageChange,
+    calculatePages,
+    handleOnItemsPerPage,
+    isNextDisabled,
+    isPrevDisabled
+  } = usePagination({
     totalItems,
     currentPage,
     visiblePages,
@@ -47,6 +55,14 @@ const Pagination: React.FC<PaginationProps> = (
     }`;
 
   const pages = !totalItems ? null : calculatePages();
+
+  const nextclassnames = buildClassNames('pagination__item pagination__item--icon', {
+    ['pagination__item--disabled']: isNextDisabled,
+  });
+
+  const prevclassnames = buildClassNames('pagination__item pagination__item--icon', {
+    [`pagination__item--disabled`]: isPrevDisabled
+  });
 
   return (
     <div className="pagination">
@@ -63,7 +79,7 @@ const Pagination: React.FC<PaginationProps> = (
         <span> {options.rowText}</span>
       </div>}
       <ul className="pagination">
-        <li className="pagination__item pagination__item--icon"
+        <li className={prevclassnames}
           onClick={() => handlePageChange(page - 1)}
         >
           {options.previous}
@@ -82,7 +98,7 @@ const Pagination: React.FC<PaginationProps> = (
           </>
         ))}
         <li
-          className="pagination__item pagination__item--icon"
+          className={nextclassnames}
           onClick={() => handlePageChange(page + 1)}
         >
           {options.next}
