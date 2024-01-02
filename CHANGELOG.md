@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.74](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.73...v0.8.0-alpha.74) (2024-01-02)
+
+
+### Bug Fixes
+
+* handle nav status ([#683](https://github.com/thebyte9/blaze-components-react/issues/683)) ([3c17f45](https://github.com/thebyte9/blaze-components-react/commit/3c17f45a46a8855859b1bf363ebe13230d1e3999))
+
+
+
+
+
 # [0.8.0-alpha.73](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.72...v0.8.0-alpha.73) (2023-12-20)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/social-follow",
-  "version": "0.8.0-alpha.70",
+  "version": "0.8.0-alpha.74",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.70",
+    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.74",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack": "^5.28.0",
