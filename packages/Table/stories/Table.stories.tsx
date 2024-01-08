@@ -117,6 +117,7 @@ const SpaceXDemoComponent = () => {
       <Pagination
         totalItems={totalItems}
         onPageChange={(page: { pageNumber: number, itemsPerPage: number, offset: number }) => {
+          console.log(page.offset)
           setPagination({ ...pagination, itemsPerPage: page.itemsPerPage, currentPage: page.pageNumber, offset: page.offset })
         }}
         {...pagination}
