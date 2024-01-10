@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.75](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.74...v0.8.0-alpha.75) (2024-01-10)
+
+**Note:** Version bump only for package blaze-react
+
+
+
+
+
 # [0.8.0-alpha.74](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.73...v0.8.0-alpha.74) (2024-01-02)
 
 
