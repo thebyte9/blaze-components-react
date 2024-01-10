@@ -40,7 +40,7 @@ const usePagination = ({
 
   const handlePageChange = (pageNumber: number) => {
     setPage(pageNumber);
-    onPageChange({ pageNumber, itemsPerPage, offset: pageNumber * itemsPerPage });
+    onPageChange({ pageNumber, itemsPerPage, offset: (pageNumber - 1) * itemsPerPage });
   };
 
   const handleOnItemsPerPage = (itemsNumber: number) => {
