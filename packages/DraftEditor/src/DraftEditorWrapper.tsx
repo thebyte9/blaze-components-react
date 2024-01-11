@@ -50,6 +50,7 @@ const DraftEditorWrapper = ({
   allowedChildChanges,
   buttonEnabledState,
   textBlockRef,
+  customLinkModal: CustomLinkModal
 }: IEditorWrapper) => {
   // const wrapper = useRef<HTMLDivElement>(null);
   const editor = useRef<Editor>();
@@ -214,13 +215,14 @@ const DraftEditorWrapper = ({
   };
 
   const { editorState } = state;
+  const LinkModalToUse = CustomLinkModal || LinkModal;
 
   return (
     <BaseComponent className="editor-view__textblock" props={componentProps} onClick={focusEditor}>
       <DraftEditor {...draftProps} />
 
       {addLinkModal && (
-        <LinkModal
+        <LinkModalToUse
           editorState={state.editorState}
           onClose={() => showAddLinkModal(false)}
           onSave={(url, linkState: unknown) => {
@@ -240,6 +242,7 @@ DraftEditorWrapper.defaultProps = {
   allowedChildChanges: null,
   buttonEnabledState: false,
   textBlockRef: null,
+  customLinkModal: null
 };
 
 export default DraftEditorWrapper;
