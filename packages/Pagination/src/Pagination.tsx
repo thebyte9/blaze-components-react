@@ -50,11 +50,13 @@ const Pagination: React.FC<PaginationProps> = (
     defaultItemsPerPage: itemsPerPage
   });
 
+  const pages = !totalItems ? null : calculatePages();
+
+  if (pages && pages.length === 1) return null;
+
   const getItemClassName = (number: number) =>
     `pagination__item ${number === page ? "pagination__item--active" : ""
     }`;
-
-  const pages = !totalItems ? null : calculatePages();
 
   const nextclassnames = buildClassNames('pagination__item pagination__item--icon', {
     ['pagination__item--disabled']: isNextDisabled,
@@ -65,7 +67,7 @@ const Pagination: React.FC<PaginationProps> = (
   });
 
   return (
-    <div className="pagination">
+    <div className="pagination" data-testid="pagination">
       {itemsPerPage && pages && <div className="pagination__rows" data-testid="items-perpage">
         <span> {options.displayText}</span>
         <Input
