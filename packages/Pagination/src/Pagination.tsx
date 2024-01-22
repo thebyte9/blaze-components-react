@@ -52,7 +52,7 @@ const Pagination: React.FC<PaginationProps> = (
 
   const pages = !totalItems ? null : calculatePages();
 
-  if (pages && pages.length === 1) return null;
+  if (pages && pages.length <= 1) return null;
 
   const getItemClassName = (number: number) =>
     `pagination__item ${number === page ? "pagination__item--active" : ""
