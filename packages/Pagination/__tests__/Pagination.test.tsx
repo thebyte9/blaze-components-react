@@ -20,6 +20,12 @@ describe('Pagination component', () => {
         expect(Pagination).toBeDefined();
     });
 
+    it('Should hide pagination if there is only one page', () => {
+        const { queryByTestId } = render(<Pagination {...defaultProps({ totalItems: 5 })} />);
+        const element = queryByTestId('pagination');
+        expect(element).not.toBeInTheDocument();
+    });
+
     it('should be defined and renders correctly (snapshot)', () => {
         const { container } = render(<Pagination {...defaultProps()} />);
         expect(container).toMatchSnapshot();
