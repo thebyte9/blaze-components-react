@@ -10,13 +10,16 @@ interface IAccordionProps {
   onClose?: () => void;
   isOpen?: boolean;
 }
+
 const Accordion = ({ children, isOpen, onOpen, onClose }: IAccordionProps): JSX.Element => {
   const [accordionStatus, setAccordionStatus] = useState<string>(isOpen ? FLEX : NONE);
   const [header, content]: [JSX.Element, JSX.Element] = children;
   const isActive = accordionStatus === FLEX;
+
   useEffect(() => {
     setAccordionStatus(isOpen ? FLEX : NONE);
   }, [isOpen]);
+
   useEffect(() => {
     if (accordionStatus === FLEX) {
       onOpen && onOpen();
@@ -24,11 +27,14 @@ const Accordion = ({ children, isOpen, onOpen, onClose }: IAccordionProps): JSX.
       onClose && onClose();
     }
   }, [accordionStatus, onClose, onOpen]);
+
   const toggleAccordion = (): void => {
     const status = isActive ? NONE : FLEX;
     setAccordionStatus(status);
   };
+
   const arrowType = isActive ? UP : DOWN;
+
   return (
     <div className="accordion">
       <div className="accordion__header" onClick={toggleAccordion} data-testid="toggle-accordion">
@@ -43,6 +49,7 @@ const Accordion = ({ children, isOpen, onOpen, onClose }: IAccordionProps): JSX.
     </div>
   );
 };
+
 Accordion.Content = AccordionContent;
 Accordion.ContentDetails = AccordionContentDetails;
 Accordion.ContentFooter = AccordionContentFooter;
@@ -51,4 +58,5 @@ Accordion.defaultProps = {
   onOpen: () => ({}),
   onClose: () => ({}),
 };
+
 export default Accordion;
