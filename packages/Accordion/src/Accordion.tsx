@@ -4,6 +4,7 @@ import AccordionContentDetails from './AccordionContent/AccordionContentDetails'
 import AccordionContentFooter from './AccordionContent/AccordionContentFooter';
 import AccordionHeader from './AccordionHeader';
 import { DOWN, FLEX, NONE, UP } from './constants';
+
 interface IAccordionProps {
   children: [JSX.Element, JSX.Element];
   onOpen?: () => void;
