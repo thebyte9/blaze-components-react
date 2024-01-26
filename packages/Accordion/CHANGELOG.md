@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.77](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.75...v0.8.0-alpha.77) (2024-01-26)
+
+
+### Bug Fixes
+
+* adds back spacing for better code readability ([ea753db](https://github.com/thebyte9/blaze-components-react/commit/ea753db7fa5c7362144caca1338884a45909e199))
+* adds back spacing for better code readability ([457bf07](https://github.com/thebyte9/blaze-components-react/commit/457bf07d78921aa1cde58d237bd0e7aed838e7b0))
+* updates snapshots ([f12a6ef](https://github.com/thebyte9/blaze-components-react/commit/f12a6ef4c1f91270c46c3106572ebdea521131fd))
+
+
+
+
+
 # [0.8.0-alpha.76](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.75...v0.8.0-alpha.76) (2024-01-26)
 
 
