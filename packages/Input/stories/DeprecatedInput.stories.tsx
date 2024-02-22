@@ -21,6 +21,7 @@ storiesOf('Text Inputs', module)
 
           <h4>Required</h4>
           <Input
+            name="email"
             label="Required field with error activated"
             placeholder="Enter email"
             validationMessage="Email address is required"

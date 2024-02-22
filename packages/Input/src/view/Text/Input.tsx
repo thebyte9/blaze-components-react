@@ -1,4 +1,6 @@
 import React from 'react';
+import camelCase from 'lodash.camelcase';
+
 import { DisplayErrorAs, InputState, TextInputProps } from '../../types';
 import { ErrorMessage } from './ErrorMessage';
 import { ErrorIcon } from './Icons/ErrorIcon';
@@ -14,6 +16,8 @@ export const TextInput = ({
   displayError,
   classes,
   icon,
+  id,
+  name,
   ...rest
 }: TextInputProps): JSX.Element => {
   const iconProps = {
@@ -23,7 +27,7 @@ export const TextInput = ({
 
   return (
     <>
-      <label data-testid="input-label" className={classes[currentState].container}>
+      <label data-testid="input-label" className={classes[currentState].container} htmlFor={id || name}>
         <span className={classes[currentState].label}>{label}</span>
         {currentState === InputState.Error &&
           displayError === DisplayErrorAs.Icon &&

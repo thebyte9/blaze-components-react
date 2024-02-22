@@ -77,7 +77,7 @@ const Input: FunctionComponent<IInputProps> = ({
 
   return (
     <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
-      <label htmlFor={attrs.id} className={requiredClassName}>
+      <label htmlFor={attrs.id || attrs.name} className={requiredClassName}>
         {label}
       </label>
       <input
@@ -87,6 +87,7 @@ const Input: FunctionComponent<IInputProps> = ({
         disabled={disabled}
         type={newType}
         required={required}
+        id={attrs.id || attrs.name}
         {...attrs}
       />
       {newError && <ErrorMessage message={validationMessage} />}
