@@ -1,6 +1,4 @@
 import React from 'react';
-import camelCase from 'lodash.camelcase';
-
 import { DisplayErrorAs, InputState, TextInputProps } from '../../types';
 import { ErrorMessage } from './ErrorMessage';
 import { ErrorIcon } from './Icons/ErrorIcon';
