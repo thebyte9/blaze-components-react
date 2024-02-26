@@ -20,7 +20,6 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   error,
   validationMessage,
   required,
-  id,
   ...attrs
 }) => {
   const [content, setContent] = useState<string>('');
