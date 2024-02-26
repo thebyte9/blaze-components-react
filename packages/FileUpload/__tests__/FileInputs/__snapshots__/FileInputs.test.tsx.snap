@@ -7,7 +7,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
   >
     <label
       class=""
-      for="0-title-test-image-name"
+      for="input-name"
     >
       <span
         class="input-label"
@@ -37,7 +37,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
     </label>
     <input
       data-testid="input"
-      id="0-title-test-image-name"
+      id="input-name"
       name="name"
       type="text"
       value="test"
@@ -48,7 +48,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
   >
     <label
       class=""
-      for="0-caption-test-image-name"
+      for="input-caption-0-test-image-name"
     >
       <span
         class="input-label"
@@ -78,7 +78,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
     </label>
     <input
       data-testid="input"
-      id="0-caption-test-image-name"
+      id="input-caption-0-test-image-name"
       name="caption-0-test-image-name"
       type="text"
       value=""
@@ -89,7 +89,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
   >
     <label
       class=""
-      for="0-credits-test-image-name"
+      for="input-credits-0-test-image-name"
     >
       <span
         class="input-label"
@@ -119,7 +119,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
     </label>
     <input
       data-testid="input"
-      id="0-credits-test-image-name"
+      id="input-credits-0-test-image-name"
       name="credits-0-test-image-name"
       type="text"
       value=""
@@ -130,7 +130,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
   >
     <label
       class=""
-      for="0-altText-test-image-name"
+      for="input-altText-0-test-image-name"
     >
       <span
         class="input-label"
@@ -160,7 +160,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
     </label>
     <input
       data-testid="input"
-      id="0-altText-test-image-name"
+      id="input-altText-0-test-image-name"
       name="altText-0-test-image-name"
       type="text"
       value=""
@@ -171,7 +171,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
   >
     <label
       class=""
-      for="0-hrefUrl-test-image-name"
+      for="input-hrefUrl-0-test-image-name"
     >
       <span
         class="input-label"
@@ -201,7 +201,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
     </label>
     <input
       data-testid="input"
-      id="0-hrefUrl-test-image-name"
+      id="input-hrefUrl-0-test-image-name"
       name="hrefUrl-0-test-image-name"
       type="text"
       value=""
@@ -212,6 +212,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
   >
     <label
       class=""
+      for="select-undefined"
     >
       <span
         class="input-label"
@@ -241,6 +242,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
     </label>
     <select
       data-testid="store-type"
+      id="select-undefined"
     >
       <option>
         Please Choose...

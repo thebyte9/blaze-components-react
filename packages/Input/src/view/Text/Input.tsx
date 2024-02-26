@@ -23,9 +23,12 @@ export const TextInput = ({
     currentState: currentState,
   };
 
+  const fieldName = `input-${name}`
+
+
   return (
     <>
-      <label data-testid="input-label" className={classes[currentState].container} htmlFor={id || name}>
+      <label data-testid="input-label" className={classes[currentState].container} htmlFor={fieldName}>
         <span className={classes[currentState].label}>{label}</span>
         {currentState === InputState.Error &&
           displayError === DisplayErrorAs.Icon &&
@@ -40,8 +43,8 @@ export const TextInput = ({
           placeholder={placeholder}
           autoComplete="true"
           loading={currentState === InputState.Loading}
-
           {...rest}
+          id={fieldName}
         />
       </label>
       {currentState === InputState.Error && displayError === DisplayErrorAs.Message && (

@@ -16,6 +16,7 @@ interface ISelectProps {
   selectDisabled?: boolean;
   defaultTextValue?: string;
   showDefaultOption?: boolean;
+  name?: string;
 }
 
 const Select: FunctionComponent<ISelectProps> = ({
@@ -77,14 +78,16 @@ const Select: FunctionComponent<ISelectProps> = ({
     });
   };
 
+  const fieldName = `select-${attrs.name}`
+
   return (
     <div className="form-field form-field--select">
       {label && (
-        <label htmlFor={attrs.id} className={requiredClassName}>
+        <label htmlFor={fieldName} className={requiredClassName}>
           {label}
         </label>
       )}
-      <select onChange={handleChange} disabled={selectDisabled || !options.length} value={selectedOption} {...attrs}>
+      <select onChange={handleChange} disabled={selectDisabled || !options.length} value={selectedOption} {...attrs} id={fieldName}>
         {(!required || showDefaultOption) && <option defaultValue="">{defaultTextValue}</option>}
         {renderOptions()}
       </select>
