@@ -77,12 +77,12 @@ exports[`DateRange component should be defined and renders correctly (snapshot) 
       >
         <label
           class=""
-          for="input-undefined"
+          for="input-text"
         />
         <input
           class="range-date"
           data-testid="From"
-          id="input-undefined"
+          id="input-text"
           placeholder="dd/mm/yy"
           type="text"
           value=""
@@ -107,12 +107,12 @@ exports[`DateRange component should be defined and renders correctly (snapshot) 
       >
         <label
           class=""
-          for="input-undefined"
+          for="input-text"
         />
         <input
           class="range-date"
           data-testid="To"
-          id="input-undefined"
+          id="input-text"
           placeholder="dd/mm/yy"
           type="text"
           value=""

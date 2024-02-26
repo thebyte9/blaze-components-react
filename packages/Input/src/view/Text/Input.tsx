@@ -23,7 +23,7 @@ export const TextInput = ({
     currentState: currentState,
   };
 
-  const fieldName = `input-${name || id}`
+  const fieldName = `input-${name || id || rest.type}`
 
 
   return (
