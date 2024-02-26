@@ -7,11 +7,11 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
   >
     <label
       class=""
-      for="input-Placeholder text"
+      for="input-undefined"
     />
     <input
       data-testid="input"
-      id="input-Placeholder text"
+      id="input-undefined"
       placeholder="Placeholder text"
       type="text"
       value=""

@@ -19,12 +19,12 @@ exports[`DateRange component should be defined and renders correctly (snapshot) 
       >
         <label
           class=""
-          for="input-dd/mm/yy"
+          for="input-undefined"
         />
         <input
           class="range-date"
           data-testid="custom"
-          id="input-dd/mm/yy"
+          id="input-undefined"
           placeholder="dd/mm/yy"
           type="text"
           value=""
