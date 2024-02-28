@@ -25,6 +25,22 @@ describe('Tab component', () => {
     const button = screen.getByText('Advanced');
     fireEvent.click(button);
 
-    screen.getByText('Advanced');
+    expect(screen.getByText('Advanced content here')).toBeInTheDocument();
+
+  });
+
+  test('should navigate between tabs', () => {
+    render(<Tab selected={1}>
+      <TabItem>Basic content here</TabItem>
+      <TabItem title="Advanced">Advanced content here</TabItem>
+      {false && <TabItem title="Conditional">Other content here</TabItem>}
+    </Tab>);
+
+    const button = screen.getByText('Advanced');
+    fireEvent.click(button);
+
+    expect(screen.getByText('Advanced')).toBeInTheDocument();
+    expect(() => screen.getByText('Conditional')).toThrow('Unable to find an element');
+    ;
   });
 });

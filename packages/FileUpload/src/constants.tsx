@@ -9,7 +9,8 @@ const INPUT_TYPES = {
   CAPTION: "caption",
   TITLE: 'title',
   CREDITS: 'credits',
-  HREF_URL: 'hrefUrl'
+  HREF_URL: 'hrefUrl',
+  STORE_KEY: 'storeKey',
 };
 
 const IMAGE = "image";

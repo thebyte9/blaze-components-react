@@ -1175,3 +1175,11 @@ body {
     }
   }
 }
+
+.input-label {
+  display: flex;
+}
+
+.input-label > :first-child {
+  margin-left: 5px;
+}

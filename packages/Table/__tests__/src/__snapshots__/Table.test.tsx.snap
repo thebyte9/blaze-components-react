@@ -56,7 +56,78 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
     </div>
     <div
       class="table-body"
-    />
+    >
+      <div
+        class="custom-virtual-list"
+      >
+        <div
+          class="table-row"
+          data-testid="tablerow-0"
+          style="height: 62px;"
+        >
+          <div
+            class="table-cell"
+          >
+            <div
+              class="table-cell--content"
+            >
+              1
+            </div>
+          </div>
+          <div
+            class="table-cell"
+          >
+            <div
+              class="table-cell--content"
+            >
+              Lorem
+            </div>
+          </div>
+          <div
+            class="table-cell"
+          >
+            <div
+              class="table-cell--content"
+            >
+              52
+            </div>
+          </div>
+        </div>
+        <div
+          class="table-row"
+          data-testid="tablerow-1"
+          style="height: 62px;"
+        >
+          <div
+            class="table-cell"
+          >
+            <div
+              class="table-cell--content"
+            >
+              2
+            </div>
+          </div>
+          <div
+            class="table-cell"
+          >
+            <div
+              class="table-cell--content"
+            >
+              Ipsum
+            </div>
+          </div>
+          <div
+            class="table-cell"
+          >
+            <div
+              class="table-cell--content"
+            >
+              43
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

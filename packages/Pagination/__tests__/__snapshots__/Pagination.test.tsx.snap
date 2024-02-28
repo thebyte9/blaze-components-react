@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination component should be defined and renders correctly (snapshot) 1`] = `
+<div>
+  <div
+    class="pagination"
+    data-testid="pagination"
+  >
+    <div
+      class="pagination__rows"
+      data-testid="items-perpage"
+    >
+      <span>
+         
+        Displaying
+      </span>
+      <div
+        class="form-field form-field--input  "
+      >
+        <label
+          class=""
+        />
+        <input
+          class="pagination__input"
+          data-testid="input"
+          min="1"
+          type="number"
+          value="10"
+        />
+      </div>
+      <span>
+         
+        rows per page
+      </span>
+    </div>
+    <ul
+      class="pagination"
+    >
+      <li
+        class="pagination__item pagination__item--icon pagination__item--disabled"
+      >
+        <span>
+          ‹
+        </span>
+      </li>
+      <li
+        class="pagination__item pagination__item--active"
+      >
+        1
+      </li>
+      <li
+        class="pagination__item "
+      >
+        2
+      </li>
+      <li
+        class="pagination__item "
+      >
+        3
+      </li>
+      <li
+        class="pagination__item "
+      >
+        4
+      </li>
+      <li
+        class="pagination__item "
+      >
+        5
+      </li>
+      <li
+        class="pagination__item "
+      >
+        6
+      </li>
+      <li
+        class="pagination__item "
+      >
+        7
+      </li>
+      <li
+        class="pagination__item "
+      >
+        8
+      </li>
+      <li
+        class="pagination__item "
+      >
+        9
+      </li>
+      <li
+        class="pagination__item "
+      >
+        10
+      </li>
+      <li
+        class="pagination__item pagination__item--icon"
+      >
+        <span>
+          ›
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

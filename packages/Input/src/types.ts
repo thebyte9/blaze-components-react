@@ -59,7 +59,7 @@ export interface TextInputClasses {
 }
 export interface TextInputProps {
   icon?: TextInputIcon;
-  label: string;
+  label: string | JSX.Element; 
   layout: LayoutType;
   placeholder: string;
   classes: TextInputClasses;

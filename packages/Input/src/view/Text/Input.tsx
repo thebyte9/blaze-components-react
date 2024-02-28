@@ -23,7 +23,7 @@ export const TextInput = ({
 
   return (
     <>
-      <label className={classes[currentState].container}>
+      <label data-testid="input-label" className={classes[currentState].container}>
         <span className={classes[currentState].label}>{label}</span>
         {currentState === InputState.Error &&
           displayError === DisplayErrorAs.Icon &&

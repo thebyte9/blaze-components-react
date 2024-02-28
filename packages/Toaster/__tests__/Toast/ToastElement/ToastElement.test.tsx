@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import expect from 'expect';
 import React from 'react';
 import ToastElement from '../../../src/Toast/ToastElement';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 describe('Toast Element', () => {
   it('should be defined', () => {

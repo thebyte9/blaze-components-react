@@ -19,5 +19,6 @@ module.exports = {
     '@blaze-react/themes': '<rootDir>/packages/themes/src',
     '@blaze-react/icon': '<rootDir>/packages/Icon/src',
     '@blaze-react/skeleton': '<rootDir>/packages/Skeleton/src',
+    '@blaze-react/pagination': '<rootDir>/packages/Pagination/src',
   },
 };

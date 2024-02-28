@@ -155,6 +155,7 @@ const generateRibbon = ({
             key={name}
             className="editor-view__toolbar--item"
             role="button"
+            key={name}
             data-testid={name}
             aria-label={name}
             onMouseEnter={() => {
