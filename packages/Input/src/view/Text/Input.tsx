@@ -14,6 +14,8 @@ export const TextInput = ({
   displayError,
   classes,
   icon,
+  id,
+  name,
   ...rest
 }: TextInputProps): JSX.Element => {
   const iconProps = {
@@ -21,9 +23,12 @@ export const TextInput = ({
     currentState: currentState,
   };
 
+  const fieldName = `input-${name || id || rest.type}`
+
+
   return (
     <>
-      <label data-testid="input-label" className={classes[currentState].container}>
+      <label data-testid="input-label" className={classes[currentState].container} htmlFor={fieldName}>
         <span className={classes[currentState].label}>{label}</span>
         {currentState === InputState.Error &&
           displayError === DisplayErrorAs.Icon &&
@@ -38,8 +43,8 @@ export const TextInput = ({
           placeholder={placeholder}
           autoComplete="true"
           loading={currentState === InputState.Loading}
-
           {...rest}
+          id={fieldName}
         />
       </label>
       {currentState === InputState.Error && displayError === DisplayErrorAs.Message && (
