@@ -74,7 +74,7 @@ const Input: FunctionComponent<IInputProps> = ({
   const modifierClassName: string = buildClassNames({
     [`form-field--${modifier}`]: !!modifier,
   });
-  const fieldName = `input-${attrs.name || attrs.id || type}`
+  const fieldName = attrs.id || `input-${attrs.name || type}`;
 
   return (
     <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>

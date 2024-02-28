@@ -28,7 +28,7 @@ exports[`FileList component should match snapshot 1`] = `
         >
           <label
             class=""
-            for="input-name"
+            for="0-title-file-1png"
           >
             <span
               class="input-label"
@@ -58,7 +58,7 @@ exports[`FileList component should match snapshot 1`] = `
           </label>
           <input
             data-testid="input"
-            id="input-name"
+            id="0-title-file-1png"
             name="name"
             type="text"
             value=""
@@ -69,7 +69,7 @@ exports[`FileList component should match snapshot 1`] = `
         >
           <label
             class=""
-            for="input-caption-0-file-1png"
+            for="0-caption-file-1png"
           >
             <span
               class="input-label"
@@ -99,7 +99,7 @@ exports[`FileList component should match snapshot 1`] = `
           </label>
           <input
             data-testid="input"
-            id="input-caption-0-file-1png"
+            id="0-caption-file-1png"
             name="caption-0-file-1png"
             type="text"
             value="test caption"
@@ -110,7 +110,7 @@ exports[`FileList component should match snapshot 1`] = `
         >
           <label
             class=""
-            for="input-credits-0-file-1png"
+            for="0-credits-file-1png"
           >
             <span
               class="input-label"
@@ -140,7 +140,7 @@ exports[`FileList component should match snapshot 1`] = `
           </label>
           <input
             data-testid="input"
-            id="input-credits-0-file-1png"
+            id="0-credits-file-1png"
             name="credits-0-file-1png"
             type="text"
             value=""
@@ -151,7 +151,7 @@ exports[`FileList component should match snapshot 1`] = `
         >
           <label
             class=""
-            for="input-altText-0-file-1png"
+            for="0-altText-file-1png"
           >
             <span
               class="input-label"
@@ -181,7 +181,7 @@ exports[`FileList component should match snapshot 1`] = `
           </label>
           <input
             data-testid="input"
-            id="input-altText-0-file-1png"
+            id="0-altText-file-1png"
             name="altText-0-file-1png"
             type="text"
             value=""
@@ -192,7 +192,7 @@ exports[`FileList component should match snapshot 1`] = `
         >
           <label
             class=""
-            for="input-hrefUrl-0-file-1png"
+            for="0-hrefUrl-file-1png"
           >
             <span
               class="input-label"
@@ -222,7 +222,7 @@ exports[`FileList component should match snapshot 1`] = `
           </label>
           <input
             data-testid="input"
-            id="input-hrefUrl-0-file-1png"
+            id="0-hrefUrl-file-1png"
             name="hrefUrl-0-file-1png"
             type="text"
             value=""

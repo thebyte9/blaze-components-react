@@ -43,7 +43,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
 
   const total: number = !limit ? 0 : limit - content.length;
 
-  const fieldName = `textarea-${attrs.name}`
+  const fieldName = attrs.id || `textarea-${attrs.name}`;
 
   return (
     <div className="form-field form-field--textarea">
