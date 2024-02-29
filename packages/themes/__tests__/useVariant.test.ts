@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import { useVariant } from '../src/hooks/useVariant';
 import { theme } from '../__mocks__/theme';
 

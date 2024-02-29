@@ -21,14 +21,15 @@ describe('Drawer component', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('should toggle the drawer', () => {
+  test('should toggle the drawer', async () => {
+    const user = userEvent.setup();
     render(DrawerComponent);
-    userEvent.click(screen.getByTestId('icon-button-arrow'));
+    await user.click(screen.getByTestId('icon-button-arrow'));
 
     const drawer = screen.getByTestId('drawer-wrapper');
     expect(drawer.classList.contains('open')).toBeTruthy();
 
-    userEvent.click(screen.getByTestId('icon-button-arrow'));
+    await user.click(screen.getByTestId('icon-button-arrow'));
     expect(drawer.classList.contains('open')).toBeFalsy();
   });
 });

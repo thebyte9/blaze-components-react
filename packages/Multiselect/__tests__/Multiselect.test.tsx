@@ -1,7 +1,6 @@
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { act, fireEvent, screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
 import Multiselect from '../src/MultiSelect';
 import React from 'react';
 import { props } from './mocks';
@@ -28,16 +27,14 @@ describe('Multiselect component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should select first option and empty the search input', () => {
+  it('should select first option and empty the search input', async () => {
+    const user = userEvent.setup();
     render(<Multiselect name="test" {...defaultProps()} />);
 
     const input = screen.getByTestId('input');
     input.focus();
-
-    userEvent.type(input, 'abc');
-
-    userEvent.click(screen.getByTestId('3-checkbox'));
-
+    await user.type(input, 'abc');
+    await user.click(screen.getByTestId('3-checkbox'));
     expect(screen.getAllByText(/Blaze 1/i)).toHaveLength(2);
 
     expect(screen.getByTestId('2-checkbox')).toHaveProperty('value', '');

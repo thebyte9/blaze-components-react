@@ -11,7 +11,15 @@ interface IToolbarSave {
   getComponentTemplate?: any;
 }
 
-const save = ({ type, quantity, component, selectedComponents, onCreateComponent, setIsOpen, getComponentTemplate }: IToolbarSave) => {
+const save = ({
+  type,
+  quantity,
+  component,
+  selectedComponents,
+  onCreateComponent,
+  setIsOpen,
+  getComponentTemplate,
+}: IToolbarSave) => {
   if (type === componentType.COLUMN && quantity) {
     const columns = component.items.filter((item: any) => item.type === componentType.COLUMN);
 
@@ -39,7 +47,7 @@ const save = ({ type, quantity, component, selectedComponents, onCreateComponent
 const doesParentHasTextblock = (parent: any) => {
   if (parent && parent.items && parent.items.length > 0) {
     return parent.items.filter(
-      (child: any) => child.type === componentType.TEXT && child.settings.editor === undefined
+      (child: any) => child.type === componentType.TEXT && child.settings.editor === undefined,
     );
   }
   return -1;
@@ -66,7 +74,7 @@ const handleCreate = ({
   onCreateComponent,
   setIsOpen,
   quantity,
-  parent
+  parent,
 }: ICreate) => {
   let parentHasTextblock = false;
 
@@ -103,7 +111,7 @@ const handleCreate = ({
       component,
       selectedComponents,
       onCreateComponent,
-      setIsOpen
+      setIsOpen,
     });
   }
 };
@@ -129,7 +137,7 @@ const generateRibbon = ({
   onCreateComponent,
   setIsOpen,
   parent,
-  pageBuilderArray
+  pageBuilderArray,
 }: IGenerateRibbon) => {
   return pageBuilderArray
     .filter((pbComponent: any) => pbComponent.toolbarOrder)
@@ -139,7 +147,7 @@ const generateRibbon = ({
         icon,
         name,
         type,
-        settings: { canShowInEditorView = false }
+        settings: { canShowInEditorView = false },
       } = pbComponent;
 
       const faIcon = `${icon} fa-lg`;
@@ -152,9 +160,9 @@ const generateRibbon = ({
       ) {
         return (
           <div
+            key={name}
             className="editor-view__toolbar--item"
             role="button"
-            key={name}
             data-testid={name}
             aria-label={name}
             onMouseEnter={() => {
@@ -170,9 +178,10 @@ const generateRibbon = ({
                 selectedComponents,
                 onCreateComponent,
                 setIsOpen,
-                parent
+                parent,
               })
-            }>
+            }
+          >
             {activeTooltip === name && (
               <div className="editor-view__toolbar--tooltip">
                 <div className="editor-view__toolbar--tooltip__text">{name}</div>

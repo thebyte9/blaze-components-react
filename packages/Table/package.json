@@ -17,13 +17,13 @@
   "license": "GPL-3.0",
   "peerDependencies": {
     "@blaze-react/pagination": "0.8.0-alpha.60",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.2",
+    "react-dom": "^18.0.2"
   },
   "devDependencies": {
     "@blaze-react/blaze-components-theme": "^0.8.0-alpha.59",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.0.2",
+    "react-dom": "^18.0.2",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
