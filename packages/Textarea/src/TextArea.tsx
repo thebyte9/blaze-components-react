@@ -20,7 +20,6 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   error,
   validationMessage,
   required,
-  id,
   ...attrs
 }) => {
   const [content, setContent] = useState<string>('');
@@ -44,10 +43,12 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
 
   const total: number = !limit ? 0 : limit - content.length;
 
+  const fieldName = attrs.id || `textarea-${attrs.name}`;
+
   return (
     <div className="form-field form-field--textarea">
       {label && (
-        <label htmlFor={id} className={requiredClassName}>
+        <label htmlFor={fieldName} className={requiredClassName}>
           {label}
         </label>
       )}
@@ -57,6 +58,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
         cols={attrs.cols}
         onChange={handleChange}
         required={required}
+        id={fieldName}
         {...attrs}
       />
       {!!limit && <span>{total}</span>}

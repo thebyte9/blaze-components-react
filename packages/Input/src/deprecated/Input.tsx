@@ -74,10 +74,11 @@ const Input: FunctionComponent<IInputProps> = ({
   const modifierClassName: string = buildClassNames({
     [`form-field--${modifier}`]: !!modifier,
   });
+  const fieldName = attrs.id || `input-${attrs.name || type}`;
 
   return (
     <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
-      <label htmlFor={attrs.id} className={requiredClassName}>
+      <label htmlFor={fieldName} className={requiredClassName}>
         {label}
       </label>
       <input
@@ -88,6 +89,7 @@ const Input: FunctionComponent<IInputProps> = ({
         type={newType}
         required={required}
         {...attrs}
+        id={fieldName}
       />
       {newError && <ErrorMessage message={validationMessage} />}
       {!hideTypeToggle && isPassword && <ToggleInputType toggleType={handleToggleType} type={newType} />}

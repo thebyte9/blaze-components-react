@@ -5,7 +5,9 @@ exports[`Select component should be defined and renders correctly (snapshot) 1`]
   <div
     class="form-field form-field--select"
   >
-    <select>
+    <select
+      id="select-undefined"
+    >
       <option>
         Please Choose...
       </option>
@@ -31,11 +33,13 @@ exports[`Select component should be disabled when none options 1`] = `
   >
     <label
       class="required"
+      for="select-undefined"
     >
       Select label
     </label>
     <select
       disabled=""
+      id="select-undefined"
     />
   </div>
 </DocumentFragment>

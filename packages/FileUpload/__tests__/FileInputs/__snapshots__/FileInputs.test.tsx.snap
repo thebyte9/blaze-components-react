@@ -212,6 +212,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
   >
     <label
       class=""
+      for="select-undefined"
     >
       <span
         class="input-label"
@@ -241,6 +242,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
     </label>
     <select
       data-testid="store-type"
+      id="select-undefined"
     >
       <option>
         Please Choose...

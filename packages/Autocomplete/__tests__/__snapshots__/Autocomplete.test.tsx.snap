@@ -7,9 +7,11 @@ exports[`Autocomplete component should match snapshot 1`] = `
   >
     <label
       class=""
+      for="input-text"
     />
     <input
       data-testid="input"
+      id="input-text"
       placeholder="Search"
       type="text"
       value=""

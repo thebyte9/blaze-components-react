@@ -233,6 +233,7 @@ exports[`FileList component should match snapshot 1`] = `
         >
           <label
             class=""
+            for="select-undefined"
           >
             <span
               class="input-label"
@@ -263,6 +264,7 @@ exports[`FileList component should match snapshot 1`] = `
           <select
             data-testid="store-type"
             disabled=""
+            id="select-undefined"
           >
             <option>
               Please Choose...

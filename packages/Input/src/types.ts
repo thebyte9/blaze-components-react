@@ -59,7 +59,7 @@ export interface TextInputClasses {
 }
 export interface TextInputProps {
   icon?: TextInputIcon;
-  label: string | JSX.Element; 
+  label: string | JSX.Element;
   layout: LayoutType;
   placeholder: string;
   classes: TextInputClasses;
@@ -68,6 +68,8 @@ export interface TextInputProps {
   displayError: DisplayErrorAs;
   currentState: InputState;
   type: InputType;
+  id?: string,
+  name?: string
 }
 
 export interface InputControllerProps extends TextInputProps {

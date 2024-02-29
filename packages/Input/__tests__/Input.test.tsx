@@ -34,7 +34,7 @@ describe('Input component', () => {
     const value = 'lorem ipsum';
 
     const override = {
-      id: 1,
+      name: "email",
       label,
       value,
     };
