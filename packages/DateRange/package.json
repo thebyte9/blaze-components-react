@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/date-range",
-  "version": "0.8.0-alpha.70",
+  "version": "0.8.0-alpha.78",
   "description": "DateRange component allows you to select a date range among several options",
   "main": "./dist/main.js",
   "scripts": {
