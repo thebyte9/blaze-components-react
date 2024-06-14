@@ -25,6 +25,7 @@ storiesOf("Tab", module)
           <p>
             Tabs organize a static or dynamic content across different screens.
           </p>
+
           <Tab selected={0}>
             <TabItem title="Basic">
               <p>Basic content here</p>
