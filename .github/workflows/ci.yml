@@ -45,9 +45,6 @@ jobs:
         run: |
           echo "node: $(node -v)"
 
-      - name: Install Yarn
-        run: yarn set version berry
-
       - name: Install packages
         run: yarn install
 
