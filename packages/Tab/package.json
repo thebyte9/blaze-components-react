@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/tab",
-  "version": "0.8.0-alpha.70",
+  "version": "0.8.0-alpha.79",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {

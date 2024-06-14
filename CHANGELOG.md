@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.79](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.78...v0.8.0-alpha.79) (2024-06-14)
+
+
+### Features
+
+* add test case for updating selected tab when selected prop changes ([#688](https://github.com/thebyte9/blaze-components-react/issues/688)) ([71dc38c](https://github.com/thebyte9/blaze-components-react/commit/71dc38c9d7ed6cd9c6d87ad2e48d044b13311af2))
+
+
+
+
+
 # [0.8.0-alpha.78](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.77...v0.8.0-alpha.78) (2024-02-29)
 
 
