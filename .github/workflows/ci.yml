@@ -116,9 +116,6 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-cache-
 
-      - name: Install Yarn
-        run: yarn set version berry
-
       - name: Install packages
         run: yarn install
 
