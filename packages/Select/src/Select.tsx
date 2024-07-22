@@ -44,7 +44,7 @@ const Select: FunctionComponent<ISelectProps> = ({
     const {
       target: { value },
     } = event;
-    const parsedValue = value === 'Please Choose...' ? '' : value
+    const parsedValue = value === 'Please Choose...' ? '' : value;
     setSelectedOption(parsedValue);
     onChange({ event, value: parsedValue });
   };
@@ -78,7 +78,8 @@ const Select: FunctionComponent<ISelectProps> = ({
     });
   };
 
-  const fieldName = `select-${attrs.name}`
+  const fieldName = `select-${attrs.name}`;
+  const ariaLabel = label ? undefined : defaultTextValue;
 
   return (
     <div className="form-field form-field--select">
@@ -87,7 +88,14 @@ const Select: FunctionComponent<ISelectProps> = ({
           {label}
         </label>
       )}
-      <select onChange={handleChange} disabled={selectDisabled || !options.length} value={selectedOption} {...attrs} id={fieldName}>
+      <select
+        onChange={handleChange}
+        disabled={selectDisabled || !options.length}
+        value={selectedOption}
+        {...attrs}
+        id={fieldName}
+        aria-label={ariaLabel}
+      >
         {(!required || showDefaultOption) && <option defaultValue="">{defaultTextValue}</option>}
         {renderOptions()}
       </select>
