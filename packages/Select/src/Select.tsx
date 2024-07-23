@@ -30,7 +30,7 @@ const Select: FunctionComponent<ISelectProps> = ({
   validationMessage,
   disabled,
   selectDisabled,
-  defaultTextValue,
+  defaultTextValue = 'Please Choose...',
   showDefaultOption,
   ...attrs
 }) => {
@@ -79,7 +79,8 @@ const Select: FunctionComponent<ISelectProps> = ({
   };
 
   const fieldName = `select-${attrs.name}`;
-  const ariaLabel = label || defaultTextValue;
+  const ariaLabel = typeof label === 'string' ? label : defaultTextValue;
+
   return (
     <div className="form-field form-field--select">
       {label && (
