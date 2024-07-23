@@ -12,6 +12,7 @@ exports[`DateRange component should be defined and renders correctly (snapshot) 
       Date Range
     </label>
     <select
+      aria-label="Date Range"
       data-testid="select-date-range"
       id="select-undefined"
     >
