@@ -39,6 +39,7 @@ exports[`Select component should be disabled when none options 1`] = `
       Select label
     </label>
     <select
+      aria-label="Select label"
       disabled=""
       id="select-undefined"
     />
