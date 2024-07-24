@@ -30,7 +30,7 @@ const Select: FunctionComponent<ISelectProps> = ({
   validationMessage,
   disabled,
   selectDisabled,
-  defaultTextValue = 'Please Choose...',
+  defaultTextValue,
   showDefaultOption,
   ...attrs
 }) => {
