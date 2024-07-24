@@ -79,7 +79,7 @@ const Select: FunctionComponent<ISelectProps> = ({
   };
 
   const fieldName = `select-${attrs.name}`;
-  const ariaLabel = label || defaultTextValue;
+  const ariaLabel = label ? undefined : defaultTextValue;
 
   return (
     <div className="form-field form-field--select">
@@ -94,7 +94,7 @@ const Select: FunctionComponent<ISelectProps> = ({
         value={selectedOption}
         {...attrs}
         id={fieldName}
-        {...(!label && { 'aria-label': ariaLabel })}
+        aria-label={ariaLabel}
       >
         {(!required || showDefaultOption) && <option defaultValue="">{defaultTextValue}</option>}
         {renderOptions()}
