@@ -262,7 +262,6 @@ exports[`FileList component should match snapshot 1`] = `
             </span>
           </label>
           <select
-            aria-label="Please Choose..."
             data-testid="store-type"
             disabled=""
             id="select-undefined"

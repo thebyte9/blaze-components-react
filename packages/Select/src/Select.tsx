@@ -3,7 +3,7 @@ import { ErrorMessage } from '@blaze-react/utils';
 import React, { useEffect, useState, FunctionComponent } from 'react';
 
 interface ISelectProps {
-  label?: string | null;
+  label?: string | JSX.Element | JSX.Element[] | (() => JSX.Element) | null;
   keys?: string[];
   options: any[];
   required?: boolean;
@@ -79,7 +79,7 @@ const Select: FunctionComponent<ISelectProps> = ({
   };
 
   const fieldName = `select-${attrs.name}`;
-  const ariaLabel = typeof label === 'string' ? label : defaultTextValue;
+  const ariaLabel = label || defaultTextValue;
 
   return (
     <div className="form-field form-field--select">
@@ -94,7 +94,7 @@ const Select: FunctionComponent<ISelectProps> = ({
         value={selectedOption}
         {...attrs}
         id={fieldName}
-        aria-label={ariaLabel}
+        {...(!label && { 'aria-label': ariaLabel })}
       >
         {(!required || showDefaultOption) && <option defaultValue="">{defaultTextValue}</option>}
         {renderOptions()}

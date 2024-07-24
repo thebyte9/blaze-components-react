@@ -241,7 +241,6 @@ exports[`FileInputs component should render without throwing error 1`] = `
       </span>
     </label>
     <select
-      aria-label="Please Choose..."
       data-testid="store-type"
       id="select-undefined"
     >
