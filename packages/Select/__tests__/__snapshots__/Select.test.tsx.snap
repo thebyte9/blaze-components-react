@@ -6,6 +6,7 @@ exports[`Select component should be defined and renders correctly (snapshot) 1`]
     class="form-field form-field--select"
   >
     <select
+      aria-label="Please Choose..."
       id="select-undefined"
     >
       <option>
