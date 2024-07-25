@@ -31,7 +31,7 @@ export const ButtonView = ({ children, classes = '', label, ...rest }: IButtonVi
       type="button"
       className={classes}
       disabled={disabled}
-      aria-label={label} // Add aria-label here
+      aria-label={label}
       {...rest}
     >
       {children}
