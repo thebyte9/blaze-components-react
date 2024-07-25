@@ -1,12 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button component should be defined and renders correctly (snapshot) 1`] = `
-<DocumentFragment>
-  <button
-    aria-label="Test Button"
-    class="button button--outline button--rounded"
-    modifiers="outline,rounded"
+<withUtils()
+  disabled={false}
+  modifiers={
+    Array [
+      "outline",
+      "rounded",
+    ]
+  }
+  type="button"
+>
+  <Component
+    disabled={false}
+    modifiers={
+      Array [
+        "outline",
+        "rounded",
+      ]
+    }
     type="button"
-  />
-</DocumentFragment>
+    utils={
+      Object {
+        "ErrorMessage": [Function],
+        "classNames": [Function],
+        "removeExtraSpaces": [Function],
+        "uniqueId": [Function],
+      }
+    }
+  >
+    <button
+      className="button button--outline button--rounded"
+      disabled={false}
+      type="button"
+    />
+  </Component>
+</withUtils()>
 `;

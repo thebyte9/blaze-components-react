@@ -1,26 +1,90 @@
-import { Meta, Story } from '@storybook/react/types-6-0';
-import React from 'react';
-import { controllerArgs, controllerArgTypes } from './shared';
-import { Button } from '@blaze-react/button';
-import { preset, ThemeProvider } from '@blaze-react/themes';
+import "@blaze-react/blaze-components-theme";
+import { storiesOf } from "@storybook/react";
+import React, { lazy, Suspense } from "react";
+import ButtonReadme from "../README.md";
 
-export default {
-  title: '@blaze-react/Theming/All Stories',
-  component: Button,
-  args: controllerArgs,
-  argTypes: controllerArgTypes,
-} as Meta;
-
-const Template: Story = (args) => {
-  return (
-    <ThemeProvider theme={preset}>
-      <Button {...args} />
-    </ThemeProvider>
-  );
+const showCaseDivStyles: React.CSSProperties = {
+  display: "flex",
+  justifyContent: "space-around",
+  flexWrap: "wrap",
+  minHeight: "10em"
 };
+storiesOf("Button", module)
+  .addParameters({
+    readme: {
+      sidebar: ButtonReadme
+    }
+  })
+  .add("Introduction", (): any => {
+    const Button = lazy(() => import("../src"));
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="component-wrapper">
+          <h1>Buttons</h1>
 
-export const Default = Template.bind({});
+          <section className="examplesSection">
+            <p>
+              You may use any of the available modifiers to easily create styled
+              buttons.
+            </p>
 
-Default.args = {
-  theme: preset,
-};
+            <h4>Outline</h4>
+
+            <p>
+              Looking for a lighter touch? Use the
+              <em>
+                <strong> outline </strong>
+              </em>
+              modifier. You may combine this with any of the other modifiers
+            </p>
+
+            <div style={showCaseDivStyles}>
+              <Button modifiers={["outline"]}>PLAIN</Button>
+              <Button modifiers={["outline", "rounded"]}>ROUNDED</Button>
+              <Button modifiers={["outline", "cta"]}>CTA</Button>
+              <Button modifiers={["outline", "disabled"]}>DISABLED</Button>
+              <Button modifiers={["outline", "alert"]}>ALERT</Button>
+              <Button modifiers={["outline", "light"]}>LIGHT</Button>
+              <Button modifiers={["outline", "dark"]}>DARK</Button>
+            </div>
+
+            <h3>Rounded Buttons</h3>
+
+            <p>
+              Add the
+              <em>
+                <strong> rounded </strong>
+              </em>
+              modifier along with any type of button to create rounded buttons
+            </p>
+
+            <div style={showCaseDivStyles}>
+              <Button modifiers={["cta", "rounded"]}>CTA</Button>
+              <Button modifiers={["alert", "rounded"]}>ALERT</Button>
+              <Button modifiers={["light", "rounded"]}>LIGHT</Button>
+              <Button modifiers={["dark", "rounded"]}>DARK</Button>
+            </div>
+
+            <h3>Sizing</h3>
+
+            <p>
+              If you require small or full width buttons, use the
+              <em>
+                <strong> small </strong>
+              </em>
+              or
+              <em>
+                <strong> full-width </strong>
+              </em>
+              modifiers
+            </p>
+
+            <div style={showCaseDivStyles}>
+              <Button modifiers={["small"]}>Small</Button>
+              <Button modifiers={["full-width"]}>Full width</Button>
+            </div>
+          </section>
+        </div>
+      </Suspense>
+    );
+  });
