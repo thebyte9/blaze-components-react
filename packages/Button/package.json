@@ -1,31 +1,41 @@
 {
   "name": "@blaze-react/button",
   "version": "0.8.0-alpha.60",
-  "description": "Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.",
-  "main": "./dist/main.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
   "scripts": {
-    "build": "rm -Rf ./dist && NODE_ENV=production webpack --config webpack.config.js",
+    "build": "../../node_modules/.bin/rimraf ./lib && ../../node_modules/.bin/tsc --jsx react --esModuleInterop ./src/* --outDir lib ",
     "build-storybook": "build-storybook -c .storybook -o docs-build",
-    "lint": "eslint '*/**/*.{ts,tsx}' --ignore-path ../../.eslintignore --fix",
-    "test": "jest --passWithNoTests",
-    "test:coverage": "jest --coverage --passWithNoTests",
-    "prepublishOnly": "yarn build",
-    "bundle-analyser": "node ../../node_modules/webpack-bundle-analyzer/lib/bin/analyzer.js ./stats/stats.json"
+    "lint": "../../node_modules/.bin/tslint -c ../../tslint.json src/**/*.tsx",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "pre-publish": "npm run build && npm run lint && npm run test"
   },
   "keywords": [],
-  "author": "byte9",
-  "license": "GPL-3.0",
-  "peerDependencies": {
-    "@blaze-react/icon": "^0.8.0-alpha.58",
-    "@blaze-react/themes": "^0.8.0-alpha.58",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0"
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@blaze-react/blaze-components-theme": "^0.6.4"
   },
-  "gitHead": "6e7fd8d59476e6d7c5ef48cb9b7bfc47c387f332"
+  "dependencies": {
+    "@blaze-react/utils": "^0.6.2"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "gitHead": "c7cc1d26b4046b800c727feb1dd283dbd833328c"
 }

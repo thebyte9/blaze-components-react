@@ -1,39 +1,26 @@
-import '@testing-library/jest-dom';
-
-import { render, screen } from '@testing-library/react';
-
-import { ButtonView } from '../src/view/ButtonView';
-import React from 'react';
+import { mount } from "enzyme";
+import expect from "expect";
+import React from "react";
+import Button from "../src";
 
 const testProps = {
-  modifiers: ['outline', 'rounded'],
+  modifiers: ["outline", "rounded"]
 };
 
-describe('Button component', () => {
-  it('should be defined and renders correctly (snapshot)', () => {
-    const label = 'Test Button';
-    const { asFragment } = render(<ButtonView {...testProps} label={label} />);
-    expect(asFragment()).toMatchSnapshot();
+describe("Button component", () => {
+  const wrapper = mount(<Button {...testProps} />);
+
+  test("should be defined and renders correctly (snapshot)", () => {
+    expect(wrapper).toBeDefined();
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(".button").length).toBe(1);
   });
 
-  it('should be type button by default', () => {
-    render(<ButtonView type="button" {...testProps} />);
-
-    const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('type', 'button');
+  test("should be type button by default", () => {
+    expect(wrapper.find(".button").props().type).toBe("button");
   });
 
-  it('should be type submit when passing isSubmit prop', () => {
-    render(<ButtonView type="submit" {...testProps} />);
-    const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('type', 'submit');
-  });
-
-  it('should use label prop as aria-label', () => {
-    const label = 'Test Button';
-    render(<ButtonView {...testProps} label={label} />);
-
-    const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('aria-label', label);
+  test("should be type submit when passing isSubmit prop", () => {
+    expect(mount(<Button type="submit" />).props().type).toBe("submit");
   });
 });
