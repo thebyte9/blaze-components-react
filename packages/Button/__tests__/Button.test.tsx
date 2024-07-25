@@ -11,7 +11,8 @@ const testProps = {
 
 describe('Button component', () => {
   it('should be defined and renders correctly (snapshot)', () => {
-    const { asFragment } = render(<ButtonView {...testProps} />);
+    const label = 'Test Button';
+    const { asFragment } = render(<ButtonView {...testProps} label={label} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -26,5 +27,13 @@ describe('Button component', () => {
     render(<ButtonView type="submit" {...testProps} />);
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('type', 'submit');
+  });
+
+  it('should use label prop as aria-label', () => {
+    const label = 'Test Button';
+    render(<ButtonView {...testProps} label={label} />);
+
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('aria-label', label);
   });
 });
