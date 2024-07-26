@@ -5,7 +5,6 @@ exports[`Button component should be defined and renders correctly (snapshot) 1`]
   <button
     aria-label="Test Button"
     class="button button--outline button--rounded"
-    modifiers="outline,rounded"
     type="button"
   />
 </DocumentFragment>
