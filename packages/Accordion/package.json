@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/accordion",
-  "version": "0.8.0-alpha.77",
+  "version": "0.8.0-alpha.82",
   "description": "Accordion component is a list of headers that hide or reveal additional content when selected",
   "main": "./dist/main.js",
   "scripts": {
