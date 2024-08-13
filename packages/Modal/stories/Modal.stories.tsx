@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Button } from '../../Button/src/controller/Button';
+import { expect } from '@storybook/jest';
 import { Modal } from '../src/controller/Modal';
 import { preset, ThemeProvider } from '@blaze-react/themes';
+import { within, userEvent } from '@storybook/testing-library';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { modalArgTypes } from './shared';
 
 export default {
-  title: '@blaze-react/Modal/All Stories',
+  title: '@blaze-react/Modal/All-Stories',
   component: Modal,
   argTypes: modalArgTypes,
   parameters: { actions: { argTypesRegex: '^on.*' } },
@@ -51,6 +53,17 @@ const Template: ComponentStory<typeof Modal> = (args) => {
       ) : null}
     </ThemeProvider>
   );
+};
+
+
+
+export const Demo = Template.bind({});
+
+Demo.play = async ({ args, canvasElement }) => {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByText('Open Dialog'));
+  const elements = await canvas.findAllByText(/Lorem Ipsum is simply dummy text/i);
+  expect(elements.length).toBe(3);
 };
 
 export const Default = Template.bind({});
