@@ -32,3 +32,7 @@ export const ButtonView = ({
 
   return classes !== '' ? BlazeButton : DeprecatedButton();
 };
+
+ButtonView.defaultProps = {
+  disabled: false,
+};
