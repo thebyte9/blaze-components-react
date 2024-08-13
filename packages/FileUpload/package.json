@@ -20,8 +20,8 @@
   },
   "peerDependencies": {
     "@blaze-react/utils": "^0.8.0-alpha.58",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.2",
+    "react-dom": "^18.0.2"
   },
   "devDependencies": {
     "webpack": "^5.38.1",

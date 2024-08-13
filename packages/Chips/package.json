@@ -18,12 +18,12 @@
   "peerDependencies": {
     "@blaze-react/avatar": "^0.8.0-alpha.58",
     "@blaze-react/utils": "^0.8.0-alpha.58",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.2",
+    "react-dom": "^18.0.2"
   },
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.0.2",
+    "react-dom": "^18.0.2",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },

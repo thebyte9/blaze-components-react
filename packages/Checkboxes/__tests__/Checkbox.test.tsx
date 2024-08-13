@@ -1,7 +1,5 @@
 import '@testing-library/jest-dom';
-
 import { fireEvent, render, screen } from '@testing-library/react';
-
 import { Checkboxes } from '../src';
 import React from 'react';
 import userEvent from '@testing-library/user-event';
@@ -92,24 +90,27 @@ describe('Checkboxes component', () => {
     expect(checkbox).not.toBeChecked();
   });
 
-  it("doesn't trigger onChange event when disabled", () => {
+  it("doesn't trigger onChange event when disabled", async () => {
+    const user = userEvent.setup();
     const mockOnChange = jest.fn();
     render(<Checkboxes {...defaultProps({ onChange: mockOnChange })} />);
-    userEvent.click(screen.getByText('Disabled'));
+    await user.click(screen.getByText('Disabled'));
     expect(mockOnChange).not.toHaveBeenCalled();
   });
 
-  it('fires onChange event when not disabled', () => {
+  it('fires onChange event when not disabled', async () => {
+    const user = userEvent.setup();
     const mockOnChange = jest.fn();
     render(<Checkboxes {...defaultProps({ onChange: mockOnChange })} />);
-    userEvent.click(screen.getByText('I accept'));
+    await user.click(screen.getByText('I accept'));
     expect(mockOnChange).toHaveBeenCalled();
   });
 
-  it('handles onChange when returnBoolean is true', () => {
+  it('handles onChange when returnBoolean is true', async () => {
+    const user = userEvent.setup();
     const mockOnChange = jest.fn();
     render(<Checkboxes {...defaultProps({ onChange: mockOnChange, returnBoolean: true })} />);
-    userEvent.click(screen.getByText('I accept'));
+    await user.click(screen.getByText('I accept'));
     expect(mockOnChange).toHaveBeenCalled();
   });
 });

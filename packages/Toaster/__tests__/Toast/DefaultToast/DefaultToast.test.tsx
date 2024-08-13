@@ -2,13 +2,9 @@ import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import DefaultToast from '../../../src/Toast/DefaultToast';
 import userEvent from '@testing-library/user-event';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 describe('Default toast', () => {
-  it('should be defined', () => {
-    expect(DefaultToast).toBeDefined();
-  });
-
   it('should render without throwing error', () => {
     const { asFragment } = render(
       <DefaultToast
@@ -30,7 +26,8 @@ describe('Default toast', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it('should fire onDismiss event', () => {
+  it('should fire onDismiss event', async () => {
+    const user = userEvent.setup();
     const onDismiss = jest.fn();
 
     render(
@@ -51,8 +48,7 @@ describe('Default toast', () => {
     );
 
     const dismissButton = screen.getByTestId('toast-dismiss-button');
-    userEvent.click(dismissButton);
-
+    await user.click(dismissButton);
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 
