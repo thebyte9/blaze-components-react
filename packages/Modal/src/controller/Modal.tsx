@@ -1,6 +1,7 @@
-import { buildClassNames } from '@blaze-react/utils';
+import { buildClassNames, usePortal } from '@blaze-react/utils';
 import React, { useEffect, FunctionComponent } from 'react';
-import { ESCAPE_KEY_CODE } from '../constants';
+import ReactDOM from 'react-dom';
+import { ESCAPE_KEY_CODE, MODAL_PORTAL_ID } from '../constants';
 import { useComponentLogic } from '../hooks/useComponentLogic';
 import { DeprecatedModalFooter, ModalFooter } from '../view/ModalFooter';
 import { DeprecatedModalHeader, ModalHeader } from '../view/ModalHeader';
@@ -112,22 +113,22 @@ export const Modal = ({
   overrides,
   ...rest
 }: IModalProps): any => {
+  const target = usePortal({ id: MODAL_PORTAL_ID });
+
   const { container, header, footer } = useComponentLogic({
     componentVariant: variant,
     theme: theme,
     overrides: overrides,
   });
 
-  return (
-    <>
-      <ModalView classes={container} {...rest}>
-        {type !== ModalType.ALERT && <ModalHeader classes={header} title={title} onClose={onClose}></ModalHeader>}
-        {children}
-        {showFooter && <ModalFooter classes={footer} onClose={onClose} actions={actions} type={type}></ModalFooter>}
-      </ModalView>
-      <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
-    </>
-  );
+  return ReactDOM.createPortal(<>
+    <ModalView classes={container} {...rest}>
+      {type !== ModalType.ALERT && <ModalHeader classes={header} title={title} onClose={onClose}></ModalHeader>}
+      {children}
+      {showFooter && <ModalFooter classes={footer} onClose={onClose} actions={actions} type={type}></ModalFooter>}
+    </ModalView>
+    <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+  </>, target);
 };
 
 DeprecatedModal.defaultProps = {
