@@ -19,7 +19,7 @@ const DemoComponent = () => {
     appliedSort: { name: 'asc' },
     columns: ['name', 'email', 'city'],
     identification: 'id',
-    orderBy: ['email', 'name', 'city'],
+    orderBy: ['name', 'city'],
     rows: [],
     labels: { name: 'Name', email: 'email', city: 'City' },
   });

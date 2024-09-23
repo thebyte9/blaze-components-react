@@ -77,13 +77,15 @@ const SortableCell = ({
 
   return (
     <div className="sortable">
-      <span
+      {orderBy.includes(column) ? (
+        <span
         data-testid={`sortby-${column}`}
         onClick={() => sort(column)}
         role="button"
       >
         {labels[column]}
       </span>
+      ): <span>{labels[column]}</span>}
 
       {tableColumns[column] !== hide && (
         <i className="material-icons">
