@@ -19,10 +19,15 @@ const SortableCell = ({
   appliedSort: any;
   labels: IMap;
 }) => {
-  const formatColumns = columns.reduce((acc: any, item: any): any => {
-    return { ...acc, [item]: null };
-  }, {});
-  const [tableColumns, setTableColumns] = useState(formatColumns);
+  const [tableColumns, setTableColumns] = useState([]);
+
+  useEffect(() => {
+    const formatColumns = columns.reduce((acc: any, item: any): any => {
+      return { ...acc, [item]: null };
+    }, {});
+
+    setTableColumns(formatColumns)
+  }, [columns])
 
   type TSortDirection = "asc" | "desc" | null;
   const asc: TSortDirection = "asc";
@@ -77,23 +82,22 @@ const SortableCell = ({
 
   return (
     <div className="sortable">
-      {orderBy.includes(column) ? (
-        <span
-        data-testid={`sortby-${column}`}
-        onClick={() => sort(column)}
-        role="button"
-      >
-        {labels[column]}
-      </span>
-      ): <span>{labels[column]}</span>}
-
-      {tableColumns[column] !== hide && (
-        <i className="material-icons">
+      {(orderBy || []).includes(column) ? (
+        <>
+          <span
+            data-testid={`sortby-${column}`}
+            onClick={() => sort(column)}
+            role="button"
+          >
+            {labels[column]}
+          </span>
+      <i className="material-icons">
           {tableColumns[column] === asc
             ? "keyboard_arrow_up"
             : "keyboard_arrow_down"}
         </i>
-      )}
+        </>
+      ): <span>{labels[column]}</span>}
     </div>
   );
 };

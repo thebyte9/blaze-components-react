@@ -34,6 +34,11 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
           >
             Name
           </span>
+          <i
+            class="material-icons"
+          >
+            keyboard_arrow_down
+          </i>
         </div>
       </div>
       <div
@@ -48,6 +53,11 @@ exports[`Table component should be defined and renders correctly (snapshot) 1`] 
           >
             age
           </span>
+          <i
+            class="material-icons"
+          >
+            keyboard_arrow_down
+          </i>
         </div>
       </div>
     </div>

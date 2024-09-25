@@ -82,6 +82,7 @@ const SpaceXDemoComponent = () => {
 
   const [data, setData] = useState<any>({
     columns: ['mission_name', 'launch_year'],
+    orderBy: ['mission_name'],
     labels: { mission_name: 'Name', launch_year: 'Year' },
     rows: [],
   });
