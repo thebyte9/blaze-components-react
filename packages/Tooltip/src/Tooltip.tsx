@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useMemo, useRef, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { usePortal } from '@blaze-react/utils';
-import ClickAwayWrapper, { ConditionalWrapper } from './ConditionalWrapper';
-import {useTooltipStyles, useTouchScreenDetect} from './hooks';
+import { useTooltipStyles, useTouchScreenDetect } from './hooks';
 import { tooltipDOMUtils } from './utils';
 
 interface TooltipProps {
-  tooltipContent: JSX.Element | string;
+  tooltipContent?: JSX.Element | string;
   position?: 'top' | 'right' | 'bottom' | 'left';
   color?: string;
   backgroundColor?: string;
@@ -16,7 +15,7 @@ interface TooltipProps {
   isDisplayTooltipIndicator?: boolean;
   trigger?: 'hover' | 'click';
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const Tooltip: React.FC<TooltipProps> = ({
@@ -52,12 +51,12 @@ const Tooltip: React.FC<TooltipProps> = ({
     bottom: 'bottom',
     left: 'left',
   }), []);
-  
+
   const isHoverTrigger = useMemo(() => trigger === 'hover', [trigger]);
   const isClickTrigger = useMemo(() => trigger === 'click', [trigger]);
   const target = usePortal({ id: 'tooltip' });
 
-    const getStylesList = useTooltipStyles(
+  const getStylesList = useTooltipStyles(
     tooltipWrapperRef,
     position,
     availableTooltipPositions,
@@ -121,36 +120,11 @@ const Tooltip: React.FC<TooltipProps> = ({
     }
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (show && isClickTrigger) {
-        setShow(false);
-      }
-    };
-
-    if (tooltipWrapperRef.current) {
-      const wrapperRef = tooltipWrapperRef.current;
-      const scrollableParent = tooltipDOMUtils.getScrollParent(wrapperRef);
-      const newScrollableParent = scrollableParent === document.body ? window : scrollableParent;
-
-      newScrollableParent.addEventListener('scroll', handleScroll);
-      window.addEventListener('resize', handleScroll);
-
-      return () => {
-        newScrollableParent.removeEventListener('scroll', handleScroll);
-        window.removeEventListener('resize', handleScroll);
-      };
-    }
-  }, [show, isClickTrigger]);
+  if (!children && !tooltipContent) {
+    return null;
+  }
 
   return (
-    <ConditionalWrapper
-      condition={isClickTrigger}
-      initialWrapper={(children) => <>{children}</>}
-      wrapper={(children) => (
-        <ClickAwayWrapper onClickAwayCallback={hideTooltip}>{children}</ClickAwayWrapper>
-      )}
-    >
     <span
       className={`tooltip ${disabled ? 'is-disabled' : ''}`}
       onMouseEnter={isHoverTrigger && !disabled && !isHasTouch ? showTooltip : undefined}
@@ -160,30 +134,35 @@ const Tooltip: React.FC<TooltipProps> = ({
       onClick={isClickTrigger && !disabled ? showTooltip : undefined}
       ref={tooltipWrapperRef}
     >
-    {ReactDOM.createPortal(
-      show && tooltipContent ? (
-        <span
-          ref={tooltipMessage}
-          className={`tooltip-message ${className} on-${newPosition.current} ${isDisplayTooltipIndicator ? 'is-indicator' : ''}`}
-          style={{
-            color,
-            '--background-color': backgroundColor,
-            ...customPosition,
-            visibility: (newPosition.current === availableTooltipPositions.left || 
-                        newPosition.current === availableTooltipPositions.top) && !isTooltipVisible 
-                        ? 'hidden' 
-                        : 'visible',
-            ...styles,
-          }}
-        >
-          {tooltipContent}
-        </span>
-      ) : null,
-      target
-    )}
-        {children}
-      </span>
-    </ConditionalWrapper>
+      {ReactDOM.createPortal(
+        show && tooltipContent ? (
+          <span
+            ref={tooltipMessage}
+            className={`tooltip-message ${className} on-${newPosition.current} ${isDisplayTooltipIndicator ? 'is-indicator' : ''}`}
+            style={{
+              color,
+              '--background-color': backgroundColor,
+              ...customPosition,
+              visibility: (newPosition.current === availableTooltipPositions.left ||
+                newPosition.current === availableTooltipPositions.top) && !isTooltipVisible
+                ? 'hidden'
+                : 'visible',
+              ...styles,
+            }}
+          >
+            {isClickTrigger && (
+              <i
+                className="fa fa-times"
+                aria-hidden="true"
+                onClick={hideTooltip}
+              ></i>
+            )}
+            {tooltipContent}
+          </span>
+        ) : null,
+        target
+      )}
+    </span>
   );
 };
 

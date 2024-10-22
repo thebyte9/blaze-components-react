@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 
 import { ErrorMessage } from '@blaze-react/utils';
 import { buildClassNames } from '@blaze-react/utils';
+import Tooltip from '@blaze-react/tooltip'
 
 interface IOptions {
   checked: boolean;
@@ -10,6 +11,7 @@ interface IOptions {
   required: boolean;
   label: string;
   id?: string;
+  tooltipContent?: JSX.Element | string;
 }
 
 type TlabelPosition = 'right' | 'left' | 'base' | 'top';
@@ -51,11 +53,11 @@ const Switches = ({
     wrap: (child: JSX.Element[]) => JSX.Element;
     formatedOptions: IOptions[];
   } = Array.isArray(options)
-    ? {
+      ? {
         formatedOptions: options,
         wrap: (child: JSX.Element[]): JSX.Element => <div className="form-group form-group--switch">{child}</div>,
       }
-    : {
+      : {
         formatedOptions: [options],
         wrap: (child: JSX.Element[]): JSX.Element => <>{child}</>,
       };
@@ -97,11 +99,15 @@ const Switches = ({
     <Fragment>
       {wrap(
         data.map((item: IOptions, key: number): JSX.Element => {
-          const { checked = false, value, disabled, required, label, id = `switch-${key}` } = item;
+          const { checked = false, value, disabled, required, label, id = `switch-${key}`, tooltipContent } = item;
 
           return (
             <div className={switchClassNames} key={id}>
-              <div className="switch__text">{label}</div>
+              <div className="switch__text">
+                <Tooltip tooltipContent={tooltipContent} position="top">
+                  {label}
+                </Tooltip>
+              </div>
               <div className="switch__item">
                 <input
                   readOnly

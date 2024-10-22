@@ -1,9 +1,11 @@
 import { buildClassNames } from '@blaze-react/utils';
 import { ErrorMessage } from '@blaze-react/utils';
 import React, { useEffect, useState, FunctionComponent } from 'react';
+import Tooltip from '@blaze-react/tooltip'
 
 interface ISelectProps {
   label?: string | JSX.Element | JSX.Element[] | (() => JSX.Element) | null;
+  tooltip?: string | JSX.Element | JSX.Element[] | (() => JSX.Element) | null;
   keys?: string[];
   options: any[];
   required?: boolean;
@@ -21,6 +23,7 @@ interface ISelectProps {
 
 const Select: FunctionComponent<ISelectProps> = ({
   label,
+  tooltip,
   required,
   onChange,
   options,
@@ -86,6 +89,11 @@ const Select: FunctionComponent<ISelectProps> = ({
       {label && (
         <label htmlFor={fieldName} className={requiredClassName}>
           {label}
+          {tooltip && (
+            <span className="tooltip">
+              {typeof tooltip === 'function' ? tooltip() : tooltip}
+            </span>
+          )}
         </label>
       )}
       <select
@@ -111,6 +119,7 @@ Select.defaultProps = {
   error: false,
   keys: [],
   label: null,
+  tooltip: null,
   showDefaultOption: true,
   onChange: (): void => {
     return;

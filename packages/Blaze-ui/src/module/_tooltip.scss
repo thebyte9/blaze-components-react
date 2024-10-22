@@ -1,34 +1,4 @@
 .tooltip-message {
-  &.default {
-        box-shadow:
-      0 8px 16px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  &.custom-class {
-    border-right: 12px;
-    padding: 8px;
-    box-shadow:
-      0 8px 16px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-}
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-.tooltip {
-  cursor: pointer;
-  user-select: none;
-
-  &.is-disabled {
-    cursor: initial;
-  }
-}
-
-.tooltip-message {
   position: absolute;
   padding: 4px 8px;
   border-radius: 4px;
@@ -36,6 +6,24 @@
   max-width: 250px;
   z-index: 500;
   color: $black;
+
+  // For the close button icon style
+  .tooltip-close-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  &.default {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  &.custom-class {
+    border-right: 12px;
+    padding: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
   &.on-top {
     transform: translateX(-50%);
@@ -107,6 +95,21 @@
         transform: translateY(-50%);
       }
     }
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.tooltip {
+  cursor: pointer;
+  user-select: none;
+
+  &.is-disabled {
+    cursor: initial;
   }
 }
 
