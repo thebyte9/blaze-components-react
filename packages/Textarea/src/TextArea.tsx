@@ -1,7 +1,6 @@
 import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
-import React, { FunctionComponent, TextareaHTMLAttributes, useEffect, useState } from 'react';
-import Tooltip from '@blaze-react/tooltip'
 
+import React, { FunctionComponent, TextareaHTMLAttributes, useEffect, useState } from 'react';
 interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   required?: boolean;
@@ -48,19 +47,14 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
 
   const fieldName = attrs.id || `textarea-${attrs.name}`;
 
+  const labelWithTooltip = <>{label} {tooltip}</>
+
   return (
     <div className="form-field form-field--textarea">
-      {label && (
-        <div className="label-container">
-          <label htmlFor={fieldName} className={requiredClassName}>
-            {label}
-            {tooltip && (
-              <span className="tooltip">
-                {typeof tooltip === 'string' ? tooltip : tooltip} {/* Render tooltip */}
-              </span>
-            )}
-          </label>
-        </div>
+      {labelWithTooltip && (
+        <label htmlFor={fieldName} className={requiredClassName}>
+          {labelWithTooltip}
+        </label>
       )}
       <textarea
         value={content}

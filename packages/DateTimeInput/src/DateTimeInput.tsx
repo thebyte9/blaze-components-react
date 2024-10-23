@@ -3,7 +3,6 @@ import { ErrorMessage } from '@blaze-react/utils';
 import React, { FunctionComponent, useEffect, useState, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import { DATE_FORMAT_MAP, TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
-import Tooltip from '@blaze-react/tooltip'
 
 // TODO We are not sure about whether this import will work in any context
 // import "react-datepicker/dist/react-datepicker.css";
@@ -84,20 +83,17 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   };
 
   const requiredClassName: string = buildClassNames({ required });
+
   const rootClasses: string = buildClassNames('form-field form-field--date-time-input', {
     [`form-field--${modifier}`]: !!modifier,
   });
 
+  const labelWithTooltip = <>{label} {tooltip}</>
+
   return (
     <div className={rootClasses} ref={containerRef}>
       <label htmlFor={id} className={requiredClassName}>
-        {tooltip ? (
-          <Tooltip tooltipContent={tooltip} position="top">
-            {label}
-          </Tooltip>
-        ) : (
-          label
-        )}
+        {labelWithTooltip}
       </label>
 
       <DatePicker

@@ -1,7 +1,6 @@
 import { buildClassNames } from '@blaze-react/utils';
 import { ErrorMessage } from '@blaze-react/utils';
 import React, { useEffect, useState, FunctionComponent } from 'react';
-import Tooltip from '@blaze-react/tooltip'
 
 interface ISelectProps {
   label?: string | JSX.Element | JSX.Element[] | (() => JSX.Element) | null;
@@ -83,17 +82,13 @@ const Select: FunctionComponent<ISelectProps> = ({
 
   const fieldName = `select-${attrs.name}`;
   const ariaLabel = label ? undefined : defaultTextValue;
+  const labelWithTooltip = <>{label} {tooltip}</>
 
   return (
     <div className="form-field form-field--select">
       {label && (
         <label htmlFor={fieldName} className={requiredClassName}>
-          {label}
-          {tooltip && (
-            <span className="tooltip">
-              {typeof tooltip === 'function' ? tooltip() : tooltip}
-            </span>
-          )}
+          {labelWithTooltip}
         </label>
       )}
       <select

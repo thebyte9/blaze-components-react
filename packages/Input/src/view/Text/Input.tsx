@@ -5,7 +5,6 @@ import { ErrorIcon } from './Icons/ErrorIcon';
 import { LoadingIcon } from './Icons/LoadingIcon';
 import { SuccessIcon } from './Icons/SuccessIcon';
 import { WarningIcon } from './Icons/WarningIcon';
-import Tooltip from '@blaze-react/tooltip'
 
 
 interface ExtendedTextInputProps extends TextInputProps {
@@ -30,15 +29,13 @@ export const TextInput = ({
     currentState: currentState,
   };
 
-  const fieldName = `input-${name || id || rest.type}`;
+  const fieldName = `input-${name || id || rest.type}`
+  const labelWithTooltip = <>{label} {tooltip}</>
 
   return (
     <>
       <label data-testid="input-label" className={classes[currentState].container} htmlFor={fieldName}>
-        <span className={classes[currentState].label}>{label}</span>
-        {tooltip && (
-          <span className="tooltip">{tooltip}</span>
-        )}
+        <span className={classes[currentState].label}>{labelWithTooltip}</span>
         {currentState === InputState.Error &&
           displayError === DisplayErrorAs.Icon &&
           (icon ?? <ErrorIcon {...iconProps} />)}

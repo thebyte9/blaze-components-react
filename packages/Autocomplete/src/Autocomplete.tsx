@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import Input from '@blaze-react/input';
-import Tooltip from '@blaze-react/tooltip'
 
 interface IAutocompleteProps {
   data: {
@@ -46,15 +45,15 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     selected && selected(copiedData);
   };
 
+  const labelWithTooltip = <>{label} {tooltip}</>
+
   return (
     <Fragment>
       <div className="autocomplete-container">
-        <Tooltip tooltipContent={tooltip} position="top">
-        </Tooltip>
         <Input
           {...inputProps}
           placeholder={placeholder}
-          label={label}
+          label={labelWithTooltip}
           onChange={handleChange}
           value={inputValue}
           disabled={disabled}
@@ -86,7 +85,6 @@ Autocomplete.defaultProps = {
   selected: (): void => {
     return;
   },
-  tooltip: null,
 };
 
 export default Autocomplete;

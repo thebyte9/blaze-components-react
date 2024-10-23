@@ -6,13 +6,13 @@
   max-width: 250px;
   z-index: 500;
   color: $black;
+  padding-right: 20px;
 
-  // For the close button icon style
   .tooltip-close-icon {
     cursor: pointer;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    margin: 100px;
+    background-color: $white;
   }
 
   &.default {

@@ -31,6 +31,7 @@ interface ICheckBoxesProps {
   name?: string;
   validationMessage?: string | JSX.Element;
   full?: boolean;
+  tooltip?: string | JSX.Element;
 }
 
 export { IErrorMessage, ICheckBoxesProps };
@@ -43,6 +44,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   validationMessage,
   name,
   full,
+  tooltip,
   ...attrs
 }): JSX.Element => {
   const formatedOptions = Array.isArray(options) ? options : [options];
@@ -99,7 +101,11 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               disabled={disabled}
               id={id}
               data-testid={id}
-              label={label}
+              label={
+                <>
+                  {label} {tooltip && <span className="tooltip">{tooltip}</span>}
+                </>
+              }
               name={checkboxName}
               required={required}
               show={show}

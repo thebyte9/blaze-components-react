@@ -5,6 +5,16 @@ import dateTimeInputReadme from '../README.md';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import DateTimeInput from '../src/DateTimeInput';
+import Tooltip from '@blaze-react/tooltip';
+
+
+const tooltip = (
+  <Tooltip tooltipContent="Tooltip with icon underlined" position="right">
+    <span>
+      <i className="fa fa-info-circle underline" aria-hidden="true"></i>
+    </span>
+  </Tooltip>
+);
 
 storiesOf('DateTime Input', module)
   .addParameters({
@@ -28,6 +38,7 @@ storiesOf('DateTime Input', module)
             return;
           }}
           type="dateTime"
+          tooltip={tooltip}
         />
 
         <h4>Only date</h4>
@@ -38,6 +49,7 @@ storiesOf('DateTime Input', module)
             return;
           }}
           type="date"
+          tooltip={tooltip}
         />
 
         <h4>Only time</h4>
@@ -48,6 +60,7 @@ storiesOf('DateTime Input', module)
             return;
           }}
           type="time"
+          tooltip={tooltip}
         />
       </div>
     );

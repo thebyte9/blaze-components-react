@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react';
 
 import { ErrorMessage } from '@blaze-react/utils';
 import { buildClassNames } from '@blaze-react/utils';
-import Tooltip from '@blaze-react/tooltip'
 
 interface IOptions {
   checked: boolean;
@@ -11,7 +10,7 @@ interface IOptions {
   required: boolean;
   label: string;
   id?: string;
-  tooltipContent?: JSX.Element | string;
+  tooltip?: string | JSX.Element;
 }
 
 type TlabelPosition = 'right' | 'left' | 'base' | 'top';
@@ -44,6 +43,7 @@ const Switches = ({
   returnBoolean,
   error,
   validationMessage,
+  tooltip,
   ...attrs
 }: ISwitchesProps): JSX.Element => {
   const {
@@ -101,13 +101,16 @@ const Switches = ({
         data.map((item: IOptions, key: number): JSX.Element => {
           const { checked = false, value, disabled, required, label, id = `switch-${key}`, tooltipContent } = item;
 
+          const labelWithTooltip = (
+            <>
+              {label}
+              {tooltip}
+            </>
+          );
+
           return (
             <div className={switchClassNames} key={id}>
-              <div className="switch__text">
-                <Tooltip tooltipContent={tooltipContent} position="top">
-                  {label}
-                </Tooltip>
-              </div>
+              <div className="switch__text">{labelWithTooltip}</div>
               <div className="switch__item">
                 <input
                   readOnly

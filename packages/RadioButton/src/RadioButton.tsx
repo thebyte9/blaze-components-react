@@ -1,22 +1,13 @@
 import { ErrorMessage } from '@blaze-react/utils';
 import React, { Fragment, FunctionComponent, useState } from 'react';
-import Tooltip from '@blaze-react/tooltip'
 
 interface IErrorMessage {
   message: string | JSX.Element;
   icon?: string;
 }
 
-interface IOption {
-  value: string;
-  disabled: boolean;
-  label: string;
-  id: string;
-  tooltip?: string | JSX.Element; // Tooltip prop
-}
-
 interface IRadioButtonProps {
-  options: IOption[];
+  options: any[];
   required?: boolean;
   onChange: ({
     event,
@@ -25,11 +16,14 @@ interface IRadioButtonProps {
     event: React.ChangeEvent<HTMLInputElement>;
     selected: string | Record<string, unknown> | [];
   }) => void;
+  utils: {
+    ErrorMessage: FunctionComponent<IErrorMessage>;
+  };
   error?: boolean;
   validationMessage: string | JSX.Element;
 }
 
-const RadioButton: React.FC<IRadioButtonProps> = ({
+const RadioButton: React.SFC<IRadioButtonProps> = ({
   onChange,
   options,
   required,
@@ -40,8 +34,7 @@ const RadioButton: React.FC<IRadioButtonProps> = ({
   const [selected, setSelected] = useState<{ value: string | any }>({
     value: null,
   });
-
-  const handleSelect = ({ event, item }: { event: any; item: IOption }) => {
+  const handleSelect = ({ event, item }: { event: any; item: any }) => {
     if (item.disabled) {
       return;
     }
@@ -54,6 +47,7 @@ const RadioButton: React.FC<IRadioButtonProps> = ({
       {required && <span className="required" />}
       {options.map((item) => {
         const { value, disabled, label, id, tooltip } = item;
+        const labelWithTooltip = <>{label} {tooltip}</>
         return (
           <div
             key={label}
@@ -71,12 +65,7 @@ const RadioButton: React.FC<IRadioButtonProps> = ({
               id={id}
               {...attrs}
             />
-            <label htmlFor={id} className="radio-label">
-              {label}
-              {tooltip && (
-                <span className="tooltip">{tooltip}</span>
-              )}
-            </label>
+            <label htmlFor={id}>{labelWithTooltip}</label>
           </div>
         );
       })}
