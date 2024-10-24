@@ -40,6 +40,7 @@ const tooltip = (
     tooltipContent={<>tooltip on <em>click</em> with custom background color</>}
     backgroundColor="lightblue"
     trigger="click"
+    position="right"
   />
 );
 

@@ -99,7 +99,7 @@ const Switches = ({
     <Fragment>
       {wrap(
         data.map((item: IOptions, key: number): JSX.Element => {
-          const { checked = false, value, disabled, required, label, id = `switch-${key}`, tooltipContent } = item;
+          const { checked = false, value, disabled, required, label, id = `switch-${key}` } = item;
 
           const labelWithTooltip = (
             <>
