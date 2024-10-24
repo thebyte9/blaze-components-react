@@ -1,7 +1,9 @@
 import { storiesOf } from "@storybook/react";
-import React from "react";
+import React, { Suspense } from "react";
 import SwitchesReadme from "../README.md";
 import Switches from "../src/Switches";
+import Tooltip from '@blaze-react/tooltip'
+
 const multiple = [
   {
     id: 1,
@@ -27,30 +29,36 @@ storiesOf("Switches", module)
       sidebar: SwitchesReadme
     }
   })
-  .add("Introduction", () => (
-    <div className="component-wrapper">
-      <section className="introductionSection">
-        <h1>Switches</h1>
-        <p>
-          Switches component is a digital on/off switch used for activating one
-          of two predefined options.
-        </p>
-      </section>
+  .add("Introduction", (): any => {
+    const tooltip = (<Tooltip tooltipContent={<> tooltip on <em>click</em></>} trigger="click" />);
 
-      <hr />
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="component-wrapper">
+          <section className="introductionSection">
+            <h1>Switches</h1>
+            <p>
+              Switches component is a digital on/off switch used for activating one
+              of two predefined options.
+            </p>
+          </section>
 
-      <section className="exampleSection">
-        <h3>Single</h3>
-        <Switches returnBoolean options={single} onChange={() => ({})} />
+          <hr />
 
-        <br />
+          <section className="exampleSection">
+            <h3>Single</h3>
+            <Switches returnBoolean options={single} onChange={() => ({})} />
 
-        <h3>Multiple</h3>
-        <Switches
-          options={multiple}
-          modifier={Switches.availableModifiers.secondary}
-          onChange={() => ({})}
-        />
-      </section>
-    </div>
-  ));
+            <br />
+
+            <h3>Multiple</h3>
+            <Switches
+              tooltip={tooltip}
+              options={multiple}
+              onChange={() => ({})}
+            />
+          </section>
+        </div>
+      </Suspense>
+    );
+  });

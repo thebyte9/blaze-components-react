@@ -10,6 +10,7 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: boolean;
   validationMessage?: string | JSX.Element;
   placeholder?: string;
+  tooltip?: string | JSX.Element;
 }
 
 const Textarea: FunctionComponent<ITextareaProps> = ({
@@ -20,6 +21,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   error,
   validationMessage,
   required,
+  tooltip,
   ...attrs
 }) => {
   const [content, setContent] = useState<string>('');
@@ -45,11 +47,13 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
 
   const fieldName = attrs.id || `textarea-${attrs.name}`;
 
+  const labelWithTooltip = <>{label} {tooltip}</>
+
   return (
     <div className="form-field form-field--textarea">
-      {label && (
+      {labelWithTooltip && (
         <label htmlFor={fieldName} className={requiredClassName}>
-          {label}
+          {labelWithTooltip}
         </label>
       )}
       <textarea

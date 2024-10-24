@@ -2,6 +2,8 @@ import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense } from "react";
 import TextareaReadme from "../README.md";
+import Tooltip from '@blaze-react/tooltip'
+
 
 storiesOf("Textareas", module)
   .addParameters({
@@ -10,6 +12,9 @@ storiesOf("Textareas", module)
     }
   })
   .add("Introduction", () => {
+
+    const tooltip = (<Tooltip tooltipContent={<> tooltip on <em>click</em></>} trigger="click" />)
+
     const Textarea: any = lazy((): any => import("../src/TextArea"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
@@ -26,7 +31,7 @@ storiesOf("Textareas", module)
           <Textarea
             label="Textarea required"
             placeholder="Content..."
-            onChange={() => {}}
+            onChange={() => { }}
             required
           />
 
@@ -38,7 +43,8 @@ storiesOf("Textareas", module)
             label="Textarea with max content length 40"
             placeholder="Content..."
             value="lorem ipsum"
-            onChange={() => {}}
+            tooltip={tooltip}
+            onChange={() => { }}
             limit={40}
           />
         </div>

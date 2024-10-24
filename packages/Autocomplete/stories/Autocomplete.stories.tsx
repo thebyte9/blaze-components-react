@@ -1,5 +1,6 @@
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
+import Tooltip from '@blaze-react/tooltip'
 import React, { lazy, Suspense } from "react";
 import AutocompleteReadme from "../README.md";
 
@@ -31,6 +32,9 @@ storiesOf("Autocomplete", module)
     }
   })
   .add("Introduction", (): any => {
+
+    const tooltip = (<Tooltip tooltipContent={<> tooltip on <em>click</em></>} trigger="click" />)
+
     const Autocomplete: any = lazy((): any => import("../src"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
@@ -45,6 +49,7 @@ storiesOf("Autocomplete", module)
           <Autocomplete
             data={data}
             label="Autocomplete"
+            tooltip={tooltip}
             selected={() => {
               return;
             }}

@@ -1,55 +1,131 @@
-.tooltip {
-  top: 42px;
-  color: $nearly-black;
-  display: inline-block;
-  left: 0;
-  background-color: $white;
-  opacity: 0;
-  padding: 20px 20px 30px;
-  pointer-events: none;
+.tooltip-message {
   position: absolute;
-  width: 100%;
-  z-index: 101;
-  transform: translateY(10px);
-  transition: all .25s ease-out;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  max-width: 250px;
+  z-index: 500;
+  color: $black;
+  padding-right: 20px;
 
-  &:before {
-    /* This bridges the gap so you can mouse into the tooltip without it disappearing */
-    bottom: -20px;
-    content: '';
-    display: inline-block;
-    height: 20px;
-    left: 0;
+  .tooltip-close-icon {
+    cursor: pointer;
     position: absolute;
-    width: 100%;
+    margin: 100px;
+    background-color: $white;
   }
 
-  &__heading {
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    padding-right: 30px;
+  &.default {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  &__subheading {
-    font-size: .75rem;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+  &.custom-class {
+    border-right: 12px;
+    padding: 8px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
-    & span {
-      text-transform: none;
-      padding-left: 10px;
+  &.on-top {
+    transform: translateX(-50%);
+    background-color: var(--background-color);
+
+    &.is-indicator {
+      &::after {
+        content: '';
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 8px solid var(--background-color);
+        position: absolute;
+        bottom: -12px;
+        right: 50%;
+        transform: translate(50%, -50%);
+      }
     }
   }
 
-  &__content {
-    font-size: .75rem;
+  &.on-right {
+    transform: translateY(-50%);
+    background-color: var(--background-color);
+
+    &.is-indicator {
+      &::after {
+        content: '';
+        border-top: 5px solid transparent;
+        border-right: 8px solid var(--background-color);
+        border-bottom: 5px solid transparent;
+        position: absolute;
+        top: 50%;
+        left: -8px;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &.on-bottom {
+    transform: translateX(-50%);
+    background-color: var(--background-color);
+
+    &.is-indicator {
+      &::after {
+        content: '';
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 8px solid var(--background-color);
+        position: absolute;
+        top: -8px;
+        right: 50%;
+        transform: translate(50%, 0%);
+      }
+    }
+  }
+
+  &.on-left {
+    transform: translateY(-50%);
+    background-color: var(--background-color);
+
+    &.is-indicator {
+      &::after {
+        content: '';
+        border-bottom: 5px solid transparent;
+        border-top: 5px solid transparent;
+        border-left: 8px solid var(--background-color);
+        position: absolute;
+        top: 50%;
+        right: -7px;
+        transform: translateY(-50%);
+      }
+    }
   }
 }
 
-.f-all-filters__filter:hover .tooltip,
-.table-fields__field:hover .tooltip {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0px);
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.tooltip {
+  cursor: pointer;
+  user-select: none;
+
+  &.is-disabled {
+    cursor: initial;
+  }
+}
+
+.demo {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  margin-bottom: 5px;
+
+  .demo-label {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+    margin: 0;
+    padding: 10px 0;
+  }
 }

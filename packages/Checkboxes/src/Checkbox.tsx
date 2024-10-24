@@ -1,10 +1,23 @@
 import React, { useState } from 'react';
-
 import Label from './Label';
 import { buildClassNames } from '@blaze-react/utils';
 import { nanoid } from 'nanoid';
+import Tooltip from '@blaze-react/tooltip'
 
-const Checkbox = ({ checked, value, disabled, required, label, show, name, id, onChange, full, ...attrs }: any) => {
+const Checkbox = ({
+  checked,
+  value,
+  disabled,
+  required,
+  label,
+  show,
+  name,
+  id,
+  onChange,
+  full,
+  tooltip,
+  ...attrs
+}: any) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleCheckboxChange = (event: React.MouseEvent<HTMLDivElement>): void => {
@@ -51,7 +64,9 @@ const Checkbox = ({ checked, value, disabled, required, label, show, name, id, o
         {...attrs}
       />
       <div onClick={handleCheckboxChange} className={labelClassName} data-testid="form-field-wrapper">
-        <Label defaultId={inputId} label={label} />
+        <Tooltip tooltipContent={tooltip} position="top">
+          <Label defaultId={inputId} label={label} />
+        </Tooltip>
       </div>
     </div>
   );

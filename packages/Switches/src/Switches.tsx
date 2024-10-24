@@ -10,6 +10,7 @@ interface IOptions {
   required: boolean;
   label: string;
   id?: string;
+  tooltip?: string | JSX.Element;
 }
 
 type TlabelPosition = 'right' | 'left' | 'base' | 'top';
@@ -42,6 +43,7 @@ const Switches = ({
   returnBoolean,
   error,
   validationMessage,
+  tooltip,
   ...attrs
 }: ISwitchesProps): JSX.Element => {
   const {
@@ -51,11 +53,11 @@ const Switches = ({
     wrap: (child: JSX.Element[]) => JSX.Element;
     formatedOptions: IOptions[];
   } = Array.isArray(options)
-    ? {
+      ? {
         formatedOptions: options,
         wrap: (child: JSX.Element[]): JSX.Element => <div className="form-group form-group--switch">{child}</div>,
       }
-    : {
+      : {
         formatedOptions: [options],
         wrap: (child: JSX.Element[]): JSX.Element => <>{child}</>,
       };
@@ -99,9 +101,16 @@ const Switches = ({
         data.map((item: IOptions, key: number): JSX.Element => {
           const { checked = false, value, disabled, required, label, id = `switch-${key}` } = item;
 
+          const labelWithTooltip = (
+            <>
+              {label}
+              {tooltip}
+            </>
+          );
+
           return (
             <div className={switchClassNames} key={id}>
-              <div className="switch__text">{label}</div>
+              <div className="switch__text">{labelWithTooltip}</div>
               <div className="switch__item">
                 <input
                   readOnly

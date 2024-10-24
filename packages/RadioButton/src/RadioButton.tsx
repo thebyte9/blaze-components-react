@@ -41,11 +41,13 @@ const RadioButton: React.SFC<IRadioButtonProps> = ({
     setSelected(item);
     onChange({ event, selected: item });
   };
+
   return (
     <Fragment>
       {required && <span className="required" />}
       {options.map((item) => {
-        const { value, disabled, label, id } = item;
+        const { value, disabled, label, id, tooltip } = item;
+        const labelWithTooltip = <>{label} {tooltip}</>
         return (
           <div
             key={label}
@@ -63,7 +65,7 @@ const RadioButton: React.SFC<IRadioButtonProps> = ({
               id={id}
               {...attrs}
             />
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={id}>{labelWithTooltip}</label>
           </div>
         );
       })}

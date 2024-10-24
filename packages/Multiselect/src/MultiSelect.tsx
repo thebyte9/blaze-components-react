@@ -1,6 +1,5 @@
 import { IData, IMultiSelectProps } from './interface';
 import React, { useEffect, useRef, useState } from 'react';
-
 import { ErrorMessage, buildClassNames } from '@blaze-react/utils';
 import MultiSelectBar from './MultiSelectBar';
 import MultiSelectList from './MultiSelectList';

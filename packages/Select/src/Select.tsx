@@ -4,6 +4,7 @@ import React, { useEffect, useState, FunctionComponent } from 'react';
 
 interface ISelectProps {
   label?: string | JSX.Element | JSX.Element[] | (() => JSX.Element) | null;
+  tooltip?: string | JSX.Element | JSX.Element[] | (() => JSX.Element) | null;
   keys?: string[];
   options: any[];
   required?: boolean;
@@ -21,6 +22,7 @@ interface ISelectProps {
 
 const Select: FunctionComponent<ISelectProps> = ({
   label,
+  tooltip,
   required,
   onChange,
   options,
@@ -80,12 +82,13 @@ const Select: FunctionComponent<ISelectProps> = ({
 
   const fieldName = `select-${attrs.name}`;
   const ariaLabel = label ? undefined : defaultTextValue;
+  const labelWithTooltip = <>{label} {tooltip}</>
 
   return (
     <div className="form-field form-field--select">
       {label && (
         <label htmlFor={fieldName} className={requiredClassName}>
-          {label}
+          {labelWithTooltip}
         </label>
       )}
       <select
@@ -111,6 +114,7 @@ Select.defaultProps = {
   error: false,
   keys: [],
   label: null,
+  tooltip: null,
   showDefaultOption: true,
   onChange: (): void => {
     return;

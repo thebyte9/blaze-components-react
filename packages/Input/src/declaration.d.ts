@@ -10,3 +10,5 @@ declare module 'react' {
     success?: string | boolean;
   }
 }
+
+declare module '@blaze-react/tooltip';
