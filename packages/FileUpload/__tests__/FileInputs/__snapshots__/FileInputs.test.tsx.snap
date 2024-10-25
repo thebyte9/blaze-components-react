@@ -34,6 +34,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
         </svg>
          
       </span>
+       
     </label>
     <input
       data-testid="input"
@@ -75,6 +76,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
         </svg>
          
       </span>
+       
     </label>
     <input
       data-testid="input"
@@ -116,6 +118,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
         </svg>
          
       </span>
+       
     </label>
     <input
       data-testid="input"
@@ -157,6 +160,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
         </svg>
          
       </span>
+       
     </label>
     <input
       data-testid="input"
@@ -198,6 +202,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
         </svg>
          
       </span>
+       
     </label>
     <input
       data-testid="input"
@@ -239,6 +244,7 @@ exports[`FileInputs component should render without throwing error 1`] = `
         </svg>
          
       </span>
+       
     </label>
     <select
       data-testid="store-type"

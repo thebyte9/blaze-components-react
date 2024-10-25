@@ -13,7 +13,9 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
       >
         <label
           class=""
-        />
+        >
+          
+        </label>
         <span
           class="chip__wrapper__clear"
         >
@@ -68,7 +70,10 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
             <label
               class=""
               for="input-text"
-            />
+            >
+              
+               
+            </label>
             <input
               data-testid="input"
               id="input-text"
@@ -97,7 +102,9 @@ exports[`Multiselect component should be defined and renders correctly when is o
       >
         <label
           class=""
-        />
+        >
+          
+        </label>
         <span
           class="chip__wrapper__clear"
         >
@@ -152,7 +159,10 @@ exports[`Multiselect component should be defined and renders correctly when is o
             <label
               class=""
               for="input-text"
-            />
+            >
+              
+               
+            </label>
             <input
               data-testid="input"
               id="input-text"
@@ -198,13 +208,17 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     class="form-field--checkbox-full"
                     data-testid="form-field-wrapper"
                   >
-                    <label
-                      for="1-checkbox"
+                    <span
+                      class="tooltip "
                     >
-                      <span>
-                        Blaze 1
-                      </span>
-                    </label>
+                      <label
+                        for="1-checkbox"
+                      >
+                        <span>
+                          Blaze 1
+                        </span>
+                      </label>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -233,16 +247,20 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     class="form-field--checkbox-full"
                     data-testid="form-field-wrapper"
                   >
-                    <label
-                      for="2-checkbox"
+                    <span
+                      class="tooltip "
                     >
-                      <span>
-                        Blaze 2, multi main label
-                      </span>
-                      <span>
-                        Sub label 1, sub label 2, sub label 3
-                      </span>
-                    </label>
+                      <label
+                        for="2-checkbox"
+                      >
+                        <span>
+                          Blaze 2, multi main label
+                        </span>
+                        <span>
+                          Sub label 1, sub label 2, sub label 3
+                        </span>
+                      </label>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -270,16 +288,20 @@ exports[`Multiselect component should be defined and renders correctly when is o
                     class="form-field--checkbox-full"
                     data-testid="form-field-wrapper"
                   >
-                    <label
-                      for="3-checkbox"
+                    <span
+                      class="tooltip "
                     >
-                      <span>
-                        Blaze 3
-                      </span>
-                      <span>
-                        Sub label 1, sub label 2
-                      </span>
-                    </label>
+                      <label
+                        for="3-checkbox"
+                      >
+                        <span>
+                          Blaze 3
+                        </span>
+                        <span>
+                          Sub label 1, sub label 2
+                        </span>
+                      </label>
+                    </span>
                   </div>
                 </div>
               </div>

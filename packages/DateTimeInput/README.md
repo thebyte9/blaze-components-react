@@ -66,7 +66,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 | required          |           Boolean            |         false          |
 | error             |           Boolean            |         false          |
 | onChange          |           Function           |        () => {}        |
-| tooltip           |    String or JSX.Element     |          null          |
 
 ## onChange events
 

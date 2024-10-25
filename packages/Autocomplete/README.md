@@ -40,4 +40,3 @@ const data = {
 | placeholder |        String         |   'Search'    |
 | onChange    |       Function        | (value) => {} |
 | children    | single/array of nodes |     empty     |
-| tooltip     | String or JSX.Element |     null      |

@@ -3,6 +3,7 @@ import { ErrorMessage } from '@blaze-react/utils';
 import React, { FunctionComponent, useEffect, useState, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import { DATE_FORMAT_MAP, TYPE_DATE, TYPE_DATE_TIME, TYPE_TIME } from './constants';
+import Tooltip from '@blaze-react/tooltip';
 
 // TODO We are not sure about whether this import will work in any context
 // import "react-datepicker/dist/react-datepicker.css";
@@ -24,7 +25,7 @@ interface IDateTimeInputProps {
   type?: string;
   validationMessage: string | JSX.Element;
   value?: Date;
-  tooltip?: string | JSX.Element;
+  tooltip?: any | string | JSX.Element;
 }
 
 const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
@@ -38,7 +39,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   type,
   validationMessage,
   value,
-  tooltip,
+  tooltip = {} as object,
 }): JSX.Element => {
   const [newValue, setNewValue] = useState<Date | undefined>(value);
   const [newError, setError] = useState<boolean | undefined>(error);
@@ -88,12 +89,12 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
     [`form-field--${modifier}`]: !!modifier,
   });
 
-  const labelWithTooltip = <>{label} {tooltip}</>
 
   return (
     <div className={rootClasses} ref={containerRef}>
+
       <label htmlFor={id} className={requiredClassName}>
-        {labelWithTooltip}
+        {label} <Tooltip {...tooltip} />
       </label>
 
       <DatePicker

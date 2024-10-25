@@ -67,16 +67,15 @@ const disabled = ["17006"]
 
 ##### Select can receive a number of `props` as follow:
 
-| NAME              |         TYPE          |     DEFAULT      |
-| :---------------- | :-------------------: | :--------------: |
-| label             |        String         |        ''        |
-| required          |        Boolean        |      false       |
-| options           |         Array         |        []        |
-| selected          |        String         |        ''        |
-| keys              |         Array         |        []        |
-| onChange          |       Function        |     () => {}     |
-| disabled          |         Array         |        []        |
-| selectDisabled    |        Boolean        |      false       |
-| showDefaultOption |        Boolean        |       true       |
-| defaultTextValue  |        String         | Please Choose... |
-| tooltip           | String or JSX.Element |       null       |
+| NAME              |   TYPE   |     DEFAULT      |
+| :---------------- | :------: | :--------------: |
+| label             |  String  |        ''        |
+| required          | Boolean  |      false       |
+| options           |  Array   |        []        |
+| selected          |  String  |        ''        |
+| keys              |  Array   |        []        |
+| onChange          | Function |     () => {}     |
+| disabled          |  Array   |        []        |
+| selectDisabled    | Boolean  |      false       |
+| showDefaultOption | Boolean  |       true       |
+| defaultTextValue  |  String  | Please Choose... |

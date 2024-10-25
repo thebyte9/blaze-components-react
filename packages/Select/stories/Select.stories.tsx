@@ -2,7 +2,7 @@ import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import selectReadme from "../README.md";
-import Tooltip from '@blaze-react/tooltip'
+import Tooltip from '@blaze-react/tooltip';
 
 const arrayOfObjects = [
   {
@@ -14,12 +14,14 @@ const arrayOfObjects = [
     username: "Ismael",
   },
 ];
+
 const SelectDemo = () => {
   const [selected, setSelected] = useState<string>("Munich");
 
   useEffect((): void => {
     setTimeout((): void => setSelected("Paris"), 3000);
   }, []);
+
   const Select: any = lazy((): any => import("../src/Select"));
 
   return (
@@ -43,9 +45,8 @@ storiesOf("Select", module)
     },
   })
   .add("Introduction", (): any => {
-
-    const tooltip = (<Tooltip tooltipContent={<> tooltip on <em>click</em></>} trigger="click" />)
     const Select: any = lazy((): any => import("../src/Select"));
+
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
@@ -69,7 +70,12 @@ storiesOf("Select", module)
               <h4>Multidimensional Array of options</h4>
               <Select
                 label="Select label"
-                tooltip={tooltip}
+                tooltip={{
+                  tooltipContent: (
+                    <>tooltip on <em>click</em></>
+                  ),
+                  trigger: "click",
+                }}
                 selected="08001"
                 options={[
                   ["08001", "Barcelona"],
@@ -83,7 +89,12 @@ storiesOf("Select", module)
               <h4>Array of objects</h4>
               <Select
                 label="Select user"
-                tooltip={tooltip}
+                tooltip={{
+                  tooltipContent: (
+                    <>tooltip on <em>click</em></>
+                  ),
+                  trigger: "click",
+                }}
                 selected="1"
                 options={arrayOfObjects}
                 keys={["id", "username"]}
@@ -95,7 +106,12 @@ storiesOf("Select", module)
               <h4>Disabling some options</h4>
               <Select
                 label="Disabled option"
-                tooltip={tooltip}
+                tooltip={{
+                  tooltipContent: (
+                    <>tooltip on <em>click</em></>
+                  ),
+                  trigger: "click",
+                }}
                 options={[
                   ["08001", "Barcelona"],
                   ["17006", "Madrid"],

@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Input from '@blaze-react/input';
+import Tooltip from '@blaze-react/tooltip';
 
 interface IAutocompleteProps {
   data: {
@@ -13,7 +14,7 @@ interface IAutocompleteProps {
   placeholder?: string;
   disabled?: boolean;
   inputProps?: unknown;
-  tooltip?: string | JSX.Element;
+  tooltip?: any | string | JSX.Element;
 }
 
 const Autocomplete: React.SFC<IAutocompleteProps> = ({
@@ -24,7 +25,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   selected,
   onChange,
   inputProps,
-  tooltip,
+  tooltip = {} as object,
 }) => {
   const [inputValue, setInputValue] = useState<string>('');
   const [showSelect, setShowSelect] = useState<boolean>(false);
@@ -45,15 +46,17 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
     selected && selected(copiedData);
   };
 
-  const labelWithTooltip = <>{label} {tooltip}</>
-
   return (
     <Fragment>
       <div className="autocomplete-container">
         <Input
           {...inputProps}
           placeholder={placeholder}
-          label={labelWithTooltip}
+          label={
+            <>
+              {label} <Tooltip {...tooltip} />
+            </>
+          }
           onChange={handleChange}
           value={inputValue}
           disabled={disabled}

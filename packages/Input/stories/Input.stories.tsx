@@ -4,7 +4,6 @@ import { BlazeInput as Input } from '@blaze-react/input';
 import { preset, ThemeProvider } from '@blaze-react/themes';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { inputArgTypes } from './shared';
-import Tooltip from '@blaze-react/tooltip'
 
 export default {
   title: '@blaze-react/Input',
@@ -14,11 +13,15 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => {
-  const tooltip = (
-    <Tooltip tooltipContent={<span>This is a tooltip with a longer content that spans multiple lines.This is a tooltip with a longer content that spans multiple lines.This is a tooltip with a longer content that spans multiple lines.</span>} trigger="click" position="bottom">
-      <span className="underline">Click for Long Content Tooltip on Bottom</span>
-    </Tooltip>
-  );
+  const tooltip = {
+    tooltipContent: (
+      <span>
+        This is a tooltip with a longer content that spans multiple lines. This is a tooltip with a longer content that spans multiple lines. This is a tooltip with a longer content that spans multiple lines.
+      </span>
+    ),
+    trigger: "click",
+    position: "bottom",
+  };
 
   return (
     <ThemeProvider theme={preset}>

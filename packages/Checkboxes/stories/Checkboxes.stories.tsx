@@ -36,7 +36,7 @@ const single = {
 };
 
 const tooltip = {
-  content: <>tooltip on <em>click</em> with custom background color</>,
+  tooltipContent: <>tooltip on <em>click</em> with custom background color</>,
   backgroundColor: "lightblue",
   trigger: "click",
   position: "right"
@@ -66,7 +66,7 @@ storiesOf("Checkboxes", module)
           <Checkboxes tooltip={tooltip} options={multiple} onChange={() => ({})} />
 
           <h3>Single</h3>
-          <Checkboxes tooltip={tooltip} returnBoolean options={single} onChange={() => ({})} />
+          <Checkboxes tooltip={tooltip} returnBoolean options={[single]} onChange={() => ({})} />
         </section>
       </div>
     );

@@ -1,5 +1,6 @@
 import { ErrorMessage } from '@blaze-react/utils';
 import React, { Fragment, FunctionComponent, useState } from 'react';
+import Tooltip from '@blaze-react/tooltip';
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -9,6 +10,7 @@ interface IErrorMessage {
 interface IRadioButtonProps {
   options: any[];
   required?: boolean;
+  tooltip?: any | string | JSX.Element;
   onChange: ({
     event,
     selected,
@@ -47,7 +49,7 @@ const RadioButton: React.SFC<IRadioButtonProps> = ({
       {required && <span className="required" />}
       {options.map((item) => {
         const { value, disabled, label, id, tooltip } = item;
-        const labelWithTooltip = <>{label} {tooltip}</>
+
         return (
           <div
             key={label}
@@ -65,7 +67,9 @@ const RadioButton: React.SFC<IRadioButtonProps> = ({
               id={id}
               {...attrs}
             />
-            <label htmlFor={id}>{labelWithTooltip}</label>
+            <label htmlFor={id}>
+              {label} <Tooltip {...tooltip} />
+            </label>
           </div>
         );
       })}

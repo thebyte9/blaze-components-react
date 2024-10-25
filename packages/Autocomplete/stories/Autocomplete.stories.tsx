@@ -1,6 +1,5 @@
 import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
-import Tooltip from '@blaze-react/tooltip'
 import React, { lazy, Suspense } from "react";
 import AutocompleteReadme from "../README.md";
 
@@ -31,20 +30,24 @@ storiesOf("Autocomplete", module)
       sidebar: AutocompleteReadme
     }
   })
-  .add("Introduction", (): any => {
+  .add('Introduction', (): any => {
+    const tooltip = {
+      tooltipContent: (
+        <>
+          tooltip on <em>click</em>
+        </>
+      ),
+      trigger: 'click',
+    };
 
-    const tooltip = (<Tooltip tooltipContent={<> tooltip on <em>click</em></>} trigger="click" />)
+    const Autocomplete: any = lazy((): any => import('../src'));
 
-    const Autocomplete: any = lazy((): any => import("../src"));
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
           <h1>Autocomplete</h1>
 
-          <p>
-            Autocomplete component allows users to quickly find and select one
-            from suggested options.
-          </p>
+          <p>The Autocomplete component allows users to quickly find and select one from suggested options.</p>
 
           <Autocomplete
             data={data}

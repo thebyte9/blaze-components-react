@@ -37,9 +37,8 @@ const options = [
 
 ##### RadioButton can receive a number of `props` as follow:
 
-| NAME     |         TYPE          | DEFAULT  |
-| :------- | :-------------------: | :------: |
-| options  |         Array         |    []    |
-| required |        Boolean        |  false   |
-| onChange |       Function        | () => {} |
-| tooltip  | String or JSX.Element |   null   |
+| NAME     |   TYPE   | DEFAULT  |
+| :------- | :------: | :------: |
+| options  |  Array   |    []    |
+| required | Boolean  |  false   |
+| onChange | Function | () => {} |

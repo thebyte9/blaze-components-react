@@ -44,15 +44,14 @@ const single = {
 
 ##### Switches can receive a number of `props` as follow:
 
-| NAME              |         TYPE          |        DEFAULT         | OPTIONS                                                  |
-| :---------------- | :-------------------: | :--------------------: | -------------------------------------------------------- |
-| modifier          |        String         |         empty          | primary, secondary, default, unchecked, checked disabled |
-| labelPosition     |        String         |         right          | right, left, top, base                                   |
-| validationMessage |        String         | This field is required |
-| options           |    Array or Object    |           []           |
-| disabled          |        Boolean        |         false          |
-| required          |        Boolean        |         false          |
-| returnBoolean     |        Boolean        |         false          |
-| error             |        Boolean        |         false          |
-| onChange          |       Function        |        () => {}        |
-| tooltip           | String or JSX.Element |          null          |
+| NAME              |      TYPE       |        DEFAULT         | OPTIONS                                                  |
+| :---------------- | :-------------: | :--------------------: | -------------------------------------------------------- |
+| modifier          |     String      |         empty          | primary, secondary, default, unchecked, checked disabled |
+| labelPosition     |     String      |         right          | right, left, top, base                                   |
+| validationMessage |     String      | This field is required |
+| options           | Array or Object |           []           |
+| disabled          |     Boolean     |         false          |
+| required          |     Boolean     |         false          |
+| returnBoolean     |     Boolean     |         false          |
+| error             |     Boolean     |         false          |
+| onChange          |    Function     |        () => {}        |

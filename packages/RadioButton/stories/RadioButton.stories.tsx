@@ -2,48 +2,62 @@ import "@blaze-react/blaze-components-theme";
 import { storiesOf } from "@storybook/react";
 import React, { lazy, Suspense } from "react";
 import RadioReadme from "../README.md";
-import Tooltip from '@blaze-react/tooltip'
-
-const tooltip = (
-  <Tooltip tooltipContent="Tooltip with icon underlined" position="right">
-    <span>
-      <i className="fa fa-info-circle underline" aria-hidden="true"></i>
-    </span>
-  </Tooltip>
-);
+import Tooltip from '@blaze-react/tooltip';
 
 const options = [
   {
     label: "A",
     value: 1,
     id: "one",
-    tooltip: tooltip
+    tooltip: {
+      tooltipContent: (
+        <>
+          Tooltip with icon <i className="fa fa-info-circle underline" aria-hidden="true"></i>
+        </>
+      ),
+      position: "right",
+    },
   },
   {
     label: "B",
     value: 2,
     required: true,
     id: "two",
-    tooltip: tooltip
+    tooltip: {
+      tooltipContent: (
+        <>
+          Tooltip with icon <i className="fa fa-info-circle underline" aria-hidden="true"></i>
+        </>
+      ),
+      position: "right",
+    },
   },
   {
     label: "C",
     value: 3,
     id: "three",
-    tooltip: tooltip
+    tooltip: {
+      tooltipContent: (
+        <>
+          Tooltip with icon <i className="fa fa-info-circle underline" aria-hidden="true"></i>
+        </>
+      ),
+      position: "right",
+    },
   },
   {
     label: "Disabled",
     value: "",
     disabled: true,
-    id: "four"
-  }
+    id: "four",
+  },
 ];
+
 storiesOf("Radio Buttons", module)
   .addParameters({
     readme: {
-      sidebar: RadioReadme
-    }
+      sidebar: RadioReadme,
+    },
   })
   .add("Introduction", () => {
     const RadioButton: any = lazy((): any => import("../src/RadioButton"));

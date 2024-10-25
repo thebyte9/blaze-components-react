@@ -19,7 +19,7 @@ exports[`RadioButton component should be defined xand renders correctly (snapsho
     <label
       for="one"
     >
-      Example
+      Example 
     </label>
   </div>
   <div
@@ -36,7 +36,7 @@ exports[`RadioButton component should be defined xand renders correctly (snapsho
     <label
       for="two"
     >
-      I accept
+      I accept 
     </label>
   </div>
   <div
@@ -54,7 +54,7 @@ exports[`RadioButton component should be defined xand renders correctly (snapsho
     <label
       for="three"
     >
-      Disabled
+      Disabled 
     </label>
   </div>
 </DocumentFragment>

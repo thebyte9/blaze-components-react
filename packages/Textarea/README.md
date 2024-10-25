@@ -26,11 +26,10 @@ The HTML textarea element represents a multi-line plain-text editing control, us
 
 ##### Textarea can receive a number of `props` as follow:
 
-| NAME     |         TYPE          | DEFAULT  |
-| :------- | :-------------------: | :------: |
-| label    |        String         |  empty   |
-| value    |        String         |  empty   |
-| required |        Boolean        |  false   |
-| limit    |        Number         |    0     |
-| onChange |       Function        | () => {} |
-| tooltip  | String or JSX.Element |   null   |
+| NAME     |   TYPE   | DEFAULT  |
+| :------- | :------: | :------: |
+| label    |  String  |  empty   |
+| value    |  String  |  empty   |
+| required | Boolean  |  false   |
+| limit    |  Number  |    0     |
+| onChange | Function | () => {} |
