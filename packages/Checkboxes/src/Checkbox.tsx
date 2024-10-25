@@ -64,9 +64,8 @@ const Checkbox = ({
         {...attrs}
       />
       <div onClick={handleCheckboxChange} className={labelClassName} data-testid="form-field-wrapper">
-        <Tooltip position="top" {...tooltip}>
-          <Label defaultId={inputId} label={label} />
-        </Tooltip>
+        <Label defaultId={inputId} label={label} />
+        <Tooltip position="top" {...tooltip} />
       </div>
     </div>
   );
