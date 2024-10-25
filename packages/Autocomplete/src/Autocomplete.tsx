@@ -25,7 +25,7 @@ const Autocomplete: React.SFC<IAutocompleteProps> = ({
   selected,
   onChange,
   inputProps,
-  tooltip = {} as object,
+  tooltip = {},
 }) => {
   const [inputValue, setInputValue] = useState<string>('');
   const [showSelect, setShowSelect] = useState<boolean>(false);

@@ -20,7 +20,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   error,
   validationMessage,
   required,
-  tooltip = {} as object,
+  tooltip = {},
   ...attrs
 }) => {
   const [content, setContent] = useState<string>('');

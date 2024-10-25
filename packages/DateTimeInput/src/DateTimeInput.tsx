@@ -39,7 +39,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
   type,
   validationMessage,
   value,
-  tooltip = {} as object,
+  tooltip = {},
 }): JSX.Element => {
   const [newValue, setNewValue] = useState<Date | undefined>(value);
   const [newError, setError] = useState<boolean | undefined>(error);

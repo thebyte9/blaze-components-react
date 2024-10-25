@@ -12,7 +12,6 @@ interface IOptions {
   required: boolean;
   label: string;
   id?: string;
-  tooltip?: any | string | JSX.Element;
 }
 
 type TlabelPosition = 'right' | 'left' | 'base' | 'top';
@@ -25,6 +24,7 @@ interface ISwitchesProps {
   modifier?: TModifiers;
   returnBoolean?: boolean;
   error?: boolean;
+  tooltip?: any | string | JSX.Element;
   validationMessage: string | JSX.Element;
   onChange: ({
     event,
@@ -45,7 +45,7 @@ const Switches = ({
   returnBoolean,
   error,
   validationMessage,
-  tooltip = {} as object,
+  tooltip = {},
   ...attrs
 }: ISwitchesProps): JSX.Element => {
   const {

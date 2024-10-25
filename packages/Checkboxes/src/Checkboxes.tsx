@@ -45,7 +45,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   validationMessage,
   name,
   full,
-  tooltip = {} as object,
+  tooltip = {},
   ...attrs
 }): JSX.Element => {
   const formatedOptions = Array.isArray(options) ? options : [options];

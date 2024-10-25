@@ -35,7 +35,7 @@ const Input: FunctionComponent<IInputProps> = ({
   error,
   validationMessage,
   value,
-  tooltip = {} as object,
+  tooltip = {},
   ...attrs
 }): JSX.Element => {
   const initialValue = value ? value : '';

@@ -21,7 +21,7 @@ export const TextInput = ({
   icon,
   id,
   name,
-  tooltip = {} as object,
+  tooltip = {},
   ...rest
 }: ExtendedTextInputProps): JSX.Element => {
   const iconProps = {

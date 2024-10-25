@@ -23,7 +23,7 @@ interface ISelectProps {
 
 const Select: FunctionComponent<ISelectProps> = ({
   label,
-  tooltip = {} as object,
+  tooltip = {},
   required,
   onChange,
   options,

@@ -21,7 +21,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   required,
   name,
   isDynamic,
-  tooltip = {} as object,
+  tooltip = {},
   ...attrs
 }): JSX.Element => {
   const multiRef = useRef<HTMLDivElement>(null);
