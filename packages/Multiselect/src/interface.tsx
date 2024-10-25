@@ -20,7 +20,7 @@ interface IMultiSelectProps {
   getSelected: (...args: any[]) => any;
   onItemsRendered: (...args: any[]) => Promise<any>;
   label?: string;
-  tooltip?: object | string | JSX.Element;
+  tooltip?: any | string | JSX.Element;
   limit?: number;
   placeholder?: string;
   id?: string;
