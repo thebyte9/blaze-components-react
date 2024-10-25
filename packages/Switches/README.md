@@ -10,24 +10,20 @@ Switches component is a digital on/off switch used for activating one of two pre
 const multiple = [
   {
     id: 1,
-    label: "Switch text"
+    label: 'Switch text',
   },
   {
     id: 2,
-    label: "Switch text"
+    label: 'Switch text',
   },
   {
     disabled: true,
     id: 4,
-    label: "Disabled"
-  }
+    label: 'Disabled',
+  },
 ];
 
-<Switches
-  options={multiple}
-  modifier={Switches.availableModifiers.secondary}
-  onChange={({ event, value }) => {}}
-/>;
+<Switches options={multiple} modifier={Switches.availableModifiers.secondary} onChange={({ event, value }) => {}} />;
 ```
 
 - Single
@@ -48,14 +44,15 @@ const single = {
 
 ##### Switches can receive a number of `props` as follow:
 
-| NAME              |      TYPE       |        DEFAULT         | OPTIONS                                                  |
-| :---------------- | :-------------: | :--------------------: | -------------------------------------------------------- |
-| modifier          |     String      |         empty          | primary, secondary, default, unchecked, checked disabled |
-| labelPosition     |     String      |         right          | right, left, top, base                                   |
-| validationMessage |     String      | This field is required |
-| options           | Array or Object |           []           |
-| disabled          |     Boolean     |         false          |
-| required          |     Boolean     |         false          |
-| returnBoolean     |     Boolean     |         false          |
-| error             |     Boolean     |         false          |
-| onChange          |    Function     |        () => {}        |
+| NAME              |         TYPE          |        DEFAULT         | OPTIONS                                                  |
+| :---------------- | :-------------------: | :--------------------: | -------------------------------------------------------- |
+| modifier          |        String         |         empty          | primary, secondary, default, unchecked, checked disabled |
+| labelPosition     |        String         |         right          | right, left, top, base                                   |
+| validationMessage |        String         | This field is required |
+| options           |    Array or Object    |           []           |
+| disabled          |        Boolean        |         false          |
+| required          |        Boolean        |         false          |
+| returnBoolean     |        Boolean        |         false          |
+| error             |        Boolean        |         false          |
+| onChange          |       Function        |        () => {}        |
+| tooltip           | String or JSX.Element |          null          |

@@ -47,14 +47,15 @@ Create basic single-line input fields.
 
 ##### Input can receive a number of `props` as follow:
 
-| NAME              |   TYPE   |        DEFAULT         |
-| :---------------- | :------: | :--------------------: |
-| label             |  String  |         empty          |
-| type              |  String  |          text          |
-| value             |  String  |         empty          |
-| validationMessage |  String  | This field is required |
-| disabled          | Boolean  |         false          |
-| required          | Boolean  |         false          |
-| hideTypeToggle    | Boolean  |         false          |
-| error             | Boolean  |         false          |
-| onChange          | Function |        () => {}        |
+| NAME              |         TYPE          |        DEFAULT         |
+| :---------------- | :-------------------: | :--------------------: |
+| label             |        String         |         empty          |
+| type              |        String         |          text          |
+| value             |        String         |         empty          |
+| validationMessage |        String         | This field is required |
+| disabled          |        Boolean        |         false          |
+| required          |        Boolean        |         false          |
+| hideTypeToggle    |        Boolean        |         false          |
+| error             |        Boolean        |         false          |
+| onChange          |       Function        |        () => {}        |
+| tooltip           | String or JSX.Element |          null          |

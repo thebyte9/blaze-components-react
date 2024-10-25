@@ -35,14 +35,12 @@ const single = {
   required: true,
 };
 
-const tooltip = (
-  <Tooltip
-    tooltipContent={<>tooltip on <em>click</em> with custom background color</>}
-    backgroundColor="lightblue"
-    trigger="click"
-    position="right"
-  />
-);
+const tooltip = {
+  content: <>tooltip on <em>click</em> with custom background color</>,
+  backgroundColor: "lightblue",
+  trigger: "click",
+  position: "right"
+};
 
 storiesOf("Checkboxes", module)
   .addParameters({
