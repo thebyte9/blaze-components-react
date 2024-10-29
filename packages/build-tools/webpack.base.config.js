@@ -55,6 +55,7 @@ module.exports = {
       '@blaze-react/icon': path.resolve(__dirname, '../Icon/src'),
       '@blaze-react/skeleton': path.resolve(__dirname, '../Skeleton/src'),
       '@blaze-react/pagination': path.resolve(__dirname, '../Pagination/src'),
+      '@blaze-react/tooltip': path.resolve(__dirname, '../Tooltip/src')
     },
   },
   module: {
