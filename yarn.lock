@@ -1995,7 +1995,6 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
-    "@blaze-react/tooltip": 0.8.0-alpha.60
     "@types/react-datepicker": ^3.1.8
     react-datepicker: ^3.7.0
   peerDependencies:
@@ -2395,7 +2394,6 @@ __metadata:
   resolution: "@blaze-react/text-area@workspace:packages/Textarea"
   dependencies:
     "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
-    "@blaze-react/tooltip": 0.8.0-alpha.60
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.29.0
@@ -2434,7 +2432,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/tooltip@0.8.0-alpha.60, @blaze-react/tooltip@workspace:packages/Tooltip":
+"@blaze-react/tooltip@workspace:packages/Tooltip":
   version: 0.0.0-use.local
   resolution: "@blaze-react/tooltip@workspace:packages/Tooltip"
   dependencies:
