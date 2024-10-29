@@ -18,17 +18,13 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
       class=""
       data-testid="form-field-wrapper"
     >
-      <span
-        class="tooltip "
+      <label
+        for="1-checkbox-checkbox"
       >
-        <label
-          for="1-checkbox-checkbox"
-        >
-          <span>
-            first 
-          </span>
-        </label>
-      </span>
+        <span>
+          first 
+        </span>
+      </label>
     </div>
   </div>
   <div
@@ -48,17 +44,13 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
       class=""
       data-testid="form-field-wrapper"
     >
-      <span
-        class="tooltip "
+      <label
+        for="2-checkbox-checkbox"
       >
-        <label
-          for="2-checkbox-checkbox"
-        >
-          <span>
-            I accept 
-          </span>
-        </label>
-      </span>
+        <span>
+          I accept 
+        </span>
+      </label>
     </div>
   </div>
   <div
@@ -78,17 +70,13 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
       class=""
       data-testid="form-field-wrapper"
     >
-      <span
-        class="tooltip "
+      <label
+        for="3-checkbox-checkbox"
       >
-        <label
-          for="3-checkbox-checkbox"
-        >
-          <span>
-            Disabled 
-          </span>
-        </label>
-      </span>
+        <span>
+          Disabled 
+        </span>
+      </label>
     </div>
   </div>
 </DocumentFragment>
@@ -112,17 +100,13 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
       class=""
       data-testid="form-field-wrapper"
     >
-      <span
-        class="tooltip "
+      <label
+        for="1-checkbox-checkbox"
       >
-        <label
-          for="1-checkbox-checkbox"
-        >
-          <span>
-            first 
-          </span>
-        </label>
-      </span>
+        <span>
+          first 
+        </span>
+      </label>
     </div>
   </div>
   <div
@@ -142,17 +126,13 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
       class=""
       data-testid="form-field-wrapper"
     >
-      <span
-        class="tooltip "
+      <label
+        for="2-checkbox-checkbox"
       >
-        <label
-          for="2-checkbox-checkbox"
-        >
-          <span>
-            I accept 
-          </span>
-        </label>
-      </span>
+        <span>
+          I accept 
+        </span>
+      </label>
     </div>
   </div>
   <div
@@ -172,17 +152,13 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
       class=""
       data-testid="form-field-wrapper"
     >
-      <span
-        class="tooltip "
+      <label
+        for="3-checkbox-checkbox"
       >
-        <label
-          for="3-checkbox-checkbox"
-        >
-          <span>
-            Disabled 
-          </span>
-        </label>
-      </span>
+        <span>
+          Disabled 
+        </span>
+      </label>
     </div>
   </div>
 </DocumentFragment>

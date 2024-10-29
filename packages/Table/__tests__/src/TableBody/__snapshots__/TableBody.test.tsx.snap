@@ -30,17 +30,13 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             class=""
             data-testid="form-field-wrapper"
           >
-            <span
-              class="tooltip "
+            <label
+              for="1-checkbox"
             >
-              <label
-                for="1-checkbox"
-              >
-                <span>
-                   
-                </span>
-              </label>
-            </span>
+              <span>
+                 
+              </span>
+            </label>
           </div>
         </div>
       </div>
@@ -97,17 +93,13 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             class=""
             data-testid="form-field-wrapper"
           >
-            <span
-              class="tooltip "
+            <label
+              for="2-checkbox"
             >
-              <label
-                for="2-checkbox"
-              >
-                <span>
-                   
-                </span>
-              </label>
-            </span>
+              <span>
+                 
+              </span>
+            </label>
           </div>
         </div>
       </div>
