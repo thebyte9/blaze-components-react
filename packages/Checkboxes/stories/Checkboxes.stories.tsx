@@ -3,7 +3,6 @@ import { storiesOf } from "@storybook/react";
 import React from "react";
 import CheckboxesReadme from "../README.md";
 import { Checkbox, Checkboxes } from '../src';
-import Tooltip from '@blaze-react/tooltip';
 
 const multiple = [
   {
