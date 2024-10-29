@@ -54,9 +54,6 @@ jobs:
       - name: Run lint
         run: yarn run lint
 
-      - name: Run package build (temp)
-        run: yarn run build
-
       - name: Run tests with coverage
         run: yarn run test
 
