@@ -1,6 +1,7 @@
 import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import ToggleInputType from '../ToggleInputType';
+import Tooltip from '@blaze-react/tooltip';
 
 interface IInputProps {
   disabled?: boolean;
@@ -20,6 +21,7 @@ interface IInputProps {
   value?: any;
   style?: any;
   autoFocus?: boolean;
+  tooltip?: any | string | JSX.Element;
 }
 
 const Input: FunctionComponent<IInputProps> = ({
@@ -33,6 +35,7 @@ const Input: FunctionComponent<IInputProps> = ({
   error,
   validationMessage,
   value,
+  tooltip = {},
   ...attrs
 }): JSX.Element => {
   const initialValue = value ? value : '';
@@ -79,7 +82,7 @@ const Input: FunctionComponent<IInputProps> = ({
   return (
     <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
       <label htmlFor={fieldName} className={requiredClassName}>
-        {label}
+        {label} <Tooltip {...tooltip} />
       </label>
       <input
         data-testid="input"

@@ -13,10 +13,20 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => {
+  const tooltip = {
+    tooltipContent: (
+      <span>
+        This is a tooltip with a longer content that spans multiple lines. This is a tooltip with a longer content that spans multiple lines. This is a tooltip with a longer content that spans multiple lines.
+      </span>
+    ),
+    trigger: "click",
+    position: "bottom",
+  };
+
   return (
     <ThemeProvider theme={preset}>
       <div className="max-w-xl py-12 mx-auto md:max-w-4xl component-wrapper">
-        <Input {...args} error />
+        <Input tooltip={tooltip} {...args} error />
       </div>
     </ThemeProvider>
   );

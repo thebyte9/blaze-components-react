@@ -7,7 +7,9 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
   >
     <label
       class=""
-    />
+    >
+       
+    </label>
     <div
       class="react-datepicker-wrapper"
     >
@@ -42,7 +44,9 @@ exports[`DateTimeInput component should be defined and renders correctly type=da
   >
     <label
       class=""
-    />
+    >
+       
+    </label>
     <div
       class="react-datepicker-wrapper"
     >
@@ -77,7 +81,9 @@ exports[`DateTimeInput component should be defined and renders correctly type=ti
   >
     <label
       class=""
-    />
+    >
+       
+    </label>
     <div
       class="react-datepicker-wrapper"
     >
@@ -112,7 +118,9 @@ exports[`DateTimeInput component should be defined and renders correctly type=un
   >
     <label
       class=""
-    />
+    >
+       
+    </label>
     <div
       class="react-datepicker-wrapper"
     >

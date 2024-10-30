@@ -33,7 +33,9 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             <label
               for="1-checkbox"
             >
-              <span />
+              <span>
+                 
+              </span>
             </label>
           </div>
         </div>
@@ -94,7 +96,9 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             <label
               for="2-checkbox"
             >
-              <span />
+              <span>
+                 
+              </span>
             </label>
           </div>
         </div>

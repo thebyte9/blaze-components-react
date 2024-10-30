@@ -22,7 +22,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
         for="1-checkbox-checkbox"
       >
         <span>
-          first
+          first 
         </span>
       </label>
     </div>
@@ -48,7 +48,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
         for="2-checkbox-checkbox"
       >
         <span>
-          I accept
+          I accept 
         </span>
       </label>
     </div>
@@ -74,7 +74,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
         for="3-checkbox-checkbox"
       >
         <span>
-          Disabled
+          Disabled 
         </span>
       </label>
     </div>
@@ -104,7 +104,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
         for="1-checkbox-checkbox"
       >
         <span>
-          first
+          first 
         </span>
       </label>
     </div>
@@ -130,7 +130,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
         for="2-checkbox-checkbox"
       >
         <span>
-          I accept
+          I accept 
         </span>
       </label>
     </div>
@@ -156,7 +156,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
         for="3-checkbox-checkbox"
       >
         <span>
-          Disabled
+          Disabled 
         </span>
       </label>
     </div>

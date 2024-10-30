@@ -7,30 +7,20 @@ The select component represents an input that provides a menu of options.
 - Array of options
 
 ```js
-const options = ["London", "Paris", "Munich"];
+const options = ['London', 'Paris', 'Munich'];
 
-<Select
-  label="Select a city"
-  options={options}
-  onChange={({ event, value }) => {}}
-  required
-/>;
+<Select label="Select a city" options={options} onChange={({ event, value }) => {}} required />;
 ```
 
 - Multidimensional Array of options
 
 ```js
 const options = [
-  ["08001", "Barcelona"],
-  ["17006", "Madrid"],
+  ['08001', 'Barcelona'],
+  ['17006', 'Madrid'],
 ];
 
-<Select
-  label="Select label"
-  selected="08001"
-  options={options}
-  onChange={({ event, value }) => {}}
-/>;
+<Select label="Select label" selected="08001" options={options} onChange={({ event, value }) => {}} />;
 ```
 
 - Array of objects
@@ -39,12 +29,12 @@ const options = [
 const arrayOfObjects = [
   {
     id: 1,
-    username: "Oscar",
+    username: 'Oscar',
     age: 26,
   },
   {
     id: 2,
-    username: "Ismael",
+    username: 'Ismael',
     age: 23,
   },
 ];
@@ -53,7 +43,7 @@ const arrayOfObjects = [
   label="Select user"
   selected="1"
   options={options}
-  keys={["id", "username"]}
+  keys={['id', 'username']}
   onChange={({ event, value }) => {}}
 />;
 ```
@@ -77,15 +67,15 @@ const disabled = ["17006"]
 
 ##### Select can receive a number of `props` as follow:
 
-| NAME             |   TYPE   |     DEFAULT      |
-| :--------------- | :------: | :--------------: |
-| label            |  String  |        ''        |
-| required         | Boolean  |      false       |
-| options          |  Array   |        []        |
-| selected         |  String  |        ''        |
-| keys             |  Array   |        []        |
-| onChange         | Function |     () => {}     |
-| disabled         |  Array   |        []        |
-| selectDisabled   |  Boolean |        false     |
-| showDefaultOption| Boolean  |       true       |
-| defaultTextValue |  String  | Please Choose... |
+| NAME              |   TYPE   |     DEFAULT      |
+| :---------------- | :------: | :--------------: |
+| label             |  String  |        ''        |
+| required          | Boolean  |      false       |
+| options           |  Array   |        []        |
+| selected          |  String  |        ''        |
+| keys              |  Array   |        []        |
+| onChange          | Function |     () => {}     |
+| disabled          |  Array   |        []        |
+| selectDisabled    | Boolean  |      false       |
+| showDefaultOption | Boolean  |       true       |
+| defaultTextValue  |  String  | Please Choose... |

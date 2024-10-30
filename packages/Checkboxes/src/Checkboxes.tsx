@@ -3,6 +3,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import Checkbox from './Checkbox';
 import { ErrorMessage } from '@blaze-react/utils';
 import { nanoid } from 'nanoid';
+import Tooltip from '@blaze-react/tooltip';
 
 interface IErrorMessage {
   message: string | JSX.Element;
@@ -31,6 +32,7 @@ interface ICheckBoxesProps {
   name?: string;
   validationMessage?: string | JSX.Element;
   full?: boolean;
+  tooltip?: any | string | JSX.Element;
 }
 
 export { IErrorMessage, ICheckBoxesProps };
@@ -43,6 +45,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
   validationMessage,
   name,
   full,
+  tooltip = {},
   ...attrs
 }): JSX.Element => {
   const formatedOptions = Array.isArray(options) ? options : [options];
@@ -99,7 +102,11 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               disabled={disabled}
               id={id}
               data-testid={id}
-              label={label}
+              label={
+                <>
+                  {label} <Tooltip {...tooltip} />
+                </>
+              }
               name={checkboxName}
               required={required}
               show={show}
