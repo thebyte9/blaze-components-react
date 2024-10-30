@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.83](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.82...v0.8.0-alpha.83) (2024-10-30)
+
+
+### Bug Fixes
+
+* add tooltip alias ([67243cc](https://github.com/thebyte9/blaze-components-react/commit/67243cc3e805039a3fe98dc58473c88ea7c68cfe))
+* update packages ([6ab8972](https://github.com/thebyte9/blaze-components-react/commit/6ab897282d2b2a936da91b6f065cd35718874ea4))
+
+
+### Features
+
+* adapt components to render tooltip ([8fce283](https://github.com/thebyte9/blaze-components-react/commit/8fce283c1dca7192ad495d194309edca2f0561e7))
+* updates components to render tooltip ([90d0b1d](https://github.com/thebyte9/blaze-components-react/commit/90d0b1d6e1ffc378497d360e7020fa65b4c24f63))
+* updates components to use tooltip defined as object ([211aad2](https://github.com/thebyte9/blaze-components-react/commit/211aad2c7cd3435c2a750673235970e4cc79ca39))
+* updates readme props to include tooltip ([f4237e2](https://github.com/thebyte9/blaze-components-react/commit/f4237e20d73c21528cc679e99480a2c9e793ced6))
+
+
+
+
+
 # [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
 
 **Note:** Version bump only for package @blaze-react/checkboxes

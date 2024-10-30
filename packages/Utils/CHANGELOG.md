@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.83](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.82...v0.8.0-alpha.83) (2024-10-30)
+
+
+### Features
+
+* add tooltip component ([139b53c](https://github.com/thebyte9/blaze-components-react/commit/139b53c25153f8cb78fd4dc1e1cb67a3809064bf))
+
+
+
+
+
 # [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
 
 **Note:** Version bump only for package @blaze-react/utils
