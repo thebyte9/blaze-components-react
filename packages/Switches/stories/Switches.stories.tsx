@@ -1,7 +1,10 @@
 import { storiesOf } from "@storybook/react";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import SwitchesReadme from "../README.md";
-import Switches from "../src/Switches";
+import Tooltip from '@blaze-react/tooltip';
+
+const Switches = lazy(() => import("../src/Switches")); // Lazy load the Switches component
+
 const multiple = [
   {
     id: 1,
@@ -17,40 +20,49 @@ const multiple = [
     label: "Disabled"
   }
 ];
+
 const single = {
   label: "Switch text",
   required: true
 };
+
 storiesOf("Switches", module)
   .addParameters({
     readme: {
       sidebar: SwitchesReadme
     }
   })
-  .add("Introduction", () => (
-    <div className="component-wrapper">
-      <section className="introductionSection">
-        <h1>Switches</h1>
-        <p>
-          Switches component is a digital on/off switch used for activating one
-          of two predefined options.
-        </p>
-      </section>
+  .add("Introduction", (): any => {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="component-wrapper">
+          <h1>Switches</h1>
+          <p>
+            Switches component is a digital on/off switch used for activating one
+            of two predefined options.
+          </p>
 
-      <hr />
+          <h4>Single</h4>
+          <Switches
+            returnBoolean
+            options={single}
+            onChange={() => ({})}
+          />
 
-      <section className="exampleSection">
-        <h3>Single</h3>
-        <Switches returnBoolean options={single} onChange={() => ({})} />
-
-        <br />
-
-        <h3>Multiple</h3>
-        <Switches
-          options={multiple}
-          modifier={Switches.availableModifiers.secondary}
-          onChange={() => ({})}
-        />
-      </section>
-    </div>
-  ));
+          <br />
+          <br />
+          <h4>Multiple</h4>
+          <Switches
+            tooltip={{
+              tooltipContent: (
+                <>tooltip on <em>click</em></>
+              ),
+              trigger: "click"
+            }}
+            options={multiple}
+            onChange={() => ({})}
+          />
+        </div>
+      </Suspense>
+    );
+  });

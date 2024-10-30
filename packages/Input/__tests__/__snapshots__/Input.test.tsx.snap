@@ -8,7 +8,9 @@ exports[`Input component should be defined and renders correctly (snapshot) 1`] 
     <label
       class=""
       for="input-text"
-    />
+    >
+       
+    </label>
     <input
       data-testid="input"
       id="input-text"

@@ -20,5 +20,6 @@ module.exports = {
     '@blaze-react/icon': '<rootDir>/packages/Icon/src',
     '@blaze-react/skeleton': '<rootDir>/packages/Skeleton/src',
     '@blaze-react/pagination': '<rootDir>/packages/Pagination/src',
+    '@blaze-react/tooltip': '<rootDir>/packages/Tooltip/src',
   },
 };

@@ -34,6 +34,13 @@ const single = {
   required: true,
 };
 
+const tooltip = {
+  tooltipContent: <>tooltip on <em>click</em> with custom background color</>,
+  backgroundColor: "lightblue",
+  trigger: "click",
+  position: "right"
+};
+
 storiesOf("Checkboxes", module)
   .addParameters({
     readme: {
@@ -48,17 +55,17 @@ storiesOf("Checkboxes", module)
           <p>
             Boxes that are checked (ticked) when activated. They allow you to
             select single values for submission in a form (or not).
-            </p>
+          </p>
         </section>
 
         <hr />
 
         <section className="exampleSection">
           <h3>Multiselect</h3>
-          <Checkboxes options={multiple} onChange={() => ({})} />
+          <Checkboxes tooltip={tooltip} options={multiple} onChange={() => ({})} />
 
           <h3>Single</h3>
-          <Checkboxes returnBoolean options={single} onChange={() => ({})} />
+          <Checkboxes tooltip={tooltip} returnBoolean options={[single]} onChange={() => ({})} />
         </section>
       </div>
     );
