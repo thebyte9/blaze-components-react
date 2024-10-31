@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import { usePortal } from '@blaze-react/utils';
 import { useTooltipStyles, useTouchScreenDetect } from './hooks';
 import { tooltipDOMUtils } from './utils';
-import InfoIcon from '../infoIcon';
-
 
 interface TooltipProps {
   tooltipContent?: JSX.Element | string;
@@ -164,7 +162,7 @@ const Tooltip: React.FC<TooltipProps> = ({
         ) : null,
         target
       )}
-      {children ? children : <InfoIcon />}
+      {children ? children : <i className="material-icons">info_outline</i>}
     </span>
   );
 };
