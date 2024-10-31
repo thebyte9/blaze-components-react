@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { usePortal } from '@blaze-react/utils';
 import { useTooltipStyles, useTouchScreenDetect } from './hooks';
 import { tooltipDOMUtils } from './utils';
+import InfoIcon from '../infoIcon';
+
 
 interface TooltipProps {
   tooltipContent?: JSX.Element | string;
@@ -162,7 +164,7 @@ const Tooltip: React.FC<TooltipProps> = ({
         ) : null,
         target
       )}
-      {children ? children : <i className="fa fa-info-circle" />}
+      {children ? children : <InfoIcon />}
     </span>
   );
 };
