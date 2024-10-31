@@ -162,7 +162,7 @@ const Tooltip: React.FC<TooltipProps> = ({
         ) : null,
         target
       )}
-      {children ? children : <i className="fa fa-info-circle" />}
+      {children ? children : <i className="material-icons">info_outline</i>}
     </span>
   );
 };
