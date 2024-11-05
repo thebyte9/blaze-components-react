@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Input from '@blaze-react/input';
 import { Button } from '../../Button/src/controller/Button';
 import { Modal } from '../src/controller/Modal';
 import { preset, ThemeProvider } from '@blaze-react/themes';
@@ -12,6 +13,16 @@ export default {
   argTypes: modalArgTypes,
   parameters: { actions: { argTypesRegex: '^on.*' } },
 } as ComponentMeta<typeof Modal>;
+
+
+const tooltip = {
+  tooltipContent: (
+    <>
+      tooltip on <em>click</em>
+    </>
+  ),
+  trigger: 'click',
+};
 
 const Template: ComponentStory<typeof Modal> = (args) => {
   const [showModal, setShowModal] = useState(false);
@@ -29,6 +40,10 @@ const Template: ComponentStory<typeof Modal> = (args) => {
               electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
               of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
               like Aldus PageMaker including versions of Lorem Ipsum.
+              <Input
+                label='Form'
+                tooltip={tooltip}
+              />
             </p>
             <p className="mt-4">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
