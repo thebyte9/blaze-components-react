@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react';
 
 import { ErrorMessage } from '@blaze-react/utils';
 import { buildClassNames } from '@blaze-react/utils';
+import Tooltip from '@blaze-react/tooltip';
+
 
 interface IOptions {
   checked: boolean;
@@ -22,6 +24,7 @@ interface ISwitchesProps {
   modifier?: TModifiers;
   returnBoolean?: boolean;
   error?: boolean;
+  tooltip?: any | string | JSX.Element;
   validationMessage: string | JSX.Element;
   onChange: ({
     event,
@@ -42,6 +45,7 @@ const Switches = ({
   returnBoolean,
   error,
   validationMessage,
+  tooltip = {},
   ...attrs
 }: ISwitchesProps): JSX.Element => {
   const {
@@ -51,11 +55,11 @@ const Switches = ({
     wrap: (child: JSX.Element[]) => JSX.Element;
     formatedOptions: IOptions[];
   } = Array.isArray(options)
-    ? {
+      ? {
         formatedOptions: options,
         wrap: (child: JSX.Element[]): JSX.Element => <div className="form-group form-group--switch">{child}</div>,
       }
-    : {
+      : {
         formatedOptions: [options],
         wrap: (child: JSX.Element[]): JSX.Element => <>{child}</>,
       };
@@ -101,7 +105,7 @@ const Switches = ({
 
           return (
             <div className={switchClassNames} key={id}>
-              <div className="switch__text">{label}</div>
+              <div className="switch__text"> {label}</div>
               <div className="switch__item">
                 <input
                   readOnly
@@ -115,6 +119,7 @@ const Switches = ({
                   {...attrs}
                 />
                 <label htmlFor={id}>toggle</label>
+                <Tooltip {...tooltip} />
               </div>
             </div>
           );

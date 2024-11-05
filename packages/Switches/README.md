@@ -10,24 +10,20 @@ Switches component is a digital on/off switch used for activating one of two pre
 const multiple = [
   {
     id: 1,
-    label: "Switch text"
+    label: 'Switch text',
   },
   {
     id: 2,
-    label: "Switch text"
+    label: 'Switch text',
   },
   {
     disabled: true,
     id: 4,
-    label: "Disabled"
-  }
+    label: 'Disabled',
+  },
 ];
 
-<Switches
-  options={multiple}
-  modifier={Switches.availableModifiers.secondary}
-  onChange={({ event, value }) => {}}
-/>;
+<Switches options={multiple} modifier={Switches.availableModifiers.secondary} onChange={({ event, value }) => {}} />;
 ```
 
 - Single

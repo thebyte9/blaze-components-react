@@ -1,9 +1,9 @@
 import { IData, IMultiSelectProps } from './interface';
 import React, { useEffect, useRef, useState } from 'react';
-
 import { ErrorMessage, buildClassNames } from '@blaze-react/utils';
 import MultiSelectBar from './MultiSelectBar';
 import MultiSelectList from './MultiSelectList';
+import Tooltip from '@blaze-react/tooltip';
 
 const MultiSelect: React.SFC<IMultiSelectProps> = ({
   data: { data, filterBy: keys, keyValue, identification },
@@ -21,6 +21,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
   required,
   name,
   isDynamic,
+  tooltip = {},
   ...attrs
 }): JSX.Element => {
   const multiRef = useRef<HTMLDivElement>(null);
@@ -222,7 +223,12 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
       <div className="multiselect" ref={multiRef}>
         <MultiSelectBar
           required={required}
-          label={label}
+          label={
+            <>
+              {label}
+              {tooltip && <Tooltip {...tooltip} />}
+            </>
+          }
           attrs={attrs}
           checkedItems={checkedItems}
           handleClearAll={handleClearAll}

@@ -75,6 +75,10 @@ module.exports = {
           '@blaze-react/icon': path.resolve(__dirname, '../packages/Icon/src'),
           '@blaze-react/skeleton': path.resolve(__dirname, '../packages/Skeleton/src'),
           '@blaze-react/pagination': path.resolve(__dirname, '../packages/Pagination/src'),
+          '@blaze-react/tooltip': path.resolve(__dirname, '../packages/Tooltip/src'),
+          '@blaze-react/text-area': path.resolve(__dirname, '../packages/Textarea/src'),
+          '@blaze-react/select': path.resolve(__dirname, '../packages/Select/src'),
+          
         },
       },
     };

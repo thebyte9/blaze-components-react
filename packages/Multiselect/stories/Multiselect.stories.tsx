@@ -1,7 +1,5 @@
 import '@blaze-react/blaze-components-theme';
-
 import React, { useEffect, useState } from 'react';
-
 import MultiSelectReadme from '../README.md';
 import Multiselect from '../src/MultiSelect';
 import faker from 'faker';
@@ -104,8 +102,14 @@ storiesOf('Multiselect', module)
             data={list}
             label="Multi Select"
             limit={10}
-            getSelected={(selected: any) => {}}
+            getSelected={(selected: any) => { }}
             required
+            tooltip={{
+              tooltipContent: (
+                <> tooltip on <em>click</em> </>
+              ),
+              trigger: "click",
+            }}
           />
         </div>
       );

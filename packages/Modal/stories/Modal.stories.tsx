@@ -15,14 +15,14 @@ export default {
 } as ComponentMeta<typeof Modal>;
 
 
-  const tooltip = {
-    tooltipContent: (
-      <>
-        tooltip on <em>click</em>
-      </>
-    ),
-    trigger: 'click',
-  };
+const tooltip = {
+  tooltipContent: (
+    <>
+      tooltip on <em>click</em>
+    </>
+  ),
+  trigger: 'click',
+};
 
 const Template: ComponentStory<typeof Modal> = (args) => {
   const [showModal, setShowModal] = useState(false);

@@ -6,11 +6,12 @@ import TextareaReadme from "../README.md";
 storiesOf("Textareas", module)
   .addParameters({
     readme: {
-      sidebar: TextareaReadme
-    }
+      sidebar: TextareaReadme,
+    },
   })
   .add("Introduction", () => {
     const Textarea: any = lazy((): any => import("../src/TextArea"));
+
     return (
       <Suspense fallback={<div>Loading...</div>}>
         <div className="component-wrapper">
@@ -18,7 +19,7 @@ storiesOf("Textareas", module)
 
           <p>
             Textareas may be expanded or contracted and have a limit of
-            characters
+            characters.
           </p>
 
           <h4>Simple</h4>
@@ -26,7 +27,7 @@ storiesOf("Textareas", module)
           <Textarea
             label="Textarea required"
             placeholder="Content..."
-            onChange={() => {}}
+            onChange={() => { }}
             required
           />
 
@@ -38,7 +39,13 @@ storiesOf("Textareas", module)
             label="Textarea with max content length 40"
             placeholder="Content..."
             value="lorem ipsum"
-            onChange={() => {}}
+            tooltip={{
+              tooltipContent: (
+                <> tooltip on <em>click</em> </>
+              ),
+              trigger: "click",
+            }}
+            onChange={() => { }}
             limit={40}
           />
         </div>

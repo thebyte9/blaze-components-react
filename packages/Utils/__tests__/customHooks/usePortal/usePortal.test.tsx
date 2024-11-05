@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { usePortal } from '../../../src';
+import { usePortal } from '../../../src/customHooks'; 
 
 describe('usePortal Hook', () => {
     it('should append a div element to the document body', () => {
