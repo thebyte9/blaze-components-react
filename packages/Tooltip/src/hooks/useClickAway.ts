@@ -2,9 +2,13 @@ import { useEffect } from 'react';
 
 const useClickAway = (ref: React.RefObject<HTMLElement>, onOutsideClickCallback: (e: MouseEvent) => void): void => {
   const handleClick = (e: MouseEvent) => {
-    if (ref.current && !ref.current.contains(e.target as Node)) {
-      onOutsideClickCallback(e);
-    }
+  if (
+    ref.current &&
+    !ref.current.contains(e.target as Node) &&
+    !(ref.current.closest('label'))
+  ) {
+    onOutsideClickCallback(e);
+  }
   };
 
   useEffect(() => {
