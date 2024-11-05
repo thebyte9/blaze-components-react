@@ -22,7 +22,10 @@ const tooltipDOMUtils = {
     if (!node || node === document.body) {
       return document.body;
     }
-    return this.scroll(node) ? node : this.getScrollParent(node.parentNode as HTMLElement | null);
+ 
+    if (node.classList.contains('modal__content')) return node;
+
+    return this.scroll(node) ? node: this.getScrollParent(node.parentNode as HTMLElement | null);
   }
 };
 

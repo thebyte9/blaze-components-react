@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo, useRef, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { usePortal } from '@blaze-react/utils';
+import ClickAwayWrapper, { ConditionalWrapper } from './ConditionalWrapper';
 import { useTooltipStyles, useTouchScreenDetect } from './hooks';
 import { tooltipDOMUtils } from './utils';
 
@@ -120,11 +121,42 @@ const Tooltip: React.FC<TooltipProps> = ({
     }
   }, []);
 
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (show && isClickTrigger) {
+        setShow(false);
+      }
+    };
+
+
+    if (tooltipWrapperRef.current) {
+      const wrapperRef = tooltipWrapperRef.current;
+      const scrollableParent = tooltipDOMUtils.getScrollParent(wrapperRef);
+      const newScrollableParent = scrollableParent === document.body ? window : scrollableParent;
+
+      newScrollableParent.addEventListener('scroll', handleScroll);
+      window.addEventListener('resize', handleScroll);
+
+      return () => {
+        newScrollableParent.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('resize', handleScroll);
+      };
+    }
+  }, [show, isClickTrigger]);
+
   if (!children && !tooltipContent) {
     return null;
   }
 
   return (
+    <ConditionalWrapper
+      condition={isClickTrigger}
+      initialWrapper={(children) => <>{children}</>}
+      wrapper={(children) => (
+        <ClickAwayWrapper onClickAwayCallback={hideTooltip}>{children}</ClickAwayWrapper>
+      )}
+    >
     <span
       className={`tooltip ${disabled ? 'is-disabled' : ''}`}
       onMouseEnter={isHoverTrigger && !disabled && !isHasTouch ? showTooltip : undefined}
@@ -164,6 +196,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       )}
       {children ? children : <i className="material-icons">info_outline</i>}
     </span>
+    </ConditionalWrapper>
   );
 };
 
