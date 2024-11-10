@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo, useRef, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
+import parseHTML from 'html-react-parser';
 import { usePortal } from '@blaze-react/utils';
 import ClickAwayWrapper, { ConditionalWrapper } from './ConditionalWrapper';
 import { useTooltipStyles, useTouchScreenDetect } from './hooks';
@@ -55,7 +56,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   const isHoverTrigger = useMemo(() => trigger === 'hover', [trigger]);
   const isClickTrigger = useMemo(() => trigger === 'click', [trigger]);
-  const target = usePortal({ id: 'tooltip' });
+  const target = usePortal({ id: 'tooltip', condition: show });
 
   const getStylesList = useTooltipStyles(
     tooltipWrapperRef,
@@ -160,7 +161,6 @@ const Tooltip: React.FC<TooltipProps> = ({
     <span
       className={`tooltip ${disabled ? 'is-disabled' : ''}`}
       onMouseEnter={isHoverTrigger && !disabled && !isHasTouch ? showTooltip : undefined}
-      onMouseLeave={isHoverTrigger && !disabled && !isHasTouch ? hideTooltip : undefined}
       onTouchStart={isHoverTrigger && !disabled && isHasTouch ? showTooltip : undefined}
       onTouchEnd={isHoverTrigger && !disabled && isHasTouch ? hideTooltip : undefined}
       onClick={isClickTrigger && !disabled ? showTooltip : undefined}
@@ -181,6 +181,8 @@ const Tooltip: React.FC<TooltipProps> = ({
                 : 'visible',
               ...styles,
             }}
+            onMouseEnter={showTooltip}
+            onMouseLeave={isHoverTrigger && !disabled && !isHasTouch ? hideTooltip : undefined}
           >
             {isClickTrigger && (
               <i
@@ -189,7 +191,7 @@ const Tooltip: React.FC<TooltipProps> = ({
                 onClick={hideTooltip}
               ></i>
             )}
-            {tooltipContent}
+            {React.isValidElement(tooltipContent) ? tooltipContent : parseHTML(tooltipContent, {})}
           </span>
         ) : null,
         target
