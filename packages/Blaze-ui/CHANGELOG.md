@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.88](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.87...v0.8.0-alpha.88) (2024-11-12)
+
+
+### Bug Fixes
+
+* add fixes ([276db10](https://github.com/thebyte9/blaze-components-react/commit/276db10026fe32d1570932d8e82ac59e76fdd81e))
+* fix hover issues ([617205b](https://github.com/thebyte9/blaze-components-react/commit/617205b88fb4ab0b022ed150945ad40b01c0f861))
+
+
+
+
+
 # [0.8.0-alpha.86](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.85...v0.8.0-alpha.86) (2024-11-05)
 
 

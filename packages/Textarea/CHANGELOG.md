@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.88](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.87...v0.8.0-alpha.88) (2024-11-12)
+
+**Note:** Version bump only for package @blaze-react/text-area
+
+
+
+
+
 # [0.8.0-alpha.87](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.86...v0.8.0-alpha.87) (2024-11-06)
 
 **Note:** Version bump only for package @blaze-react/text-area
