@@ -27,6 +27,7 @@
 
   &.on-top {
     transform: translateX(-50%);
+    margin-top: 12px;
     background-color: var(--background-color);
 
     &.is-indicator {
@@ -45,6 +46,7 @@
 
   &.on-right {
     transform: translateY(-50%);
+    margin-left: -8px;
     background-color: var(--background-color);
 
     &.is-indicator {
@@ -63,6 +65,7 @@
 
   &.on-bottom {
     transform: translateX(-50%);
+    margin-top: -12px;
     background-color: var(--background-color);
 
     &.is-indicator {
