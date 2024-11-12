@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo, useRef, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
+import parseHTML from 'html-react-parser';
 import { usePortal } from '@blaze-react/utils';
 import ClickAwayWrapper, { ConditionalWrapper } from './ConditionalWrapper';
 import { useTooltipStyles, useTouchScreenDetect } from './hooks';
@@ -55,7 +56,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   const isHoverTrigger = useMemo(() => trigger === 'hover', [trigger]);
   const isClickTrigger = useMemo(() => trigger === 'click', [trigger]);
-  const target = usePortal({ id: 'tooltip' });
+  const target = usePortal({ id: 'tooltip', condition: show });
 
   const getStylesList = useTooltipStyles(
     tooltipWrapperRef,
@@ -121,14 +122,12 @@ const Tooltip: React.FC<TooltipProps> = ({
     }
   }, []);
 
-  
   useEffect(() => {
     const handleScroll = () => {
       if (show && isClickTrigger) {
         setShow(false);
       }
     };
-
 
     if (tooltipWrapperRef.current) {
       const wrapperRef = tooltipWrapperRef.current;
@@ -157,45 +156,47 @@ const Tooltip: React.FC<TooltipProps> = ({
         <ClickAwayWrapper onClickAwayCallback={hideTooltip}>{children}</ClickAwayWrapper>
       )}
     >
-    <span
-      className={`tooltip ${disabled ? 'is-disabled' : ''}`}
-      onMouseEnter={isHoverTrigger && !disabled && !isHasTouch ? showTooltip : undefined}
-      onMouseLeave={isHoverTrigger && !disabled && !isHasTouch ? hideTooltip : undefined}
-      onTouchStart={isHoverTrigger && !disabled && isHasTouch ? showTooltip : undefined}
-      onTouchEnd={isHoverTrigger && !disabled && isHasTouch ? hideTooltip : undefined}
-      onClick={isClickTrigger && !disabled ? showTooltip : undefined}
-      ref={tooltipWrapperRef}
-    >
-      {ReactDOM.createPortal(
-        show && tooltipContent ? (
-          <span
-            ref={tooltipMessage}
-            className={`tooltip-message ${className} on-${newPosition.current} ${isDisplayTooltipIndicator ? 'is-indicator' : ''}`}
-            style={{
-              color,
-              '--background-color': backgroundColor,
-              ...customPosition,
-              visibility: (newPosition.current === availableTooltipPositions.left ||
-                newPosition.current === availableTooltipPositions.top) && !isTooltipVisible
-                ? 'hidden'
-                : 'visible',
-              ...styles,
-            }}
-          >
-            {isClickTrigger && (
-              <i
-                className="fa fa-times"
-                aria-hidden="true"
-                onClick={hideTooltip}
-              ></i>
-            )}
-            {tooltipContent}
-          </span>
-        ) : null,
-        target
-      )}
-      {children ? children : <i className="material-icons">info_outline</i>}
-    </span>
+      <span
+        className={`tooltip ${disabled ? 'is-disabled' : ''}`}
+        onMouseEnter={isHoverTrigger && !disabled && !isHasTouch ? showTooltip : undefined}
+        onTouchStart={isHoverTrigger && !disabled && isHasTouch ? showTooltip : undefined}
+        onTouchEnd={isHoverTrigger && !disabled && isHasTouch ? hideTooltip : undefined}
+        onMouseLeave={isHoverTrigger && !disabled && !isHasTouch ? hideTooltip : undefined}
+        onClick={isClickTrigger && !disabled ? showTooltip : undefined}
+        ref={tooltipWrapperRef}
+      >
+        {show && tooltipContent
+          ? ReactDOM.createPortal(
+            <span
+              ref={tooltipMessage}
+              className={`tooltip-message ${className} on-${newPosition.current} ${isDisplayTooltipIndicator ? 'is-indicator' : ''}`}
+              style={{
+                color,
+                '--background-color': backgroundColor,
+                ...customPosition,
+                visibility: (newPosition.current === availableTooltipPositions.left ||
+                  newPosition.current === availableTooltipPositions.top) && !isTooltipVisible
+                  ? 'hidden'
+                  : 'visible',
+                ...styles,
+              }}
+              onMouseEnter={showTooltip}
+              onMouseLeave={isHoverTrigger && !disabled && !isHasTouch ? hideTooltip : undefined}
+            >
+              {isClickTrigger && (
+                <i
+                  className="fa fa-times"
+                  aria-hidden="true"
+                  onClick={hideTooltip}
+                ></i>
+              )}
+              {typeof tooltipContent === 'string' ? parseHTML(tooltipContent) : tooltipContent}
+            </span>,
+            target
+          )
+          : null}
+        {children ? children : <i className="material-icons">info_outline</i>}
+      </span>
     </ConditionalWrapper>
   );
 };
