@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 const Tooltip = React.lazy(() =>
   import(/* webpackChunkName: 'BlazeReactComponentTooltip' */ './Tooltip')
-)
+);
 interface TooltipProps {
   tooltipContent?: JSX.Element | string;
   position?: 'top' | 'right' | 'bottom' | 'left';
@@ -17,11 +17,13 @@ interface TooltipProps {
   children?: ReactNode;
 }
 
-const TooltipWrapper: React.FC<TooltipProps>  = (props) => {
-  if(!props.tooltipContent) return null;
+const TooltipWrapper: React.FC<TooltipProps> = (props) => {
+  if (!props.tooltipContent) return null;
 
   return (
-    <Tooltip {...props} />
+    <React.Suspense fallback={<></>}>
+      <Tooltip {...props} />
+    </React.Suspense>
   );
 }
 
