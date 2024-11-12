@@ -122,14 +122,12 @@ const Tooltip: React.FC<TooltipProps> = ({
     }
   }, []);
 
-
   useEffect(() => {
     const handleScroll = () => {
       if (show && isClickTrigger) {
         setShow(false);
       }
     };
-
 
     if (tooltipWrapperRef.current) {
       const wrapperRef = tooltipWrapperRef.current;
@@ -167,8 +165,8 @@ const Tooltip: React.FC<TooltipProps> = ({
         onClick={isClickTrigger && !disabled ? showTooltip : undefined}
         ref={tooltipWrapperRef}
       >
-        {ReactDOM.createPortal(
-          show && tooltipContent ? (
+        {show && tooltipContent
+          ? ReactDOM.createPortal(
             <span
               ref={tooltipMessage}
               className={`tooltip-message ${className} on-${newPosition.current} ${isDisplayTooltipIndicator ? 'is-indicator' : ''}`}
@@ -192,11 +190,11 @@ const Tooltip: React.FC<TooltipProps> = ({
                   onClick={hideTooltip}
                 ></i>
               )}
-              {React.isValidElement(tooltipContent) ? tooltipContent : parseHTML(tooltipContent, {})}
-            </span>
-          ) : null,
-          target
-        )}
+              {typeof tooltipContent === 'string' ? parseHTML(tooltipContent) : tooltipContent}
+            </span>,
+            target
+          )
+          : null}
         {children ? children : <i className="material-icons">info_outline</i>}
       </span>
     </ConditionalWrapper>
