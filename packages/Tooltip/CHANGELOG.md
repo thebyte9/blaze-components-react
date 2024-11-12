@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.89](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.88...v0.8.0-alpha.89) (2024-11-12)
+
+
+### Bug Fixes
+
+* add fallback UI for React component suspense error ([86a85ad](https://github.com/thebyte9/blaze-components-react/commit/86a85adeead28679e7888d15787b2e2dd8612035))
+
+
+
+
+
 # [0.8.0-alpha.88](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.87...v0.8.0-alpha.88) (2024-11-12)
 
 
