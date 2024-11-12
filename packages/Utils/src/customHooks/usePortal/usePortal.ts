@@ -2,9 +2,10 @@ import { useEffect, useRef } from 'react';
 
 interface UsePortalProps {
     id?: string;
+    condition?: boolean
 }
 
-function usePortal({ id }: UsePortalProps = {}): HTMLDivElement {
+function usePortal({ id, condition = true }: UsePortalProps = {}): HTMLDivElement {
     const rootElemRef = useRef<HTMLDivElement>(document.createElement('div'));
 
     useEffect(() => {
@@ -12,12 +13,13 @@ function usePortal({ id }: UsePortalProps = {}): HTMLDivElement {
         if (id) {
             element.id = id;
         }
-        document.body.appendChild(element);
+        
+        condition && document.body.appendChild(element);
 
         return () => {
             element.remove();
         };
-    }, [id]);
+    }, [id, condition]);
 
     return rootElemRef.current;
 }
