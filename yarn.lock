@@ -2251,7 +2251,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/radio-button@workspace:packages/RadioButton"
   dependencies:
-    "@blaze-react/tooltip": ^0.8.0-alpha.89
+    "@blaze-react/tooltip": ^0.8.0-alpha.91
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2440,7 +2440,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/tooltip@^0.8.0-alpha.89, @blaze-react/tooltip@workspace:packages/Tooltip":
+"@blaze-react/tooltip@^0.8.0-alpha.91, @blaze-react/tooltip@workspace:packages/Tooltip":
   version: 0.0.0-use.local
   resolution: "@blaze-react/tooltip@workspace:packages/Tooltip"
   dependencies:
