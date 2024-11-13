@@ -30,7 +30,7 @@
   },
   "peerDependencies": {
     "@blaze-react/checkboxes": "^0.8.0-alpha.58",
-    "@blaze-react/tooltip": "0.8.0-alpha.89",
+    "@blaze-react/tooltip": "^0.8.0-alpha.90",
     "@blaze-react/utils": "^0.8.0-alpha.58",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
