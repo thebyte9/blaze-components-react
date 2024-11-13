@@ -22,7 +22,7 @@
     "react-datepicker": "^3.7.0"
   },
   "peerDependencies": {
-    "@blaze-react/tooltip": "0.8.0-alpha.89",
+    "@blaze-react/tooltip": "0.8.0-alpha.90",
     "react": "^17.0.2",
     "react-datepicker": "^3.7.0",
     "react-dom": "^17.0.2",
