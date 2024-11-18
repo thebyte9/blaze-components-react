@@ -104,7 +104,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               data-testid={id}
               label={
                 <>
-                  {label} <Tooltip {...tooltip} />
+                  {label}<Tooltip {...tooltip} />
                 </>
               }
               name={checkboxName}

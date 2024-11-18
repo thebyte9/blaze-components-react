@@ -94,7 +94,7 @@ const DateTimeInput: FunctionComponent<IDateTimeInputProps> = ({
     <div className={rootClasses} ref={containerRef}>
 
       <label htmlFor={id} className={requiredClassName}>
-        {label} <Tooltip {...tooltip} />
+        {label}<Tooltip {...tooltip} />
       </label>
 
       <DatePicker

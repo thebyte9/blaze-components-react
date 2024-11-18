@@ -42,7 +42,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
     <div className="form-field form-field--textarea">
       {label && (
         <label htmlFor={fieldName} className={requiredClassName}>
-          {label} <Tooltip {...tooltip} />
+          {label}<Tooltip {...tooltip} />
         </label>
       )}
       <textarea
