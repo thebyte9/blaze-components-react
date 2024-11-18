@@ -55,7 +55,6 @@ exports[`FileList component should match snapshot 1`] = `
               </svg>
                
             </span>
-             
           </label>
           <input
             data-testid="input"
@@ -97,7 +96,6 @@ exports[`FileList component should match snapshot 1`] = `
               </svg>
                
             </span>
-             
           </label>
           <input
             data-testid="input"
@@ -139,7 +137,6 @@ exports[`FileList component should match snapshot 1`] = `
               </svg>
                
             </span>
-             
           </label>
           <input
             data-testid="input"
@@ -181,7 +178,6 @@ exports[`FileList component should match snapshot 1`] = `
               </svg>
                
             </span>
-             
           </label>
           <input
             data-testid="input"
@@ -223,7 +219,6 @@ exports[`FileList component should match snapshot 1`] = `
               </svg>
                
             </span>
-             
           </label>
           <input
             data-testid="input"
@@ -265,7 +260,6 @@ exports[`FileList component should match snapshot 1`] = `
               </svg>
                
             </span>
-             
           </label>
           <select
             data-testid="store-type"
