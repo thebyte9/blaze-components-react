@@ -10,7 +10,7 @@ const useTooltipStyles = (
   childrenWidth: number | undefined,
   childrenHeight: number | undefined,
   isParentFixed: boolean | undefined,
-  wrapperParentUpdated: { top: number; left: number }
+  wrapperParentUpdated: { top: number; left: number },
 ): any => {
   const getStylesList = useCallback(() => {
     if (!tooltipWrapperRef.current) {
@@ -25,6 +25,10 @@ const useTooltipStyles = (
       tooltipDOMUtils.getElementOffset(tooltipWrapperRef.current).top + wrapperRect.height / 2;
 
     const getNewPosition = (pos: string) => {
+      if (typeof window === 'undefined') {
+        return pos;
+      }
+
       const positionChecks = {
         [availableTooltipPositions.top]: wrapperRect.top < (childrenHeight || 0) + space,
         [availableTooltipPositions.right]: wrapperRect.right + ((childrenWidth || 0) + space * 1.5) > window.innerWidth,
@@ -42,7 +46,8 @@ const useTooltipStyles = (
           }[key];
         }
       }
-      return pos; 
+
+      return pos;
     };
 
     const pos = getNewPosition(position);
@@ -53,7 +58,7 @@ const useTooltipStyles = (
           space,
           tooltipDOMUtils.getElementOffset(tooltipWrapperRef.current).top -
             (childrenHeight || 0) -
-            (isDisplayTooltipIndicator ? space : space / 2)
+            (isDisplayTooltipIndicator ? space : space / 2),
         );
         style.left = centeredHorizontalPosition;
       },

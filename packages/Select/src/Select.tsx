@@ -88,7 +88,7 @@ const Select: FunctionComponent<ISelectProps> = ({
     <div className="form-field form-field--select">
       {label && (
         <label htmlFor={fieldName} className={requiredClassName}>
-          {label} <Tooltip {...tooltip} />
+          {label}<Tooltip {...tooltip} />
         </label>
       )}
       <select

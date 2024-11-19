@@ -82,7 +82,7 @@ const Input: FunctionComponent<IInputProps> = ({
   return (
     <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
       <label htmlFor={fieldName} className={requiredClassName}>
-        {label} <Tooltip {...tooltip} />
+        {label}<Tooltip {...tooltip} />
       </label>
       <input
         data-testid="input"
