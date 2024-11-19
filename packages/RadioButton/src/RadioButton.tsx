@@ -68,7 +68,7 @@ const RadioButton: React.SFC<IRadioButtonProps> = ({
               {...attrs}
             />
             <label htmlFor={id}>
-              {label} <Tooltip {...tooltip} />
+              {label}<Tooltip {...tooltip} />
             </label>
           </div>
         );

@@ -20,9 +20,7 @@ exports[`DateRange component should be defined and renders correctly (snapshot) 
         <label
           class=""
           for="input-text"
-        >
-           
-        </label>
+        />
         <input
           class="range-date"
           data-testid="custom"

@@ -36,7 +36,7 @@ exports[`Select component should be disabled when none options 1`] = `
       class="required"
       for="select-undefined"
     >
-      Select label 
+      Select label
     </label>
     <select
       disabled=""
