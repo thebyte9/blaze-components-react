@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/radio-button",
-  "version": "0.8.0-alpha.91",
+  "version": "0.8.0-alpha.93",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@blaze-react/tooltip": "^0.8.0-alpha.91",
+    "@blaze-react/tooltip": "^0.8.0-alpha.93",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack": "^5.28.0",
