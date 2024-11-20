@@ -183,6 +183,7 @@ const Tooltip: React.FC<TooltipProps> = ({
               onMouseEnter={showTooltip}
               onMouseLeave={isHoverTrigger && !disabled && !isHasTouch ? hideTooltip : undefined}
             >
+              <span className={`tooltip-buffer  tooltip-buffer--${newPosition.current}`} onMouseEnter={showTooltip} />
               {isClickTrigger && (
                 <i
                   className="fa fa-times"
