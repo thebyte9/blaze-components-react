@@ -1843,7 +1843,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/blaze-components-theme@^0.8.0-alpha.93, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
+"@blaze-react/blaze-components-theme@^0.8.0-alpha.94, @blaze-react/blaze-components-theme@workspace:packages/Blaze-ui":
   version: 0.0.0-use.local
   resolution: "@blaze-react/blaze-components-theme@workspace:packages/Blaze-ui"
   dependencies:
@@ -1882,7 +1882,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/button-select@workspace:packages/ButtonSelect"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.93
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2052,7 +2052,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/drawer@workspace:packages/Drawer"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.93
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.94
     "@types/classnames": ^2.3.1
     classnames: ^2.2.6
     react: ^17.0.2
@@ -2238,7 +2238,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/progress@workspace:packages/Progress"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.93
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.94
   peerDependencies:
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2251,7 +2251,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/radio-button@workspace:packages/RadioButton"
   dependencies:
-    "@blaze-react/tooltip": ^0.8.0-alpha.93
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2343,7 +2343,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/social-follow@workspace:packages/SocialFollow"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.93
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2384,7 +2384,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/table@workspace:packages/Table"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.93
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2400,7 +2400,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/text-area@workspace:packages/Textarea"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.93
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.29.0
@@ -2440,11 +2440,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/tooltip@^0.8.0-alpha.93, @blaze-react/tooltip@workspace:packages/Tooltip":
+"@blaze-react/tooltip@^0.8.0-alpha.94, @blaze-react/tooltip@workspace:packages/Tooltip":
   version: 0.0.0-use.local
   resolution: "@blaze-react/tooltip@workspace:packages/Tooltip"
   dependencies:
-    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.93
+    "@blaze-react/blaze-components-theme": ^0.8.0-alpha.94
     html-react-parser: ^1.2.6
     react: ^17.0.2
     react-dom: ^17.0.2
