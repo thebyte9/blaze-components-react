@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.94](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.93...v0.8.0-alpha.94) (2024-11-20)
+
+
+### Features
+
+* expand hover area on tooltip ([d866dde](https://github.com/thebyte9/blaze-components-react/commit/d866dde24f6a3566625e71c7e414e617fb3df488))
+
+
+
+
+
 # [0.8.0-alpha.93](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.92...v0.8.0-alpha.93) (2024-11-19)
 
 **Note:** Version bump only for package @blaze-react/tooltip
