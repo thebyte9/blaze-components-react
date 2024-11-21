@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.97](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.96...v0.8.0-alpha.97) (2024-11-21)
+
+**Note:** Version bump only for package @blaze-react/radio-button
+
+
+
+
+
 # [0.8.0-alpha.96](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.95...v0.8.0-alpha.96) (2024-11-21)
 
 **Note:** Version bump only for package @blaze-react/radio-button
