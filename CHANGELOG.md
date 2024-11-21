@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.96](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.95...v0.8.0-alpha.96) (2024-11-21)
+
+
+### Bug Fixes
+
+* set correct html parser version ([e8c36c1](https://github.com/thebyte9/blaze-components-react/commit/e8c36c1a31e15bed21114686120cd9815aa74cf6))
+
+
+
+
+
 # [0.8.0-alpha.95](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.94...v0.8.0-alpha.95) (2024-11-21)
 
 
