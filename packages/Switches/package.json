@@ -15,7 +15,7 @@
   "keywords": [],
   "author": "byte9",
   "license": "GPL-3.0",
-  "devDependencies": {
+  "dependencies": {
     "@blaze-react/tooltip": "^0.8.0-alpha.94"
   },
   "peerDependencies": {
