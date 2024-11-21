@@ -18,6 +18,7 @@ interface TooltipProps {
 const TooltipWrapper: React.FC<TooltipProps> = (props) => {
   if (!props.tooltipContent) return null;
 
+  // todo: lazy load
   return <Tooltip {...props} />;
 }
 
