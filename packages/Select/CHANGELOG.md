@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.95](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.94...v0.8.0-alpha.95) (2024-11-21)
+
+
+### Bug Fixes
+
+* move tooltip from peerDependencies to dependencies ([ac75e92](https://github.com/thebyte9/blaze-components-react/commit/ac75e92362523029548ef3eb775cec04eee04624))
+* move tooltip from peerDependencies to devDependencies ([18a6f46](https://github.com/thebyte9/blaze-components-react/commit/18a6f461ddadfa3a1932d6043c9ac69a2c8fc7d8))
+
+
+
+
+
 # [0.8.0-alpha.93](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.92...v0.8.0-alpha.93) (2024-11-19)
 
 **Note:** Version bump only for package @blaze-react/select
