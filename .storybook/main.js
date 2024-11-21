@@ -5,11 +5,13 @@ module.exports = {
     check: false,
     checkOptions: {},
     reactDocgen: true,
+    interactionsDebugger: true,
   },
   stories: ['../packages/**/stories/**/*.stories.mdx', '../packages/**/stories/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
     'storybook-tailwind-dark-mode',
     {
       name: '@storybook/addon-postcss',
