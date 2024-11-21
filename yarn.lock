@@ -1916,13 +1916,13 @@ __metadata:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
     "@babel/plugin-proposal-class-properties": ^7.13.0
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
     babel-plugin-transform-class-properties: ^6.24.1
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   peerDependencies:
-    "@blaze-react/tooltip": ^0.8.0-alpha.90
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -1996,10 +1996,10 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
     "@types/react-datepicker": ^3.1.8
     react-datepicker: ^3.7.0
   peerDependencies:
-    "@blaze-react/tooltip": ^0.8.0-alpha.90
     react: ^17.0.2
     react-datepicker: ^3.7.0
     react-dom: ^17.0.2
@@ -2125,6 +2125,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/input@workspace:packages/Input"
   dependencies:
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2133,7 +2134,6 @@ __metadata:
     "@blaze-react/icon": ^0.8.0-alpha.58
     "@blaze-react/skeleton": ^0.8.0-alpha.58
     "@blaze-react/themes": ^0.8.0-alpha.58
-    "@blaze-react/tooltip": ^0.8.0-alpha.90
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -2201,6 +2201,7 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
     "@types/lodash.unionby": ^4.8.6
     lodash.differencewith: ^4.5.0
     lodash.isequal: ^4.5.0
@@ -2212,7 +2213,6 @@ __metadata:
     webpack-cli: ^4.6.0
   peerDependencies:
     "@blaze-react/checkboxes": ^0.8.0-alpha.58
-    "@blaze-react/tooltip": ^0.8.0-alpha.90
     "@blaze-react/utils": ^0.8.0-alpha.58
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2251,7 +2251,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blaze-react/radio-button@workspace:packages/RadioButton"
   dependencies:
-    "@blaze-react/tooltip": ^0.8.0-alpha.60
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
@@ -2299,12 +2299,12 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.13.14
     "@babel/core": ^7.13.14
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.28.0
     webpack-cli: ^4.6.0
   peerDependencies:
-    "@blaze-react/tooltip": ^0.8.0-alpha.90
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -2357,8 +2357,9 @@ __metadata:
 "@blaze-react/switches@workspace:packages/Switches":
   version: 0.0.0-use.local
   resolution: "@blaze-react/switches@workspace:packages/Switches"
+  dependencies:
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
   peerDependencies:
-    "@blaze-react/tooltip": ^0.8.0-alpha.90
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -2401,12 +2402,12 @@ __metadata:
   resolution: "@blaze-react/text-area@workspace:packages/Textarea"
   dependencies:
     "@blaze-react/blaze-components-theme": ^0.8.0-alpha.59
+    "@blaze-react/tooltip": ^0.8.0-alpha.94
     react: ^17.0.2
     react-dom: ^17.0.2
     webpack: ^5.29.0
     webpack-cli: ^4.6.0
   peerDependencies:
-    "@blaze-react/tooltip": ^0.8.0-alpha.90
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -2440,7 +2441,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blaze-react/tooltip@^0.8.0-alpha.60, @blaze-react/tooltip@workspace:packages/Tooltip":
+"@blaze-react/tooltip@npm:^0.8.0-alpha.94":
+  version: 0.8.0-alpha.94
+  resolution: "@blaze-react/tooltip@npm:0.8.0-alpha.94"
+  peerDependencies:
+    html-react-parser: ^1.2.6
+    react: ^17.0.2
+    react-dom: ^17.0.2
+  checksum: 81bb06acf8d22ae42d7cb3cf6294664243a05c78cd176282745c76ea69b74f62c90376c280242997731ddfa4910c109a83ea8905db884421ae1d48657b2fb34d
+  languageName: node
+  linkType: hard
+
+"@blaze-react/tooltip@workspace:packages/Tooltip":
   version: 0.0.0-use.local
   resolution: "@blaze-react/tooltip@workspace:packages/Tooltip"
   dependencies:
