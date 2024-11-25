@@ -105,6 +105,8 @@ const Switches = ({
 
           return (
             <div className={switchClassNames} key={id}>
+              <Tooltip {...tooltip} />
+              <div className="switch__text"> {label}</div>
               <div className="switch__item">
                 <input
                   readOnly
@@ -119,8 +121,6 @@ const Switches = ({
                 />
                 <label htmlFor={id}>toggle</label>
               </div>
-              <div className="switch__text"> {label}</div>
-              <Tooltip {...tooltip} />
             </div>
           );
         }),
