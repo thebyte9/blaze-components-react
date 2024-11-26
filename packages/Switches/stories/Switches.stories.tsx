@@ -62,6 +62,20 @@ storiesOf("Switches", module)
             options={multiple}
             onChange={() => ({})}
           />
+
+          <br />
+          <h4>Multiple with Reverse Label Position (Left)</h4>
+          <Switches
+            labelPosition="left"
+            tooltip={{
+              tooltipContent: (
+                <>tooltip on <em>click</em></>
+              ),
+              trigger: "click"
+            }}
+            options={multiple}
+            onChange={() => ({})}
+          />
         </div>
       </Suspense>
     );
