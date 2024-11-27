@@ -15,7 +15,7 @@ const Checkbox = ({
   id,
   onChange,
   full,
-  tooltip,
+  tooltip = {},
   ...attrs
 }: any) => {
   const [isChecked, setIsChecked] = useState(checked);
@@ -65,7 +65,7 @@ const Checkbox = ({
       />
       <div onClick={handleCheckboxChange} className={labelClassName} data-testid="form-field-wrapper">
         <Label defaultId={inputId} label={label} />
-        <Tooltip position="top" {...tooltip} />
+        <Tooltip {...tooltip} />
       </div>
     </div>
   );
