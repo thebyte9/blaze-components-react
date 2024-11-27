@@ -105,6 +105,7 @@ const Switches = ({
 
           return (
             <div className={switchClassNames} key={id}>
+              <Tooltip {...tooltip} />
               <div className="switch__text"> {label}</div>
               <div className="switch__item">
                 <input
@@ -119,7 +120,6 @@ const Switches = ({
                   {...attrs}
                 />
                 <label htmlFor={id}>toggle</label>
-                <Tooltip {...tooltip} />
               </div>
             </div>
           );
