@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.98](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.97...v0.8.0-alpha.98) (2024-11-27)
+
+
+### Bug Fixes
+
+* adds maring to switch label ([9e916e5](https://github.com/thebyte9/blaze-components-react/commit/9e916e5c1966179fd60836f19157a5b9eaddc614))
+
+
+
+
+
 # [0.8.0-alpha.94](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.93...v0.8.0-alpha.94) (2024-11-20)
 
 

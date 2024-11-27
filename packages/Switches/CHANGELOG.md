@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.98](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.97...v0.8.0-alpha.98) (2024-11-27)
+
+
+### Bug Fixes
+
+* move tooltip on switches to end of label ([69aaab5](https://github.com/thebyte9/blaze-components-react/commit/69aaab5a095914a343389ee1095367ab75531cb8))
+* move tooltip on switches to end of label ([5c7330c](https://github.com/thebyte9/blaze-components-react/commit/5c7330c5aaba0b67c2abb253592ca5d1853f7ebb))
+
+
+
+
+
 # [0.8.0-alpha.97](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.96...v0.8.0-alpha.97) (2024-11-21)
 
 **Note:** Version bump only for package @blaze-react/switches
