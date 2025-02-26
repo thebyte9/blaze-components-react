@@ -158,10 +158,10 @@ const Tooltip: React.FC<TooltipProps> = ({
     >
       <span
         className={`tooltip ${disabled ? 'is-disabled' : ''}`}
-        onMouseEnter={isHoverTrigger && !disabled && !isHasTouch ? showTooltip : undefined}
+        onMouseEnter={isHoverTrigger && !disabled ? showTooltip : undefined}
         onTouchStart={isHoverTrigger && !disabled && isHasTouch ? showTooltip : undefined}
         onTouchEnd={isHoverTrigger && !disabled && isHasTouch ? hideTooltip : undefined}
-        onMouseLeave={isHoverTrigger && !disabled && !isHasTouch ? hideTooltip : undefined}
+        onMouseLeave={isHoverTrigger && !disabled ? hideTooltip : undefined}
         onClick={isClickTrigger && !disabled ? showTooltip : undefined}
         ref={tooltipWrapperRef}
       >
@@ -181,7 +181,7 @@ const Tooltip: React.FC<TooltipProps> = ({
                 ...styles,
               }}
               onMouseEnter={showTooltip}
-              onMouseLeave={isHoverTrigger && !disabled && !isHasTouch ? hideTooltip : undefined}
+              onMouseLeave={isHoverTrigger && !disabled ? hideTooltip : undefined}
             >
               <span className={`tooltip-buffer  tooltip-buffer--${newPosition.current}`} onMouseEnter={showTooltip} />
               {isClickTrigger && (
