@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.100](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.99...v0.8.0-alpha.100) (2025-02-26)
+
+
+### Bug Fixes
+
+* update tooltip to support both mouse and touch interactions ([#717](https://github.com/thebyte9/blaze-components-react/issues/717)) ([9f6bf98](https://github.com/thebyte9/blaze-components-react/commit/9f6bf9801d38a3f22e1ecc36ba536f55536b58b6))
+
+
+
+
+
 # [0.8.0-alpha.99](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.98...v0.8.0-alpha.99) (2024-11-27)
 
 
