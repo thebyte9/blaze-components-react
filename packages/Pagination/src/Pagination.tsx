@@ -6,15 +6,14 @@ import usePagination from './hooks/usePagination';
 const DEFAULT_OPTIONS = {
   previous: <span>&lsaquo;</span>,
   next: <span>&rsaquo;</span>,
-  displayText: 'Displaying',
-  rowText: 'rows per page'
+  displayText: 'Results per page',
 }
+
 interface PaginationProps {
   options?: {
     previous: string | JSX.Element,
-    next: string | JSX.Element
+    next: string | JSX.Element,
     displayText: string,
-    rowText: string
   }
   totalItems: number;
   currentPage: number;
@@ -55,8 +54,7 @@ const Pagination: React.FC<PaginationProps> = (
   if (pages && pages.length <= 1) return null;
 
   const getItemClassName = (number: number) =>
-    `pagination__item ${number === page ? "pagination__item--active" : ""
-    }`;
+    `pagination__item ${number === page ? "pagination__item--active" : ""}`;
 
   const nextclassnames = buildClassNames('pagination__item pagination__item--icon', {
     ['pagination__item--disabled']: isNextDisabled,
@@ -66,19 +64,23 @@ const Pagination: React.FC<PaginationProps> = (
     [`pagination__item--disabled`]: isPrevDisabled
   });
 
+  const itemsCount = itemsPerPage ?? 10;
+
+  const start = (page - 1) * itemsCount + 1;
+  const end = Math.min(page * itemsCount, totalItems);
+
   return (
     <div className="pagination" data-testid="pagination">
       {itemsPerPage && pages && <div className="pagination__rows" data-testid="items-perpage">
-        <span> {options.displayText}</span>
+        <span>{options.displayText} </span>
         <Input
           min="1"
           className="pagination__input"
-          value={itemsPerPage.toString()}
+          value={itemsCount.toString()}
           onChange={({ value }) => value && handleOnItemsPerPage(parseInt(value))}
           type="number"
-
         />
-        <span> {options.rowText}</span>
+        <span> {start}-{end} of {totalItems}</span>
       </div>}
       <ul className="pagination">
         <li className={prevclassnames}
