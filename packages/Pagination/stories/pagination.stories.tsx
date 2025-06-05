@@ -27,6 +27,7 @@ storiesOf("Pagination", module)
             currentPage={1}
             visiblePages={10}
             itemsPerPage={10}
+            showItemsPerPageInput={false}
             onPageChange={(page: { pageNumber: number, itemsPerPage: number }) => {
               console.log(page)
             }}
