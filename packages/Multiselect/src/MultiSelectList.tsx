@@ -44,8 +44,8 @@ const MultiSelectList = ({
               itemSize={itemSize}
               overscanCount={20}
               onItemsRendered={onItemsRendered}
-              renderItem={({ index, style }) => (
-                <div style={style} key={list[index].id || list[index][keyValue] || index}>
+              renderItem={({ index }) => (
+                <div key={list[index].id || list[index][keyValue] || index} className="multiselect__dropdown-item">
                   <Checkbox
                     full
                     data-cy={`${attrs['data-cy'] || 'multiselect'}-checkbox-cy-${index}`}

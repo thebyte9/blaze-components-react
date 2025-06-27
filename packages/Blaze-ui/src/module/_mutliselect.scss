@@ -36,8 +36,12 @@
     background: $white;
     z-index: 1000;
 
+    &-item {
+      cursor: pointer;
+    }
+
     & .form-field {
-      padding: 10px;
+      padding: 2px 10px;
     }
 
     & p {

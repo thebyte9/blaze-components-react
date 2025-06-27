@@ -82,6 +82,7 @@ storiesOf("Select", module)
                   ["17006", "Madrid"],
                 ]}
                 onChange={() => ({})}
+                required
               />
               <br />
               <br />

@@ -20,7 +20,7 @@ storiesOf('Multiselect', module)
           id: faker.random.uuid(),
           name: [
             faker.name.findName(),
-            [faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName()],
+            [faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName()],
           ],
           show: true,
         })),
@@ -41,7 +41,7 @@ storiesOf('Multiselect', module)
             name="multiselect"
             data={state}
             label="Multi Select"
-            limit={1}
+            limit={3}
             getSelected={(selected: any) => {
               // setState({ ...state, data });
             }}
