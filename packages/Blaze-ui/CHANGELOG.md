@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.101](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.100...v0.8.0-alpha.101) (2025-06-27)
+
+
+### Bug Fixes
+
+* remove fixed height on multi select results ([#720](https://github.com/thebyte9/blaze-components-react/issues/720)) ([0029f23](https://github.com/thebyte9/blaze-components-react/commit/0029f23e4f96ac05a0cab9201d2605103efe0588))
+
+
+
+
+
 # [0.8.0-alpha.98](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.97...v0.8.0-alpha.98) (2024-11-27)
 
 

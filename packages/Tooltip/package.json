@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/tooltip",
-  "version": "0.8.0-alpha.100",
+  "version": "0.8.0-alpha.101",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.98",
+    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.101",
     "html-react-parser": "^1.2.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
