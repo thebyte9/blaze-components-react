@@ -182,6 +182,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
               style="position: relative; width: 100%; min-height: 100%; height: 135px;"
             >
               <div
+                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 45px;"
                 class="multiselect__dropdown-item"
               >
                 <div
@@ -217,6 +218,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                 </div>
               </div>
               <div
+                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 45px;"
                 class="multiselect__dropdown-item"
               >
                 <div
@@ -255,6 +257,7 @@ exports[`Multiselect component should be defined and renders correctly when is o
                 </div>
               </div>
               <div
+                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 45px;"
                 class="multiselect__dropdown-item"
               >
                 <div
