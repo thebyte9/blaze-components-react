@@ -6,6 +6,14 @@ import Multiselect from '../src/MultiSelect';
 import React from 'react';
 import { props } from './mocks';
 
+class ResizeObserver {
+  observe() { }
+  unobserve() { }
+  disconnect() { }
+}
+
+global.ResizeObserver = ResizeObserver;
+
 const defaultProps = (override: object = {}) => ({
   ...props,
   ...override,

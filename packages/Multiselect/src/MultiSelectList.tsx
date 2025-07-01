@@ -2,7 +2,7 @@ import { Checkbox } from '@blaze-react/checkboxes';
 import { ErrorMessage } from '@blaze-react/utils';
 import differenceWith from 'lodash.differencewith';
 import isEqual from 'lodash.isequal';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import VirtualList from 'react-tiny-virtual-list';
 
 const MultiSelectList = ({
@@ -22,6 +22,32 @@ const MultiSelectList = ({
   const [list, setList] = useState<any>([]);
   const itemSize = 45;
 
+  const [heights, setHeights] = useState<{ [i: number]: number }>({});
+  const listRef = useRef<any>(null);
+
+  const observer = useRef<ResizeObserver>();
+  useEffect(() => {
+    observer.current = new ResizeObserver(entries => {
+      let didChange = false;
+      const newHeights = { ...heights };
+
+      for (const ent of entries) {
+        const idx = parseInt(ent.target.getAttribute('data-row-index')!, 10);
+        const h = ent.contentRect.height;
+        if (newHeights[idx] !== h) {
+          newHeights[idx] = h;
+          didChange = true;
+        }
+      }
+
+      if (didChange) {
+        setHeights(newHeights);
+        listRef.current && listRef.current.recomputeSizes();
+      }
+    });
+    return () => observer.current?.disconnect();
+  }, [heights, listRef]);
+
   useEffect(() => {
     if (differenceWith(dataCopy, list, isEqual)) {
       const newList = matchQuery.length ? matchQuery : dataCopy;
@@ -38,33 +64,48 @@ const MultiSelectList = ({
         {!!list.length && (
           <div>
             <VirtualList
+              ref={listRef}
               width={'100%'}
               height={'245px'}
               itemCount={list.length}
-              itemSize={itemSize}
+              itemSize={(index) => heights[index] || itemSize}
+              estimatedItemSize={itemSize}
               overscanCount={20}
               onItemsRendered={onItemsRendered}
-              renderItem={({ index }) => (
-                <div key={list[index].id || list[index][keyValue] || index} className="multiselect__dropdown-item">
-                  <Checkbox
-                    full
-                    data-cy={`${attrs['data-cy'] || 'multiselect'}-checkbox-cy-${index}`}
-                    testId={`checkbox-${index}`}
-                    {...list[index]}
-                    label={getLabel({
-                      isChip: false,
-                      label: list[index][keyValue],
-                    })}
-                    onChange={({ value }: { value: any }) =>
-                      handleCheckBoxChange({
-                        data: dataCopy,
-                        id: list[index][keyValue],
-                        value,
-                      })
-                    }
-                  />
-                </div>
-              )}
+              renderItem={({ index, style }) => {
+                const item = list[index];
+                const id = item.id || item[keyValue] || index;
+                return (
+                  <div
+                    style={{ ...style, height: heights[index] }}
+                    data-row-index={index}
+                    key={id}
+                    className="multiselect__dropdown-item"
+                    ref={el => {
+                      if (el) observer.current!.observe(el);
+                      else observer.current!.disconnect();
+                    }}
+                  >
+                    <Checkbox
+                      full
+                      data-cy={`${attrs['data-cy'] || 'multiselect'}-checkbox-cy-${index}`}
+                      testId={`checkbox-${index}`}
+                      {...list[index]}
+                      label={getLabel({
+                        isChip: false,
+                        label: list[index][keyValue],
+                      })}
+                      onChange={({ value }: { value: any }) =>
+                        handleCheckBoxChange({
+                          data: dataCopy,
+                          id: list[index][keyValue],
+                          value,
+                        })
+                      }
+                    />
+                  </div>
+                )
+              }}
             ></VirtualList>
           </div>
         )}
