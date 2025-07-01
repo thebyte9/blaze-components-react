@@ -49,11 +49,6 @@ const MultiSelectList = ({
   }, [heights, listRef]);
 
   useEffect(() => {
-    setHeights({});
-    listRef.current && listRef.current.scrollToOffset(0);
-  }, [dataCopy, matchQuery]);
-
-  useEffect(() => {
     if (differenceWith(dataCopy, list, isEqual)) {
       const newList = matchQuery.length ? matchQuery : dataCopy;
       setList(newList);
