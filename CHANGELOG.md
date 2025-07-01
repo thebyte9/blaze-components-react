@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.102](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.101...v0.8.0-alpha.102) (2025-07-01)
+
+
+### Bug Fixes
+
+* multiselect recompute sizes ([#721](https://github.com/thebyte9/blaze-components-react/issues/721)) ([979333d](https://github.com/thebyte9/blaze-components-react/commit/979333d4b560dba7584c94955f792f91969f6d11))
+
+
+
+
+
 # [0.8.0-alpha.101](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.100...v0.8.0-alpha.101) (2025-06-27)
 
 
