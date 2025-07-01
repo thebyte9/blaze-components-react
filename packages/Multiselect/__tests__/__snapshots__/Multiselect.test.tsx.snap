@@ -182,8 +182,9 @@ exports[`Multiselect component should be defined and renders correctly when is o
               style="position: relative; width: 100%; min-height: 100%; height: 135px;"
             >
               <div
-                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 45px;"
                 class="multiselect__dropdown-item"
+                data-row-index="0"
+                style="position: absolute; top: 0px; left: 0px; width: 100%;"
               >
                 <div
                   class="form-field form-field--checkbox"
@@ -218,8 +219,9 @@ exports[`Multiselect component should be defined and renders correctly when is o
                 </div>
               </div>
               <div
-                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 45px;"
                 class="multiselect__dropdown-item"
+                data-row-index="1"
+                style="position: absolute; top: 45px; left: 0px; width: 100%;"
               >
                 <div
                   class="form-field form-field--checkbox"
@@ -257,8 +259,9 @@ exports[`Multiselect component should be defined and renders correctly when is o
                 </div>
               </div>
               <div
-                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 45px;"
                 class="multiselect__dropdown-item"
+                data-row-index="2"
+                style="position: absolute; top: 90px; left: 0px; width: 100%;"
               >
                 <div
                   class="form-field form-field--checkbox"

@@ -7,6 +7,13 @@ import { props } from './mocks';
 
 jest.mock('react-tiny-virtual-list', () => jest.fn(() => <div>mockedList</div>));
 
+class ResizeObserver {
+  observe() { }
+  unobserve() { }
+  disconnect() { }
+}
+
+global.ResizeObserver = ResizeObserver;
 
 describe('Multiselect list methods', () => {
   const defaultProps = (override = {}) => ({ ...props, ...override });
