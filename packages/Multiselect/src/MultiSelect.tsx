@@ -258,6 +258,7 @@ const MultiSelect: React.SFC<IMultiSelectProps> = ({
             handleCheckBoxChange={handleCheckBoxChange}
             ErrorMessage={ErrorMessage}
             getLabel={getLabel}
+            searchValue={searchValue}
           />
         )}
       </div>

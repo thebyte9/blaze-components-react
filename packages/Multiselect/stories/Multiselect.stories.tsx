@@ -14,13 +14,13 @@ storiesOf('Multiselect', module)
   .add('Static data', () => {
     const DemoComponent = () => {
       const state = {
-        data: [...new Array(10)].map((e, index) => ({
+        data: [...new Array(50)].map((e, index) => ({
           checked: false,
           description: faker.random.word(),
           id: faker.random.uuid(),
           name: [
             faker.name.findName(),
-            [faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName(), faker.name.findName()],
+            index <= 2 ? [faker.name.findName()] : Array.from({ length: faker.datatype.number({ min: 2, max: 10 }) }, () => faker.name.findName()),
           ],
           show: true,
         })),
