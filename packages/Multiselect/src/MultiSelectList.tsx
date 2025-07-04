@@ -23,7 +23,6 @@ const MultiSelectList = ({
   notFoundMessage,
   onItemsRendered,
   validationMessage,
-  searchValue,
   ...attrs
 }: any) => {
   const [list, setList] = useState<any[]>([]);
