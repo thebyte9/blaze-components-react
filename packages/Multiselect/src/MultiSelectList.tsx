@@ -186,7 +186,7 @@ const MultiSelectList = ({
                       <Checkbox
                         full
                         data-cy={`${attrs['data-cy'] || 'multiselect'}-checkbox-cy-${idx}`}
-                        testId={`checkbox-${idx}`}
+                        data-testid={`checkbox-${idx}`}
                         {...item}
                         label={getLabel({
                           isChip: false,

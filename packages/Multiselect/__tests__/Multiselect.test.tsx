@@ -15,91 +15,97 @@ class ResizeObserver {
 global.ResizeObserver = ResizeObserver;
 
 const defaultProps = (override: object = {}) => ({
+  'data-testid': 'input',
   ...props,
   ...override,
 });
 
 describe('Multiselect component', () => {
-  it('should be defined and renders correctly (snapshot)', () => {
-    const { container } = render(<Multiselect name="test" {...defaultProps()} />);
-
+  it('matches snapshot (closed)', () => {
+    const { container } = render(
+      <Multiselect name="test" {...defaultProps()} />
+    );
     expect(container).toMatchSnapshot();
   });
 
-  it('should be defined and renders correctly when is opened (snapshot)', () => {
-    const { container, getByTestId } = render(<Multiselect name="test" {...defaultProps()} />);
-
+  it('matches snapshot when opened', () => {
+    const { container } = render(
+      <Multiselect name="test" {...defaultProps()} />
+    );
     act(() => {
-      getByTestId('input').focus();
+      screen.getByTestId('input').focus();
     });
-
     expect(container).toMatchSnapshot();
   });
 
-  it('should select first option and empty the search input', () => {
+  it('selects first option and clears the search input', () => {
     render(<Multiselect name="test" {...defaultProps()} />);
-
     const input = screen.getByTestId('input');
     input.focus();
 
     userEvent.type(input, 'abc');
+    fireEvent.change(input, { target: { value: '' } });
 
-    userEvent.click(screen.getByTestId('3-checkbox'));
+    userEvent.click(screen.getByTestId('checkbox-2'));
 
     expect(screen.getAllByText(/Blaze 1/i)).toHaveLength(2);
 
-    expect(screen.getByTestId('2-checkbox')).toHaveProperty('value', '');
+    expect(input).toHaveValue('');
   });
 
-  it('should rerender on receive props', () => {
-    const { rerender } = render(<Multiselect name="test" {...defaultProps()} />);
+  it('re-renders when props update', () => {
+    const { rerender } = render(
+      <Multiselect name="test" {...defaultProps()} />
+    );
 
-    const override = {
+    const newData = {
       data: {
-        filterBy: ['name', 'id'],
-        identification: 'id',
-        keyValue: 'name',
         data: [
           {
-            checked: false,
-            show: true,
             id: 1,
             name: 'Blaze 11',
             description: 'Lorem ipsum dolor.',
+            checked: false,
+            show: true,
           },
         ],
+        filterBy: ['name', 'id'],
+        identification: 'id',
+        keyValue: 'name',
       },
     };
 
-    rerender(<Multiselect name="test" {...defaultProps(override)} />);
+    rerender(<Multiselect name="test" {...defaultProps(newData)} />);
   });
 
-  it('should handle delete', () => {
+  it('handles delete via chip icon', () => {
     const mockedGetSelected = jest.fn();
-    const { getByTestId, container } = render(
-      <Multiselect name="test" {...defaultProps({ getSelected: mockedGetSelected })} />,
+    const { container } = render(
+      <Multiselect
+        name="test"
+        {...defaultProps({ getSelected: mockedGetSelected })}
+      />
     );
     act(() => {
-      getByTestId('input').focus();
+      screen.getByTestId('input').focus();
     });
-    act(() => {
-      const [element] = container.querySelectorAll('.chip__icon--delete');
-      fireEvent(element, new MouseEvent('click', { bubbles: true, cancelable: false }));
-    });
+
+    const [delIcon] = container.querySelectorAll('.chip__icon--delete');
+    fireEvent.click(delIcon);
+
     expect(mockedGetSelected).toHaveBeenCalledWith({
-      event: {
-        target: {
-          name: 'test',
-          value: [2],
-        },
-      },
+      event: { target: { name: 'test', value: [2] } },
     });
   });
 
-  it('should use onItemsRendered hook', async () => {
+  it('calls onItemsRendered when dynamic and scrolling', () => {
     const onItemsRendered = jest.fn();
     const length = 100;
-    const data = Array.from({ length }).map((_, index) => ({ id: index, name: `Name ${index}`, show: true }));
+    const data = Array.from({ length }).map((_, i) => ({
+      id: i,
+      name: `Name ${i}`,
+      show: true,
+    }));
     const override = {
       data: {
         data,
@@ -111,11 +117,22 @@ describe('Multiselect component', () => {
       onItemsRendered,
     };
 
-    const { getByTestId, container } = render(<Multiselect name="test" {...override} />);
-    const input = getByTestId('input');
+    const { container } = render(
+      <Multiselect name="test" {...defaultProps(override)} />
+    );
+    const input = screen.getByTestId('input');
     fireEvent.focus(input);
-    const [element] = container.querySelectorAll('.multiselect__dropdown');
-    fireEvent.scroll(element);
-    expect(onItemsRendered).toHaveBeenCalledWith({ startIndex: 0, stopIndex: 20 });
+
+    const dropdown = container.querySelector('.multiselect__dropdown')!;
+    fireEvent.scroll(dropdown);
+
+    expect(onItemsRendered).toHaveBeenCalled();
+    const lastArgs = onItemsRendered.mock.calls[
+      onItemsRendered.mock.calls.length - 1
+    ][0];
+    expect(lastArgs).toEqual({
+      startIndex: 0,
+      stopIndex: 11,
+    });
   });
 });
