@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.103](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.102...v0.8.0-alpha.103) (2025-07-07)
+
+**Note:** Version bump only for package @blaze-react/drawer
+
+
+
+
+
 # [0.8.0-alpha.102](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.101...v0.8.0-alpha.102) (2025-07-01)
 
 **Note:** Version bump only for package @blaze-react/drawer
