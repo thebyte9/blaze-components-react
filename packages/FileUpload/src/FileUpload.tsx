@@ -15,7 +15,7 @@ interface IFileUploadProps {
   enableDragAndDrop?: boolean;
   actionText?: any;
   selectOptions: any[];
-  storeType?: keyof typeof STORE_TYPES;
+  storeKey?: keyof typeof STORE_TYPES;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   onChange,
@@ -25,7 +25,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   enableDragAndDrop,
   actionText,
   selectOptions,
-  storeType,
+  storeKey,
   ...attr
 }) => {
   const [previewImages, setPreviewImages]: any[] = useState([]);
@@ -34,11 +34,11 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   const selectFile: any = useRef(null);
 
   const getStoreConfig = () => {
-    if (!storeType) {
+    if (!storeKey) {
       return STORE_TYPE_CONFIG[STORE_TYPES.DEFAULT];
     }
 
-    return STORE_TYPE_CONFIG[storeType as keyof typeof STORE_TYPES] ||
+    return STORE_TYPE_CONFIG[storeKey as keyof typeof STORE_TYPES] ||
       STORE_TYPE_CONFIG[STORE_TYPES.DEFAULT];
   };
 
@@ -105,7 +105,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                     type: 'image',
                   },
                   name: '',
-                  storeKey: storeType
+                  storeKey
                 });
               reader.onerror = () => reject(new DOMException('Error parsing input file.'));
             } else if (file.type && file.type.includes('video')) {
@@ -116,7 +116,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                   type: 'video',
                 },
                 name: '',
-                storeKey: storeType
+                storeKey
               });
             } else {
               resolve({
@@ -127,7 +127,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                   type: 'doc',
                 },
                 name: '',
-                storeKey: storeType
+                storeKey
               });
             }
           }),
@@ -156,7 +156,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const formatFiles = files.map((file: any) => ({
       data: { ...DATA_ATTRIBUTS },
       file,
-      storyKey: storeType
+      storyKey: storeKey
     }));
 
     setFilesToUpload([...filesToUpload, ...formatFiles]);
@@ -303,6 +303,6 @@ FileUpload.defaultProps = {
   enableDragAndDrop: true,
   handleDrop: () => void 0,
   onChange: () => void 0,
-  storeType: undefined,
+  storeKey: undefined,
 };
 export default FileUpload;
