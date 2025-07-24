@@ -26,14 +26,10 @@ export const STORE_TYPES = {
   DEFAULT: 'default'
 } as const;
 
-export const FILE_EXTENSIONS = {
-  GEOJSON: '.geojson',
-} as const;
-
 export const STORE_TYPE_CONFIG = {
   [STORE_TYPES.MAPS]: {
-    allowedExtensions: [FILE_EXTENSIONS.GEOJSON],
-    acceptAttribute: FILE_EXTENSIONS.GEOJSON
+    allowedExtensions: ['.geojson'],
+    acceptAttribute: '.geojson'
   },
   [STORE_TYPES.DEFAULT]: {
     allowedExtensions: [],

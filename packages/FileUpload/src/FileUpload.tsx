@@ -34,6 +34,10 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   const selectFile: any = useRef(null);
 
   const getStoreConfig = () => {
+    if (!storeType) {
+      return STORE_TYPE_CONFIG[STORE_TYPES.DEFAULT];
+    }
+
     return STORE_TYPE_CONFIG[storeType as keyof typeof STORE_TYPES] ||
       STORE_TYPE_CONFIG[STORE_TYPES.DEFAULT];
   };
@@ -299,5 +303,6 @@ FileUpload.defaultProps = {
   enableDragAndDrop: true,
   handleDrop: () => void 0,
   onChange: () => void 0,
+  storeType: undefined,
 };
 export default FileUpload;
