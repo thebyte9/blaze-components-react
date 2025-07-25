@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 import Actions from './Actions';
 import { DATA_ATTRIBUTS } from './constants';
-import { NAME, STORE_TYPES, STORE_TYPE_CONFIG } from './constants';
+import { NAME } from './constants';
 import DraggableFileUpload from './DraggableFileUpload';
 import FileList from './FileList';
 interface IFileUploadProps {
@@ -15,7 +15,7 @@ interface IFileUploadProps {
   enableDragAndDrop?: boolean;
   actionText?: any;
   selectOptions: any[];
-  storeKey?: keyof typeof STORE_TYPES;
+  storeKey?: string;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   onChange,
@@ -32,32 +32,10 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   const [filesToUpload, setFilesToUpload]: any[] = useState([]);
   const area: any = useRef(null);
   const selectFile: any = useRef(null);
-
-  const getStoreConfig = () => {
-    if (!storeKey) {
-      return STORE_TYPE_CONFIG[STORE_TYPES.DEFAULT];
-    }
-
-    return STORE_TYPE_CONFIG[storeKey as keyof typeof STORE_TYPES] ||
-      STORE_TYPE_CONFIG[STORE_TYPES.DEFAULT];
-  };
-
-  const filterFiles = (files: any[]): any[] => {
-    const config = getStoreConfig();
-    if (config.allowedExtensions.length === 0) return files;
-
-    return files.filter(file =>
-      config.allowedExtensions.some((ext: string) =>
-        file.name.toLowerCase().endsWith(ext)
-      )
-    );
-  };
-
   const handleDragover = (event: any): void => {
     event.stopPropagation();
     event.preventDefault();
   };
-
   useEffect(() => {
     const handler = setTimeout((): void => {
       onChange(filesToUpload);
@@ -66,7 +44,6 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       clearTimeout(handler);
     };
   }, [filesToUpload]);
-
   useEffect(() => {
     const handleDrop = (event: any) => {
       event.preventDefault();
@@ -105,7 +82,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                     type: 'image',
                   },
                   name: '',
-                  storeKey
+                  storeKey,
                 });
               reader.onerror = () => reject(new DOMException('Error parsing input file.'));
             } else if (file.type && file.type.includes('video')) {
@@ -116,7 +93,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                   type: 'video',
                 },
                 name: '',
-                storeKey
+                storeKey,
               });
             } else {
               resolve({
@@ -127,21 +104,16 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                   type: 'doc',
                 },
                 name: '',
-                storeKey
+                storeKey,
               });
             }
           }),
       ),
     );
-
   const processFiles = async (files: any): Promise<any> => {
     if (!files || !files.length) {
       return;
     }
-
-    files = filterFiles(files);
-    if (files.length === 0) return;
-
     files = files.map((file: any) => {
       try {
         file.id = nanoid();
@@ -150,15 +122,11 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       }
       return file;
     });
-
     const previewFiles = await getPreview(files);
-
     const formatFiles = files.map((file: any) => ({
       data: { ...DATA_ATTRIBUTS },
       file,
-      storyKey: storeKey
     }));
-
     setFilesToUpload([...filesToUpload, ...formatFiles]);
     setPreviewImages([...previewImages, ...previewFiles]);
     if (handleDropProp) {
@@ -169,23 +137,13 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     event.preventDefault();
     let { target: { files = {} } = {} } = event;
     files = Object.values(files);
-
-    files = filterFiles(files);
-    if (files.length === 0) return;
-
     processFiles(files);
     onChange(files);
   };
-
   const handleBrowse = () => {
     const { current: currentSelectFile } = selectFile;
-    if (currentSelectFile) {
-      const config = getStoreConfig();
-      currentSelectFile.accept = config.acceptAttribute;
-      currentSelectFile.click();
-    }
+    currentSelectFile.click();
   };
-
   const handleCancel = (idToRemove: string): void => {
     const validFiles = (files: any[]) =>
       files.filter(({ file: { id } }: { file: { id: string } }) => id !== idToRemove);
@@ -303,6 +261,5 @@ FileUpload.defaultProps = {
   enableDragAndDrop: true,
   handleDrop: () => void 0,
   onChange: () => void 0,
-  storeKey: undefined,
 };
 export default FileUpload;

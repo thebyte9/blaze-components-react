@@ -19,7 +19,7 @@ storiesOf('FileUpload', module)
 
       return (
 
-        <FileUpload onChange={onChange} selectOptions={[['default', 'Default'], ['maps', 'Maps store']]} />
+        <FileUpload onChange={onChange} storeKey="maps" selectOptions={[['default', 'Default'], ['maps', 'Maps store']]} />
       );
     };
     return (
