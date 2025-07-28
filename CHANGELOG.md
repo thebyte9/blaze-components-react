@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.104](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.103...v0.8.0-alpha.104) (2025-07-28)
+
+
+### Features
+
+* add store types and their allowed file extension ([#723](https://github.com/thebyte9/blaze-components-react/issues/723)) ([4ee9992](https://github.com/thebyte9/blaze-components-react/commit/4ee9992bec5e00ec0fcb7f31f8c55255551924b4))
+
+
+
+
+
 # [0.8.0-alpha.103](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.102...v0.8.0-alpha.103) (2025-07-07)
 
 
