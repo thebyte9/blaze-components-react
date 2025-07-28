@@ -15,6 +15,7 @@ interface IFileUploadProps {
   enableDragAndDrop?: boolean;
   actionText?: any;
   selectOptions: any[];
+  storeKey?: string;
 }
 const FileUpload: React.SFC<IFileUploadProps> = ({
   onChange,
@@ -24,6 +25,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   enableDragAndDrop,
   actionText,
   selectOptions,
+  storeKey,
   ...attr
 }) => {
   const [previewImages, setPreviewImages]: any[] = useState([]);
@@ -80,6 +82,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                     type: 'image',
                   },
                   name: '',
+                  storeKey,
                 });
               reader.onerror = () => reject(new DOMException('Error parsing input file.'));
             } else if (file.type && file.type.includes('video')) {
@@ -90,6 +93,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                   type: 'video',
                 },
                 name: '',
+                storeKey,
               });
             } else {
               resolve({
@@ -100,6 +104,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
                   type: 'doc',
                 },
                 name: '',
+                storeKey,
               });
             }
           }),

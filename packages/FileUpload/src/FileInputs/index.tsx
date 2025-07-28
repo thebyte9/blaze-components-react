@@ -83,6 +83,7 @@ const FileInputs = ({
         data-testid="store-type"
         options={selectOptions}
         selected={storeKey}
+        showDefaultOption={!storeKey}
         onChange={(event: any) => handleSelectChange(event, index)}
       />
     </>
