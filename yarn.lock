@@ -316,6 +316,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helper-plugin-utils@npm:^7.18.9":
+  version: 7.19.0
+  resolution: "@babel/helper-plugin-utils@npm:7.19.0"
+  checksum: 461bd9985a0be80a4b0df37a188d3eedca20d94c14f9c2851b500549958aacf073b6e42810382284f5b07fb2379c2e327180401d00eb791d152fd568e8de1842
+  languageName: node
+  linkType: hard
+
 "@babel/helper-remap-async-to-generator@npm:^7.16.0, @babel/helper-remap-async-to-generator@npm:^7.16.4":
   version: 7.16.4
   resolution: "@babel/helper-remap-async-to-generator@npm:7.16.4"
@@ -545,7 +552,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-export-namespace-from@npm:^7.12.13, @babel/plugin-proposal-export-namespace-from@npm:^7.16.0":
+"@babel/plugin-proposal-export-namespace-from@npm:^7.12.13":
+  version: 7.18.9
+  resolution: "@babel/plugin-proposal-export-namespace-from@npm:7.18.9"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.18.9
+    "@babel/plugin-syntax-export-namespace-from": ^7.8.3
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 626158ed6b8c9a45a7cd7c9a800a30decfb912210763994faec0a07f63764fa31f264eee47a78973b8f119a20048c42edc838c4a097dbaf44a44c1f44085a50a
+  languageName: node
+  linkType: hard
+
+"@babel/plugin-proposal-export-namespace-from@npm:^7.16.0":
   version: 7.16.0
   resolution: "@babel/plugin-proposal-export-namespace-from@npm:7.16.0"
   dependencies:
