@@ -316,6 +316,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helper-plugin-utils@npm:^7.18.6":
+  version: 7.19.0
+  resolution: "@babel/helper-plugin-utils@npm:7.19.0"
+  checksum: 461bd9985a0be80a4b0df37a188d3eedca20d94c14f9c2851b500549958aacf073b6e42810382284f5b07fb2379c2e327180401d00eb791d152fd568e8de1842
+  languageName: node
+  linkType: hard
+
 "@babel/helper-remap-async-to-generator@npm:^7.16.0, @babel/helper-remap-async-to-generator@npm:^7.16.4":
   version: 7.16.4
   resolution: "@babel/helper-remap-async-to-generator@npm:7.16.4"
@@ -1296,13 +1303,13 @@ __metadata:
   linkType: hard
 
 "@babel/plugin-transform-object-assign@npm:^7.12.13":
-  version: 7.16.0
-  resolution: "@babel/plugin-transform-object-assign@npm:7.16.0"
+  version: 7.18.6
+  resolution: "@babel/plugin-transform-object-assign@npm:7.18.6"
   dependencies:
-    "@babel/helper-plugin-utils": ^7.14.5
+    "@babel/helper-plugin-utils": ^7.18.6
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: f9ad604577e04635ed332ad721002c0ed98709ecc49f066db6bc0f7d41ebb380693aed4dd1b6ad40fd7a1c17581611b0bd21daa3456a636903b9c099ae6c7711
+  checksum: 0c48981f2cd485b48210a10895dc8e0ee3b9188004dffb055cf0b99ee9117fef71645c0da23df3aa23265098b013276340880c4f3166d7e39622b51c47853f26
   languageName: node
   linkType: hard
 
