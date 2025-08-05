@@ -126,6 +126,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const formatFiles = files.map((file: any) => ({
       data: { ...DATA_ATTRIBUTS },
       file,
+      storeKey,
     }));
     setFilesToUpload([...filesToUpload, ...formatFiles]);
     setPreviewImages([...previewImages, ...previewFiles]);

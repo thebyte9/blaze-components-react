@@ -4,7 +4,6 @@ import React, from 'react';
 import FileUpload from '../src/FileUpload';
 
 import FileUploadReadme from '../README.md';
-import { Modal } from '@blaze-react/modal';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('FileUpload', module)
@@ -19,7 +18,7 @@ storiesOf('FileUpload', module)
 
       return (
 
-        <FileUpload onChange={onChange} storeKey="maps" selectOptions={[['default', 'Default'], ['maps', 'Maps store']]} />
+        <FileUpload onChange={onChange} selectOptions={[['default', 'Default'], ['maps', 'Maps store']]} />
       );
     };
     return (
