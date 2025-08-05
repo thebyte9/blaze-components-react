@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.105](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.104...v0.8.0-alpha.105) (2025-08-05)
+
+
+### Bug Fixes
+
+* remove default option when storekey is set ([#724](https://github.com/thebyte9/blaze-components-react/issues/724)) ([3db01fe](https://github.com/thebyte9/blaze-components-react/commit/3db01fe2a8bace21a6a5acec28c1562239455b7e))
+
+
+
+
+
 # [0.8.0-alpha.104](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.103...v0.8.0-alpha.104) (2025-07-28)
 
 
