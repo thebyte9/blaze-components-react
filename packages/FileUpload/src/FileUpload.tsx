@@ -2,10 +2,22 @@ import cloneDeep from 'lodash.clonedeep';
 import React, { useEffect, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
 import Actions from './Actions';
-import { DATA_ATTRIBUTS } from './constants';
-import { NAME } from './constants';
+import { DATA_ATTRIBUTS, NAME } from './constants';
 import DraggableFileUpload from './DraggableFileUpload';
 import FileList from './FileList';
+
+export interface FileInputsProps {
+  data: any;
+  file: { id: string; name: string; type: string; base64?: string };
+  index: number;
+  name: string;
+  storeKey?: string;
+  selectOptions: any[];
+  handleInputChange: (args: { event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> }) => void;
+  handleSelectChange: (args: { event: React.ChangeEvent<HTMLSelectElement> }, index: number) => void;
+  copyToOthers: (name: string, index: number) => void;
+}
+
 interface IFileUploadProps {
   children?: any;
   customPreview?: boolean;
@@ -16,8 +28,10 @@ interface IFileUploadProps {
   actionText?: any;
   selectOptions: any[];
   storeKey?: string;
+  FileInputsComponent?: React.ComponentType<FileInputsProps>;
 }
-const FileUpload: React.SFC<IFileUploadProps> = ({
+
+const FileUpload: React.FC<IFileUploadProps> = ({
   onChange,
   handleDrop: handleDropProp,
   customPreview,
@@ -26,16 +40,19 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   actionText,
   selectOptions,
   storeKey,
+  FileInputsComponent,
   ...attr
 }) => {
-  const [previewImages, setPreviewImages]: any[] = useState([]);
-  const [filesToUpload, setFilesToUpload]: any[] = useState([]);
-  const area: any = useRef(null);
-  const selectFile: any = useRef(null);
-  const handleDragover = (event: any): void => {
+  const [previewImages, setPreviewImages] = useState<any[]>([]);
+  const [filesToUpload, setFilesToUpload] = useState<any[]>([]);
+  const area = useRef<HTMLDivElement | null>(null);
+  const selectFile = useRef<HTMLInputElement | null>(null);
+
+  const handleDragover = (event: DragEvent): void => {
     event.stopPropagation();
     event.preventDefault();
   };
+
   useEffect(() => {
     const handler = setTimeout((): void => {
       onChange(filesToUpload);
@@ -43,18 +60,20 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     return () => {
       clearTimeout(handler);
     };
-  }, [filesToUpload]);
+  }, [filesToUpload, onChange]);
+
   useEffect(() => {
-    const handleDrop = (event: any) => {
+    const handleDrop = (event: DragEvent) => {
       event.preventDefault();
       event.stopPropagation();
       let { dataTransfer: { files = {} } = {} } = event;
-      files = Object.values(files);
+      files = Object.values(files as FileList);
       processFiles(files);
       onChange(files);
     };
+
     const { current: currentArea } = area;
-    if (enableDragAndDrop) {
+    if (enableDragAndDrop && currentArea) {
       currentArea.addEventListener('dragover', handleDragover);
       currentArea.addEventListener('drop', handleDrop);
       return () => {
@@ -64,6 +83,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     }
     return;
   }, [previewImages, filesToUpload]);
+
   const getPreview = (files: any[]) =>
     Promise.all(
       files.map(
@@ -110,55 +130,63 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           }),
       ),
     );
+
   const processFiles = async (files: any): Promise<any> => {
-    if (!files || !files.length) {
-      return;
-    }
+    if (!files || !files.length) return;
+
     files = files.map((file: any) => {
       try {
         file.id = nanoid();
-      } catch (e) {
+      } catch {
         return file;
       }
       return file;
     });
+
     const previewFiles = await getPreview(files);
     const formatFiles = files.map((file: any) => ({
       data: { ...DATA_ATTRIBUTS },
       file,
       storeKey,
     }));
-    setFilesToUpload([...filesToUpload, ...formatFiles]);
-    setPreviewImages([...previewImages, ...previewFiles]);
+
+    setFilesToUpload((prev) => [...prev, ...formatFiles]);
+    setPreviewImages((prev) => [...prev, ...previewFiles]);
+
     if (handleDropProp) {
       handleDropProp({ previewFiles: [...previewImages, ...previewFiles] });
     }
   };
-  const handleChange = (event: any) => {
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    let { target: { files = {} } = {} } = event;
-    files = Object.values(files);
-    processFiles(files);
-    onChange(files);
+    const { target: { files = {} as FileList } = {} } = event as any;
+    const asArray = Object.values(files);
+    processFiles(asArray);
+    onChange(asArray);
   };
+
   const handleBrowse = () => {
     const { current: currentSelectFile } = selectFile;
-    currentSelectFile.click();
+    currentSelectFile?.click();
   };
+
   const handleCancel = (idToRemove: string): void => {
     const validFiles = (files: any[]) =>
       files.filter(({ file: { id } }: { file: { id: string } }) => id !== idToRemove);
+
     const fileToUploadUpdated = validFiles(filesToUpload);
     const previewImagesUpdated = validFiles(previewImages);
+
     setFilesToUpload(fileToUploadUpdated);
     setPreviewImages(previewImagesUpdated);
     onChange(fileToUploadUpdated);
+
     if (handleDropProp) {
-      handleDropProp({
-        previewFiles: previewImagesUpdated,
-      });
+      handleDropProp({ previewFiles: previewImagesUpdated });
     }
   };
+
   const copyToOthers = (name: string, index: number) => {
     const filesToUploadCopy = cloneDeep(filesToUpload);
     const previewImagesCopy = cloneDeep(previewImages);
@@ -175,6 +203,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
         previewImagesCopy[i].data[name] = filesToUploadCopy[index].data[name];
       }
     });
+
     setFilesToUpload(filesToUploadCopy);
     setPreviewImages(previewImagesCopy);
   };
@@ -183,9 +212,11 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     const {
       target: { id, name, value },
     } = event;
+
     const filesToUploadCopy = cloneDeep(filesToUpload);
     const previewImagesCopy = cloneDeep(previewImages);
     const index = Number(id.split('-')[0]);
+
     if (name !== NAME) {
       const _name = name.split('-')[0];
       filesToUploadCopy[index].data[_name] = value;
@@ -194,17 +225,22 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
       filesToUploadCopy[index][name] = value;
       previewImagesCopy[index][name] = value;
     }
+
     setFilesToUpload(filesToUploadCopy);
     setPreviewImages(previewImagesCopy);
   };
+
   const handleSelectChange = ({ event }: any, index: number) => {
     const {
       target: { value },
     } = event;
+
     const filesToUploadCopy = cloneDeep(filesToUpload);
     const previewImagesCopy = cloneDeep(previewImages);
+
     filesToUploadCopy[index].storeKey = value;
     previewImagesCopy[index].storeKey = value;
+
     setFilesToUpload(filesToUploadCopy);
     setPreviewImages(previewImagesCopy);
   };
@@ -221,6 +257,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           handleSelectChange={handleSelectChange}
           selectOptions={selectOptions}
           copyToOthers={copyToOthers}
+          FileInputsComponent={FileInputsComponent}
           {...attr}
         >
           <Actions
@@ -248,6 +285,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               handleSelectChange={handleSelectChange}
               selectOptions={selectOptions}
               copyToOthers={copyToOthers}
+              FileInputsComponent={FileInputsComponent}
             />
           )}
         </>
@@ -255,6 +293,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
     </>
   );
 };
+
 FileUpload.defaultProps = {
   actionText: 'Add Files',
   children: 'No content',
@@ -263,4 +302,5 @@ FileUpload.defaultProps = {
   handleDrop: () => void 0,
   onChange: () => void 0,
 };
+
 export default FileUpload;
