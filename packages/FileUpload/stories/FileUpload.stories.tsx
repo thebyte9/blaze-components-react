@@ -166,8 +166,7 @@ storiesOf('FileUpload', module)
       <div className="component-wrapper">
         <h1>FileUpload — Custom FileInputs</h1>
         <p>
-          This story demonstrates a <code>FileInputsComponent</code> where labels include a copy-to-all icon instead of
-          a separate button, for a cleaner inline UI.
+          This story demonstrates a <code>FileInputsComponent</code> where labels include a copy-to-all.
         </p>
         <FileUploadModal />
       </div>
