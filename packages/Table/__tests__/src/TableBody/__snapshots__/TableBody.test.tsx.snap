@@ -21,7 +21,6 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             class="form-checkbox"
             data-testid="1"
             id="1-checkbox"
-            readonly=""
             test-id="row-checkbox-0"
             type="checkbox"
             value="1"
@@ -32,6 +31,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
           >
             <label
               for="1-checkbox"
+              style="cursor: pointer;"
             >
               <span />
             </label>
@@ -82,7 +82,6 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
             class="form-checkbox"
             data-testid="2"
             id="2-checkbox"
-            readonly=""
             test-id="row-checkbox-1"
             type="checkbox"
             value="2"
@@ -93,6 +92,7 @@ exports[`Table body should render data and pass it throught virtual list 1`] = `
           >
             <label
               for="2-checkbox"
+              style="cursor: pointer;"
             >
               <span />
             </label>

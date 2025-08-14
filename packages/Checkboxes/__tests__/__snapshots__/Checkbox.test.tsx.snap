@@ -10,7 +10,6 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
       class="form-checkbox"
       data-testid="1-checkbox"
       id="1-checkbox-checkbox"
-      readonly=""
       type="checkbox"
       value="lorem ipsum"
     />
@@ -20,6 +19,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
     >
       <label
         for="1-checkbox-checkbox"
+        style="cursor: pointer;"
       >
         <span>
           first
@@ -35,7 +35,6 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
       class="form-checkbox"
       data-testid="2-checkbox"
       id="2-checkbox-checkbox"
-      readonly=""
       required=""
       type="checkbox"
       value="accepted"
@@ -46,6 +45,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
     >
       <label
         for="2-checkbox-checkbox"
+        style="cursor: pointer;"
       >
         <span>
           I accept
@@ -62,7 +62,6 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
       data-testid="3-checkbox"
       disabled=""
       id="3-checkbox-checkbox"
-      readonly=""
       type="checkbox"
       value="disabled"
     />
@@ -72,6 +71,7 @@ exports[`Checkboxes component should be defined and renders correctly (snapshot)
     >
       <label
         for="3-checkbox-checkbox"
+        style="cursor: pointer;"
       >
         <span>
           Disabled
@@ -92,7 +92,6 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
       class="form-checkbox"
       data-testid="1-checkbox"
       id="1-checkbox-checkbox"
-      readonly=""
       type="checkbox"
       value="lorem ipsum"
     />
@@ -102,6 +101,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
     >
       <label
         for="1-checkbox-checkbox"
+        style="cursor: pointer;"
       >
         <span>
           first
@@ -117,7 +117,6 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
       class="form-checkbox"
       data-testid="2-checkbox"
       id="2-checkbox-checkbox"
-      readonly=""
       required=""
       type="checkbox"
       value="accepted"
@@ -128,6 +127,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
     >
       <label
         for="2-checkbox-checkbox"
+        style="cursor: pointer;"
       >
         <span>
           I accept
@@ -144,7 +144,6 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
       data-testid="3-checkbox"
       disabled=""
       id="3-checkbox-checkbox"
-      readonly=""
       type="checkbox"
       value="disabled"
     />
@@ -154,6 +153,7 @@ exports[`Checkboxes component should render a disabled checkbox 1`] = `
     >
       <label
         for="3-checkbox-checkbox"
+        style="cursor: pointer;"
       >
         <span>
           Disabled
