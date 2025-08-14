@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Label from './Label';
 import { buildClassNames } from '@blaze-react/utils';
 import { nanoid } from 'nanoid';
-import Tooltip from '@blaze-react/tooltip'
+import Tooltip from '@blaze-react/tooltip';
 
 const Checkbox = ({
   checked,
@@ -20,7 +20,14 @@ const Checkbox = ({
 }: any) => {
   const [isChecked, setIsChecked] = useState(checked);
 
-  const handleCheckboxChange = (event: React.MouseEvent<HTMLDivElement>): void => {
+  const handleCheckboxChange = (event: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLLabelElement>): void => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (disabled) {
+      return;
+    }
+
     onChange({
       event,
       value: {
@@ -50,7 +57,6 @@ const Checkbox = ({
   return (
     <div key={wrapperId} className={checkboxClassName} role="button">
       <input
-        readOnly
         type="checkbox"
         className="form-checkbox"
         value={value}
@@ -60,11 +66,11 @@ const Checkbox = ({
         id={inputId}
         data-testid={inputId}
         name={name}
-        onClick={handleCheckboxChange}
+        onChange={handleCheckboxChange}
         {...attrs}
       />
-      <div onClick={handleCheckboxChange} className={labelClassName} data-testid="form-field-wrapper">
-        <Label defaultId={inputId} label={label} />
+      <div className={labelClassName} data-testid="form-field-wrapper">
+        <Label defaultId={inputId} label={label} onClick={handleCheckboxChange} />
         <Tooltip {...tooltip} />
       </div>
     </div>
