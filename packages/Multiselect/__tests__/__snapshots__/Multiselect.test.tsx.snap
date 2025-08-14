@@ -197,7 +197,6 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
                   id="1-checkbox"
                   index="0"
                   name="Blaze 1"
-                  readonly=""
                   type="checkbox"
                   value=""
                 />
@@ -207,6 +206,7 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
                 >
                   <label
                     for="1-checkbox"
+                    style="cursor: pointer;"
                   >
                     <span>
                       Blaze 1
@@ -232,7 +232,6 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
                   id="2-checkbox"
                   index="1"
                   name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
-                  readonly=""
                   type="checkbox"
                   value=""
                 />
@@ -242,6 +241,7 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
                 >
                   <label
                     for="2-checkbox"
+                    style="cursor: pointer;"
                   >
                     <span>
                       Blaze 2, multi main label
@@ -269,7 +269,6 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
                   id="3-checkbox"
                   index="2"
                   name="Blaze 3,Sub label 1,sub label 2"
-                  readonly=""
                   type="checkbox"
                   value=""
                 />
@@ -279,6 +278,7 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
                 >
                   <label
                     for="3-checkbox"
+                    style="cursor: pointer;"
                   >
                     <span>
                       Blaze 3

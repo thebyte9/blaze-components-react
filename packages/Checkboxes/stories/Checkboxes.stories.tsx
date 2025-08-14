@@ -4,27 +4,38 @@ import React from "react";
 import CheckboxesReadme from "../README.md";
 import { Checkbox, Checkboxes } from '../src';
 
+const tooltip = {
+  tooltipContent: <>tooltip on <em>click</em> with custom background color</>,
+  backgroundColor: "lightblue",
+  trigger: "click",
+  position: "right"
+};
+
 const multiple = [
   {
     id: "one",
     label: "First",
     value: 1,
+    tooltip,
   },
   {
     id: "two",
     label: "Second",
     value: 2,
+    tooltip,
   },
   {
     id: "three",
     label: "Third",
     value: 3,
+    tooltip,
   },
   {
     disabled: true,
     id: "fourth",
     label: "Disabled",
     value: 4,
+    tooltip,
   },
 ];
 
@@ -32,13 +43,7 @@ const single = {
   id: 'single',
   label: "Do you agree?",
   required: true,
-};
-
-const tooltip = {
-  tooltipContent: <>tooltip on <em>click</em> with custom background color</>,
-  backgroundColor: "lightblue",
-  trigger: "click",
-  position: "right"
+  tooltip,
 };
 
 storiesOf("Checkboxes", module)
@@ -62,10 +67,10 @@ storiesOf("Checkboxes", module)
 
         <section className="exampleSection">
           <h3>Multiselect</h3>
-          <Checkboxes tooltip={tooltip} options={multiple} onChange={() => ({})} />
+          <Checkboxes options={multiple} onChange={() => ({})} />
 
           <h3>Single</h3>
-          <Checkboxes tooltip={tooltip} returnBoolean options={[single]} onChange={() => ({})} />
+          <Checkboxes returnBoolean options={[single]} onChange={() => ({})} />
         </section>
       </div>
     );
