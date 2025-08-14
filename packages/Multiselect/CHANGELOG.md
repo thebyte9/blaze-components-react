@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.106](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.105...v0.8.0-alpha.106) (2025-08-14)
+
+
+### Features
+
+* make checkbox labels clickable for better ux ([40d8f21](https://github.com/thebyte9/blaze-components-react/commit/40d8f21a33f491a273c191e6054a1b9f7d919c47))
+
+
+
+
+
 # [0.8.0-alpha.103](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.102...v0.8.0-alpha.103) (2025-07-07)
 
 
