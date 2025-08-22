@@ -11,6 +11,8 @@ interface ISelectedValue {
 const MultiSelectBar = ({
   attrs,
   checkedItems,
+  checkedPreviewCount,
+  formatMoreLabel = (n: number) => `${n} more`,
   getLabel,
   handleClearAll,
   handleDelete,
@@ -26,6 +28,11 @@ const MultiSelectBar = ({
 }: any) => {
   const requiredClassName: string = buildClassNames({ required });
 
+  const hasNumber = typeof checkedPreviewCount === 'number' && isFinite(checkedPreviewCount);
+  const previewCount = hasNumber ? Math.max(0, Number(checkedPreviewCount)) : checkedItems.length;
+  const visibleItems = checkedItems.slice(0, previewCount);
+  const remaining = Math.max(0, checkedItems.length - visibleItems.length);
+
   return (
     <>
       <div className="chip__wrapper">
@@ -38,35 +45,45 @@ const MultiSelectBar = ({
           </span>
         )}
       </div>
+
       <div className="multiselect__input__container">
         <div className="multiselect__input__container__chips">
-          {checkedItems.map(
-            (selectedValue: ISelectedValue, index: number): JSX.Element => (
-              <Chip
-                modifiers={[Chip.availableModifiers.parent.deletable, Chip.availableModifiers.parent.small]}
-                onDelete={() =>
-                  handleDelete({
-                    id: selectedValue[identification],
-                    name: selectedValue[keyValue],
-                  })
-                }
-                action={() =>
-                  handleDelete({
-                    id: selectedValue[identification],
-                    name: selectedValue[keyValue],
-                  })
-                }
-                key={`checked-${nanoid()}-${index}`}
-              >
-                <Chip.Label data-cy={`multiSelect-${label}-chip${index + 1}-label`}>
-                  {getLabel({ label: selectedValue[keyValue], isChip: true })}
-                </Chip.Label>
-                <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
-                  <i className="material-icons">clear</i>
-                </Chip.Icon>
-              </Chip>
-            ),
+          {visibleItems.map((selectedValue: ISelectedValue, index: number): JSX.Element => (
+            <Chip
+              modifiers={[Chip.availableModifiers.parent.deletable, Chip.availableModifiers.parent.small]}
+              onDelete={() =>
+                handleDelete({
+                  id: selectedValue[identification],
+                  name: selectedValue[keyValue],
+                })
+              }
+              action={() =>
+                handleDelete({
+                  id: selectedValue[identification],
+                  name: selectedValue[keyValue],
+                })
+              }
+              key={`checked-${nanoid()}-${index}`}
+            >
+              <Chip.Label data-cy={`multiSelect-${label}-chip${index + 1}-label`}>
+                {getLabel({ label: selectedValue[keyValue], isChip: true })}
+              </Chip.Label>
+              <Chip.Icon modifier={Chip.availableModifiers.icon.delete}>
+                <i className="material-icons">clear</i>
+              </Chip.Icon>
+            </Chip>
+          ))}
+
+          {remaining > 0 && (
+            <span
+              className="multiselect__more-counter"
+              data-cy={`multiSelect-${label}-more-counter`}
+              aria-label={formatMoreLabel(remaining)}
+            >
+              {formatMoreLabel(remaining)}
+            </span>
           )}
+
           <Input
             value={searchValue}
             placeholder={placeholder}
