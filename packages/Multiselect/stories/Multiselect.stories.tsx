@@ -7,9 +7,7 @@ import { storiesOf } from '@storybook/react';
 
 storiesOf('Multiselect', module)
   .addParameters({
-    readme: {
-      sidebar: MultiSelectReadme,
-    },
+    readme: { sidebar: MultiSelectReadme },
   })
   .add('Static data', () => {
     const DemoComponent = () => {
@@ -20,7 +18,12 @@ storiesOf('Multiselect', module)
           id: faker.random.uuid(),
           name: [
             faker.name.findName(),
-            index <= 2 ? [faker.name.findName()] : Array.from({ length: faker.datatype.number({ min: 2, max: 10 }) }, () => faker.name.findName()),
+            index <= 2
+              ? [faker.name.findName()]
+              : Array.from(
+                { length: faker.datatype.number({ min: 2, max: 10 }) },
+                () => faker.name.findName()
+              ),
           ],
           show: true,
         })),
@@ -32,25 +35,62 @@ storiesOf('Multiselect', module)
       return (
         <div className="component-wrapper">
           <h1>Multiselect</h1>
-          <p>
-            MultiSelect is a component that allows you to select multiple items with check boxes. It is useful for
-            labeling, contact lists, country selectors, etc.
-          </p>
+          <p>MultiSelect lets you pick multiple items with checkboxes.</p>
           <Multiselect
             searchTerm="al"
             name="multiselect"
             data={state}
             label="Multi Select"
-            limit={3}
-            getSelected={(selected: any) => {
-              // setState({ ...state, data });
-            }}
+            limit={50}
+            getSelected={() => { }}
             required
           />
         </div>
       );
     };
-    return <DemoComponent></DemoComponent>;
+    return <DemoComponent />;
+  })
+  .add('Preview with N more', () => {
+    const DemoComponent = () => {
+      const state = {
+        data: [...new Array(20)].map((e, index) => ({
+          checked: index < 9,
+          description: faker.random.word(),
+          id: faker.random.uuid(),
+          name: [
+            faker.name.findName(),
+            index <= 2
+              ? [faker.name.findName()]
+              : Array.from(
+                { length: faker.datatype.number({ min: 2, max: 10 }) },
+                () => faker.name.findName()
+              ),
+          ],
+          show: true,
+        })),
+        filterBy: ['name', 'description'],
+        identification: 'id',
+        keyValue: 'name',
+      };
+
+      return (
+        <div className="component-wrapper">
+          <h1>Multiselect condensed chips</h1>
+          <p>Shows 1 chip and a compact N more counter.</p>
+          <Multiselect
+            name="multiselect-preview"
+            data={state}
+            label="Multi Select"
+            limit={50}
+            checkedPreviewCount={1}
+            formatMoreLabel={(n) => `${n} more`}
+            getSelected={() => { }}
+            required
+          />
+        </div>
+      );
+    };
+    return <DemoComponent />;
   })
   .add('Dynamic data', () => {
     const DemoComponent = () => {
@@ -76,7 +116,6 @@ storiesOf('Multiselect', module)
           keyValue: 'name',
           data: random(20),
         };
-
         setList(multiselectData);
       }, []);
 
@@ -91,10 +130,7 @@ storiesOf('Multiselect', module)
       return (
         <div className="component-wrapper">
           <h1>Multiselect</h1>
-          <p>
-            MultiSelect is a component that allows you to select multiple items with check boxes. It is useful for
-            labeling, contact lists, country selectors, etc.
-          </p>
+          <p>Dynamic loading example.</p>
           <Multiselect
             onChange={handleChange}
             isDynamic
@@ -102,17 +138,15 @@ storiesOf('Multiselect', module)
             data={list}
             label="Multi Select"
             limit={10}
-            getSelected={(selected: any) => { }}
+            getSelected={() => { }}
             required
             tooltip={{
-              tooltipContent: (
-                <> tooltip on <em>click</em> </>
-              ),
-              trigger: "click",
+              tooltipContent: <> tooltip on <em>click</em> </>,
+              trigger: 'click',
             }}
           />
         </div>
       );
     };
-    return <DemoComponent></DemoComponent>;
+    return <DemoComponent />;
   });
