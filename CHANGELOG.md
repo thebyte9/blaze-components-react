@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.107](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.106...v0.8.0-alpha.107) (2025-08-26)
+
+
+### Features
+
+* add optional checked preview count prop ([#727](https://github.com/thebyte9/blaze-components-react/issues/727)) ([0d0b011](https://github.com/thebyte9/blaze-components-react/commit/0d0b011cfdb699a402203b13ba9cd9e8e89a4bb2))
+
+
+
+
+
 # [0.8.0-alpha.106](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.105...v0.8.0-alpha.106) (2025-08-14)
 
 
