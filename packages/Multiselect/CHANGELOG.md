@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.108](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.107...v0.8.0-alpha.108) (2025-08-28)
+
+
+### Bug Fixes
+
+* associate multi select bar label with input ([#728](https://github.com/thebyte9/blaze-components-react/issues/728)) ([3fb3843](https://github.com/thebyte9/blaze-components-react/commit/3fb3843df2b7a07d9d2052f3fb14a62b174e67cf))
+
+
+
+
+
 # [0.8.0-alpha.107](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.106...v0.8.0-alpha.107) (2025-08-26)
 
 
