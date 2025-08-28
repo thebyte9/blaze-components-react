@@ -56,10 +56,13 @@ const MultiSelectBar = ({
     [handleDelete]
   );
 
+  const inputId: string = (attrs && attrs.id) ? attrs.id : keyValue;
+  const labelId = `${inputId}-label`;
+
   return (
     <>
       <div className="chip__wrapper">
-        <label htmlFor={attrs.id} className={requiredClassName}>
+        <label id={labelId} htmlFor={inputId} className={requiredClassName}>
           {label}
         </label>
         {!!checkedItems.length && (
@@ -106,6 +109,9 @@ const MultiSelectBar = ({
           )}
 
           <Input
+            id={inputId}
+            aria-labelledby={labelId}
+            aria-required={!!required}
             value={searchValue}
             placeholder={placeholder}
             onChange={handleInputChange}
