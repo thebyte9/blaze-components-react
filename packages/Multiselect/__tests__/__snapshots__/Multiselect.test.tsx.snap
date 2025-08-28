@@ -13,6 +13,8 @@ exports[`Multiselect component matches snapshot (closed) 1`] = `
       >
         <label
           class=""
+          for="name"
+          id="name-label"
         >
           
         </label>
@@ -69,13 +71,15 @@ exports[`Multiselect component matches snapshot (closed) 1`] = `
           >
             <label
               class=""
-              for="input-text"
+              for="name"
             >
               
             </label>
             <input
+              aria-labelledby="name-label"
+              aria-required="false"
               data-testid="input"
-              id="input-text"
+              id="name"
               placeholder="Choose..."
               type="text"
               value=""
@@ -101,6 +105,8 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
       >
         <label
           class=""
+          for="name"
+          id="name-label"
         >
           
         </label>
@@ -157,13 +163,15 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
           >
             <label
               class=""
-              for="input-text"
+              for="name"
             >
               
             </label>
             <input
+              aria-labelledby="name-label"
+              aria-required="false"
               data-testid="input"
-              id="input-text"
+              id="name"
               placeholder="Choose..."
               type="text"
               value=""
