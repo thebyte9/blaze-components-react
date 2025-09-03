@@ -33,7 +33,7 @@ const DraggableFileUpload = ({
         <div className="upload__icon">
           <i className="material-icons">arrow_upward</i>
         </div>
-        <p>Drag &amp; drop file to upload</p>
+        <p>Drag &amp; drop files to bulk upload</p>
       </div>
       <div className="upload__browse">
         <div className="upload__text">or</div>

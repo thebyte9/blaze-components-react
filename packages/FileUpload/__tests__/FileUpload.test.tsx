@@ -27,7 +27,7 @@ describe('FileUpload component', () => {
     render(FileUploadComponent);
     const image = new Blob(['file contents'], { type: 'image/png' });
 
-    fireEvent.drop(screen.getByText('Drag & drop file to upload'), {
+    fireEvent.drop(screen.getByText('Drag & drop files to bulk upload'), {
       dataTransfer: {
         files: [image],
       },
