@@ -11,7 +11,7 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
       <div
         class="switch__text"
       >
-         Switch text
+        Switch text
       </div>
       <div
         class="switch__item"
@@ -25,7 +25,12 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
         <label
           for="1"
         >
-          toggle
+          <span
+            aria-hidden="true"
+            class="switch__state"
+          >
+            OFF
+          </span>
         </label>
       </div>
     </div>
@@ -35,7 +40,7 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
       <div
         class="switch__text"
       >
-         Switch text
+        Switch text
       </div>
       <div
         class="switch__item"
@@ -49,7 +54,12 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
         <label
           for="2"
         >
-          toggle
+          <span
+            aria-hidden="true"
+            class="switch__state"
+          >
+            OFF
+          </span>
         </label>
       </div>
     </div>
@@ -59,7 +69,7 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
       <div
         class="switch__text"
       >
-         Disabled
+        Disabled
       </div>
       <div
         class="switch__item"
@@ -74,9 +84,49 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
         <label
           for="switch-2"
         >
-          toggle
+          <span
+            aria-hidden="true"
+            class="switch__state"
+          >
+            OFF
+          </span>
         </label>
       </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Switches vertical orientation applies vertical class and matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="switch switch--label--right switch--vertical"
+  >
+    <div
+      class="switch__text"
+    >
+      Switch text
+    </div>
+    <div
+      class="switch__item"
+    >
+      <input
+        id="switch-0"
+        readonly=""
+        required=""
+        type="checkbox"
+        value=""
+      />
+      <label
+        for="switch-0"
+      >
+        <span
+          aria-hidden="true"
+          class="switch__state"
+        >
+          OFF
+        </span>
+      </label>
     </div>
   </div>
 </DocumentFragment>
