@@ -28,9 +28,7 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
           <span
             aria-hidden="true"
             class="switch__state"
-          >
-            OFF
-          </span>
+          />
         </label>
       </div>
     </div>
@@ -57,9 +55,7 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
           <span
             aria-hidden="true"
             class="switch__state"
-          >
-            OFF
-          </span>
+          />
         </label>
       </div>
     </div>
@@ -87,9 +83,7 @@ exports[`Switches component should be defined and renders correctly (snapshot) 1
           <span
             aria-hidden="true"
             class="switch__state"
-          >
-            OFF
-          </span>
+          />
         </label>
       </div>
     </div>
@@ -123,9 +117,7 @@ exports[`Switches vertical orientation applies vertical class and matches snapsh
         <span
           aria-hidden="true"
           class="switch__state"
-        >
-          OFF
-        </span>
+        />
       </label>
     </div>
   </div>
