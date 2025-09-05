@@ -202,8 +202,8 @@ Switches.defaultProps = {
   validationMessage: 'This field is required',
   alignVertically: false,
   icon: undefined,
-  onText: 'ON',
-  offText: 'OFF',
+  onText: '',
+  offText: '',
 };
 
 export default Switches;

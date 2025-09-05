@@ -125,6 +125,8 @@ storiesOf("Switches", module)
                 options={{ id: "v3", label: "" }}
                 tooltip={{ tooltipContent: "Switch", trigger: "hover", position: "left" }}
                 onChange={action("onChange")}
+                onText='ON'
+                offText='OFF'
               />
             </Row>
           </Section>
