@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.110](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.109...v0.8.0-alpha.110) (2025-09-10)
+
+
+### Features
+
+* switch vertical alignment with icon ([#730](https://github.com/thebyte9/blaze-components-react/issues/730)) ([e650bb9](https://github.com/thebyte9/blaze-components-react/commit/e650bb98801b0d0ad0a11f9537f8233ca3c54049))
+
+
+
+
+
 # [0.8.0-alpha.103](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.102...v0.8.0-alpha.103) (2025-07-07)
 
 **Note:** Version bump only for package @blaze-react/switches

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.110](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.109...v0.8.0-alpha.110) (2025-09-10)
+
+**Note:** Version bump only for package @blaze-react/multiselect
+
+
+
+
+
 # [0.8.0-alpha.108](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.107...v0.8.0-alpha.108) (2025-08-28)
 
 
