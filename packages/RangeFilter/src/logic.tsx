@@ -137,10 +137,10 @@ const RangeFilter = (selector: string, getMinMax: any) => {
     startX = eventTouch.pageX - xAxis;
     selectedTouch = this;
 
-    $(selector).addEventListener('mousemove', onMove);
-    $(selector).addEventListener('mouseup', onStop);
-    $(selector).addEventListener('touchmove', onMove, isPassiveSupported ? { passive: true } : false);
-    $(selector).addEventListener('touchend', onStop);
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onStop);
+    document.addEventListener('touchmove', onMove, isPassiveSupported ? { passive: true } : false);
+    document.addEventListener('touchend', onStop);
     document.addEventListener('click', onStop);
   }
 
@@ -216,10 +216,10 @@ const RangeFilter = (selector: string, getMinMax: any) => {
 
   const onStop = () => {
     document.removeEventListener('click', onStop);
-    $(selector).removeEventListener('mousemove', onMove);
-    $(selector).removeEventListener('mouseup', onStop);
-    $(selector).removeEventListener('touchmove', onMove);
-    $(selector).removeEventListener('touchend', onStop);
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup', onStop);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('touchend', onStop);
 
     selectedTouch = null;
 
