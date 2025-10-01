@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/file-upload",
-  "version": "0.8.0-alpha.109",
+  "version": "0.8.0-alpha.112",
   "description": "FileUpload component",
   "main": "./dist/main.js",
   "scripts": {
