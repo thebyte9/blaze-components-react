@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.113](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.112...v0.8.0-alpha.113) (2025-10-09)
+
+
+### Bug Fixes
+
+* paint track using selected min max ([438cbf1](https://github.com/thebyte9/blaze-components-react/commit/438cbf16bc7a0bf0e0a654f921548425fe802908))
+
+
+
+
+
 # [0.8.0-alpha.111](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.110...v0.8.0-alpha.111) (2025-10-01)
 
 **Note:** Version bump only for package @blaze-react/range-filter
