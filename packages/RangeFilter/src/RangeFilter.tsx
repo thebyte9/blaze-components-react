@@ -10,6 +10,8 @@ declare module 'react' {
     min?: string;
     max?: string;
     step?: string;
+    'min-value'?: string | number;
+    'max-value'?: string | number;
   }
 }
 
@@ -52,26 +54,31 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
   }, [error]);
 
   useEffect(() => {
-    isContentLoaded(init, reInit);
-  }, []);
+    setInputs(value || {});
+  }, [value]);
 
-  const getMinMax = (minvalue: number, maxvalue: number) => {
-    const newValue = {
-      ...inputs,
-      minValue: minvalue,
-      maxValue: maxvalue
+  useEffect(() => {
+    const getMinMax = (minvalue: number, maxvalue: number) => {
+      const newValue = {
+        ...inputs,
+        minValue: minvalue,
+        maxValue: maxvalue
+      };
+      onChange({ value: newValue });
+      setInputs(newValue);
     };
-    onChange({ value: newValue });
-    setInputs(newValue);
-  };
 
-  const init = () => {
-    initRangeFilter(id, getMinMax);
-  };
+    const init = () => {
+      initRangeFilter(id, getMinMax);
+    };
 
-  const reInit = (time = 1000) => {
-    setTimeout(init, time);
-  };
+    const reInit = (time = 1000) => {
+      setTimeout(init, time);
+    };
+
+    isContentLoaded(init, reInit);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, value, onChange]);
 
   const modifierClassName: string = buildClassNames({
     [`form-field--${modifier}`]: !!modifier,
@@ -98,6 +105,8 @@ const RangeFilter: FunctionComponent<IRangeFilterProps> = ({
         min={min}
         max={max}
         step={step}
+        min-value={minValue}
+        max-value={maxValue}
         id={`${name}Range`}
         className={`range__filter ${id}`}
       >
