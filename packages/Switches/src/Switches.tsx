@@ -1,129 +1,174 @@
 import React, { Fragment, useState } from 'react';
-
-import { ErrorMessage } from '@blaze-react/utils';
-import { buildClassNames } from '@blaze-react/utils';
+import { ErrorMessage, buildClassNames } from '@blaze-react/utils';
 import Tooltip from '@blaze-react/tooltip';
-
 
 interface IOptions {
   checked: boolean;
-  value: string;
-  disabled: boolean;
-  required: boolean;
-  label: string;
+  value?: string;
+  disabled?: boolean;
+  required?: boolean;
+  label?: string;
   id?: string;
 }
 
-type TlabelPosition = 'right' | 'left' | 'base' | 'top';
-
+type TLabelPosition = 'right' | 'left' | 'base' | 'top';
 type TModifiers = 'checked' | 'default' | 'disabled' | 'primary' | 'secondary' | 'unchecked';
 
-interface ISwitchesProps {
-  labelPosition?: TlabelPosition;
+interface ISwitchesChange {
+  event: React.ChangeEvent<HTMLInputElement>;
+  value: IOptions[] | boolean;
+  data: IOptions[];
+}
+
+interface ISwitchesProps extends React.HTMLAttributes<HTMLInputElement> {
+  labelPosition?: TLabelPosition;
   options: IOptions[] | IOptions;
   modifier?: TModifiers;
   returnBoolean?: boolean;
   error?: boolean;
   tooltip?: any | string | JSX.Element;
-  validationMessage: string | JSX.Element;
-  onChange: ({
-    event,
-    value,
-    data,
-  }: {
-    event: React.ChangeEvent<HTMLInputElement>;
-    value: IOptions[] | boolean;
-    data: IOptions[];
-  }) => void;
+  validationMessage?: string | JSX.Element;
+  alignVertically?: boolean;
+  icon?: React.ReactNode;
+  onText?: string;
+  offText?: string;
+  onChange: (payload: ISwitchesChange) => void;
 }
 
 const Switches = ({
-  labelPosition,
+  labelPosition = 'right',
   onChange,
   options,
   modifier,
-  returnBoolean,
-  error,
-  validationMessage,
-  tooltip = {},
+  returnBoolean = false,
+  error = false,
+  validationMessage = 'This field is required',
+  tooltip,
+  alignVertically = false,
+  icon,
+  onText = 'ON',
+  offText = 'OFF',
   ...attrs
 }: ISwitchesProps): JSX.Element => {
   const {
     wrap,
-    formatedOptions,
+    formattedOptions,
   }: {
     wrap: (child: JSX.Element[]) => JSX.Element;
-    formatedOptions: IOptions[];
+    formattedOptions: IOptions[];
   } = Array.isArray(options)
       ? {
-        formatedOptions: options,
-        wrap: (child: JSX.Element[]): JSX.Element => <div className="form-group form-group--switch">{child}</div>,
+        formattedOptions: options,
+        wrap: (child: JSX.Element[]): JSX.Element => (
+          <div className="form-group form-group--switch">{child}</div>
+        ),
       }
       : {
-        formatedOptions: [options],
+        formattedOptions: [options],
         wrap: (child: JSX.Element[]): JSX.Element => <>{child}</>,
       };
 
-  const [data, setData] = useState<IOptions[]>(formatedOptions);
+  const [data, setData] = useState<IOptions[]>(
+    formattedOptions.map((option, i) => ({
+      checked: !!option.checked,
+      value: option.value,
+      disabled: !!option.disabled,
+      required: !!option.required,
+      label: option.label ?? '',
+      id: option.id ?? `switch-${i}`,
+    }))
+  );
 
   const toggle = ({
     event,
     item,
-    key,
+    index,
   }: {
     event: React.ChangeEvent<HTMLInputElement>;
     item: IOptions;
-    key: number;
+    index: number;
   }): void => {
-    if (item.disabled) {
-      return;
-    }
+    if (item.disabled) return;
 
-    data[key].checked = !item.checked;
-    setData([...data]);
+    const next = [...data];
+    next[index] = { ...item, checked: !item.checked };
+    setData(next);
 
-    const checked: IOptions[] = data.filter((option: IOptions): boolean => option.checked);
-
-    if (returnBoolean) {
-      onChange({ event, value: !!checked.length, data });
-      return;
-    }
-
-    onChange({ event, value: checked, data });
+    const checked = next.filter((opt) => opt.checked);
+    onChange({
+      event,
+      value: returnBoolean ? !!checked.length : checked,
+      data: next,
+    });
   };
 
   const switchClassNames: string = buildClassNames('switch', {
     [`switch--${modifier}`]: !!modifier,
     [`switch--label--${labelPosition}`]: !!labelPosition,
+    'switch--vertical': alignVertically,
   });
 
   return (
     <Fragment>
       {wrap(
-        data.map((item: IOptions, key: number): JSX.Element => {
-          const { checked = false, value, disabled, required, label, id = `switch-${key}` } = item;
+        data.map((item: IOptions, index: number): JSX.Element => {
+          const {
+            checked = false,
+            value,
+            disabled,
+            required,
+            label = '',
+            id = `switch-${index}`,
+          } = item;
+
+          const hasVisibleLabel = !!String(label).trim();
+          const buttonAriaLabel =
+            !hasVisibleLabel && (typeof tooltip === 'string' ? tooltip : 'Toggle');
+
+          const Button = (
+            <div className="switch__item">
+              <input
+                readOnly
+                type="checkbox"
+                value={value}
+                disabled={disabled}
+                checked={checked}
+                required={required}
+                onChange={(event) => toggle({ event, item, index })}
+                id={id}
+                aria-label={hasVisibleLabel ? undefined : buttonAriaLabel}
+                {...attrs}
+              />
+              <label htmlFor={id}>
+                {icon ? (
+                  <span className="switch__icon" aria-hidden="true">
+                    {icon}
+                  </span>
+                ) : null}
+
+                <span className="switch__state" aria-hidden="true">
+                  {checked ? onText : offText}
+                </span>
+              </label>
+            </div>
+          );
 
           return (
             <div className={switchClassNames} key={id}>
-              <Tooltip {...tooltip} />
-              <div className="switch__text"> {label}</div>
-              <div className="switch__item">
-                <input
-                  readOnly
-                  type="checkbox"
-                  value={value}
-                  disabled={disabled}
-                  checked={checked}
-                  required={required}
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>): void => toggle({ event, item, key })}
-                  id={id}
-                  {...attrs}
-                />
-                <label htmlFor={id}>toggle</label>
-              </div>
+              {hasVisibleLabel && tooltip ? <Tooltip {...tooltip} /> : null}
+
+              {hasVisibleLabel ? (
+                <div className="switch__text">{label}</div>
+              ) : null}
+
+              {!hasVisibleLabel && tooltip ? (
+                <Tooltip {...tooltip}>{Button}</Tooltip>
+              ) : (
+                Button
+              )}
             </div>
           );
-        }),
+        })
       )}
       {error && <ErrorMessage message={validationMessage} />}
     </Fragment>
@@ -146,8 +191,8 @@ const availablePositions = {
   top: 'top',
 };
 
-Switches.availableModifiers = availableModifiers;
-Switches.availablePositions = availablePositions;
+(Switches as any).availableModifiers = availableModifiers;
+(Switches as any).availablePositions = availablePositions;
 
 Switches.defaultProps = {
   error: false,
@@ -155,6 +200,10 @@ Switches.defaultProps = {
   modifier: '',
   returnBoolean: false,
   validationMessage: 'This field is required',
+  alignVertically: false,
+  icon: undefined,
+  onText: '',
+  offText: '',
 };
 
 export default Switches;
