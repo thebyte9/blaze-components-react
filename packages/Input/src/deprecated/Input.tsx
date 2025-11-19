@@ -61,7 +61,7 @@ const Input: FunctionComponent<IInputProps> = ({
       target: { value: targetValue },
     } = event;
     setNewValue(targetValue);
-    onChange({ event, value: targetValue });
+    onChange && onChange({ event, value: targetValue });
   };
 
   const handleToggleType = (inputType: string): void => {
@@ -113,7 +113,6 @@ Input.defaultProps = {
   modifier: '',
   required: false,
   type: 'text',
-  onChange: ()=>{},
   validationMessage: 'This field is required',
 };
 
