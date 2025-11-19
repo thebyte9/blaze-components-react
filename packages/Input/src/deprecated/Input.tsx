@@ -22,6 +22,7 @@ interface IInputProps {
   style?: any;
   autoFocus?: boolean;
   tooltip?: any | string | JSX.Element;
+  register: any;
 }
 
 const Input: FunctionComponent<IInputProps> = ({
@@ -36,6 +37,8 @@ const Input: FunctionComponent<IInputProps> = ({
   validationMessage,
   value,
   tooltip = {},
+  register,
+  id,
   ...attrs
 }): JSX.Element => {
   const initialValue = value ? value : '';
@@ -43,6 +46,7 @@ const Input: FunctionComponent<IInputProps> = ({
   const [newType, setType] = useState<string | undefined>(type);
   const [newError, setError] = useState<boolean | undefined>(error);
 
+  console.log('qwe-props', { value, type, onChange, className: attrs.className, name: attrs.name });
   useEffect(() => {
     setError(error);
   }, [error]);
@@ -57,7 +61,7 @@ const Input: FunctionComponent<IInputProps> = ({
       target: { value: targetValue },
     } = event;
     setNewValue(targetValue);
-    onChange({ event, value: targetValue });
+    onChange && onChange({ event, value: targetValue });
   };
 
   const handleToggleType = (inputType: string): void => {
@@ -77,7 +81,7 @@ const Input: FunctionComponent<IInputProps> = ({
   const modifierClassName: string = buildClassNames({
     [`form-field--${modifier}`]: !!modifier,
   });
-  const fieldName = attrs.id || `input-${attrs.name || type}`;
+  const fieldName = id || `input-${attrs.name || type}`;
 
   return (
     <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
@@ -87,8 +91,9 @@ const Input: FunctionComponent<IInputProps> = ({
       <input
         data-testid="input"
         onChange={handleChange}
-        value={newValue}
+        {...(!register && { value: newValue })}
         disabled={disabled}
+        {...(register && register(id))}
         type={newType}
         required={required}
         {...attrs}
