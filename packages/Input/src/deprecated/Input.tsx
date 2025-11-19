@@ -1,4 +1,5 @@
 import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
+import { UseFormRegister } from 'react-hook-form';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import ToggleInputType from '../ToggleInputType';
 import Tooltip from '@blaze-react/tooltip';
@@ -22,7 +23,7 @@ interface IInputProps {
   style?: any;
   autoFocus?: boolean;
   tooltip?: any | string | JSX.Element;
-  register: any;
+  register: UseFormRegister<any>;
 }
 
 const Input: FunctionComponent<IInputProps> = ({
@@ -46,7 +47,6 @@ const Input: FunctionComponent<IInputProps> = ({
   const [newType, setType] = useState<string | undefined>(type);
   const [newError, setError] = useState<boolean | undefined>(error);
 
-  console.log('qwe-props', { value, type, onChange, className: attrs.className, name: attrs.name });
   useEffect(() => {
     setError(error);
   }, [error]);
@@ -91,9 +91,9 @@ const Input: FunctionComponent<IInputProps> = ({
       <input
         data-testid="input"
         onChange={handleChange}
-        {...(!register && { value: newValue })}
+        {...(register || { value: newValue })}
         disabled={disabled}
-        {...(register && register(id))}
+        {...(register && register(id!))}
         type={newType}
         required={required}
         {...attrs}
