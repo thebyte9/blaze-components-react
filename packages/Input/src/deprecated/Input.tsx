@@ -23,7 +23,7 @@ interface IInputProps {
   style?: any;
   autoFocus?: boolean;
   tooltip?: any | string | JSX.Element;
-  register: UseFormRegister<any>;
+  register?: UseFormRegister<any>;
 }
 
 const Input: FunctionComponent<IInputProps> = ({
@@ -91,7 +91,7 @@ const Input: FunctionComponent<IInputProps> = ({
       <input
         data-testid="input"
         onChange={handleChange}
-        {...(register || { value: newValue })}
+        value={register ? undefined : newValue}
         disabled={disabled}
         {...(register && register(id!))}
         type={newType}
