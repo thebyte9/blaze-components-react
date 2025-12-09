@@ -22,8 +22,8 @@
     "webpack-cli": "^4.6.0"
   },
   "peerDependencies": {
-    "react": "^18.0.2",
-    "react-dom": "^18.0.2"
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "gitHead": "6e7fd8d59476e6d7c5ef48cb9b7bfc47c387f332"
 }

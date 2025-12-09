@@ -1,4 +1,4 @@
-@import "_checkbox-radio.scss";
+@import '_checkbox-radio.scss';
 
 %forms-label {
   white-space: nowrap;
@@ -24,13 +24,17 @@ input {
   border-radius: 3px;
 }
 
+label {
+  display: flex;
+}
+
 textarea {
   border: 1px solid $blue-grey-100;
   padding: 10px;
   width: 100%;
 }
 /*all inputs styling apart from types excluded*/
-input:not([type="submit"]):not([type="file"]):not([type="radio"]):not([type="checkbox"]) {
+input:not([type='submit']):not([type='file']):not([type='radio']):not([type='checkbox']) {
   padding: 10px;
 }
 
@@ -74,6 +78,10 @@ label {
   &:empty {
     display: none;
   }
+
+  > span {
+    margin-left: 5px;
+  }
 }
 
 input[type][disabled] {
@@ -84,8 +92,8 @@ input[type][disabled] {
   text-indent: 10px;
 }
 
-input[type="checkbox"][disabled],
-input[type="radio"][disabled] {
+input[type='checkbox'][disabled],
+input[type='radio'][disabled] {
   background-color: $grey-lightest;
 }
 
@@ -298,7 +306,7 @@ select[disabled] + label {
 }
 
 .toggle {
-  & input[type="checkbox"] {
+  & input[type='checkbox'] {
     height: 0;
     width: 0;
     visibility: hidden;
@@ -316,7 +324,7 @@ select[disabled] + label {
   }
 
   & label:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 2px;
     left: 3px;
@@ -373,7 +381,7 @@ select[disabled] + label {
     position: relative;
 
     &:before {
-      content: "*";
+      content: '*';
       color: $secondary-color;
       font-size: 1.125rem;
       position: absolute;
@@ -391,7 +399,7 @@ select[disabled] + label {
   position: relative;
 
   &::before {
-    content: "*";
+    content: '*';
     color: $red;
     font-size: 1.125rem;
     position: absolute;

@@ -19,7 +19,7 @@ describe('Tab component', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('should navigate between tabs', () => {
+  test('should navigate to the Advanced tab and display its content', () => {
     render(TabComponent);
 
     const button = screen.getByText('Advanced');
@@ -29,7 +29,7 @@ describe('Tab component', () => {
 
   });
 
-  test('should navigate between tabs', () => {
+  test('should handle conditional rendering of TabItems correctly', () => {
     render(<Tab selected={1}>
       <TabItem>Basic content here</TabItem>
       <TabItem title="Advanced">Advanced content here</TabItem>
@@ -42,5 +42,27 @@ describe('Tab component', () => {
     expect(screen.getByText('Advanced')).toBeInTheDocument();
     expect(() => screen.getByText('Conditional')).toThrow('Unable to find an element');
     ;
+  });
+
+  test('should update selected tab when selected prop changes', () => {
+    const { rerender } = render(
+      <Tab selected={0}>
+        <TabItem>Basic content here</TabItem>
+        <TabItem title="Advanced">Advanced content here</TabItem>
+        <TabItem title="Other">Other content here</TabItem>
+      </Tab>
+    );
+
+    expect(screen.getByText('Basic content here')).toBeInTheDocument();
+
+    rerender(
+      <Tab selected={2}>
+        <TabItem>Basic content here</TabItem>
+        <TabItem title="Advanced">Advanced content here</TabItem>
+        <TabItem title="Other">Other content here</TabItem>
+      </Tab>
+    );
+
+    expect(screen.getByText('Other content here')).toBeInTheDocument();
   });
 });

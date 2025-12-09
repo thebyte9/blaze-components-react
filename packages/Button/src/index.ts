@@ -3,3 +3,5 @@ import { ButtonView } from './view/ButtonView';
 import { DisplayIconProps } from './types';
 
 export { Button, ButtonView, DisplayIconProps };
+
+export default ButtonView;

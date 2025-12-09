@@ -1,5 +1,5 @@
 import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
-
+import Tooltip from '@blaze-react/tooltip';
 import React, { FunctionComponent, TextareaHTMLAttributes, useEffect, useState } from 'react';
 interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
@@ -10,8 +10,8 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: boolean;
   validationMessage?: string | JSX.Element;
   placeholder?: string;
+  tooltip?: any | string | JSX.Element;
 }
-
 const Textarea: FunctionComponent<ITextareaProps> = ({
   value,
   label,
@@ -20,35 +20,29 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
   error,
   validationMessage,
   required,
-  id,
+  tooltip = {},
   ...attrs
 }) => {
   const [content, setContent] = useState<string>('');
-
   useEffect(() => setContent(value || ''), [value]);
-
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     let {
       target: { value: newContent },
     } = event;
-
     if (limit && newContent.length > limit) {
       newContent = newContent.slice(0, limit);
     }
-
     setContent(newContent);
     onChange({ event, value: newContent });
   };
-
   const requiredClassName: string = buildClassNames({ required });
-
   const total: number = !limit ? 0 : limit - content.length;
-
+  const fieldName = attrs.id || `textarea-${attrs.name}`;
   return (
     <div className="form-field form-field--textarea">
       {label && (
-        <label htmlFor={id} className={requiredClassName}>
-          {label}
+        <label htmlFor={fieldName} className={requiredClassName}>
+          {label}<Tooltip {...tooltip} />
         </label>
       )}
       <textarea
@@ -57,6 +51,7 @@ const Textarea: FunctionComponent<ITextareaProps> = ({
         cols={attrs.cols}
         onChange={handleChange}
         required={required}
+        id={fieldName}
         {...attrs}
       />
       {!!limit && <span>{total}</span>}

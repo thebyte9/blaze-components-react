@@ -16,8 +16,11 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "peerDependencies": {
-    "react": "^18.0.2",
-    "react-dom": "^18.0.2"
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "dependencies": {
+    "@blaze-react/tooltip": "^0.8.0-alpha.94"
   },
   "devDependencies": {
     "@blaze-react/blaze-components-theme": "^0.8.0-alpha.59",

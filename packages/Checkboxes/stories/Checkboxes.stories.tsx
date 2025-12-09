@@ -4,27 +4,38 @@ import React from "react";
 import CheckboxesReadme from "../README.md";
 import { Checkbox, Checkboxes } from '../src';
 
+const tooltip = {
+  tooltipContent: <>tooltip on <em>click</em> with custom background color</>,
+  backgroundColor: "lightblue",
+  trigger: "click",
+  position: "right"
+};
+
 const multiple = [
   {
     id: "one",
     label: "First",
     value: 1,
+    tooltip,
   },
   {
     id: "two",
     label: "Second",
     value: 2,
+    tooltip,
   },
   {
     id: "three",
     label: "Third",
     value: 3,
+    tooltip,
   },
   {
     disabled: true,
     id: "fourth",
     label: "Disabled",
     value: 4,
+    tooltip,
   },
 ];
 
@@ -32,6 +43,7 @@ const single = {
   id: 'single',
   label: "Do you agree?",
   required: true,
+  tooltip,
 };
 
 storiesOf("Checkboxes", module)
@@ -48,7 +60,7 @@ storiesOf("Checkboxes", module)
           <p>
             Boxes that are checked (ticked) when activated. They allow you to
             select single values for submission in a form (or not).
-            </p>
+          </p>
         </section>
 
         <hr />
@@ -58,7 +70,7 @@ storiesOf("Checkboxes", module)
           <Checkboxes options={multiple} onChange={() => ({})} />
 
           <h3>Single</h3>
-          <Checkboxes returnBoolean options={single} onChange={() => ({})} />
+          <Checkboxes returnBoolean options={[single]} onChange={() => ({})} />
         </section>
       </div>
     );

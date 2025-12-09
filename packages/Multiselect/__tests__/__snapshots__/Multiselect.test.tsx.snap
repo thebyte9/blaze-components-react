@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Multiselect component should be defined and renders correctly (snapshot) 1`] = `
+exports[`Multiselect component matches snapshot (closed) 1`] = `
 <div>
   <div
     class="form-field form-field--multiselect"
@@ -13,7 +13,11 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
       >
         <label
           class=""
-        />
+          for="name"
+          id="name-label"
+        >
+          
+        </label>
         <span
           class="chip__wrapper__clear"
         >
@@ -67,9 +71,15 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
           >
             <label
               class=""
-            />
+              for="name"
+            >
+              
+            </label>
             <input
+              aria-labelledby="name-label"
+              aria-required="false"
               data-testid="input"
+              id="name"
               placeholder="Choose..."
               type="text"
               value=""
@@ -82,7 +92,7 @@ exports[`Multiselect component should be defined and renders correctly (snapshot
 </div>
 `;
 
-exports[`Multiselect component should be defined and renders correctly when is opened (snapshot) 1`] = `
+exports[`Multiselect component matches snapshot when opened 1`] = `
 <div>
   <div
     class="form-field form-field--multiselect"
@@ -95,7 +105,11 @@ exports[`Multiselect component should be defined and renders correctly when is o
       >
         <label
           class=""
-        />
+          for="name"
+          id="name-label"
+        >
+          
+        </label>
         <span
           class="chip__wrapper__clear"
         >
@@ -149,9 +163,15 @@ exports[`Multiselect component should be defined and renders correctly when is o
           >
             <label
               class=""
-            />
+              for="name"
+            >
+              
+            </label>
             <input
+              aria-labelledby="name-label"
+              aria-required="false"
               data-testid="input"
+              id="name"
               placeholder="Choose..."
               type="text"
               value=""
@@ -162,121 +182,119 @@ exports[`Multiselect component should be defined and renders correctly when is o
       <div
         class="multiselect__dropdown"
       >
-        <div>
+        <div
+          style="height: 245px; overflow-y: auto; position: relative;"
+        >
           <div
-            style="overflow: auto; will-change: transform; height: 245px; width: 100%;"
+            style="height: 135px;"
           >
             <div
-              style="position: relative; width: 100%; min-height: 100%; height: 135px;"
+              data-row-index="0"
+              style="position: absolute; top: 0px; left: 0px; width: 100%;"
             >
               <div
-                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 45px;"
+                class="form-field form-field--checkbox"
+                role="button"
               >
+                <input
+                  checked=""
+                  class="form-checkbox"
+                  data-cy="multiselect-checkbox-cy-0"
+                  data-testid="checkbox-0"
+                  description="Lorem ipsum dolor."
+                  id="1-checkbox"
+                  index="0"
+                  name="Blaze 1"
+                  type="checkbox"
+                  value=""
+                />
                 <div
-                  class="form-field form-field--checkbox"
-                  role="button"
+                  class="form-field--checkbox-full"
+                  data-testid="form-field-wrapper"
                 >
-                  <input
-                    checked=""
-                    class="form-checkbox"
-                    data-cy="multiselect-checkbox-cy-0"
-                    data-testid="1-checkbox"
-                    description="Lorem ipsum dolor."
-                    id="1-checkbox"
-                    index="0"
-                    name="Blaze 1"
-                    readonly=""
-                    testid="checkbox-0"
-                    type="checkbox"
-                    value=""
-                  />
-                  <div
-                    class="form-field--checkbox-full"
-                    data-testid="form-field-wrapper"
+                  <label
+                    for="1-checkbox"
+                    style="cursor: pointer;"
                   >
-                    <label
-                      for="1-checkbox"
-                    >
-                      <span>
-                        Blaze 1
-                      </span>
-                    </label>
-                  </div>
+                    <span>
+                      Blaze 1
+                    </span>
+                  </label>
                 </div>
               </div>
+            </div>
+            <div
+              data-row-index="1"
+              style="position: absolute; top: 45px; left: 0px; width: 100%;"
+            >
               <div
-                style="position: absolute; top: 45px; left: 0px; width: 100%; height: 45px;"
+                class="form-field form-field--checkbox"
+                role="button"
               >
+                <input
+                  checked=""
+                  class="form-checkbox"
+                  data-cy="multiselect-checkbox-cy-1"
+                  data-testid="checkbox-1"
+                  description="Lorem ipsum dolor."
+                  id="2-checkbox"
+                  index="1"
+                  name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
+                  type="checkbox"
+                  value=""
+                />
                 <div
-                  class="form-field form-field--checkbox"
-                  role="button"
+                  class="form-field--checkbox-full"
+                  data-testid="form-field-wrapper"
                 >
-                  <input
-                    checked=""
-                    class="form-checkbox"
-                    data-cy="multiselect-checkbox-cy-1"
-                    data-testid="2-checkbox"
-                    description="Lorem ipsum dolor."
-                    id="2-checkbox"
-                    index="1"
-                    name="Blaze 2,multi main label,Sub label 1,sub label 2,sub label 3"
-                    readonly=""
-                    testid="checkbox-1"
-                    type="checkbox"
-                    value=""
-                  />
-                  <div
-                    class="form-field--checkbox-full"
-                    data-testid="form-field-wrapper"
+                  <label
+                    for="2-checkbox"
+                    style="cursor: pointer;"
                   >
-                    <label
-                      for="2-checkbox"
-                    >
-                      <span>
-                        Blaze 2, multi main label
-                      </span>
-                      <span>
-                        Sub label 1, sub label 2, sub label 3
-                      </span>
-                    </label>
-                  </div>
+                    <span>
+                      Blaze 2, multi main label
+                    </span>
+                    <span>
+                      Sub label 1, sub label 2, sub label 3
+                    </span>
+                  </label>
                 </div>
               </div>
+            </div>
+            <div
+              data-row-index="2"
+              style="position: absolute; top: 90px; left: 0px; width: 100%;"
+            >
               <div
-                style="position: absolute; top: 90px; left: 0px; width: 100%; height: 45px;"
+                class="form-field form-field--checkbox"
+                role="button"
               >
+                <input
+                  class="form-checkbox"
+                  data-cy="multiselect-checkbox-cy-2"
+                  data-testid="checkbox-2"
+                  description="Lorem ipsum dolor."
+                  id="3-checkbox"
+                  index="2"
+                  name="Blaze 3,Sub label 1,sub label 2"
+                  type="checkbox"
+                  value=""
+                />
                 <div
-                  class="form-field form-field--checkbox"
-                  role="button"
+                  class="form-field--checkbox-full"
+                  data-testid="form-field-wrapper"
                 >
-                  <input
-                    class="form-checkbox"
-                    data-cy="multiselect-checkbox-cy-2"
-                    data-testid="3-checkbox"
-                    description="Lorem ipsum dolor."
-                    id="3-checkbox"
-                    index="2"
-                    name="Blaze 3,Sub label 1,sub label 2"
-                    readonly=""
-                    testid="checkbox-2"
-                    type="checkbox"
-                    value=""
-                  />
-                  <div
-                    class="form-field--checkbox-full"
-                    data-testid="form-field-wrapper"
+                  <label
+                    for="3-checkbox"
+                    style="cursor: pointer;"
                   >
-                    <label
-                      for="3-checkbox"
-                    >
-                      <span>
-                        Blaze 3
-                      </span>
-                      <span>
-                        Sub label 1, sub label 2
-                      </span>
-                    </label>
-                  </div>
+                    <span>
+                      Blaze 3
+                    </span>
+                    <span>
+                      Sub label 1, sub label 2
+                    </span>
+                  </label>
                 </div>
               </div>
             </div>

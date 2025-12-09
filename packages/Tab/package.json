@@ -24,8 +24,8 @@
   "peerDependencies": {
     "@blaze-react/button": "^0.8.0-alpha.58",
     "@blaze-react/icon": "^0.8.0-alpha.58",
-    "react": "^18.0.2",
-    "react-dom": "^18.0.2"
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "gitHead": "6e7fd8d59476e6d7c5ef48cb9b7bfc47c387f332"
 }

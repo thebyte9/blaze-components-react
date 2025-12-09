@@ -18,8 +18,8 @@
   "peerDependencies": {
     "@blaze-react/icon": "^0.8.0-alpha.58",
     "@blaze-react/themes": "^0.8.0-alpha.58",
-    "react": "^18.0.2",
-    "react-dom": "^18.0.2"
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "devDependencies": {
     "react": "^18.0.2",

@@ -5,6 +5,11 @@ import { ErrorIcon } from './Icons/ErrorIcon';
 import { LoadingIcon } from './Icons/LoadingIcon';
 import { SuccessIcon } from './Icons/SuccessIcon';
 import { WarningIcon } from './Icons/WarningIcon';
+import Tooltip from '@blaze-react/tooltip';
+
+interface ExtendedTextInputProps extends TextInputProps {
+  tooltip?: any | string | JSX.Element;
+}
 
 export const TextInput = ({
   placeholder,
@@ -14,17 +19,22 @@ export const TextInput = ({
   displayError,
   classes,
   icon,
+  id,
+  name,
+  tooltip = {},
   ...rest
-}: TextInputProps): JSX.Element => {
+}: ExtendedTextInputProps): JSX.Element => {
   const iconProps = {
     classes: classes,
     currentState: currentState,
   };
 
+  const fieldName = `input-${name || id || rest.type}`
+
   return (
     <>
-      <label data-testid="input-label" className={classes[currentState].container}>
-        <span className={classes[currentState].label}>{label}</span>
+      <label data-testid="input-label" className={classes[currentState].container} htmlFor={fieldName}>
+        <span className={classes[currentState].label}> {label} <Tooltip {...tooltip} /></span>
         {currentState === InputState.Error &&
           displayError === DisplayErrorAs.Icon &&
           (icon ?? <ErrorIcon {...iconProps} />)}
@@ -33,12 +43,12 @@ export const TextInput = ({
         {currentState === InputState.Success && (icon ?? <SuccessIcon {...iconProps} />)}
 
         <input
-          type="text"
           className={classes[currentState].input}
           placeholder={placeholder}
           autoComplete="true"
           loading={currentState === InputState.Loading}
           {...rest}
+          id={fieldName}
         />
       </label>
       {currentState === InputState.Error && displayError === DisplayErrorAs.Message && (

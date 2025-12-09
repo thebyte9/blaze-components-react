@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-
 import Checkbox from './Checkbox';
 import { ErrorMessage } from '@blaze-react/utils';
 import { nanoid } from 'nanoid';
@@ -89,6 +88,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
           required,
           show = true,
           value,
+          tooltip,
         }: any): JSX.Element | null =>
           show ? (
             <Checkbox
@@ -104,6 +104,7 @@ const CheckBoxes: FunctionComponent<ICheckBoxesProps> = ({
               required={required}
               show={show}
               value={value}
+              tooltip={tooltip}
               {...attrs}
             />
           ) : null,

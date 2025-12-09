@@ -9,6 +9,12 @@ module.exports = {
   mode: 'production',
   entry: './src/index.ts',
   externals: {
+    'html-react-parser': {
+      root: 'html-react-parser',
+      commonjs2: 'html-react-parser',
+      commonjs: 'html-react-parser',
+      amd: 'html-react-parser',
+    },
     react: {
       root: 'React',
       commonjs2: 'react',
@@ -28,7 +34,7 @@ module.exports = {
     clean: true,
     libraryTarget: 'umd',
     library: '@blaze-react',
-    globalObject: 'this',
+    globalObject: 'globalThis',
   },
   optimization: {
     minimize: true,
@@ -55,6 +61,8 @@ module.exports = {
       '@blaze-react/icon': path.resolve(__dirname, '../Icon/src'),
       '@blaze-react/skeleton': path.resolve(__dirname, '../Skeleton/src'),
       '@blaze-react/pagination': path.resolve(__dirname, '../Pagination/src'),
+      '@blaze-react/tooltip': path.resolve(__dirname, '../Tooltip/src'),
+      '@blaze-react/modal': path.resolve(__dirname, '../Modal/src')
     },
   },
   module: {

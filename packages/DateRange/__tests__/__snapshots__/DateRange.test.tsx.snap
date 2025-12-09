@@ -7,11 +7,13 @@ exports[`DateRange component should be defined and renders correctly (snapshot) 
   >
     <label
       class=""
+      for="select-undefined"
     >
       Date Range
     </label>
     <select
       data-testid="select-date-range"
+      id="select-undefined"
     >
       <option>
         Please Choose...
@@ -75,10 +77,12 @@ exports[`DateRange component should be defined and renders correctly (snapshot) 
       >
         <label
           class=""
+          for="input-text"
         />
         <input
           class="range-date"
           data-testid="From"
+          id="input-text"
           placeholder="dd/mm/yy"
           type="text"
           value=""
@@ -103,10 +107,12 @@ exports[`DateRange component should be defined and renders correctly (snapshot) 
       >
         <label
           class=""
+          for="input-text"
         />
         <input
           class="range-date"
           data-testid="To"
+          id="input-text"
           placeholder="dd/mm/yy"
           type="text"
           value=""

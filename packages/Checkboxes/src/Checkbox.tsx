@@ -1,17 +1,41 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import Label from './Label';
 import { buildClassNames } from '@blaze-react/utils';
 import { nanoid } from 'nanoid';
+import Tooltip from '@blaze-react/tooltip';
 
-const Checkbox = ({ checked, value, disabled, required, label, show, name, id, onChange, full, ...attrs }: any) => {
+const Checkbox = ({
+  checked,
+  value,
+  disabled,
+  required,
+  label,
+  show,
+  name,
+  id,
+  onChange,
+  full,
+  tooltip = {},
+  ...attrs
+}: any) => {
   const [isChecked, setIsChecked] = useState(checked);
 
-  const handleCheckboxChange = (event: React.MouseEvent<HTMLDivElement>): void => {
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    if (disabled) {
+      return;
+    }
+
+    const newChecked = event.target.checked;
+    setIsChecked(newChecked);
+
     onChange({
       event,
       value: {
-        checked: !isChecked,
+        checked: newChecked,
         disabled,
         id,
         label,
@@ -21,7 +45,29 @@ const Checkbox = ({ checked, value, disabled, required, label, show, name, id, o
         value,
       },
     });
-    setIsChecked(!isChecked);
+  };
+
+  const handleLabelClick = (event: React.MouseEvent<HTMLLabelElement>): void => {
+    if (disabled) {
+      return;
+    }
+
+    const newChecked = !isChecked;
+    setIsChecked(newChecked);
+
+    onChange({
+      event,
+      value: {
+        checked: newChecked,
+        disabled,
+        id,
+        label,
+        name,
+        required,
+        show,
+        value,
+      },
+    });
   };
 
   const checkboxClassName = buildClassNames('form-field form-field--checkbox', {
@@ -37,21 +83,21 @@ const Checkbox = ({ checked, value, disabled, required, label, show, name, id, o
   return (
     <div key={wrapperId} className={checkboxClassName} role="button">
       <input
-        readOnly
         type="checkbox"
         className="form-checkbox"
         value={value}
         disabled={disabled}
-        checked={checked}
+        checked={isChecked}
         required={required}
         id={inputId}
         data-testid={inputId}
         name={name}
-        onClick={handleCheckboxChange}
+        onChange={handleInputChange}
         {...attrs}
       />
-      <div onClick={handleCheckboxChange} className={labelClassName} data-testid="form-field-wrapper">
-        <Label defaultId={inputId} label={label} />
+      <div className={labelClassName} data-testid="form-field-wrapper">
+        <Label defaultId={inputId} label={label} onClick={handleLabelClick} />
+        <Tooltip {...tooltip} />
       </div>
     </div>
   );
