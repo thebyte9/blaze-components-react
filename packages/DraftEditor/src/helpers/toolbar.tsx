@@ -160,7 +160,6 @@ const generateRibbon = ({
       ) {
         return (
           <div
-            key={name}
             className="editor-view__toolbar--item"
             role="button"
             data-testid={name}
@@ -181,6 +180,7 @@ const generateRibbon = ({
                 parent,
               })
             }
+            key={name}
           >
             {activeTooltip === name && (
               <div className="editor-view__toolbar--tooltip">

@@ -33,7 +33,6 @@ describe('Toast provider', () => {
   });
 
   it('should dismiss a toast when clicked', () => {
-    // const user = userEvent.setup();
     const ref = React.createRef();
     render(
       <ToastProvider ref={ref}>
