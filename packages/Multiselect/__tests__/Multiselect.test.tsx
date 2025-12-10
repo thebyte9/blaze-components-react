@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { act, fireEvent, screen, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Multiselect from '../src/MultiSelect';
