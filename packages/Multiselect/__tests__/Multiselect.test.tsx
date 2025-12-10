@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { act, fireEvent, screen, render } from '@testing-library/react';
+import { act, fireEvent, screen, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Multiselect from '../src/MultiSelect';
@@ -41,15 +41,17 @@ describe('Multiselect component', () => {
   it('selects first option and clears the search input', () => {
     render(<Multiselect name="test" {...defaultProps()} />);
     const input = screen.getByTestId('input');
-    input.focus();
 
-    userEvent.type(input, 'abc');
+    fireEvent.focus(input);
+
+    await userEvent.type(input, 'abc');
     fireEvent.change(input, { target: { value: '' } });
 
-    userEvent.click(screen.getByTestId('checkbox-2'));
+    const checkbox = await screen.findByTestId('checkbox-1');
+
+    await userEvent.click(checkbox);
 
     expect(screen.getAllByText(/Blaze 1/i)).toHaveLength(2);
-
     expect(input).toHaveValue('');
   });
 
