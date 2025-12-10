@@ -6855,6 +6855,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/react-hooks@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@testing-library/react-hooks@npm:8.0.1"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    react-error-boundary: ^3.1.0
+  peerDependencies:
+    "@types/react": ^16.9.0 || ^17.0.0
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+    react-test-renderer: ^16.9.0 || ^17.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    react-dom:
+      optional: true
+    react-test-renderer:
+      optional: true
+  checksum: ccadfda9590cf8f52eedaaa24cd461edc78ada468c3b417c45f834a5dc593428cd453f9a5b989479e166788402b6c125e998ba0f48e0f1e6a482f8b0b441cd75
+  languageName: node
+  linkType: hard
+
 "@testing-library/react@npm:^14.2.0":
   version: 14.2.1
   resolution: "@testing-library/react@npm:14.2.1"
@@ -9848,6 +9870,7 @@ __metadata:
     "@testing-library/dom": ^9.3.4
     "@testing-library/jest-dom": ^6.4.2
     "@testing-library/react": ^14.2.0
+    "@testing-library/react-hooks": ^8.0.1
     "@testing-library/user-event": ^14.5.2
     "@types/classnames": ^2.3.1
     "@types/draft-js": 0.11.1
@@ -9948,8 +9971,8 @@ __metadata:
   peerDependencies:
     draft-js-export-html: ^1.4.1
     html-react-parser: ^1.2.6
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
+    react: ">=17.0.0"
+    react-dom: ">=17.0.0"
   languageName: unknown
   linkType: soft
 
@@ -23641,6 +23664,17 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
   checksum: 1e8f2d90732ca4ab08e47abcead50ba844b5dd69abb86fe04b6d73e22c13b731e1360b0373d46f35e089424881c0d09cbad7adcdf2efcf9db9c61a8ba41513d5
+  languageName: node
+  linkType: hard
+
+"react-error-boundary@npm:^3.1.0":
+  version: 3.1.4
+  resolution: "react-error-boundary@npm:3.1.4"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+  peerDependencies:
+    react: ">=16.13.1"
+  checksum: 46284fe6294810fe95a2157e20bf8b241d8761f4e5ae5be7f3b3b1085133cdb7af99d1fa8e3f16ffffc1230e7e858fb04e479c8dafbdb41abbf389d74b8538f0
   languageName: node
   linkType: hard
 

@@ -203,6 +203,7 @@
     "library"
   ],
   "dependencies": {
+    "@testing-library/react-hooks": "^8.0.1",
     "storybook-dark-mode": "^4.0.2"
   }
 }
