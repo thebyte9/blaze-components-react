@@ -38,7 +38,7 @@ describe('Multiselect component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('selects first option and clears the search input', () => {
+  it('selects first option and clears the search input', async () => {
     render(<Multiselect name="test" {...defaultProps()} />);
     const input = screen.getByTestId('input');
 
