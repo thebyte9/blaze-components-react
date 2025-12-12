@@ -21,9 +21,11 @@
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@blaze-react/button": "^0.8.0-alpha.58",
-    "@blaze-react/icon": "^0.8.0-alpha.58",
+    "@blaze-react/icon": "^0.8.0-alpha.58"
+  },
+  "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

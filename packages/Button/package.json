@@ -15,9 +15,11 @@
   "keywords": [],
   "author": "byte9",
   "license": "GPL-3.0",
-  "peerDependencies": {
+  "dependencies": {
     "@blaze-react/icon": "^0.8.0-alpha.58",
-    "@blaze-react/themes": "^0.8.0-alpha.58",
+    "@blaze-react/themes": "^0.8.0-alpha.58"
+  },
+  "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

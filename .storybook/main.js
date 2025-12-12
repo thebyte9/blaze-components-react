@@ -76,7 +76,6 @@ module.exports = {
           '@blaze-react/pagination': path.resolve(__dirname, '../packages/Pagination/src'),
           '@blaze-react/tooltip': path.resolve(__dirname, '../packages/Tooltip/src'),
           '@blaze-react/text-area': path.resolve(__dirname, '../packages/Textarea/src'),
-          
         },
       },
     };
