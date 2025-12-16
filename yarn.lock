@@ -2141,7 +2141,6 @@ __metadata:
     postcss: ^8.3.5
     react: ^18.0.2
     react-dom: ^18.0.2
-    tailwindcss: ^2.2.4
     webpack: ^5.28.0
   peerDependencies:
     react: ">=17.0.0"
@@ -2238,10 +2237,8 @@ __metadata:
     "@blaze-react/checkboxes": ^0.8.0-alpha.58
     "@blaze-react/tooltip": ^0.8.0-alpha.94
     "@blaze-react/utils": ^0.8.0-alpha.60
-    "@types/lodash.unionby": ^4.8.6
     lodash.differencewith: ^4.5.0
     lodash.isequal: ^4.5.0
-    lodash.unionby: ^4.8.0
     react: ^18.0.2
     react-dom: ^18.0.2
     react-tiny-virtual-list: ^2.2.0
@@ -6567,15 +6564,6 @@ __metadata:
   dependencies:
     "@types/lodash": "*"
   checksum: 8dc04b5255a8cbc221a7c6c626765496c508ce742267ec63454ebb3157ee2be9cba633e7a09cfd1726eaaa34e843217a3563a905f90db894c04bc61c9e219932
-  languageName: node
-  linkType: hard
-
-"@types/lodash.unionby@npm:^4.8.6":
-  version: 4.8.9
-  resolution: "@types/lodash.unionby@npm:4.8.9"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 9dc87d58e50ca0f3da5a7232ca96f37383d0dba7b13b85d4a0f196e137b9caf580b92715556d71a5d1210ae58c6e7e2be3c62689d2d897049aa732e0e5c55ef4
   languageName: node
   linkType: hard
 
@@ -17568,13 +17556,6 @@ __metadata:
   version: 4.4.2
   resolution: "lodash.truncate@npm:4.4.2"
   checksum: b1b0d7d993bb73d0032fe909d4523a836b6aa91566fa88ff78c3eac008bd3d3b2ba0f2e8381d7f906b1d6913a64982f34bea95dd556355c0d418bfddf3ab7b06
-  languageName: node
-  linkType: hard
-
-"lodash.unionby@npm:^4.8.0":
-  version: 4.8.0
-  resolution: "lodash.unionby@npm:4.8.0"
-  checksum: 187e3cfc535d3234422cb59ed8e8a15e4e94afa13b3524fb8bb9976e9145615dd410df3e3bf8a7622e6426458894d9198cc954217858b0b00a20a105c1d673d8
   languageName: node
   linkType: hard
 

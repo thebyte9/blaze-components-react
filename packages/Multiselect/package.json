@@ -23,10 +23,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
-    "@types/lodash.unionby": "^4.8.6",
     "lodash.differencewith": "^4.5.0",
     "lodash.isequal": "^4.5.0",
-    "lodash.unionby": "^4.8.0",
     "react": "^18.0.2",
     "react-dom": "^18.0.2",
     "react-tiny-virtual-list": "^2.2.0",
