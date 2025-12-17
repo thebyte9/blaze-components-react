@@ -10,7 +10,6 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    'storybook-tailwind-dark-mode',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -77,8 +76,6 @@ module.exports = {
           '@blaze-react/pagination': path.resolve(__dirname, '../packages/Pagination/src'),
           '@blaze-react/tooltip': path.resolve(__dirname, '../packages/Tooltip/src'),
           '@blaze-react/text-area': path.resolve(__dirname, '../packages/Textarea/src'),
-          '@blaze-react/select': path.resolve(__dirname, '../packages/Select/src'),
-          
         },
       },
     };
