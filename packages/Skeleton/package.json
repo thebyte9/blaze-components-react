@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/skeleton",
-  "version": "0.8.0-alpha.112",
+  "version": "0.8.0-alpha.114",
   "description": "Custom skeleton loading screen tailored for blaze react components",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@blaze-react/themes": "^0.8.0-alpha.58"
+    "@blaze-react/themes": "^0.8.0-alpha.114"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
