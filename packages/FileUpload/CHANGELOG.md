@@ -3,6 +3,127 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.114](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.113...v0.8.0-alpha.114) (2025-12-17)
+
+**Note:** Version bump only for package @blaze-react/file-upload
+
+
+
+
+
+# [0.8.0-alpha.109](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.108...v0.8.0-alpha.109) (2025-09-03)
+
+**Note:** Version bump only for package @blaze-react/file-upload
+
+
+
+
+
+# [0.8.0-alpha.105](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.104...v0.8.0-alpha.105) (2025-08-05)
+
+
+### Bug Fixes
+
+* remove default option when storekey is set ([#724](https://github.com/thebyte9/blaze-components-react/issues/724)) ([3db01fe](https://github.com/thebyte9/blaze-components-react/commit/3db01fe2a8bace21a6a5acec28c1562239455b7e))
+
+
+
+
+
+# [0.8.0-alpha.104](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.103...v0.8.0-alpha.104) (2025-07-28)
+
+
+### Features
+
+* add store types and their allowed file extension ([#723](https://github.com/thebyte9/blaze-components-react/issues/723)) ([4ee9992](https://github.com/thebyte9/blaze-components-react/commit/4ee9992bec5e00ec0fcb7f31f8c55255551924b4))
+
+
+
+
+
+# [0.8.0-alpha.93](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.92...v0.8.0-alpha.93) (2024-11-19)
+
+**Note:** Version bump only for package @blaze-react/file-upload
+
+
+
+
+
+# [0.8.0-alpha.83](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.82...v0.8.0-alpha.83) (2024-10-30)
+
+
+### Features
+
+* updates components to use tooltip defined as object ([211aad2](https://github.com/thebyte9/blaze-components-react/commit/211aad2c7cd3435c2a750673235970e4cc79ca39))
+
+
+
+
+
+# [0.8.0-alpha.78](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.77...v0.8.0-alpha.78) (2024-02-29)
+
+
+### Bug Fixes
+
+* associate label with form elements ([#687](https://github.com/thebyte9/blaze-components-react/issues/687)) ([5cfaa10](https://github.com/thebyte9/blaze-components-react/commit/5cfaa10bec50522cf60f1c0ba9f1643d756db1b2))
+
+
+
+
+
+# [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
+
+**Note:** Version bump only for package @blaze-react/file-upload
+
+
+
+
+
+# [0.8.0-alpha.67](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.66...v0.8.0-alpha.67) (2023-10-20)
+
+
+### Bug Fixes
+
+* ammend broken file input test ([b4fe69e](https://github.com/thebyte9/blaze-components-react/commit/b4fe69e31d3063fe2a3ceabb4725799ce6bb9f39))
+* ammended comments ([19c01a7](https://github.com/thebyte9/blaze-components-react/commit/19c01a76d39013891b52387e20e974089a0c447e))
+
+
+### Features
+
+* allow input copy ([bd1a7c6](https://github.com/thebyte9/blaze-components-react/commit/bd1a7c64e34545880efe639029d3f9ed2399c25b))
+
+
+
+
+
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+**Note:** Version bump only for package @blaze-react/file-upload
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/file-upload
+
+
+
+
+
+# [0.8.0-alpha.63](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.62...v0.8.0-alpha.63) (2023-09-14)
+
+
+### Features
+
+* update fileupload component to allow setting credits ([591a7b1](https://github.com/thebyte9/blaze-components-react/commit/591a7b11d9a5d2d02259e9713f1e0c160ddeda1e))
+* update fileupload component to allow setting credits ([840907b](https://github.com/thebyte9/blaze-components-react/commit/840907b8f9f531aa0e3749e207d5bc33f9d1b165))
+
+
+
+
+
 # [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
 
 **Note:** Version bump only for package @blaze-react/file-upload

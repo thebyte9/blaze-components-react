@@ -3,6 +3,180 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.114](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.113...v0.8.0-alpha.114) (2025-12-17)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.110](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.109...v0.8.0-alpha.110) (2025-09-10)
+
+
+### Features
+
+* switch vertical alignment with icon ([#730](https://github.com/thebyte9/blaze-components-react/issues/730)) ([e650bb9](https://github.com/thebyte9/blaze-components-react/commit/e650bb98801b0d0ad0a11f9537f8233ca3c54049))
+
+
+
+
+
+# [0.8.0-alpha.103](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.102...v0.8.0-alpha.103) (2025-07-07)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.102](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.101...v0.8.0-alpha.102) (2025-07-01)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.101](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.100...v0.8.0-alpha.101) (2025-06-27)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.100](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.99...v0.8.0-alpha.100) (2025-02-26)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.98](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.97...v0.8.0-alpha.98) (2024-11-27)
+
+
+### Bug Fixes
+
+* move tooltip on switches to end of label ([69aaab5](https://github.com/thebyte9/blaze-components-react/commit/69aaab5a095914a343389ee1095367ab75531cb8))
+* move tooltip on switches to end of label ([5c7330c](https://github.com/thebyte9/blaze-components-react/commit/5c7330c5aaba0b67c2abb253592ca5d1853f7ebb))
+
+
+
+
+
+# [0.8.0-alpha.97](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.96...v0.8.0-alpha.97) (2024-11-21)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.96](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.95...v0.8.0-alpha.96) (2024-11-21)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.95](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.94...v0.8.0-alpha.95) (2024-11-21)
+
+
+### Bug Fixes
+
+* move tooltip from peerDependencies to dependencies ([ac75e92](https://github.com/thebyte9/blaze-components-react/commit/ac75e92362523029548ef3eb775cec04eee04624))
+* move tooltip from peerDependencies to devDependencies ([18a6f46](https://github.com/thebyte9/blaze-components-react/commit/18a6f461ddadfa3a1932d6043c9ac69a2c8fc7d8))
+
+
+
+
+
+# [0.8.0-alpha.92](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.91...v0.8.0-alpha.92) (2024-11-13)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.90](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.89...v0.8.0-alpha.90) (2024-11-12)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.87](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.86...v0.8.0-alpha.87) (2024-11-06)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.85](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.84...v0.8.0-alpha.85) (2024-11-04)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.84](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.83...v0.8.0-alpha.84) (2024-10-31)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.83](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.82...v0.8.0-alpha.83) (2024-10-30)
+
+
+### Bug Fixes
+
+* update packages ([6ab8972](https://github.com/thebyte9/blaze-components-react/commit/6ab897282d2b2a936da91b6f065cd35718874ea4))
+
+
+### Features
+
+* adapt components to render tooltip ([8fce283](https://github.com/thebyte9/blaze-components-react/commit/8fce283c1dca7192ad495d194309edca2f0561e7))
+* updates components to render tooltip ([90d0b1d](https://github.com/thebyte9/blaze-components-react/commit/90d0b1d6e1ffc378497d360e7020fa65b4c24f63))
+* updates components to use tooltip defined as object ([211aad2](https://github.com/thebyte9/blaze-components-react/commit/211aad2c7cd3435c2a750673235970e4cc79ca39))
+* updates readme props to include tooltip ([f4237e2](https://github.com/thebyte9/blaze-components-react/commit/f4237e20d73c21528cc679e99480a2c9e793ced6))
+
+
+
+
+
+# [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/switches
+
+
+
+
+
 # [0.8.0-alpha.58](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.57...v0.8.0-alpha.58) (2021-11-29)
 
 **Note:** Version bump only for package @blaze-react/switches

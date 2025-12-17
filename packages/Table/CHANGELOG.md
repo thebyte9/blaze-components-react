@@ -3,6 +3,186 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.114](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.113...v0.8.0-alpha.114) (2025-12-17)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.110](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.109...v0.8.0-alpha.110) (2025-09-10)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.106](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.105...v0.8.0-alpha.106) (2025-08-14)
+
+
+### Features
+
+* make checkbox labels clickable for better ux ([40d8f21](https://github.com/thebyte9/blaze-components-react/commit/40d8f21a33f491a273c191e6054a1b9f7d919c47))
+
+
+
+
+
+# [0.8.0-alpha.103](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.102...v0.8.0-alpha.103) (2025-07-07)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.102](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.101...v0.8.0-alpha.102) (2025-07-01)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.101](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.100...v0.8.0-alpha.101) (2025-06-27)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.98](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.97...v0.8.0-alpha.98) (2024-11-27)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.94](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.93...v0.8.0-alpha.94) (2024-11-20)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.93](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.92...v0.8.0-alpha.93) (2024-11-19)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.88](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.87...v0.8.0-alpha.88) (2024-11-12)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.86](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.85...v0.8.0-alpha.86) (2024-11-05)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.84](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.83...v0.8.0-alpha.84) (2024-10-31)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.83](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.82...v0.8.0-alpha.83) (2024-10-30)
+
+
+### Features
+
+* updates components to use tooltip defined as object ([211aad2](https://github.com/thebyte9/blaze-components-react/commit/211aad2c7cd3435c2a750673235970e4cc79ca39))
+
+
+
+
+
+# [0.8.0-alpha.74](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.73...v0.8.0-alpha.74) (2024-01-02)
+
+
+### Bug Fixes
+
+* handle nav status ([#683](https://github.com/thebyte9/blaze-components-react/issues/683)) ([3c17f45](https://github.com/thebyte9/blaze-components-react/commit/3c17f45a46a8855859b1bf363ebe13230d1e3999))
+
+
+
+
+
+# [0.8.0-alpha.72](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.71...v0.8.0-alpha.72) (2023-12-14)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.71](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.70...v0.8.0-alpha.71) (2023-12-14)
+
+
+### Bug Fixes
+
+* render simple pagination if no count ([#682](https://github.com/thebyte9/blaze-components-react/issues/682)) ([896445a](https://github.com/thebyte9/blaze-components-react/commit/896445abfc0b030783716f08b4b49d41e09efc9a))
+
+
+
+
+
+# [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
+
+
+### Features
+
+* add pagination component ([#628](https://github.com/thebyte9/blaze-components-react/issues/628)) ([baffd54](https://github.com/thebyte9/blaze-components-react/commit/baffd542b4ed6819eb93343e6b13951af5adcc68))
+
+
+
+
+
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
+# [0.8.0-alpha.65](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.64...v0.8.0-alpha.65) (2023-09-19)
+
+
+### Bug Fixes
+
+* fixed failing snapshot ([49b749a](https://github.com/thebyte9/blaze-components-react/commit/49b749aff4c68df0ac5784ed58313b00e29e0de6))
+* fixed failing test ([05732b8](https://github.com/thebyte9/blaze-components-react/commit/05732b8b6dde5541dcaeb55a701dbab4f1766c93))
+* fixed table not rendering correctly ([114e361](https://github.com/thebyte9/blaze-components-react/commit/114e361634b7452cc9ec93d11b5f780f8ae5b036))
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/table
+
+
+
+
+
 # [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
 
 **Note:** Version bump only for package @blaze-react/table
