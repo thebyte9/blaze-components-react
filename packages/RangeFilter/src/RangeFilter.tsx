@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
 
 import React, { FunctionComponent, useEffect, useState } from 'react';

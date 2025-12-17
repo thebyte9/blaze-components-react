@@ -15,9 +15,7 @@ exports[`Multiselect component matches snapshot (closed) 1`] = `
           class=""
           for="name"
           id="name-label"
-        >
-          
-        </label>
+        />
         <span
           class="chip__wrapper__clear"
         >
@@ -72,9 +70,7 @@ exports[`Multiselect component matches snapshot (closed) 1`] = `
             <label
               class=""
               for="name"
-            >
-              
-            </label>
+            />
             <input
               aria-labelledby="name-label"
               aria-required="false"
@@ -107,9 +103,7 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
           class=""
           for="name"
           id="name-label"
-        >
-          
-        </label>
+        />
         <span
           class="chip__wrapper__clear"
         >
@@ -164,9 +158,7 @@ exports[`Multiselect component matches snapshot when opened 1`] = `
             <label
               class=""
               for="name"
-            >
-              
-            </label>
+            />
             <input
               aria-labelledby="name-label"
               aria-required="false"

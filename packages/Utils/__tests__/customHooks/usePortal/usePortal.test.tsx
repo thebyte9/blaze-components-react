@@ -1,7 +1,11 @@
-import { renderHook } from '@testing-library/react-hooks';
-import { usePortal } from '../../../src/customHooks'; 
+import { renderHook, cleanup } from '@testing-library/react';
+import { usePortal } from '../../../src/customHooks';
 
 describe('usePortal Hook', () => {
+    afterEach(() => {
+        cleanup();
+    });
+
     it('should append a div element to the document body', () => {
         const { result } = renderHook(() => usePortal());
         const element = result.current;

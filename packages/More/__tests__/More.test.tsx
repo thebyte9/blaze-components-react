@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import More from '../src/More';
 import React from 'react';
@@ -21,6 +21,7 @@ describe('More component', () => {
   });
 
   test('should toggle on menu click and call onClose after second click (no overlay)', async () => {
+    const user = userEvent.setup();
     const onCloseMock = jest.fn();
 
     render(
@@ -33,19 +34,17 @@ describe('More component', () => {
         </More.Content>
       </More>,
     );
-
-    userEvent.click(screen.getByRole('button'));
-
+    await user.click(screen.getByRole('button'));
     await waitFor(() => {
       expect(screen.getByRole('button')).toBeInTheDocument();
     });
 
-    userEvent.click(screen.getByRole('button'));
-
+    await user.click(screen.getByRole('button'));
     expect(onCloseMock).toHaveBeenCalled();
   });
 
-  test('should not close menu when onClose prop is undefined', () => {
+  test('should not close menu when onClose prop is undefined', async () => {
+    const user = userEvent.setup();
     const onCloseMock = jest.fn();
 
     render(
@@ -58,8 +57,7 @@ describe('More component', () => {
         </More.Content>
       </More>,
     );
-
-    userEvent.click(screen.getByRole('button'));
+    await user.click(screen.getByRole('button'));
     expect(onCloseMock).not.toHaveBeenCalled();
   });
 
@@ -114,7 +112,8 @@ describe('More component', () => {
     expect(screen.getByTestId('more-menu-background')).toHaveClass('more-menu__background');
   });
 
-  test('should return from handleToggle if disabled prop is true', () => {
+  test('should return from handleToggle if disabled prop is true', async () => {
+    const user = userEvent.setup();
     const handleToggleMock = jest.fn();
 
     render(
@@ -127,9 +126,7 @@ describe('More component', () => {
         </More.Content>
       </More>,
     );
-
-    userEvent.click(screen.getByTestId('more-avatar-button'));
-
+    await user.click(screen.getByTestId('more-avatar-button'));
     expect(handleToggleMock).not.toBeCalled();
   });
 
@@ -152,7 +149,8 @@ describe('More component', () => {
     }
   });
 
-  test('it should call useEffect cleanup function', () => {
+  test('it should call useEffect cleanup function', async () => {
+    const user = userEvent.setup();
     const useEffectCleanUpSpy = jest.spyOn(React, 'useEffect');
     const setState = jest.fn();
     const useStateSpy = jest.spyOn(React, 'useState');
@@ -171,12 +169,9 @@ describe('More component', () => {
         </More>
       </div>,
     );
-
-    userEvent.click(screen.getByTestId('test-wrapper'));
+    await user.click(screen.getByTestId('test-wrapper'));
     expect(setState).toHaveBeenCalledWith(false);
-
     unmount();
-
     expect(useEffectCleanUpSpy).toHaveBeenCalled();
   });
 
