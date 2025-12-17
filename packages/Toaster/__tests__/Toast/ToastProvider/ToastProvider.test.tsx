@@ -1,5 +1,5 @@
 import { act, cleanup, render, screen, fireEvent } from '@testing-library/react';
-
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import ToastContext from '../../../src/Toast/ToastContext';
 import ToastProvider from '../../../src/Toast/ToastProvider/ToastProvider';
@@ -22,10 +22,6 @@ describe('Toast provider', () => {
     jest.clearAllMocks();
   });
 
-  it('should be defined', () => {
-    expect(ToastProvider).toBeDefined();
-  });
-
   it('should render without throwing error', () => {
     const { asFragment } = render(
       <ToastProvider>
@@ -44,8 +40,13 @@ describe('Toast provider', () => {
       </ToastProvider>,
     );
 
-    ref.current.add(FakeToasterTitleImplementation, FakeToasterConfigImplementation);
-    fireEvent.click(screen.getByTestId('toast-dismiss-button'));
+    act(() => {
+      ref.current.add(FakeToasterTitleImplementation, FakeToasterConfigImplementation);
+    });
+
+    act(() => {
+      fireEvent.click(screen.getByTestId('toast-dismiss-button'));
+    });
   });
 
   it('should not duplicate toasts', () => {
