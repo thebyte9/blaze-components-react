@@ -18,7 +18,6 @@ exports[`More component should render 1`] = `
           class="icon-button icon-button--round"
           data-testid="more-avatar-button"
           displaybg="false"
-          toggled="false"
           type="button"
         >
           <span
@@ -28,7 +27,7 @@ exports[`More component should render 1`] = `
           </span>
         </button>
         <ul
-          class="more-menu more-menu__list more-menu--open"
+          class="more-menu more-menu__list"
           style="top: 30px;"
         >
           <li

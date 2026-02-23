@@ -65,7 +65,7 @@ const More = ({ children, isHeader, isMoreMenu, displayBg, disabled, onClose }: 
           {React.Children.map(children, (child: any) =>
             React.cloneElement(child, {
               handleToggle,
-              toggled: toggled?.toString() || 'false',
+              toggled: toggled || false,
               // Warning: React does not recognize the `displayBg` prop on a DOM element.
               // If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `displaybg` instead.
               displaybg: displayBg?.toString() || 'false',

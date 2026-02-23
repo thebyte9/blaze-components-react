@@ -97,7 +97,9 @@ describe('More component', () => {
     expect(screen.getByTestId('more-menu-li')).toHaveClass('dropdown__list-item more-menu__list-item');
   });
 
-  test('should display overlay when displayBg prop is passed as true', () => {
+  test('should display overlay when displayBg prop is passed as true', async () => {
+    const user = userEvent.setup();
+
     render(
       <More isMoreMenu displayBg={true} onClose={jest.fn()}>
         <More.Avatar isHeader handleToggle={jest.fn()}>
@@ -109,6 +111,7 @@ describe('More component', () => {
       </More>,
     );
 
+    await user.click(screen.getByTestId('more-avatar-button'));
     expect(screen.getByTestId('more-menu-background')).toHaveClass('more-menu__background');
   });
 
