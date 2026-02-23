@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.115](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.114...v0.8.0-alpha.115) (2026-02-23)
+
+
+### Bug Fixes
+
+* add missing webpack cli ([957d55b](https://github.com/thebyte9/blaze-components-react/commit/957d55b525d707f714ccf881c2573b2e0b4693fa))
+* associate multi select bar label with input ([f9fa58e](https://github.com/thebyte9/blaze-components-react/commit/f9fa58ec4067fb66a40cc96b74b53b8a62add798))
+* update modal export ([#737](https://github.com/thebyte9/blaze-components-react/issues/737)) ([a48f957](https://github.com/thebyte9/blaze-components-react/commit/a48f957a06921eb1468cfa4393b9cdd281053b3b))
+
+
+
+
+
 # [0.8.0-alpha.114](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.113...v0.8.0-alpha.114) (2025-12-17)
 
 **Note:** Version bump only for package blaze-react

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.115](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.114...v0.8.0-alpha.115) (2026-02-23)
+
+
+### Bug Fixes
+
+* update modal export ([#737](https://github.com/thebyte9/blaze-components-react/issues/737)) ([a48f957](https://github.com/thebyte9/blaze-components-react/commit/a48f957a06921eb1468cfa4393b9cdd281053b3b))
+
+
+
+
+
 # [0.8.0-alpha.114](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.113...v0.8.0-alpha.114) (2025-12-17)
 
 **Note:** Version bump only for package @blaze-react/modal
