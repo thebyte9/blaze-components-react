@@ -1,5 +1,5 @@
 import { ButtonView } from '@blaze-react/button';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { CustomIcon } from '@blaze-react/icon';
 import { TabItem } from '../TabItem';
 
@@ -14,16 +14,10 @@ interface ITabProps {
 export const Tab = ({ selected = 0, classes = '', children = 'No content' }: ITabProps): JSX.Element => {
   const [selectedValue, setSelected] = useState(selected);
 
-
-  useEffect(() => {
-    if (selectedValue !== selected) setSelected(selected)
-  }, [selected])
-
   const DeprecatedTabs = () => {
     console.warn(
-      'Usage of CSS classes will be deprecated in the near future. You should use Tailwind classes classes instead',
+      'Usage of CSS classes will be deprecated in the near future. You should use Tailwind classes instead',
     );
-
     return (
       <div className="tabs">
         <div className="tabs__list">
@@ -31,7 +25,6 @@ export const Tab = ({ selected = 0, classes = '', children = 'No content' }: ITa
             if (!React.isValidElement(child) || child.type !== TabItem) {
               return null;
             }
-
             const { props: { title = 'Unnamed tab' } = {} }: any = child;
             return (
               <ButtonView
