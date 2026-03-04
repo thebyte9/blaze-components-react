@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.116](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.115...v0.8.0-alpha.116) (2026-03-04)
+
+
+### Bug Fixes
+
+* use selected only as initial state to prevent parent from resetting tab ([fbe6f28](https://github.com/thebyte9/blaze-components-react/commit/fbe6f280eea3e166a39038a0f63f54ca6b90a874))
+
+
+
+
+
 # [0.8.0-alpha.115](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.114...v0.8.0-alpha.115) (2026-02-23)
 
 **Note:** Version bump only for package @blaze-react/tab
