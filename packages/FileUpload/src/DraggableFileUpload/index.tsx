@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FileList from '../FileList';
+import { FileInputsProps } from '../FileUpload';
 interface IDraggableFileUpload {
   handleLibraryClick?: (...args: any[]) => void;
   handleBrowse?: (...args: any[]) => void;
@@ -12,6 +13,7 @@ interface IDraggableFileUpload {
   selectOptions: any[];
   children: JSX.Element | JSX.Element[];
   copyToOthers: (name: string, index: number) => void;
+  FileInputsComponent?: React.ComponentType<FileInputsProps>;
 }
 const DraggableFileUpload = ({
   handleCancel,
@@ -23,6 +25,7 @@ const DraggableFileUpload = ({
   children,
   selectOptions,
   copyToOthers,
+  FileInputsComponent,
   ...attrs
 }: IDraggableFileUpload) => {
   const [imagesToPreview, setImagesToPreview] = useState(previewImages);
@@ -47,6 +50,7 @@ const DraggableFileUpload = ({
           handleSelectChange={handleSelectChange}
           selectOptions={selectOptions}
           copyToOthers={copyToOthers}
+          FileInputsComponent={FileInputsComponent}
         />
       )}
     </div>

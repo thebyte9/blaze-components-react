@@ -11,6 +11,8 @@ declare global {
   }
 }
 
+const makeImage = () => new Blob(['file contents'], { type: 'image/png' });
+
 const FileUploadComponent = (
   <FileUpload selectOptions={[['default', 'Default']]} onChange={jest.fn()}>
     Drag and drop here
@@ -25,12 +27,40 @@ describe('FileUpload component', () => {
 
   test('should drop files', () => {
     render(FileUploadComponent);
-    const image = new Blob(['file contents'], { type: 'image/png' });
+    const image = makeImage();
 
     fireEvent.drop(screen.getByText('Drag & drop files to bulk upload'), {
       dataTransfer: {
         files: [image],
       },
     });
+  });
+
+  test('renders a custom FileInputsComponent (schema/relations UI injection)', async () => {
+    const onChange = jest.fn();
+
+    const CustomFileInputs = () => <div data-testid="custom-file-inputs">Custom Inputs</div>;
+
+    render(
+      <FileUpload
+        selectOptions={[['default', 'Default']]}
+        onChange={onChange}
+        FileInputsComponent={CustomFileInputs}
+      >
+        Drag and drop here
+      </FileUpload>
+    );
+
+    const dropArea = screen.getByText('Drag & drop file to upload');
+    const image = makeImage();
+
+    fireEvent.drop(dropArea, {
+      dataTransfer: {
+        files: [image],
+      },
+    });
+
+    const injected = await screen.findByTestId('custom-file-inputs');
+    expect(injected).toBeInTheDocument();
   });
 });
