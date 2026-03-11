@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.117](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.116...v0.8.0-alpha.117) (2026-03-11)
+
+
+### Bug Fixes
+
+* use DeprecatedModal as default export for Blaze compatibility ([eb7c4e3](https://github.com/thebyte9/blaze-components-react/commit/eb7c4e36afe82fcc67f1074404be5c15827b3185))
+
+
+
+
+
 # [0.8.0-alpha.116](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.115...v0.8.0-alpha.116) (2026-03-04)
 
 
