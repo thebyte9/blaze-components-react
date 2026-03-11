@@ -1,5 +1,5 @@
-import { Modal } from './controller/Modal';
+import { DeprecatedModal, Modal } from './controller/Modal';
 import { ModalView } from './view/ModalView';
 
-export default Modal;
-export { Modal, ModalView };
+export default DeprecatedModal;
+export { Modal, DeprecatedModal, ModalView };
