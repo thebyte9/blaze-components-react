@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.115](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.114...v0.8.0-alpha.115) (2026-02-23)
+
+
+### Bug Fixes
+
+* update modal export ([#737](https://github.com/thebyte9/blaze-components-react/issues/737)) ([a48f957](https://github.com/thebyte9/blaze-components-react/commit/a48f957a06921eb1468cfa4393b9cdd281053b3b))
+
+
+
+
+
+# [0.8.0-alpha.114](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.113...v0.8.0-alpha.114) (2025-12-17)
+
+**Note:** Version bump only for package @blaze-react/modal
+
+
+
+
+
+# [0.8.0-alpha.86](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.85...v0.8.0-alpha.86) (2024-11-05)
+
+
+### Bug Fixes
+
+* fix modal tooltips ([56d5d4c](https://github.com/thebyte9/blaze-components-react/commit/56d5d4c2e6d9bc119706d144c8c218fdf3119292))
+
+
+
+
+
+# [0.8.0-alpha.82](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.81...v0.8.0-alpha.82) (2024-07-26)
+
+**Note:** Version bump only for package @blaze-react/modal
+
+
+
+
+
+# [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
+
+**Note:** Version bump only for package @blaze-react/modal
+
+
+
+
+
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+**Note:** Version bump only for package @blaze-react/modal
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/modal
+
+
+
+
+
 # [0.8.0-alpha.58](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.57...v0.8.0-alpha.58) (2021-11-29)
 
 **Note:** Version bump only for package @blaze-react/modal

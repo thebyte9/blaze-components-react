@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/table",
-  "version": "0.8.0-alpha.60",
+  "version": "0.8.0-alpha.115",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -16,17 +16,17 @@
   "author": "byte9",
   "license": "GPL-3.0",
   "dependencies": {
-    "@blaze-react/pagination": "0.8.0-alpha.60"
+    "@blaze-react/pagination": "^0.8.0-alpha.115"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },
   "devDependencies": {
-    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.59",
+    "@blaze-react/blaze-components-theme": "^0.8.0-alpha.115",
     "react": "^18.0.2",
     "react-dom": "^18.0.2",
     "webpack": "^5.28.0"
   },
-  "gitHead": "d9cac6fc28dad1d0794718aac09d292019446698"
+  "gitHead": "10dd978ef5b8985059403f58f140fdc6abbed82b"
 }

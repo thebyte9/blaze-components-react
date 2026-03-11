@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.116](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.115...v0.8.0-alpha.116) (2026-03-04)
+
+
+### Bug Fixes
+
+* use selected only as initial state to prevent parent from resetting tab ([fbe6f28](https://github.com/thebyte9/blaze-components-react/commit/fbe6f280eea3e166a39038a0f63f54ca6b90a874))
+
+
+
+
+
+# [0.8.0-alpha.115](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.114...v0.8.0-alpha.115) (2026-02-23)
+
+**Note:** Version bump only for package @blaze-react/tab
+
+
+
+
+
+# [0.8.0-alpha.114](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.113...v0.8.0-alpha.114) (2025-12-17)
+
+**Note:** Version bump only for package @blaze-react/tab
+
+
+
+
+
+# [0.8.0-alpha.79](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.78...v0.8.0-alpha.79) (2024-06-14)
+
+
+### Features
+
+* add test case for updating selected tab when selected prop changes ([#688](https://github.com/thebyte9/blaze-components-react/issues/688)) ([71dc38c](https://github.com/thebyte9/blaze-components-react/commit/71dc38c9d7ed6cd9c6d87ad2e48d044b13311af2))
+
+
+
+
+
+# [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
+
+**Note:** Version bump only for package @blaze-react/tab
+
+
+
+
+
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+
+### Features
+
+* update tabs to handle conditional items ([#676](https://github.com/thebyte9/blaze-components-react/issues/676)) ([b2f409c](https://github.com/thebyte9/blaze-components-react/commit/b2f409c153cf70d163fc0ef7ab6f464a94ef4ce1))
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/tab
+
+
+
+
+
 # [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
 
 **Note:** Version bump only for package @blaze-react/tab

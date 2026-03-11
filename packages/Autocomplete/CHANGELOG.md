@@ -3,6 +3,95 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.115](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.114...v0.8.0-alpha.115) (2026-02-23)
+
+**Note:** Version bump only for package @blaze-react/autocomplete
+
+
+
+
+
+# [0.8.0-alpha.114](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.113...v0.8.0-alpha.114) (2025-12-17)
+
+**Note:** Version bump only for package @blaze-react/autocomplete
+
+
+
+
+
+# [0.8.0-alpha.93](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.92...v0.8.0-alpha.93) (2024-11-19)
+
+**Note:** Version bump only for package @blaze-react/autocomplete
+
+
+
+
+
+# [0.8.0-alpha.83](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.82...v0.8.0-alpha.83) (2024-10-30)
+
+
+### Bug Fixes
+
+* update packages ([6ab8972](https://github.com/thebyte9/blaze-components-react/commit/6ab897282d2b2a936da91b6f065cd35718874ea4))
+
+
+### Features
+
+* adapt components to render tooltip ([8fce283](https://github.com/thebyte9/blaze-components-react/commit/8fce283c1dca7192ad495d194309edca2f0561e7))
+* updates components to render tooltip ([90d0b1d](https://github.com/thebyte9/blaze-components-react/commit/90d0b1d6e1ffc378497d360e7020fa65b4c24f63))
+* updates components to use tooltip defined as object ([211aad2](https://github.com/thebyte9/blaze-components-react/commit/211aad2c7cd3435c2a750673235970e4cc79ca39))
+* updates readme props to include tooltip ([f4237e2](https://github.com/thebyte9/blaze-components-react/commit/f4237e20d73c21528cc679e99480a2c9e793ced6))
+
+
+
+
+
+# [0.8.0-alpha.78](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.77...v0.8.0-alpha.78) (2024-02-29)
+
+
+### Bug Fixes
+
+* associate label with form elements ([#687](https://github.com/thebyte9/blaze-components-react/issues/687)) ([5cfaa10](https://github.com/thebyte9/blaze-components-react/commit/5cfaa10bec50522cf60f1c0ba9f1643d756db1b2))
+
+
+
+
+
+# [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
+
+**Note:** Version bump only for package @blaze-react/autocomplete
+
+
+
+
+
+# [0.8.0-alpha.69](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.68...v0.8.0-alpha.69) (2023-11-20)
+
+
+### Bug Fixes
+
+* handle on change ([#681](https://github.com/thebyte9/blaze-components-react/issues/681)) ([ea15993](https://github.com/thebyte9/blaze-components-react/commit/ea15993885446073fb90ede9e6570894d01aae68))
+
+
+
+
+
+# [0.8.0-alpha.66](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.65...v0.8.0-alpha.66) (2023-10-03)
+
+**Note:** Version bump only for package @blaze-react/autocomplete
+
+
+
+
+
+# [0.8.0-alpha.64](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.63...v0.8.0-alpha.64) (2023-09-14)
+
+**Note:** Version bump only for package @blaze-react/autocomplete
+
+
+
+
+
 # [0.8.0-alpha.60](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.59...v0.8.0-alpha.60) (2021-11-30)
 
 **Note:** Version bump only for package @blaze-react/autocomplete

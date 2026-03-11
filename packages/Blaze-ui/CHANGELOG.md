@@ -3,6 +3,154 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.115](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.114...v0.8.0-alpha.115) (2026-02-23)
+
+**Note:** Version bump only for package @blaze-react/blaze-components-theme
+
+
+
+
+
+# [0.8.0-alpha.110](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.109...v0.8.0-alpha.110) (2025-09-10)
+
+
+### Features
+
+* switch vertical alignment with icon ([#730](https://github.com/thebyte9/blaze-components-react/issues/730)) ([e650bb9](https://github.com/thebyte9/blaze-components-react/commit/e650bb98801b0d0ad0a11f9537f8233ca3c54049))
+
+
+
+
+
+# [0.8.0-alpha.103](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.102...v0.8.0-alpha.103) (2025-07-07)
+
+
+### Bug Fixes
+
+* use custom virtual list ([#722](https://github.com/thebyte9/blaze-components-react/issues/722)) ([20418b9](https://github.com/thebyte9/blaze-components-react/commit/20418b98d9bdcc5e2875d84f38e05b3d49c4c340))
+
+
+
+
+
+# [0.8.0-alpha.102](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.101...v0.8.0-alpha.102) (2025-07-01)
+
+
+### Bug Fixes
+
+* multiselect recompute sizes ([#721](https://github.com/thebyte9/blaze-components-react/issues/721)) ([979333d](https://github.com/thebyte9/blaze-components-react/commit/979333d4b560dba7584c94955f792f91969f6d11))
+
+
+
+
+
+# [0.8.0-alpha.101](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.100...v0.8.0-alpha.101) (2025-06-27)
+
+
+### Bug Fixes
+
+* remove fixed height on multi select results ([#720](https://github.com/thebyte9/blaze-components-react/issues/720)) ([0029f23](https://github.com/thebyte9/blaze-components-react/commit/0029f23e4f96ac05a0cab9201d2605103efe0588))
+
+
+
+
+
+# [0.8.0-alpha.98](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.97...v0.8.0-alpha.98) (2024-11-27)
+
+
+### Bug Fixes
+
+* adds maring to switch label ([9e916e5](https://github.com/thebyte9/blaze-components-react/commit/9e916e5c1966179fd60836f19157a5b9eaddc614))
+
+
+
+
+
+# [0.8.0-alpha.94](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.93...v0.8.0-alpha.94) (2024-11-20)
+
+
+### Features
+
+* expand hover area on tooltip ([d866dde](https://github.com/thebyte9/blaze-components-react/commit/d866dde24f6a3566625e71c7e414e617fb3df488))
+
+
+
+
+
+# [0.8.0-alpha.93](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.92...v0.8.0-alpha.93) (2024-11-19)
+
+**Note:** Version bump only for package @blaze-react/blaze-components-theme
+
+
+
+
+
+# [0.8.0-alpha.88](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.87...v0.8.0-alpha.88) (2024-11-12)
+
+
+### Bug Fixes
+
+* add fixes ([276db10](https://github.com/thebyte9/blaze-components-react/commit/276db10026fe32d1570932d8e82ac59e76fdd81e))
+* fix hover issues ([617205b](https://github.com/thebyte9/blaze-components-react/commit/617205b88fb4ab0b022ed150945ad40b01c0f861))
+
+
+
+
+
+# [0.8.0-alpha.86](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.85...v0.8.0-alpha.86) (2024-11-05)
+
+
+### Bug Fixes
+
+* fix modal tooltips ([56d5d4c](https://github.com/thebyte9/blaze-components-react/commit/56d5d4c2e6d9bc119706d144c8c218fdf3119292))
+
+
+
+
+
+# [0.8.0-alpha.84](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.83...v0.8.0-alpha.84) (2024-10-31)
+
+**Note:** Version bump only for package @blaze-react/blaze-components-theme
+
+
+
+
+
+# [0.8.0-alpha.83](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.82...v0.8.0-alpha.83) (2024-10-30)
+
+
+### Features
+
+* adapt components to render tooltip ([8fce283](https://github.com/thebyte9/blaze-components-react/commit/8fce283c1dca7192ad495d194309edca2f0561e7))
+* add tooltip component ([139b53c](https://github.com/thebyte9/blaze-components-react/commit/139b53c25153f8cb78fd4dc1e1cb67a3809064bf))
+* updates components to render tooltip ([90d0b1d](https://github.com/thebyte9/blaze-components-react/commit/90d0b1d6e1ffc378497d360e7020fa65b4c24f63))
+
+
+
+
+
+# [0.8.0-alpha.74](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.73...v0.8.0-alpha.74) (2024-01-02)
+
+
+### Bug Fixes
+
+* handle nav status ([#683](https://github.com/thebyte9/blaze-components-react/issues/683)) ([3c17f45](https://github.com/thebyte9/blaze-components-react/commit/3c17f45a46a8855859b1bf363ebe13230d1e3999))
+
+
+
+
+
+# [0.8.0-alpha.70](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.69...v0.8.0-alpha.70) (2023-12-06)
+
+
+### Features
+
+* add pagination component ([#628](https://github.com/thebyte9/blaze-components-react/issues/628)) ([baffd54](https://github.com/thebyte9/blaze-components-react/commit/baffd542b4ed6819eb93343e6b13951af5adcc68))
+
+
+
+
+
 # [0.8.0-alpha.59](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.58...v0.8.0-alpha.59) (2021-11-29)
 
 **Note:** Version bump only for package @blaze-react/blaze-components-theme
