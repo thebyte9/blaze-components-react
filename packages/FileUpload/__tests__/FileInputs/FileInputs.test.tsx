@@ -8,7 +8,7 @@ const handleInputChange = jest.fn();
 const copyToOthers = jest.fn();
 
 const mockedProps = {
-  data: { altText: '', caption: '' },
+  data: { altText: '', caption: '', seoTitle: '' },
   file: {
     base64: 'test-image',
     id: 'test-image-id',
@@ -25,6 +25,13 @@ const mockedProps = {
     ['test', 'Test'],
   ],
 };
+
+const CustomInput = ({ id, label, name, onChange, value }: any) => (
+  <label>
+    {label}
+    <input id={id} aria-label="custom field" name={name} value={value} onChange={(event) => onChange({ event })} />
+  </label>
+);
 
 describe('FileInputs component', () => {
   it('should render without throwing error', () => {
@@ -64,5 +71,26 @@ describe('FileInputs component', () => {
     const updatedProps = { ...mockedProps };
     updatedProps.file.type = 'doc';
     render(<FileInputs {...updatedProps} />);
+  });
+
+  it('should render and handle custom field config', () => {
+    render(
+      <FileInputs
+        {...mockedProps}
+        customFields={[
+          {
+            component: CustomInput,
+            label: 'SEO title',
+            name: 'seoTitle',
+          },
+        ]}
+      />,
+    );
+
+    fireEvent.change(screen.getByLabelText('custom field'), { target: { value: 'Custom SEO title' } });
+    fireEvent.click(screen.getByTestId('copy-to-seoTitle'));
+
+    expect(handleInputChange).toHaveBeenCalled();
+    expect(copyToOthers).toHaveBeenCalledWith('seoTitle', mockedProps.index);
   });
 });

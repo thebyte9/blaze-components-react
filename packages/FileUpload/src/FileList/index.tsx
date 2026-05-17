@@ -2,13 +2,16 @@ import React, { Fragment } from 'react';
 import { DOC, IMAGE } from '../constants';
 import DocumentIcon from '../DocumentIcon';
 import FileInputs from '../FileInputs';
+import { IFileUploadCustomField } from '../types';
+
 const FileList = ({
   previewImages,
   handleCancel,
   handleInputChange,
   handleSelectChange,
   selectOptions,
-  copyToOthers
+  copyToOthers,
+  customFields,
 }: {
   previewImages: any;
   handleCancel: any;
@@ -16,7 +19,8 @@ const FileList = ({
   handleSelectChange: any;
   copyToOthers: (name: string, index: number) => void;
   selectOptions: any[];
-}) => (
+  customFields?: IFileUploadCustomField[];
+}): JSX.Element => (
   <>
     {previewImages.map(
       (
@@ -42,7 +46,8 @@ const FileList = ({
           name,
           selectOptions,
           storeKey,
-          copyToOthers
+          copyToOthers,
+          customFields,
         };
         const isImage = file.type === IMAGE;
         return (

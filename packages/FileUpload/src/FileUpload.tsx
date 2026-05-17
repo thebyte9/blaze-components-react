@@ -6,7 +6,9 @@ import { DATA_ATTRIBUTS } from './constants';
 import { NAME } from './constants';
 import DraggableFileUpload from './DraggableFileUpload';
 import FileList from './FileList';
-interface IFileUploadProps {
+import { IFileUploadCustomField } from './types';
+
+export interface IFileUploadProps {
   children?: any;
   customPreview?: boolean;
   onChange: (...args: any[]) => void;
@@ -16,7 +18,9 @@ interface IFileUploadProps {
   actionText?: any;
   selectOptions: any[];
   storeKey?: string;
+  customFields?: IFileUploadCustomField[];
 }
+
 const FileUpload: React.SFC<IFileUploadProps> = ({
   onChange,
   handleDrop: handleDropProp,
@@ -26,6 +30,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
   actionText,
   selectOptions,
   storeKey,
+  customFields,
   ...attr
 }) => {
   const [previewImages, setPreviewImages]: any[] = useState([]);
@@ -221,6 +226,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
           handleSelectChange={handleSelectChange}
           selectOptions={selectOptions}
           copyToOthers={copyToOthers}
+          customFields={customFields}
           {...attr}
         >
           <Actions
@@ -248,6 +254,7 @@ const FileUpload: React.SFC<IFileUploadProps> = ({
               handleSelectChange={handleSelectChange}
               selectOptions={selectOptions}
               copyToOthers={copyToOthers}
+              customFields={customFields}
             />
           )}
         </>
