@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 interface IToggleInputTypeProps {
   type: string | undefined;
   toggleType: (newType: string) => void;
 }
+
 interface IPasswordState {
-  icon: string;
+  icon: JSX.Element;
   status: string;
   text: string;
 }
@@ -15,13 +17,13 @@ const ToggleInputType = ({
   toggleType
 }: IToggleInputTypeProps): JSX.Element => {
   const passwordDefaultClasses: IPasswordState = {
-    icon: "visibility_off",
+    icon: <MdVisibility />,
     status: "active",
     text: "Show"
   };
 
   const passwordActiveClasses: IPasswordState = {
-    icon: "visibility",
+    icon: <MdVisibilityOff />,
     status: "hide",
     text: "Hide"
   };
@@ -51,8 +53,8 @@ const ToggleInputType = ({
       className={`show-hide-password ${status}`}
       role="button"
     >
+      {icon}
       {text}
-      <i className="material-icons">{icon}</i>
     </span>
   );
 };
