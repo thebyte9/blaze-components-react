@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FileList from '../FileList';
+import { IFileUploadCustomField } from '../types';
+
 interface IDraggableFileUpload {
   handleLibraryClick?: (...args: any[]) => void;
   handleBrowse?: (...args: any[]) => void;
@@ -12,6 +14,7 @@ interface IDraggableFileUpload {
   selectOptions: any[];
   children: JSX.Element | JSX.Element[];
   copyToOthers: (name: string, index: number) => void;
+  customFields?: IFileUploadCustomField[];
 }
 const DraggableFileUpload = ({
   handleCancel,
@@ -23,8 +26,9 @@ const DraggableFileUpload = ({
   children,
   selectOptions,
   copyToOthers,
+  customFields,
   ...attrs
-}: IDraggableFileUpload) => {
+}: IDraggableFileUpload): JSX.Element => {
   const [imagesToPreview, setImagesToPreview] = useState(previewImages);
   useEffect(() => setImagesToPreview(previewImages), [previewImages]);
   return (
@@ -47,6 +51,7 @@ const DraggableFileUpload = ({
           handleSelectChange={handleSelectChange}
           selectOptions={selectOptions}
           copyToOthers={copyToOthers}
+          customFields={customFields}
         />
       )}
     </div>
