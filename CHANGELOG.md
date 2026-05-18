@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.118](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.117...v0.8.0-alpha.118) (2026-05-18)
+
+
+### Features
+
+* allow custom fields on the file upload form ([#742](https://github.com/thebyte9/blaze-components-react/issues/742)) ([f04079a](https://github.com/thebyte9/blaze-components-react/commit/f04079af4de62e0d900531316590432a019f536d))
+
+
+
+
+
 # [0.8.0-alpha.117](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.116...v0.8.0-alpha.117) (2026-03-11)
 
 
