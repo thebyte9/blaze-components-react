@@ -2702,7 +2702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discoveryjs/json-ext@npm:0.5.7, @discoveryjs/json-ext@npm:^0.5.3":
+"@discoveryjs/json-ext@npm:0.5.7, @discoveryjs/json-ext@npm:^0.5.0, @discoveryjs/json-ext@npm:^0.5.3":
   version: 0.5.7
   resolution: "@discoveryjs/json-ext@npm:0.5.7"
   checksum: ee01d84c0afc5a32090a3376f4d0aeab113ce6e6e75dac7843ae29689a3adfd173e8339415115348be2385521e15361ff65e5144e1e5d8e064d062a477acdbba
@@ -7372,6 +7372,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@webpack-cli/configtest@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@webpack-cli/configtest@npm:1.2.0"
+  peerDependencies:
+    webpack: 4.x.x || 5.x.x
+    webpack-cli: 4.x.x
+  checksum: 6a8153d50f8b0862333b15a86ecfd5d2c0831db8aeb1b5e9c08f2bf09c876aca8da76055aeb9d4ec4673824b10bebdc258f156ce1515ad76e05ce9b3ada33fe6
+  languageName: node
+  linkType: hard
+
+"@webpack-cli/info@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "@webpack-cli/info@npm:1.5.0"
+  dependencies:
+    envinfo: ^7.7.3
+  peerDependencies:
+    webpack-cli: 4.x.x
+  checksum: ec67df137f0a22498384bfbb54c0d9e87f81b244ecef3c83c188620397e32ac729cfb9d15bbf90b0759c82ca140d95376c6c7502533a24c727d9773198bf6ea7
+  languageName: node
+  linkType: hard
+
+"@webpack-cli/serve@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "@webpack-cli/serve@npm:1.7.0"
+  peerDependencies:
+    webpack-cli: 4.x.x
+  peerDependenciesMeta:
+    webpack-dev-server:
+      optional: true
+  checksum: 43ab8493f33ab77869a0e46cc4301eb755f92a9fba08b9e55bdd886d276d6c26e6f35df8fcedbe82468032ba75d8f4a4b1674572e102ac3d750c9d114930c39b
+  languageName: node
+  linkType: hard
+
 "@webpack-contrib/schema-utils@npm:^1.0.0-beta.0":
   version: 1.0.0-beta.0
   resolution: "@webpack-contrib/schema-utils@npm:1.0.0-beta.0"
@@ -8996,6 +9029,7 @@ __metadata:
     typescript: 4.2.4
     webpack: ^5.28.0
     webpack-bundle-analyzer: ^4.4.2
+    webpack-cli: ^4.6.0
     webpack-dev-server: ^3.11.2
     webpack-merge: ^5.7.3
   peerDependencies:
@@ -10129,7 +10163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colorette@npm:^2.0.16":
+"colorette@npm:^2.0.14, colorette@npm:^2.0.16":
   version: 2.0.20
   resolution: "colorette@npm:2.0.20"
   checksum: e61117c8ddf1787110bdb09b8a8a62ba0f2cf33330f0b9b4dbe125abc81052972df6ef829d583cb137351f0113bd4b11b8a4989508d923fa132ff8295f0bd045
@@ -10183,7 +10217,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^7.2.0":
+"commander@npm:^7.0.0, commander@npm:^7.2.0":
   version: 7.2.0
   resolution: "commander@npm:7.2.0"
   checksum: bdc0eca5e25cd24af8440163d3c9a996785bbac4b49a590365699cdc1ed08cefbac8f268153208ab2bc5dc3cb1d3fb573fd1590c681e36e371342186bd331a4c
@@ -12222,6 +12256,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"envinfo@npm:^7.7.3":
+  version: 7.21.0
+  resolution: "envinfo@npm:7.21.0"
+  bin:
+    envinfo: dist/cli.js
+  checksum: 3fb3a3b27d30f15f706d51d1efbcd585c9397ebd95e39c1f41c9ea7f19527b68cbdcfd526e881fe9c1fee0e20cfe36086721ca3cf85dfbb6f1f4de006091b28a
+  languageName: node
+  linkType: hard
+
 "envinfo@npm:^7.7.4":
   version: 7.11.1
   resolution: "envinfo@npm:7.11.1"
@@ -13301,6 +13344,13 @@ __metadata:
   version: 2.0.6
   resolution: "fast-levenshtein@npm:2.0.6"
   checksum: a2d03af3088b0397633e007fb3010ecfa4f91cae2116d2385653c59396a1b31467641afa672a79e6f82218518670dc144128378124e711e35dbf90bc82846f22
+  languageName: node
+  linkType: hard
+
+"fastest-levenshtein@npm:^1.0.12":
+  version: 1.0.16
+  resolution: "fastest-levenshtein@npm:1.0.16"
+  checksum: 683cbfa3bbf78b31931c6aab47ab88863c69b1a787ad1a13cade7e2ad43666bdd687db012bf6e4048adfb8201a2290e6e7134cb9b8f57258f0c2818e0c7cb76e
   languageName: node
   linkType: hard
 
@@ -14638,6 +14688,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hasown@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "hasown@npm:2.0.3"
+  dependencies:
+    function-bind: ^1.1.2
+  checksum: f8d301a0b9dedcbad3c34dfec28cab59202e1612ff32a7f9124c48e15f1d37bba72316ea9857805319e736132c7064bf1829807a66c7c210ca2984eaa7a5cbc4
+  languageName: node
+  linkType: hard
+
 "hast-to-hyperscript@npm:^9.0.0":
   version: 9.0.1
   resolution: "hast-to-hyperscript@npm:9.0.1"
@@ -15681,6 +15740,15 @@ __metadata:
   dependencies:
     hasown: ^2.0.0
   checksum: a19e63cd9a1c0b8f1dee0ed3d7c4b0ac80319155f41e117fee6133b41c93f77bedf5c7ce77f93b3fbe3b8e855e94f608266aff7c79b6d9a0704d981c3a29968e
+  languageName: node
+  linkType: hard
+
+"is-core-module@npm:^2.16.1":
+  version: 2.16.2
+  resolution: "is-core-module@npm:2.16.2"
+  dependencies:
+    hasown: ^2.0.3
+  checksum: a0a1eabbd5ce26b0fb8de5c8bd49b599f3dad8cd11ff2a2aa87338e744e3108724549b6faa28c7bb162ec98d225adbbcb353dda73d15cdbd39bf9356e832ca89
   languageName: node
   linkType: hard
 
@@ -22335,6 +22403,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rechoir@npm:^0.7.0":
+  version: 0.7.1
+  resolution: "rechoir@npm:0.7.1"
+  dependencies:
+    resolve: ^1.9.0
+  checksum: 7b554df78bff67e0371394d34ac401252af1e4129a19cb5155213e04114a6ce90b692fcc5cb47329296ec3b72da5da00ea681d5fb727c83346d4615100791b0d
+  languageName: node
+  linkType: hard
+
 "redent@npm:^1.0.0":
   version: 1.0.0
   resolution: "redent@npm:1.0.0"
@@ -22756,6 +22833,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+resolve@^1.9.0:
+  version: 1.22.12
+  resolution: "resolve@npm:1.22.12"
+  dependencies:
+    es-errors: ^1.3.0
+    is-core-module: ^2.16.1
+    path-parse: ^1.0.7
+    supports-preserve-symlinks-flag: ^1.0.0
+  bin:
+    resolve: bin/resolve
+  checksum: 401f2e35eda49ae3e22a687da70be08e43f6596fad7245c1275c5756b901b499ed142c2c8c0b2b6c5e3955a87497ef298732586b22da97693e058bdc78054cc0
+  languageName: node
+  linkType: hard
+
 resolve@^2.0.0-next.4:
   version: 2.0.0-next.5
   resolution: "resolve@npm:2.0.0-next.5"
@@ -22779,6 +22870,20 @@ resolve@^2.0.0-next.4:
   bin:
     resolve: bin/resolve
   checksum: 798a84fbca24b1cba5f04de74096516de847abe6423fd474d96a1a09056c4ea2de84dfdf5a5d8ad758fd2c97bf85d70536f213091abe7f241202a6f1e03b33c9
+  languageName: node
+  linkType: hard
+
+"resolve@patch:resolve@^1.9.0#builtin<compat/resolve>":
+  version: 1.22.12
+  resolution: "resolve@patch:resolve@npm%3A1.22.12#builtin<compat/resolve>::version=1.22.12&hash=3388aa"
+  dependencies:
+    es-errors: ^1.3.0
+    is-core-module: ^2.16.1
+    path-parse: ^1.0.7
+    supports-preserve-symlinks-flag: ^1.0.0
+  bin:
+    resolve: bin/resolve
+  checksum: 3d5d414bb2e8114b995ddec84d74ae362da8e3d095add6388a7a92668ab3cd56a20021f6e43880bc16af0336069c16107e71e6c7af8b580ba96e8d28e482e6b1
   languageName: node
   linkType: hard
 
@@ -26138,6 +26243,39 @@ typescript@4.2.4:
   bin:
     webpack-bundle-analyzer: lib/bin/analyzer.js
   checksum: a227c7f37bde2bcd4fcad5ac981455bb41158fe37071e9fa77770151548d6b8a14739b19785c8f9228e4241b2471f977bd5a49b3842d34d9faedcecf28432bed
+  languageName: node
+  linkType: hard
+
+"webpack-cli@npm:^4.6.0":
+  version: 4.10.0
+  resolution: "webpack-cli@npm:4.10.0"
+  dependencies:
+    "@discoveryjs/json-ext": ^0.5.0
+    "@webpack-cli/configtest": ^1.2.0
+    "@webpack-cli/info": ^1.5.0
+    "@webpack-cli/serve": ^1.7.0
+    colorette: ^2.0.14
+    commander: ^7.0.0
+    cross-spawn: ^7.0.3
+    fastest-levenshtein: ^1.0.12
+    import-local: ^3.0.2
+    interpret: ^2.2.0
+    rechoir: ^0.7.0
+    webpack-merge: ^5.7.3
+  peerDependencies:
+    webpack: 4.x.x || 5.x.x
+  peerDependenciesMeta:
+    "@webpack-cli/generators":
+      optional: true
+    "@webpack-cli/migrate":
+      optional: true
+    webpack-bundle-analyzer:
+      optional: true
+    webpack-dev-server:
+      optional: true
+  bin:
+    webpack-cli: bin/cli.js
+  checksum: 81f7e9a2277a26e3386c6086626fe0f26eaa865be0340cca491b60df96b5ceb5f0df2573eb45120d71c594bebf9c24fcc8325423a95b080f5c0022decb427ca4
   languageName: node
   linkType: hard
 
