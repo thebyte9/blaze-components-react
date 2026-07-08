@@ -1,4 +1,5 @@
 .nestable {
+  width: 100%;
   position: relative;
 }
 
@@ -15,17 +16,14 @@
 .nestable > .nestable-list {
   padding: 0;
 }
-.nestable-item,
-.nestable-item-copy {
-  margin: 10px 0 0;
-}
+
 .nestable-item:first-child,
 .nestable-item-copy:first-child {
   margin-top: 0;
 }
 .nestable-item .nestable-list,
 .nestable-item-copy .nestable-list {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .nestable-item-copy.is-dragging {
@@ -34,41 +32,152 @@
 
 .nestable-item {
   position: relative;
+  padding:  30px 30px 5px 30px;
 }
 .nestable-item.is-dragging .nestable-list {
   pointer-events: none;
 }
-.nestable-item.is-dragging * {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
+
+// Deferred-placement model: the dragged node stays exactly where it is (it is
+// NOT removed or carried around as a full-length preview). We only dim it a
+// little so the user can tell which node is in flight.
+.nestable-item.is-dragging {
+  opacity: 0.4;
 }
-.nestable-item.is-dragging:before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #87ceeb;
-  border: 1px dashed #4682b4;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
+
 .nestable-item-icon {
   margin-right: 5px;
   cursor: pointer;
 }
+
+// --- Drop indicator --------------------------------------------------------
+// Two visually distinct states:
+//  * before / after  -> a thin horizontal LINE above/below the item, meaning
+//                        "place as a sibling here". Height is fixed regardless
+//                        of the dragged component's size, so nothing shifts.
+//  * inside           -> an inset HIGHLIGHT contained WITHIN the target item,
+//                        meaning "nest into this container". Uses a different
+//                        accent colour + fill so it never reads like a sibling
+//                        line under the component.
+$nestable-drop-color: #4682b4; // sibling placement (blue)
+$nestable-drop-thickness: 3px;
+$nestable-nest-color: #2e7d32; // nesting placement (green)
+
+.nestable-item.drop-before,
+.nestable-item.drop-after,
+.nestable-item.drop-inside {
+  position: relative;
+}
+
+// Sibling placement lines (before / after).
+.nestable-item.drop-before::before,
+.nestable-item.drop-after::after {
+  content: '';
+  position: absolute;
+  right: 30px;
+  left: 30px;
+  height: $nestable-drop-thickness;
+  background: $nestable-drop-color;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.nestable-item.drop-before::before {
+  top: 12px;
+}
+
+// Sit the "beneath" line evenly in the gap between the two components rather
+// than hugging the bottom edge of the current one.
+.nestable-item.drop-after::after {
+  bottom: -16px;
+}
+
+// Nest inside: highlight the interior of the target so it clearly reads as the
+// new parent container rather than a placement above/below it.
+.nestable-item.drop-inside > .nestable-item-name {
+  position: relative;
+  border-radius: 6px;
+  background: rgba(46, 125, 50, 0.08);
+  box-shadow: inset 0 0 0 2px $nestable-nest-color;
+}
+
+// The actual insertion line for a nested drop sits INSIDE the target and is
+// indented further in, so it visibly belongs to the container's inner content
+// (as a child) rather than sitting under the component like a sibling line.
+.nestable-item.drop-inside > .nestable-item-name::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  right: 12px;
+  bottom: 10px;
+  height: $nestable-drop-thickness;
+  background: $nestable-drop-color;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 11;
+}
+
+// A small "nest here" chip pinned inside the target's top-right corner adds an
+// unmistakable, non-line cue that this is a nesting action.
+.nestable-item.drop-inside > .nestable-item-name::after {
+  content: 'Nest inside';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 2px 8px;
+  background: $nestable-nest-color;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 11;
+}
+
+// --- Cursor badge ----------------------------------------------------------
+// A small indicator attached to the pointer instead of a full-size nested copy.
+// Portalled to <body>, so a very high z-index keeps it above admin panels and
+// modals regardless of where the nestable is mounted.
 .nestable-drag-layer {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 100000;
   pointer-events: none;
+  will-change: transform;
 }
-.nestable-drag-layer > .nestable-list {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0;
+
+.nestable-drag-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: $nestable-drop-color;
+  color: #fff;
+  border-radius: 18px;
+  font-size: 13px;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+.nestable-drag-badge .material-icons {
+  font-size: 18px;
+  margin-right: 6px;
+  opacity: 0.9;
+}
+.nestable-drag-badge__caption {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.75;
+  margin-right: 6px;
+}
+.nestable-drag-badge__label {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
 }
