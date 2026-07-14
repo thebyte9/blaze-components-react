@@ -49,6 +49,7 @@ class Nestable extends Component<INestableProps, INestableState> {
   public el: any;
   private dragLayerRef: any;
   private hovered: { item: any; el: any } | null;
+  private lastPointer: { x: number; y: number } | null;
 
   constructor(props: INestableProps) {
     super(props);
@@ -61,6 +62,7 @@ class Nestable extends Component<INestableProps, INestableState> {
     this.dragLayerRef = createRef();
     this.el = null;
     this.hovered = null;
+    this.lastPointer = null;
   }
 
   public componentDidMount() {
@@ -84,38 +86,57 @@ class Nestable extends Component<INestableProps, INestableState> {
   }
 
   public startTrackMouse = () => {
-    document.addEventListener('mousemove', this.onMouseMove);
-    document.addEventListener('mouseup', this.onDragEnd);
+    // Capture phase: host apps may stopPropagation on mouse/drag events in
+    // intermediate elements; capture guarantees the tracker still sees them.
+    document.addEventListener('mousemove', this.onMouseMove, true);
+    document.addEventListener('mouseup', this.onDragEnd, true);
     // The drag handle is a native `draggable` element, so during a real HTML5
     // drag the browser suppresses mousemove/mouseup and emits drag events
     // instead. Track those too so the cursor badge follows and the drop is
     // applied regardless of which model the browser uses.
-    document.addEventListener('dragover', this.onDragOver);
-    document.addEventListener('drop', this.onDragEnd);
-    document.addEventListener('dragend', this.onDragEnd);
+    document.addEventListener('dragover', this.onDragOver, true);
+    document.addEventListener('drop', this.onDragEnd, true);
+    document.addEventListener('dragend', this.onDragEnd, true);
   };
 
   public stopTrackMouse = () => {
-    document.removeEventListener('mousemove', this.onMouseMove);
-    document.removeEventListener('mouseup', this.onDragEnd);
-    document.removeEventListener('dragover', this.onDragOver);
-    document.removeEventListener('drop', this.onDragEnd);
-    document.removeEventListener('dragend', this.onDragEnd);
+    document.removeEventListener('mousemove', this.onMouseMove, true);
+    document.removeEventListener('mouseup', this.onDragEnd, true);
+    document.removeEventListener('dragover', this.onDragOver, true);
+    document.removeEventListener('drop', this.onDragEnd, true);
+    document.removeEventListener('dragend', this.onDragEnd, true);
   };
 
   // Resolve the portalled drag-layer node (ref first, DOM fallback) and glue it
-  // to the cursor. Shared by the mouse and drag handlers.
+  // to the cursor. Shared by the mouse and drag handlers. Records the pointer so
+  // the layer can be positioned immediately when it mounts (it does not exist
+  // yet during the dragstart event itself).
   public positionLayer = (clientX: number, clientY: number) => {
+    this.lastPointer = { x: clientX, y: clientY };
     const dragLayer =
       this.dragLayerRef.current ||
       (typeof document !== 'undefined' && document.querySelector('.nestable-drag-layer'));
-    if (dragLayer && dragLayer.style) {
-      const transformProps = getTransformProps(clientX + 12, clientY + 12);
+    this.applyLayerTransform(dragLayer);
+  };
+
+  private applyLayerTransform = (dragLayer: any) => {
+    if (dragLayer && dragLayer.style && this.lastPointer) {
+      const transformProps = getTransformProps(this.lastPointer.x + 12, this.lastPointer.y + 12);
       Object.keys(transformProps).forEach((key) => {
         if (Object.prototype.hasOwnProperty.call(transformProps, key)) {
           dragLayer.style[key] = transformProps[key];
         }
       });
+    }
+  };
+
+  // Callback ref for the portalled layer: position it at the cursor the moment
+  // it mounts, instead of flashing at the viewport origin until the first
+  // tracked event arrives.
+  private setDragLayerNode = (node: any) => {
+    this.dragLayerRef.current = node;
+    if (node) {
+      this.applyLayerTransform(node);
     }
   };
 
@@ -338,7 +359,7 @@ class Nestable extends Component<INestableProps, INestableState> {
             />
           ))}
         </ol>
-        {dragItem && <DragLayer dragLayerRef={this.dragLayerRef} label={this.getItemLabel(dragItem)} />}
+        {dragItem && <DragLayer dragLayerRef={this.setDragLayerNode} label={this.getItemLabel(dragItem)} />}
       </div>
     );
   }

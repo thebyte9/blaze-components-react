@@ -33,6 +33,21 @@ const NestableItem: React.SFC<INestableItemProps> = ({
   renderItem: RenderItem,
   childrenProp,
 }) => {
+  // The drag handle must be a STABLE component type. An inline
+  // `() => <DragHandler/>` creates a new type on every render, so the re-render
+  // triggered by drag start (is-dragging / drop indicators) unmounts and
+  // remounts the handle — detaching the native drag's source element. Chrome
+  // then stops delivering drag events for that drag (and dragend on a detached
+  // source is lost, leaving the drag layer stuck on screen).
+  const latest = React.useRef({ item, onDragStart });
+  latest.current = { item, onDragStart };
+  const BoundDragHandler = React.useMemo(
+    () => () => (
+      <DragHandler onDragStart={(e: any) => latest.current.onDragStart(e, latest.current.item)} />
+    ),
+    []
+  );
+
   const isDragging = dragItem && dragItem.id === item.id;
   const hasChildrenProperty = item[childrenProp];
   const hasChildren = item[childrenProp] && item[childrenProp].length;
@@ -54,11 +69,7 @@ const NestableItem: React.SFC<INestableItemProps> = ({
       onMouseMove={(e) => onMouseEnter(e, item)}
     >
       <div className="nestable-item-name">
-        <RenderItem
-          item={item}
-          index={index}
-          DragHandler={() => <DragHandler onDragStart={(e) => onDragStart(e, item)} />}
-        >
+        <RenderItem item={item} index={index} DragHandler={BoundDragHandler}>
           {hasChildrenProperty && hasChildren ? (
             <ol className="nestable-list">
               {item[childrenProp].map((element: any, i: number) => (
