@@ -1,9 +1,7 @@
 import React from "react";
 
 const dragLayerProps = {
-  group: "group",
-  dragItem: { id: "fakeId" },
-  children: "<div>children</div>",
+  label: "socialshare-1",
   dragLayerRef: React.createRef()
 };
 
