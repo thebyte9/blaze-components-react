@@ -9,12 +9,17 @@ exports[`Drag layer should render without throwing error 1`] = `
   >
     <div
       class="nestable-drag-badge"
+      data-testid="nestable-drag-badge"
     >
-      <i
-        class="material-icons"
+      <span
+        class="nestable-drag-badge__icon"
       >
-        drag_indicator
-      </i>
+        <i
+          class="material-icons"
+        >
+          drag_indicator
+        </i>
+      </span>
       <span
         class="nestable-drag-badge__caption"
       >

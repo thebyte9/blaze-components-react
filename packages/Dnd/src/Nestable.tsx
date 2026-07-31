@@ -25,6 +25,8 @@ interface INestableProps {
   renderItem?: (...args: any[]) => any;
   onChange?: any;
   confirmChange?: any;
+  canNestInside?: (item: any) => boolean;
+  renderDragIcon?: (item: any) => any;
   childrenWrapperClassName?: any;
 }
 
@@ -257,43 +259,69 @@ class Nestable extends Component<INestableProps, INestableState> {
     const headerHeight = Math.max(headerBottom - rect.top, 1);
     const offsetY = clientY - rect.top;
 
-    // Only permit nesting "inside" a target that can actually hold children (its
-    // childrenProp is an array). Leaf components keep childrenProp null, so
-    // dropping onto them falls back to sibling placement instead of the node
-    // disappearing into a container that never renders it.
-    const canNestInside = Array.isArray(overItem[childrenProp]);
+    // Whether this target can hold children. By default we infer it from the data
+    // shape (childrenProp is an array), which keeps flat reorder lists flat.
+    //
+    // That inference alone is too strict for schema-driven hosts: listWithChildren
+    // normalises a missing children key to `null`, so a container that has never
+    // held a child looks identical to a leaf and could never be nested into — the
+    // most common "I can't drop inside this" case. Hosts that know better (the page
+    // builder reads `allowChildren` off the component schema) pass `canNestInside`
+    // and own the decision. Creating the array on drop is already safe:
+    // insertByTarget falls back to [] when childrenProp is null.
+    const { canNestInside: canNestInsideProp } = this.props;
+    const canNestInside =
+      typeof canNestInsideProp === 'function'
+        ? canNestInsideProp(overItem)
+        : Array.isArray(overItem[childrenProp]);
 
-    // Generous, pixel-based sibling bands so dropping "between" is easy and short
-    // items (e.g. video) still expose a usable "after" zone.
-    const band = Math.max(headerHeight * 0.35, 16);
-
-    let mode: DropMode;
+    let intent: DropMode;
     if (canNestInside) {
+      // Sibling placement is already easy to hit OUTSIDE the header: a row's top
+      // padding sits above rect.top, so offsetY goes negative there and reads as
+      // `before`, and the gap beneath a row is covered by the next row's own
+      // before-zone. So keep the in-header edge bands narrow and let the body of
+      // a container header mean "nest inside" — that is where users aim.
+      //
+      // These bands used to be max(35% of header, 16px), which met in the middle
+      // on compact headers: at 32px they left no inside zone at all, and at 40px
+      // only an 8px sliver, making nesting unreachable exactly where it was most
+      // expected. The 30% ceiling guarantees the inside zone keeps >= 40% of the
+      // header at any height.
+      const band = Math.min(Math.max(headerHeight * 0.2, 6), 12, headerHeight * 0.3);
       if (offsetY <= band) {
-        mode = 'before';
+        intent = 'before';
       } else if (offsetY >= headerHeight - band) {
-        mode = 'after';
+        intent = 'after';
       } else {
-        mode = 'inside';
+        intent = 'inside';
       }
     } else {
-      mode = offsetY < headerHeight / 2 ? 'before' : 'after';
-    }
-
-    // before/after on the dragged node itself is a no-op.
-    if ((mode === 'before' || mode === 'after') && overItem.id === dragItem.id) {
-      if (this.state.dropTarget) {
-        this.setState({ dropTarget: null });
-      }
-      return;
+      intent = offsetY < headerHeight / 2 ? 'before' : 'after';
     }
 
     // Resolve the destination parent for confirmChange: the hovered item when
     // nesting inside, otherwise the hovered item's parent.
     const found = findItemWithParent(items, childrenProp, overItem.id);
-    const destinationParent = mode === 'inside' ? overItem : found && found.parent;
 
-    if (!confirmChange(dragItem, destinationParent)) {
+    // Candidate placements, best first. When the pointer asks to nest but the
+    // destination refuses children (confirmChange — e.g. a component whose schema
+    // sets allowChildren false), degrade to sibling placement instead of clearing
+    // the indicator. Showing nothing while the pointer sits over a header reads as
+    // "drag and drop is broken" rather than "you cannot nest here".
+    const siblingFallback: DropMode = offsetY < headerHeight / 2 ? 'before' : 'after';
+    const candidates: DropMode[] = intent === 'inside' ? ['inside', siblingFallback] : [intent];
+
+    let mode: DropMode | null = null;
+    for (const candidate of candidates) {
+      const destinationParent = candidate === 'inside' ? overItem : found && found.parent;
+      if (confirmChange(dragItem, destinationParent)) {
+        mode = candidate;
+        break;
+      }
+    }
+
+    if (!mode) {
       if (this.state.dropTarget) {
         this.setState({ dropTarget: null });
       }
@@ -338,7 +366,7 @@ class Nestable extends Component<INestableProps, INestableState> {
 
   public render() {
     const { items, dragItem, dropTarget } = this.state;
-    const { renderItem, childrenProp } = this.props;
+    const { renderItem, childrenProp, renderDragIcon } = this.props;
     const wrapperClassName = buildClassNames('nestable', {
       'is-dragging': dragItem,
     });
@@ -359,7 +387,14 @@ class Nestable extends Component<INestableProps, INestableState> {
             />
           ))}
         </ol>
-        {dragItem && <DragLayer dragLayerRef={this.setDragLayerNode} label={this.getItemLabel(dragItem)} />}
+        {dragItem && (
+          <DragLayer
+            dragLayerRef={this.setDragLayerNode}
+            label={this.getItemLabel(dragItem)}
+            mode={dropTarget ? dropTarget.mode : null}
+            icon={renderDragIcon ? renderDragIcon(dragItem) : null}
+          />
+        )}
       </div>
     );
   }

@@ -51,17 +51,41 @@
 }
 
 // --- Drop indicator --------------------------------------------------------
-// Two visually distinct states:
-//  * before / after  -> a thin horizontal LINE above/below the item, meaning
-//                        "place as a sibling here". Height is fixed regardless
-//                        of the dragged component's size, so nothing shifts.
-//  * inside           -> an inset HIGHLIGHT contained WITHIN the target item,
-//                        meaning "nest into this container". Uses a different
-//                        accent colour + fill so it never reads like a sibling
-//                        line under the component.
-$nestable-drop-color: #4682b4; // sibling placement (blue)
-$nestable-drop-thickness: 3px;
-$nestable-nest-color: #2e7d32; // nesting placement (green)
+// A caret + line marks the insertion point: a solid rule with a triangle at its
+// left edge pointing into the gap, so it reads as "insert here" rather than as a
+// divider. Two states:
+//  * before / after  -> the rule sits in the gap above/below the item, meaning
+//                        "place as a sibling here". Fixed height, so nothing
+//                        reflows when it appears.
+//  * inside          -> the rule is drawn INSIDE the target and indented further
+//                        in, wrapped by an inset ring on the target, meaning "nest
+//                        into this container".
+// One accent colour throughout: the rule's containment and indent are what read as
+// nesting, so a second hue was redundant signal on top of the ring.
+$nestable-drop-color: #4682b4; // placement accent (blue)
+// The caret is an inline SVG background rather than a border triangle: `::before`
+// and `::after` on the row are already taken by the before/after states, so the
+// caret and its line must share a single pseudo-element. `#` is not URL-safe in a
+// data URI, so the accent also needs its bare hex.
+$nestable-drop-color-hex: '4682b4';
+$nestable-caret-height: 12px;
+$nestable-caret-width: 8px;
+$nestable-line-thickness: 2px;
+
+@mixin nestable-caret-line($z-index: 11) {
+  content: '';
+  position: absolute;
+  height: $nestable-caret-height;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cpath d='M0 0 L8 6 L0 12 Z' fill='%23#{$nestable-drop-color-hex}'/%3E%3C/svg%3E"),
+    linear-gradient($nestable-drop-color, $nestable-drop-color);
+  background-repeat: no-repeat, no-repeat;
+  background-position: left center, $nestable-caret-width center;
+  background-size: $nestable-caret-width $nestable-caret-height,
+    calc(100% - #{$nestable-caret-width}) $nestable-line-thickness;
+  pointer-events: none;
+  z-index: $z-index;
+}
 
 .nestable-item.drop-before,
 .nestable-item.drop-after,
@@ -69,72 +93,49 @@ $nestable-nest-color: #2e7d32; // nesting placement (green)
   position: relative;
 }
 
-// Sibling placement lines (before / after).
+// Sibling placement (before / after). At 12px tall the rule fits the 30px inter-row
+// gap and passes BEHIND the row's add button (z-index 9 against the button's 10), so
+// the button stays on top and the line reads as continuous behind it.
 .nestable-item.drop-before::before,
 .nestable-item.drop-after::after {
-  content: '';
-  position: absolute;
-  right: 30px;
-  left: 30px;
-  height: $nestable-drop-thickness;
-  background: $nestable-drop-color;
-  border-radius: 2px;
-  pointer-events: none;
-  z-index: 10;
+  @include nestable-caret-line(9);
+  right: 24px;
+  left: 24px;
 }
 
+// Centre the rule in the 30px gap created by `.nestable-item`'s top padding.
 .nestable-item.drop-before::before {
-  top: 12px;
+  top: ($nestable-caret-height / 2) + 3px;
 }
 
-// Sit the "beneath" line evenly in the gap between the two components rather
-// than hugging the bottom edge of the current one.
+// Mirror the inset below, so before/after read identically.
 .nestable-item.drop-after::after {
-  bottom: -16px;
+  bottom: -(30px - (($nestable-caret-height / 2) + 3px));
 }
 
-// Nest inside: highlight the interior of the target so it clearly reads as the
-// new parent container rather than a placement above/below it.
+// Nest inside: highlight the interior of the target so it clearly reads as the new
+// parent container rather than a placement above/below it.
 .nestable-item.drop-inside > .nestable-item-name {
   position: relative;
   border-radius: 6px;
-  background: rgba(46, 125, 50, 0.08);
-  box-shadow: inset 0 0 0 2px $nestable-nest-color;
+  background: rgba(70, 130, 180, 0.08);
+  box-shadow: inset 0 0 0 2px $nestable-drop-color;
 }
 
-// The actual insertion line for a nested drop sits INSIDE the target and is
-// indented further in, so it visibly belongs to the container's inner content
-// (as a child) rather than sitting under the component like a sibling line.
+// The insertion rule for a nested drop sits INSIDE the target and is indented
+// further in, so it visibly belongs to the container's inner content (as a child)
+// rather than sitting under the component like a sibling. It sits above the ring
+// (z-index 11) since it is drawn within the highlighted box.
 .nestable-item.drop-inside > .nestable-item-name::before {
-  content: '';
-  position: absolute;
+  @include nestable-caret-line;
   left: 24px;
   right: 12px;
-  bottom: 10px;
-  height: $nestable-drop-thickness;
-  background: $nestable-drop-color;
-  border-radius: 2px;
-  pointer-events: none;
-  z-index: 11;
+  bottom: 8px;
 }
 
-// A small "nest here" chip pinned inside the target's top-right corner adds an
-// unmistakable, non-line cue that this is a nesting action.
-.nestable-item.drop-inside > .nestable-item-name::after {
-  content: 'Nest inside';
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  padding: 2px 8px;
-  background: $nestable-nest-color;
-  color: #fff;
-  font-size: 10px;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  border-radius: 10px;
-  pointer-events: none;
-  z-index: 11;
-}
+// No corner chip: the row's right edge is already occupied by the visibility toggle
+// and the hover toolbar, so a pinned chip either collides with them or gets pushed
+// far enough left to overlap the component name.
 
 // --- Cursor badge ----------------------------------------------------------
 // A small indicator attached to the pointer instead of a full-size nested copy.
@@ -149,33 +150,65 @@ $nestable-nest-color: #2e7d32; // nesting placement (green)
   will-change: transform;
 }
 
+// A single-line card: the dragged component's own type icon in a tinted square,
+// then its name. Deliberately state-free — it does not recolour or reword as the
+// drop target changes. The line in the list already shows where the component will
+// land, and restating that on a badge tracking the cursor was competing noise.
 .nestable-drag-badge {
   display: inline-flex;
   align-items: center;
-  padding: 6px 12px;
-  background: $nestable-drop-color;
-  color: #fff;
-  border-radius: 18px;
+  padding: 6px 10px;
+  background: #fff;
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
   font-size: 13px;
-  line-height: 1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  line-height: 1.25;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   white-space: nowrap;
   transform: translateY(-50%);
 }
-.nestable-drag-badge .material-icons {
-  font-size: 18px;
-  margin-right: 6px;
-  opacity: 0.9;
+
+.nestable-drag-badge__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  border-radius: 5px;
+  background: rgba(70, 130, 180, 0.12);
+  color: $nestable-drop-color;
 }
+// The square holds either a font glyph (material-icons, or a deprecated `fa` icon)
+// or a host-supplied SVG — the page builder passes the dragged component's own type
+// icon. Clamp both to the square regardless of intrinsic size, and let the SVG
+// inherit `color` above via currentColor.
+.nestable-drag-badge__icon i {
+  font-size: 15px;
+}
+.nestable-drag-badge__icon svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+
+// Fixed "Moving" caption, as the original badge had. Muted via an explicit colour
+// rather than opacity — on this white card opacity would blend the text toward the
+// surface and drift if the card's background ever changes.
 .nestable-drag-badge__caption {
+  flex: 0 0 auto;
+  margin-right: 6px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 10px;
   font-weight: 600;
-  opacity: 0.75;
-  margin-right: 6px;
+  color: #6b6b6b;
 }
+
 .nestable-drag-badge__label {
+  min-width: 0;
   max-width: 220px;
   overflow: hidden;
   text-overflow: ellipsis;
