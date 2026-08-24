@@ -11,12 +11,7 @@ declare global {
 interface IUseInView {
   ref?: any;
   once?: boolean;
-  /**
-   * Passed straight to IntersectionObserver as `rootMargin`, so it accepts the
-   * full CSS-margin syntax — '200px', or '200px 0px -200px 0px' to grow the top
-   * of the trigger area while shrinking the bottom. There is no separate
-   * `bottomOffset` option: a caller wanting one expresses it here.
-   */
+  /** IntersectionObserver's rootMargin, so the full CSS-margin syntax works. */
   offset?: string;
 }
 
@@ -46,11 +41,8 @@ function useInView({ ref, once = true, offset = '0px' }: IUseInView) {
 
     observer.observe(current);
 
-    // Returned from the effect itself. It previously sat inside an `async` IIFE,
-    // so React received the IIFE's promise instead of a cleanup function and the
-    // observer was never disconnected — on unmount, or when the deps changed.
-    // Nothing here awaits anything, so the IIFE has been removed rather than
-    // worked around.
+    // Returned from the effect itself; it previously sat inside an `async` IIFE,
+    // so React never received it and the observer was never disconnected.
     return () => observer.disconnect();
   }, [offset, once, ref]);
 

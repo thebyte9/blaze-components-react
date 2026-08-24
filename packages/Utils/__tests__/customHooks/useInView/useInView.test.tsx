@@ -78,11 +78,8 @@ describe('Use in view', () => {
   });
 
   it('should disconnect the observer on unmount', () => {
-    // The previous version of this test spied on React.useEffect and asserted it
-    // had been called, which is true whether or not the effect returns a cleanup
-    // — so it passed while the observer was in fact never disconnected. The
-    // cleanup had been returned from an `async` IIFE rather than from the effect.
-    // Assert the observable consequence instead.
+    // The previous test spied on React.useEffect, which is called whether or not
+    // a cleanup is returned. Assert the observable consequence instead.
     const { unmount } = render(<Component />);
     const observer = MockedIntersectionObserver.getInstance();
     (observer.disconnect as jest.Mock).mockClear();
