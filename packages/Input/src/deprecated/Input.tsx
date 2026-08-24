@@ -1,5 +1,5 @@
 import { buildClassNames, ErrorMessage } from '@blaze-react/utils';
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useId, useState } from 'react';
 import ToggleInputType from '../ToggleInputType';
 import Tooltip from '@blaze-react/tooltip';
 
@@ -77,7 +77,14 @@ const Input: FunctionComponent<IInputProps> = ({
   const modifierClassName: string = buildClassNames({
     [`form-field--${modifier}`]: !!modifier,
   });
-  const fieldName = attrs.id || `input-${attrs.name || type}`;
+  // A caller that supplies neither id nor name used to fall back to
+  // `input-${type}`, so every text input on a form became id="input-text" and
+  // every label pointed `htmlFor` at the first one. Browsers resolve `for` to
+  // the first match, so the labels all described the same field — which breaks
+  // label association for screen readers and stops autofill matching fields to
+  // saved values. Fall back to a per-instance id instead.
+  const uniqueId = useId();
+  const fieldName = attrs.id || (attrs.name ? `input-${attrs.name}` : `input-${type}-${uniqueId}`);
 
   return (
     <div className={`form-field form-field--input ${modifierClassName} ${passwordClassName}`}>
