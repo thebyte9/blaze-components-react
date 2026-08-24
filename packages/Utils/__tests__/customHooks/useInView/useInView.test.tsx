@@ -70,9 +70,11 @@ describe('Use in view', () => {
   });
 
   it('should observe the element while mounted', () => {
+    const observer = MockedIntersectionObserver.getInstance();
+    (observer.observe as jest.Mock).mockClear();
     const { unmount } = render(<Component />);
 
-    expect(MockedIntersectionObserver.getInstance().observe).toHaveBeenCalled();
+    expect(observer.observe).toHaveBeenCalled();
 
     unmount();
   });
