@@ -98,4 +98,23 @@
   & i {
     font-size: 1rem;
   }
+
+  &--enabled {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__arrow {
+    opacity: 0;
+    transition: opacity 0.12s;
+  }
+
+  &--enabled:hover &__arrow {
+    opacity: 0.6;
+  }
+
+  &--active &__arrow,
+  &--active:hover &__arrow {
+    opacity: 1;
+  }
 }
