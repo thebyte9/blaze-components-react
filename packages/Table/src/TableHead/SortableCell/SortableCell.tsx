@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 
 interface IMap {
   [index: string]: any;
@@ -24,9 +24,9 @@ const SortableCell = ({
   }, {});
   const [tableColumns, setTableColumns] = useState(formatColumns);
 
-  type TSortDirection = "asc" | "desc" | null;
-  const asc: TSortDirection = "asc";
-  const desc: TSortDirection = "desc";
+  type TSortDirection = 'asc' | 'desc' | null;
+  const asc: TSortDirection = 'asc';
+  const desc: TSortDirection = 'desc';
   const hide: TSortDirection = null;
 
   const getSortDirection = (col: string): TSortDirection => {
@@ -36,18 +36,17 @@ const SortableCell = ({
     return tableColumns[col] === asc ? desc : asc;
   };
 
-  const sort = (col: any) => {
-    if (!orderBy.includes(col)) {
+  const isSortable = orderBy.includes(column);
+
+  const sort = () => {
+    if (!isSortable) {
       return;
     }
 
-    const resetTableColumns = Object.keys(tableColumns).reduce(
-      (acc: any, key: any) => {
-        acc[key] = hide;
-        return acc;
-      },
-      {}
-    );
+    const resetTableColumns = Object.keys(tableColumns).reduce((acc: any, key: any) => {
+      acc[key] = hide;
+      return acc;
+    }, {});
 
     const sortDirection = getSortDirection(column);
 
@@ -75,23 +74,36 @@ const SortableCell = ({
     }
   }, [appliedSort]);
 
-  return (
-    <div className="sortable">
-      <span
-        data-testid={`sortby-${column}`}
-        onClick={() => sort(column)}
-        role="button"
-      >
-        {labels[column]}
-      </span>
+  const currentDirection = tableColumns[column];
 
-      {tableColumns[column] !== hide && (
-        <i className="material-icons">
-          {tableColumns[column] === asc
-            ? "keyboard_arrow_up"
-            : "keyboard_arrow_down"}
-        </i>
-      )}
+  if (!isSortable) {
+    return (
+      <div className="sortable">
+        <span data-testid={`sortby-${column}`}>{labels[column]}</span>
+      </div>
+    );
+  }
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      sort();
+    }
+  };
+
+  return (
+    <div
+      className={`sortable sortable--enabled${currentDirection !== hide ? ' sortable--active' : ''}`}
+      onClick={sort}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+    >
+      <span data-testid={`sortby-${column}`}>{labels[column]}</span>
+
+      <i className="material-icons sortable__arrow" aria-hidden="true">
+        {currentDirection === desc ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}
+      </i>
     </div>
   );
 };

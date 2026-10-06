@@ -1,7 +1,6 @@
 import { Checkboxes } from '@blaze-react/checkboxes';
 import { ITableRow } from '../interfaces';
 import React from 'react';
-import { nanoid } from 'nanoid';
 
 interface ICheckbox {
   checked: boolean;
@@ -44,7 +43,7 @@ const TableBody = ({
         <div
           onClick={() => onClickRow({ ...row, index })}
           className="table-row"
-          key={`tablerow-${nanoid()}`}
+          key={row[identification] ?? `tablerow-${index}`}
           data-testid={`tablerow-${index}`}
           style={{ height: '62px' }} // Adjust the height as needed
         >
