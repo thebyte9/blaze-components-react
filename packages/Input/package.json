@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/input",
-  "version": "0.8.0-alpha.117",
+  "version": "0.8.0-alpha.119",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "@blaze-react/icon": "^0.8.0-alpha.117",
     "@blaze-react/skeleton": "^0.8.0-alpha.117",
     "@blaze-react/themes": "^0.8.0-alpha.117",
-    "@blaze-react/tooltip": "^0.8.0-alpha.117"
+    "@blaze-react/tooltip": "^0.8.0-alpha.119"
   },
   "devDependencies": {
     "react": "^18.0.2",

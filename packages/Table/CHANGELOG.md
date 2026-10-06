@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.119](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.118...v0.8.0-alpha.119) (2026-10-06)
+
+
+### Features
+
+* **table:** clickable sortable header cells and stable row keys BZ2-4937 ([#746](https://github.com/thebyte9/blaze-components-react/issues/746)) ([5755a5a](https://github.com/thebyte9/blaze-components-react/commit/5755a5af1eb22565803db2630b8deabed288f3c1))
+
+
+
+
+
 # [0.8.0-alpha.117](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.116...v0.8.0-alpha.117) (2026-03-11)
 
 **Note:** Version bump only for package @blaze-react/table
