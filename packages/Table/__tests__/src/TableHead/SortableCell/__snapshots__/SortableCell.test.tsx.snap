@@ -7,7 +7,6 @@ exports[`Sortable cell should render without throwing error 1`] = `
   >
     <span
       data-testid="sortby-id"
-      role="button"
     >
       id
     </span>
