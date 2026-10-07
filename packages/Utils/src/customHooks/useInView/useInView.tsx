@@ -11,6 +11,7 @@ declare global {
 interface IUseInView {
   ref?: any;
   once?: boolean;
+  /** IntersectionObserver's rootMargin, so the full CSS-margin syntax works. */
   offset?: string;
 }
 
@@ -19,32 +20,30 @@ function useInView({ ref, once = true, offset = '0px' }: IUseInView) {
   const outerRef = useRef();
 
   useEffect(() => {
-    (async () => {
-      const usableRef = ref || outerRef;
-      const { current }: any = usableRef || {};
-      if (!current) {
-        return;
-      }
+    const usableRef = ref || outerRef;
+    const { current }: any = usableRef || {};
+    if (!current) {
+      return undefined;
+    }
 
-      const newObserver: IntersectionObserver = new IntersectionObserver(
-        ([entry]: any, observer: any) => {
-          setIntersecting(entry.isIntersecting);
+    const observer: IntersectionObserver = new IntersectionObserver(
+      ([entry]: any, self: any) => {
+        setIntersecting(entry.isIntersecting);
 
-          if (entry.isIntersecting) {
-            once && observer.unobserve(current);
-          }
-        },
-        {
-          rootMargin: offset,
-        },
-      );
+        if (entry.isIntersecting) {
+          once && self.unobserve(current);
+        }
+      },
+      {
+        rootMargin: offset,
+      },
+    );
 
-      current && newObserver.observe(current);
+    observer.observe(current);
 
-      return () => {
-        newObserver.unobserve(current);
-      };
-    })();
+    // Returned from the effect itself; it previously sat inside an `async` IIFE,
+    // so React never received it and the observer was never disconnected.
+    return () => observer.disconnect();
   }, [offset, once, ref]);
 
   return [isIntersecting, outerRef];
