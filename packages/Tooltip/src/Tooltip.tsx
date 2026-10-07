@@ -4,7 +4,6 @@ import parseHTML from 'html-react-parser';
 import { usePortal } from '@blaze-react/utils';
 import ClickAwayWrapper, { ConditionalWrapper } from './ConditionalWrapper';
 import { useTooltipStyles, useTouchScreenDetect } from './hooks';
-import { tooltipDOMUtils } from './utils';
 
 interface TooltipProps {
   tooltipContent?: JSX.Element | string;
@@ -12,6 +11,7 @@ interface TooltipProps {
   color?: string;
   backgroundColor?: string;
   disabled?: boolean;
+  /** @deprecated no longer needed, positioning handles fixed parents */
   isParentFixed?: boolean;
   customPosition?: React.CSSProperties;
   isDisplayTooltipIndicator?: boolean;
@@ -26,7 +26,6 @@ const Tooltip: React.FC<TooltipProps> = ({
   color,
   backgroundColor = "#FFF",
   disabled,
-  isParentFixed,
   customPosition,
   isDisplayTooltipIndicator = true,
   trigger = 'hover',
@@ -43,10 +42,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   const [childrenWidth, setChildrenWidth] = useState<number | undefined>(undefined);
   const [childrenHeight, setChildrenHeight] = useState<number | undefined>(undefined);
   const [isTooltipVisible, setIsTooltipVisible] = useState<boolean>(false);
-  const [wrapperParentUpdated, setWrapperParentUpdated] = useState<{ top: number; left: number }>({
-    top: 0,
-    left: 0,
-  });
+  const [scrollUpdate, setScrollUpdate] = useState<number>(0);
   const availableTooltipPositions = useMemo(() => ({
     top: 'top',
     right: 'right',
@@ -66,8 +62,7 @@ const Tooltip: React.FC<TooltipProps> = ({
     space,
     childrenWidth,
     childrenHeight,
-    isParentFixed,
-    wrapperParentUpdated
+    scrollUpdate
   );
 
   useEffect(() => {
@@ -100,48 +95,28 @@ const Tooltip: React.FC<TooltipProps> = ({
     }
   }, [getStylesList, styles.left, styles.top]);
 
-  const updateScrollableParentScroll = ({ target: { scrollTop, scrollLeft } }: Event) => {
-    setWrapperParentUpdated({
-      top: scrollTop as number,
-      left: scrollLeft as number,
-    });
-  };
-
   useEffect(() => {
-    if (tooltipWrapperRef.current) {
-      const wrapperRef = tooltipWrapperRef.current;
-      const scrollableParent = tooltipDOMUtils.getScrollParent(wrapperRef);
+    if (!show) return;
 
-      window.addEventListener('resize', updateScrollableParentScroll);
-      scrollableParent.addEventListener('scroll', updateScrollableParentScroll);
+    // Capture phase catches scrolls on any ancestor, not just the window
+    const handleScroll = (event: Event) => {
+      const scrolled = event.target;
+      if (scrolled instanceof Node && !scrolled.contains(tooltipWrapperRef.current)) return;
 
-      return () => {
-        window.removeEventListener('resize', updateScrollableParentScroll);
-        scrollableParent.removeEventListener('scroll', updateScrollableParentScroll);
-      };
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (show && isClickTrigger) {
+      if (isClickTrigger) {
         setShow(false);
+      } else {
+        setScrollUpdate((count) => count + 1);
       }
     };
 
-    if (tooltipWrapperRef.current) {
-      const wrapperRef = tooltipWrapperRef.current;
-      const scrollableParent = tooltipDOMUtils.getScrollParent(wrapperRef);
-      const newScrollableParent = scrollableParent === document.body ? window : scrollableParent;
+    window.addEventListener('scroll', handleScroll, true);
+    window.addEventListener('resize', handleScroll);
 
-      newScrollableParent.addEventListener('scroll', handleScroll);
-      window.addEventListener('resize', handleScroll);
-
-      return () => {
-        newScrollableParent.removeEventListener('scroll', handleScroll);
-        window.removeEventListener('resize', handleScroll);
-      };
-    }
+    return () => {
+      window.removeEventListener('scroll', handleScroll, true);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, [show, isClickTrigger]);
 
   if (!children && !tooltipContent) {
