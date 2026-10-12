@@ -62,7 +62,8 @@ const Tooltip: React.FC<TooltipProps> = ({
     space,
     childrenWidth,
     childrenHeight,
-    scrollUpdate
+    scrollUpdate,
+    newPosition
   );
 
   useEffect(() => {

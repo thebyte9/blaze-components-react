@@ -9,6 +9,7 @@ const useTooltipStyles = (
   childrenWidth: number | undefined,
   childrenHeight: number | undefined,
   scrollUpdate: number,
+  resolvedPosition: React.MutableRefObject<string>,
 ): any => {
   const getStylesList = useCallback(() => {
     if (!tooltipWrapperRef.current) {
@@ -51,6 +52,7 @@ const useTooltipStyles = (
     };
 
     const pos = getNewPosition(position);
+    resolvedPosition.current = pos;
 
     const positionStyles = {
       [availableTooltipPositions.top]: () => {
@@ -93,6 +95,7 @@ const useTooltipStyles = (
     childrenWidth,
     childrenHeight,
     scrollUpdate,
+    resolvedPosition,
   ]);
 
   return getStylesList;
