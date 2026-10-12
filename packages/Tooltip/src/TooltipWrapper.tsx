@@ -7,6 +7,7 @@ interface TooltipProps {
   color?: string;
   backgroundColor?: string;
   disabled?: boolean;
+  /** @deprecated no longer needed, positioning handles fixed parents */
   isParentFixed?: boolean;
   customPosition?: React.CSSProperties;
   isDisplayTooltipIndicator?: boolean;
