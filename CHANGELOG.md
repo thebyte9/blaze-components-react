@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.120](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.119...v0.8.0-alpha.120) (2026-10-12)
+
+
+### Bug Fixes
+
+* **tooltip:** position correctly inside scrolled containers ([#748](https://github.com/thebyte9/blaze-components-react/issues/748)) ([7dfa737](https://github.com/thebyte9/blaze-components-react/commit/7dfa737273807e0e9ebd5c8154e5c250993d5e13))
+
+
+
+
+
 # [0.8.0-alpha.119](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.118...v0.8.0-alpha.119) (2026-10-06)
 
 

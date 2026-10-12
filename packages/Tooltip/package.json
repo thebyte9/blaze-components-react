@@ -1,6 +1,6 @@
 {
   "name": "@blaze-react/tooltip",
-  "version": "0.8.0-alpha.119",
+  "version": "0.8.0-alpha.120",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
