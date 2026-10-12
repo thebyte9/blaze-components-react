@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { tooltipDOMUtils } from '../utils';
 
 const useTooltipStyles = (
   tooltipWrapperRef: React.RefObject<HTMLSpanElement>,
@@ -9,20 +8,22 @@ const useTooltipStyles = (
   space: number,
   childrenWidth: number | undefined,
   childrenHeight: number | undefined,
-  isParentFixed: boolean | undefined,
-  wrapperParentUpdated: { top: number; left: number },
+  scrollUpdate: number,
+  resolvedPosition: React.MutableRefObject<string>,
 ): any => {
   const getStylesList = useCallback(() => {
     if (!tooltipWrapperRef.current) {
       return { top: 0, left: 0 };
     }
 
+    // The message is portalled to <body> with position: absolute, so use document coordinates.
+    // Viewport rect + window scroll stays correct inside any scrolling ancestor or fixed parent.
     const wrapperRect = tooltipWrapperRef.current.getBoundingClientRect();
-    const scrollableParent = tooltipDOMUtils.getScrollParent(tooltipWrapperRef.current);
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
     const style: React.CSSProperties = { left: 0, top: 0 };
-    const centeredHorizontalPosition = Math.max(space, wrapperRect.left + wrapperRect.width / 2);
-    const centeredVerticalPosition =
-      tooltipDOMUtils.getElementOffset(tooltipWrapperRef.current).top + wrapperRect.height / 2;
+    const centeredHorizontalPosition = Math.max(space, wrapperRect.left + wrapperRect.width / 2) + scrollX;
+    const centeredVerticalPosition = wrapperRect.top + wrapperRect.height / 2 + scrollY;
 
     const getNewPosition = (pos: string) => {
       if (typeof window === 'undefined') {
@@ -51,41 +52,40 @@ const useTooltipStyles = (
     };
 
     const pos = getNewPosition(position);
+    resolvedPosition.current = pos;
 
     const positionStyles = {
       [availableTooltipPositions.top]: () => {
         style.top = Math.max(
           space,
-          tooltipDOMUtils.getElementOffset(tooltipWrapperRef.current).top -
+          wrapperRect.top -
             (childrenHeight || 0) -
             (isDisplayTooltipIndicator ? space : space / 2),
-        );
+        ) + scrollY;
         style.left = centeredHorizontalPosition;
       },
       [availableTooltipPositions.right]: () => {
         style.top = centeredVerticalPosition;
-        style.left = Math.max(space, wrapperRect.right + space);
+        style.left = Math.max(space, wrapperRect.right + space) + scrollX;
       },
       [availableTooltipPositions.bottom]: () => {
         style.top =
-          tooltipDOMUtils.getElementOffset(tooltipWrapperRef.current).top +
-          wrapperRect.height +
-          (isDisplayTooltipIndicator ? space : space / 2);
+          wrapperRect.bottom +
+          (isDisplayTooltipIndicator ? space : space / 2) +
+          scrollY;
         style.left = centeredHorizontalPosition;
       },
       [availableTooltipPositions.left]: () => {
         style.top = centeredVerticalPosition;
-        style.left = Math.max(space, wrapperRect.left - ((childrenWidth || 0) + space));
+        style.left = Math.max(space, wrapperRect.left - ((childrenWidth || 0) + space)) + scrollX;
       },
     };
 
     positionStyles[pos] && positionStyles[pos]();
 
-    if (!isParentFixed && scrollableParent && wrapperParentUpdated) {
-      style.top -= scrollableParent.scrollTop;
-    }
-
     return style;
+    // scrollUpdate only forces a fresh callback (and so a re-measure) after a scroll or resize
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     tooltipWrapperRef,
     position,
@@ -94,8 +94,8 @@ const useTooltipStyles = (
     space,
     childrenWidth,
     childrenHeight,
-    isParentFixed,
-    wrapperParentUpdated,
+    scrollUpdate,
+    resolvedPosition,
   ]);
 
   return getStylesList;
