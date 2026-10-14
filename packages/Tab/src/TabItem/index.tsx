@@ -11,11 +11,7 @@ interface ITabItemProps {
 
 export const TabItem = ({ action, classes = '', children }: ITabItemProps): JSX.Element => {
   action();
-  return classes !== '' ? (
-    <div className={classes}>{children}</div>
-  ) : (
-    <div className="tabs__content current">{children}</div>
-  );
+  return <div className={classes || 'tabs__content current'}>{children}</div>;
 };
 
 TabItem.defaultProps = {
