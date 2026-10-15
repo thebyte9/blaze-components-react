@@ -22,9 +22,9 @@ class MockedIntersectionObserver {
     }
 
     MockedIntersectionObserver.instance = this;
-    this.observe = () => {};
-    this.unobserve = () => {};
-    this.disconnect = () => {};
+    this.observe = jest.fn();
+    this.unobserve = jest.fn();
+    this.disconnect = jest.fn();
     this.cb = cb;
     return this;
   }
@@ -69,13 +69,25 @@ describe('Use in view', () => {
     unmount();
   });
 
-  test('it should call useEffect cleanup function', () => {
-    const useEffectCleanUpSpy = jest.spyOn(React, 'useEffect');
-
+  it('should observe the element while mounted', () => {
+    const observer = MockedIntersectionObserver.getInstance();
+    (observer.observe as jest.Mock).mockClear();
     const { unmount } = render(<Component />);
+
+    expect(observer.observe).toHaveBeenCalled();
+
+    unmount();
+  });
+
+  it('should disconnect the observer on unmount', () => {
+    // The previous test spied on React.useEffect, which is called whether or not
+    // a cleanup is returned. Assert the observable consequence instead.
+    const { unmount } = render(<Component />);
+    const observer = MockedIntersectionObserver.getInstance();
+    (observer.disconnect as jest.Mock).mockClear();
 
     unmount();
 
-    expect(useEffectCleanUpSpy).toHaveBeenCalled();
+    expect(observer.disconnect).toHaveBeenCalled();
   });
 });
