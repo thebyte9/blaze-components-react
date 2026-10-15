@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { DisplayErrorAs, InputState, TextInputProps } from '../../types';
 import { ErrorMessage } from './ErrorMessage';
 import { ErrorIcon } from './Icons/ErrorIcon';
@@ -29,7 +29,10 @@ export const TextInput = ({
     currentState: currentState,
   };
 
-  const fieldName = `input-${name || id || rest.type}`
+  // Same reasoning as the deprecated Input: without a name or id every instance
+  // would share `input-${type}`, so labels could not point at their own field.
+  const uniqueId = useId();
+  const fieldName = `input-${name || id || `${rest.type}-${uniqueId}`}`
 
   return (
     <>
