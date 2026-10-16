@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0-alpha.121](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.120...v0.8.0-alpha.121) (2026-10-16)
+
+
+### Bug Fixes
+
+* **tab:** give TabItem the tabs__content class when no classes are passed ([#749](https://github.com/thebyte9/blaze-components-react/issues/749)) ([2f8d0e9](https://github.com/thebyte9/blaze-components-react/commit/2f8d0e91cfdba7402fd94ed624f22482b0fa6c28))
+
+
+
+
+
 # [0.8.0-alpha.117](https://github.com/thebyte9/blaze-components-react/compare/v0.8.0-alpha.116...v0.8.0-alpha.117) (2026-03-11)
 
 **Note:** Version bump only for package @blaze-react/tab
