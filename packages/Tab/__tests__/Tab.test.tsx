@@ -42,6 +42,25 @@ describe('Tab component', () => {
     expect(() => screen.getByText('Conditional')).toThrow('Unable to find an element');
   });
 
+  test('should give the selected TabItem the tabs__content class by default', () => {
+    render(TabComponent);
+
+    expect(screen.getByText('Advanced content here')).toHaveClass('tabs__content', 'current');
+  });
+
+  test('should use TabItem classes in place of tabs__content when provided', () => {
+    render(
+      <Tab selected={0}>
+        <TabItem classes="p-4">Custom content here</TabItem>
+        <TabItem title="Other">Other content here</TabItem>
+      </Tab>
+    );
+
+    const content = screen.getByText('Custom content here');
+    expect(content).toHaveClass('p-4');
+    expect(content).not.toHaveClass('tabs__content');
+  });
+
   test('should use selected prop as initial tab only', () => {
     render(
       <Tab selected={1}>
