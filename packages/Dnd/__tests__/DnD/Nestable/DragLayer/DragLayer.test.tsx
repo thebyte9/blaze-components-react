@@ -14,7 +14,8 @@ describe("Drag layer", () => {
     document.getElementById = jest.fn();
     const { mockReturnValue }: any = document.getElementById;
     mockReturnValue({ clientWidth: 300 });
-    const { container } = render(<DragLayer {...dragLayerProps} />);
-    expect(container).toMatchSnapshot();
+    const { baseElement } = render(<DragLayer {...dragLayerProps} />);
+    // The badge is portalled to <body>, so assert against baseElement.
+    expect(baseElement).toMatchSnapshot();
   });
 });
