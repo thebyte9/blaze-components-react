@@ -57,7 +57,7 @@ const DraftEditor = ({
         editorState={editorState}
         onChange={(state) => handleChange(state)}
         handleKeyCommand={(command) =>
-          handleKeyCommand(command, editorState, save, dispatch, showAddLinkModal, showInlineToolbar)
+          handleKeyCommand({ command, editorState, save, dispatch, showAddLinkModal, showInlineToolbar })
         }
         customStyleMap={styleMap}
         keyBindingFn={myKeyBindingFn}
